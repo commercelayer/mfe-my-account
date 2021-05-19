@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "cross-env NODE_OPTIONS='--inspect' next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p $PORT",
     "lint": "eslint ./ --ext .js,.jsx,.tsx,.ts",
     "lint:fix": "eslint ./ --ext .tsx,.ts --fix",
     "test": "cypress open"
@@ -27,7 +27,9 @@
     "@commercelayer/cypress-vcr": "^1.1.0",
     "@types/node": "^15.3.0",
     "@types/react": "^17.0.5",
+    "@types/styled-components": "^5.1.9",
     "autoprefixer": "^10.2.5",
+    "cross-env": "^7.0.3",
     "cypress": "^7.3.0",
     "eslint": "^7.26.0",
     "eslint-config-prettier": "^8.3.0",
