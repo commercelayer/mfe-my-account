@@ -1,13 +1,14 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import CLayer, { Customer, Organization } from "@commercelayer/js-sdk"
+import CLayer, { Organization } from "@commercelayer/js-sdk"
 import jwt_decode from "jwt-decode"
+
 import type { NextApiRequest, NextApiResponse } from "next"
 
 interface JWTProps {
   organization: {
     slug: string
     id: string
-  },
+  }
   owner: {
     id: string
   }
@@ -42,21 +43,13 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     endpoint,
   })
 
-  let customer
-  let customerId
+  let customerId = ""
   try {
     customerId = (jwt_decode(accessToken) as JWTProps).owner.id
-    const customerFetched = await Customer.select(
-      "id",
-      "status", // needed?
-      "email",
-      "has_password"
-      ).find(customerId)
-    customer = await customerFetched?.update({ _refresh: true })
   } catch (e) {
-    console.log("error on retrieving customer:")
+    console.log("error on decoding token:")
     console.log(e)
-    console.log("access token:")  
+    console.log("access token:")
     console.log(accessToken)
     console.log("customerId")
     console.log(customerId)
@@ -72,21 +65,16 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     console.log(e)
   }
 
-  if (!customer?.id) {
-    res.statusCode = 200
-    return res.json({ validUserArea: false })
-  }
-
   const appSettings: CustomerSettings = {
     accessToken,
     endpoint,
-    customerId: customer.id,
+    customerId,
     validUserArea: true,
     logoUrl:
       organization?.logoUrl ||
       "https://placeholder.com/wp-content/uploads/2018/10/placeholder.com-logo1.png",
     companyName: organization?.name || "Test company",
-    language: customer.languageCode,
+    language: "en",
     primaryColor: organization?.primaryColor || "#000000",
     contrastColor: organization?.contrastColor || "#ffffff",
     favicon: organization?.faviconUrl || "/favicon.png",
