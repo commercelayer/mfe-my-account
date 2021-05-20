@@ -13,17 +13,15 @@ export const useSettingsOrInvalid = (): UseSettingsOrInvalid => {
   const { accessToken } = router.query
 
   const { data, error } = useSWR(
-    router.isReady
-    ? `/api/settings?accessToken=${accessToken}`
-    : null,
+    router.isReady ? `/api/settings?accessToken=${accessToken}` : null,
     fetcher
-    )
-    
-    if (!data && !error) {
-      return { isLoading: true, settings: undefined }
-    }
-    
-    if (error || (data && !data.validUserArea)) {
+  )
+
+  if (!data && !error) {
+    return { isLoading: true, settings: undefined }
+  }
+
+  if (error || (data && !data.validUserArea)) {
     router.push("/invalid")
     return { settings: undefined, isLoading: false }
   }

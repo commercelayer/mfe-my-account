@@ -1,23 +1,27 @@
 import Link from "next/link"
 
-const Navbar: React.FC = () => {
+interface Props {
+  accessToken: string
+}
+
+const Navbar: React.FC<Props> = ({ accessToken }) => {
   return (
     <nav>
       <ul>
         <li>
-          <Link href='/profile'>Profile</Link>
+          <Link href={`/profile?accessToken=${accessToken}`}>Profile</Link>
         </li>
         <li>
-          <Link href='/addresses'>Addresses</Link>
+          <Link href={`/addresses?accessToken=${accessToken}`}>Addresses</Link>
         </li>
         <li>
-          <Link href='/payments'>Payments</Link>
+          <Link href={`/payments?accessToken=${accessToken}`}>Payments</Link>
         </li>
         <li>
-          <Link href='/orders'>Orders</Link>
+          <Link href={`/orders?accessToken=${accessToken}`}>Orders</Link>
         </li>
         <li>
-          <Link href='/returns'>Returns</Link>
+          <Link href={`/returns?accessToken=${accessToken}`}>Returns</Link>
         </li>
       </ul>
     </nav>
