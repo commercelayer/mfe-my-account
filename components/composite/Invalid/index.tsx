@@ -1,32 +1,20 @@
-import { NextPage } from "next"
-import { useEffect, useState } from "react"
+import { useTranslation } from "react-i18next"
 import styled from "styled-components"
 import tw from "twin.macro"
 
-const Invalid: NextPage = () => {
-  const [title, setTitle] = useState("")
-
-  useEffect(() => {
-    if (window) {
-      try {
-        const humanizeHostname = window.location.hostname.split(".")[0]
-        setTitle(humanizeHostname)
-      } catch (error) {
-        console.log(error)
-      }
-    }
-  }, [])
+const Invalid: React.FC = () => {
+  const { t } = useTranslation()
 
   return (
     <Base>
       <Container>
         <Wrapper>
           <Text tw="text-center text-lg font-bold pt-10 mb-10 pl-4">
-            {title}
+            {window.location.hostname}
           </Text>
           <div>
             <Text data-cy="invalid-checkout" tw="py-5 h-44 text-center">
-              INVALID
+              {t("general.invalid")}
             </Text>
           </div>
         </Wrapper>
