@@ -1,16 +1,22 @@
+import { useEffect, useState } from "react"
 import { useTranslation } from "react-i18next"
 import styled from "styled-components"
 import tw from "twin.macro"
 
 const Invalid: React.FC = () => {
   const { t } = useTranslation()
+  const [title, setTitle] = useState("")
+
+  useEffect(() => {
+    window && setTitle(window.location.hostname)
+  },[])
 
   return (
     <Base>
       <Container>
         <Wrapper>
           <Text tw="text-center text-lg font-bold pt-10 mb-10 pl-4">
-            {window.location.hostname}
+            {title}
           </Text>
           <div>
             <Text data-cy="invalid-checkout" tw="py-5 h-44 text-center">
