@@ -65,6 +65,11 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     console.log(e)
   }
 
+  if (!customerId || !organization) {
+    res.statusCode = 200
+    return res.json({ validUserArea: false })
+  }
+
   const appSettings: CustomerSettings = {
     accessToken,
     endpoint,

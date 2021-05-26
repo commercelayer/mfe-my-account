@@ -11,9 +11,10 @@ import Head from "next/head"
 import { useTranslation } from "react-i18next"
 import { createGlobalStyle, ThemeProvider } from "styled-components"
 
+import Invalid from "components/composite/Invalid"
 import Navbar from "components/composite/Navbar"
 import { AppProvider } from "components/data/AppProvider"
-import { useSettingsOrInvalid } from "components/hooks/useSettingsOrInvalid"
+import { useSettings } from "components/hooks/useSettings"
 import { LayoutDefault } from "components/layouts/LayoutDefault"
 import { SpinnerLoader } from "components/ui/SpinnerLoader"
 
@@ -32,12 +33,11 @@ const GlobalCssStyle = createGlobalStyle<GlobalStyleProps>`
 
 function UserArea(props: AppProps) {
   const { Component, pageProps } = props
-
   const { t } = useTranslation()
-  const { settings, isLoading } = useSettingsOrInvalid()
+  const { settings, isLoading } = useSettings()
 
   if (isLoading) return <SpinnerLoader />
-  if (!settings) return <></>
+  if (!settings) return <Invalid />
 
   return (
     <div>
