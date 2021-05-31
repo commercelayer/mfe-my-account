@@ -6,7 +6,7 @@ interface Props {
 
 const Navbar: React.FC<Props> = ({ accessToken }) => {
   return (
-    <nav>
+    <nav data-cy="navbar">
       <ul>
         <li>
           <Link href={`/profile?accessToken=${accessToken}`}>Profile</Link>

@@ -1,7 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import CLayer, { Organization } from "@commercelayer/js-sdk"
 import jwt_decode from "jwt-decode"
-
 import type { NextApiRequest, NextApiResponse } from "next"
 
 interface JWTProps {
@@ -26,11 +25,9 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const slug = (jwt_decode(accessToken) as JWTProps).organization.slug
     if (slug) {
-      endpoint = `https://${slug}.${
-        process.env.NEXT_PUBLIC_CLAYER_HOSTNAME as string
-      }`
+      endpoint = `https://${slug}.${process.env.NEXT_PUBLIC_CLAYER_HOSTNAME}`
     } else {
-      endpoint = process.env.NEXT_PUBLIC_CLAYER_DOMAIN as string
+      endpoint = process.env.NEXT_PUBLIC_CLAYER_DOMAIN
     }
   } catch (e) {
     console.log(`error decoding access token: ${e}`)
