@@ -14,6 +14,7 @@
     "@commercelayer/js-sdk": "^4.1.1",
     "@commercelayer/react-components": "^2.21.0",
     "@tailwindcss/forms": "^0.3.2",
+    "common-tags": "^1.8.0",
     "jwt-decode": "^3.1.2",
     "next": "10.2.0",
     "next-i18next": "^8.2.0",
@@ -25,6 +26,7 @@
   },
   "devDependencies": {
     "@commercelayer/cypress-vcr": "^1.1.0",
+    "@types/common-tags": "^1.8.0",
     "@types/node": "^15.3.0",
     "@types/react": "^17.0.5",
     "@types/styled-components": "^5.1.9",
