@@ -4,7 +4,7 @@ import styled from "styled-components"
 import tw from "twin.macro"
 
 import { AppContext } from "components/data/AppProvider"
-import { SpinnerLoader } from "components/ui/SpinnerLoader"
+import SpinnerLoader from "components/ui/SpinnerLoader"
 
 const Profile = () => {
   const ctx = useContext(AppContext)
