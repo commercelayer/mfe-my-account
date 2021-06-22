@@ -2,5 +2,21 @@
   "general": {
       "title": "Commerce Layer - Area Utente (IT)",
       "invalid": "Quest'URL non è più accessibile."
+  },
+  "orders": {
+    "order": {
+      "title": "Ordine",
+      "contains": "Il tuo ordine contiene {{count}} articolo",
+      "contains_plural": "Il tuo ordine contiene {{count}} articoli",
+      "subtotal_amount": "Subtotale",
+      "discount_amount": "Sconto",
+      "shipping_amount": "Spedizione",
+      "payment_method_amount": "Metodo di pagamento",
+      "tax_amount": "Tasse",
+      "giftcard_amount": "Gift card",
+      "total_amount": "Totale",
+      "quantity": "Quantità: {{count}}",
+      "quantity_plural": "Quantità: {{count}}"
+    }
   }
 }

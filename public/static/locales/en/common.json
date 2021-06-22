@@ -2,5 +2,21 @@
   "general": {
       "title": "Commerce Layer - User Area (EN)",
       "invalid": "This URL is no longer accessible."
+  },
+  "orders": {
+    "order": {
+      "title": "Order",
+      "contains": "Your order contains {{count}} item",
+      "contains_plural": "Your order contains {{count}} items",
+      "subtotal_amount": "Subtotal",
+      "discount_amount": "Discount",
+      "shipping_amount": "Shipping",
+      "payment_method_amount": "Payment method",
+      "tax_amount": "Tax",
+      "giftcard_amount": "Gift card",
+      "total_amount": "Total",
+      "quantity": "Quantity: {{count}}",
+      "quantity_plural": "Quantity: {{count}}"
+    }
   }
 }
