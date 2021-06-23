@@ -6,6 +6,7 @@
   "orders": {
     "order": {
       "title": "Order",
+      "subtitle": "Tracking",
       "contains": "Your order contains {{count}} item",
       "contains_plural": "Your order contains {{count}} items",
       "subtotal_amount": "Subtotal",
@@ -16,7 +17,9 @@
       "giftcard_amount": "Gift card",
       "total_amount": "Total",
       "quantity": "Quantity: {{count}}",
-      "quantity_plural": "Quantity: {{count}}"
+      "quantity_plural": "Quantity: {{count}}",
+      "shipment": "Shimpment #<0/>",
+      "shipmentStatus": "Status: <0/>"
     }
   }
 }
