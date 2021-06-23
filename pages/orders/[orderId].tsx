@@ -22,18 +22,18 @@ const Order: NextPage = () => {
 
   return (
     <OrderContainer orderId={orderId}>
-      <Title>{t("orders.order.title")}</Title>
+      <Title>{t("order.title")}</Title>
       <OrderSummary />
-      <SubTitle>{t("orders.order.subtitle")}</SubTitle>
+      <SubTitle>{t("order.subtitle")}</SubTitle>
       <ShipmentsContainer>
         <Shipment>
           <ShipmentDescription>
-            <Trans t={t} i18nKey="orders.order.shipment">
+            <Trans t={t} i18nKey="order.shipment">
               <ShipmentField name="keyNumber" />
             </Trans>
           </ShipmentDescription>
           <ShipmentDescription>
-            <Trans t={t} i18nKey="orders.order.shipmentStatus">
+            <Trans t={t} i18nKey="order.shipmentStatus">
               <ShipmentField name="status" />
             </Trans>
           </ShipmentDescription>

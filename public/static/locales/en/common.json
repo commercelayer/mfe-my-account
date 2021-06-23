@@ -3,8 +3,7 @@
       "title": "Commerce Layer - User Area (EN)",
       "invalid": "This URL is no longer accessible."
   },
-  "orders": {
-    "order": {
+  "order": {
       "title": "Order",
       "subtitle": "Tracking",
       "contains": "Your order contains {{count}} item",
@@ -20,6 +19,5 @@
       "quantity_plural": "Quantity: {{count}}",
       "shipment": "Shimpment #<0/>",
       "shipmentStatus": "Status: <0/>"
-    }
   }
 }

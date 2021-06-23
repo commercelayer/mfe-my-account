@@ -35,7 +35,7 @@ export const LineItemTypes: React.FC<Props> = ({ type }) => {
             <LineItemQuantity>
               {(props) =>
                 !!props.quantity &&
-                t("orders.order.quantity", { count: props.quantity })
+                t("order.quantity", { count: props.quantity })
               }
             </LineItemQuantity>
           </LineItemQty>

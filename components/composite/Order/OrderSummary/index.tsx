@@ -27,7 +27,7 @@ const OrderSummary: React.FC = () => {
       <AmountSpacer />
       <AmountWrapper>
         <RecapLine>
-          <RecapLineItem>{t("orders.order.subtotal_amount")}</RecapLineItem>
+          <RecapLineItem>{t("order.subtotal_amount")}</RecapLineItem>
           <SubTotalAmount />
         </RecapLine>
         <RecapLine>
@@ -36,9 +36,7 @@ const OrderSummary: React.FC = () => {
               if (props.priceCents === 0) return <></>
               return (
                 <>
-                  <RecapLineItem>
-                    {t("orders.order.discount_amount")}
-                  </RecapLineItem>
+                  <RecapLineItem>{t("order.discount_amount")}</RecapLineItem>
                   <div>{props.price}</div>
                 </>
               )
@@ -46,7 +44,7 @@ const OrderSummary: React.FC = () => {
           </DiscountAmount>
         </RecapLine>
         <RecapLine>
-          <RecapLineItem>{t("orders.order.shipping_amount")}</RecapLineItem>
+          <RecapLineItem>{t("order.shipping_amount")}</RecapLineItem>
           <ShippingAmount />
         </RecapLine>
         <RecapLine>
@@ -56,7 +54,7 @@ const OrderSummary: React.FC = () => {
               return (
                 <>
                   <RecapLineItem>
-                    {t("orders.order.payment_method_amount")}
+                    {t("order.payment_method_amount")}
                   </RecapLineItem>
                   {props.price}
                 </>
@@ -65,7 +63,7 @@ const OrderSummary: React.FC = () => {
           </PaymentMethodAmount>
         </RecapLine>
         <RecapLine>
-          <RecapLineItem>{t("orders.order.tax_amount")}</RecapLineItem>
+          <RecapLineItem>{t("order.tax_amount")}</RecapLineItem>
           <TaxesAmount />
         </RecapLine>
         <RecapLine>
@@ -74,9 +72,7 @@ const OrderSummary: React.FC = () => {
               if (props.priceCents === 0) return <></>
               return (
                 <>
-                  <RecapLineItem>
-                    {t("orders.order.giftcard_amount")}
-                  </RecapLineItem>
+                  <RecapLineItem>{t("order.giftcard_amount")}</RecapLineItem>
                   <div>{props.price}</div>
                 </>
               )
@@ -84,9 +80,7 @@ const OrderSummary: React.FC = () => {
           </GiftCardAmount>
         </RecapLine>
         <RecapLineTotal>
-          <RecapLineItemTotal>
-            {t("orders.order.total_amount")}
-          </RecapLineItemTotal>
+          <RecapLineItemTotal>{t("order.total_amount")}</RecapLineItemTotal>
           <TotalAmount className="text-xl font-extrabold" />
         </RecapLineTotal>
       </AmountWrapper>
