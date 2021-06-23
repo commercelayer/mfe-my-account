@@ -18,7 +18,6 @@ const Order: NextPage = () => {
   return (
     <OrderContainer orderId={orderId}>
       <Title>{t("orders.order.title")}</Title>
-      <LineItemList />
       <OrderSummary />
     </OrderContainer>
   )
