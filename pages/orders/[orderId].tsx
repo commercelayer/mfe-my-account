@@ -3,6 +3,7 @@ import {
   ShipmentsContainer,
   Shipment,
   ShipmentField,
+  OrderNumber,
 } from "@commercelayer/react-components"
 import { NextPage } from "next"
 import { useRouter } from "next/router"
@@ -22,7 +23,9 @@ const Order: NextPage = () => {
 
   return (
     <OrderContainer orderId={orderId}>
-      <Title>{t("order.title")}</Title>
+      <Title>
+        {t("order.title")} #<OrderNumber />
+      </Title>
       <OrderSummary />
       <SubTitle>{t("order.subtitle")}</SubTitle>
       <ShipmentsContainer>
