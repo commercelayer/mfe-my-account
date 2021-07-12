@@ -1,3 +1,9 @@
+interface HSLProps {
+  h: number
+  s: string
+  l: string
+}
+
 interface CustomerSettings {
   accessToken: string
   customerId: string
@@ -6,8 +12,7 @@ interface CustomerSettings {
   logoUrl: string
   companyName: string
   language: string
-  primaryColor: string
-  contrastColor: string
+  primaryColor: HSLProps
   favicon: string
   gtmId: string
 }
@@ -21,7 +26,6 @@ type CustomerPageContextProps = Pick<
   | "endpoint"
   | "language"
   | "primaryColor"
-  | "contrastColor"
   | "favicon"
   | "gtmId"
 >

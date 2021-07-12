@@ -11,13 +11,20 @@ import { AppProvider } from "components/data/AppProvider"
 import { LayoutDefault } from "components/layouts/LayoutDefault"
 
 interface GlobalStyleProps {
-  primaryColor: string
-  contrastColor: string
+  primary: HSLProps
 }
+
 const GlobalCssStyle = createGlobalStyle<GlobalStyleProps>`
   :root {
-    --primary: ${({ primaryColor }) => primaryColor};
-    --contrast: ${({ contrastColor }) => contrastColor};
+    --primary-h: ${({ primary }) => primary.h};
+    --primary-s: ${({ primary }) => primary.s};
+    --primary-l: ${({ primary }) => primary.l};
+    --primary: hsl(var(--primary-h), var(--primary-s), var(--primary-l));
+    --primary-light: hsla(var(--primary-h), var(--primary-s), var(--primary-l), 0.1);
+    --primary-dark: hsl(var(--primary-h), var(--primary-s), calc(var(--primary-l) * 0.5));
+    --contrast-threshold: 50%;
+    --switch: calc((var(--primary-l) - var(--contrast-threshold)) * -10000);
+    --contrast: hsl(0, 0%, var(--switch));
   }
 `
 interface Props {
@@ -37,15 +44,11 @@ const AppContainer: React.FC<Props> = ({ settings, children }) => {
         accessToken={settings.accessToken}
         endpoint={settings.endpoint}
       >
-        <GlobalCssStyle
-          primaryColor={settings.primaryColor}
-          contrastColor={settings.contrastColor}
-        />
+        <GlobalCssStyle primary={settings.primaryColor} />
         <ThemeProvider
           theme={{
             colors: {
               primary: settings.primaryColor,
-              contrast: settings.contrastColor,
             },
           }}
         >
