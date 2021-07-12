@@ -7,21 +7,20 @@ module.exports = {
   theme: {
     container: {
       screens: {
-      sm: "100%",
-      md: "100%",
-      lg: "100%",
-   }
-  },
+        sm: "100%",
+        md: "100%",
+        lg: "100%",
+      },
+    },
     fontFamily: {
       sans: ["Manrope", "ui-sans-serif", "sans-serif"],
     },
     extend: {
       colors: {
-        primary: "var(--primary)",
         primary: {
-          light: "#b7dfb9",
+          light: "var(--primary-light)",
           DEFAULT: "var(--primary)",
-          dark: "#245225",
+          dark: "var(--primary-dark)",
         },
         contrast: "var(--contrast)",
         gray: {
@@ -34,6 +33,9 @@ module.exports = {
         red: {
           400: "#ED5959",
         },
+        green: {
+          400: "#2BC48A",
+        },
       },
       fontSize: {
         md: "0.938rem",
@@ -43,18 +45,28 @@ module.exports = {
       width: {
         22: "5.75rem",
       },
+      minHeight: {
+        inherit: "inherit",
+      },
       flex: {
-        '75': '0 0 75px',
-        '85': '0 0 85px',
-      }
+        75: "0 0 75px",
+        85: "0 0 85px",
+      },
+      boxShadow: {
+        bottom: "0 2px 0 0 rgba(0, 0, 0, 0.05)",
+        inner: "0 0 0 1000px rgba(255, 255, 255, 1) inset",
+      },
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      textColor: ["group-focus"],
+      maxHeight: ["group-focus"],
+    },
   },
   plugins: [
-    require('@tailwindcss/forms')({
-      strategy: 'class',
+    require("@tailwindcss/forms")({
+      strategy: "class",
     }),
   ],
 }
