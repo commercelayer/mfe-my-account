@@ -13,7 +13,7 @@ const Profile = () => {
     return <SpinnerLoader />
   }
 
-  const { email, hasPassword } = ctx
+  const { email } = ctx
 
   return (
     <>

@@ -9,7 +9,7 @@ const Invalid: React.FC = () => {
 
   useEffect(() => {
     window && setTitle(window.location.hostname)
-  },[])
+  }, [])
 
   return (
     <Base>
