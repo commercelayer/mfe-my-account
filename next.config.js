@@ -4,29 +4,26 @@ const path = require("path")
 
 const withBundleAnalyzer = require("@next/bundle-analyzer")({
   enabled: process.env.ANALYZE === "true",
-});
+})
 
 module.exports = {
-  future: {
-    webpack5: true,
-  },
   withBundleAnalyzer: withBundleAnalyzer({}),
   webpack: (config) => {
     config.plugins.push(new DuplicatePackageCheckerPlugin())
     config.resolve.alias["@commercelayer/js-sdk"] = path.resolve(
       __dirname,
       "node_modules",
-      "@commercelayer/js-sdk",
+      "@commercelayer/js-sdk"
     )
     config.resolve.alias["@babel/runtime"] = path.resolve(
       __dirname,
       "node_modules",
-      "@babel/runtime",
+      "@babel/runtime"
     )
     config.resolve.alias["strip-ansi"] = path.resolve(
       __dirname,
       "node_modules",
-      "next/dist/compiled/strip-ansi",
+      "next/dist/compiled/strip-ansi"
     )
     return config
   },
