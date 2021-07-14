@@ -25,6 +25,11 @@ module.exports = {
       "node_modules",
       "next/dist/compiled/strip-ansi"
     )
+    config.resolve.alias["react-is"] = path.resolve(
+      __dirname,
+      "node_modules",
+      "react-is"
+    )
     return config
   },
 }
