@@ -3,12 +3,12 @@ import useSWR from "swr"
 
 const fetcher = (url: string) => fetch(url).then((r) => r.json())
 
-interface useSettings {
+interface UseSettings {
   settings: CustomerSettings | undefined
   isLoading: boolean
 }
 
-export const useSettings = (): useSettings => {
+export const useSettings = (): UseSettings => {
   const router = useRouter()
   const { accessToken } = router.query
 
