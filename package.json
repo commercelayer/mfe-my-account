@@ -37,6 +37,7 @@
     "cypress": "^7.7.0",
     "duplicate-package-checker-webpack-plugin": "^3.0.0",
     "eslint": "7.30.0",
+    "eslint-config-next": "^11.0.1",
     "eslint-config-prettier": "^8.3.0",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-import": "2.23.4",
