@@ -3,6 +3,11 @@
       "title": "Commerce Layer - User Area (EN)",
       "invalid": "This URL is no longer accessible."
   },
+  "orders": {
+    "title": "My orders",
+    "orderContains": "contains {{count}} item",
+    "orderContains_plural": "contains {{count}} items"
+  },
   "order": {
       "title": "Order",
       "subtitle": "Tracking",
