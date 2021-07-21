@@ -60,7 +60,7 @@ const AppContainer: React.FC<Props> = ({ settings, children }) => {
             <CustomerContainer>
               <LayoutDefault
                 main={children}
-                aside={<Navbar accessToken={settings.accessToken} />}
+                aside={<Navbar settings={settings} />}
               />
             </CustomerContainer>
           </AppProvider>
