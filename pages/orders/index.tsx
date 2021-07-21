@@ -71,66 +71,70 @@ const Orders: NextPage = () => {
 
   return (
     <OrderContainer>
-      <Title>{t("orders.title")}</Title>
-      <OrderList
-        className="w-full border-collapse table-fixed"
-        columns={columns}
-        showActions
-        actionsComponent={() => <ActionsMenu />}
-        actionsContainerClassName="align-top py-5 border-b"
-        infiniteScroll
-        windowOptions={{
-          height: 600,
-          itemSize: 82,
-          width: 900,
-          column: 180,
-        }}
-      >
-        <OrderListRow field="number">
-          {({ cell, order, ...p }) => {
-            return cell.map((cell) => {
-              return (
-                <OrderData key={order} {...p} {...cell.getCellProps()}>
-                  <OrderNumber># {cell.render("Cell")}</OrderNumber>
-                  <OrderItemsCount>
-                    {t("orders.orderContains", { count: order.skus_count })}
-                  </OrderItemsCount>
-                </OrderData>
-              )
-            })
+      <>
+        <Title>{t("orders.title")}</Title>
+        <OrderList
+          className="w-full border-collapse table-fixed"
+          columns={columns}
+          showActions
+          actionsComponent={() => <ActionsMenu />}
+          actionsContainerClassName="align-top py-5 border-b"
+          infiniteScroll
+          windowOptions={{
+            height: 600,
+            itemSize: 82,
+            width: 900,
+            column: 180,
           }}
-        </OrderListRow>
-        <OrderListRow field="updated_at" className="py-5 align-top border-b">
-          {({ cell, order, ...p }) => {
-            return cell.map((cell) => {
-              return (
-                <OrderData key={order} {...p} {...cell.getCellProps()}>
-                  <OrderUpdatedDate>
-                    {moment(cell.render("Cell")).format("DD/MM/YY")}
-                  </OrderUpdatedDate>
-                </OrderData>
-              )
-            })
-          }}
-        </OrderListRow>
-        <OrderListRow field="status" className="py-5 align-top border-b">
-          {({ cell, order, ...p }) => {
-            return cell.map((cell) => {
-              return (
-                <OrderData key={order} {...p} {...cell.getCellProps()}>
-                  <OrderStatus status={p.row.values.status}>
-                    {cell.render("Cell")}
-                  </OrderStatus>
-                </OrderData>
-              )
-            })
-          }}
-        </OrderListRow>
-        <OrderListRow
-          field="formatted_total_amount_with_taxes"
-          className="py-5 font-bold align-top border-b"
-        />
-      </OrderList>
+        >
+          <OrderListRow field="number">
+            {({ cell, order, ...p }) => {
+              return cell.map((cell) => {
+                return (
+                  <OrderData key={order} {...p} {...cell.getCellProps()}>
+                    <OrderNumber># {cell.render("Cell")}</OrderNumber>
+                    <OrderItemsCount>
+                      {t("orders.orderContains", {
+                        count: order.skus_count,
+                      })}
+                    </OrderItemsCount>
+                  </OrderData>
+                )
+              })
+            }}
+          </OrderListRow>
+          <OrderListRow field="updated_at" className="py-5 align-top border-b">
+            {({ cell, order, ...p }) => {
+              return cell.map((cell) => {
+                return (
+                  <OrderData key={order} {...p} {...cell.getCellProps()}>
+                    <OrderUpdatedDate>
+                      {moment(cell.render("Cell")).format("DD/MM/YY")}
+                    </OrderUpdatedDate>
+                  </OrderData>
+                )
+              })
+            }}
+          </OrderListRow>
+          <OrderListRow field="status" className="py-5 align-top border-b">
+            {({ cell, order, ...p }) => {
+              return cell.map((cell) => {
+                return (
+                  <OrderData key={order} {...p} {...cell.getCellProps()}>
+                    <OrderStatus status={p.row.values.status}>
+                      {cell.render("Cell")}
+                    </OrderStatus>
+                  </OrderData>
+                )
+              })
+            }}
+          </OrderListRow>
+          <OrderListRow
+            field="formatted_total_amount_with_taxes"
+            className="py-5 font-bold align-top border-b"
+          />
+        </OrderList>
+      </>
     </OrderContainer>
   )
 }
