@@ -45,6 +45,14 @@ module.exports = {
       width: {
         22: "5.75rem",
       },
+      maxWidth: {
+        "1/3": "33.33333%",
+        "2/3": "66.66667%",
+      },
+      minWidth: {
+        "1/3": "33.33333%",
+        "2/3": "66.66667%",
+      },
       minHeight: {
         inherit: "inherit",
       },

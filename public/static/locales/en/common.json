@@ -3,6 +3,14 @@
       "title": "Commerce Layer - User Area (EN)",
       "invalid": "This URL is no longer accessible."
   },
+  "menu": {
+    "orders": "Orders",
+    "addresses": "Addresses",
+    "wallet": "Wallet",
+    "returns": "Returns",
+    "customerService": "Customer Service",
+    "logout": "Logout"
+  },
   "orders": {
     "title": "My orders",
     "orderContains": "contains {{count}} item",
