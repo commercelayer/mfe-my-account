@@ -5,11 +5,14 @@ import {
 } from "@commercelayer/react-components"
 import moment from "moment"
 import { NextPage } from "next"
+import Link from "next/link"
+import { useContext } from "react"
 import { useTranslation } from "react-i18next"
 import styled from "styled-components"
 import tw from "twin.macro"
 
 import Title from "components/composite/Title"
+import { AppContext } from "components/data/AppProvider"
 
 interface OrderStatus {
   status: string
@@ -17,6 +20,8 @@ interface OrderStatus {
 
 const Orders: NextPage = () => {
   const { t } = useTranslation()
+  const ctx = useContext(AppContext)
+  const { accessToken } = ctx
 
   const colClassName =
     "uppercase text-left pb-2.5 pt-9 text-gray-400 text-xs font-extrabold"
@@ -92,7 +97,11 @@ const Orders: NextPage = () => {
               return cell.map((cell) => {
                 return (
                   <OrderData key={order} {...p} {...cell.getCellProps()}>
-                    <OrderNumber># {cell.render("Cell")}</OrderNumber>
+                    <Link
+                      href={`/orders/${order.id}?accessToken=${accessToken}`}
+                    >
+                      <OrderNumber># {cell.render("Cell")}</OrderNumber>
+                    </Link>
                     <OrderItemsCount>
                       {t("orders.orderContains", {
                         count: order.skus_count,
