@@ -30,7 +30,7 @@ const Wrapper = styled.div`
 `
 
 const Main = styled.div`
-  ${tw`flex-none md:flex-1 justify-center order-first md:order-last`}
+  ${tw`flex-none justify-center order-first min-w-2/3 md:flex-1 md:order-last`}
 `
 
 const Aside = styled.div`
