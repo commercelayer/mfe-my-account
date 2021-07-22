@@ -21,7 +21,7 @@ interface OrderStatus {
 const Orders: NextPage = () => {
   const { t } = useTranslation()
   const ctx = useContext(AppContext)
-  const { accessToken } = ctx
+  const accessToken = ctx?.accessToken
 
   const colClassName =
     "uppercase text-left pb-2.5 pt-9 text-gray-400 text-xs font-extrabold"
