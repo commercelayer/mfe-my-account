@@ -11,6 +11,9 @@
     "customerService": "Customer Service",
     "logout": "Logout"
   },
+  "header": {
+    "title": "My account"
+  },
   "orders": {
     "title": "My orders",
     "orderContains": "contains {{count}} item",
