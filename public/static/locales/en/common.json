@@ -14,7 +14,8 @@
   "orders": {
     "title": "My orders",
     "orderContains": "contains {{count}} item",
-    "orderContains_plural": "contains {{count}} items"
+    "orderContains_plural": "contains {{count}} items",
+    "openMenu": "Open menu"
   },
   "order": {
       "title": "Order",
