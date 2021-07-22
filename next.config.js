@@ -1,4 +1,5 @@
 const DuplicatePackageCheckerPlugin = require("duplicate-package-checker-webpack-plugin")
+const { redirect } = require("next/dist/next-server/server/api-utils")
 
 const path = require("path")
 
@@ -31,5 +32,14 @@ module.exports = {
       "react-is"
     )
     return config
+  },
+  async redirects() {
+    return [
+      {
+        source: "/",
+        destination: "/orders",
+        permanent: true,
+      },
+    ]
   },
 }
