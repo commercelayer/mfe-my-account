@@ -1,7 +1,9 @@
 {
   "general": {
       "title": "Commerce Layer - User Area (EN)",
-      "invalid": "This URL is no longer accessible."
+      "invalid": "This URL is no longer accessible.",
+      "privacy_link": "Privacy",
+      "terms_link": "Terms"
   },
   "menu": {
     "orders": "Orders",
