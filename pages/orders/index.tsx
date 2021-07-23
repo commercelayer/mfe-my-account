@@ -3,7 +3,7 @@ import {
   OrderList,
   OrderListRow,
 } from "@commercelayer/react-components"
-import moment from "moment"
+import { format } from "date-fns"
 import { NextPage } from "next"
 import Link from "next/link"
 import { useContext } from "react"
@@ -118,7 +118,7 @@ const Orders: NextPage = () => {
                 return (
                   <OrderData key={order} {...p} {...cell.getCellProps()}>
                     <OrderUpdatedDate>
-                      {moment(cell.render("Cell")).format("DD/MM/YY")}
+                      {format(new Date(cell.value), "dd/MM/yy")}
                     </OrderUpdatedDate>
                   </OrderData>
                 )
