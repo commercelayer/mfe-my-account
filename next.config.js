@@ -1,5 +1,4 @@
 const DuplicatePackageCheckerPlugin = require("duplicate-package-checker-webpack-plugin")
-const { redirect } = require("next/dist/next-server/server/api-utils")
 
 const path = require("path")
 
