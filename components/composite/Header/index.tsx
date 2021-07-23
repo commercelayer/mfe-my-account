@@ -10,12 +10,11 @@ const Header: React.FC = () => {
   const { t } = useTranslation()
   const ctx = useContext(AppContext)
   const email = ctx?.email as string
-  console.log(ctx)
 
   return (
     <HeaderContainer>
       <Title>{t("header.title")}</Title>
-      <Wrapper className="flex">
+      <Wrapper>
         <Email>{email}</Email>
         <Avatar email={email} />
       </Wrapper>
