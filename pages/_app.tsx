@@ -6,6 +6,7 @@ import { appWithTranslation } from "next-i18next"
 import type { AppProps } from "next/app"
 import dynamic from "next/dynamic"
 
+import Header from "components/composite/Header"
 import { useSettings } from "components/hooks/useSettings"
 
 const DynamicSpinnerLoader = dynamic(
@@ -25,6 +26,7 @@ function UserArea(props: AppProps) {
 
   return (
     <DynamicAppContainer settings={settings}>
+      <Header />
       <Component {...pageProps} />
     </DynamicAppContainer>
   )
