@@ -92,56 +92,68 @@ const Orders: NextPage = () => {
             column: 180,
           }}
         >
-          <OrderListRow field="number">
-            {({ cell, order, ...p }) => {
-              return cell.map((cell) => {
-                return (
-                  <OrderData key={order} {...p} {...cell.getCellProps()}>
-                    <Link
-                      href={`/orders/${order.id}?accessToken=${accessToken}`}
-                    >
-                      <OrderNumber># {cell.render("Cell")}</OrderNumber>
-                    </Link>
-                    <OrderItemsCount>
-                      {t("orders.orderContains", {
-                        count: order.skus_count,
-                      })}
-                    </OrderItemsCount>
-                  </OrderData>
-                )
-              })
-            }}
-          </OrderListRow>
-          <OrderListRow field="updated_at" className="py-5 align-top border-b">
-            {({ cell, order, ...p }) => {
-              return cell.map((cell) => {
-                return (
-                  <OrderData key={order} {...p} {...cell.getCellProps()}>
-                    <OrderUpdatedDate>
-                      {format(new Date(cell.value), "dd/MM/yy")}
-                    </OrderUpdatedDate>
-                  </OrderData>
-                )
-              })
-            }}
-          </OrderListRow>
-          <OrderListRow field="status" className="py-5 align-top border-b">
-            {({ cell, order, ...p }) => {
-              return cell.map((cell) => {
-                return (
-                  <OrderData key={order} {...p} {...cell.getCellProps()}>
-                    <OrderStatus status={p.row.values.status}>
-                      {cell.render("Cell")}
-                    </OrderStatus>
-                  </OrderData>
-                )
-              })
-            }}
-          </OrderListRow>
-          <OrderListRow
-            field="formatted_total_amount_with_taxes"
-            className="py-5 font-bold align-top border-b"
-          />
+          <Table>
+            <TableBody>
+              <TableRow>
+                <OrderListRow field="number">
+                  {({ cell, order, ...p }) => {
+                    return cell.map((cell) => {
+                      return (
+                        <OrderData key={order} {...p} {...cell.getCellProps()}>
+                          <Link
+                            href={`/orders/${order.id}?accessToken=${accessToken}`}
+                          >
+                            <OrderNumber># {cell.render("Cell")}</OrderNumber>
+                          </Link>
+                          <OrderItemsCount>
+                            {t("orders.orderContains", {
+                              count: order.skus_count,
+                            })}
+                          </OrderItemsCount>
+                        </OrderData>
+                      )
+                    })
+                  }}
+                </OrderListRow>
+                <OrderListRow
+                  field="updated_at"
+                  className="py-5 align-top border-b"
+                >
+                  {({ cell, order, ...p }) => {
+                    return cell.map((cell) => {
+                      return (
+                        <OrderData key={order} {...p} {...cell.getCellProps()}>
+                          <OrderUpdatedDate>
+                            {format(new Date(cell.value), "dd/MM/yy")}
+                          </OrderUpdatedDate>
+                        </OrderData>
+                      )
+                    })
+                  }}
+                </OrderListRow>
+                <OrderListRow
+                  field="status"
+                  className="py-5 align-top border-b"
+                >
+                  {({ cell, order, ...p }) => {
+                    return cell.map((cell) => {
+                      return (
+                        <OrderData key={order} {...p} {...cell.getCellProps()}>
+                          <OrderStatus status={p.row.values.status}>
+                            {cell.render("Cell")}
+                          </OrderStatus>
+                        </OrderData>
+                      )
+                    })
+                  }}
+                </OrderListRow>
+                <OrderListRow
+                  field="formatted_total_amount_with_taxes"
+                  className="py-5 font-bold align-top border-b"
+                />
+              </TableRow>
+            </TableBody>
+          </Table>
         </OrderList>
       </>
     </OrderContainer>
@@ -149,6 +161,18 @@ const Orders: NextPage = () => {
 }
 
 export default Orders
+
+export const Table = styled.table`
+  ${tw``}
+`
+
+export const TableBody = styled.tbody`
+  ${tw``}
+`
+
+export const TableRow = styled.tr`
+  ${tw``}
+`
 
 export const OrderData = styled.td`
   ${tw`pt-6 border-b`}
