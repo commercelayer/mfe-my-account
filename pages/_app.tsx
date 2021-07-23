@@ -8,6 +8,7 @@ import dynamic from "next/dynamic"
 
 import Header from "components/composite/Header"
 import { useSettings } from "components/hooks/useSettings"
+import Footer from "components/ui/Footer"
 
 const DynamicSpinnerLoader = dynamic(
   () => import("components/ui/SpinnerLoader")
@@ -28,6 +29,7 @@ function UserArea(props: AppProps) {
     <DynamicAppContainer settings={settings}>
       <Header />
       <Component {...pageProps} />
+      <Footer />
     </DynamicAppContainer>
   )
 }
