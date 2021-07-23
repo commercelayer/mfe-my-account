@@ -3,7 +3,7 @@ import {
   OrderList,
   OrderListRow,
 } from "@commercelayer/react-components"
-import moment from "moment"
+import { format } from "date-fns"
 import { NextPage } from "next"
 import Link from "next/link"
 import { useContext } from "react"
@@ -21,7 +21,7 @@ interface OrderStatus {
 const Orders: NextPage = () => {
   const { t } = useTranslation()
   const ctx = useContext(AppContext)
-  const { accessToken } = ctx
+  const accessToken = ctx?.accessToken
 
   const colClassName =
     "uppercase text-left pb-2.5 pt-9 text-gray-400 text-xs font-extrabold"
@@ -61,7 +61,7 @@ const Orders: NextPage = () => {
       aria-expanded="true"
       aria-haspopup="true"
     >
-      <span className="sr-only">Open menu</span>
+      <span className="sr-only">{t("orders.openMenu")}</span>
       <svg
         className="w-5 h-5"
         xmlns="http://www.w3.org/2000/svg"
@@ -118,7 +118,7 @@ const Orders: NextPage = () => {
                 return (
                   <OrderData key={order} {...p} {...cell.getCellProps()}>
                     <OrderUpdatedDate>
-                      {moment(cell.render("Cell")).format("DD/MM/YY")}
+                      {format(new Date(cell.value), "dd/MM/yy")}
                     </OrderUpdatedDate>
                   </OrderData>
                 )
