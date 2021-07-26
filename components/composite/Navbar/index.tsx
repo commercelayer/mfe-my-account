@@ -1,17 +1,16 @@
 import Link from "next/link"
-// import { useRouter } from "next/router"
 import { useTranslation } from "react-i18next"
 import styled from "styled-components"
 import tw from "twin.macro"
 
+import CreditCardIcon from "components/ui/icons/CreditCardIcon"
+import CustomerServiceIcon from "components/ui/icons/CustomerServiceIcon"
+import LocationIcon from "components/ui/icons/LocationIcon"
+import LogoutIcon from "components/ui/icons/LogoutIcon"
+import ReturnsIcon from "components/ui/icons/ReturnsIcon"
+import ShoppingCartIcon from "components/ui/icons/ShoppingCartIcon"
 import Logo from "components/ui/Logo"
 
-import CreditCardIcon from "./icons/CreditCardIcon"
-import CustomerServiceIcon from "./icons/CustomerServiceIcon"
-import LocationIcon from "./icons/LocationIcon"
-import LogoutIcon from "./icons/LogoutIcon"
-import ReturnsIcon from "./icons/ReturnsIcon"
-import ShoppingCartIcon from "./icons/ShoppingCartIcon"
 import NavLink from "./NavLink"
 
 interface Props {
