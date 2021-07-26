@@ -1,9 +1,18 @@
 import Link from "next/link"
+// import { useRouter } from "next/router"
 import { useTranslation } from "react-i18next"
 import styled from "styled-components"
 import tw from "twin.macro"
 
 import Logo from "components/ui/Logo"
+
+import CreditCardIcon from "./icons/CreditCardIcon"
+import CustomerServiceIcon from "./icons/CustomerServiceIcon"
+import LocationIcon from "./icons/LocationIcon"
+import LogoutIcon from "./icons/LogoutIcon"
+import ReturnsIcon from "./icons/ReturnsIcon"
+import ShoppingCartIcon from "./icons/ShoppingCartIcon"
+import NavLink from "./NavLink"
 
 interface Props {
   settings: CustomerSettings
@@ -13,36 +22,37 @@ const Navbar: React.FC<Props> = ({ settings }) => {
   const { t } = useTranslation()
   const { accessToken, logoUrl, companyName } = settings
 
+  const menu = [
+    { title: t("menu.orders"), path: "/orders", icon: <ShoppingCartIcon /> },
+    { title: t("menu.addresses"), path: "/addresses", icon: <LocationIcon /> },
+    { title: t("menu.wallet"), path: "/wallet", icon: <CreditCardIcon /> },
+    { title: t("menu.returns"), path: "/returns", icon: <ReturnsIcon /> },
+  ]
+
   return (
     <Menu data-cy="navbar">
       <Logo logoUrl={logoUrl} companyName={companyName} />
       <MainMenu>
-        <MenuItem>
-          <Link href={`/orders?accessToken=${accessToken}`}>
-            {t("menu.orders")}
-          </Link>
-        </MenuItem>
-        <MenuItem>
-          <Link href={`/addresses?accessToken=${accessToken}`}>
-            {t("menu.addresses")}
-          </Link>
-        </MenuItem>
-        <MenuItem>
-          <Link href={`/wallet?accessToken=${accessToken}`}>
-            {t("menu.wallet")}
-          </Link>
-        </MenuItem>
-        <MenuItem>
-          <Link href={`/returns?accessToken=${accessToken}`}>
-            {t("menu.returns")}
-          </Link>
-        </MenuItem>
+        {menu.map((item, i) => {
+          return (
+            <NavLink
+              href={item.path}
+              accessToken={accessToken}
+              icon={item.icon}
+              key={i}
+            >
+              {item.title}
+            </NavLink>
+          )
+        })}
       </MainMenu>
       <SecondaryMenu>
         <MenuItem>
+          <CustomerServiceIcon />
           <Link href={`#`}>{t("menu.customerService")}</Link>
         </MenuItem>
         <MenuItem>
+          <LogoutIcon />
           <Link href={`#`}>{t("menu.logout")}</Link>
         </MenuItem>
       </SecondaryMenu>
@@ -64,6 +74,6 @@ export const SecondaryMenu = styled.ul`
   ${tw``}
 `
 
-export const MenuItem = styled.li`
-  ${tw`text-base font-bold h-10 text-gray-500`}
+export const MenuItem = styled.div`
+  ${tw`flex text-base font-bold h-10 text-gray-500`}
 `
