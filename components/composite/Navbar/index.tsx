@@ -29,37 +29,37 @@ const Navbar: React.FC<Props> = ({ settings }) => {
       title: t("menu.orders"),
       href: "/orders",
       icon: <ShoppingCartIcon />,
-      accessToken: accessToken,
+      accessToken,
     },
     addresses: {
       title: t("menu.addresses"),
       href: "/addresses",
       icon: <LocationIcon />,
-      accessToken: accessToken,
+      accessToken,
     },
     wallet: {
       title: t("menu.wallet"),
       href: "/wallet",
       icon: <CreditCardIcon />,
-      accessToken: accessToken,
+      accessToken,
     },
     returns: {
       title: t("menu.returns"),
       href: "/returns",
       icon: <ReturnsIcon />,
-      accessToken: accessToken,
+      accessToken,
     },
     customerService: {
       title: t("menu.customerService"),
       href: "/customer_service",
       icon: <CustomerServiceIcon />,
-      accessToken: accessToken,
+      accessToken,
     },
     logout: {
       title: t("menu.logout"),
       href: "/logout",
       icon: <LogoutIcon />,
-      accessToken: accessToken,
+      accessToken,
     },
   }
 
