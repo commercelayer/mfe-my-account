@@ -1,4 +1,3 @@
-import Link from "next/link"
 import { useContext } from "react"
 import { useTranslation } from "react-i18next"
 import styled from "styled-components"
@@ -25,42 +24,66 @@ const Navbar: React.FC<Props> = ({ settings }) => {
   const ctx = useContext(AppContext)
   const email = ctx?.email as string
 
-  const menu = [
-    { title: t("menu.orders"), path: "/orders", icon: <ShoppingCartIcon /> },
-    { title: t("menu.addresses"), path: "/addresses", icon: <LocationIcon /> },
-    { title: t("menu.wallet"), path: "/wallet", icon: <CreditCardIcon /> },
-    { title: t("menu.returns"), path: "/returns", icon: <ReturnsIcon /> },
-  ]
+  const menu = {
+    orders: {
+      title: t("menu.orders"),
+      href: "/orders",
+      icon: <ShoppingCartIcon />,
+      accessToken: accessToken,
+    },
+    addresses: {
+      title: t("menu.addresses"),
+      href: "/addresses",
+      icon: <LocationIcon />,
+      accessToken: accessToken,
+    },
+    wallet: {
+      title: t("menu.wallet"),
+      href: "/wallet",
+      icon: <CreditCardIcon />,
+      accessToken: accessToken,
+    },
+    returns: {
+      title: t("menu.returns"),
+      href: "/returns",
+      icon: <ReturnsIcon />,
+      accessToken: accessToken,
+    },
+    customerService: {
+      title: t("menu.customerService"),
+      href: "/customer_service",
+      icon: <CustomerServiceIcon />,
+      accessToken: accessToken,
+    },
+    logout: {
+      title: t("menu.logout"),
+      href: "/logout",
+      icon: <LogoutIcon />,
+      accessToken: accessToken,
+    },
+  }
 
   return (
     <Menu data-cy="navbar">
-      <Logo logoUrl={logoUrl} companyName={companyName} />
-      <MainMenu>
-        {menu.map((item, i) => {
-          return (
-            <NavLink
-              href={item.path}
-              accessToken={accessToken}
-              icon={item.icon}
-              key={i}
-            >
-              {item.title}
-            </NavLink>
-          )
-        })}
-      </MainMenu>
-      <SecondaryMenu>
-        <MenuItem>
-          <CustomerServiceIcon />
-          <Link href={`#`}>{t("menu.customerService")}</Link>
-        </MenuItem>
-        {t("menu.loggedInAs")}
-        <Email>{email}</Email>
-        <MenuItem>
-          <LogoutIcon />
-          <Link href={`#`}>{t("menu.logout")}</Link>
-        </MenuItem>
-      </SecondaryMenu>
+      <Logo
+        logoUrl={logoUrl}
+        companyName={companyName}
+        tw="hidden xl:(inline pl-64 pr-4 w-auto h-8 mb-16)"
+      />
+      <NavLink id="orders" {...menu.orders} />
+      <NavLink id="addresses" {...menu.addresses} />
+      <NavLink id="wallet" {...menu.wallet} />
+      <NavLink id="returns" {...menu.returns} />
+      <Wrapper>
+        <CustomerServiceWrapper>
+          <NavLink id="customerService" {...menu.customerService} />
+        </CustomerServiceWrapper>
+        <EmailWrapper>
+          {t("menu.loggedInAs")}
+          <Email>{email}</Email>
+        </EmailWrapper>
+        <NavLink id="logout" {...menu.logout} />
+      </Wrapper>
     </Menu>
   )
 }
@@ -68,21 +91,21 @@ const Navbar: React.FC<Props> = ({ settings }) => {
 export default Navbar
 
 export const Menu = styled.nav`
-  ${tw`flex flex-col min-h-full pl-60 text-gray-500`}
+  ${tw`flex flex-col min-h-screen text-gray-500 bg-white xl:(bg-gray-100)`}
 `
 
-export const MainMenu = styled.ul`
-  ${tw`pt-20 pb-52`}
+export const Wrapper = styled.div`
+  ${tw`xl:(mt-32)`}
 `
 
-export const SecondaryMenu = styled.ul`
-  ${tw``}
+export const CustomerServiceWrapper = styled.div`
+  ${tw`border-t border-b py-1 mt-3 mb-8 xl:(border-none my-0)`}
 `
 
-export const Email = styled.p`
-  ${tw`pt-20 pb-52`}
+export const EmailWrapper = styled.div`
+  ${tw`text-sm pl-5 mb-6 xl:(hidden)`}
 `
 
-export const MenuItem = styled.div`
-  ${tw`flex text-base font-bold h-10`}
+export const Email = styled.span`
+  ${tw`block mt-0.5 font-bold`}
 `

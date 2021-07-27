@@ -5,19 +5,21 @@ import styled from "styled-components"
 import tw from "twin.macro"
 
 interface Props {
+  id: string
+  title: string
   href: string
   accessToken: string
   icon: ReactNode
 }
 
-const NavLink: React.FC<Props> = ({ href, accessToken, icon, children }) => {
+const NavLink: React.FC<Props> = ({ title, href, accessToken, icon }) => {
   const router = useRouter()
   const isCurrentPage = router.pathname === href
 
   return (
     <MenuItem isCurrentPage={isCurrentPage}>
-      {icon}
-      <Link href={`${href}?accessToken=${accessToken}`}>{children}</Link>
+      <Icon>{icon}</Icon>
+      <Link href={`${href}?accessToken=${accessToken}`}>{title}</Link>
     </MenuItem>
   )
 }
@@ -28,7 +30,11 @@ interface MenuItemProps {
   isCurrentPage: boolean
 }
 
-export const MenuItem = styled.div<MenuItemProps>`
-  ${tw`flex text-base font-bold h-10 text-gray-500`}
+export const MenuItem = styled.li<MenuItemProps>`
+  ${tw`flex items-center text-md font-semibold h-14 text-gray-500 pl-5 active:(bg-gray-100) xl:(pl-64)`}
   ${({ isCurrentPage }) => isCurrentPage && tw`text-black`}
+`
+
+export const Icon = styled.div`
+  ${tw`mr-3`}
 `
