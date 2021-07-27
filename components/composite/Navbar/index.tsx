@@ -68,7 +68,7 @@ const Navbar: React.FC<Props> = ({ settings }) => {
       <Logo
         logoUrl={logoUrl}
         companyName={companyName}
-        tw="hidden xl:(inline pl-64 pr-4 w-auto h-8 mb-16)"
+        tw="hidden xl:(inline ml-60 mr-10 mt-12 w-auto h-8 mb-16)"
       />
       <NavLink id="orders" {...menu.orders} />
       <NavLink id="addresses" {...menu.addresses} />
