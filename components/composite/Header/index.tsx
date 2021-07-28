@@ -1,22 +1,46 @@
-import { useContext } from "react"
+import { useContext, Dispatch } from "react"
 import { useTranslation } from "react-i18next"
 import styled from "styled-components"
 import tw from "twin.macro"
 
+import MenuButton from "components/composite/MenuButton"
 import { AppContext } from "components/data/AppProvider"
 import Avatar from "components/ui/Avatar"
+import Logo from "components/ui/Logo"
 
-const Header: React.FC = () => {
+interface Props {
+  logoUrl: string
+  companyName: string
+  showMobileMenu: boolean
+  setShowMobileMenu: Dispatch<boolean>
+}
+
+const Header: React.FC<Props> = ({
+  logoUrl,
+  companyName,
+  showMobileMenu,
+  setShowMobileMenu,
+}) => {
   const { t } = useTranslation()
   const ctx = useContext(AppContext)
   const email = ctx?.email as string
 
   return (
     <HeaderContainer>
+      <MenuButton
+        showMobileMenu={showMobileMenu}
+        setShowMobileMenu={setShowMobileMenu}
+        tw="ml-4"
+      />
+      <Logo
+        logoUrl={logoUrl}
+        companyName={companyName}
+        tw="h-7 self-center xl:(hidden)"
+      />
       <Title>{t("header.title")}</Title>
       <Wrapper>
         <Email>{email}</Email>
-        <Avatar email={email} />
+        <Avatar email={email} className="mr-4" />
       </Wrapper>
     </HeaderContainer>
   )
@@ -25,17 +49,17 @@ const Header: React.FC = () => {
 export default Header
 
 export const HeaderContainer = styled.header`
-  ${tw`flex pb-3 border-b place-content-between`}
+  ${tw`flex py-5 border-b-2 bg-contrast place-content-between xl:(border-b)`}
 `
 
 export const Wrapper = styled.div`
-  ${tw`flex`}
+  ${tw`flex items-center`}
 `
 
 export const Title = styled.h1`
-  ${tw`text-2xl font-bold invisible sm:(visible)`}
+  ${tw`hidden text-2xl font-semibold xl:(inline)`}
 `
 
 export const Email = styled.p`
-  ${tw`text-sm text-gray-500 mr-3 font-semibold invisible sm:(visible)`}
+  ${tw`hidden text-ss text-gray-500 mr-3 font-semibold xl:(inline)`}
 `
