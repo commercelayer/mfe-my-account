@@ -3,10 +3,10 @@ import { useTranslation } from "react-i18next"
 import styled from "styled-components"
 import tw from "twin.macro"
 
-import MenuButton from "components/composite/MenuButton"
 import { AppContext } from "components/data/AppProvider"
 import Avatar from "components/ui/Avatar"
 import Logo from "components/ui/Logo"
+import MenuButton from "components/ui/MenuButton"
 
 interface Props {
   logoUrl: string
