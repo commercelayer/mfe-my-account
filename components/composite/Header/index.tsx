@@ -40,7 +40,7 @@ const Header: React.FC<Props> = ({
       <Title>{t("header.title")}</Title>
       <Wrapper>
         <Email>{email}</Email>
-        <Avatar email={email} className="mr-4" />
+        <Avatar email={email} />
       </Wrapper>
     </HeaderContainer>
   )
@@ -53,7 +53,7 @@ export const HeaderContainer = styled.header`
 `
 
 export const Wrapper = styled.div`
-  ${tw`flex items-center`}
+  ${tw`flex items-center mr-4`}
 `
 
 export const Title = styled.h1`
