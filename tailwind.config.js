@@ -33,6 +33,9 @@ module.exports = {
         red: {
           400: "#ED5959",
         },
+        yellow: {
+          500: "#F59511",
+        },
         green: {
           400: "#2BC48A",
         },
@@ -63,6 +66,9 @@ module.exports = {
       boxShadow: {
         bottom: "0 2px 0 0 rgba(0, 0, 0, 0.05)",
         inner: "0 0 0 1000px rgba(255, 255, 255, 1) inset",
+      },
+      gridTemplateRows: {
+        10: "repeat(10, minmax(0, 1fr))",
       },
     },
   },
