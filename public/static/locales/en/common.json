@@ -11,7 +11,8 @@
     "wallet": "Wallet",
     "returns": "Returns",
     "customerService": "Customer Service",
-    "logout": "Logout"
+    "logout": "Logout",
+    "loggedInAs": "Logged in as:"
   },
   "header": {
     "title": "My account"

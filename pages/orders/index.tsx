@@ -11,8 +11,8 @@ import { useTranslation } from "react-i18next"
 import styled from "styled-components"
 import tw from "twin.macro"
 
-import Title from "components/composite/Title"
 import { AppContext } from "components/data/AppProvider"
+import Title from "components/ui/Title"
 
 interface OrderStatus {
   status: string
