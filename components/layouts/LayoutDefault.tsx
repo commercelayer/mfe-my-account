@@ -30,13 +30,6 @@ export const LayoutDefault: React.FC<Props> = ({ main, aside, settings }) => {
               setShowMobileMenu={setShowMobileMenu}
             />
           </HeaderWrapper>
-          {/* <Aside>{aside}</Aside>
-          <div tw="min-w-2/3 flex-1">
-            <Main>
-              <Card fullHeight>{main}</Card>
-            </Main>
-            <Footer />
-          </div> */}
           <DesktopOnly>
             <Aside>{aside}</Aside>
           </DesktopOnly>
@@ -44,6 +37,9 @@ export const LayoutDefault: React.FC<Props> = ({ main, aside, settings }) => {
           <Main>
             <Card fullHeight>{main}</Card>
           </Main>
+          <FooterWrapper>
+            <Footer />
+          </FooterWrapper>
         </Wrapper>
       </Container>
     </Base>
@@ -59,14 +55,16 @@ const HeaderWrapper = styled.div`
 `
 
 const Main = styled.div`
-  ${tw`xl:(col-start-2 col-span-full row-span-6)`}
+  ${tw`xl:(col-start-2 col-span-full row-start-2 row-end-10 overflow-y-auto)`}
 `
-// ${tw`flex-none justify-center order-first md:h-auto md:order-last`}
-
 const DesktopOnly = styled.div`
   ${tw`hidden xl:(inline order-first)`}
 `
 
 const Aside = styled.div`
   ${tw`block`}
+`
+
+const FooterWrapper = styled.div`
+  ${tw`col-start-2 col-span-full row-start-10 pl-16 bg-contrast`}
 `

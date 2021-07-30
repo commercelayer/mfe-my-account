@@ -51,7 +51,7 @@ const Footer: React.FC<Props> = ({ termsUrl, privacyUrl }) => {
 export default Footer
 
 const Wrapper = styled.div`
-  ${tw`flex justify-between mt-20 border-t pt-3 text-xs text-gray-500`}
+  ${tw`flex justify-between border-t pt-5 text-xs text-gray-500`}
 `
 const LogoWrapper = styled.div`
   ${tw`flex`}
