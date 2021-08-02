@@ -70,6 +70,13 @@ module.exports = {
       gridTemplateRows: {
         10: "repeat(10, minmax(0, 1fr))",
       },
+      gridRowStart: {
+        10: "10",
+      },
+      gridRowEnd: {
+        9: "9",
+        10: "10",
+      },
     },
   },
   variants: {

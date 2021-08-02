@@ -6,6 +6,7 @@ import Header from "components/composite/Header"
 import { Base } from "components/ui/Base"
 import { Card } from "components/ui/Card"
 import { Container } from "components/ui/Container"
+import Footer from "components/ui/Footer"
 
 interface Props {
   aside: React.ReactNode
@@ -36,6 +37,9 @@ export const LayoutDefault: React.FC<Props> = ({ main, aside, settings }) => {
           <Main>
             <Card fullHeight>{main}</Card>
           </Main>
+          <FooterWrapper>
+            <Footer />
+          </FooterWrapper>
         </Wrapper>
       </Container>
     </Base>
@@ -43,7 +47,7 @@ export const LayoutDefault: React.FC<Props> = ({ main, aside, settings }) => {
 }
 
 const Wrapper = styled.div`
-  ${tw`min-h-full grid grid-cols-1 xl:(h-screen grid-cols-3 grid-rows-10)`}
+  ${tw`min-h-full flex flex-col xl:(grid grid-cols-1 h-screen grid-cols-3 grid-rows-10)`}
 `
 
 const HeaderWrapper = styled.div`
@@ -51,7 +55,7 @@ const HeaderWrapper = styled.div`
 `
 
 const Main = styled.div`
-  ${tw`xl:(col-start-2 col-span-full row-span-6)`}
+  ${tw`flex flex-1 xl:(col-start-2 col-span-full row-start-2 row-end-10 overflow-y-auto)`}
 `
 
 const DesktopOnly = styled.div`
@@ -61,51 +65,7 @@ const DesktopOnly = styled.div`
 const Aside = styled.div`
   ${tw`block`}
 `
-// export const LayoutDefault: React.FC<Props> = ({ main, aside, settings }) => {
-//   const [showMobileMenu, setShowMobileMenu] = useState(false)
-//   const { logoUrl, companyName } = settings
 
-//   return (
-//     <Base>
-//       <Container>
-//         <Wrapper>
-//           <HeaderWrapper>
-//             <Header
-//               logoUrl={logoUrl}
-//               companyName={companyName}
-//               showMobileMenu={showMobileMenu}
-//               setShowMobileMenu={setShowMobileMenu}
-//             />
-//           </HeaderWrapper>
-//           <DesktopOnly>
-//             <Aside>{aside}</Aside>
-//           </DesktopOnly>
-//           {showMobileMenu && <Aside>{aside}</Aside>}
-//           <Main>
-//             <Card fullHeight>{main}</Card>
-//           </Main>
-//         </Wrapper>
-//       </Container>
-//     </Base>
-//   )
-// }
-
-// const Wrapper = styled.div`
-//   ${tw`min-h-full grid grid-cols-1 xl:(h-screen grid-cols-3 grid-rows-10)`}
-// `
-
-// const HeaderWrapper = styled.div`
-//   ${tw`xl:(row-start-1 col-start-2 col-span-full pl-16 bg-contrast)`}
-// `
-
-// const Main = styled.div`
-//   ${tw`xl:(col-start-2 col-span-full row-span-6)`}
-// `
-
-// const DesktopOnly = styled.div`
-//   ${tw`hidden xl:(inline order-first)`}
-// `
-
-// const Aside = styled.div`
-//   ${tw`block`}
-// `
+const FooterWrapper = styled.div`
+  ${tw`col-start-2 col-span-full row-start-10 bg-gray-100 ml-5 xl:(pl-16 ml-0 bg-contrast)`}
+`
