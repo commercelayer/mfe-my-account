@@ -47,7 +47,7 @@ export const LayoutDefault: React.FC<Props> = ({ main, aside, settings }) => {
 }
 
 const Wrapper = styled.div`
-  ${tw`min-h-full flex flex-col xl:(grid grid-cols-1 h-screen grid-cols-3 grid-rows-10)`}
+  ${tw`min-h-full flex flex-col bg-contrast xl:(grid grid-cols-1 h-screen grid-cols-3 grid-rows-10)`}
 `
 
 const HeaderWrapper = styled.div`
