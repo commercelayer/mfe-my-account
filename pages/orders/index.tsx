@@ -83,7 +83,7 @@ const Orders: NextPage = () => {
           columns={columns}
           showActions
           actionsComponent={() => <ActionsMenu />}
-          actionsContainerClassName="align-top py-5 border-b"
+          actionsContainerClassName="align-top py-5"
           infiniteScroll
           windowOptions={{
             height: 600,
@@ -115,10 +115,7 @@ const Orders: NextPage = () => {
                     })
                   }}
                 </OrderListRow>
-                <OrderListRow
-                  field="updated_at"
-                  className="py-5 align-top border-b"
-                >
+                <OrderListRow field="updated_at" className="py-5 align-top">
                   {({ cell, order, ...p }) => {
                     return cell.map((cell) => {
                       return (
@@ -131,10 +128,7 @@ const Orders: NextPage = () => {
                     })
                   }}
                 </OrderListRow>
-                <OrderListRow
-                  field="status"
-                  className="py-5 align-top border-b"
-                >
+                <OrderListRow field="status" className="py-5 align-top">
                   {({ cell, order, ...p }) => {
                     return cell.map((cell) => {
                       return (
@@ -149,7 +143,7 @@ const Orders: NextPage = () => {
                 </OrderListRow>
                 <OrderListRow
                   field="formatted_total_amount_with_taxes"
-                  className="py-5 font-bold align-top border-b"
+                  className="py-5 font-bold align-top"
                 />
               </TableRow>
             </TableBody>
@@ -171,11 +165,11 @@ export const TableBody = styled.tbody`
 `
 
 export const TableRow = styled.tr`
-  ${tw``}
+  ${tw`border-b`}
 `
 
 export const OrderData = styled.td`
-  ${tw`pt-6 border-b`}
+  ${tw`pt-6`}
 `
 
 export const OrderNumber = styled.p`
