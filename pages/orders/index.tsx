@@ -179,7 +179,7 @@ export const OrderData = styled.td`
 `
 
 export const OrderNumber = styled.p`
-  ${tw`text-sm font-bold`}
+  ${tw`text-sm font-bold hover:(cursor-pointer)`}
 `
 
 export const OrderItemsCount = styled.p`
