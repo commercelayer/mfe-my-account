@@ -51,7 +51,7 @@ const Wrapper = styled.div`
 `
 
 const HeaderWrapper = styled.div`
-  ${tw`xl:(row-start-1 col-start-2 col-span-full pl-16 bg-contrast)`}
+  ${tw`xl:(col-start-2 col-span-full h-21 bg-contrast pl-16 z-0)`}
 `
 
 const Main = styled.div`
@@ -67,5 +67,5 @@ const Aside = styled.div`
 `
 
 const FooterWrapper = styled.div`
-  ${tw`col-start-2 col-span-full row-start-10 bg-gray-100 ml-5 xl:(pl-16 ml-0 bg-contrast)`}
+  ${tw`col-start-2 col-span-full row-start-10 bg-gray-100 xl:(pl-16 bg-contrast)`}
 `

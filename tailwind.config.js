@@ -41,12 +41,17 @@ module.exports = {
         },
       },
       fontSize: {
+        xxl: "1.625rem",
         md: "0.938rem",
         ss: "0.813rem",
         xxs: "0.75rem",
+        "3xs": "0.6875rem",
       },
       width: {
         22: "5.75rem",
+      },
+      height: {
+        21: "5.325rem",
       },
       maxWidth: {
         "1/3": "33.33333%",
