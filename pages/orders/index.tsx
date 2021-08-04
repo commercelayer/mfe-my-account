@@ -24,7 +24,7 @@ const Orders: NextPage = () => {
   const accessToken = ctx?.accessToken
 
   const colClassName =
-    "uppercase text-left pb-2.5 pt-9 text-gray-400 text-xs font-extrabold"
+    "uppercase text-left pb-2.5 pt-9 text-gray-400 text-xs font-semibold"
   const titleClassName = "flex flex-row items-center"
   const columns = [
     {
@@ -169,24 +169,24 @@ export const TableRow = styled.tr`
 `
 
 export const OrderData = styled.td`
-  ${tw`pt-6`}
+  ${tw`pt-6 pb-4`}
 `
 
 export const OrderNumber = styled.p`
-  ${tw`text-sm font-bold hover:(cursor-pointer)`}
+  ${tw`text-sm font-semibold hover:(cursor-pointer)`}
 `
 
 export const OrderItemsCount = styled.p`
-  ${tw`text-sm font-normal text-gray-500`}
+  ${tw`text-sm font-light text-gray-500`}
 `
 
 export const OrderUpdatedDate = styled.p`
-  ${tw`text-sm font-medium`}
+  ${tw`text-sm font-extralight text-gray-600`}
 `
 
 export const OrderStatus = styled.p<OrderStatus>(({ status }) => {
   return [
-    tw`text-white text-xs text-center uppercase font-extrabold px-1 py-0.5 w-22`,
+    tw`text-white text-3xs text-center uppercase font-bold px-1 py-0.5 w-22`,
     handlerStatusColor(status),
   ]
 })
