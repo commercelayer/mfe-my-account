@@ -23,8 +23,20 @@ const Orders: NextPage = () => {
   const ctx = useContext(AppContext)
   const accessToken = ctx?.accessToken
 
-  const colClassName =
-    "uppercase text-left pb-2.5 pt-9 text-gray-400 text-xs font-semibold"
+  const options =
+    window.screen.width >= 1280
+      ? {
+          infiniteScroll: true,
+          windowOptions: {
+            height: 600,
+            itemSize: 82,
+            width: 900,
+            column: 180,
+          },
+        }
+      : null
+
+  const colClassName = "uppercase text-left text-gray-400 text-xs font-semibold"
   const titleClassName = "flex flex-row items-center"
   const columns = [
     {
@@ -84,13 +96,7 @@ const Orders: NextPage = () => {
           showActions
           actionsComponent={() => <ActionsMenu />}
           actionsContainerClassName="align-top py-5"
-          infiniteScroll
-          windowOptions={{
-            height: 600,
-            itemSize: 82,
-            width: 900,
-            column: 180,
-          }}
+          {...options}
         >
           <Table>
             <TableBody>
