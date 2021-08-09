@@ -24,7 +24,7 @@ interface WrapperProps {
 }
 
 const Wrapper = styled.div<WrapperProps>`
-  ${tw`flex-grow p-5 lg:p-16 lg:pr-20`}
+  ${tw`flex-grow overflow-x-hidden xl:p-16 xl:pr-20`}
   ${({ rounded }) => (rounded ? tw`rounded-md` : null)}
   ${({ fullHeight }) => (fullHeight ? tw`min-h-full ` : null)}
 `
