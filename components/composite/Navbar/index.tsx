@@ -99,7 +99,7 @@ export const Wrapper = styled.div`
 `
 
 export const CustomerServiceWrapper = styled.div`
-  ${tw`border-t border-b py-1 mt-3 mb-8 xl:(border-none my-0)`}
+  ${tw`border-t border-b border-gray-300 py-1 mt-3 mb-8 xl:(border-none my-0)`}
 `
 
 export const EmailWrapper = styled.div`
