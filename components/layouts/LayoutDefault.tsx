@@ -55,7 +55,7 @@ const HeaderWrapper = styled.div`
 `
 
 const Main = styled.div`
-  ${tw`flex flex-1 xl:(col-start-2 col-span-full row-start-2 row-end-10 overflow-y-auto)`}
+  ${tw`flex flex-1 bg-gray-100 xl:(col-start-2 col-span-full row-start-2 row-end-10 overflow-y-auto bg-contrast)`}
 `
 
 const DesktopOnly = styled.div`
