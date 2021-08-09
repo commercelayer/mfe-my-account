@@ -49,7 +49,7 @@ const Header: React.FC<Props> = ({
 export default Header
 
 export const HeaderContainer = styled.header`
-  ${tw`flex py-5 border-b-2 place-content-between xl:(pb-2.5 pt-9 border-b)`}
+  ${tw`flex py-5 border-b-2 border-gray-300 place-content-between xl:(pb-2.5 pt-9 border-b)`}
 `
 
 export const Wrapper = styled.div`
