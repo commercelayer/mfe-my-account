@@ -51,7 +51,7 @@ const Wrapper = styled.div`
 `
 
 const HeaderWrapper = styled.div`
-  ${tw`xl:(col-start-2 col-span-full h-21 bg-contrast pl-16 z-0)`}
+  ${tw`xl:(col-start-2 col-span-full h-21 bg-contrast pl-16 z-50)`}
 `
 
 const Main = styled.div`
