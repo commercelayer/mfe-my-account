@@ -201,7 +201,7 @@ export const OrderItemsCount = styled.p`
 `
 
 export const OrderUpdatedDate = styled.p`
-  ${tw`text-sm font-extralight text-gray-600 bg-gray-200 px-3 rounded-full h-5 xl:(bg-contrast px-0)`}
+  ${tw`text-sm font-extralight text-gray-600 bg-gray-200 px-3 rounded-full h-5 xl:(bg-contrast px-0 w-min)`}
 `
 
 export const OrderStatus = styled.p<OrderStatus>(({ status }) => {
