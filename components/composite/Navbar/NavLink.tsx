@@ -31,7 +31,7 @@ interface MenuItemProps {
 }
 
 export const MenuItem = styled.li<MenuItemProps>`
-  ${tw`flex items-center text-md font-semibold h-14 text-gray-500 pl-5 active:(bg-gray-100) xl:(pl-64)`}
+  ${tw`flex items-center text-md font-semibold h-14 text-gray-500 pl-5 active:(bg-gray-100) xl:(w-64 self-end)`}
   ${({ isCurrentPage }) => isCurrentPage && tw`text-black`}
 `
 
