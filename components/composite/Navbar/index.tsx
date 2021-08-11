@@ -1,9 +1,9 @@
-import { useContext, Dispatch } from "react"
+import { CustomerField } from "@commercelayer/react-components"
+import { Dispatch } from "react"
 import { useTranslation } from "react-i18next"
 import styled from "styled-components"
 import tw from "twin.macro"
 
-import { AppContext } from "components/data/AppProvider"
 import CreditCardIcon from "components/ui/icons/CreditCardIcon"
 import CustomerServiceIcon from "components/ui/icons/CustomerServiceIcon"
 import LocationIcon from "components/ui/icons/LocationIcon"
@@ -22,8 +22,6 @@ interface Props {
 const Navbar: React.FC<Props> = ({ settings, onClick }) => {
   const { t } = useTranslation()
   const { accessToken, logoUrl, companyName } = settings
-  const ctx = useContext(AppContext)
-  const email = ctx?.email as string
 
   const menu = {
     orders: {
@@ -87,7 +85,9 @@ const Navbar: React.FC<Props> = ({ settings, onClick }) => {
         </CustomerServiceWrapper>
         <EmailWrapper>
           {t("menu.loggedInAs")}
-          <Email>{email}</Email>
+          <Email>
+            <CustomerField name="email" />
+          </Email>
         </EmailWrapper>
         <NavLink id="logout" {...menu.logout} />
       </Wrapper>
