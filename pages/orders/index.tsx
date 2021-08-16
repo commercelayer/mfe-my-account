@@ -18,14 +18,31 @@ interface OrderStatus {
   status: string
 }
 
+const COMPLETED_COLOR = "green-400"
+const INPROGRESS_COLOR = "yellow-500"
+const PENDING_COLOR = "gray-500"
+const DRAFT_COLOR = "gray-400"
+
 const Orders: NextPage = () => {
   const { t } = useTranslation()
   const ctx = useContext(AppContext)
   const accessToken = ctx?.accessToken
+  const isDesktop = window.screen.width >= 1280
+
+  const options = isDesktop && {
+    actionsComponent: () => <ActionsMenu />,
+    infiniteScroll: true,
+    windowOptions: {
+      height: 600,
+      itemSize: 82,
+      width: 900,
+      column: 180,
+    },
+  }
 
   const colClassName =
-    "uppercase text-left pb-2.5 pt-9 text-gray-400 text-xs font-extrabold"
-  const titleClassName = "flex flex-row items-center"
+    "text-left text-xs font-thin text-gray-600 pl-5 pb-1 border-b border-gray-300 xl:border-none xl:text-gray-400 xl:font-semibold xl:uppercase xl:pl-0"
+  const titleClassName = "flex flex-row xl:mb-2"
   const columns = [
     {
       Header: "Order",
@@ -82,20 +99,16 @@ const Orders: NextPage = () => {
           className="w-full border-collapse table-fixed"
           columns={columns}
           showActions
-          actionsComponent={() => <ActionsMenu />}
-          actionsContainerClassName="align-top py-5 border-b"
-          infiniteScroll
-          windowOptions={{
-            height: 600,
-            itemSize: 82,
-            width: 900,
-            column: 180,
-          }}
+          actionsContainerClassName="align-top"
+          {...options}
         >
           <Table>
             <TableBody>
               <TableRow>
-                <OrderListRow field="number">
+                <OrderListRow
+                  field="number"
+                  className="order-1 px-0 xl:order-none"
+                >
                   {({ cell, order, ...p }) => {
                     return cell.map((cell) => {
                       return (
@@ -117,7 +130,7 @@ const Orders: NextPage = () => {
                 </OrderListRow>
                 <OrderListRow
                   field="updated_at"
-                  className="py-5 align-top border-b"
+                  className="flex justify-end order-4 px-0 text-right align-top xl:order-none xl:text-left"
                 >
                   {({ cell, order, ...p }) => {
                     return cell.map((cell) => {
@@ -133,12 +146,13 @@ const Orders: NextPage = () => {
                 </OrderListRow>
                 <OrderListRow
                   field="status"
-                  className="py-5 align-top border-b"
+                  className="order-3 px-0 align-top xl:order-none"
                 >
                   {({ cell, order, ...p }) => {
                     return cell.map((cell) => {
                       return (
                         <OrderData key={order} {...p} {...cell.getCellProps()}>
+                          <BulletPoint status={p.row.values.status} />
                           <OrderStatus status={p.row.values.status}>
                             {cell.render("Cell")}
                           </OrderStatus>
@@ -149,7 +163,7 @@ const Orders: NextPage = () => {
                 </OrderListRow>
                 <OrderListRow
                   field="formatted_total_amount_with_taxes"
-                  className="py-5 font-bold align-top border-b"
+                  className="order-2 px-0 font-bold text-right align-top xl:order-none xl:text-left"
                 />
               </TableRow>
             </TableBody>
@@ -171,43 +185,65 @@ export const TableBody = styled.tbody`
 `
 
 export const TableRow = styled.tr`
-  ${tw``}
+  ${tw`grid grid-cols-2 w-screen px-5 pt-5 mb-2.5 bg-contrast border-b-2 border-gray-300 h-28 xl:(flex w-min border-b pl-0 h-20)`}
 `
 
 export const OrderData = styled.td`
-  ${tw`pt-6 border-b`}
+  ${tw``}
 `
 
 export const OrderNumber = styled.p`
-  ${tw`text-sm font-bold`}
+  ${tw`text-sm font-semibold hover:(cursor-pointer)`}
 `
 
 export const OrderItemsCount = styled.p`
-  ${tw`text-sm font-normal text-gray-500`}
+  ${tw`text-sm font-light text-gray-500`}
 `
 
 export const OrderUpdatedDate = styled.p`
-  ${tw`text-sm font-medium`}
+  ${tw`text-sm font-extralight text-gray-600 bg-gray-200 px-3 rounded-full h-5 xl:(bg-contrast px-0 w-min)`}
 `
 
 export const OrderStatus = styled.p<OrderStatus>(({ status }) => {
   return [
-    tw`text-white text-xs text-center uppercase font-extrabold px-1 py-0.5 w-22`,
     handlerStatusColor(status),
+    tw`inline text-sm text-center capitalize px-1.5 py-0.5 xl:(block text-white text-3xs w-22 uppercase font-bold px-1 leading-snug)`,
   ]
 })
 
 const handlerStatusColor = (status: string) => {
   switch (status) {
     case "complete":
-      return tw`bg-green-400`
+      return tw`text-${COMPLETED_COLOR} xl:(bg-${COMPLETED_COLOR})`
     case "inprogress":
-      return tw`bg-yellow-500`
+      return tw`text-${INPROGRESS_COLOR} xl:(bg-${INPROGRESS_COLOR})`
     case "pending":
-      return tw`bg-gray-500`
+      return tw`text-${PENDING_COLOR} xl:(bg-${PENDING_COLOR})`
     case "draft":
-      return tw`bg-gray-400`
+      return tw`text-${DRAFT_COLOR} xl:(bg-${DRAFT_COLOR})`
     default:
-      return tw`bg-gray-400`
+      return tw`text-${DRAFT_COLOR} xl:(bg-${DRAFT_COLOR})`
+  }
+}
+
+export const BulletPoint = styled.div<OrderStatus>(({ status }) => {
+  return [
+    tw`w-2.5 h-2.5 inline-block rounded-full xl:(hidden)`,
+    handlerStatusBulletPointColor(status),
+  ]
+})
+
+const handlerStatusBulletPointColor = (status: string) => {
+  switch (status) {
+    case "complete":
+      return tw`bg-${COMPLETED_COLOR}`
+    case "inprogress":
+      return tw`bg-${INPROGRESS_COLOR}`
+    case "pending":
+      return tw`bg-${PENDING_COLOR}`
+    case "draft":
+      return tw`bg-${DRAFT_COLOR}`
+    default:
+      return tw`bg-${DRAFT_COLOR}`
   }
 }

@@ -68,7 +68,7 @@ const Navbar: React.FC<Props> = ({ settings }) => {
       <Logo
         logoUrl={logoUrl}
         companyName={companyName}
-        tw="hidden xl:(inline ml-60 mr-10 mt-12 w-auto h-8 mb-16)"
+        className="hidden xl:block"
       />
       <NavLink id="orders" {...menu.orders} />
       <NavLink id="addresses" {...menu.addresses} />
@@ -95,11 +95,11 @@ export const Menu = styled.nav`
 `
 
 export const Wrapper = styled.div`
-  ${tw`xl:(mt-32)`}
+  ${tw`xl:(mt-32 self-end)`}
 `
 
 export const CustomerServiceWrapper = styled.div`
-  ${tw`border-t border-b py-1 mt-3 mb-8 xl:(border-none my-0)`}
+  ${tw`border-t border-b border-gray-300 py-1 mt-3 mb-8 xl:(border-none my-0)`}
 `
 
 export const EmailWrapper = styled.div`

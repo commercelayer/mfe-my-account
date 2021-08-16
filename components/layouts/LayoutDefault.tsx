@@ -47,15 +47,15 @@ export const LayoutDefault: React.FC<Props> = ({ main, aside, settings }) => {
 }
 
 const Wrapper = styled.div`
-  ${tw`min-h-full flex flex-col xl:(grid grid-cols-1 h-screen grid-cols-3 grid-rows-10)`}
+  ${tw`min-h-full flex flex-col bg-contrast xl:(grid grid-cols-1 h-screen grid-cols-3 grid-rows-10)`}
 `
 
 const HeaderWrapper = styled.div`
-  ${tw`xl:(row-start-1 col-start-2 col-span-full pl-16 bg-contrast)`}
+  ${tw`xl:(col-start-2 col-span-full h-21 bg-contrast pl-16 z-50)`}
 `
 
 const Main = styled.div`
-  ${tw`flex flex-1 xl:(col-start-2 col-span-full row-start-2 row-end-10 overflow-y-auto)`}
+  ${tw`flex flex-1 bg-gray-100 xl:(col-start-2 col-span-full row-start-2 row-end-10 overflow-y-auto bg-contrast)`}
 `
 
 const DesktopOnly = styled.div`
@@ -67,5 +67,5 @@ const Aside = styled.div`
 `
 
 const FooterWrapper = styled.div`
-  ${tw`col-start-2 col-span-full row-start-10 bg-gray-100 ml-5 xl:(pl-16 ml-0 bg-contrast)`}
+  ${tw`col-start-2 col-span-full row-start-10 bg-gray-100 xl:(pl-16 bg-contrast)`}
 `
