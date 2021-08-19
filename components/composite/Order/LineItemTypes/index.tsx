@@ -4,7 +4,6 @@ import {
   LineItemName,
   LineItemQuantity,
   LineItemAmount,
-  LineItemSkuCode,
 } from "@commercelayer/react-components"
 import { LineItemType } from "@commercelayer/react-components/dist/typings"
 import { useTranslation } from "react-i18next"
@@ -26,11 +25,7 @@ export const LineItemTypes: React.FC<Props> = ({ type }) => {
           className="self-start p-1 border rounded bg-contrast"
         />
         <LineItemDescription>
-          <StyledLineItemSkuCode />
-          <LineItemTitle>
-            <LineItemName className="font-bold" />
-            <LineItemAmount className="pl-2 text-lg font-extrabold" />
-          </LineItemTitle>
+          <LineItemName className="font-bold" />
           <LineItemQty>
             <LineItemQuantity>
               {(props) =>
@@ -39,6 +34,7 @@ export const LineItemTypes: React.FC<Props> = ({ type }) => {
               }
             </LineItemQuantity>
           </LineItemQty>
+          <LineItemAmount className="mt-2 font-extrabold" />
         </LineItemDescription>
       </LineItemWrapper>
     </LineItem>
@@ -51,12 +47,6 @@ const LineItemWrapper = styled.div`
 const LineItemDescription = styled.div`
   ${tw`pl-4 flex flex-col flex-1 lg:pl-8`}
 `
-const LineItemTitle = styled.div`
-  ${tw`flex justify-between`}
-`
 const LineItemQty = styled.div`
   ${tw`text-xs uppercase mt-1 text-gray-600`}
-`
-const StyledLineItemSkuCode = styled(LineItemSkuCode)`
-  ${tw`text-xxs uppercase text-gray-500 font-bold`}
 `
