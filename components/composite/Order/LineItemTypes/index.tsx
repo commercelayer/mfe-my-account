@@ -42,11 +42,11 @@ export const LineItemTypes: React.FC<Props> = ({ type }) => {
 }
 
 const LineItemWrapper = styled.div`
-  ${tw`flex flex-row mb-7 pb-6 border-b`}
+  ${tw`flex flex-row pt-6 pb-8 border-b`}
 `
 const LineItemDescription = styled.div`
   ${tw`pl-4 flex flex-col flex-1 lg:pl-8`}
 `
 const LineItemQty = styled.div`
-  ${tw`text-xs uppercase mt-1 text-gray-600`}
+  ${tw`text-xs uppercase mt-1 text-gray-500`}
 `
