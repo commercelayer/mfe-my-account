@@ -49,7 +49,7 @@ const Header: React.FC<Props> = ({
 export default Header
 
 export const HeaderContainer = styled.header`
-  ${tw`flex py-5 border-b-2 bg-contrast place-content-between xl:(border-b)`}
+  ${tw`flex py-5 border-b-2 border-gray-300 place-content-between xl:(pb-2.5 pt-9 border-b)`}
 `
 
 export const Wrapper = styled.div`
@@ -57,9 +57,9 @@ export const Wrapper = styled.div`
 `
 
 export const Title = styled.h1`
-  ${tw`hidden text-2xl font-semibold xl:(inline)`}
+  ${tw`hidden text-xxl font-medium xl:(inline)`}
 `
 
 export const Email = styled.p`
-  ${tw`hidden text-ss text-gray-500 mr-3 font-semibold xl:(inline)`}
+  ${tw`hidden text-sm text-gray-500 mr-3 font-medium xl:(inline)`}
 `
