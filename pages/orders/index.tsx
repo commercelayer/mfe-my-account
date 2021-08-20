@@ -213,7 +213,7 @@ export const OrderStatus = styled.p<OrderStatus>(({ status }) => {
 
 const handlerStatusColor = (status: string) => {
   switch (status) {
-    case "complete":
+    case "placed":
       return tw`text-${COMPLETED_COLOR} xl:(bg-${COMPLETED_COLOR})`
     case "inprogress":
       return tw`text-${INPROGRESS_COLOR} xl:(bg-${INPROGRESS_COLOR})`
@@ -235,7 +235,7 @@ export const BulletPoint = styled.div<OrderStatus>(({ status }) => {
 
 const handlerStatusBulletPointColor = (status: string) => {
   switch (status) {
-    case "complete":
+    case "placed":
       return tw`bg-${COMPLETED_COLOR}`
     case "inprogress":
       return tw`bg-${INPROGRESS_COLOR}`
