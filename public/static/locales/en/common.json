@@ -25,7 +25,7 @@
   },
   "order": {
       "title": "Order",
-      "subtitle": "Tracking",
+      "summary":"Summary",
       "contains": "Your order contains {{count}} item",
       "contains_plural": "Your order contains {{count}} items",
       "subtotal_amount": "Subtotal",
@@ -39,5 +39,9 @@
       "quantity_plural": "Quantity: {{count}}",
       "shipment": "Shimpment #<0/>",
       "shipmentStatus": "Status: <0/>"
+  },
+  "orderSummary": {
+    "billedTo": "Billed to:",
+    "shippedTo": "Shipped to:"
   }
 }

@@ -19,7 +19,7 @@ import {
   RecapLineItem,
 } from "./styled"
 
-const OrderSummary: React.FC = () => {
+const PaymentSummary: React.FC = () => {
   const { t } = useTranslation()
 
   return (
@@ -81,11 +81,11 @@ const OrderSummary: React.FC = () => {
         </RecapLine>
         <RecapLineTotal>
           <RecapLineItemTotal>{t("order.total_amount")}</RecapLineItemTotal>
-          <TotalAmount className="text-xl font-extrabold" />
+          <TotalAmount className="font-extrabold" />
         </RecapLineTotal>
       </AmountWrapper>
     </TotalWrapper>
   )
 }
 
-export default OrderSummary
+export default PaymentSummary

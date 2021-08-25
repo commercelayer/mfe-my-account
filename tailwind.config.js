@@ -24,8 +24,8 @@ module.exports = {
         },
         contrast: "var(--contrast)",
         gray: {
-          100: "#f8f8f8",
-          200: "#f4f4f4",
+          100: "#F8F8F8",
+          200: "#F4F4F4",
           300: "#E6E6E6",
           400: "#C4C4C4",
           500: "#8D8D8D",
