@@ -51,11 +51,11 @@ const Wrapper = styled.div`
 `
 
 const HeaderWrapper = styled.div`
-  ${tw`xl:(col-start-2 col-span-full h-21 bg-contrast pl-16 z-50)`}
+  ${tw`xl:(col-start-2 col-span-full h-21 bg-contrast pl-16 z-50 w-3/4)`}
 `
 
 const Main = styled.div`
-  ${tw`flex flex-1 bg-gray-100 xl:(col-start-2 col-span-full row-start-2 row-end-10 overflow-y-auto bg-contrast)`}
+  ${tw`flex flex-1 bg-gray-100 xl:(col-start-2 col-span-full row-start-2 row-end-10 overflow-y-auto bg-contrast w-3/4)`}
 `
 
 const DesktopOnly = styled.div`
@@ -67,5 +67,5 @@ const Aside = styled.div`
 `
 
 const FooterWrapper = styled.div`
-  ${tw`col-start-2 col-span-full row-start-10 bg-gray-100 xl:(pl-16 bg-contrast)`}
+  ${tw`col-start-2 col-span-full row-start-10 bg-gray-100 xl:(pl-16 bg-contrast w-3/4)`}
 `
