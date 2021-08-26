@@ -102,7 +102,7 @@ export const Menu = styled.nav`
 `
 
 export const Wrapper = styled.div`
-  ${tw`xl:(mt-32)`}
+  ${tw`xl:(mt-32 self-end)`}
 `
 
 export const CustomerServiceWrapper = styled.div`

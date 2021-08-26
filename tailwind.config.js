@@ -24,7 +24,8 @@ module.exports = {
         },
         contrast: "var(--contrast)",
         gray: {
-          100: "#f8f8f8",
+          100: "#F8F8F8",
+          200: "#F4F4F4",
           300: "#E6E6E6",
           400: "#C4C4C4",
           500: "#8D8D8D",
@@ -41,12 +42,17 @@ module.exports = {
         },
       },
       fontSize: {
+        xxl: "1.625rem",
         md: "0.938rem",
         ss: "0.813rem",
         xxs: "0.75rem",
+        "3xs": "0.6875rem",
       },
       width: {
         22: "5.75rem",
+      },
+      height: {
+        21: "5.325rem",
       },
       maxWidth: {
         "1/3": "33.33333%",
