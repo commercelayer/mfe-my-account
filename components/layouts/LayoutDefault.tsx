@@ -3,6 +3,7 @@ import styled from "styled-components"
 import tw from "twin.macro"
 
 import Header from "components/composite/Header"
+import Navbar from "components/composite/Navbar"
 import { Base } from "components/ui/Base"
 import { Card } from "components/ui/Card"
 import { Container } from "components/ui/Container"
@@ -16,6 +17,7 @@ interface Props {
 
 export const LayoutDefault: React.FC<Props> = ({ main, aside, settings }) => {
   const [showMobileMenu, setShowMobileMenu] = useState(false)
+  const toggleMobileMenu = () => setShowMobileMenu(!showMobileMenu)
   const { logoUrl, companyName } = settings
 
   return (
@@ -33,7 +35,11 @@ export const LayoutDefault: React.FC<Props> = ({ main, aside, settings }) => {
           <DesktopOnly>
             <Aside>{aside}</Aside>
           </DesktopOnly>
-          {showMobileMenu && <Aside>{aside}</Aside>}
+          {showMobileMenu && (
+            <Aside>
+              <Navbar settings={settings} onClick={toggleMobileMenu} />
+            </Aside>
+          )}
           <Main>
             <Card fullHeight>{main}</Card>
           </Main>
