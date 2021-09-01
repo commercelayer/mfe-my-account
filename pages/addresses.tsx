@@ -1,6 +1,7 @@
 import { ShippingAddressContainer } from "@commercelayer/react-components"
 import { useTranslation } from "react-i18next"
 
+import { AddButton } from "components/ui/AddButton"
 import CustomerAddressCard from "components/ui/CustomerAddressCard"
 import { GridContainer } from "components/ui/GridContainer"
 import Title from "components/ui/Title"
@@ -13,6 +14,7 @@ const Addresses = () => {
       <Title>{t("addresses.title")}</Title>
       <GridContainer className="mb-6">
         <CustomerAddressCard addressType="shipping" />
+        <AddButton action={() => {}} />
       </GridContainer>
     </ShippingAddressContainer>
   )

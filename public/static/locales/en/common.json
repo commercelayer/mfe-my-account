@@ -47,6 +47,7 @@
   "addresses":{
     "title": "My addresses",
     "edit": "Edit",
-    "delete": "Delete"
+    "delete": "Delete",
+    "addNewAddress":"New address" 
   }
 }
