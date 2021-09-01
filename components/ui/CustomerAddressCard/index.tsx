@@ -76,12 +76,12 @@ const CustomAddress = ({
   editButton,
   deleteButton,
 }: AddressProps) => (
-  <div tw="px-5 py-4 border rounded shadow-sm group-hover:(border-primary)">
+  <div tw="px-5 pt-4 pb-2 border border-gray-350 rounded shadow-sm group-hover:(border-primary shadow-sm-primary)">
     <p tw="font-semibold text-md" data-cy={`fullname_${addressType}`}>
       {firstName} {lastName}
     </p>
     <p
-      tw="text-sm font-thin text-gray-500 mb-3"
+      tw="text-ss font-thin text-gray-500 mb-3"
       data-cy={`full_address_${addressType}`}
     >
       {[line1, line2].join(", ")}
@@ -92,12 +92,14 @@ const CustomAddress = ({
       <br />
     </p>
     <div tw="flex justify-between tracking-wide text-gray-600">
-      <button tw="text-sm font-semibold h-5 cursor-pointer underline group-hover:(text-primary border-primary-light)">
+      <button tw="text-ss font-semibold h-5 cursor-pointer border-b group-hover:(text-primary border-primary-light)">
         {editButton}
       </button>
       <button tw="flex items-center group-hover:(text-red-400)">
-        <TrashIcon />
-        <span tw="text-sm ml-1 font-semibold cursor-pointer underline">
+        <span tw="pb-1">
+          <TrashIcon />
+        </span>
+        <span tw="text-ss ml-1 font-semibold cursor-pointer border-b group-hover:(border-red-100)">
           {deleteButton}
         </span>
       </button>
