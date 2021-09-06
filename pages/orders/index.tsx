@@ -96,7 +96,7 @@ const Orders: NextPage = () => {
       <>
         <Title>{t("orders.title")}</Title>
         <OrderList
-          className="w-full border-collapse table-fixed"
+          className="relative w-screen border-collapse table-fixed -left-5 md:left-0"
           columns={columns}
           showActions
           actionsContainerClassName="align-top"
