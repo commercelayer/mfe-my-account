@@ -1,9 +1,9 @@
-import { useContext } from "react"
+import { CustomerField } from "@commercelayer/react-components"
+import { Dispatch } from "react"
 import { useTranslation } from "react-i18next"
 import styled from "styled-components"
 import tw from "twin.macro"
 
-import { AppContext } from "components/data/AppProvider"
 import CreditCardIcon from "components/ui/icons/CreditCardIcon"
 import CustomerServiceIcon from "components/ui/icons/CustomerServiceIcon"
 import LocationIcon from "components/ui/icons/LocationIcon"
@@ -16,13 +16,12 @@ import NavLink from "./NavLink"
 
 interface Props {
   settings: CustomerSettings
+  onClick?: Dispatch<boolean>
 }
 
-const Navbar: React.FC<Props> = ({ settings }) => {
+const Navbar: React.FC<Props> = ({ settings, onClick }) => {
   const { t } = useTranslation()
   const { accessToken, logoUrl, companyName } = settings
-  const ctx = useContext(AppContext)
-  const email = ctx?.email as string
 
   const menu = {
     orders: {
@@ -30,62 +29,68 @@ const Navbar: React.FC<Props> = ({ settings }) => {
       href: "/orders",
       icon: <ShoppingCartIcon />,
       accessToken,
+      onClick,
     },
     addresses: {
       title: t("menu.addresses"),
       href: "/addresses",
       icon: <LocationIcon />,
       accessToken,
+      onClick,
     },
     wallet: {
       title: t("menu.wallet"),
       href: "/wallet",
       icon: <CreditCardIcon />,
       accessToken,
+      onClick,
     },
     returns: {
       title: t("menu.returns"),
       href: "/returns",
       icon: <ReturnsIcon />,
       accessToken,
+      onClick,
     },
     customerService: {
       title: t("menu.customerService"),
       href: "/customer_service",
       icon: <CustomerServiceIcon />,
       accessToken,
+      onClick,
     },
     logout: {
       title: t("menu.logout"),
       href: "/logout",
       icon: <LogoutIcon />,
       accessToken,
+      onClick,
     },
   }
 
   return (
-    <Sidebar>
-      <Menu data-cy="navbar">
-        <Logo
-          logoUrl={logoUrl}
-          companyName={companyName}
-          className="hidden xl:block"
-        />
-        <NavLink id="orders" {...menu.orders} />
-        <NavLink id="addresses" {...menu.addresses} />
-        <NavLink id="wallet" {...menu.wallet} />
-        <NavLink id="returns" {...menu.returns} />
-        <Wrapper>
-          <CustomerServiceWrapper>
-            <NavLink id="customerService" {...menu.customerService} />
-          </CustomerServiceWrapper>
-          <EmailWrapper>
-            {t("menu.loggedInAs")}
-            <Email>{email}</Email>
-          </EmailWrapper>
-          <NavLink id="logout" {...menu.logout} />
-        </Wrapper>
-      </Menu>
+    <Sidebar data-cy="navbar">
+      <Logo
+        logoUrl={logoUrl}
+        companyName={companyName}
+        className="hidden xl:block"
+      />
+      <NavLink id="orders" {...menu.orders} />
+      <NavLink id="addresses" {...menu.addresses} />
+      <NavLink id="wallet" {...menu.wallet} />
+      <NavLink id="returns" {...menu.returns} />
+      <Wrapper>
+        <CustomerServiceWrapper>
+          <NavLink id="customerService" {...menu.customerService} />
+        </CustomerServiceWrapper>
+        <EmailWrapper>
+          {t("menu.loggedInAs")}
+          <Email>
+            <CustomerField name="email" />
+          </Email>
+        </EmailWrapper>
+        <NavLink id="logout" {...menu.logout} />
+      </Wrapper>
     </Sidebar>
   )
 }
@@ -93,11 +98,7 @@ const Navbar: React.FC<Props> = ({ settings }) => {
 export default Navbar
 
 const Sidebar = styled.div`
-  ${tw`flex flex-col min-h-full p-5 lg:pl-20 lg:pr-10 lg:pt-10 xl:pl-48`}
-`
-
-export const Menu = styled.nav`
-  ${tw``}
+  ${tw`flex flex-col min-h-full p-5 lg:(pl-20 pr-10 pt-10) xl:pl-48`}
 `
 
 export const Wrapper = styled.div`
