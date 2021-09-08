@@ -30,7 +30,6 @@ const Header: React.FC<Props> = ({
       <MenuButton
         showMobileMenu={showMobileMenu}
         setShowMobileMenu={setShowMobileMenu}
-        tw="ml-4"
       />
       <Logo
         logoUrl={logoUrl}
@@ -49,11 +48,11 @@ const Header: React.FC<Props> = ({
 export default Header
 
 export const HeaderContainer = styled.header`
-  ${tw`flex py-5 border-b-2 border-gray-300 place-content-between xl:(pb-2.5 pt-9 border-b)`}
+  ${tw`flex px-4 py-5 border-b-2 border-gray-300 place-content-between xl:(px-0 pb-2.5 pt-9 border-b)`}
 `
 
 export const Wrapper = styled.div`
-  ${tw`flex items-center mr-4`}
+  ${tw`flex items-center`}
 `
 
 export const Title = styled.h1`

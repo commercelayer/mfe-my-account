@@ -23,5 +23,5 @@ const MenuButton: React.FC<Props> = ({ showMobileMenu, setShowMobileMenu }) => {
 export default MenuButton
 
 export const Button = styled.button`
-  ${tw`ml-4 w-6 xl:(hidden)`}
+  ${tw`w-6 xl:(hidden)`}
 `
