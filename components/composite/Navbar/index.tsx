@@ -64,34 +64,40 @@ const Navbar: React.FC<Props> = ({ settings }) => {
   }
 
   return (
-    <Menu data-cy="navbar">
-      <Logo
-        logoUrl={logoUrl}
-        companyName={companyName}
-        className="hidden xl:block"
-      />
-      <NavLink id="orders" {...menu.orders} />
-      <NavLink id="addresses" {...menu.addresses} />
-      <NavLink id="wallet" {...menu.wallet} />
-      <NavLink id="returns" {...menu.returns} />
-      <Wrapper>
-        <CustomerServiceWrapper>
-          <NavLink id="customerService" {...menu.customerService} />
-        </CustomerServiceWrapper>
-        <EmailWrapper>
-          {t("menu.loggedInAs")}
-          <Email>{email}</Email>
-        </EmailWrapper>
-        <NavLink id="logout" {...menu.logout} />
-      </Wrapper>
-    </Menu>
+    <Sidebar>
+      <Menu data-cy="navbar">
+        <Logo
+          logoUrl={logoUrl}
+          companyName={companyName}
+          className="hidden xl:block"
+        />
+        <NavLink id="orders" {...menu.orders} />
+        <NavLink id="addresses" {...menu.addresses} />
+        <NavLink id="wallet" {...menu.wallet} />
+        <NavLink id="returns" {...menu.returns} />
+        <Wrapper>
+          <CustomerServiceWrapper>
+            <NavLink id="customerService" {...menu.customerService} />
+          </CustomerServiceWrapper>
+          <EmailWrapper>
+            {t("menu.loggedInAs")}
+            <Email>{email}</Email>
+          </EmailWrapper>
+          <NavLink id="logout" {...menu.logout} />
+        </Wrapper>
+      </Menu>
+    </Sidebar>
   )
 }
 
 export default Navbar
 
+const Sidebar = styled.div`
+  ${tw`flex flex-col min-h-full p-5 lg:pl-20 lg:pr-10 lg:pt-10 xl:pl-48`}
+`
+
 export const Menu = styled.nav`
-  ${tw`flex flex-col min-h-screen text-gray-500 bg-white xl:(bg-gray-100)`}
+  ${tw``}
 `
 
 export const Wrapper = styled.div`

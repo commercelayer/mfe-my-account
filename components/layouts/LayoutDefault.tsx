@@ -22,24 +22,22 @@ export const LayoutDefault: React.FC<Props> = ({ main, aside, settings }) => {
     <Base>
       <Container>
         <Wrapper>
-          <HeaderWrapper>
-            <Header
-              logoUrl={logoUrl}
-              companyName={companyName}
-              showMobileMenu={showMobileMenu}
-              setShowMobileMenu={setShowMobileMenu}
-            />
-          </HeaderWrapper>
           <DesktopOnly>
             <Aside>{aside}</Aside>
           </DesktopOnly>
           {showMobileMenu && <Aside>{aside}</Aside>}
           <Main>
-            <Card fullHeight>{main}</Card>
+            <Card fullHeight>
+              <Header
+                logoUrl={logoUrl}
+                companyName={companyName}
+                showMobileMenu={showMobileMenu}
+                setShowMobileMenu={setShowMobileMenu}
+              />
+              {main}
+              <Footer />
+            </Card>
           </Main>
-          <FooterWrapper>
-            <Footer />
-          </FooterWrapper>
         </Wrapper>
       </Container>
     </Base>
@@ -47,25 +45,17 @@ export const LayoutDefault: React.FC<Props> = ({ main, aside, settings }) => {
 }
 
 const Wrapper = styled.div`
-  ${tw`min-h-full flex flex-col bg-contrast xl:(grid grid-cols-1 h-screen grid-cols-3 grid-rows-10)`}
-`
-
-const HeaderWrapper = styled.div`
-  ${tw`xl:(col-start-2 col-span-full h-21 bg-contrast pl-16 z-50)`}
+  ${tw`flex flex-wrap justify-end items-stretch flex-col min-h-full md:(h-screen flex-row)`}
 `
 
 const Main = styled.div`
-  ${tw`flex flex-1 bg-gray-100 xl:(col-start-2 col-span-full row-start-2 row-end-10 overflow-y-auto bg-contrast)`}
+  ${tw`flex-none justify-center order-first md:(flex-1 order-last)`}
 `
 
 const DesktopOnly = styled.div`
-  ${tw`hidden xl:(inline order-first)`}
+  ${tw`hidden xl:(inline bg-gray-100)`}
 `
 
 const Aside = styled.div`
-  ${tw`block`}
-`
-
-const FooterWrapper = styled.div`
-  ${tw`col-start-2 col-span-full row-start-10 bg-gray-100 xl:(pl-16 bg-contrast)`}
+  ${tw`flex-none md:flex-1`}
 `

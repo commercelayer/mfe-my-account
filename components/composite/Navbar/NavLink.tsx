@@ -36,5 +36,5 @@ export const MenuItem = styled.li<MenuItemProps>`
 `
 
 export const Icon = styled.div`
-  ${tw`mr-3`}
+  ${tw`pr-3`}
 `

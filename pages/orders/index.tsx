@@ -35,7 +35,6 @@ const Orders: NextPage = () => {
     windowOptions: {
       height: 600,
       itemSize: 82,
-      width: 900,
       column: 180,
     },
   }
