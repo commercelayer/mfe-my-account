@@ -53,7 +53,7 @@ const Main = styled.div`
 `
 
 const DesktopOnly = styled.div`
-  ${tw`hidden xl:(inline bg-gray-100)`}
+  ${tw`hidden md:(inline bg-gray-100)`}
 `
 
 const Aside = styled.div`

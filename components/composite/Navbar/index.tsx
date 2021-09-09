@@ -73,12 +73,16 @@ const Navbar: React.FC<Props> = ({ settings, onClick }) => {
       <Logo
         logoUrl={logoUrl}
         companyName={companyName}
-        className="hidden xl:block"
+        className="hidden lg:block"
       />
-      <NavLink id="orders" {...menu.orders} />
-      <NavLink id="addresses" {...menu.addresses} />
-      <NavLink id="wallet" {...menu.wallet} />
-      <NavLink id="returns" {...menu.returns} />
+      <Nav>
+        <ul>
+          <NavLink id="orders" {...menu.orders} />
+          <NavLink id="addresses" {...menu.addresses} />
+          <NavLink id="wallet" {...menu.wallet} />
+          <NavLink id="returns" {...menu.returns} />
+        </ul>
+      </Nav>
       <Wrapper>
         <CustomerServiceWrapper>
           <NavLink id="customerService" {...menu.customerService} />
@@ -110,9 +114,12 @@ export const CustomerServiceWrapper = styled.div`
 `
 
 export const EmailWrapper = styled.div`
-  ${tw`text-sm pl-5 mb-6 xl:(hidden)`}
+  ${tw`text-sm pl-5 mb-6 lg:(hidden)`}
 `
 
 export const Email = styled.span`
   ${tw`block mt-0.5 font-bold`}
+`
+export const Nav = styled.nav`
+  ${tw`lg:(mt-16)`}
 `

@@ -39,8 +39,8 @@ interface WrapperProps {
   isCurrentPage: boolean
 }
 
-export const Wrapper = styled.div<WrapperProps>`
-  ${tw`flex items-center text-md font-semibold h-14 text-gray-500 pl-5 hover:(cursor-pointer) active:(bg-gray-100) xl:(w-64 self-end)`}
+export const Wrapper = styled.li<WrapperProps>`
+  ${tw`flex items-center text-md font-semibold h-14 text-gray-500 hover:(cursor-pointer) active:(bg-gray-100) xl:(w-64 self-end)`}
   ${({ isCurrentPage }) => isCurrentPage && tw`text-black`}
 `
 

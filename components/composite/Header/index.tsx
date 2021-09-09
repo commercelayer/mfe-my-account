@@ -34,7 +34,7 @@ const Header: React.FC<Props> = ({
       <Logo
         logoUrl={logoUrl}
         companyName={companyName}
-        tw="h-7 self-center xl:(hidden)"
+        tw="h-7 self-center lg:(hidden)"
       />
       <Title>{t("header.title")}</Title>
       <Wrapper>
@@ -48,7 +48,7 @@ const Header: React.FC<Props> = ({
 export default Header
 
 export const HeaderContainer = styled.header`
-  ${tw`flex px-4 py-5 border-b-2 border-gray-300 place-content-between xl:(px-0 pb-2.5 pt-9 border-b)`}
+  ${tw`flex border-b-2 border-gray-300 place-content-between md:(px-0 pb-2.5 border-b mb-16)`}
 `
 
 export const Wrapper = styled.div`
@@ -56,9 +56,9 @@ export const Wrapper = styled.div`
 `
 
 export const Title = styled.h1`
-  ${tw`hidden text-xxl font-medium xl:(inline)`}
+  ${tw`hidden text-xxl font-medium lg:(inline)`}
 `
 
 export const Email = styled.p`
-  ${tw`hidden text-sm text-gray-500 mr-3 font-medium xl:(inline)`}
+  ${tw`hidden text-sm text-gray-500 mr-3 font-medium lg:(inline)`}
 `
