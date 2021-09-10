@@ -25,7 +25,7 @@ export const LayoutDefault: React.FC<Props> = ({ main, aside, settings }) => {
           <DesktopOnly>
             <Aside>{aside}</Aside>
           </DesktopOnly>
-          {showMobileMenu && <Aside>{aside}</Aside>}
+          {showMobileMenu && <MobileMenu>{aside}</MobileMenu>}
           <Main>
             <Card fullHeight>
               <Header
@@ -58,4 +58,7 @@ const DesktopOnly = styled.div`
 
 const Aside = styled.div`
   ${tw`flex-none md:flex-1`}
+`
+const MobileMenu = styled.div`
+  ${tw`fixed top-19 left-0 bottom-0 flex flex-col min-w-full max-w-sm py-6 px-6 bg-white border-r overflow-y-auto md:(hidden)`}
 `

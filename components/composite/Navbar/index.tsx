@@ -73,7 +73,7 @@ const Navbar: React.FC<Props> = ({ settings, onClick }) => {
       <Logo
         logoUrl={logoUrl}
         companyName={companyName}
-        className="hidden lg:block"
+        className="hidden md:block"
       />
       <Nav>
         <ul>
@@ -102,7 +102,7 @@ const Navbar: React.FC<Props> = ({ settings, onClick }) => {
 export default Navbar
 
 const Sidebar = styled.div`
-  ${tw`flex flex-col min-h-full p-5 lg:(pl-20 pr-10 pt-10) xl:pl-48`}
+  ${tw`flex flex-col min-h-full md:(p-5) lg:(pl-20 pr-10 pt-10) xl:(pl-48)`}
 `
 
 export const Wrapper = styled.div`
@@ -114,12 +114,12 @@ export const CustomerServiceWrapper = styled.div`
 `
 
 export const EmailWrapper = styled.div`
-  ${tw`text-sm pl-5 mb-6 lg:(hidden)`}
+  ${tw`text-sm mb-6 lg:(hidden)`}
 `
 
 export const Email = styled.span`
   ${tw`block mt-0.5 font-bold`}
 `
 export const Nav = styled.nav`
-  ${tw`lg:(mt-16)`}
+  ${tw`md:(mt-8) lg:(mt-16)`}
 `
