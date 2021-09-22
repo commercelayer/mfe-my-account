@@ -50,7 +50,7 @@ const Header: React.FC<Props> = ({
 export default Header
 
 export const HeaderContainer = styled.header`
-  ${tw`flex border-b-2 border-gray-300 mb-8 -mx-5 md:(-mx-0 pb-2.5 border-b) lg:(mb-16)`}
+  ${tw`flex border-b-2 bg-white border-gray-300 mb-8 -mx-5 md:(-mx-0 pb-2.5 border-b) lg:(mb-16)`}
 `
 
 export const Wrapper = styled.div`
