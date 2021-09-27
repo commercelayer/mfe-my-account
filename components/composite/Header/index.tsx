@@ -54,7 +54,7 @@ export const HeaderContainer = styled.header`
 `
 
 export const Wrapper = styled.div`
-  ${tw`flex flex-1 justify-between px-5 pb-5 md:(px-0 pb-0)`}
+  ${tw`flex flex-1 justify-between p-5 md:(p-0)`}
 `
 export const User = styled.div`
   ${tw`flex items-center`}

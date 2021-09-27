@@ -103,7 +103,7 @@ const Orders: NextPage = () => {
         >
           <OrderListRow
             field="number"
-            className="py-5 md:(border-b border-gray-350)"
+            className="py-5 md:border-b md:border-gray-350"
           >
             {({ cell, order, ...p }) => {
               return cell.map((cell) => {
@@ -159,7 +159,7 @@ const Orders: NextPage = () => {
           </OrderListRow>
           <OrderListRow
             field="formatted_total_amount_with_taxes"
-            className="block w-full pt-4 pb-5 font-bold align-top border-b border-gray-350 md:(table-cell)"
+            className="pt-4 pb-5 font-bold align-top border-b border-gray-350"
           />
         </OrderList>
       </>
@@ -170,7 +170,7 @@ const Orders: NextPage = () => {
 export default Orders
 
 export const OrderData = styled.td`
-  ${tw`block w-full md:(table-cell)`}
+  ${tw``}
 `
 
 export const OrderNumber = styled.p`
