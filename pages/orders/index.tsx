@@ -99,12 +99,11 @@ const Orders: NextPage = () => {
           columns={columns}
           showActions
           actionsContainerClassName="align-top border-b border-gray-350 py-5 text-center"
+          theadClassName="hidden"
+          rowTrClassName="grid grid-cols-2 bg-white shadow-bottom mb-2 -mx-5 px-5 md:-mx-0 md:p-0 md:border-b md:border-gray-350 md:table-row md:shadow-none"
           {...options}
         >
-          <OrderListRow
-            field="number"
-            className="py-5 md:border-b md:border-gray-350"
-          >
+          <OrderListRow field="number" className="order-1 pt-5 pb-2.5 md:py-5">
             {({ cell, order, ...p }) => {
               return cell.map((cell) => {
                 return (
@@ -126,7 +125,7 @@ const Orders: NextPage = () => {
           </OrderListRow>
           <OrderListRow
             field="updated_at"
-            className="py-5 text-right align-top border-b border-gray-350 xl:text-left"
+            className="order-4 pb-5 text-right align-top md:py-5 xl:text-left"
           >
             {({ cell, order, ...p }) => {
               return cell.map((cell) => {
@@ -142,7 +141,7 @@ const Orders: NextPage = () => {
           </OrderListRow>
           <OrderListRow
             field="status"
-            className="px-0 py-5 align-top border-b border-gray-350"
+            className="order-3 px-0 align-top md:py-5"
           >
             {({ cell, order, ...p }) => {
               return cell.map((cell) => {
@@ -159,7 +158,7 @@ const Orders: NextPage = () => {
           </OrderListRow>
           <OrderListRow
             field="formatted_total_amount_with_taxes"
-            className="pt-4 pb-5 font-bold align-top border-b border-gray-350"
+            className="order-2 pt-4 pb-5 font-bold text-right align-top md:text-left"
           />
         </OrderList>
       </>
@@ -182,7 +181,7 @@ export const OrderItemsCount = styled.p`
 `
 
 export const OrderUpdatedDate = styled.p`
-  ${tw`text-sm font-extralight text-gray-600 bg-gray-200 px-3 rounded-full h-5 md:(bg-contrast px-0 w-min)`}
+  ${tw`inline-block text-sm font-extralight text-gray-600 bg-gray-200 px-3 rounded-full h-5 md:(bg-contrast px-0 w-min)`}
 `
 
 export const OrderStatus = styled.p<OrderStatus>(({ status }) => {
