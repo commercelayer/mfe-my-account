@@ -4,6 +4,7 @@ import styled from "styled-components"
 import tw from "twin.macro"
 
 import Header from "components/composite/Header"
+import Navbar from "components/composite/Navbar"
 import { Base } from "components/ui/Base"
 import { Card } from "components/ui/Card"
 import { Container } from "components/ui/Container"
@@ -17,6 +18,7 @@ interface Props {
 
 export const LayoutDefault: React.FC<Props> = ({ main, aside, settings }) => {
   const [showMobileMenu, setShowMobileMenu] = useState(false)
+  const toggleMobileMenu = () => setShowMobileMenu(!showMobileMenu)
   const { logoUrl, companyName } = settings
 
   useEffect(() => {
