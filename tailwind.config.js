@@ -51,7 +51,8 @@ module.exports = {
         "3xs": "0.6875rem",
       },
       inset: {
-       19: '4.75rem',
+        19: "4.75rem",
+        38: "38rem",
       },
       width: {
         22: "5.75rem",

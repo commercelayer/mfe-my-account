@@ -5,6 +5,10 @@
       "privacy_link": "Privacy",
       "terms_link": "Terms"
   },
+  "input": {
+      "cantBlank" : "Can't be blank",
+      "mustBeValidFormat" : "Must be valid format"
+  },
   "menu": {
     "orders": "Orders",
     "addresses": "Addresses",
@@ -44,10 +48,23 @@
     "billedTo": "Billed to:",
     "shippedTo": "Shipped to:"
   },
-  "addresses":{
+  "addresses": {
     "title": "My addresses",
     "edit": "Edit",
     "delete": "Delete",
     "addNewAddress":"New address" 
+  },
+  "addressForm": {
+    "title": "Add a new address",
+    "customer_address_first_name": "first name",
+    "customer_address_last_name": "last name",
+    "customer_address_line_1": "address",
+    "customer_address_city": "city",
+    "customer_address_zip_code": "zip code",
+    "customer_address_country_code": "country",
+    "customer_address_country_code_placeholder": "Select a country",
+    "customer_address_state_code": "state",
+    "customer_address_phone": "telephone",
+    "discard_changes": "Discard changes"
   }
 }
