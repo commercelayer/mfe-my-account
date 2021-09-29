@@ -1,4 +1,5 @@
-import { useState } from "react"
+import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock"
+import { useEffect, useState } from "react"
 import styled from "styled-components"
 import tw from "twin.macro"
 
@@ -18,6 +19,11 @@ export const LayoutDefault: React.FC<Props> = ({ main, aside, settings }) => {
   const [showMobileMenu, setShowMobileMenu] = useState(false)
   const { logoUrl, companyName } = settings
 
+  useEffect(() => {
+    const main = document.getElementById("main")
+    main && (showMobileMenu ? disableBodyScroll(main) : enableBodyScroll(main))
+  }, [showMobileMenu])
+
   return (
     <Base>
       <Container>
@@ -26,7 +32,7 @@ export const LayoutDefault: React.FC<Props> = ({ main, aside, settings }) => {
             <Aside>{aside}</Aside>
           </DesktopOnly>
           {showMobileMenu && <MobileMenu>{aside}</MobileMenu>}
-          <Main>
+          <Main id="main">
             <Card fullHeight>
               <Header
                 logoUrl={logoUrl}
@@ -60,5 +66,5 @@ const Aside = styled.div`
   ${tw`flex-none md:flex-1`}
 `
 const MobileMenu = styled.div`
-  ${tw`fixed top-19 left-0 bottom-0 flex flex-col min-w-full max-w-sm py-6 px-6 bg-white border-r overflow-y-auto md:(hidden)`}
+  ${tw`z-10 fixed top-19 left-0 bottom-0 flex flex-col min-w-full max-w-sm py-6 px-6 bg-white border-r overflow-y-auto md:(hidden)`}
 `

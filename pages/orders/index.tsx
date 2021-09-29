@@ -31,17 +31,16 @@ const Orders: NextPage = () => {
 
   const options = isDesktop && {
     actionsComponent: () => <ActionsMenu />,
-    infiniteScroll: true,
+    infiniteScroll: false,
     windowOptions: {
       height: 600,
       itemSize: 82,
-      column: 180,
     },
   }
 
   const colClassName =
-    "text-left text-xs font-thin text-gray-600 pl-5 pb-1 border-b border-gray-300 xl:border-none xl:text-gray-400 xl:font-semibold xl:uppercase xl:pl-0"
-  const titleClassName = "flex flex-row xl:mb-2"
+    "text-left text-xs font-thin text-gray-600 pb-5 border-b border-gray-300 md:border-none md:text-gray-400 md:font-semibold md:uppercase"
+  const titleClassName = ""
   const columns = [
     {
       Header: "Order",
@@ -94,79 +93,73 @@ const Orders: NextPage = () => {
     <OrderContainer>
       <>
         <Title>{t("orders.title")}</Title>
+
         <OrderList
-          className="relative"
+          className="relative w-full mb-8"
           columns={columns}
           showActions
-          actionsContainerClassName="align-top"
+          actionsContainerClassName="align-top border-b border-gray-350 py-5 text-center"
+          theadClassName="hidden"
+          rowTrClassName="grid grid-cols-2 bg-white shadow-bottom mb-2 -mx-5 px-5 md:-mx-0 md:p-0 md:border-b md:border-gray-350 md:table-row md:shadow-none"
           {...options}
         >
-          <Table>
-            <TableBody>
-              <TableRow>
-                <OrderListRow
-                  field="number"
-                  className="order-1 px-0 xl:order-none"
-                >
-                  {({ cell, order, ...p }) => {
-                    return cell.map((cell) => {
-                      return (
-                        <OrderData key={order} {...p} {...cell.getCellProps()}>
-                          <Link
-                            href={`/orders/${order.id}?accessToken=${accessToken}`}
-                          >
-                            <OrderNumber># {cell.render("Cell")}</OrderNumber>
-                          </Link>
-                          <OrderItemsCount>
-                            {t("orders.orderContains", {
-                              count: order.skus_count,
-                            })}
-                          </OrderItemsCount>
-                        </OrderData>
-                      )
-                    })
-                  }}
-                </OrderListRow>
-                <OrderListRow
-                  field="updated_at"
-                  className="flex justify-end order-4 px-0 text-right align-top xl:order-none xl:text-left"
-                >
-                  {({ cell, order, ...p }) => {
-                    return cell.map((cell) => {
-                      return (
-                        <OrderData key={order} {...p} {...cell.getCellProps()}>
-                          <OrderUpdatedDate>
-                            {format(new Date(cell.value), "dd/MM/yy")}
-                          </OrderUpdatedDate>
-                        </OrderData>
-                      )
-                    })
-                  }}
-                </OrderListRow>
-                <OrderListRow
-                  field="status"
-                  className="order-3 px-0 align-top xl:order-none"
-                >
-                  {({ cell, order, ...p }) => {
-                    return cell.map((cell) => {
-                      return (
-                        <OrderData key={order} {...p} {...cell.getCellProps()}>
-                          <BulletPoint status={p.row.values.status} />
-                          <OrderStatus status={p.row.values.status}>
-                            {cell.render("Cell")}
-                          </OrderStatus>
-                        </OrderData>
-                      )
-                    })
-                  }}
-                </OrderListRow>
-                <OrderListRow
-                  field="formatted_total_amount_with_taxes"
-                  className="order-2 px-0 font-bold text-right align-top xl:order-none xl:text-left"
-                />
-              </TableRow>
-            </TableBody>
-          </Table>
+          <OrderListRow field="number" className="order-1 pt-5 pb-2.5 md:py-5">
+            {({ cell, order, ...p }) => {
+              return cell.map((cell) => {
+                return (
+                  <OrderData key={order} {...p} {...cell.getCellProps()}>
+                    <Link
+                      href={`/orders/${order.id}?accessToken=${accessToken}`}
+                    >
+                      <OrderNumber># {cell.render("Cell")}</OrderNumber>
+                    </Link>
+                    <OrderItemsCount>
+                      {t("orders.orderContains", {
+                        count: order.skus_count,
+                      })}
+                    </OrderItemsCount>
+                  </OrderData>
+                )
+              })
+            }}
+          </OrderListRow>
+          <OrderListRow
+            field="updated_at"
+            className="order-4 pb-5 text-right align-top md:py-5 xl:text-left"
+          >
+            {({ cell, order, ...p }) => {
+              return cell.map((cell) => {
+                return (
+                  <OrderData key={order} {...p} {...cell.getCellProps()}>
+                    <OrderUpdatedDate>
+                      {format(new Date(cell.value), "dd/MM/yy")}
+                    </OrderUpdatedDate>
+                  </OrderData>
+                )
+              })
+            }}
+          </OrderListRow>
+          <OrderListRow
+            field="status"
+            className="order-3 px-0 align-top md:py-5"
+          >
+            {({ cell, order, ...p }) => {
+              return cell.map((cell) => {
+                return (
+                  <OrderData key={order} {...p} {...cell.getCellProps()}>
+                    <BulletPoint status={p.row.values.status} />
+                    <OrderStatus status={p.row.values.status}>
+                      {cell.render("Cell")}
+                    </OrderStatus>
+                  </OrderData>
+                )
+              })
+            }}
+          </OrderListRow>
+          <OrderListRow
+            field="formatted_total_amount_with_taxes"
+            className="order-2 pt-4 pb-5 font-bold text-right align-top md:text-left"
+          />
         </OrderList>
       </>
     </OrderContainer>
@@ -174,18 +167,6 @@ const Orders: NextPage = () => {
 }
 
 export default Orders
-
-export const Table = styled.table`
-  ${tw``}
-`
-
-export const TableBody = styled.tbody`
-  ${tw``}
-`
-
-export const TableRow = styled.tr`
-  ${tw`grid grid-cols-2 w-screen px-5 pt-5 mb-2.5 bg-contrast border-b-2 border-gray-300 h-28 xl:(flex w-min border-b pl-0 h-20)`}
-`
 
 export const OrderData = styled.td`
   ${tw``}
@@ -200,34 +181,34 @@ export const OrderItemsCount = styled.p`
 `
 
 export const OrderUpdatedDate = styled.p`
-  ${tw`text-sm font-extralight text-gray-600 bg-gray-200 px-3 rounded-full h-5 xl:(bg-contrast px-0 w-min)`}
+  ${tw`inline-block text-sm font-extralight text-gray-600 bg-gray-200 px-3 rounded-full h-5 md:(bg-contrast px-0 w-min)`}
 `
 
 export const OrderStatus = styled.p<OrderStatus>(({ status }) => {
   return [
     handlerStatusColor(status),
-    tw`inline text-sm text-center capitalize px-1.5 py-0.5 xl:(block text-white text-3xs w-22 uppercase font-bold px-1 leading-snug)`,
+    tw`inline text-sm text-center capitalize px-1.5 py-0.5 md:(block text-white text-3xs w-22 uppercase font-bold px-1 leading-snug)`,
   ]
 })
 
 const handlerStatusColor = (status: string) => {
   switch (status) {
     case "placed":
-      return tw`text-${COMPLETED_COLOR} xl:(bg-${COMPLETED_COLOR})`
+      return tw`text-${COMPLETED_COLOR} md:(bg-${COMPLETED_COLOR})`
     case "inprogress":
-      return tw`text-${INPROGRESS_COLOR} xl:(bg-${INPROGRESS_COLOR})`
+      return tw`text-${INPROGRESS_COLOR} md:(bg-${INPROGRESS_COLOR})`
     case "pending":
-      return tw`text-${PENDING_COLOR} xl:(bg-${PENDING_COLOR})`
+      return tw`text-${PENDING_COLOR} md:(bg-${PENDING_COLOR})`
     case "draft":
-      return tw`text-${DRAFT_COLOR} xl:(bg-${DRAFT_COLOR})`
+      return tw`text-${DRAFT_COLOR} md:(bg-${DRAFT_COLOR})`
     default:
-      return tw`text-${DRAFT_COLOR} xl:(bg-${DRAFT_COLOR})`
+      return tw`text-${DRAFT_COLOR} md:(bg-${DRAFT_COLOR})`
   }
 }
 
 export const BulletPoint = styled.div<OrderStatus>(({ status }) => {
   return [
-    tw`w-2.5 h-2.5 inline-block rounded-full xl:(hidden)`,
+    tw`w-2.5 h-2.5 inline-block rounded-full md:(hidden)`,
     handlerStatusBulletPointColor(status),
   ]
 })
