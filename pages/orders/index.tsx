@@ -39,7 +39,7 @@ const Orders: NextPage = () => {
   }
 
   const colClassName =
-    "text-left text-xs font-thin text-gray-600 pb-5 border-b border-gray-300 md:border-none md:text-gray-400 md:font-semibold md:uppercase"
+    "text-left text-xs font-thin text-gray-600 pb-5 border-b border-gray-300 md:border-none md:text-gray-400 md:font-semibold md:uppercase md:relative"
   const titleClassName = ""
   const columns = [
     {
@@ -99,7 +99,7 @@ const Orders: NextPage = () => {
           columns={columns}
           showActions
           actionsContainerClassName="align-top border-b border-gray-350 py-5 text-center"
-          theadClassName="hidden"
+          theadClassName="hidden md:table-row-group"
           rowTrClassName="grid grid-cols-2 bg-white shadow-bottom mb-2 -mx-5 px-5 md:-mx-0 md:p-0 md:border-b md:border-gray-350 md:table-row md:shadow-none"
           {...options}
         >
@@ -167,6 +167,10 @@ const Orders: NextPage = () => {
 }
 
 export default Orders
+
+export const StyledOrderList = styled.td`
+  ${tw`relative w-full mb-8`}
+`
 
 export const OrderData = styled.td`
   ${tw``}
