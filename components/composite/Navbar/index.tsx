@@ -69,16 +69,20 @@ const Navbar: React.FC<Props> = ({ settings, onClick }) => {
   }
 
   return (
-    <Menu data-cy="navbar">
+    <Sidebar data-cy="navbar">
       <Logo
         logoUrl={logoUrl}
         companyName={companyName}
-        className="hidden xl:block"
+        className="hidden md:block"
       />
-      <NavLink id="orders" {...menu.orders} />
-      <NavLink id="addresses" {...menu.addresses} />
-      <NavLink id="wallet" {...menu.wallet} />
-      <NavLink id="returns" {...menu.returns} />
+      <Nav>
+        <ul>
+          <NavLink id="orders" {...menu.orders} />
+          <NavLink id="addresses" {...menu.addresses} />
+          <NavLink id="wallet" {...menu.wallet} />
+          <NavLink id="returns" {...menu.returns} />
+        </ul>
+      </Nav>
       <Wrapper>
         <CustomerServiceWrapper>
           <NavLink id="customerService" {...menu.customerService} />
@@ -91,14 +95,14 @@ const Navbar: React.FC<Props> = ({ settings, onClick }) => {
         </EmailWrapper>
         <NavLink id="logout" {...menu.logout} />
       </Wrapper>
-    </Menu>
+    </Sidebar>
   )
 }
 
 export default Navbar
 
-export const Menu = styled.nav`
-  ${tw`flex flex-col min-h-screen text-gray-500 bg-white xl:(bg-gray-100)`}
+const Sidebar = styled.div`
+  ${tw`flex flex-col min-h-full md:(p-5) lg:(pl-20 pr-10 pt-10) xl:(pl-48)`}
 `
 
 export const Wrapper = styled.div`
@@ -110,9 +114,12 @@ export const CustomerServiceWrapper = styled.div`
 `
 
 export const EmailWrapper = styled.div`
-  ${tw`text-sm pl-5 mb-6 xl:(hidden)`}
+  ${tw`text-sm mb-6 lg:(hidden)`}
 `
 
 export const Email = styled.span`
   ${tw`block mt-0.5 font-bold`}
+`
+export const Nav = styled.nav`
+  ${tw`md:(mt-8) lg:(mt-16)`}
 `

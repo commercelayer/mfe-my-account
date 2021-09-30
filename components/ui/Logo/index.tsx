@@ -14,5 +14,5 @@ const Logo: React.FC<Props> = ({ logoUrl, companyName, className }) => {
 export default Logo
 
 const Image = styled.img`
-  ${tw`w-48 max-w-full xl:(mr-14 mt-12 h-8 mb-16 self-end)`}
+  ${tw`w-52 max-w-full`}
 `

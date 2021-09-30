@@ -27,7 +27,9 @@ module.exports = {
           100: "#F8F8F8",
           200: "#F4F4F4",
           300: "#E6E6E6",
+          350: "#E5E5E5",
           400: "#C4C4C4",
+          450: "#C5C5C5",
           500: "#8D8D8D",
           600: "#666666",
         },
@@ -47,6 +49,10 @@ module.exports = {
         ss: "0.813rem",
         xxs: "0.75rem",
         "3xs": "0.6875rem",
+      },
+      inset: {
+        19: "4.7rem",
+        38: "38rem",
       },
       width: {
         22: "5.75rem",
@@ -72,6 +78,7 @@ module.exports = {
       boxShadow: {
         bottom: "0 2px 0 0 rgba(0, 0, 0, 0.05)",
         inner: "0 0 0 1000px rgba(255, 255, 255, 1) inset",
+        "sm-primary": "0 1px 2px 0 var(--primary-light)",
       },
       gridTemplateRows: {
         10: "repeat(10, minmax(0, 1fr))",

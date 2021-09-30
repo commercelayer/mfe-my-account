@@ -27,20 +27,21 @@ const Header: React.FC<Props> = ({
 
   return (
     <HeaderContainer>
-      <MenuButton
-        showMobileMenu={showMobileMenu}
-        setShowMobileMenu={setShowMobileMenu}
-        tw="ml-4"
-      />
-      <Logo
-        logoUrl={logoUrl}
-        companyName={companyName}
-        tw="h-7 self-center xl:(hidden)"
-      />
-      <Title>{t("header.title")}</Title>
       <Wrapper>
-        <Email>{email}</Email>
-        <Avatar email={email} />
+        <MenuButton
+          showMobileMenu={showMobileMenu}
+          setShowMobileMenu={setShowMobileMenu}
+        />
+        <Logo
+          logoUrl={logoUrl}
+          companyName={companyName}
+          tw="self-center md:(hidden)"
+        />
+        <Title>{t("header.title")}</Title>
+        <User>
+          <Email>{email}</Email>
+          <Avatar email={email} />
+        </User>
       </Wrapper>
     </HeaderContainer>
   )
@@ -49,17 +50,20 @@ const Header: React.FC<Props> = ({
 export default Header
 
 export const HeaderContainer = styled.header`
-  ${tw`flex py-5 border-b-2 border-gray-300 place-content-between xl:(pb-2.5 pt-9 border-b)`}
+  ${tw`flex border-b-2 bg-white border-gray-300 mb-8 -mx-5 md:(-mx-0 pb-2.5 border-b) lg:(mb-16)`}
 `
 
 export const Wrapper = styled.div`
-  ${tw`flex items-center mr-4`}
+  ${tw`flex flex-1 justify-between p-5 md:(p-0)`}
+`
+export const User = styled.div`
+  ${tw`flex items-center`}
 `
 
 export const Title = styled.h1`
-  ${tw`hidden text-xxl font-medium xl:(inline)`}
+  ${tw`hidden text-xxl font-medium md:(inline)`}
 `
 
 export const Email = styled.p`
-  ${tw`hidden text-sm text-gray-500 mr-3 font-medium xl:(inline)`}
+  ${tw`hidden text-sm text-gray-500 mr-3 font-medium lg:(inline)`}
 `
