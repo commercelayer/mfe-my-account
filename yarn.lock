@@ -323,15 +323,16 @@
     lodash "^4.17.21"
     lodash-es "^4.17.21"
 
-"@commercelayer/react-components@3.0.0-beta.8":
-  version "3.0.0-beta.8"
-  resolved "https://registry.yarnpkg.com/@commercelayer/react-components/-/react-components-3.0.0-beta.8.tgz#bfb8c30942907df9a2e29f62af358436c0cbb91a"
-  integrity sha512-UqDjEm/LO1oyvW23ekWx/bu+lhUF38TsM2pfOhfczvh7LdruYN29pmGPcBrfxOsRMpLkXALCuJvW9+4cPX5v1Q==
+"@commercelayer/react-components@3.0.0-beta.9":
+  version "3.0.0-beta.9"
+  resolved "https://registry.yarnpkg.com/@commercelayer/react-components/-/react-components-3.0.0-beta.9.tgz#892caf80d6047b81bc4fe87d0f5fba4254318556"
+  integrity sha512-KCxOJHioOrmi7mQV3WcDOQZqXonUnOJtEPh6FC7L6qmTXsYd0j1dilCZCYjCsSD+0pzilfc4tvqSZR/Wzm7Sfg==
   dependencies:
     "@commercelayer/js-sdk" "^3.9.2"
     "@stripe/react-stripe-js" "^1.5.0"
     "@stripe/stripe-js" "^1.18.0"
     braintree-web "^3.81.1"
+    countries-states-cities-service "^1.0.1"
     country-state-city "^3.0.1"
     deps "^1.0.0"
     jwt-decode "^3.1.2"
@@ -1739,6 +1740,11 @@ cosmiconfig@^7.0.0:
     parse-json "^5.0.0"
     path-type "^4.0.0"
     yaml "^1.10.0"
+
+countries-states-cities-service@^1.0.1:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/countries-states-cities-service/-/countries-states-cities-service-1.2.0.tgz#46b74664fc0c6ccf13d282af95317af10782144a"
+  integrity sha512-xGm6EGIMZl511ZoehoGDzd5YZYyci8OaZFAfY/Cte+qkSLD51D+xwGk1eJgSR0B5gZBibmS18wmmypmcklsgkA==
 
 country-state-city@^3.0.1:
   version "3.0.1"
