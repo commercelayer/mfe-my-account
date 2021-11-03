@@ -1,4 +1,5 @@
-import { ShippingAddressContainer } from "@commercelayer/react-components"
+import { AddressesContainer } from "@commercelayer/react-components"
+import CustomerAddressContext from "context/CustomerAddressContext"
 import { useEffect, useState } from "react"
 import { useTranslation } from "react-i18next"
 
@@ -10,29 +11,39 @@ import Title from "components/ui/Title"
 
 const Addresses = () => {
   const { t } = useTranslation()
-  const [showForm, setShowForm] = useState(false)
+  const [showAddressForm, setShowAddressForm] = useState(false)
+  const [address, setAddress] = useState<any>({})
 
   useEffect(() => {
     const form = document.getElementById("customer-address-form")
     form &&
       (form.className =
         "transition ease-in duration-500 transform translate-y-0 opacity-100")
-  }, [showForm])
+  }, [showAddressForm])
 
   return (
-    <ShippingAddressContainer>
-      {showForm ? (
-        <CustomerAddressFormNew onClose={() => setShowForm(false)} />
-      ) : (
-        <>
-          <Title>{t("addresses.title")}</Title>
-          <GridContainer className="mb-6">
-            <CustomerAddressCard addressType="shipping" />
-            <AddButton action={() => setShowForm(true)} />
-          </GridContainer>
-        </>
-      )}
-    </ShippingAddressContainer>
+    <CustomerAddressContext.Provider
+      value={{ address, setAddress, setShowAddressForm }}
+    >
+      <AddressesContainer>
+        {showAddressForm ? (
+          <CustomerAddressFormNew onClose={() => setShowAddressForm(false)} />
+        ) : (
+          <>
+            <Title>{t("addresses.title")}</Title>
+            <GridContainer className="mb-6">
+              <CustomerAddressCard />
+              <AddButton
+                action={() => {
+                  setShowAddressForm(true)
+                  setAddress({})
+                }}
+              />
+            </GridContainer>
+          </>
+        )}
+      </AddressesContainer>
+    </CustomerAddressContext.Provider>
   )
 }
 

@@ -65,6 +65,7 @@
     "customer_address_country_code_placeholder": "Select a country",
     "customer_address_state_code": "state",
     "customer_address_phone": "telephone",
-    "discard_changes": "Discard changes"
+    "discard_changes": "Discard changes",
+    "save": "Save"
   }
 }

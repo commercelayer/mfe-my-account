@@ -1,8 +1,13 @@
+import { AddressField } from "@commercelayer/react-components"
+import CustomerAddressContext from "context/CustomerAddressContext"
+import { useContext } from "react"
 import styled from "styled-components"
 import tw from "twin.macro"
 
 import TrashIcon from "../icons/TrashIcon"
 import { LinkButton } from "../LinkButton"
+
+import { LinkButtonCss } from "components/ui/form/Button"
 
 interface Props {
   firstName: string
@@ -33,6 +38,8 @@ export const AddressCard: React.FC<Props> = ({
   editButton,
   deleteButton,
 }) => {
+  const { setAddress, setShowAddressForm } = useContext(CustomerAddressContext)
+
   return (
     <Wrapper>
       <Customer data-cy={`fullname_${addressType}`}>
@@ -47,12 +54,23 @@ export const AddressCard: React.FC<Props> = ({
         <br />
       </Address>
       <Actions>
-        <LinkButton label={editButton} />
+        <StyledLinkButton
+          type="edit"
+          label={editButton}
+          onClick={(address) => {
+            setAddress(address)
+            setShowAddressForm(true)
+          }}
+        />
         <LinkButton label={deleteButton} variant="warning" />
       </Actions>
     </Wrapper>
   )
 }
+
+const StyledLinkButton = styled(AddressField)`
+  ${LinkButtonCss}
+`
 
 const Wrapper = styled.div`
   ${tw`transition duration-500 ease-in px-5 pt-4 pb-2 border border-gray-350 rounded shadow-sm group-hover:(border-primary shadow-sm-primary)`}

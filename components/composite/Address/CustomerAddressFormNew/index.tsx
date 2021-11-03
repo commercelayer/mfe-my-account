@@ -1,59 +1,63 @@
-import { AddressCollection } from "@commercelayer/js-sdk"
-import { Dispatch } from "react"
+import CustomerAddressContext from "context/CustomerAddressContext"
+import { Dispatch, useContext } from "react"
 import { useTranslation } from "react-i18next"
 
 import { AddressInputGroup } from "components/composite/Address/AddressInputGroup"
 import CloseSolidIcon from "components/ui/icons/CloseSolidIcon"
 import Title from "components/ui/Title"
 
-import { Wrapper, Grid, DiscardChanges, Text } from "./styled"
+import {
+  Form,
+  Grid,
+  DiscardChanges,
+  FormButtons,
+  Text,
+  SaveButton,
+} from "./styled"
 
 interface Props {
-  customerAddress?: AddressCollection
   onClose: Dispatch<boolean>
 }
 
-const CustomerAddressFormNew: React.FC<Props> = ({
-  customerAddress,
-  onClose,
-}: Props) => {
+const CustomerAddressFormNew: React.FC<Props> = ({ onClose }) => {
   const { t } = useTranslation()
+  const { address, setShowAddressForm } = useContext(CustomerAddressContext)
 
   return (
-    <Wrapper id="customer-address-form">
+    <Form>
       <Title>{t("addressForm.title")}</Title>
       <Grid>
         <AddressInputGroup
           fieldName="customer_address_first_name"
           resource="customerAddress"
           type="text"
-          value={customerAddress?.firstName || ""}
+          value={address?.firstName || ""}
         />
         <AddressInputGroup
           fieldName="customer_address_last_name"
           resource="customerAddress"
           type="text"
-          value={customerAddress?.lastName || ""}
+          value={address?.lastName || ""}
         />
       </Grid>
       <AddressInputGroup
         fieldName="customer_address_line_1"
         resource="customerAddress"
         type="text"
-        value={customerAddress?.line1 || ""}
+        value={address?.line1 || ""}
       />
       <Grid>
         <AddressInputGroup
           fieldName="customer_address_city"
           resource="customerAddress"
           type="text"
-          value={customerAddress?.city || ""}
+          value={address?.city || ""}
         />
         <AddressInputGroup
           fieldName="customer_address_country_code"
           resource="customerAddress"
           type="text"
-          value={customerAddress?.countryCode || ""}
+          value={address?.countryCode || ""}
         />
       </Grid>
       <Grid>
@@ -61,26 +65,33 @@ const CustomerAddressFormNew: React.FC<Props> = ({
           fieldName="customer_address_state_code"
           resource="customerAddress"
           type="text"
-          value={customerAddress?.stateCode || ""}
+          value={address?.stateCode || ""}
         />
         <AddressInputGroup
           fieldName="customer_address_zip_code"
           resource="customerAddress"
           type="text"
-          value={customerAddress?.zipCode || ""}
+          value={address?.zipCode || ""}
         />
       </Grid>
       <AddressInputGroup
         fieldName="customer_address_phone"
         resource="customerAddress"
         type="tel"
-        value={customerAddress?.phone || ""}
+        value={address?.phone || ""}
       />
-      <DiscardChanges onClick={onClose}>
-        <CloseSolidIcon />
-        <Text>{t("addressForm.discard_changes")}</Text>
-      </DiscardChanges>
-    </Wrapper>
+      <FormButtons>
+        <DiscardChanges onClick={onClose}>
+          <CloseSolidIcon />
+          <Text>{t("addressForm.discard_changes")}</Text>
+        </DiscardChanges>
+        <SaveButton
+          label={t("addressForm.save")}
+          onClick={() => setShowAddressForm(false)}
+          addressId={address.id}
+        />
+      </FormButtons>
+    </Form>
   )
 }
 
