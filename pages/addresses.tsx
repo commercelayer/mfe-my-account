@@ -33,13 +33,13 @@ const Addresses = () => {
             <Title>{t("addresses.title")}</Title>
             <GridContainer className="mb-6">
               <CustomerAddressCard />
-              <AddButton
-                action={() => {
-                  setShowAddressForm(true)
-                  setAddress({})
-                }}
-              />
             </GridContainer>
+            <AddButton
+              action={() => {
+                setShowAddressForm(true)
+                setAddress({})
+              }}
+            />
           </>
         )}
       </AddressesContainer>
