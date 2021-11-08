@@ -1,13 +1,12 @@
 import { AddressField } from "@commercelayer/react-components"
 import CustomerAddressContext from "context/CustomerAddressContext"
-import { useContext } from "react"
+import { useContext, useState } from "react"
+import { useTranslation } from "react-i18next"
 import styled from "styled-components"
 import tw from "twin.macro"
 
-import TrashIcon from "../icons/TrashIcon"
-import { LinkButton } from "../LinkButton"
-
 import { LinkButtonCss } from "components/ui/form/Button"
+import { LinkButton } from "components/ui/LinkButton"
 
 interface Props {
   firstName: string
@@ -38,7 +37,9 @@ export const AddressCard: React.FC<Props> = ({
   editButton,
   deleteButton,
 }) => {
+  const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false)
   const { setAddress, setShowAddressForm } = useContext(CustomerAddressContext)
+  const { t } = useTranslation()
 
   return (
     <Wrapper>
@@ -53,27 +54,72 @@ export const AddressCard: React.FC<Props> = ({
         {phone}
         <br />
       </Address>
-      <Actions>
-        <StyledLinkButton
-          type="edit"
-          label={editButton}
-          onClick={(address) => {
-            setAddress(address)
-            setShowAddressForm(true)
-          }}
-        />
-        <LinkButton label={deleteButton} variant="warning" />
-      </Actions>
+      <ActionsWrapper>
+        {showDeleteConfirmation && (
+          <Text>{t("addresses.deleteConfirmation")}</Text>
+        )}
+        <Actions>
+          {showDeleteConfirmation ? (
+            <>
+              <StyledActionLinkButton
+                type="delete"
+                variant="warning"
+                label={t("addresses.yes")}
+              />
+              <StyledLinkButton
+                variant="default"
+                onClick={() => setShowDeleteConfirmation(false)}
+              >
+                {t("addresses.no")}
+              </StyledLinkButton>
+            </>
+          ) : (
+            <>
+              <StyledActionLinkButton
+                type="edit"
+                variant="default"
+                label={editButton}
+                onClick={(address) => {
+                  setAddress(address)
+                  setShowAddressForm(true)
+                }}
+              />
+              <StyledLinkButton
+                onClick={() => setShowDeleteConfirmation(true)}
+                variant="warning"
+              >
+                {deleteButton}
+              </StyledLinkButton>
+            </>
+          )}
+        </Actions>
+      </ActionsWrapper>
     </Wrapper>
   )
 }
 
-const StyledLinkButton = styled(AddressField)`
+interface StyledLinkButtonProps {
+  variant?: string
+}
+
+const StyledActionLinkButton = styled(AddressField)<StyledLinkButtonProps>`
   ${LinkButtonCss}
+  ${({ variant }) =>
+    variant === "default"
+      ? tw`group-hover:(text-primary)`
+      : tw`group-hover:(text-red-400 border-red-100)`}
+`
+
+const StyledLinkButton = styled.button<StyledLinkButtonProps>`
+  ${LinkButtonCss}
+  ${({ variant }) =>
+    variant === "default"
+      ? tw`group-hover:(text-primary)`
+      : tw`group-hover:(text-red-400 border-red-100)`}
 `
 
 const Wrapper = styled.div`
-  ${tw`transition duration-500 ease-in px-5 pt-4 pb-2 border border-gray-350 rounded shadow-sm group-hover:(border-primary shadow-sm-primary)`}
+  ${tw`transition duration-500 ease-in h-36 px-5 pt-4 pb-2 border border-gray-350 rounded shadow-sm group-hover:(border-primary shadow-sm-primary)`}
 `
 
 const Customer = styled.p`
@@ -81,9 +127,17 @@ const Customer = styled.p`
 `
 
 const Address = styled.p`
-  ${tw`text-ss font-thin text-gray-500 mb-3`}
+  ${tw`text-ss font-thin text-gray-500`}
+`
+
+const ActionsWrapper = styled.div`
+  ${tw`flex flex-col justify-end h-10`}
 `
 
 const Actions = styled.div`
   ${tw`flex justify-between tracking-wide`}
+`
+
+const Text = styled.p`
+  ${tw`text-ss`}
 `

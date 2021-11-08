@@ -52,7 +52,10 @@
     "title": "My addresses",
     "edit": "Edit",
     "delete": "Delete",
-    "addNewAddress":"New address" 
+    "addNewAddress":"New address",
+    "deleteConfirmation": "Are you sure you want to delete this address?",
+    "yes": "Yes",
+    "no": "No"
   },
   "addressForm": {
     "title": "Add a new address",
