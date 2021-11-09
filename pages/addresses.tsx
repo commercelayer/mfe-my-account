@@ -1,8 +1,10 @@
-import { ShippingAddressContainer } from "@commercelayer/react-components"
-import { useEffect, useState } from "react"
+import { AddressesContainer } from "@commercelayer/react-components"
+import { Transition } from "@headlessui/react"
+import CustomerAddressContext from "context/CustomerAddressContext"
+import { useState } from "react"
 import { useTranslation } from "react-i18next"
 
-import CustomerAddressFormNew from "components/composite/Address/CustomerAddressFormNew"
+import CustomerAddressForm from "components/composite/Address/CustomerAddressForm"
 import { AddButton } from "components/ui/AddButton"
 import CustomerAddressCard from "components/ui/CustomerAddressCard"
 import { GridContainer } from "components/ui/GridContainer"
@@ -10,30 +12,44 @@ import Title from "components/ui/Title"
 
 const Addresses = () => {
   const { t } = useTranslation()
-  const [showForm, setShowForm] = useState(false)
-
-  useEffect(() => {
-    const form = document.getElementById("customer-address-form")
-    form &&
-      (form.className =
-        "transition ease-in duration-500 transform translate-y-0 opacity-100")
-  }, [showForm])
+  const [showAddressForm, setShowAddressForm] = useState(false)
+  const [address, setAddress] = useState<any>({})
 
   return (
-    <ShippingAddressContainer>
-      {showForm ? (
-        <CustomerAddressFormNew onClose={() => setShowForm(false)} />
-      ) : (
-        <>
+    <CustomerAddressContext.Provider
+      value={{ address, setAddress, setShowAddressForm }}
+    >
+      <AddressesContainer>
+        <Transition show={!showAddressForm} {...addressesTransition}>
           <Title>{t("addresses.title")}</Title>
-          <GridContainer className="mb-6">
-            <CustomerAddressCard addressType="shipping" />
-            <AddButton action={() => setShowForm(true)} />
+          <GridContainer>
+            <CustomerAddressCard />
           </GridContainer>
-        </>
-      )}
-    </ShippingAddressContainer>
+          <AddButton
+            action={() => {
+              setShowAddressForm(true)
+              setAddress({})
+            }}
+          />
+        </Transition>
+        <Transition show={showAddressForm} {...formTransition}>
+          <CustomerAddressForm onClose={() => setShowAddressForm(false)} />
+        </Transition>
+      </AddressesContainer>
+    </CustomerAddressContext.Provider>
   )
 }
 
 export default Addresses
+
+const addressesTransition = {
+  enter: "transition easy-out duration-500",
+  enterFrom: "transform opacity-0",
+  enterTo: "transform opacity-100",
+}
+
+const formTransition = {
+  enter: "transition easy-out duration-700",
+  enterFrom: "transform opacity-0 translate-y-14",
+  enterTo: "transform opacity-100 translate-y-0",
+}

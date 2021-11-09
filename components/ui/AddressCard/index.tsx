@@ -1,8 +1,17 @@
-import styled from "styled-components"
-import tw from "twin.macro"
+import CustomerAddressContext from "context/CustomerAddressContext"
+import { useContext, useState } from "react"
+import { useTranslation } from "react-i18next"
 
-import TrashIcon from "../icons/TrashIcon"
-import { LinkButton } from "../LinkButton"
+import {
+  StyledActionLinkButton,
+  StyledLinkButton,
+  Wrapper,
+  Customer,
+  Address,
+  ActionsWrapper,
+  Actions,
+  Text,
+} from "./styled"
 
 interface Props {
   firstName: string
@@ -33,6 +42,10 @@ export const AddressCard: React.FC<Props> = ({
   editButton,
   deleteButton,
 }) => {
+  const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false)
+  const { setAddress, setShowAddressForm } = useContext(CustomerAddressContext)
+  const { t } = useTranslation()
+
   return (
     <Wrapper>
       <Customer data-cy={`fullname_${addressType}`}>
@@ -46,26 +59,46 @@ export const AddressCard: React.FC<Props> = ({
         {phone}
         <br />
       </Address>
-      <Actions>
-        <LinkButton label={editButton} />
-        <LinkButton label={deleteButton} variant="warning" />
-      </Actions>
+      <ActionsWrapper>
+        {showDeleteConfirmation && (
+          <Text>{t("addresses.deleteConfirmation")}</Text>
+        )}
+        <Actions>
+          {showDeleteConfirmation ? (
+            <>
+              <StyledActionLinkButton
+                type="delete"
+                variant="warning"
+                label={t("addresses.yes")}
+              />
+              <StyledLinkButton
+                variant="default"
+                onClick={() => setShowDeleteConfirmation(false)}
+              >
+                {t("addresses.no")}
+              </StyledLinkButton>
+            </>
+          ) : (
+            <>
+              <StyledActionLinkButton
+                type="edit"
+                variant="default"
+                label={editButton}
+                onClick={(address) => {
+                  setAddress(address)
+                  setShowAddressForm(true)
+                }}
+              />
+              <StyledLinkButton
+                onClick={() => setShowDeleteConfirmation(true)}
+                variant="warning"
+              >
+                {deleteButton}
+              </StyledLinkButton>
+            </>
+          )}
+        </Actions>
+      </ActionsWrapper>
     </Wrapper>
   )
 }
-
-const Wrapper = styled.div`
-  ${tw`transition duration-500 ease-in px-5 pt-4 pb-2 border border-gray-350 rounded shadow-sm group-hover:(border-primary shadow-sm-primary)`}
-`
-
-const Customer = styled.p`
-  ${tw`font-semibold text-md`}
-`
-
-const Address = styled.p`
-  ${tw`text-ss font-thin text-gray-500 mb-3`}
-`
-
-const Actions = styled.div`
-  ${tw`flex justify-between tracking-wide`}
-`

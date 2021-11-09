@@ -2,7 +2,7 @@ import styled from "styled-components"
 import tw from "twin.macro"
 
 export const Wrapper = styled.div`
-  ${tw`w-full flex flex-row p-1 mt-4 justify-center items-center text-center bg-contrast text-gray-450 border border-dashed border-gray-350 rounded cursor-pointer shadow-sm hover:(border-primary) lg:(w-22 flex-col mt-0)`}
+  ${tw`w-full flex flex-row p-1 my-4 justify-center items-center text-center bg-contrast text-gray-450 border border-dashed border-gray-350 rounded cursor-pointer shadow-sm hover:(border-primary) lg:(mt-0)`}
 `
 
 export const Svg = styled.svg`
