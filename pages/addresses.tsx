@@ -4,7 +4,7 @@ import CustomerAddressContext from "context/CustomerAddressContext"
 import { useState } from "react"
 import { useTranslation } from "react-i18next"
 
-import CustomerAddressFormNew from "components/composite/Address/CustomerAddressFormNew"
+import CustomerAddressForm from "components/composite/Address/CustomerAddressForm"
 import { AddButton } from "components/ui/AddButton"
 import CustomerAddressCard from "components/ui/CustomerAddressCard"
 import { GridContainer } from "components/ui/GridContainer"
@@ -33,7 +33,7 @@ const Addresses = () => {
           />
         </Transition>
         <Transition show={showAddressForm} {...formTransition}>
-          <CustomerAddressFormNew onClose={() => setShowAddressForm(false)} />
+          <CustomerAddressForm onClose={() => setShowAddressForm(false)} />
         </Transition>
       </AddressesContainer>
     </CustomerAddressContext.Provider>

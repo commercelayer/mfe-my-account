@@ -19,7 +19,7 @@ interface Props {
   onClose: Dispatch<boolean>
 }
 
-const CustomerAddressFormNew: React.FC<Props> = ({ onClose }) => {
+const CustomerAddressForm: React.FC<Props> = ({ onClose }) => {
   const { t } = useTranslation()
   const { address, setShowAddressForm } = useContext(CustomerAddressContext)
 
@@ -95,4 +95,4 @@ const CustomerAddressFormNew: React.FC<Props> = ({ onClose }) => {
   )
 }
 
-export default CustomerAddressFormNew
+export default CustomerAddressForm
