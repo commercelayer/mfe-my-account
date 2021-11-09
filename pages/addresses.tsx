@@ -1,6 +1,7 @@
 import { AddressesContainer } from "@commercelayer/react-components"
+import { Transition } from "@headlessui/react"
 import CustomerAddressContext from "context/CustomerAddressContext"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { useTranslation } from "react-i18next"
 
 import CustomerAddressFormNew from "components/composite/Address/CustomerAddressFormNew"
@@ -14,37 +15,41 @@ const Addresses = () => {
   const [showAddressForm, setShowAddressForm] = useState(false)
   const [address, setAddress] = useState<any>({})
 
-  useEffect(() => {
-    const form = document.getElementById("customer-address-form")
-    form &&
-      (form.className =
-        "transition ease-in duration-500 transform translate-y-0 opacity-100")
-  }, [showAddressForm])
-
   return (
     <CustomerAddressContext.Provider
       value={{ address, setAddress, setShowAddressForm }}
     >
       <AddressesContainer>
-        {showAddressForm ? (
+        <Transition show={!showAddressForm} {...addressesTransition}>
+          <Title>{t("addresses.title")}</Title>
+          <GridContainer className="mb-6">
+            <CustomerAddressCard />
+          </GridContainer>
+          <AddButton
+            action={() => {
+              setShowAddressForm(true)
+              setAddress({})
+            }}
+          />
+        </Transition>
+        <Transition show={showAddressForm} {...formTransition}>
           <CustomerAddressFormNew onClose={() => setShowAddressForm(false)} />
-        ) : (
-          <>
-            <Title>{t("addresses.title")}</Title>
-            <GridContainer className="mb-6">
-              <CustomerAddressCard />
-            </GridContainer>
-            <AddButton
-              action={() => {
-                setShowAddressForm(true)
-                setAddress({})
-              }}
-            />
-          </>
-        )}
+        </Transition>
       </AddressesContainer>
     </CustomerAddressContext.Provider>
   )
 }
 
 export default Addresses
+
+const addressesTransition = {
+  enter: "transition easy-out duration-500",
+  enterFrom: "transform opacity-0",
+  enterTo: "transform opacity-100",
+}
+
+const formTransition = {
+  enter: "transition easy-out duration-700",
+  enterFrom: "transform opacity-0 translate-y-14",
+  enterTo: "transform opacity-100 translate-y-0",
+}
