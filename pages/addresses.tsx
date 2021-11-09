@@ -22,7 +22,7 @@ const Addresses = () => {
       <AddressesContainer>
         <Transition show={!showAddressForm} {...addressesTransition}>
           <Title>{t("addresses.title")}</Title>
-          <GridContainer className="mb-6">
+          <GridContainer>
             <CustomerAddressCard />
           </GridContainer>
           <AddButton
