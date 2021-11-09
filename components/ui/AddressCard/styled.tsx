@@ -8,26 +8,21 @@ interface StyledLinkButtonProps {
   variant?: string
 }
 
+const buttonVariants = {
+  primary: tw`group-hover:(text-primary)`,
+  warning: tw`group-hover:(text-red-400 border-red-100)`,
+}
+
 export const StyledActionLinkButton = styled(
   AddressField
 )<StyledLinkButtonProps>`
   ${LinkButtonCss}
-  ${({ variant }) =>
-    variant === "default"
-      ? tw`group-hover:(text-primary)`
-      : tw`group-hover:(text-red-400 border-red-100)`}
-`
 
-export const StyledLinkButton = styled.button<StyledLinkButtonProps>`
-  ${LinkButtonCss}
-  ${({ variant }) =>
-    variant === "default"
-      ? tw`group-hover:(text-primary)`
-      : tw`group-hover:(text-red-400 border-red-100)`}
+  ${({ variant = "primary" }) => buttonVariants[variant]}
 `
 
 export const Wrapper = styled.div`
-  ${tw`transition duration-500 ease-in h-36 px-5 pt-4 pb-2 border border-gray-350 rounded shadow-sm group-hover:(border-primary shadow-sm-primary)`}
+  ${tw`relative transition duration-500 ease-in h-36 px-5 pt-4 pb-2 border border-gray-350 rounded shadow-sm group-hover:(border-primary shadow-sm-primary)`}
 `
 
 export const Customer = styled.p`
@@ -48,4 +43,7 @@ export const Actions = styled.div`
 
 export const Text = styled.p`
   ${tw`text-ss`}
+`
+export const Overlay = styled.div`
+  ${tw`absolute top-0 left-0 right-0 flex flex-col items-center justify-center h-full p-3 text-center text-white bg-gray-600 rounded bg-opacity-95`}
 `
