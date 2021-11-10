@@ -79,6 +79,7 @@ module.exports = {
         bottom: "0 2px 0 0 rgba(0, 0, 0, 0.05)",
         inner: "0 0 0 1000px rgba(255, 255, 255, 1) inset",
         "sm-primary": "0 1px 2px 0 var(--primary-light)",
+        top: '0px -4px 1px 0px rgb(0, 0, 0, 0.025)',
       },
       gridTemplateRows: {
         10: "repeat(10, minmax(0, 1fr))",

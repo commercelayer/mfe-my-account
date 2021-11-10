@@ -125,7 +125,7 @@ const Orders: NextPage = () => {
           </OrderListRow>
           <OrderListRow
             field="updated_at"
-            className="order-4 pb-5 text-right align-top md:py-5 xl:text-left"
+            className="order-4 pb-5 text-right align-top md:py-5 md:text-left"
           >
             {({ cell, order, ...p }) => {
               return cell.map((cell) => {

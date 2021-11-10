@@ -65,5 +65,5 @@ export const Title = styled.h1`
 `
 
 export const Email = styled.p`
-  ${tw`hidden text-sm text-gray-500 mr-3 font-medium lg:(inline)`}
+  ${tw`hidden text-sm text-gray-500 mr-3 font-medium md:(inline)`}
 `

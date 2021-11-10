@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next"
 import styled from "styled-components"
 import tw from "twin.macro"
 
+import Footer from "components/ui/Footer"
 import CreditCardIcon from "components/ui/icons/CreditCardIcon"
 import CustomerServiceIcon from "components/ui/icons/CustomerServiceIcon"
 import LocationIcon from "components/ui/icons/LocationIcon"
@@ -95,6 +96,9 @@ const Navbar: React.FC<Props> = ({ settings, onClick }) => {
         </EmailWrapper>
         <NavLink id="logout" {...menu.logout} />
       </Wrapper>
+      <DesktopOnly>
+        <Footer />
+      </DesktopOnly>
     </Sidebar>
   )
 }
@@ -106,7 +110,7 @@ const Sidebar = styled.div`
 `
 
 export const Wrapper = styled.div`
-  ${tw`xl:(mt-32 self-end)`}
+  ${tw`md:(mt-32 flex-1)`}
 `
 
 export const CustomerServiceWrapper = styled.div`
@@ -114,7 +118,7 @@ export const CustomerServiceWrapper = styled.div`
 `
 
 export const EmailWrapper = styled.div`
-  ${tw`text-sm mb-6 lg:(hidden)`}
+  ${tw`text-sm mb-6 md:(hidden)`}
 `
 
 export const Email = styled.span`
@@ -122,4 +126,7 @@ export const Email = styled.span`
 `
 export const Nav = styled.nav`
   ${tw`md:(mt-8) lg:(mt-16)`}
+`
+const DesktopOnly = styled.div`
+  ${tw`hidden md:(block)`}
 `
