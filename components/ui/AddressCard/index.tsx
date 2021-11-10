@@ -2,10 +2,8 @@ import CustomerAddressContext from "context/CustomerAddressContext"
 import { useContext, useState } from "react"
 import { useTranslation } from "react-i18next"
 
-import { LinkButton } from "../LinkButton"
-
 import {
-  StyledActionLinkButton,
+  EditButton,
   Wrapper,
   Customer,
   Address,
@@ -13,6 +11,10 @@ import {
   Actions,
   Text,
   Overlay,
+  ConfirmActions,
+  ConfirmCancel,
+  ConfirmDelete,
+  DeleteButton,
 } from "./styled"
 
 interface Props {
@@ -53,12 +55,12 @@ export const AddressCard: React.FC<Props> = ({
       {showDeleteConfirmation && (
         <Overlay>
           <Text>{t("addresses.deleteConfirmation")}</Text>
-          <div>
-            <StyledActionLinkButton type="delete" label={t("addresses.yes")} />
-            <a onClick={() => setShowDeleteConfirmation(false)}>
+          <ConfirmActions>
+            <ConfirmDelete type="delete" label={t("addresses.yes")} />
+            <ConfirmCancel onClick={() => setShowDeleteConfirmation(false)}>
               {t("addresses.no")}
-            </a>
-          </div>
+            </ConfirmCancel>
+          </ConfirmActions>
         </Overlay>
       )}
       <Customer data-cy={`fullname_${addressType}`}>
@@ -74,7 +76,7 @@ export const AddressCard: React.FC<Props> = ({
       </Address>
       <ActionsWrapper>
         <Actions>
-          <StyledActionLinkButton
+          <EditButton
             type="edit"
             variant="primary"
             label={editButton}
@@ -84,7 +86,7 @@ export const AddressCard: React.FC<Props> = ({
             }}
           />
 
-          <LinkButton
+          <DeleteButton
             onClick={() => setShowDeleteConfirmation(true)}
             variant="warning"
             label={deleteButton}

@@ -2,24 +2,9 @@ import { AddressField } from "@commercelayer/react-components"
 import styled from "styled-components"
 import tw from "twin.macro"
 
+import { LinkButton } from "../LinkButton"
+
 import { LinkButtonCss } from "components/ui/form/Button"
-
-interface StyledLinkButtonProps {
-  variant?: string
-}
-
-const buttonVariants = {
-  primary: tw`group-hover:(text-primary)`,
-  warning: tw`group-hover:(text-red-400 border-red-100)`,
-}
-
-export const StyledActionLinkButton = styled(
-  AddressField
-)<StyledLinkButtonProps>`
-  ${LinkButtonCss}
-
-  ${({ variant = "primary" }) => buttonVariants[variant]}
-`
 
 export const Wrapper = styled.div`
   ${tw`relative transition duration-500 ease-in h-36 px-5 pt-4 pb-2 border border-gray-350 rounded shadow-sm group-hover:(border-primary shadow-sm-primary)`}
@@ -45,5 +30,27 @@ export const Text = styled.p`
   ${tw`text-ss`}
 `
 export const Overlay = styled.div`
-  ${tw`absolute top-0 left-0 right-0 flex flex-col items-center justify-center h-full p-3 text-center text-white bg-gray-600 rounded bg-opacity-95`}
+  ${tw`absolute top-0 left-0 right-0 flex flex-col items-center justify-center h-full p-5 text-center text-white bg-gray-600 rounded-sm bg-opacity-95`}
+`
+
+export const ConfirmActions = styled.div`
+  ${tw`flex items-center justify-between w-full mt-3`}
+`
+
+export const EditButton = styled(AddressField)`
+  ${LinkButtonCss}
+  ${tw`group-hover:(text-primary)`}
+`
+
+export const DeleteButton = styled(LinkButton)`
+  ${tw``}
+`
+
+export const ConfirmDelete = styled(AddressField)`
+  ${LinkButtonCss}
+`
+
+export const ConfirmCancel = styled.a`
+  ${LinkButtonCss}
+  ${tw`px-4 py-4 text-black rounded-xl bg-contrast flex items-center`}
 `
