@@ -7,6 +7,7 @@ import tw from "twin.macro"
 interface Props {
   id: string
   title: string
+  description: string
   href: string
   accessToken: string
   icon: ReactNode
@@ -15,6 +16,7 @@ interface Props {
 
 const NavLink: React.FC<Props> = ({
   title,
+  description,
   href,
   accessToken,
   icon,
@@ -27,7 +29,10 @@ const NavLink: React.FC<Props> = ({
     <Link href={`${href}?accessToken=${accessToken}`}>
       <Wrapper isCurrentPage={isCurrentPage} onClick={onClick}>
         <Icon>{icon}</Icon>
-        {title}
+        <Wrapper2>
+          <Title>{title}</Title>
+          <Description>{description}</Description>
+        </Wrapper2>
       </Wrapper>
     </Link>
   )
@@ -40,10 +45,22 @@ interface WrapperProps {
 }
 
 export const Wrapper = styled.li<WrapperProps>`
-  ${tw`flex items-center text-md font-semibold h-14 text-gray-500 hover:(cursor-pointer) active:(bg-gray-100) xl:(w-64 self-end)`}
+  ${tw`flex h-14 items-center text-gray-500 hover:(cursor-pointer) active:(bg-gray-100) xl:(w-64 self-end)`}
   ${({ isCurrentPage }) => isCurrentPage && tw`text-black`}
 `
 
 export const Icon = styled.div`
-  ${tw`pr-3`}
+  ${tw`self-start pr-3 pt-2.5`}
+`
+
+export const Wrapper2 = styled.div`
+  ${tw`flex-col`}
+`
+
+export const Title = styled.p`
+  ${tw`text-md font-semibold`}
+`
+
+export const Description = styled.p`
+  ${tw`text-ss`}
 `

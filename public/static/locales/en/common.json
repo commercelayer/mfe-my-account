@@ -11,11 +11,17 @@
   },
   "menu": {
     "orders": "Orders",
+    "ordersDescription": "See your placed orders",
     "addresses": "Addresses",
+    "addressesDescription": "Manage your addresses",
     "wallet": "Wallet",
+    "walletDescription": "Manage your payment methods",
     "returns": "Returns",
+    "returnsDescription": "Return a product",
     "customerService": "Customer Service",
+    "customerServiceDescription": "Get help from the seller",
     "logout": "Logout",
+    "logoutDescription": "Logout from this account",
     "loggedInAs": "Logged in as:"
   },
   "header": {
