@@ -27,7 +27,7 @@ export const FormButtons = styled.div`
 `
 
 export const DiscardChanges = styled.div<DiscardChanges>`
-  ${tw`inline-flex text-ss text-primary font-bold hover:(cursor-pointer)`}
+  ${tw`inline-flex text-ss text-red-400 border-red-100 font-bold hover:(cursor-pointer)`}
 `
 
 export const SaveButton = styled(SaveAddressesButton)`
