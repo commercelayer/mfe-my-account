@@ -34,7 +34,7 @@ export const Overlay = styled.div`
 `
 
 export const ConfirmActions = styled.div`
-  ${tw`flex items-center justify-between w-full mt-3`}
+  ${tw`flex justify-center w-full mt-3 px-5`}
 `
 
 export const EditButton = styled(AddressField)`
@@ -43,14 +43,16 @@ export const EditButton = styled(AddressField)`
 `
 
 export const DeleteButton = styled(LinkButton)`
-  ${tw``}
+  ${LinkButtonCss}
+  ${tw`group-hover:(text-primary) bg-white`}
 `
 
 export const ConfirmDelete = styled(AddressField)`
   ${LinkButtonCss}
+  ${tw`px-4 py-4 text-black rounded-xl bg-contrast flex items-center mx-0.5`}
 `
 
 export const ConfirmCancel = styled.a`
   ${LinkButtonCss}
-  ${tw`px-4 py-4 text-black rounded-xl bg-contrast flex items-center`}
+  ${tw`px-4 py-4 text-black rounded-xl bg-contrast flex items-center mx-0.5`}
 `
