@@ -7,19 +7,19 @@ import { LinkButton } from "../LinkButton"
 import { LinkButtonCss } from "components/ui/form/Button"
 
 export const Wrapper = styled.div`
-  ${tw`relative transition duration-500 ease-in h-36 px-5 pt-4 pb-2 border border-gray-350 rounded shadow-sm group-hover:(border-primary shadow-sm-primary)`}
+  ${tw`relative transition duration-200 ease-in h-36 px-5 pt-4 pb-2 border border-gray-350 rounded shadow-sm group-hover:(border-primary shadow-sm-primary)`}
 `
 
 export const Customer = styled.p`
-  ${tw`font-semibold text-md`}
+  ${tw`font-bold text-md`}
 `
 
 export const Address = styled.p`
-  ${tw`text-ss font-thin text-gray-500`}
+  ${tw`text-sm text-gray-600`}
 `
 
 export const ActionsWrapper = styled.div`
-  ${tw`flex flex-col justify-end h-10`}
+  ${tw`flex flex-col justify-end pt-4`}
 `
 
 export const Actions = styled.div`
@@ -49,10 +49,10 @@ export const DeleteButton = styled(LinkButton)`
 
 export const ConfirmDelete = styled(AddressField)`
   ${LinkButtonCss}
-  ${tw`px-4 py-4 text-black rounded-xl bg-contrast flex items-center mx-0.5`}
+  ${tw`px-4 py-4 text-black rounded-xl bg-contrast flex items-center justify-center mx-0.5 w-14`}
 `
 
 export const ConfirmCancel = styled.a`
   ${LinkButtonCss}
-  ${tw`px-4 py-4 text-black rounded-xl bg-contrast flex items-center mx-0.5`}
+  ${tw`px-4 py-4 text-black rounded-xl bg-contrast flex items-center justify-center mx-0.5 w-14`}
 `

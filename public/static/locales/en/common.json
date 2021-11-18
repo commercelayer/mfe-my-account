@@ -58,7 +58,7 @@
     "title": "My addresses",
     "edit": "Edit",
     "delete": "Delete",
-    "addNewAddress":"New address",
+    "addNewAddress":"Add new address",
     "deleteConfirmation": "Are you sure you want to delete this address?",
     "yes": "Yes",
     "no": "No"
