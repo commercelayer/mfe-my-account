@@ -25,11 +25,12 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
   let endpoint: string
   try {
+    console.log(jwt_decode(accessToken))
     const slug = (jwt_decode(accessToken) as JWTProps).organization.slug
     if (slug) {
-      endpoint = `https://${slug}.${process.env.NEXT_PUBLIC_CLAYER_HOSTNAME}`
+      endpoint = `https://${slug}.${process.env.NEXT_PUBLIC_DOMAIN}`
     } else {
-      endpoint = process.env.NEXT_PUBLIC_CLAYER_DOMAIN
+      return res.json({ validUserArea: false })
     }
   } catch (e) {
     console.log(`error decoding access token: ${e}`)

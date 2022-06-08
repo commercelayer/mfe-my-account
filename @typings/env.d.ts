@@ -2,8 +2,9 @@ declare global {
   namespace NodeJS {
     interface ProcessEnv {
       PORT: number
-      NEXT_PUBLIC_CLAYER_DOMAIN: string
-      NEXT_PUBLIC_CLAYER_HOSTNAME: string
+      NEXT_PUBLIC_BASE_PATH: string
+      NEXT_PUBLIC_DOMAIN: string
+      NEXT_PUBLIC_HOSTED: string
     }
   }
 }

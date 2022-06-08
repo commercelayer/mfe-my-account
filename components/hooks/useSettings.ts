@@ -13,7 +13,9 @@ export const useSettings = (): UseSettings => {
   const { accessToken } = router.query
 
   const { data, error } = useSWR(
-    router.isReady ? `/api/settings?accessToken=${accessToken}` : null,
+    router.isReady
+      ? `${process.env.NEXT_PUBLIC_BASE_PATH}/api/settings?accessToken=${accessToken}`
+      : null,
     fetcher
   )
 
