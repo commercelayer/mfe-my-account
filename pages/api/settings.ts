@@ -1,6 +1,5 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import CommerceLayer from "@commercelayer/sdk"
-import { Settings, InvalidSettings } from "HostedApp"
 import { getInfoFromJwt } from "utils/getInfoFromJwt"
 import { getOrganizationsDetails } from "utils/getOrganizationDetails"
 import type { NextApiRequest, NextApiResponse } from "next"
@@ -17,16 +16,18 @@ interface JWTProps {
   }
 }
 
-export const defaultSettings: InvalidSettings = {
+export const defaultSettings: InvalidCustomerSettings = {
   isValid: false,
-  primaryColor: "#000000",
+  primaryColor: BLACK_COLOR,
   language: "en",
+  logoUrl: "https://placeholder.com/wp-content/uploads/2018/10/placeholder.com-logo1.png",
   favicon: `${process.env.NEXT_PUBLIC_BASE_PATH}/favicon.png`,
   companyName: "Commerce Layer",
-  retryable: false
+  retryable: false,
+  gtmId: "GTM-TGCQ5BM"
 }
 
-const makeInvalidSettings = (retryable?: boolean): InvalidSettings => ({
+const makeInvalidSettings = (retryable?: boolean): InvalidCustomerSettings => ({
   ...defaultSettings,
   retryable: !!retryable,
 })
@@ -83,14 +84,12 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     endpoint,
     customerId,
     validUserArea: true,
-    logoUrl:
-      organization?.logo_url ||
-      "https://placeholder.com/wp-content/uploads/2018/10/placeholder.com-logo1.png",
-    companyName: organization?.name || "Test company",
-    language: "en",
-    primaryColor: hex2hsl(organization?.primary_color as string) || BLACK_COLOR,
-    favicon: organization?.favicon_url || "/favicon.png",
-    gtmId: organization?.gtm_id || "GTM-TGCQ5BM",
+    companyName: organization?.name || defaultSettings.companyName,
+    language: defaultSettings.language,
+    primaryColor: hex2hsl(organization?.primary_color as string) || defaultSettings.primaryColor,
+    logoUrl: organization?.logo_url || defaultSettings.logoUrl,
+    favicon: organization?.favicon_url || defaultSettings.favicon,
+    gtmId: organization?.gtm_id || defaultSettings.gtmId,
   }
   res.statusCode = 200
 
