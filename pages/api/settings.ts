@@ -20,11 +20,10 @@ export const defaultSettings: InvalidCustomerSettings = {
   isValid: false,
   primaryColor: BLACK_COLOR,
   language: "en",
-  logoUrl: "https://placeholder.com/wp-content/uploads/2018/10/placeholder.com-logo1.png",
+  logoUrl: undefined,
   favicon: `${process.env.NEXT_PUBLIC_BASE_PATH}/favicon.png`,
   companyName: "Commerce Layer",
-  retryable: false,
-  gtmId: "GTM-TGCQ5BM"
+  retryable: false
 }
 
 const makeInvalidSettings = (retryable?: boolean): InvalidCustomerSettings => ({
@@ -86,7 +85,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     primaryColor: hex2hsl(organization?.primary_color as string) || defaultSettings.primaryColor,
     logoUrl: organization?.logo_url || defaultSettings.logoUrl,
     favicon: organization?.favicon_url || defaultSettings.favicon,
-    gtmId: organization?.gtm_id || defaultSettings.gtmId,
+    gtmId: organization?.gtm_id,
   }
   res.statusCode = 200
 
