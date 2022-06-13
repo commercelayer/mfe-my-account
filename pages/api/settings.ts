@@ -70,9 +70,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   ])
 
   const organization = organizationResponse?.object
-  if (!organization) {
-    return makeInvalidSettings(!organizationResponse?.bailed)
-  }
 
   if (!customerId || !organization) {
     res.statusCode = 200
