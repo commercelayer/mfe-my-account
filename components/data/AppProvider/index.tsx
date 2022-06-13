@@ -1,11 +1,11 @@
 import { createContext, useState, useEffect } from "react"
+import CommerceLayer from "@commercelayer/sdk"
+import { getInfoFromJwt } from "utils/getInfoFromJwt"
+import { getCustomerDetails } from "utils/getCustomerDetails"
 
-import {
-  fetchCustomerById,
-  FetchCustomerByIdResponse,
-} from "./fetchCustomerById"
-
-interface AppProviderData extends FetchCustomerByIdResponse {
+interface AppProviderData {
+  email: string
+  hasPassword: boolean
   isLoading: boolean
   customerId: string
   accessToken: string
@@ -14,7 +14,9 @@ interface AppProviderData extends FetchCustomerByIdResponse {
   refetchCustomer: () => Promise<void>
 }
 
-interface AppStateData extends FetchCustomerByIdResponse {
+interface AppStateData {
+  email: string
+  hasPassword: boolean
   isLoading: boolean
   isFirstLoading: boolean
 }
@@ -51,13 +53,31 @@ export const AppProvider: React.FC<AppProviderProps> = ({
     }
     setState({ ...state, isLoading: true })
 
-    return await fetchCustomerById({ customerId, accessToken, endpoint }).then(
-      (newState) => {
-        console.log("newState")
-        console.log(newState)
-        setState({ ...newState, isLoading: false, isFirstLoading: false })
-      }
-    )
+    const { slug } = getInfoFromJwt(accessToken)
+    if (!slug) {
+      return
+    }
+
+    const domain = process.env.NEXT_PUBLIC_DOMAIN || "commercelayer.io"
+
+    const client = CommerceLayer({
+      organization: slug,
+      accessToken,
+      domain,
+    })
+
+    return await getCustomerDetails({
+      client,
+      customerId
+    }).then((customerResponse) => {
+      const customer = customerResponse?.object
+      setState({
+        email: customer && customer.email !== undefined ? customer.email : '',
+        hasPassword: customer && customer.has_password !== undefined ? customer.has_password : false,
+        isLoading: false,
+        isFirstLoading: false
+      })
+    })
   }
 
   useEffect(() => {
