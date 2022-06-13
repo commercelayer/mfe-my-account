@@ -29,3 +29,11 @@ type CustomerPageContextProps = Pick<
   | "favicon"
   | "gtmId"
 >
+
+type InvalidCustomerSettings = Pick<
+  CustomerSettings,
+  "primaryColor" | "language" | "favicon" | "companyName" | "logoUrl" | "gtmId"
+> & {
+  isValid: false
+  retryable: boolean
+}
