@@ -9,12 +9,12 @@ interface CustomerSettings {
   customerId: string
   validUserArea: boolean
   endpoint: string
-  logoUrl: string
+  logoUrl?: string
   companyName: string
   language: string
   primaryColor: HSLProps
   favicon: string
-  gtmId: string
+  gtmId?: string
 }
 
 type CustomerPageContextProps = Pick<
@@ -29,3 +29,11 @@ type CustomerPageContextProps = Pick<
   | "favicon"
   | "gtmId"
 >
+
+type InvalidCustomerSettings = Pick<
+  CustomerSettings,
+  "primaryColor" | "language" | "favicon" | "companyName" | "logoUrl"
+> & {
+  isValid: false
+  retryable: boolean
+}

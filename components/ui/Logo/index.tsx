@@ -8,7 +8,7 @@ interface Props {
 }
 
 const Logo: React.FC<Props> = ({ logoUrl, companyName, className }) => {
-  return <Image src={logoUrl} alt={companyName} className={className} />
+  return logoUrl.length ? <Image src={logoUrl} alt={companyName} className={className} /> : <span className="uppercase">{companyName}</span>
 }
 
 export default Logo

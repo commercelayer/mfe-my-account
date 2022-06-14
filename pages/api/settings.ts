@@ -1,6 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import CLayer, { Organization } from "@commercelayer/js-sdk"
-import jwt_decode from "jwt-decode"
+import CommerceLayer from "@commercelayer/sdk"
+import { getInfoFromJwt } from "utils/getInfoFromJwt"
+import { getOrganizationsDetails } from "utils/getOrganizationDetails"
 import type { NextApiRequest, NextApiResponse } from "next"
 
 import hex2hsl, { BLACK_COLOR } from "components/utils/hex2hsl"
@@ -15,6 +16,20 @@ interface JWTProps {
   }
 }
 
+export const defaultSettings: InvalidCustomerSettings = {
+  isValid: false,
+  primaryColor: BLACK_COLOR,
+  language: "en",
+  favicon: `${process.env.NEXT_PUBLIC_BASE_PATH}/favicon.png`,
+  companyName: "Commerce Layer",
+  retryable: false
+}
+
+const makeInvalidSettings = (retryable?: boolean): InvalidCustomerSettings => ({
+  ...defaultSettings,
+  retryable: !!retryable,
+})
+
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const accessToken = req.query.accessToken as string
 
@@ -23,10 +38,10 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     return res.json({ validUserArea: false })
   }
 
+  const { slug, customerId, isTest } = getInfoFromJwt(accessToken)
+
   let endpoint: string
   try {
-    console.log(jwt_decode(accessToken))
-    const slug = (jwt_decode(accessToken) as JWTProps).organization.slug
     if (slug) {
       endpoint = `https://${slug}.${process.env.NEXT_PUBLIC_DOMAIN}`
     } else {
@@ -38,32 +53,21 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     return res.json({ validUserArea: false })
   }
 
-  CLayer.init({
+  const domain = process.env.NEXT_PUBLIC_DOMAIN || "commercelayer.io"
+
+  const client = CommerceLayer({
+    organization: slug,
     accessToken,
-    endpoint,
+    domain,
   })
 
-  let customerId = ""
-  try {
-    customerId = (jwt_decode(accessToken) as JWTProps).owner.id
-  } catch (e) {
-    console.log("error on decoding token:")
-    console.log(e)
-    console.log("access token:")
-    console.log(accessToken)
-    console.log("customerId")
-    console.log(customerId)
-    console.log("endpoint")
-    console.log(endpoint)
-  }
+  const [organizationResponse] = await Promise.all([
+    getOrganizationsDetails({
+      client,
+    })
+  ])
 
-  let organization
-  try {
-    organization = await Organization.all()
-  } catch (e) {
-    console.log("error on retrieving organization:")
-    console.log(e)
-  }
+  const organization = organizationResponse?.object
 
   if (!customerId || !organization) {
     res.statusCode = 200
@@ -75,14 +79,12 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     endpoint,
     customerId,
     validUserArea: true,
-    logoUrl:
-      organization?.logoUrl ||
-      "https://placeholder.com/wp-content/uploads/2018/10/placeholder.com-logo1.png",
-    companyName: organization?.name || "Test company",
-    language: "en",
-    primaryColor: hex2hsl(organization?.primaryColor as string) || BLACK_COLOR,
-    favicon: organization?.faviconUrl || "/favicon.png",
-    gtmId: organization?.gtmId || "GTM-TGCQ5BM",
+    companyName: organization?.name || defaultSettings.companyName,
+    language: defaultSettings.language,
+    primaryColor: hex2hsl(organization?.primary_color as string) || defaultSettings.primaryColor,
+    logoUrl: organization?.logo_url || '',
+    favicon: organization?.favicon_url || defaultSettings.favicon,
+    gtmId: isTest ? organization?.gtm_id_test : organization?.gtm_id,
   }
   res.statusCode = 200
 
