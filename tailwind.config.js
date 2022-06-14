@@ -2,8 +2,7 @@ const colors = require("tailwindcss/colors")
 const defaultTheme = require("tailwindcss/defaultTheme")
 
 module.exports = {
-  purge: ["./components/**/*.{js,ts,jsx,tsx}", "./pages/**/*.{js,ts,jsx,tsx}"],
-  darkMode: false,
+  content: ["./components/**/*.{js,ts,jsx,tsx}", "./pages/**/*.{js,ts,jsx,tsx}"],
   theme: {
     container: {
       screens: {
@@ -91,12 +90,6 @@ module.exports = {
         9: "9",
         10: "10",
       },
-    },
-  },
-  variants: {
-    extend: {
-      textColor: ["group-focus"],
-      maxHeight: ["group-focus"],
     },
   },
   plugins: [

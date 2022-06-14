@@ -44,12 +44,12 @@ export default Addresses
 
 const addressesTransition = {
   enter: "transition easy-out duration-500",
-  enterFrom: "transform opacity-0",
-  enterTo: "transform opacity-100",
+  enterFrom: "opacity-0",
+  enterTo: "opacity-100",
 }
 
 const formTransition = {
   enter: "transition easy-out duration-700",
-  enterFrom: "transform opacity-0 translate-y-14",
-  enterTo: "transform opacity-100 translate-y-0",
+  enterFrom: "opacity-0 translate-y-14",
+  enterTo: "opacity-100 translate-y-0",
 }

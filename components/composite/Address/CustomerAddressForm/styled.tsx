@@ -7,7 +7,7 @@ import styled from "styled-components"
 import tw from "twin.macro"
 
 export const Wrapper = styled.div`
-  ${tw`mt-0 absolute top-0 transform translate-y-5 opacity-0`}
+  ${tw`mt-0 absolute top-0 translate-y-5 opacity-0`}
 `
 
 export const Form = styled(CustomerAddressForm)`
@@ -35,5 +35,5 @@ export const SaveButton = styled(SaveAddressesButton)`
 `
 
 export const Text = styled.p`
-  ${tw`ml-1.5 border-b border-green-600 border-opacity-10 w-min md:w-auto`}
+  ${tw`ml-1.5 border-b border-green-600 border-gray-200/10 w-min md:w-auto`}
 `

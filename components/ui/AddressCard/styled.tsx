@@ -30,7 +30,7 @@ export const Text = styled.p`
   ${tw`text-ss`}
 `
 export const Overlay = styled.div`
-  ${tw`absolute top-0 left-0 right-0 flex flex-col items-center justify-center h-full p-5 text-center text-white bg-gray-600 rounded-sm bg-opacity-95`}
+  ${tw`absolute top-0 left-0 right-0 flex flex-col items-center justify-center h-full p-5 text-center text-white bg-gray-600 rounded-sm bg-black/95`}
 `
 
 export const ConfirmActions = styled.div`
