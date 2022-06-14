@@ -38,7 +38,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     return res.json({ validUserArea: false })
   }
 
-  const { slug, customerId } = getInfoFromJwt(accessToken)
+  const { slug, customerId, isTest } = getInfoFromJwt(accessToken)
 
   let endpoint: string
   try {
@@ -84,7 +84,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     primaryColor: hex2hsl(organization?.primary_color as string) || defaultSettings.primaryColor,
     logoUrl: organization?.logo_url || '',
     favicon: organization?.favicon_url || defaultSettings.favicon,
-    gtmId: organization?.gtm_id,
+    gtmId: isTest ? organization?.gtm_id_test : organization?.gtm_id,
   }
   res.statusCode = 200
 
