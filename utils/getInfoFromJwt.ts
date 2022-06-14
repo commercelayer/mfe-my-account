@@ -4,9 +4,9 @@ interface JWTProps {
   organization: {
     slug: string
     id: string
-  }
-  owner: {
-    id: string
+  },
+  owner?: {
+    id?: string
   },
   test: boolean
 }
@@ -15,10 +15,10 @@ export const getInfoFromJwt = (accessToken: string) => {
   try {
     const {
       organization: { slug },
-      owner: { id },
+      owner,
       test
     } = jwtDecode(accessToken) as JWTProps
-    return { slug, customerId: id, isTest: test }
+    return { slug, customerId: owner?.id, isTest: test }
   } catch (e) {
     return {}
   }
