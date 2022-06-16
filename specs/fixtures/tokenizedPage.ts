@@ -37,9 +37,9 @@ type FixtureType = {
 }
 
 const getToken = async (market?: string) => {
-  const clientId = process.env.NEXT_PUBLIC_CLIENT_ID as string
-  const endpoint = process.env.NEXT_PUBLIC_ENDPOINT as string
-  const scope = market || (process.env.NEXT_PUBLIC_SCOPE as string)
+  const clientId = process.env.E2E_CLIENT_ID as string
+  const endpoint = process.env.E2E_ENDPOINT as string
+  const scope = market || (process.env.E2E_SCOPE as string)
 
   const data = await getSalesChannelToken({
     clientId,
@@ -51,7 +51,7 @@ const getToken = async (market?: string) => {
 
 const getClient = async (token: string) => {
   return CommerceLayer({
-    organization: process.env.NEXT_PUBLIC_SLUG as string,
+    organization: process.env.E2E_SLUG as string,
     accessToken: token,
     domain: process.env.NEXT_PUBLIC_DOMAIN
   })
@@ -75,9 +75,9 @@ const getCustomerUserToken = async ({
   if (existingUser.length === 0) {
     await cl.customers.create({ email, password })
   }
-  const clientId = process.env.NEXT_PUBLIC_CLIENT_ID as string
-  const endpoint = process.env.NEXT_PUBLIC_ENDPOINT as string
-  const scope = process.env.NEXT_PUBLIC_SCOPE as string
+  const clientId = process.env.E2E_CLIENT_ID as string
+  const endpoint = process.env.E2E_ENDPOINT as string
+  const scope = process.env.E2E_SCOPE as string
 
   const data = await getCustomerToken(
     {
@@ -94,11 +94,11 @@ const getCustomerUserToken = async ({
 }
 
 const getSuperToken = async () => {
-  const clientId = process.env.NEXT_PUBLIC_INTEGRATION_CLIENT_ID as string
+  const clientId = process.env.E2E_INTEGRATION_CLIENT_ID as string
   const clientSecret = process.env
-    .NEXT_PUBLIC_INTEGRATION_CLIENT_SECRET as string
-  const endpoint = process.env.NEXT_PUBLIC_ENDPOINT as string
-  const scope = process.env.NEXT_PUBLIC_SCOPE as string
+    .E2E_INTEGRATION_CLIENT_SECRET as string
+  const endpoint = process.env.E2E_ENDPOINT as string
+  const scope = process.env.E2E_SCOPE as string
   const data = await getIntegrationToken({
     clientId,
     clientSecret,
@@ -109,7 +109,7 @@ const getSuperToken = async () => {
 }
 
 export const test = base.extend<FixtureType>({
-  defaultParams: { customer: { email: process.env.NEXT_PUBLIC_CUSTOMER_USERNAME as string, password: process.env.NEXT_PUBLIC_CUSTOMER_PASSWORD as string } },
+  defaultParams: { customer: { email: process.env.E2E_CUSTOMER_USERNAME as string, password: process.env.E2E_CUSTOMER_PASSWORD as string } },
   ordersPage: async ({ page, defaultParams }, use) => {
     const token = await (defaultParams.customer
       ? getCustomerUserToken(defaultParams.customer)
