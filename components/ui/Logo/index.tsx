@@ -2,17 +2,24 @@ import styled from "styled-components"
 import tw from "twin.macro"
 
 interface Props {
-  logoUrl: string
+  logoUrl?: string
   companyName: string
   className?: string
 }
 
 const Logo: React.FC<Props> = ({ logoUrl, companyName, className }) => {
-  return logoUrl.length ? <Image src={logoUrl} alt={companyName} className={className} /> : <span className="uppercase">{companyName}</span>
+  if (logoUrl) {
+    return <Image src={logoUrl} alt={companyName} className={className} />
+  }
+  return <Label className={className}>{companyName}</Label>
 }
 
 export default Logo
 
 const Image = styled.img`
-  ${tw`w-52 max-w-full`}
+  ${tw`w-60 max-w-full mb-5 md:mb-10`}
+`
+
+const Label = styled.h1`
+  ${tw`mb-5 md:mb-12 font-extrabold uppercase tracking-wide text-xl text-black`}
 `
