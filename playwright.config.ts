@@ -1,38 +1,22 @@
-import type { PlaywrightTestConfig } from "@playwright/test"
-import { devices } from "@playwright/test"
+import { PlaywrightTestConfig, devices } from "@playwright/test"
 import dotenv from "dotenv"
 
 import path from "path"
 
-/**
- * Read environment variables from file.
- * https://github.com/motdotla/dotenv
- */
-dotenv.config({ path: path.resolve(__dirname, ".env.local") })
+dotenv.config({ path: path.resolve(__dirname, "../../.env.local") })
 
-/**
- * See https://playwright.dev/docs/test-configuration.
- */
+// Reference: https://playwright.dev/docs/test-configuration
 const config: PlaywrightTestConfig = {
-  testDir: "./specs",
-  /* Maximum time one test can run for. */
-  timeout: 30 * 1000,
-  expect: {
-    /**
-     * Maximum time expect() should wait for the condition to be met.
-     * For example in `await expect(locator).toHaveText();`
-     */
-    timeout: 5000,
-  },
-  /* Fail the build on CI if you accidentally left test.only in the source code. */
-  forbidOnly: !!process.env.CI,
-  /* Retry on CI only */
-  retries: process.env.CI ? 2 : 0,
-  /* Opt out of parallel tests on CI. */
-  workers: process.env.CI ? 1 : undefined,
-  /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: "html",
-  /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
+  // Timeout per test
+  timeout: 60 * 1000,
+  // Test directory
+  testDir: "specs/e2e",
+  // If a test fails, retry it additional 2 times
+  retries: 0,
+  // Artifacts folder where screenshots, videos, and traces are stored.
+  outputDir: "test-results/",
+  workers: 1,
+  maxFailures: 2,
 
   // Run your local dev server before starting the tests:
   // https://playwright.dev/docs/test-advanced#launching-a-development-web-server-during-the-tests
@@ -48,73 +32,37 @@ const config: PlaywrightTestConfig = {
     // More information: https://playwright.dev/docs/trace-viewer
     trace: "retry-with-trace",
     headless: false,
-    viewport: { width: 1280, height: 900 },
+    viewport: { width: 1280, height: 720 },
     ignoreHTTPSErrors: true,
     // Artifacts
     screenshot: "only-on-failure",
     video: "retry-with-video",
   },
 
-  /* Configure projects for major browsers */
   projects: [
     {
-      name: "chromium",
+      name: "Chromium",
       use: {
-        ...devices["Desktop Chrome"],
+        // Configure the browser to use.
+        browserName: "chromium",
+        // Any Chromium-specific options.
+        viewport: { width: 1200, height: 900 },
+        baseURL: process.env.NEXT_PUBLIC_BASE_URL,
+        launchOptions: {
+          // logger: {
+          //   isEnabled: (name, severity) => true,
+          //   log: (name, severity, message, args) =>
+          //     console.log(name, severity, message, args),
+          // },
+          // slowMo: 100,
+          // devtools: true,
+        },
       },
     },
-
     // {
-    //   name: "firefox",
-    //   use: {
-    //     ...devices["Desktop Firefox"],
-    //   },
-    // },
-
-    // {
-    //   name: 'webkit',
-    //   use: {
-    //     ...devices['Desktop Safari'],
-    //   },
-    // },
-
-    /* Test against mobile viewports. */
-    // {
-    //   name: 'Mobile Chrome',
-    //   use: {
-    //     ...devices['Pixel 5'],
-    //   },
-    // },
-    // {
-    //   name: 'Mobile Safari',
-    //   use: {
-    //     ...devices['iPhone 12'],
-    //   },
-    // },
-
-    /* Test against branded browsers. */
-    // {
-    //   name: 'Microsoft Edge',
-    //   use: {
-    //     channel: 'msedge',
-    //   },
-    // },
-    // {
-    //   name: 'Google Chrome',
-    //   use: {
-    //     channel: 'chrome',
-    //   },
+    //   name: "Mobile Safari",
+    //   use: devices["iPhone 12"],
     // },
   ],
-
-  /* Folder for test artifacts such as screenshots, videos, traces, etc. */
-  // outputDir: 'test-results/',
-
-  /* Run your local dev server before starting the tests */
-  // webServer: {
-  //   command: 'npm run start',
-  //   port: 3000,
-  // },
 }
-
 export default config
