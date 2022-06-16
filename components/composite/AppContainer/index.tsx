@@ -1,3 +1,4 @@
+import { GlobalStylesProvider } from "@commercelayer/react-utils"
 import {
   CommerceLayer,
   CustomerContainer,
@@ -10,23 +11,6 @@ import Navbar from "components/composite/Navbar"
 import { AppProvider } from "components/data/AppProvider"
 import { LayoutDefault } from "components/layouts/LayoutDefault"
 
-interface GlobalStyleProps {
-  primary: HSLProps
-}
-
-const GlobalCssStyle = createGlobalStyle<GlobalStyleProps>`
-  :root {
-    --primary-h: ${({ primary }) => primary.h};
-    --primary-s: ${({ primary }) => primary.s};
-    --primary-l: ${({ primary }) => primary.l};
-    --primary: hsl(var(--primary-h), var(--primary-s), var(--primary-l));
-    --primary-light: hsla(var(--primary-h), var(--primary-s), var(--primary-l), 0.1);
-    --primary-dark: hsl(var(--primary-h), var(--primary-s), calc(var(--primary-l) * 0.5));
-    --contrast-threshold: 50%;
-    --switch: calc((var(--primary-l) - var(--contrast-threshold)) * -10000);
-    --contrast: hsl(0, 0%, var(--switch));
-  }
-`
 interface Props {
   settings: CustomerSettings
 }
@@ -44,14 +28,7 @@ const AppContainer: React.FC<Props> = ({ settings, children }) => {
         accessToken={settings.accessToken}
         endpoint={settings.endpoint}
       >
-        <GlobalCssStyle primary={settings.primaryColor} />
-        <ThemeProvider
-          theme={{
-            colors: {
-              primary: settings.primaryColor,
-            },
-          }}
-        >
+        <GlobalStylesProvider primaryColor={settings.primaryColor}>
           <AppProvider
             customerId={settings.customerId}
             accessToken={settings.accessToken}
@@ -65,7 +42,7 @@ const AppContainer: React.FC<Props> = ({ settings, children }) => {
               />
             </CustomerContainer>
           </AppProvider>
-        </ThemeProvider>
+        </GlobalStylesProvider>
       </CommerceLayer>
     </div>
   )

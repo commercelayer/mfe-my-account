@@ -1,9 +1,3 @@
-interface HSLProps {
-  h: number
-  s: string
-  l: string
-}
-
 interface CustomerSettings {
   accessToken: string
   customerId: string
@@ -12,7 +6,7 @@ interface CustomerSettings {
   logoUrl?: string
   companyName: string
   language: string
-  primaryColor: HSLProps
+  primaryColor: string
   favicon: string
   gtmId?: string
 }

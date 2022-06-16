@@ -4,8 +4,6 @@ import { getInfoFromJwt } from "utils/getInfoFromJwt"
 import { getOrganizationsDetails } from "utils/getOrganizationDetails"
 import type { NextApiRequest, NextApiResponse } from "next"
 
-import hex2hsl, { BLACK_COLOR } from "components/utils/hex2hsl"
-
 interface JWTProps {
   organization: {
     slug: string
@@ -18,7 +16,7 @@ interface JWTProps {
 
 export const defaultSettings: InvalidCustomerSettings = {
   isValid: false,
-  primaryColor: BLACK_COLOR,
+  primaryColor: '#000000',
   language: "en",
   favicon: `${process.env.NEXT_PUBLIC_BASE_PATH}/favicon.png`,
   companyName: "Commerce Layer",
@@ -81,7 +79,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     validUserArea: true,
     companyName: organization?.name || defaultSettings.companyName,
     language: defaultSettings.language,
-    primaryColor: hex2hsl(organization?.primary_color as string) || defaultSettings.primaryColor,
+    primaryColor: organization?.primary_color as string || defaultSettings.primaryColor,
     logoUrl: organization?.logo_url || '',
     favicon: organization?.favicon_url || defaultSettings.favicon,
     gtmId: isTest ? organization?.gtm_id_test : organization?.gtm_id,
