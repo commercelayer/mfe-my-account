@@ -28,8 +28,8 @@ const AppContainer: React.FC<Props> = ({ settings, children }) => {
         accessToken={settings.accessToken}
         endpoint={settings.endpoint}
       >
-        <BaseStyles />
         <GlobalStylesProvider primaryColor={settings.primaryColor}>
+          <BaseStyles />
           <AppProvider
             customerId={settings.customerId}
             accessToken={settings.accessToken}
