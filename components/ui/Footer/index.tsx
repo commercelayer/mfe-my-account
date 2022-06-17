@@ -21,7 +21,7 @@ const Footer: React.FC<Props> = ({ termsUrl, privacyUrl }) => {
         className="group"
       >
         <LogoWrapper>
-          Powered by <Logo width="114" height="19" tw="pl-2" />
+          Powered by <Logo width="135" height="22" className="pl-2" />
         </LogoWrapper>
       </a>
       {(termsUrl || privacyUrl) && (
@@ -60,7 +60,7 @@ const Wrapper = styled.div`
   }
 `
 const LogoWrapper = styled.div`
-  ${tw`flex`}
+  ${tw`flex items-center`}
 `
 const ListWrapper = styled.div`
   ${tw`overflow-hidden`}
