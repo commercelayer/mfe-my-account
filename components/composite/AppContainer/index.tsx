@@ -5,7 +5,7 @@ import {
 } from "@commercelayer/react-components"
 import Head from "next/head"
 import { useTranslation } from "react-i18next"
-import { createGlobalStyle, ThemeProvider } from "styled-components"
+import { GlobalStyles as BaseStyles } from "twin.macro"
 
 import Navbar from "components/composite/Navbar"
 import { AppProvider } from "components/data/AppProvider"
@@ -28,6 +28,7 @@ const AppContainer: React.FC<Props> = ({ settings, children }) => {
         accessToken={settings.accessToken}
         endpoint={settings.endpoint}
       >
+        <BaseStyles />
         <GlobalStylesProvider primaryColor={settings.primaryColor}>
           <AppProvider
             customerId={settings.customerId}
