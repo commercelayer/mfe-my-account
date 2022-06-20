@@ -1,6 +1,6 @@
 {
   "general": {
-      "title": "Commerce Layer - Area Utente (IT)",
+      "title": "{{companyName}} - Area Utente",
       "invalid": "Quest'URL non è più accessibile."
   },
   "orders": {

@@ -1,6 +1,6 @@
 {
   "general": {
-      "title": "Commerce Layer - User Area (EN)",
+      "title": "{{companyName}} - User Area",
       "invalid": "This URL is no longer accessible.",
       "privacy_link": "Privacy",
       "terms_link": "Terms"
