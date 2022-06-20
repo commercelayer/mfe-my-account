@@ -91,9 +91,7 @@ const Navbar: React.FC<Props> = ({ settings, onClick }) => {
         </ul>
       </Nav>
       <Wrapper>
-        <CustomerServiceWrapper>
-          <NavLink id="customerService" {...menu.customerService} />
-        </CustomerServiceWrapper>
+        <NavLink id="customerService" {...menu.customerService} />
         <EmailWrapper>
           {t("menu.loggedInAs")}
           <Email>
@@ -102,9 +100,6 @@ const Navbar: React.FC<Props> = ({ settings, onClick }) => {
         </EmailWrapper>
         <NavLink id="logout" {...menu.logout} />
       </Wrapper>
-      <DesktopOnly>
-        <Footer />
-      </DesktopOnly>
     </Sidebar>
   )
 }
@@ -117,10 +112,6 @@ const Sidebar = styled.div`
 
 export const Wrapper = styled.div`
   ${tw`md:(mt-32 flex-1)`}
-`
-
-export const CustomerServiceWrapper = styled.div`
-  ${tw`border-t border-b border-gray-300 py-1 mt-3 mb-8 xl:(border-none my-0)`}
 `
 
 export const EmailWrapper = styled.div`
