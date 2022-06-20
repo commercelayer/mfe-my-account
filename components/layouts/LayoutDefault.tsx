@@ -42,9 +42,7 @@ export const LayoutDefault: React.FC<Props> = ({ main, aside, settings }) => {
                 setShowMobileMenu={setShowMobileMenu}
               />
               {main}
-              <MobileOnly>
-                <Footer />
-              </MobileOnly>
+              <Footer />
             </Card>
           </Main>
         </Wrapper>
@@ -58,7 +56,7 @@ const Wrapper = styled.div`
 `
 
 const Main = styled.div`
-  ${tw`flex-none justify-center order-first md:(flex-1 order-last)`}
+  ${tw`flex-none justify-center order-first h-screen md:(flex-1 order-last h-auto)`}
 `
 
 const DesktopOnly = styled.div`
