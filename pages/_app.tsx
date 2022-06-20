@@ -13,7 +13,7 @@ const DynamicSpinnerLoader = dynamic(
 )
 const DynamicInvalid = dynamic(() => import("components/composite/Invalid"))
 const DynamicAppContainer = dynamic(
-  () => import("components/composite/AppContainer")
+  () => import("components/composite/MyAccountContainer")
 )
 
 function UserArea(props: AppProps) {

@@ -1,29 +1,24 @@
-import { GlobalStylesProvider } from "@commercelayer/react-utils"
 import {
   CommerceLayer,
   CustomerContainer,
 } from "@commercelayer/react-components"
-import Head from "next/head"
-import { useTranslation } from "react-i18next"
+
+import { GlobalStylesProvider } from "@commercelayer/react-utils"
 import { GlobalStyles as BaseStyles } from "twin.macro"
 
-import Navbar from "components/composite/Navbar"
+import { MyAccountHead } from "components/composite/MyAccountTitle"
 import { AppProvider } from "components/data/AppProvider"
+import Navbar from "components/composite/Navbar"
 import { LayoutDefault } from "components/layouts/LayoutDefault"
 
 interface Props {
   settings: CustomerSettings
 }
 
-const AppContainer: React.FC<Props> = ({ settings, children }) => {
-  const { t } = useTranslation()
-
+const MyAccountContainer: React.FC<Props> = ({ settings, children }) => {
   return (
     <div>
-      <Head>
-        <title>{t("general.title")}</title>
-        <link rel="icon" href={settings.favicon} />
-      </Head>
+      <MyAccountHead title={settings.companyName} favicon={settings.favicon} />
       <CommerceLayer
         accessToken={settings.accessToken}
         endpoint={settings.endpoint}
@@ -49,4 +44,4 @@ const AppContainer: React.FC<Props> = ({ settings, children }) => {
   )
 }
 
-export default AppContainer
+export default MyAccountContainer
