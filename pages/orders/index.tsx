@@ -93,74 +93,75 @@ const Orders: NextPage = () => {
     <OrderContainer>
       <>
         <Title>{t("orders.title")}</Title>
-
-        <OrderList
-          className="relative w-full mb-8"
-          columns={columns}
-          showActions
-          actionsContainerClassName="align-top border-b border-gray-350 py-5 text-center"
-          theadClassName="hidden md:table-row-group"
-          rowTrClassName="grid grid-cols-2 bg-white shadow-bottom mb-2 -mx-5 px-5 md:-mx-0 md:p-0 md:border-b md:border-gray-350 md:table-row md:shadow-none"
-          {...options}
-        >
-          <OrderListRow field="number" className="order-1 pt-5 pb-2.5 md:py-5">
-            {({ cell, order, ...p }) => {
-              return cell.map((cell) => {
-                return (
-                  <OrderData key={order} {...p} {...cell.getCellProps()}>
-                    <Link
-                      href={`/orders/${order.id}?accessToken=${accessToken}`}
-                    >
-                      <OrderNumber># {cell.render("Cell")}</OrderNumber>
-                    </Link>
-                    <OrderItemsCount>
-                      {t("orders.orderContains", {
-                        count: order.skus_count,
-                      })}
-                    </OrderItemsCount>
-                  </OrderData>
-                )
-              })
-            }}
-          </OrderListRow>
-          <OrderListRow
-            field="updated_at"
-            className="order-4 pb-5 text-right align-top md:py-5 md:text-left"
+        <OrderListContainer>
+          <OrderList
+            className="relative w-full mb-8"
+            columns={columns}
+            showActions
+            actionsContainerClassName="align-top border-b border-gray-350 py-5 text-center"
+            theadClassName="hidden md:table-row-group"
+            rowTrClassName="grid grid-cols-2 bg-white shadow-bottom mb-2 -mx-5 px-5 md:-mx-0 md:p-0 md:border-b md:border-gray-350 md:table-row md:shadow-none"
+            {...options}
           >
-            {({ cell, order, ...p }) => {
-              return cell.map((cell) => {
-                return (
-                  <OrderData key={order} {...p} {...cell.getCellProps()}>
-                    <OrderUpdatedDate>
-                      {format(new Date(cell.value), "dd/MM/yy")}
-                    </OrderUpdatedDate>
-                  </OrderData>
-                )
-              })
-            }}
-          </OrderListRow>
-          <OrderListRow
-            field="status"
-            className="order-3 px-0 align-top md:py-5"
-          >
-            {({ cell, order, ...p }) => {
-              return cell.map((cell) => {
-                return (
-                  <OrderData key={order} {...p} {...cell.getCellProps()}>
-                    <BulletPoint status={p.row.values.status} />
-                    <OrderStatus status={p.row.values.status}>
-                      {cell.render("Cell")}
-                    </OrderStatus>
-                  </OrderData>
-                )
-              })
-            }}
-          </OrderListRow>
-          <OrderListRow
-            field="formatted_total_amount_with_taxes"
-            className="order-2 pt-4 pb-5 font-bold text-right align-top md:text-left"
-          />
-        </OrderList>
+            <OrderListRow field="number" className="order-1 pt-5 pb-2.5 md:py-5">
+              {({ cell, order, ...p }) => {
+                return cell.map((cell) => {
+                  return (
+                    <OrderData key={order} {...p} {...cell.getCellProps()}>
+                      <Link
+                        href={`/orders/${order.id}?accessToken=${accessToken}`}
+                      >
+                        <OrderNumber># {cell.render("Cell")}</OrderNumber>
+                      </Link>
+                      <OrderItemsCount>
+                        {t("orders.orderContains", {
+                          count: order.skus_count,
+                        })}
+                      </OrderItemsCount>
+                    </OrderData>
+                  )
+                })
+              }}
+            </OrderListRow>
+            <OrderListRow
+              field="updated_at"
+              className="order-4 pb-5 text-right align-top md:py-5 md:text-left"
+            >
+              {({ cell, order, ...p }) => {
+                return cell.map((cell) => {
+                  return (
+                    <OrderData key={order} {...p} {...cell.getCellProps()}>
+                      <OrderUpdatedDate>
+                        {format(new Date(cell.value), "dd/MM/yy")}
+                      </OrderUpdatedDate>
+                    </OrderData>
+                  )
+                })
+              }}
+            </OrderListRow>
+            <OrderListRow
+              field="status"
+              className="order-3 px-0 align-top md:py-5"
+            >
+              {({ cell, order, ...p }) => {
+                return cell.map((cell) => {
+                  return (
+                    <OrderData key={order} {...p} {...cell.getCellProps()}>
+                      <BulletPoint status={p.row.values.status} />
+                      <OrderStatus status={p.row.values.status}>
+                        {cell.render("Cell")}
+                      </OrderStatus>
+                    </OrderData>
+                  )
+                })
+              }}
+            </OrderListRow>
+            <OrderListRow
+              field="formatted_total_amount_with_taxes"
+              className="order-2 pt-4 pb-5 font-bold text-right align-top md:text-left"
+            />
+          </OrderList>
+        </OrderListContainer>
       </>
     </OrderContainer>
   )
@@ -170,6 +171,10 @@ export default Orders
 
 export const StyledOrderList = styled.td`
   ${tw`relative w-full mb-8`}
+`
+
+export const OrderListContainer = styled.div`
+  ${tw`flex-1`}
 `
 
 export const OrderData = styled.td`
