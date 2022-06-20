@@ -4,7 +4,6 @@ import { useTranslation } from "react-i18next"
 import styled from "styled-components"
 import tw from "twin.macro"
 
-import Footer from "components/ui/Footer"
 import CreditCardIcon from "components/ui/icons/CreditCardIcon"
 import CustomerServiceIcon from "components/ui/icons/CustomerServiceIcon"
 import LocationIcon from "components/ui/icons/LocationIcon"
@@ -77,11 +76,13 @@ const Navbar: React.FC<Props> = ({ settings, onClick }) => {
 
   return (
     <Sidebar data-cy="navbar">
-      <Logo
-        logoUrl={logoUrl}
-        companyName={companyName}
-        className="hidden md:block"
-      />
+      <LogoWrapper>
+        <Logo
+          logoUrl={logoUrl}
+          companyName={companyName}
+          className="hidden md:block"
+        />
+      </LogoWrapper>
       <Nav>
         <ul>
           <NavLink id="orders" {...menu.orders} />
@@ -108,6 +109,10 @@ export default Navbar
 
 const Sidebar = styled.div`
   ${tw`flex flex-col min-h-full md:(p-5) lg:(pl-20 pr-10 pt-10) xl:(pl-48)`}
+`
+
+export const LogoWrapper = styled.div`
+  ${tw`w-full`}
 `
 
 export const Wrapper = styled.div`
