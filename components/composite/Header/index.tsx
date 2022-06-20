@@ -9,7 +9,7 @@ import Logo from "components/ui/Logo"
 import MenuButton from "components/ui/MenuButton"
 
 interface Props {
-  logoUrl: string
+  logoUrl?: string
   companyName: string
   showMobileMenu: boolean
   setShowMobileMenu: Dispatch<boolean>
