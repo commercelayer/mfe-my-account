@@ -51,7 +51,7 @@ const Footer: React.FC<Props> = ({ termsUrl, privacyUrl }) => {
 export default Footer
 
 const Wrapper = styled.div`
-  ${tw`flex py-3 text-xs text-gray-500 bg-gray-100 sticky bottom-0 md:(border-t border-gray-300 z-20 pb-3 bg-white mt-20) overflow-hidden`}
+  ${tw`flex py-3 text-xs text-gray-500 sticky bottom-0 md:(border-t border-gray-300 z-20 pb-3 mt-20) overflow-hidden`}
 
   &::before {
     ${tw`md:(top-0 absolute left-0 w-full z-10 h-2 shadow-top)`}
