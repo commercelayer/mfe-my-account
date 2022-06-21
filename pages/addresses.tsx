@@ -8,6 +8,7 @@ import CustomerAddressForm from "components/composite/Address/CustomerAddressFor
 import { AddButton } from "components/ui/AddButton"
 import CustomerAddressCard from "components/ui/CustomerAddressCard"
 import { GridContainer } from "components/ui/GridContainer"
+import PageMain from "components/ui/PageMain"
 import Title from "components/ui/Title"
 
 const Addresses = () => {
@@ -20,21 +21,23 @@ const Addresses = () => {
       value={{ address, setAddress, setShowAddressForm }}
     >
       <AddressesContainer>
-        <Transition show={!showAddressForm} {...addressesTransition}>
-          <Title>{t("addresses.title")}</Title>
-          <GridContainer>
-            <CustomerAddressCard />
-          </GridContainer>
-          <AddButton
-            action={() => {
-              setShowAddressForm(true)
-              setAddress({})
-            }}
-          />
-        </Transition>
-        <Transition show={showAddressForm} {...formTransition}>
-          <CustomerAddressForm onClose={() => setShowAddressForm(false)} />
-        </Transition>
+        <PageMain>
+          <Transition show={!showAddressForm} {...addressesTransition}>
+            <Title>{t("addresses.title")}</Title>
+            <GridContainer>
+              <CustomerAddressCard />
+            </GridContainer>
+            <AddButton
+              action={() => {
+                setShowAddressForm(true)
+                setAddress({})
+              }}
+            />
+          </Transition>
+          <Transition show={showAddressForm} {...formTransition}>
+            <CustomerAddressForm onClose={() => setShowAddressForm(false)} />
+          </Transition>
+        </PageMain>
       </AddressesContainer>
     </CustomerAddressContext.Provider>
   )
