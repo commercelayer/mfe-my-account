@@ -116,15 +116,15 @@ export const LogoWrapper = styled.div`
 `
 
 export const Wrapper = styled.div`
-  ${tw`md:(mt-32 flex-1)`}
+  ${tw`mt-5 md:(mt-32 flex-1)`}
 `
 
 export const EmailWrapper = styled.div`
-  ${tw`text-sm mb-6 md:(hidden)`}
+  ${tw`text-sm my-6 md:(hidden) text-xs text-gray-500`}
 `
 
 export const Email = styled.span`
-  ${tw`block mt-0.5 font-bold`}
+  ${tw`block mt-0.5 font-bold text-black`}
 `
 export const Nav = styled.nav`
   ${tw`md:(mt-8) lg:(mt-16)`}

@@ -45,12 +45,12 @@ interface WrapperProps {
 }
 
 export const Wrapper = styled.li<WrapperProps>`
-  ${tw`flex h-14 items-center content-center text-gray-500 hover:(cursor-pointer bg-white rounded-xl) active:(bg-gray-100) xl:(w-64 self-end)`}
+  ${tw`flex h-12 md:h-14 items-center content-center text-black md:text-gray-500 hover:(cursor-pointer bg-white rounded-xl) active:(bg-gray-100) xl:(w-64 self-end)`}
   ${({ isCurrentPage }) => isCurrentPage && tw`text-black`}
 `
 
 export const Icon = styled.div`
-  ${tw`px-3`}
+  ${tw`mr-2 md:mr-3 md:px-3`}
 `
 
 export const Wrapper2 = styled.div`
@@ -58,7 +58,7 @@ export const Wrapper2 = styled.div`
 `
 
 export const Title = styled.p`
-  ${tw`text-base font-semibold`}
+  ${tw`text-sm md:text-base font-semibold`}
 `
 
 export const Description = styled.p`

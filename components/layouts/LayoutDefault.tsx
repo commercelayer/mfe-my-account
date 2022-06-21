@@ -67,7 +67,7 @@ const Aside = styled.div`
   ${tw`flex-none md:(flex-1 h-full)`}
 `
 const MobileMenu = styled.div`
-  ${tw`z-10 fixed top-19 left-0 bottom-0 flex flex-col min-w-full max-w-sm py-6 px-6 bg-white border-r overflow-y-auto md:(hidden)`}
+  ${tw`z-10 fixed top-19 left-0 bottom-0 flex flex-col min-w-full max-w-sm py-6 px-5 md:px-6 bg-white border-r overflow-y-auto md:(hidden)`}
 `
 const MobileOnly = styled.div`
   ${tw`md:(hidden)`}
