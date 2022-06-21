@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next"
 
-import { Wrapper, Label, Svg } from "./styled"
+import { Wrapper, Label } from "./styled"
 
 interface Props {
   action: () => void
