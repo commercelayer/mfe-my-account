@@ -26,7 +26,7 @@ const Navbar: React.FC<Props> = ({ settings, onClick }) => {
   const menu = {
     orders: {
       title: t("menu.orders"),
-      description: t("menu.ordersDescription"),
+      description: '', //t("menu.ordersDescription"),
       href: "/orders",
       icon: <ShoppingCartIcon />,
       accessToken,
@@ -34,7 +34,7 @@ const Navbar: React.FC<Props> = ({ settings, onClick }) => {
     },
     addresses: {
       title: t("menu.addresses"),
-      description: t("menu.addressesDescription"),
+      description: '', //t("menu.addressesDescription"),
       href: "/addresses",
       icon: <LocationIcon />,
       accessToken,
@@ -42,7 +42,7 @@ const Navbar: React.FC<Props> = ({ settings, onClick }) => {
     },
     wallet: {
       title: t("menu.wallet"),
-      description: t("menu.walletDescription"),
+      description: '', //t("menu.walletDescription"),
       href: "/wallet",
       icon: <CreditCardIcon />,
       accessToken,
@@ -50,7 +50,7 @@ const Navbar: React.FC<Props> = ({ settings, onClick }) => {
     },
     returns: {
       title: t("menu.returns"),
-      description: t("menu.returnsDescription"),
+      description: '', //t("menu.returnsDescription"),
       href: "/returns",
       icon: <ReturnsIcon />,
       accessToken,
@@ -58,7 +58,7 @@ const Navbar: React.FC<Props> = ({ settings, onClick }) => {
     },
     customerService: {
       title: t("menu.customerService"),
-      description: t("menu.customerServiceDescription"),
+      description: '', //t("menu.customerServiceDescription"),
       href: "/customer_service",
       icon: <CustomerServiceIcon />,
       accessToken,
@@ -66,7 +66,7 @@ const Navbar: React.FC<Props> = ({ settings, onClick }) => {
     },
     logout: {
       title: t("menu.logout"),
-      description: t("menu.logoutDescription"),
+      description: '', //t("menu.logoutDescription"),
       href: "/logout",
       icon: <LogoutIcon />,
       accessToken,
@@ -108,7 +108,7 @@ const Navbar: React.FC<Props> = ({ settings, onClick }) => {
 export default Navbar
 
 const Sidebar = styled.div`
-  ${tw`flex flex-col min-h-full md:(p-5) lg:(pl-20 pr-10 pt-10) xl:(pl-48)`}
+  ${tw`flex flex-col min-h-full min-w-1/3 md:(p-5) lg:(pl-20 pr-10 pt-10) xl:(pl-48)`}
 `
 
 export const LogoWrapper = styled.div`
