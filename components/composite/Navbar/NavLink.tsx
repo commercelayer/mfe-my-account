@@ -54,7 +54,7 @@ export const Icon = styled.div`
 `
 
 export const Wrapper2 = styled.div`
-  ${tw`flex-col`}
+  ${tw`flex-col pr-3`}
 `
 
 export const Title = styled.p`
