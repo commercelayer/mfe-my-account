@@ -12,6 +12,7 @@ import styled from "styled-components"
 import tw from "twin.macro"
 
 import { AppContext } from "components/data/AppProvider"
+import PageMain from "components/ui/PageMain"
 import Title from "components/ui/Title"
 
 interface OrderStatus {
@@ -92,8 +93,8 @@ const Orders: NextPage = () => {
   return (
     <OrderContainer>
       <>
-        <Title>{t("orders.title")}</Title>
-        <OrderListContainer>
+        <PageMain>
+          <Title>{t("orders.title")}</Title>
           <OrderList
             className="relative w-full mb-8"
             columns={columns}
@@ -161,7 +162,7 @@ const Orders: NextPage = () => {
               className="order-2 pt-4 pb-5 font-bold text-right align-top md:text-left"
             />
           </OrderList>
-        </OrderListContainer>
+        </PageMain>
       </>
     </OrderContainer>
   )
@@ -171,10 +172,6 @@ export default Orders
 
 export const StyledOrderList = styled.td`
   ${tw`relative w-full mb-8`}
-`
-
-export const OrderListContainer = styled.div`
-  ${tw`flex-1`}
 `
 
 export const OrderData = styled.td`
