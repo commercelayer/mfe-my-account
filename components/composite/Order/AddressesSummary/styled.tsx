@@ -2,7 +2,7 @@ import styled from "styled-components"
 import tw from "twin.macro"
 
 export const Wrapper = styled.div`
-  ${tw`flex flex-row justify-between`}
+  ${tw`flex flex-col md:flex-row justify-between`}
 `
 
 export const AddressesTitle = styled.p`
