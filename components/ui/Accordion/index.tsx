@@ -1,4 +1,3 @@
-import classNames from "classnames"
 import { ReactNode, useContext } from "react"
 import styled from "styled-components"
 import tw from "twin.macro"
@@ -30,9 +29,7 @@ export const AccordionItem: React.FC<Props> = ({ children, index, header }) => {
   return (
     <AccordionTab
       tabIndex={index}
-      className={classNames("group", {
-        active: ctx.isActive
-      })}
+      className={` ${ctx.isActive ? 'active' : ''} `}
     >
       <AccordionTabHeader
         data-test-id={`accordion_${ctx.section.toLocaleLowerCase()}`}
