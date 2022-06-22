@@ -18,11 +18,11 @@ const AddressesSummary: React.FC = () => {
       <ShippingAddressContainer>
         <BillingAddress>
           <AddressesTitle>{t("orderSummary.billedTo")}</AddressesTitle>
-          <CustomerAddressCard addressType="billing" deselect={true} />
+          <CustomerAddressCard showActions={false} />
         </BillingAddress>
         <ShippingAddress>
           <AddressesTitle>{t("orderSummary.shippedTo")}</AddressesTitle>
-          <CustomerAddressCard addressType="shipping" deselect={true} />
+          <CustomerAddressCard showActions={false} />
         </ShippingAddress>
       </ShippingAddressContainer>
     </Wrapper>
