@@ -11,7 +11,9 @@ interface AppProviderData {
   accessToken: string
   endpoint: string
   isFirstLoading: boolean
+  showMobileMenu: boolean
   refetchCustomer: () => Promise<void>
+  toggleShowMobileMenu: () => void
 }
 
 interface AppStateData {
@@ -19,6 +21,7 @@ interface AppStateData {
   hasPassword: boolean
   isLoading: boolean
   isFirstLoading: boolean
+  showMobileMenu: boolean
 }
 
 const initialState: AppStateData = {
@@ -26,6 +29,7 @@ const initialState: AppStateData = {
   isFirstLoading: true,
   email: "",
   hasPassword: false,
+  showMobileMenu: false
 }
 
 export const AppContext = createContext<AppProviderData | null>(null)
@@ -75,7 +79,8 @@ export const AppProvider: React.FC<AppProviderProps> = ({
         email: customer && customer.email !== undefined ? customer.email : '',
         hasPassword: customer && customer.has_password !== undefined ? customer.has_password : false,
         isLoading: false,
-        isFirstLoading: false
+        isFirstLoading: false,
+        showMobileMenu: false
       })
     })
   }
@@ -94,6 +99,9 @@ export const AppProvider: React.FC<AppProviderProps> = ({
         refetchCustomer: async () => {
           return await fetchCustomerHandle(customerId, accessToken)
         },
+        toggleShowMobileMenu: () => {
+          setState({ ...state, showMobileMenu: !state.showMobileMenu })
+        }
       }}
     >
       {children}

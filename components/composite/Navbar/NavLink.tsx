@@ -1,8 +1,10 @@
 import Link from "next/link"
 import { useRouter } from "next/router"
-import { ReactNode, Dispatch } from "react"
+import { ReactNode, Dispatch, useContext } from "react"
 import styled from "styled-components"
 import tw from "twin.macro"
+
+import { AppContext } from "components/data/AppProvider"
 
 interface Props {
   id: string
@@ -23,18 +25,22 @@ const NavLink: React.FC<Props> = ({
   onClick,
 }) => {
   const router = useRouter()
-  
+
   const isCurrentPage = router.pathname === href || router.pathname.indexOf(href) >= 0 
+
+  const ctx = useContext(AppContext)
 
   return (
     <Link href={`${href}?accessToken=${accessToken}`}>
-      <Wrapper isCurrentPage={isCurrentPage} onClick={onClick}>
-        <Icon>{icon}</Icon>
-        <Wrapper2>
-          <Title>{title}</Title>
-          <Description>{description}</Description>
-        </Wrapper2>
-      </Wrapper>
+      <a onClick={() => ctx?.toggleShowMobileMenu()}>
+        <Wrapper isCurrentPage={isCurrentPage} onClick={onClick}>
+          <Icon>{icon}</Icon>
+          <Wrapper2>
+            <Title>{title}</Title>
+            <Description>{description}</Description>
+          </Wrapper2>
+        </Wrapper>
+      </a>
     </Link>
   )
 }

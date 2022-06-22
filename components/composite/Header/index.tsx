@@ -11,15 +11,11 @@ import MenuButton from "components/ui/MenuButton"
 interface Props {
   logoUrl?: string
   companyName: string
-  showMobileMenu: boolean
-  setShowMobileMenu: Dispatch<boolean>
 }
 
 const Header: React.FC<Props> = ({
   logoUrl,
-  companyName,
-  showMobileMenu,
-  setShowMobileMenu,
+  companyName
 }) => {
   const { t } = useTranslation()
   const ctx = useContext(AppContext)
@@ -28,10 +24,7 @@ const Header: React.FC<Props> = ({
   return (
     <HeaderContainer>
       <Wrapper>
-        <MenuButton
-          showMobileMenu={showMobileMenu}
-          setShowMobileMenu={setShowMobileMenu}
-        />
+        <MenuButton />
         <Logo
           logoUrl={logoUrl}
           companyName={companyName}

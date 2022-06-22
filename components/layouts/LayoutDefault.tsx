@@ -1,5 +1,5 @@
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock"
-import { useEffect, useState } from "react"
+import { useEffect, useContext } from "react"
 import styled from "styled-components"
 import tw from "twin.macro"
 
@@ -9,6 +9,8 @@ import { Card } from "components/ui/Card"
 import { Container } from "components/ui/Container"
 import Footer from "components/ui/Footer"
 
+import { AppContext } from "components/data/AppProvider"
+
 interface Props {
   aside: React.ReactNode
   main: React.ReactNode
@@ -16,14 +18,15 @@ interface Props {
 }
 
 export const LayoutDefault: React.FC<Props> = ({ main, aside, settings }) => {
-  const [showMobileMenu, setShowMobileMenu] = useState(false)
-  const toggleMobileMenu = () => setShowMobileMenu(!showMobileMenu)
+  
+  const ctx = useContext(AppContext)
+  
   const { logoUrl, companyName } = settings
 
   useEffect(() => {
     const main = document.getElementById("main")
-    main && (showMobileMenu ? disableBodyScroll(main) : enableBodyScroll(main))
-  }, [showMobileMenu])
+    main && (ctx?.showMobileMenu ? disableBodyScroll(main) : enableBodyScroll(main))
+  }, [ctx?.showMobileMenu])
 
   return (
     <Base>
@@ -32,14 +35,12 @@ export const LayoutDefault: React.FC<Props> = ({ main, aside, settings }) => {
           <DesktopOnly>
             <Aside>{aside}</Aside>
           </DesktopOnly>
-          {showMobileMenu && <MobileMenu>{aside}</MobileMenu>}
+          {ctx?.showMobileMenu && <MobileMenu>{aside}</MobileMenu>}
           <Main id="main">
             <Card fullHeight>
               <Header
                 logoUrl={logoUrl}
                 companyName={companyName}
-                showMobileMenu={showMobileMenu}
-                setShowMobileMenu={setShowMobileMenu}
               />
               {main}
               <Footer />
