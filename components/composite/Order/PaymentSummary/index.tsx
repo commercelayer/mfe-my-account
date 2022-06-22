@@ -12,7 +12,6 @@ import { useTranslation } from "react-i18next"
 import {
   AmountWrapper,
   TotalWrapper,
-  AmountSpacer,
   RecapLine,
   RecapLineTotal,
   RecapLineItemTotal,
@@ -24,7 +23,6 @@ const PaymentSummary: React.FC = () => {
 
   return (
     <TotalWrapper>
-      <AmountSpacer />
       <AmountWrapper>
         <RecapLine>
           <RecapLineItem>{t("order.subtotal_amount")}</RecapLineItem>

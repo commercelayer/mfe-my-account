@@ -5,10 +5,7 @@ export const TotalWrapper = styled.div`
   ${tw`flex flex-row py-6 text-sm`}
 `
 export const AmountWrapper = styled.div`
-  ${tw`flex flex-col flex-1 lg:pl-8`}
-`
-export const AmountSpacer = styled.div`
-  ${tw`hidden lg:flex lg:flex-85`}
+  ${tw`flex flex-col flex-1`}
 `
 export const RecapLine = styled.div`
   ${tw`flex flex-row justify-between`}
