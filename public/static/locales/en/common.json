@@ -54,8 +54,8 @@
       "shipmentStatus": "Status: <0/>"
   },
   "orderSummary": {
-    "billedTo": "Billed to:",
-    "shippedTo": "Shipped to:"
+    "billedTo": "Billed to",
+    "shippedTo": "Shipped to"
   },
   "addresses": {
     "title": "My addresses",
