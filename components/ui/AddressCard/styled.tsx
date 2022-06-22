@@ -7,7 +7,7 @@ import { LinkButton } from "../LinkButton"
 import { LinkButtonCss } from "components/ui/form/Button"
 
 export const Wrapper = styled.div`
-  ${tw`relative transition duration-200 ease-in h-36 px-5 pt-4 pb-2 border border-gray-350 rounded shadow-sm group-hover:(border-primary shadow-sm-primary)`}
+  ${tw`relative transition duration-200 ease-in px-5 py-4 border border-gray-350 rounded shadow-sm group-hover:(border-primary shadow-sm-primary)`}
 `
 
 export const Customer = styled.p`

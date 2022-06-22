@@ -28,6 +28,7 @@ interface Props {
   countryCode: string
   phone: string
   addressType: string
+  showActions: boolean,
   editButton: string
   deleteButton: string
 }
@@ -43,6 +44,7 @@ export const AddressCard: React.FC<Props> = ({
   countryCode,
   phone,
   addressType,
+  showActions,
   editButton,
   deleteButton,
 }) => {
@@ -67,32 +69,34 @@ export const AddressCard: React.FC<Props> = ({
         {firstName} {lastName}
       </Customer>
       <Address data-cy={`full_address_${addressType}`}>
-        {[line1, line2].join(", ")}
+        {line2 != null ? [line1, line2].join(", ") : line1}
         <br />
-        {zipCode} {city} - {stateCode} ({countryCode})
+        {zipCode} {city} ({stateCode}) - {countryCode}
         <br />
         {phone}
         <br />
       </Address>
-      <ActionsWrapper>
-        <Actions>
-          <EditButton
-            type="edit"
-            variant="primary"
-            label={editButton}
-            onClick={(address) => {
-              setAddress(address)
-              setShowAddressForm(true)
-            }}
-          />
+      {showActions && (
+        <ActionsWrapper>
+          <Actions>
+            <EditButton
+              type="edit"
+              variant="primary"
+              label={editButton}
+              onClick={(address) => {
+                setAddress(address)
+                setShowAddressForm(true)
+              }}
+            />
 
-          <DeleteButton
-            onClick={() => setShowDeleteConfirmation(true)}
-            variant="warning"
-            label={deleteButton}
-          />
-        </Actions>
-      </ActionsWrapper>
+            <DeleteButton
+              onClick={() => setShowDeleteConfirmation(true)}
+              variant="warning"
+              label={deleteButton}
+            />
+          </Actions>
+        </ActionsWrapper>
+      )}
     </Wrapper>
   )
 }
