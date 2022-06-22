@@ -6,6 +6,10 @@
   "orders": {
     "order": {
       "title": "Ordine",
+      "summary": "Riepilogo",
+      "addresses": "Indirizzi",
+      "shipments": "Spedizioni",
+      "payments": "Pagamenti",
       "contains": "Il tuo ordine contiene {{count}} articolo",
       "contains_plural": "Il tuo ordine contiene {{count}} articoli",
       "subtotal_amount": "Subtotale",

@@ -30,5 +30,5 @@ const Order: NextPage = () => {
 export default Order
 
 export const Wrapper = styled.div`
-  ${tw`bg-contrast px-5 w-full md:(px-0)`}
+  ${tw`px-5 w-full md:(px-0)`}
 `

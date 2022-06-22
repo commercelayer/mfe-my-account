@@ -36,6 +36,9 @@
   "order": {
       "title": "Order",
       "summary":"Summary",
+      "addresses": "Addresses",
+      "shipments": "Shipments",
+      "payments": "Payments",
       "contains": "Your order contains {{count}} item",
       "contains_plural": "Your order contains {{count}} items",
       "subtotal_amount": "Subtotal",
