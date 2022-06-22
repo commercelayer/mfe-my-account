@@ -3,12 +3,18 @@ import { useTranslation } from "react-i18next"
 
 import { AddressCard } from "../AddressCard"
 
-const CustomerAddressCard: React.FC = () => {
+interface Props {
+  showActions?: boolean
+}
+
+const CustomerAddressCard: React.FC<Props> = ({ showActions }) => {
   const { t } = useTranslation()
+
+  const actionsNeeded = showActions === undefined ? true : showActions
 
   return (
     <Address
-      className="group"
+      className={` ${actionsNeeded ? 'group' : ''} `}
       disabledClassName="opacity-50 cursor-not-allowed"
     >
       {
@@ -25,6 +31,7 @@ const CustomerAddressCard: React.FC = () => {
               countryCode={address.countryCode}
               phone={address.phone}
               addressType="customer"
+              showActions={actionsNeeded}
               editButton={t("addresses.edit")}
               deleteButton={t("addresses.delete")}
             />
