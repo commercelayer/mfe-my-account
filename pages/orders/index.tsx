@@ -20,7 +20,9 @@ interface OrderStatus {
 }
 
 const COMPLETED_COLOR = "green-400"
+const COMPLETED_COLOR_BG = "green-100"
 const INPROGRESS_COLOR = "yellow-500"
+const INPROGRESS_COLOR_BG = "yellow-100"
 const PENDING_COLOR = "gray-500"
 const DRAFT_COLOR = "gray-400"
 
@@ -99,12 +101,12 @@ const Orders: NextPage = () => {
             className="relative w-full mb-8"
             columns={columns}
             showActions
-            actionsContainerClassName="align-top border-b border-gray-350 py-5 text-center"
+            actionsContainerClassName="align-top md:align-middle border-b border-gray-350 py-5 text-center"
             theadClassName="hidden md:table-row-group"
-            rowTrClassName="grid grid-cols-2 bg-white shadow-bottom mb-2 -mx-5 px-5 md:-mx-0 md:p-0 md:border-b md:border-gray-350 md:table-row md:shadow-none"
+            rowTrClassName="grid grid-cols-2 md:content-center bg-white shadow-bottom mb-2 -mx-5 px-5 md:-mx-0 md:p-0 md:border-b md:border-gray-350 md:table-row md:shadow-none"
             {...options}
           >
-            <OrderListRow field="number" className="order-1 pt-5 pb-2.5 md:py-5">
+            <OrderListRow field="number" className="order-1 pt-5 pb-2.5 md:py-5 md:align-middle">
               {({ cell, order, ...p }) => {
                 return cell.map((cell) => {
                   return (
@@ -126,7 +128,7 @@ const Orders: NextPage = () => {
             </OrderListRow>
             <OrderListRow
               field="updated_at"
-              className="order-4 pb-5 text-right align-top md:py-5 md:text-left"
+              className="order-4 pb-5 text-right align-top md:align-middle md:py-5 md:text-left"
             >
               {({ cell, order, ...p }) => {
                 return cell.map((cell) => {
@@ -142,13 +144,13 @@ const Orders: NextPage = () => {
             </OrderListRow>
             <OrderListRow
               field="status"
-              className="order-3 px-0 align-top md:py-5"
+              className="order-3 px-0 align-top md:align-middle md:py-5"
             >
               {({ cell, order, ...p }) => {
                 return cell.map((cell) => {
                   return (
                     <OrderData key={order} {...p} {...cell.getCellProps()}>
-                      <BulletPoint status={p.row.values.status} />
+                      <BulletPoint status={p.row.values.status}/>
                       <OrderStatus status={p.row.values.status}>
                         {cell.render("Cell")}
                       </OrderStatus>
@@ -159,7 +161,7 @@ const Orders: NextPage = () => {
             </OrderListRow>
             <OrderListRow
               field="formatted_total_amount_with_taxes"
-              className="order-2 pt-4 pb-5 font-bold text-right align-top md:text-left"
+              className="order-2 pt-4 pb-5 md:py-5 font-bold text-right align-top md:align-middle md:text-left md:text-lg"
             />
           </OrderList>
         </PageMain>
@@ -193,16 +195,16 @@ export const OrderUpdatedDate = styled.p`
 export const OrderStatus = styled.p<OrderStatus>(({ status }) => {
   return [
     handlerStatusColor(status),
-    tw`inline text-sm text-center capitalize px-1.5 py-0.5 md:(block text-white text-3xs w-22 uppercase font-bold px-1 leading-snug)`,
+    tw`inline text-sm text-center capitalize px-1.5 py-0.5 md:(text-3xs w-auto uppercase font-bold px-2 leading-snug rounded-lg align-middle)`,
   ]
 })
 
 const handlerStatusColor = (status: string) => {
   switch (status) {
     case "placed":
-      return tw`text-${COMPLETED_COLOR} md:(bg-${COMPLETED_COLOR})`
+      return tw`text-${COMPLETED_COLOR} md:(bg-${COMPLETED_COLOR_BG})`
     case "inprogress":
-      return tw`text-${INPROGRESS_COLOR} md:(bg-${INPROGRESS_COLOR})`
+      return tw`text-${INPROGRESS_COLOR} md:(bg-${INPROGRESS_COLOR_BG})`
     case "pending":
       return tw`text-${PENDING_COLOR} md:(bg-${PENDING_COLOR})`
     case "draft":
