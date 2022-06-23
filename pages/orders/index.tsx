@@ -150,7 +150,6 @@ const Orders: NextPage = () => {
                 return cell.map((cell) => {
                   return (
                     <OrderData key={order} {...p} {...cell.getCellProps()}>
-                      <BulletPoint status={p.row.values.status}/>
                       <OrderStatus status={p.row.values.status}>
                         {cell.render("Cell")}
                       </OrderStatus>
@@ -195,22 +194,22 @@ export const OrderUpdatedDate = styled.p`
 export const OrderStatus = styled.p<OrderStatus>(({ status }) => {
   return [
     handlerStatusColor(status),
-    tw`inline text-sm text-center capitalize px-1.5 py-0.5 md:(text-3xs w-auto uppercase font-bold px-2 leading-snug rounded-lg align-middle)`,
+    tw`inline text-sm text-center capitalize text-3xs w-auto uppercase font-bold py-[2px] px-[8px] leading-snug rounded-xl align-middle`,
   ]
 })
 
 const handlerStatusColor = (status: string) => {
   switch (status) {
     case "placed":
-      return tw`text-${COMPLETED_COLOR} md:(bg-${COMPLETED_COLOR_BG})`
+      return tw`text-${COMPLETED_COLOR} bg-${COMPLETED_COLOR_BG}`
     case "inprogress":
-      return tw`text-${INPROGRESS_COLOR} md:(bg-${INPROGRESS_COLOR_BG})`
+      return tw`text-${INPROGRESS_COLOR} bg-${INPROGRESS_COLOR_BG}`
     case "pending":
-      return tw`text-${PENDING_COLOR} md:(bg-${PENDING_COLOR})`
+      return tw`text-${PENDING_COLOR} bg-${PENDING_COLOR}`
     case "draft":
-      return tw`text-${DRAFT_COLOR} md:(bg-${DRAFT_COLOR})`
+      return tw`text-${DRAFT_COLOR} bg-${DRAFT_COLOR}`
     default:
-      return tw`text-${DRAFT_COLOR} md:(bg-${DRAFT_COLOR})`
+      return tw`text-${DRAFT_COLOR} bg-${DRAFT_COLOR}`
   }
 }
 
