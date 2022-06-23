@@ -13,7 +13,8 @@ interface AppProviderData {
   isFirstLoading: boolean
   showMobileMenu: boolean
   refetchCustomer: () => Promise<void>
-  toggleShowMobileMenu: () => void
+  closeMobileMenu: () => void
+  toggleMobileMenu: () => void
 }
 
 interface AppStateData {
@@ -99,7 +100,10 @@ export const AppProvider: React.FC<AppProviderProps> = ({
         refetchCustomer: async () => {
           return await fetchCustomerHandle(customerId, accessToken)
         },
-        toggleShowMobileMenu: () => {
+        closeMobileMenu: () => {
+          setState({ ...state, showMobileMenu: false })
+        },
+        toggleMobileMenu: () => {
           setState({ ...state, showMobileMenu: !state.showMobileMenu })
         }
       }}

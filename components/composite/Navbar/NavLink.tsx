@@ -32,7 +32,7 @@ const NavLink: React.FC<Props> = ({
 
   return (
     <Link href={`${href}?accessToken=${accessToken}`}>
-      <a onClick={() => ctx?.toggleShowMobileMenu()}>
+      <a onClick={() => ctx?.closeMobileMenu()}>
         <Wrapper isCurrentPage={isCurrentPage} onClick={onClick}>
           <Icon>{icon}</Icon>
           <Wrapper2>

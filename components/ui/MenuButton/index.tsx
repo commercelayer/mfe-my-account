@@ -11,7 +11,7 @@ const MenuButton: React.FC = () => {
 
   const ctx = useContext(AppContext)
 
-  const handlerOnClick = () => ctx?.toggleShowMobileMenu()
+  const handlerOnClick = () => ctx?.toggleMobileMenu()
 
   return (
     <Button onClick={handlerOnClick}>
