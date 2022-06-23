@@ -47,7 +47,7 @@ export const AccordionItem: React.FC<Props> = ({ children, index, header }) => {
 }
 
 const Wrapper = styled.div`
-  ${tw`-mx-10 md:-mx-0 md:border-t`}
+  ${tw`-mx-10 md:-mx-0 md:border-t overflow-hidden`}
 `
 const AccordionTab = styled.div`
   ${tw`outline-none bg-white shadow-bottom px-5 md:px-0 mb-6 md:mb-0 md:shadow-none md:border-b`}
