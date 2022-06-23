@@ -7,7 +7,7 @@ import { LinkButton } from "../LinkButton"
 import { LinkButtonCss } from "components/ui/form/Button"
 
 export const Wrapper = styled.div`
-  ${tw`relative transition duration-200 ease-in px-5 py-4 border border-gray-350 rounded shadow-sm group-hover:(border-primary shadow-sm-primary)`}
+  ${tw`relative transition duration-200 ease-in px-5 py-4 bg-white md:bg-transparent border border-gray-350 rounded focus:shadow-sm group-hover:(border-primary shadow-sm-primary)`}
 `
 
 export const Customer = styled.p`
@@ -39,7 +39,11 @@ export const ConfirmActions = styled.div`
 
 export const EditButton = styled(AddressField)`
   ${LinkButtonCss}
-  ${tw`group-hover:(text-primary)`}
+  ${tw`text-gray-500 group-hover:(text-primary)`}
+`
+
+export const DeleteButtonWrapper = styled.div`
+  ${tw`flex items-center gap-1 text-gray-500 group-hover:text-red-400`}
 `
 
 export const DeleteButton = styled(LinkButton)`

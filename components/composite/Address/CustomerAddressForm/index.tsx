@@ -16,7 +16,7 @@ import {
 } from "./styled"
 
 interface Props {
-  onClose: Dispatch<boolean>
+  onClose: Dispatch<any>
 }
 
 const CustomerAddressForm: React.FC<Props> = ({ onClose }) => {
@@ -25,7 +25,7 @@ const CustomerAddressForm: React.FC<Props> = ({ onClose }) => {
 
   return (
     <Form>
-      <Title>{t("addressForm.title")}</Title>
+      <Title>{ address ? t("addressForm.edit_address_title") : t("addressForm.new_address_title")}</Title>
       <Grid>
         <AddressInputGroup
           fieldName="customer_address_first_name"

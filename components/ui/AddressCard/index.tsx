@@ -1,6 +1,7 @@
 import CustomerAddressContext from "context/CustomerAddressContext"
 import { useContext, useState } from "react"
 import { useTranslation } from "react-i18next"
+import TrashIcon from "../icons/TrashIcon"
 
 import {
   EditButton,
@@ -14,6 +15,7 @@ import {
   ConfirmActions,
   ConfirmCancel,
   ConfirmDelete,
+  DeleteButtonWrapper,
   DeleteButton,
 } from "./styled"
 
@@ -88,12 +90,14 @@ export const AddressCard: React.FC<Props> = ({
                 setShowAddressForm(true)
               }}
             />
-
-            <DeleteButton
-              onClick={() => setShowDeleteConfirmation(true)}
-              variant="warning"
-              label={deleteButton}
-            />
+            <DeleteButtonWrapper>
+              <TrashIcon />
+              <DeleteButton
+                onClick={() => setShowDeleteConfirmation(true)}
+                variant="warning"
+                label={deleteButton}
+              />
+            </DeleteButtonWrapper>
           </Actions>
         </ActionsWrapper>
       )}

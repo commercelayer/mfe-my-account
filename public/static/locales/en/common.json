@@ -67,7 +67,8 @@
     "no": "No"
   },
   "addressForm": {
-    "title": "Add a new address",
+    "new_address_title": "Add a new address",
+    "edit_address_title": "Edit my address",
     "customer_address_first_name": "first name",
     "customer_address_last_name": "last name",
     "customer_address_line_1": "address",
