@@ -1,7 +1,9 @@
 {
   "general": {
       "title": "{{companyName}} - Area Utente",
-      "invalid": "Quest'URL non è più accessibile."
+      "retry_error_code": "Problemi di connessione",
+      "retry_error_description": "Prova a ricaricare la pagina",
+      "invalid": "Quest'URL non è accessibile."
   },
   "orders": {
     "order": {

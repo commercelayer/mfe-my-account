@@ -1,7 +1,9 @@
 {
   "general": {
       "title": "{{companyName}} - User Area",
-      "invalid": "This URL is no longer accessible.",
+      "retry_error_code": "Connectivity issues",
+      "retry_error_description": "Try to reload the page",
+      "invalid": "This URL is not accessible.",
       "privacy_link": "Privacy",
       "terms_link": "Terms"
   },

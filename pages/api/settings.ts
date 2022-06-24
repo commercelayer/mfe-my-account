@@ -4,14 +4,10 @@ import { getInfoFromJwt } from "utils/getInfoFromJwt"
 import { getOrganizationsDetails } from "utils/getOrganizationDetails"
 import type { NextApiRequest, NextApiResponse } from "next"
 
-interface JWTProps {
-  organization: {
-    slug: string
-    id: string
-  }
-  owner: {
-    id: string
-  }
+const RETRIES = 2
+
+function isProduction(env: string): boolean {
+  return env === "production"
 }
 
 export const defaultSettings: InvalidCustomerSettings = {
@@ -23,35 +19,38 @@ export const defaultSettings: InvalidCustomerSettings = {
   retryable: false
 }
 
-const makeInvalidSettings = (retryable?: boolean): InvalidCustomerSettings => ({
-  ...defaultSettings,
-  retryable: !!retryable,
-})
-
 export default async (req: NextApiRequest, res: NextApiResponse) => {
+  const { NODE_ENV, NEXT_PUBLIC_DOMAIN, NEXT_PUBLIC_HOSTED } = process.env
   const accessToken = req.query.accessToken as string
 
+  const domain = NEXT_PUBLIC_DOMAIN || "commercelayer.io"
+
+  function invalidateUserArea(retry?: boolean) {
+    res.statusCode = 200
+    return res.json({ validUserArea: false, retryOnError: !!retry })
+  }
+
   if (!accessToken) {
-    res.statusCode = 200
-    return res.json({ validUserArea: false })
+    return invalidateUserArea()
   }
 
-  const { slug, customerId, isTest } = getInfoFromJwt(accessToken)
+  const subdomain = req.headers.host?.split(":")[0].split(".")[0]
 
-  let endpoint: string
-  try {
-    if (slug) {
-      endpoint = `https://${slug}.${process.env.NEXT_PUBLIC_DOMAIN}`
-    } else {
-      return res.json({ validUserArea: false })
-    }
-  } catch (e) {
-    console.log(`error decoding access token: ${e}`)
-    res.statusCode = 200
-    return res.json({ validUserArea: false })
+  const { slug, kind, customerId, isTest } = getInfoFromJwt(accessToken)
+
+  if (!slug) {
+    return invalidateUserArea()
   }
 
-  const domain = process.env.NEXT_PUBLIC_DOMAIN || "commercelayer.io"
+  if (
+    isProduction(NODE_ENV) &&
+    !!NEXT_PUBLIC_HOSTED &&
+    (subdomain !== slug || kind !== "sales_channel")
+  ) {
+    return invalidateUserArea()
+  } else if (kind !== "sales_channel") {
+    return invalidateUserArea()
+  }
 
   const client = CommerceLayer({
     organization: slug,
@@ -74,7 +73,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
   const appSettings: CustomerSettings = {
     accessToken,
-    endpoint,
+    endpoint: `https://${slug}.${domain}`,
     customerId,
     validUserArea: true,
     companyName: organization?.name || defaultSettings.companyName,
@@ -84,7 +83,9 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     favicon: organization?.favicon_url || defaultSettings.favicon,
     gtmId: isTest ? organization?.gtm_id_test : organization?.gtm_id,
   }
-  res.statusCode = 200
 
-  return res.json(appSettings)
+  return res
+    .setHeader("Cache-Control", "s-maxage=1, stale-while-revalidate")
+    .status(200)
+    .json(appSettings)
 }
