@@ -41,6 +41,7 @@ module.exports = {
         green: {
           400: "#2BC48A",
         },
+        inherit: "inherit"
       },
       fontSize: {
         xxl: "1.625rem",
