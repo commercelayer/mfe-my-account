@@ -1,7 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import CommerceLayer from "@commercelayer/sdk"
 import { getInfoFromJwt } from "utils/getInfoFromJwt"
-import { getOrganizationsDetails } from "utils/getOrganizationDetails"
+import { getOrganizations } from "utils/getOrganizations"
 import type { NextApiRequest, NextApiResponse } from "next"
 
 const RETRIES = 2
@@ -59,7 +59,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   })
 
   const [organizationResponse] = await Promise.all([
-    getOrganizationsDetails({
+    getOrganizations({
       client,
     })
   ])

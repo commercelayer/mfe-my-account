@@ -2,7 +2,7 @@ import { CommerceLayerClient } from "@commercelayer/sdk"
 
 import { retryCall } from "./retryCall"
 
-export const getOrganizationsDetails = async ({
+export const getOrganizations = async ({
   client,
 }: {
   client: CommerceLayerClient
