@@ -2,8 +2,6 @@ import "../styles/globals.css"
 
 import "components/data/i18n"
 
-import { useRouter } from "next/router"
-
 import { appWithTranslation } from "next-i18next"
 import type { AppProps } from "next/app"
 import dynamic from "next/dynamic"
@@ -25,10 +23,9 @@ const DynamicAppContainer = dynamic(
 
 function UserArea(props: AppProps) {
   const { Component, pageProps } = props
-  const { settings, retryOnError, isLoading } = useSettingsOrInvalid()
+  const { settings, retryOnError, isLoading, show404 } = useSettingsOrInvalid()
 
-  const router = useRouter()
-  if (router.route == '/404') return <DynamicInvalid />
+  if (show404) return <DynamicInvalid />
 
   if (isLoading || (!settings && !retryOnError)) return <MyAccountSkeleton settings={settings ? settings : {} as CustomerSettings} />
 
