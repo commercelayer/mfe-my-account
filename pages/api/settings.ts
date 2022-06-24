@@ -2,6 +2,7 @@
 import CommerceLayer from "@commercelayer/sdk"
 import { getInfoFromJwt } from "utils/getInfoFromJwt"
 import { getOrganizations } from "utils/getOrganizations"
+import { getOrder } from "utils/getOrder"
 import type { NextApiRequest, NextApiResponse } from "next"
 
 const RETRIES = 2
@@ -22,6 +23,7 @@ export const defaultSettings: InvalidCustomerSettings = {
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const { NODE_ENV, NEXT_PUBLIC_DOMAIN, NEXT_PUBLIC_HOSTED } = process.env
   const accessToken = req.query.accessToken as string
+  const orderId = req.query.orderId as string | undefined
 
   const domain = NEXT_PUBLIC_DOMAIN || "commercelayer.io"
 
@@ -69,6 +71,21 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   if (!customerId || !organization) {
     res.statusCode = 200
     return res.json({ validUserArea: false })
+  }
+
+  if (orderId) {
+    const [orderResponse] = await Promise.all([
+      getOrder({
+        client,
+        orderId
+      })
+    ])
+  
+    const order = orderResponse?.object
+    if (!order) {
+      res.statusCode = 200
+      return res.json({ validUserArea: false, show404: true })
+    }
   }
 
   const appSettings: CustomerSettings = {

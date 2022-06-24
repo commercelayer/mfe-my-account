@@ -15,7 +15,7 @@ interface UseSettingsOrInvalid {
 
 export const useSettingsOrInvalid = (): UseSettingsOrInvalid => {
   const router = useRouter()
-  const { accessToken } = router.query
+  const { orderId, accessToken } = router.query
 
   const [savedAccessToken, setAccessToken] = useLocalStorageToken(
     "userAreaAccessToken",
@@ -28,9 +28,11 @@ export const useSettingsOrInvalid = (): UseSettingsOrInvalid => {
     }
   }, [router])
 
+  const orderIdQuery = orderId ? `&orderId=${orderId}` : ""
+
   const { data, error } = useSWR(
     router.isReady
-      ? `${process.env.NEXT_PUBLIC_BASE_PATH}/api/settings?accessToken=${accessToken}`
+      ? `${process.env.NEXT_PUBLIC_BASE_PATH}/api/settings?accessToken=${accessToken}${orderIdQuery}`
       : null,
     fetcher,
     { revalidateOnFocus: false }
