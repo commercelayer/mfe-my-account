@@ -14,17 +14,7 @@ import tw from "twin.macro"
 import { AppContext } from "components/data/AppProvider"
 import PageMain from "components/ui/PageMain"
 import Title from "components/ui/Title"
-
-interface OrderStatus {
-  status: string
-}
-
-const COMPLETED_COLOR = "green-400"
-const COMPLETED_COLOR_BG = "green-100"
-const INPROGRESS_COLOR = "yellow-500"
-const INPROGRESS_COLOR_BG = "yellow-100"
-const PENDING_COLOR = "gray-500"
-const DRAFT_COLOR = "gray-400"
+import OrderStatusChip from "components/ui/OrderStatusChip"
 
 const Orders: NextPage = () => {
   const { t } = useTranslation()
@@ -150,9 +140,7 @@ const Orders: NextPage = () => {
                 return cell.map((cell) => {
                   return (
                     <OrderData key={order} {...p} {...cell.getCellProps()}>
-                      <OrderStatus status={p.row.values.status}>
-                        {cell.render("Cell")}
-                      </OrderStatus>
+                      <OrderStatusChip status={ p.row.values.status } />
                     </OrderData>
                   )
                 })
@@ -190,47 +178,3 @@ export const OrderItemsCount = styled.p`
 export const OrderUpdatedDate = styled.p`
   ${tw`inline-block text-sm font-extralight text-gray-600 bg-gray-200 px-3 rounded-full h-5 md:(bg-contrast px-0 w-min)`}
 `
-
-export const OrderStatus = styled.p<OrderStatus>(({ status }) => {
-  return [
-    handlerStatusColor(status),
-    tw`inline text-sm text-center capitalize text-3xs w-auto uppercase font-bold py-[2px] px-[8px] leading-snug rounded-xl align-middle`,
-  ]
-})
-
-const handlerStatusColor = (status: string) => {
-  switch (status) {
-    case "placed":
-      return tw`text-${COMPLETED_COLOR} bg-${COMPLETED_COLOR_BG}`
-    case "inprogress":
-      return tw`text-${INPROGRESS_COLOR} bg-${INPROGRESS_COLOR_BG}`
-    case "pending":
-      return tw`text-${PENDING_COLOR} bg-${PENDING_COLOR}`
-    case "draft":
-      return tw`text-${DRAFT_COLOR} bg-${DRAFT_COLOR}`
-    default:
-      return tw`text-${DRAFT_COLOR} bg-${DRAFT_COLOR}`
-  }
-}
-
-export const BulletPoint = styled.div<OrderStatus>(({ status }) => {
-  return [
-    tw`w-2.5 h-2.5 inline-block rounded-full md:(hidden)`,
-    handlerStatusBulletPointColor(status),
-  ]
-})
-
-const handlerStatusBulletPointColor = (status: string) => {
-  switch (status) {
-    case "placed":
-      return tw`bg-${COMPLETED_COLOR}`
-    case "inprogress":
-      return tw`bg-${INPROGRESS_COLOR}`
-    case "pending":
-      return tw`bg-${PENDING_COLOR}`
-    case "draft":
-      return tw`bg-${DRAFT_COLOR}`
-    default:
-      return tw`bg-${DRAFT_COLOR}`
-  }
-}
