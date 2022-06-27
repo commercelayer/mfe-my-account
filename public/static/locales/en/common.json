@@ -36,28 +36,35 @@
     "openMenu": "Open menu"
   },
   "order": {
-      "title": "Order",
-      "summary":"Summary",
-      "addresses": "Addresses",
-      "shipments": "Shipments",
-      "payments": "Payments",
-      "contains": "Your order contains {{count}} item",
-      "contains_plural": "Your order contains {{count}} items",
-      "subtotal_amount": "Subtotal",
-      "discount_amount": "Discount",
-      "shipping_amount": "Shipping",
-      "payment_method_amount": "Payment method",
-      "tax_amount": "Tax",
-      "giftcard_amount": "Gift card",
-      "total_amount": "Total",
-      "quantity": "Quantity: {{count}}",
-      "quantity_plural": "Quantity: {{count}}",
-      "shipment": "Shimpment #<0/>",
-      "shipmentStatus": "Status: <0/>"
+    "title": "Order",
+    "summary":"Summary",
+    "addresses": "Addresses",
+    "shipments": "Shipments",
+    "payments": "Payments",
+    "contains": "Your order contains {{count}} item",
+    "contains_plural": "Your order contains {{count}} items",
+    "subtotal_amount": "Subtotal",
+    "discount_amount": "Discount",
+    "shipping_amount": "Shipping",
+    "payment_method_amount": "Payment method",
+    "tax_amount": "Tax",
+    "giftcard_amount": "Gift card",
+    "total_amount": "Total",
+    "quantity": "Quantity: {{count}}",
+    "quantity_plural": "Quantity: {{count}}",
+    "shipment": "Shimpment #<0/>",
+    "shipmentStatus": "Status: <0/>"
   },
   "orderSummary": {
     "billedTo": "Billed to",
     "shippedTo": "Shipped to"
+  },
+  "orderStatus": {
+    "draft": "draft",
+    "pending": "pending",
+    "placed": "placed",
+    "approved": "approved",
+    "cancelled": "cancelled"
   },
   "addresses": {
     "title": "My addresses",
