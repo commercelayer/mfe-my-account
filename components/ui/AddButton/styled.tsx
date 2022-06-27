@@ -6,5 +6,5 @@ export const Wrapper = styled.div`
 `
 
 export const Label = styled.p`
-  ${tw`text-xs`}
+  ${tw`text-xs px-0.5`}
 `
