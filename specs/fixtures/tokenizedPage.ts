@@ -11,8 +11,8 @@ import dotenv from "dotenv"
 import jwt_decode from "jwt-decode"
 
 import path from "path"
-
 import { OrdersPage } from "./OrdersPage"
+import { AddressesPage } from "./AddressesPage"
 
 dotenv.config({ path: path.resolve(__dirname, "../../.env.local") })
 
@@ -34,6 +34,7 @@ interface DefaultParamsProps {
 type FixtureType = {
   defaultParams: DefaultParamsProps
   ordersPage: OrdersPage
+  addressesPage: AddressesPage
 }
 
 const getToken = async (market?: string) => {
@@ -119,9 +120,24 @@ export const test = base.extend<FixtureType>({
 
     const ordersPage = new OrdersPage(page)
     await ordersPage.goto({
+      pageUrl: 'orders',
       token: accessToken,
     })
     await use(ordersPage)
+  },
+  addressesPage: async ({ page, defaultParams }, use) => {
+    const token = await (defaultParams.customer
+      ? getCustomerUserToken(defaultParams.customer)
+      : getToken(defaultParams.market))
+    const accessToken =
+      defaultParams.token === undefined ? token : defaultParams.token
+
+    const addressesPage = new AddressesPage(page)
+    await addressesPage.goto({
+      pageUrl: 'addresses',
+      token: accessToken,
+    })
+    await use(addressesPage)
   },
 })
 
