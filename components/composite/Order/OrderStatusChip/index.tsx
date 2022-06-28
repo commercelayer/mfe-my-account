@@ -5,12 +5,12 @@ interface Props {
   status: string
 }
 
-const ShipmentStatusChip: React.FC<Props> = ({ status }) => {
+const OrderStatusChip: React.FC<Props> = ({ status }) => {
   const { t } = useTranslation()
 
   return (
-    <StatusChip status={status} label={t(`shipmentStatus.${status}`)} />
+    <StatusChip status={status} label={t(`orderStatus.${status}`)} />
   )
 }
 
-export default ShipmentStatusChip
+export default OrderStatusChip
