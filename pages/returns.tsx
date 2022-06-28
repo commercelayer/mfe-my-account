@@ -1,5 +1,12 @@
+import PageMain from "components/ui/PageMain"
+import NoReturns from "components/composite/NoReturns"
+
 const Returns = () => {
-  return <h1>Returns Page</h1>
+  return (
+    <PageMain>
+      <NoReturns />
+    </PageMain>
+  )
 }
 
 export default Returns
