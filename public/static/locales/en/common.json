@@ -110,6 +110,12 @@
     "discard_changes": "Discard changes",
     "save": "Save"
   },
+  "returns": {},
+  "noReturns": {
+    "title": "No returns yet",
+    "description": "Looks like you haven't made any returns yet",
+    "buttonLabel": "Create a return"
+  },
   "returnStatus": {
     "draft": "draft",
     "requested": "requested",
