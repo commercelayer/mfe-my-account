@@ -90,6 +90,11 @@
     "yes": "Yes",
     "no": "No"
   },
+  "noAddresses": {
+    "title": "No addresses yet",
+    "description": "Looks like you haven't made any address yet",
+    "buttonLabel": "Add an address"
+  },
   "addressForm": {
     "new_address_title": "Add a new address",
     "edit_address_title": "Edit my address",
