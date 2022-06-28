@@ -14,7 +14,7 @@ import tw from "twin.macro"
 import { AppContext } from "components/data/AppProvider"
 import PageMain from "components/ui/PageMain"
 import Title from "components/ui/Title"
-import OrderStatusChip from "components/ui/OrderStatusChip"
+import OrderStatusChip from "components/composite/Order/OrderStatusChip"
 
 const Orders: NextPage = () => {
   const { t } = useTranslation()
