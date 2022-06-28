@@ -12,9 +12,9 @@ const NoOrders: React.FC = () => {
   return (
     <Wrapper>
       <NoOrdersIcon />
-      <Title>No orders yet</Title>
-      <Description>Looks like you haven't made any orders yet</Description>
-      <NoItemsButton label="Go to shop" />
+      <Title>{ t("noOrders.title") }</Title>
+      <Description>{ t("noOrders.description") }</Description>
+      <NoItemsButton label={ t("noOrders.buttonLabel") } />
     </Wrapper>
   )
 }

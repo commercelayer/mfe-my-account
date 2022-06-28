@@ -35,6 +35,11 @@
     "orderContains_plural": "contains {{count}} items",
     "openMenu": "Open menu"
   },
+  "noOrders": {
+    "title": "No orders yet",
+    "description": "Looks like you haven't made any orders yet",
+    "buttonLabel": "Go to shop"
+  },
   "order": {
     "title": "Order",
     "summary":"Summary",
