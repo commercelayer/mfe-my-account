@@ -1,3 +1,4 @@
+import { useContext } from "react"
 import {
   CommerceLayer,
   CustomerContainer,
@@ -8,6 +9,7 @@ import { GlobalStyles as BaseStyles } from "twin.macro"
 
 import { MyAccountHead } from "components/composite/MyAccountTitle"
 import { AppProvider } from "components/data/AppProvider"
+import { ActionsMenuProvider } from "components/data/ActionsMenuProvider"
 import Navbar from "components/composite/Navbar"
 import { LayoutDefault } from "components/layouts/LayoutDefault"
 
@@ -30,13 +32,15 @@ const MyAccountContainer: React.FC<Props> = ({ settings, children }) => {
             accessToken={settings.accessToken}
             endpoint={settings.endpoint}
           >
-            <CustomerContainer>
-              <LayoutDefault
-                main={children}
-                aside={<Navbar settings={settings} />}
-                settings={settings}
-              />
-            </CustomerContainer>
+            <ActionsMenuProvider>
+              <CustomerContainer>
+                <LayoutDefault
+                  main={children}
+                  aside={<Navbar settings={settings} />}
+                  settings={settings}
+                />
+              </CustomerContainer>
+            </ActionsMenuProvider>
           </AppProvider>
         </GlobalStylesProvider>
       </CommerceLayer>
