@@ -13,8 +13,11 @@ import tw from "twin.macro"
 
 import { AppContext } from "components/data/AppProvider"
 import PageMain from "components/ui/PageMain"
+import ActionsMenu from "components/ui/ActionsMenu"
+import ActionsMenuItem from "components/ui/ActionsMenuItem"
 import Title from "components/ui/Title"
 import OrderStatusChip from "components/composite/Order/OrderStatusChip"
+
 
 const Orders: NextPage = () => {
   const { t } = useTranslation()
@@ -23,7 +26,10 @@ const Orders: NextPage = () => {
   const isDesktop = window.screen.width >= 1280
 
   const options = isDesktop && {
-    actionsComponent: () => <ActionsMenu />,
+    actionsComponent: () => <ActionsMenu>
+      <ActionsMenuItem label="Invoice" />
+      <ActionsMenuItem label="Print" />
+      </ActionsMenu>,
     infiniteScroll: false,
     windowOptions: {
       height: 600,
@@ -60,27 +66,6 @@ const Orders: NextPage = () => {
       titleClassName,
     },
   ]
-
-  const ActionsMenu = () => (
-    <button
-      type="button"
-      className="flex items-center text-gray-400 bg-white rounded-full hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
-      id="menu-button"
-      aria-expanded="true"
-      aria-haspopup="true"
-    >
-      <span className="sr-only">{t("orders.openMenu")}</span>
-      <svg
-        className="w-5 h-5"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 20 20"
-        fill="currentColor"
-        aria-hidden="true"
-      >
-        <path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z" />
-      </svg>
-    </button>
-  )
 
   return (
     <OrderContainer>
