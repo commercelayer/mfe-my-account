@@ -18,7 +18,7 @@ export default StatusChip
 
 const COMPLETED_COLOR = "green-400"
 const COMPLETED_COLOR_BG = "green-100"
-const INPROGRESS_COLOR = "yellow-500"
+const INPROGRESS_COLOR = "yellow-400"
 const INPROGRESS_COLOR_BG = "yellow-100"
 
 interface StatusChipProps {
