@@ -31,8 +31,8 @@ const Shipment: NextPage = () => {
         <ShipmentHeaderMain className="mt-10">
           <ShipmentHeaderCol>
             <ShipmentHeaderLabel>Tracking Code</ShipmentHeaderLabel>
-            <ShipmentHeaderValue>{shipmentId}</ShipmentHeaderValue>
-          </ShipmentHeaderCol>
+            <ShipmentHeaderValue>12d34fgv3456321</ShipmentHeaderValue>
+          </ShipmentHeaderCol>  
           <ShipmentHeaderCol className="w-28">
             <ShipmentHeaderLabel>Courier</ShipmentHeaderLabel>
             <ShipmentHeaderValue>UPS</ShipmentHeaderValue>
