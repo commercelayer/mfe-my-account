@@ -36,10 +36,10 @@ const OrderTimeline: React.FC = () => {
   }]
 
   return (
-    <div className="flex items-center pt-8 pb-24 -mx-5 md:mx-0">
-      {steps.map((step) => {
+    <div className="flex items-center pt-8 pb-12 -mx-5 md:mx-0">
+      {steps.map((step, index) => {
         return (
-          <div className={`flex items-center ${step.stepContainerClasses}`}>
+          <div className={`flex items-center ${step.stepContainerClasses}`} key={index}>
             <div className="flex items-center text-black relative">
               <div className={`flex items-center justify-center rounded-full transition duration-500 ease-in-out w-4 h-4 border-2 ${step.stepDotContainerClasses}`}>
                 <span className={` w-2 h-2 rounded-full bg-black ${step.stepDotClasses} `}></span>
