@@ -25,7 +25,7 @@ function UserArea(props: AppProps) {
   const { Component, pageProps } = props
   const { settings, retryOnError, isLoading } = useSettingsOrInvalid()
 
-  if (isLoading) return <MyAccountSkeleton settings={settings ? settings : {} as CustomerSettings} />
+  if (isLoading) return <MyAccountSkeleton settings={{} as CustomerSettings} />
   if (!isLoading && !settings) return <DynamicInvalid />
   if (!settings || retryOnError) return <RetryError />
 
