@@ -10,7 +10,6 @@ interface UseSettingsOrInvalid {
   settings: CustomerSettings | undefined
   retryOnError?: boolean
   isLoading: boolean
-  show404?: boolean
 }
 
 export const useSettingsOrInvalid = (): UseSettingsOrInvalid => {
@@ -39,7 +38,7 @@ export const useSettingsOrInvalid = (): UseSettingsOrInvalid => {
   )
 
   if (router.isReady && !accessToken) {
-    return { settings: undefined, isLoading: false, show404: true }
+    return { settings: undefined, isLoading: false }
   }
 
   if (!data && !error) {
@@ -47,7 +46,7 @@ export const useSettingsOrInvalid = (): UseSettingsOrInvalid => {
   }
 
   if (error || !data?.validUserArea) {
-    return { settings: undefined, retryOnError: true, isLoading: false, show404: true }
+    return { settings: undefined, retryOnError: true, isLoading: false }
   }
 
   return {

@@ -23,11 +23,11 @@ const DynamicAppContainer = dynamic(
 
 function UserArea(props: AppProps) {
   const { Component, pageProps } = props
-  const { settings, retryOnError, isLoading, show404 } = useSettingsOrInvalid()
+  const { settings, retryOnError, isLoading } = useSettingsOrInvalid()
 
-  if (show404) return <DynamicInvalid />
+  if (!isLoading && !settings) return <DynamicInvalid />
 
-  if (isLoading || (!settings && !retryOnError)) return <MyAccountSkeleton settings={settings ? settings : {} as CustomerSettings} />
+  if (isLoading) return <MyAccountSkeleton settings={settings ? settings : {} as CustomerSettings} />
 
   if (!settings) {
     if (retryOnError) {
