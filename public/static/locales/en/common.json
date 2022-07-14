@@ -42,6 +42,7 @@
   },
   "order": {
     "title": "Order",
+    "placed_on": "Placed on",
     "summary":"Summary",
     "addresses": "Addresses",
     "shipments": "Shipments",

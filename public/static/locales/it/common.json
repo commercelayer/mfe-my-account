@@ -8,6 +8,7 @@
   "orders": {
     "order": {
       "title": "Ordine",
+      "placed_on": "Effettuato il",
       "summary": "Riepilogo",
       "addresses": "Indirizzi",
       "shipments": "Spedizioni",

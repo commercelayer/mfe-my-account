@@ -6,7 +6,7 @@ import styled from "styled-components"
 import tw from "twin.macro"
 
 import ActionsMenu from "components/ui/ActionsMenu"
-import OrderTimeline from "components/composite/Order/Timeline"
+// import OrderTimeline from "components/composite/Order/Timeline"
 import OrderSummary from "components/composite/Order/SummarySection"
 import OrderStatusChip from "components/composite/Order/OrderStatusChip"
 import Button from "components/ui/Button"
@@ -20,31 +20,31 @@ const Order: NextPage = () => {
   const { t } = useTranslation()
 
   return (
-    <OrderContainer orderId={orderId}>
-      <OrderHeader>
-        <OrderHeaderMain>
-          <OrderTitle>{t("order.title")} #<OrderNumber /></OrderTitle>
-          <OrderDescription>Placed on XX/XX/XX</OrderDescription>
-          <OrderStatusChip status="placed" />
-        </OrderHeaderMain>
-        <OrderHeaderActions>
-          <MobileOnly>
-            <ActionsMenu className="mt-1">
-              <ActionsMenuItem label="Invoice" />
-              <ActionsMenuItem label="Print" />
-            </ActionsMenu>
-          </MobileOnly>
-          <DesktopOnly>
-            <Button label="Invoice" buttonSize="small" />
-            <Button label="Print" buttonSize="small" buttonStyle="outline" />
-          </DesktopOnly>
-        </OrderHeaderActions>
-      </OrderHeader>
-      <Wrapper>
-        <OrderTimeline />
-        <OrderSummary />
-      </Wrapper>
-    </OrderContainer>
+      <OrderContainer orderId={orderId}>
+        <OrderHeader>
+          <OrderHeaderMain>
+            <OrderTitle>{t("order.title")} #<OrderNumber /></OrderTitle>
+            <OrderDescription>{t("order.placed_on")} XX/XX/XX</OrderDescription>
+            <OrderStatusChip status="placed" />
+          </OrderHeaderMain>
+          <OrderHeaderActions>
+            <MobileOnly>
+              <ActionsMenu className="mt-1">
+                <ActionsMenuItem label="Invoice" />
+                <ActionsMenuItem label="Print" />
+              </ActionsMenu>
+            </MobileOnly>
+            <DesktopOnly>
+              <Button label="Invoice" buttonSize="small" />
+              <Button label="Print" buttonSize="small" buttonStyle="outline" />
+            </DesktopOnly>
+          </OrderHeaderActions>
+        </OrderHeader>
+        <Wrapper>
+          {/* <OrderTimeline /> */}
+          <OrderSummary />
+        </Wrapper>
+      </OrderContainer>
   )
 }
 
