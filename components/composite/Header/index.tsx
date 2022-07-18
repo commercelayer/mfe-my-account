@@ -9,11 +9,13 @@ import Logo from "components/ui/Logo"
 import MenuButton from "components/ui/MenuButton"
 
 interface Props {
+  isGuest: boolean
   logoUrl?: string
   companyName: string
 }
 
 const Header: React.FC<Props> = ({
+  isGuest,
   logoUrl,
   companyName
 }) => {
@@ -25,16 +27,28 @@ const Header: React.FC<Props> = ({
     <HeaderContainer>
       <Wrapper>
         <MenuButton />
-        <Logo
-          logoUrl={logoUrl}
-          companyName={companyName}
-          tw="self-center md:(hidden)"
-        />
-        <Title>{t("header.title")}</Title>
-        <User>
-          <Email>{email}</Email>
-          <Avatar email={email} />
-        </User>
+        {isGuest ? (
+          <>
+            <Logo
+              logoUrl={logoUrl}
+              companyName={companyName}
+              tw="self-center"
+            />
+          </>
+        ) : (
+          <>
+            <Logo
+              logoUrl={logoUrl}
+              companyName={companyName}
+              tw="self-center md:(hidden)"
+            />
+            <Title>{t("header.title")}</Title>
+            <User>
+              <Email>{email}</Email>
+              <Avatar email={email} />
+            </User>
+          </>
+        )}
       </Wrapper>
     </HeaderContainer>
   )
