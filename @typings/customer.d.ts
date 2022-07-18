@@ -1,5 +1,6 @@
 interface CustomerSettings {
   accessToken: string
+  isGuest: boolean
   customerId: string
   validUserArea: boolean
   endpoint: string
@@ -14,6 +15,7 @@ interface CustomerSettings {
 type CustomerPageContextProps = Pick<
   CustomerSettings,
   | "accessToken"
+  | "isGuest"
   | "customerId"
   | "logoUrl"
   | "companyName"

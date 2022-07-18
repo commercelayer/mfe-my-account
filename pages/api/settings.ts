@@ -68,7 +68,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
   const organization = organizationResponse?.object
 
-  if (!customerId || !organization) {
+  // if (!customerId || !organization) {
+  if (!organization) {
     res.statusCode = 200
     return res.json({ validUserArea: false })
   }
@@ -91,7 +92,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   const appSettings: CustomerSettings = {
     accessToken,
     endpoint: `https://${slug}.${domain}`,
-    customerId,
+    isGuest: !customerId ? true : false,
+    customerId: customerId as string ,
     validUserArea: true,
     companyName: organization?.name || defaultSettings.companyName,
     language: defaultSettings.language,
