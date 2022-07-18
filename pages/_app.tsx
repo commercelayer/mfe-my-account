@@ -31,6 +31,11 @@ function MyAccount(props: AppProps) {
     if (!isLoading && !settings) return <DynamicInvalid />
     if (!settings || retryOnError) return <RetryError />
 
+    /** If you are a Guest user you can view just the order detail and children pages */
+    if (settings && settings.isGuest && router.pathname.indexOf('/orders/[orderId]') == -1) {
+      router.push(`/404?accessToken=${settings.accessToken}`)
+    }
+
     return (
       <DynamicAppContainer settings={settings}>
         <Component {...pageProps} settings={settings} />
