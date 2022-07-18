@@ -1,6 +1,7 @@
+import { NextPage } from "next"
 import Invalid from "components/composite/Invalid"
 
-const PageNotFound = () => {
+const PageNotFound: NextPage = () => {
   return <Invalid />
 }
 
