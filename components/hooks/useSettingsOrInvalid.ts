@@ -24,11 +24,11 @@ export const useSettingsOrInvalid = (): UseSettingsOrInvalid => {
   )
 
   if (router.isReady && !accessToken) {
-    return { settings: undefined, isLoading: false }
+    return { settings: undefined, retryOnError: false, isLoading: false }
   }
 
   if (!data && !error) {
-    return { settings: undefined, isLoading: true }
+    return { settings: undefined, retryOnError: false, isLoading: true }
   }
 
   if (error || !data?.validUserArea) {
@@ -37,6 +37,7 @@ export const useSettingsOrInvalid = (): UseSettingsOrInvalid => {
 
   return {
     settings: data,
+    retryOnError: false,
     isLoading: false,
   }
 }
