@@ -17,6 +17,7 @@ import PageMain from "components/ui/PageMain"
 import Footer from "components/ui/Footer"
 
 import { LayoutDefault } from "components/layouts/LayoutDefault"
+import { LayoutGuest } from "components/layouts/LayoutGuest"
 
 interface Props {
   settings: CustomerSettings
@@ -39,22 +40,40 @@ const MyAccountContainer: React.FC<Props> = ({ settings, children }) => {
           >
             <ActionsMenuProvider>
               <CustomerContainer>
-                <LayoutDefault
-                  main={
-                    <>
-                      <Header
-                        logoUrl={settings.logoUrl}
-                        companyName={settings.companyName}
-                      />
-                      <PageMain>
-                        {children}
-                      </PageMain>
-                      <Footer />
-                    </>
-                  }
-                  aside={<Navbar settings={settings} />}
-                />
-
+                { settings.isGuest ? (
+                  <LayoutGuest 
+                    main={
+                      <>
+                        <Header
+                          isGuest={settings.isGuest}
+                          logoUrl={settings.logoUrl}
+                          companyName={settings.companyName}
+                        />
+                        <PageMain>
+                          {children}
+                        </PageMain>
+                        <Footer />
+                      </>
+                    }
+                  />
+                ) : (
+                  <LayoutDefault
+                    main={
+                      <>
+                        <Header
+                          isGuest={settings.isGuest}
+                          logoUrl={settings.logoUrl}
+                          companyName={settings.companyName}
+                        />
+                        <PageMain>
+                          {children}
+                        </PageMain>
+                        <Footer />
+                      </>
+                    }
+                    aside={<Navbar settings={settings} />}
+                  />
+                  ) }
               </CustomerContainer>
             </ActionsMenuProvider>
           </AppProvider>
