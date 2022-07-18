@@ -2,6 +2,7 @@ import "../styles/globals.css"
 import { appWithTranslation } from "next-i18next"
 import type { AppProps } from "next/app"
 import "components/data/i18n"
+import { useRouter } from "next/router"
 
 import { RetryError } from "components/composite/RetryError"
 import { useSettingsOrInvalid } from "components/hooks/useSettingsOrInvalid"
@@ -23,16 +24,23 @@ function MyAccount(props: AppProps) {
     }
   )
 
+  const router = useRouter()
   const { settings, retryOnError, isLoading } = useSettingsOrInvalid()
-  if (isLoading) return <MyAccountSkeleton />
-  if (!isLoading && !settings) return <DynamicInvalid />
-  if (!settings || retryOnError) return <RetryError />
+  if (router.pathname != '/404') {
+    if (isLoading) return <MyAccountSkeleton />
+    if (!isLoading && !settings) return <DynamicInvalid />
+    if (!settings || retryOnError) return <RetryError />
+
+    return (
+      <DynamicAppContainer settings={settings}>
+        <Component {...pageProps} settings={settings} />
+      </DynamicAppContainer>
+    )
+  } else {
+    return <Component {...pageProps} />
+  }
   
-  return (
-    <DynamicAppContainer settings={settings}>
-      <Component {...pageProps} settings={settings} />
-    </DynamicAppContainer>
-  )
+  
 }
 
 export default appWithTranslation(MyAccount)
