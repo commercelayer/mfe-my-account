@@ -1,8 +1,5 @@
 import { useRouter } from "next/router"
-import { useEffect, useRef } from "react"
 import useSWR from "swr"
-
-import { useLocalStorageToken } from "./useLocalStorageToken"
 
 const fetcher = (url: string) => fetch(url).then((r) => r.json())
 
@@ -15,17 +12,6 @@ interface UseSettingsOrInvalid {
 export const useSettingsOrInvalid = (): UseSettingsOrInvalid => {
   const router = useRouter()
   const { orderId, accessToken } = router.query
-
-  const [savedAccessToken, setAccessToken] = useLocalStorageToken(
-    "userAreaAccessToken",
-    accessToken as string
-  )
-
-  useEffect(() => {
-    if (router.isReady && accessToken && accessToken !== savedAccessToken) {
-      setAccessToken(accessToken)
-    }
-  }, [router])
 
   const orderIdQuery = orderId ? `&orderId=${orderId}` : ""
 
