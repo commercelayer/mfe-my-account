@@ -1,8 +1,8 @@
 import { useContext } from "react"
 import { NextPage } from "next"
 import { useRouter } from "next/router"
-import styled from "styled-components"
-import tw from "twin.macro"
+
+import MyAccountSkeleton from "components/composite/MyAccountSkeleton"
 
 import { AppContext } from "components/data/AppProvider"
 
@@ -16,13 +16,7 @@ const Shipment: NextPage = () => {
 
   router.push(`/orders/${orderId}?accessToken=${accessToken}`)
 
-  return (
-    <div></div>
-  )
+  return <MyAccountSkeleton />
 }
 
 export default Shipment
-
-const ShipmentContainer = styled.div`
-  ${tw``}
-`

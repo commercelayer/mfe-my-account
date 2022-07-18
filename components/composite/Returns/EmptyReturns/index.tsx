@@ -3,23 +3,27 @@ import tw from "twin.macro"
 
 import { useTranslation } from "react-i18next"
 
-import NoAddressesIcon from "components/ui/icons/NoAddressesIcon"
+import NoReturnsIcon from "components/ui/icons/NoReturnsIcon"
 import Button from "components/ui/Button"
 
-const NoAddresses: React.FC = () => {
+interface Props {
+  settings: CustomerSettings
+}
+
+const EmptyReturns: React.FC<Props> = ({settings}) => {
   const { t } = useTranslation()
 
   return (
     <Wrapper>
-      <NoAddressesIcon />
-      <Title>{ t("noAddresses.title") }</Title>
-      <Description>{ t("noAddresses.description") }</Description>
-      <NoItemsButton label={ t("noAddresses.buttonLabel") } />
+      <NoReturnsIcon />
+      <Title>{ t("noReturns.title") }</Title>
+      <Description>{ t("noReturns.description") }</Description>
+      <NoItemsButton label={ t("noReturns.buttonLabel") } />
     </Wrapper>
   )
 }
 
-export default NoAddresses
+export default EmptyReturns
 
 export const Wrapper = styled.div`
   ${tw`flex flex-col items-center content-center`}

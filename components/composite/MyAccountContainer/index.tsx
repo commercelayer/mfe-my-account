@@ -11,6 +11,11 @@ import { MyAccountHead } from "components/composite/MyAccountTitle"
 import { AppProvider } from "components/data/AppProvider"
 import { ActionsMenuProvider } from "components/data/ActionsMenuProvider"
 import Navbar from "components/composite/Navbar"
+
+import Header from "components/composite/Header"
+import PageMain from "components/ui/PageMain"
+import Footer from "components/ui/Footer"
+
 import { LayoutDefault } from "components/layouts/LayoutDefault"
 
 interface Props {
@@ -35,10 +40,21 @@ const MyAccountContainer: React.FC<Props> = ({ settings, children }) => {
             <ActionsMenuProvider>
               <CustomerContainer>
                 <LayoutDefault
-                  main={children}
+                  main={
+                    <>
+                      <Header
+                        logoUrl={settings.logoUrl}
+                        companyName={settings.companyName}
+                      />
+                      <PageMain>
+                        {children}
+                      </PageMain>
+                      <Footer />
+                    </>
+                  }
                   aside={<Navbar settings={settings} />}
-                  settings={settings}
                 />
+
               </CustomerContainer>
             </ActionsMenuProvider>
           </AppProvider>

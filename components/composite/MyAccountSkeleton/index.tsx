@@ -3,11 +3,7 @@ import tw from "twin.macro"
 
 import { LayoutDefault } from "components/layouts/LayoutDefault"
 
-interface Props {
-  settings: CustomerSettings
-}
-
-export const MyAccountSkeleton: React.FC<Props> = ({ settings }) => {
+export const MyAccountSkeleton: React.FC = () => {
   return (
     <LayoutDefault
       aside={
@@ -90,7 +86,6 @@ export const MyAccountSkeleton: React.FC<Props> = ({ settings }) => {
           </div>
         </div>
       }
-      settings={settings}
     />
   )
 }

@@ -3,25 +3,20 @@ import { useEffect, useContext } from "react"
 import styled from "styled-components"
 import tw from "twin.macro"
 
-import Header from "components/composite/Header"
 import { Base } from "components/ui/Base"
 import { Card } from "components/ui/Card"
 import { Container } from "components/ui/Container"
-import Footer from "components/ui/Footer"
 
 import { AppContext } from "components/data/AppProvider"
 
 interface Props {
   aside: React.ReactNode
   main: React.ReactNode
-  settings: CustomerSettings
 }
 
-export const LayoutDefault: React.FC<Props> = ({ main, aside, settings }) => {
+export const LayoutDefault: React.FC<Props> = ({ main, aside }) => {
   
   const ctx = useContext(AppContext)
-  
-  const { logoUrl, companyName } = settings
 
   useEffect(() => {
     const main = document.getElementById("main")
@@ -37,14 +32,7 @@ export const LayoutDefault: React.FC<Props> = ({ main, aside, settings }) => {
           </DesktopOnly>
           {ctx?.showMobileMenu && <MobileMenu>{aside}</MobileMenu>}
           <Main id="main">
-            <Card fullHeight>
-              <Header
-                logoUrl={logoUrl}
-                companyName={companyName}
-              />
-              {main}
-              <Footer />
-            </Card>
+            <Card fullHeight>{main}</Card>
           </Main>
         </Wrapper>
       </Container>
