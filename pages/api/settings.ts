@@ -12,7 +12,7 @@ function isProduction(env: string): boolean {
 }
 
 export const defaultSettings: InvalidCustomerSettings = {
-  isValid: false,
+  validUserArea: false,
   primaryColor: '#000000',
   language: "en",
   favicon: `${process.env.NEXT_PUBLIC_BASE_PATH}/favicon.png`,

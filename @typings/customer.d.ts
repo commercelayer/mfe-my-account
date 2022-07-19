@@ -1,7 +1,5 @@
 interface CustomerSettings {
   accessToken: string
-  isGuest: boolean
-  customerId: string
   validUserArea: boolean
   endpoint: string
   logoUrl?: string
@@ -9,27 +7,15 @@ interface CustomerSettings {
   language: string
   primaryColor: string
   favicon: string
+  isGuest: boolean
+  customerId: string
   gtmId?: string
 }
-
-type CustomerPageContextProps = Pick<
-  CustomerSettings,
-  | "accessToken"
-  | "isGuest"
-  | "customerId"
-  | "logoUrl"
-  | "companyName"
-  | "endpoint"
-  | "language"
-  | "primaryColor"
-  | "favicon"
-  | "gtmId"
->
 
 type InvalidCustomerSettings = Pick<
   CustomerSettings,
   "primaryColor" | "language" | "favicon" | "companyName" | "logoUrl"
 > & {
-  isValid: false
+  validUserArea: false
   retryable: boolean
 }
