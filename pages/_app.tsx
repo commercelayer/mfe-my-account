@@ -4,27 +4,26 @@ import type { AppProps } from "next/app"
 import "components/data/i18n"
 import { useRouter } from "next/router"
 
-import MyAccountContainer from "components/composite/MyAccountContainer"
 import Invalid from "components/composite/Invalid"
+import MyAccountContainer from "components/composite/MyAccountContainer"
 import MyAccountSkeleton from "components/composite/MyAccountSkeleton"
 import MyAccountSkeletonGuest from "components/composite/MyAccountSkeleton/Guest"
+import { SettingsProvider } from "components/data/SettingsProvider"
 
 import { isGuest } from "utils/isGuest"
-
-import { SettingsProvider } from "components/data/SettingsProvider"
 
 function MyAccount(props: AppProps) {
   const { Component, pageProps } = props
   const router = useRouter()
   const orderId = router.query.orderId as string
 
-  if (router.pathname !== '/404') {
+  if (router.pathname !== "/404") {
     return (
       <SettingsProvider orderId={orderId}>
         {({ settings, isLoading }) => {
           return isLoading && isGuest() ? (
             <MyAccountSkeletonGuest />
-          ) : isLoading && !isGuest() ? ( 
+          ) : isLoading && !isGuest() ? (
             <MyAccountSkeleton />
           ) : !settings.validUserArea ? (
             <Invalid />
@@ -39,7 +38,6 @@ function MyAccount(props: AppProps) {
   } else {
     return <Component {...pageProps} />
   }
-  
 }
 
 export default appWithTranslation(MyAccount)
