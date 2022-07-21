@@ -1,7 +1,7 @@
 import { Settings } from "HostedApp"
 import Link from "next/link"
 import { useRouter } from "next/router"
-import { ReactNode, Dispatch, useContext } from "react"
+import { ReactNode, useContext } from "react"
 import styled from "styled-components"
 import tw from "twin.macro"
 
@@ -12,7 +12,7 @@ type Props = Pick<Settings, "accessToken"> & {
   title: string
   href: string
   icon: ReactNode
-  onClick?: Dispatch<any>
+  onClick?: () => void
 }
 
 const NavLink: React.FC<Props> = ({

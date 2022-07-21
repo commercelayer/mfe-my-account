@@ -2,7 +2,7 @@ import { createContext, Dispatch } from "react"
 
 type DefaultContext = {
   address: any
-  setAddress: Dispatch<any>
+  setAddress: Dispatch<object>
   setShowAddressForm: Dispatch<boolean>
 }
 
