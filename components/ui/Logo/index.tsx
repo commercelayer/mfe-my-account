@@ -1,9 +1,8 @@
+import { Settings } from "HostedApp"
 import styled from "styled-components"
 import tw from "twin.macro"
 
-interface Props {
-  logoUrl?: string
-  companyName: string
+type Props = Pick<Settings, "logoUrl" | "companyName"> & {
   className?: string
 }
 
