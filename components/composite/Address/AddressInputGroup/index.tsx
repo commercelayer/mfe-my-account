@@ -76,13 +76,13 @@ export const AddressInputGroup: React.FC<Props> = ({
               }}
               value={
                 shippingCountryCodeLock &&
-                fieldName.indexOf('shipping') >= 0
+                fieldName === "shipping_address_country_code"
                   ? shippingCountryCodeLock
                   : value
               }
               disabled={Boolean(
                 shippingCountryCodeLock &&
-                fieldName.indexOf('shipping') >= 0
+                  fieldName === "shipping_address_country_code"
               )}
             />
           ) : (
