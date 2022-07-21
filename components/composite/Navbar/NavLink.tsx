@@ -1,3 +1,4 @@
+import { Settings } from "HostedApp"
 import Link from "next/link"
 import { useRouter } from "next/router"
 import { ReactNode, Dispatch, useContext } from "react"
@@ -6,11 +7,10 @@ import tw from "twin.macro"
 
 import { AppContext } from "components/data/AppProvider"
 
-interface Props {
+type Props = Pick<Settings, "accessToken"> & {
   id: string
   title: string
   href: string
-  accessToken: string
   icon: ReactNode
   onClick?: Dispatch<any>
 }

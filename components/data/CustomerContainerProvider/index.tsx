@@ -1,8 +1,8 @@
 import { CustomerContainer } from "@commercelayer/react-components"
+import { Settings } from "HostedApp"
 
-interface CustomerContainerProviderProps {
+type CustomerContainerProviderProps = Pick<Settings, "isGuest"> & {
   children: React.ReactNode
-  isGuest: boolean
 }
 
 export const CustomerContainerProvider: React.FC<

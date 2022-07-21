@@ -1,4 +1,5 @@
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock"
+import { Settings } from "HostedApp"
 import { useEffect, useContext } from "react"
 import styled from "styled-components"
 import tw from "twin.macro"
@@ -8,13 +9,16 @@ import { Base } from "components/ui/Base"
 import { Card } from "components/ui/Card"
 import { Container } from "components/ui/Container"
 
-interface Props {
-  isGuest: boolean
+type LayoutDefaultProps = Pick<Settings, "isGuest"> & {
   aside: React.ReactNode | null
   main: React.ReactNode
 }
 
-export const LayoutDefault: React.FC<Props> = ({ main, aside, isGuest }) => {
+export const LayoutDefault: React.FC<LayoutDefaultProps> = ({
+  main,
+  aside,
+  isGuest,
+}) => {
   const ctx = useContext(AppContext)
 
   useEffect(() => {

@@ -1,4 +1,5 @@
-import { useContext, Dispatch } from "react"
+import { Settings } from "HostedApp"
+import { useContext } from "react"
 import { useTranslation } from "react-i18next"
 import styled from "styled-components"
 import tw from "twin.macro"
@@ -8,17 +9,9 @@ import Avatar from "components/ui/Avatar"
 import Logo from "components/ui/Logo"
 import MenuButton from "components/ui/MenuButton"
 
-interface Props {
-  isGuest: boolean
-  logoUrl?: string
-  companyName: string
-}
+type Props = Pick<Settings, "isGuest" | "logoUrl" | "companyName">
 
-const Header: React.FC<Props> = ({
-  isGuest,
-  logoUrl,
-  companyName
-}) => {
+const Header: React.FC<Props> = ({ isGuest, logoUrl, companyName }) => {
   const { t } = useTranslation()
   const ctx = useContext(AppContext)
   const email = ctx?.email as string

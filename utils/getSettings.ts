@@ -22,13 +22,14 @@ const makeInvalidSettings = (retryable?: boolean): InvalidSettings => ({
   retryable: !!retryable,
 })
 
+type GetSettingsProps = Pick<Settings, "accessToken"> & {
+  orderId?: string | undefined
+}
+
 export const getSettings = async ({
   accessToken,
   orderId,
-}: {
-  accessToken: string
-  orderId?: string | undefined
-}): Promise<Settings | InvalidSettings> => {
+}: GetSettingsProps): Promise<Settings | InvalidSettings> => {
   const domain = process.env.NEXT_PUBLIC_DOMAIN || "commercelayer.io"
   const { slug, kind, customerId, isTest } = getInfoFromJwt(accessToken)
 

@@ -2,11 +2,11 @@ import { Settings } from "HostedApp"
 import styled from "styled-components"
 import tw from "twin.macro"
 
-type Props = Pick<Settings, "logoUrl" | "companyName"> & {
+type LogoProps = Pick<Settings, "logoUrl" | "companyName"> & {
   className?: string
 }
 
-const Logo: React.FC<Props> = ({ logoUrl, companyName, className }) => {
+const Logo: React.FC<LogoProps> = ({ logoUrl, companyName, className }) => {
   if (logoUrl) {
     return <Image src={logoUrl} alt={companyName} className={className} />
   }
