@@ -1,7 +1,4 @@
-import {
-  CommerceLayer,
-  CustomerContainer,
-} from "@commercelayer/react-components"
+import { CommerceLayer } from "@commercelayer/react-components"
 import { GlobalStylesProvider } from "@commercelayer/react-utils"
 import { Settings } from "HostedApp"
 import { GlobalStyles as BaseStyles } from "twin.macro"
@@ -11,6 +8,7 @@ import { MyAccountHead } from "components/composite/MyAccountTitle"
 import Navbar from "components/composite/Navbar"
 import { ActionsMenuProvider } from "components/data/ActionsMenuProvider"
 import { AppProvider } from "components/data/AppProvider"
+import { CustomerContainerProvider } from "components/data/CustomerContainerProvider"
 import { LayoutDefault } from "components/layouts/LayoutDefault"
 import { LayoutGuest } from "components/layouts/LayoutGuest"
 import Footer from "components/ui/Footer"
@@ -36,7 +34,7 @@ const MyAccountContainer: React.FC<Props> = ({ settings, children }) => {
             endpoint={settings.endpoint}
           >
             <ActionsMenuProvider>
-              <CustomerContainer>
+              <CustomerContainerProvider isGuest={settings.isGuest}>
                 {settings.isGuest ? (
                   <LayoutGuest
                     main={
@@ -67,7 +65,7 @@ const MyAccountContainer: React.FC<Props> = ({ settings, children }) => {
                     aside={<Navbar settings={settings} />}
                   />
                 )}
-              </CustomerContainer>
+              </CustomerContainerProvider>
             </ActionsMenuProvider>
           </AppProvider>
         </GlobalStylesProvider>
