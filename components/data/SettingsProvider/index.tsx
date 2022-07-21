@@ -1,3 +1,4 @@
+import { Settings, InvalidSettings } from "HostedApp"
 import { changeLanguage } from "i18next"
 import {
   createContext,
@@ -14,7 +15,7 @@ import { getAccessTokenFromUrl } from "utils/getAccessTokenFromUrl"
 import { defaultSettings, getSettings } from "utils/getSettings"
 
 type SettingsProviderValue = {
-  settings: CustomerSettings | InvalidCustomerSettings
+  settings: Settings | InvalidSettings
   isLoading: boolean
 }
 
@@ -40,9 +41,9 @@ export const useSettings = (): SettingsProviderValue => {
 }
 
 export const SettingsProvider: FC<SettingsProviderProps> = ({ children }) => {
-  const [settings, setSettings] = useState<
-    CustomerSettings | InvalidCustomerSettings
-  >(defaultSettings)
+  const [settings, setSettings] = useState<Settings | InvalidSettings>(
+    defaultSettings
+  )
   const [isLoading, setIsLoading] = useState(true)
   const accessToken = getAccessTokenFromUrl()
 

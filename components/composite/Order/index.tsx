@@ -3,26 +3,26 @@ import { useTranslation } from "react-i18next"
 import styled from "styled-components"
 import tw from "twin.macro"
 
-import ActionsMenu from "components/ui/ActionsMenu"
-// import OrderTimeline from "components/composite/Order/Timeline"
 import OrderSummary from "components/composite/Order/SummarySection"
-import OrderStatusChip from "components/ui/StatusChip/OrderStatusChip"
-import Button from "components/ui/Button"
+import ActionsMenu from "components/ui/ActionsMenu"
 import ActionsMenuItem from "components/ui/ActionsMenuItem"
+import Button from "components/ui/Button"
+import OrderStatusChip from "components/ui/StatusChip/OrderStatusChip"
 
 interface Props {
-  settings: CustomerSettings,
   orderId: string
 }
 
-const Order: React.FC<Props> = ({ settings, orderId }) => {
+const Order: React.FC<Props> = ({ orderId }) => {
   const { t } = useTranslation()
 
   return (
     <OrderContainer orderId={orderId}>
       <OrderHeader>
         <OrderHeaderMain>
-          <OrderTitle>{t("order.title")} #<OrderNumber /></OrderTitle>
+          <OrderTitle>
+            {t("order.title")} #<OrderNumber />
+          </OrderTitle>
           <OrderDescription>{t("order.placed_on")} XX/XX/XX</OrderDescription>
           <OrderStatusChip status="placed" />
         </OrderHeaderMain>

@@ -1,4 +1,5 @@
 import { CustomerField } from "@commercelayer/react-components"
+import { Settings } from "HostedApp"
 import { Dispatch } from "react"
 import { useTranslation } from "react-i18next"
 import styled from "styled-components"
@@ -15,7 +16,7 @@ import Logo from "components/ui/Logo"
 import NavLink from "./NavLink"
 
 interface Props {
-  settings: CustomerSettings
+  settings: Settings
   onClick?: Dispatch<boolean>
 }
 
@@ -26,7 +27,6 @@ const Navbar: React.FC<Props> = ({ settings, onClick }) => {
   const menu = {
     orders: {
       title: t("menu.orders"),
-      description: '', //t("menu.ordersDescription"),
       href: "/orders",
       icon: <ShoppingCartIcon />,
       accessToken,
@@ -34,7 +34,6 @@ const Navbar: React.FC<Props> = ({ settings, onClick }) => {
     },
     addresses: {
       title: t("menu.addresses"),
-      description: '', //t("menu.addressesDescription"),
       href: "/addresses",
       icon: <LocationIcon />,
       accessToken,
@@ -42,7 +41,6 @@ const Navbar: React.FC<Props> = ({ settings, onClick }) => {
     },
     wallet: {
       title: t("menu.wallet"),
-      description: '', //t("menu.walletDescription"),
       href: "/wallet",
       icon: <CreditCardIcon />,
       accessToken,
@@ -50,7 +48,6 @@ const Navbar: React.FC<Props> = ({ settings, onClick }) => {
     },
     returns: {
       title: t("menu.returns"),
-      description: '', //t("menu.returnsDescription"),
       href: "/returns",
       icon: <ReturnsIcon />,
       accessToken,
@@ -58,7 +55,6 @@ const Navbar: React.FC<Props> = ({ settings, onClick }) => {
     },
     customerService: {
       title: t("menu.customerService"),
-      description: '', //t("menu.customerServiceDescription"),
       href: "/customer_service",
       icon: <CustomerServiceIcon />,
       accessToken,
@@ -66,7 +62,6 @@ const Navbar: React.FC<Props> = ({ settings, onClick }) => {
     },
     logout: {
       title: t("menu.logout"),
-      description: '', //t("menu.logoutDescription"),
       href: "/logout",
       icon: <LogoutIcon />,
       accessToken,
@@ -128,7 +123,4 @@ export const Email = styled.span`
 `
 export const Nav = styled.nav`
   ${tw`md:(mt-8) lg:(mt-16)`}
-`
-const DesktopOnly = styled.div`
-  ${tw`hidden md:(block)`}
 `

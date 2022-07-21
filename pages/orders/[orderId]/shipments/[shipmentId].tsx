@@ -1,10 +1,11 @@
+import { Settings } from "HostedApp"
 import { NextPage } from "next"
 import { useRouter } from "next/router"
 
 import OrderShipment from "components/composite/OrderShipment"
 
 interface Props {
-  settings: CustomerSettings
+  settings: Settings
 }
 
 const OrderShipmentPage: NextPage<Props> = ({ settings }) => {
@@ -13,7 +14,11 @@ const OrderShipmentPage: NextPage<Props> = ({ settings }) => {
   const shipmentId = query.shipmentId as string
 
   return (
-    <OrderShipment settings={settings} orderId={orderId} shipmentId={shipmentId} />
+    <OrderShipment
+      settings={settings}
+      orderId={orderId}
+      shipmentId={shipmentId}
+    />
   )
 }
 

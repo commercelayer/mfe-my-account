@@ -1,24 +1,19 @@
+import { useTranslation } from "react-i18next"
 import styled from "styled-components"
 import tw from "twin.macro"
 
-import { useTranslation } from "react-i18next"
-
-import NoReturnsIcon from "components/ui/icons/NoReturnsIcon"
 import Button from "components/ui/Button"
+import NoReturnsIcon from "components/ui/icons/NoReturnsIcon"
 
-interface Props {
-  settings: CustomerSettings
-}
-
-const EmptyReturns: React.FC<Props> = ({settings}) => {
+const EmptyReturns: React.FC = () => {
   const { t } = useTranslation()
 
   return (
     <Wrapper>
       <NoReturnsIcon />
-      <Title>{ t("noReturns.title") }</Title>
-      <Description>{ t("noReturns.description") }</Description>
-      <NoItemsButton label={ t("noReturns.buttonLabel") } />
+      <Title>{t("noReturns.title")}</Title>
+      <Description>{t("noReturns.description")}</Description>
+      <NoItemsButton label={t("noReturns.buttonLabel")} />
     </Wrapper>
   )
 }

@@ -1,26 +1,23 @@
-import { useContext } from "react"
 import {
   CommerceLayer,
   CustomerContainer,
 } from "@commercelayer/react-components"
-
 import { GlobalStylesProvider } from "@commercelayer/react-utils"
+import { Settings } from "HostedApp"
 import { GlobalStyles as BaseStyles } from "twin.macro"
 
-import { MyAccountHead } from "components/composite/MyAccountTitle"
-import { AppProvider } from "components/data/AppProvider"
-import { ActionsMenuProvider } from "components/data/ActionsMenuProvider"
-import Navbar from "components/composite/Navbar"
-
 import Header from "components/composite/Header"
-import PageMain from "components/ui/PageMain"
-import Footer from "components/ui/Footer"
-
+import { MyAccountHead } from "components/composite/MyAccountTitle"
+import Navbar from "components/composite/Navbar"
+import { ActionsMenuProvider } from "components/data/ActionsMenuProvider"
+import { AppProvider } from "components/data/AppProvider"
 import { LayoutDefault } from "components/layouts/LayoutDefault"
 import { LayoutGuest } from "components/layouts/LayoutGuest"
+import Footer from "components/ui/Footer"
+import PageMain from "components/ui/PageMain"
 
 interface Props {
-  settings: CustomerSettings
+  settings: Settings
 }
 
 const MyAccountContainer: React.FC<Props> = ({ settings, children }) => {
@@ -40,8 +37,8 @@ const MyAccountContainer: React.FC<Props> = ({ settings, children }) => {
           >
             <ActionsMenuProvider>
               <CustomerContainer>
-                { settings.isGuest ? (
-                  <LayoutGuest 
+                {settings.isGuest ? (
+                  <LayoutGuest
                     main={
                       <>
                         <Header
@@ -49,9 +46,7 @@ const MyAccountContainer: React.FC<Props> = ({ settings, children }) => {
                           logoUrl={settings.logoUrl}
                           companyName={settings.companyName}
                         />
-                        <PageMain>
-                          {children}
-                        </PageMain>
+                        <PageMain>{children}</PageMain>
                         <Footer />
                       </>
                     }
@@ -65,15 +60,13 @@ const MyAccountContainer: React.FC<Props> = ({ settings, children }) => {
                           logoUrl={settings.logoUrl}
                           companyName={settings.companyName}
                         />
-                        <PageMain>
-                          {children}
-                        </PageMain>
+                        <PageMain>{children}</PageMain>
                         <Footer />
                       </>
                     }
                     aside={<Navbar settings={settings} />}
                   />
-                  ) }
+                )}
               </CustomerContainer>
             </ActionsMenuProvider>
           </AppProvider>

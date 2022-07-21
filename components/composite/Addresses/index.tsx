@@ -1,25 +1,21 @@
 import { AddressesContainer } from "@commercelayer/react-components"
+import { Transition } from "@headlessui/react"
 import { useState } from "react"
 import { useTranslation } from "react-i18next"
-import { Transition } from "@headlessui/react"
-import CustomerAddressContext from "context/CustomerAddressContext"
 
 import CustomerAddressForm from "components/composite/Address/CustomerAddressForm"
 import { AddButton } from "components/ui/AddButton"
 import CustomerAddressCard from "components/ui/CustomerAddressCard"
 import { GridContainer } from "components/ui/GridContainer"
-
 import Title from "components/ui/Title"
 
-interface Props {
-  settings: CustomerSettings
-}
+import CustomerAddressContext from "context/CustomerAddressContext"
 
-const Addresses: React.FC<Props> = ({settings}) => {
+const Addresses: React.FC = () => {
   const { t } = useTranslation()
   const [showAddressForm, setShowAddressForm] = useState(false)
   const [address, setAddress] = useState<any>({})
-  
+
   return (
     <CustomerAddressContext.Provider
       value={{ address, setAddress, setShowAddressForm }}
@@ -40,7 +36,7 @@ const Addresses: React.FC<Props> = ({settings}) => {
         <Transition show={showAddressForm} {...formTransition}>
           <CustomerAddressForm onClose={() => setShowAddressForm(false)} />
         </Transition>
-      </AddressesContainer> 
+      </AddressesContainer>
     </CustomerAddressContext.Provider>
   )
 }

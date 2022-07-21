@@ -4,17 +4,12 @@ import tw from "twin.macro"
 
 import Title from "components/ui/Title"
 
-interface Props {
-  settings: CustomerSettings
-}
-
-const Returns: React.FC<Props> = ({settings}) => {
+const Returns: React.FC = () => {
   const { t } = useTranslation()
-  
+
   return (
     <ReturnsContainer>
       <Title>{t("returns.title")}</Title>
-        
     </ReturnsContainer>
   )
 }

@@ -1,4 +1,5 @@
 import CommerceLayer from "@commercelayer/sdk"
+import { Settings, InvalidSettings } from "HostedApp"
 
 import { getInfoFromJwt } from "./getInfoFromJwt"
 import { getOrder } from "./getOrder"
@@ -7,8 +8,8 @@ import { isValidHost } from "./isValidHost"
 
 // default settings are by their nature not valid to show a full cart
 // they will be used as fallback for errors or 404 page
-export const defaultSettings: InvalidCustomerSettings = {
-  validUserArea: false,
+export const defaultSettings: InvalidSettings = {
+  isValid: false,
   primaryColor: "#000000",
   language: "en",
   favicon: `${process.env.NEXT_PUBLIC_BASE_PATH}/favicon.png`,
@@ -16,7 +17,7 @@ export const defaultSettings: InvalidCustomerSettings = {
   retryable: false,
 }
 
-const makeInvalidSettings = (retryable?: boolean): InvalidCustomerSettings => ({
+const makeInvalidSettings = (retryable?: boolean): InvalidSettings => ({
   ...defaultSettings,
   retryable: !!retryable,
 })
@@ -27,7 +28,7 @@ export const getSettings = async ({
 }: {
   accessToken: string
   orderId?: string | undefined
-}): Promise<CustomerSettings | InvalidCustomerSettings> => {
+}): Promise<Settings | InvalidSettings> => {
   const domain = process.env.NEXT_PUBLIC_DOMAIN || "commercelayer.io"
   const { slug, kind, customerId, isTest } = getInfoFromJwt(accessToken)
 
@@ -53,7 +54,7 @@ export const getSettings = async ({
   const [organizationResponse] = await Promise.all([
     getOrganizations({
       client,
-    })
+    }),
   ])
 
   // validating organization
@@ -63,9 +64,7 @@ export const getSettings = async ({
   }
 
   if (orderId) {
-    const [orderResponse] = await Promise.all([
-      getOrder({ orderId, client }),
-    ])
+    const [orderResponse] = await Promise.all([getOrder({ orderId, client })])
 
     // validating order
     const order = orderResponse?.object
@@ -77,13 +76,14 @@ export const getSettings = async ({
   return {
     accessToken,
     endpoint: `https://${slug}.${domain}`,
-    isGuest: !customerId ? true : false,
-    customerId: customerId as string ,
-    validUserArea: true,
+    isGuest: !customerId,
+    customerId: customerId as string,
+    isValid: true,
     companyName: organization?.name || defaultSettings.companyName,
     language: defaultSettings.language,
-    primaryColor: organization?.primary_color as string || defaultSettings.primaryColor,
-    logoUrl: organization?.logo_url || '',
+    primaryColor:
+      (organization?.primary_color as string) || defaultSettings.primaryColor,
+    logoUrl: organization?.logo_url || "",
     favicon: organization?.favicon_url || defaultSettings.favicon,
     gtmId: isTest ? organization?.gtm_id_test : organization?.gtm_id,
   }

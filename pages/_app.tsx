@@ -20,7 +20,7 @@ function MyAccount(props: AppProps) {
         {({ settings, isLoading }) => {
           return isLoading ? (
             <Skeleton />
-          ) : !settings.validUserArea ? (
+          ) : !settings.isValid ? (
             <Invalid />
           ) : (
             <MyAccountContainer settings={settings}>

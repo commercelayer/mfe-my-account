@@ -11,27 +11,24 @@ import styled from "styled-components"
 import tw from "twin.macro"
 
 import { AppContext } from "components/data/AppProvider"
-
 import ActionsMenu from "components/ui/ActionsMenu"
 import ActionsMenuItem from "components/ui/ActionsMenuItem"
-import Title from "components/ui/Title"
 import OrderStatusChip from "components/ui/StatusChip/OrderStatusChip"
+import Title from "components/ui/Title"
 
-interface Props {
-  settings: CustomerSettings
-}
-
-const Orders: React.FC<Props> = ({ settings }) => {
+const Orders: React.FC = () => {
   const { t } = useTranslation()
   const ctx = useContext(AppContext)
   const accessToken = ctx?.accessToken
   const isDesktop = window.screen.width >= 1280
 
   const options = isDesktop && {
-    actionsComponent: () => <ActionsMenu>
-      <ActionsMenuItem label="Invoice" />
-      <ActionsMenuItem label="Print" />
-      </ActionsMenu>,
+    actionsComponent: () => (
+      <ActionsMenu>
+        <ActionsMenuItem label="Invoice" />
+        <ActionsMenuItem label="Print" />
+      </ActionsMenu>
+    ),
     infiniteScroll: false,
     windowOptions: {
       height: 600,
@@ -81,14 +78,15 @@ const Orders: React.FC<Props> = ({ settings }) => {
         rowTrClassName="grid grid-cols-2 md:content-center bg-white shadow-bottom mb-2 -mx-5 px-5 md:-mx-0 md:p-0 md:border-b md:border-gray-350 md:table-row md:shadow-none"
         {...options}
       >
-        <OrderListRow field="number" className="order-1 pt-5 pb-2.5 md:py-5 md:align-middle">
+        <OrderListRow
+          field="number"
+          className="order-1 pt-5 pb-2.5 md:py-5 md:align-middle"
+        >
           {({ cell, order, ...p }) => {
             return cell.map((cell) => {
               return (
                 <OrderData key={order} {...p} {...cell.getCellProps()}>
-                  <Link
-                    href={`/orders/${order.id}?accessToken=${accessToken}`}
-                  >
+                  <Link href={`/orders/${order.id}?accessToken=${accessToken}`}>
                     <OrderNumber># {cell.render("Cell")}</OrderNumber>
                   </Link>
                   <OrderItemsCount>
@@ -125,7 +123,7 @@ const Orders: React.FC<Props> = ({ settings }) => {
             return cell.map((cell) => {
               return (
                 <OrderData key={order} {...p} {...cell.getCellProps()}>
-                  <OrderStatusChip status={ p.row.values.status } />
+                  <OrderStatusChip status={p.row.values.status} />
                 </OrderData>
               )
             })
@@ -133,7 +131,7 @@ const Orders: React.FC<Props> = ({ settings }) => {
         </OrderListRow>
         <OrderListRow
           field="formatted_total_amount_with_taxes"
-          className="order-2 pt-4 pb-5 md:py-5 font-bold text-right align-top md:align-middle md:text-left md:text-lg"
+          className="order-2 pt-4 pb-5 font-bold text-right align-top md:py-5 md:align-middle md:text-left md:text-lg"
         />
       </OrderList>
     </OrderContainer>

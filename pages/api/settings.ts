@@ -1,23 +1,23 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import CommerceLayer from "@commercelayer/sdk"
-import { getInfoFromJwt } from "utils/getInfoFromJwt"
-import { getOrganizations } from "utils/getOrganizations"
-import { getOrder } from "utils/getOrder"
+import { Settings, InvalidSettings } from "HostedApp"
 import type { NextApiRequest, NextApiResponse } from "next"
 
-const RETRIES = 2
+import { getInfoFromJwt } from "utils/getInfoFromJwt"
+import { getOrder } from "utils/getOrder"
+import { getOrganizations } from "utils/getOrganizations"
 
 function isProduction(env: string): boolean {
   return env === "production"
 }
 
-export const defaultSettings: InvalidCustomerSettings = {
-  validUserArea: false,
-  primaryColor: '#000000',
+export const defaultSettings: InvalidSettings = {
+  isValid: false,
+  primaryColor: "#000000",
   language: "en",
   favicon: `${process.env.NEXT_PUBLIC_BASE_PATH}/favicon.png`,
   companyName: "Commerce Layer",
-  retryable: false
+  retryable: false,
 }
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
@@ -29,7 +29,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
   function invalidateUserArea(retry?: boolean) {
     res.statusCode = 200
-    return res.json({ validUserArea: false, retryOnError: !!retry })
+    return res.json({ isValid: false, retryOnError: !!retry })
   }
 
   if (!accessToken) {
@@ -63,7 +63,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   const [organizationResponse] = await Promise.all([
     getOrganizations({
       client,
-    })
+    }),
   ])
 
   const organization = organizationResponse?.object
@@ -71,34 +71,35 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   // if (!customerId || !organization) {
   if (!organization) {
     res.statusCode = 200
-    return res.json({ validUserArea: false })
+    return res.json({ isValid: false })
   }
 
   if (orderId) {
     const [orderResponse] = await Promise.all([
       getOrder({
         client,
-        orderId
-      })
+        orderId,
+      }),
     ])
-  
+
     const order = orderResponse?.object
     if (!order) {
       res.statusCode = 200
-      return res.json({ validUserArea: false, show404: true })
+      return res.json({ isValid: false, show404: true })
     }
   }
 
-  const appSettings: CustomerSettings = {
+  const appSettings: Settings = {
     accessToken,
     endpoint: `https://${slug}.${domain}`,
-    isGuest: !customerId ? true : false,
-    customerId: customerId as string ,
-    validUserArea: true,
+    isGuest: !customerId,
+    customerId: customerId as string,
+    isValid: true,
     companyName: organization?.name || defaultSettings.companyName,
     language: defaultSettings.language,
-    primaryColor: organization?.primary_color as string || defaultSettings.primaryColor,
-    logoUrl: organization?.logo_url || '',
+    primaryColor:
+      (organization?.primary_color as string) || defaultSettings.primaryColor,
+    logoUrl: organization?.logo_url || "",
     favicon: organization?.favicon_url || defaultSettings.favicon,
     gtmId: isTest ? organization?.gtm_id_test : organization?.gtm_id,
   }

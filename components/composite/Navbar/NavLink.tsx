@@ -9,7 +9,6 @@ import { AppContext } from "components/data/AppProvider"
 interface Props {
   id: string
   title: string
-  description: string
   href: string
   accessToken: string
   icon: ReactNode
@@ -18,7 +17,6 @@ interface Props {
 
 const NavLink: React.FC<Props> = ({
   title,
-  description,
   href,
   accessToken,
   icon,
@@ -26,7 +24,8 @@ const NavLink: React.FC<Props> = ({
 }) => {
   const router = useRouter()
 
-  const isCurrentPage = router.pathname === href || router.pathname.indexOf(href) >= 0 
+  const isCurrentPage =
+    router.pathname === href || router.pathname.indexOf(href) >= 0
 
   const ctx = useContext(AppContext)
 
@@ -37,7 +36,6 @@ const NavLink: React.FC<Props> = ({
           <Icon>{icon}</Icon>
           <Wrapper2>
             <Title>{title}</Title>
-            <Description>{description}</Description>
           </Wrapper2>
         </Wrapper>
       </a>

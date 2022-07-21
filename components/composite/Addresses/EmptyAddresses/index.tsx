@@ -1,24 +1,19 @@
+import { useTranslation } from "react-i18next"
 import styled from "styled-components"
 import tw from "twin.macro"
 
-import { useTranslation } from "react-i18next"
-
-interface Props {
-  settings: CustomerSettings
-}
-
-import NoAddressesIcon from "components/ui/icons/NoAddressesIcon"
 import Button from "components/ui/Button"
+import NoAddressesIcon from "components/ui/icons/NoAddressesIcon"
 
-const EmptyAddresses: React.FC<Props> = ({settings}) => {
+const EmptyAddresses: React.FC = () => {
   const { t } = useTranslation()
 
   return (
     <Wrapper>
       <NoAddressesIcon />
-      <Title>{ t("noAddresses.title") }</Title>
-      <Description>{ t("noAddresses.description") }</Description>
-      <NoItemsButton label={ t("noAddresses.buttonLabel") } />
+      <Title>{t("noAddresses.title")}</Title>
+      <Description>{t("noAddresses.description")}</Description>
+      <NoItemsButton label={t("noAddresses.buttonLabel")} />
     </Wrapper>
   )
 }
