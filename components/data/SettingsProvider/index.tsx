@@ -39,12 +39,10 @@ export const useSettings = (): SettingsProviderValue => {
   }
 }
 
-export const SettingsProvider: FC<SettingsProviderProps> = ({
-  children,
-}) => {
-  const [settings, setSettings] = useState<CustomerSettings | InvalidCustomerSettings>(
-    defaultSettings
-  )
+export const SettingsProvider: FC<SettingsProviderProps> = ({ children }) => {
+  const [settings, setSettings] = useState<
+    CustomerSettings | InvalidCustomerSettings
+  >(defaultSettings)
   const [isLoading, setIsLoading] = useState(true)
   const accessToken = getAccessTokenFromUrl()
 
