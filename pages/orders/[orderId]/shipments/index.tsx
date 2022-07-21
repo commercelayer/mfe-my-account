@@ -1,9 +1,8 @@
-import { useContext } from "react"
 import { NextPage } from "next"
 import { useRouter } from "next/router"
+import { useContext } from "react"
 
-import MyAccountSkeleton from "components/composite/MyAccountSkeleton"
-
+import Skeleton from "components/composite/Skeleton"
 import { AppContext } from "components/data/AppProvider"
 
 const Shipment: NextPage = () => {
@@ -16,7 +15,7 @@ const Shipment: NextPage = () => {
 
   router.push(`/orders/${orderId}?accessToken=${accessToken}`)
 
-  return <MyAccountSkeleton />
+  return <Skeleton />
 }
 
 export default Shipment

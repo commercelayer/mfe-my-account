@@ -6,11 +6,8 @@ import { useRouter } from "next/router"
 
 import Invalid from "components/composite/Invalid"
 import MyAccountContainer from "components/composite/MyAccountContainer"
-import MyAccountSkeleton from "components/composite/MyAccountSkeleton"
-import MyAccountSkeletonGuest from "components/composite/MyAccountSkeleton/Guest"
+import Skeleton from "components/composite/Skeleton"
 import { SettingsProvider } from "components/data/SettingsProvider"
-
-import { isGuest } from "utils/isGuest"
 
 function MyAccount(props: AppProps) {
   const { Component, pageProps } = props
@@ -21,10 +18,8 @@ function MyAccount(props: AppProps) {
     return (
       <SettingsProvider orderId={orderId}>
         {({ settings, isLoading }) => {
-          return isLoading && isGuest() ? (
-            <MyAccountSkeletonGuest />
-          ) : isLoading && !isGuest() ? (
-            <MyAccountSkeleton />
+          return isLoading ? (
+            <Skeleton />
           ) : !settings.validUserArea ? (
             <Invalid />
           ) : (
