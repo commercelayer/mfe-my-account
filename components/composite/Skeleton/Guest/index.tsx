@@ -1,11 +1,12 @@
 import styled from "styled-components"
 import tw from "twin.macro"
 
-import { LayoutGuest } from "components/layouts/LayoutGuest"
+import { LayoutDefault } from "components/layouts/LayoutDefault"
 
 export const GuestSkeleton: React.FC = () => {
   return (
-    <LayoutGuest
+    <LayoutDefault
+      isGuest={true}
       main={
         <div className="mt-4 animate-pulse shrink grow basis-0">
           <div className="flex flex-row items-baseline justify-between">
@@ -31,6 +32,7 @@ export const GuestSkeleton: React.FC = () => {
           </div>
         </div>
       }
+      aside={null}
     />
   )
 }
