@@ -4,13 +4,13 @@ import { useTranslation } from "react-i18next"
 import { AddressCard } from "components/ui/AddressCard"
 
 interface Props {
-  showActions?: boolean
+  readonly?: boolean
 }
 
-const CustomerAddressCard: React.FC<Props> = ({ showActions }) => {
+const CustomerAddressCard: React.FC<Props> = ({ readonly }) => {
   const { t } = useTranslation()
 
-  const actionsNeeded = showActions === undefined ? true : showActions
+  const actionsNeeded = readonly === undefined
 
   return (
     <Address
@@ -31,7 +31,7 @@ const CustomerAddressCard: React.FC<Props> = ({ showActions }) => {
               countryCode={address.countryCode}
               phone={address.phone}
               addressType="customer"
-              showActions={actionsNeeded}
+              readonly={readonly}
               editButton={t("addresses.edit")}
               deleteButton={t("addresses.delete")}
             />

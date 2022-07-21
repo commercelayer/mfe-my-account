@@ -32,7 +32,7 @@ interface Props {
   countryCode: string
   phone: string
   addressType: string
-  showActions: boolean
+  readonly: boolean | undefined
   editButton: string
   deleteButton: string
 }
@@ -48,7 +48,7 @@ export const AddressCard: React.FC<Props> = ({
   countryCode,
   phone,
   addressType,
-  showActions,
+  readonly,
   editButton,
   deleteButton,
 }) => {
@@ -80,7 +80,7 @@ export const AddressCard: React.FC<Props> = ({
         {phone}
         <br />
       </Address>
-      {showActions && (
+      {readonly === undefined && (
         <ActionsWrapper>
           <Actions>
             <EditButton
