@@ -10,7 +10,6 @@ import { ActionsMenuProvider } from "components/data/ActionsMenuProvider"
 import { AppProvider } from "components/data/AppProvider"
 import { CustomerContainerProvider } from "components/data/CustomerContainerProvider"
 import { LayoutDefault } from "components/layouts/LayoutDefault"
-import { LayoutGuest } from "components/layouts/LayoutGuest"
 import Footer from "components/ui/Footer"
 import PageMain from "components/ui/PageMain"
 
@@ -35,36 +34,23 @@ const MyAccountContainer: React.FC<Props> = ({ settings, children }) => {
           >
             <ActionsMenuProvider>
               <CustomerContainerProvider isGuest={settings.isGuest}>
-                {settings.isGuest ? (
-                  <LayoutGuest
-                    main={
-                      <>
-                        <Header
-                          isGuest={settings.isGuest}
-                          logoUrl={settings.logoUrl}
-                          companyName={settings.companyName}
-                        />
-                        <PageMain>{children}</PageMain>
-                        <Footer />
-                      </>
-                    }
-                  />
-                ) : (
-                  <LayoutDefault
-                    main={
-                      <>
-                        <Header
-                          isGuest={settings.isGuest}
-                          logoUrl={settings.logoUrl}
-                          companyName={settings.companyName}
-                        />
-                        <PageMain>{children}</PageMain>
-                        <Footer />
-                      </>
-                    }
-                    aside={<Navbar settings={settings} />}
-                  />
-                )}
+                <LayoutDefault
+                  isGuest={settings.isGuest}
+                  main={
+                    <>
+                      <Header
+                        isGuest={settings.isGuest}
+                        logoUrl={settings.logoUrl}
+                        companyName={settings.companyName}
+                      />
+                      <PageMain>{children}</PageMain>
+                      <Footer />
+                    </>
+                  }
+                  aside={
+                    !settings.isGuest ? <Navbar settings={settings} /> : null
+                  }
+                />
               </CustomerContainerProvider>
             </ActionsMenuProvider>
           </AppProvider>
