@@ -9,7 +9,7 @@ import {
   useState,
 } from "react"
 
-import { parseLanguageCode } from "../i18n/parseLanguageCode"
+import { parseLanguageCode } from "components/data/i18n/parseLanguageCode"
 
 import { getAccessTokenFromUrl } from "utils/getAccessTokenFromUrl"
 import { defaultSettings, getSettings } from "utils/getSettings"

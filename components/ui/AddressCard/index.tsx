@@ -1,7 +1,7 @@
-import CustomerAddressContext from "context/CustomerAddressContext"
 import { useContext, useState } from "react"
 import { useTranslation } from "react-i18next"
-import TrashIcon from "../icons/TrashIcon"
+
+import TrashIcon from "components/ui/icons/TrashIcon"
 
 import {
   EditButton,
@@ -19,6 +19,8 @@ import {
   DeleteButton,
 } from "./styled"
 
+import CustomerAddressContext from "context/CustomerAddressContext"
+
 interface Props {
   firstName: string
   lastName: string
@@ -30,7 +32,7 @@ interface Props {
   countryCode: string
   phone: string
   addressType: string
-  showActions: boolean,
+  showActions: boolean
   editButton: string
   deleteButton: string
 }

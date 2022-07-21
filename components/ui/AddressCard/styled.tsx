@@ -2,9 +2,8 @@ import { AddressField } from "@commercelayer/react-components"
 import styled from "styled-components"
 import tw from "twin.macro"
 
-import { LinkButton } from "../LinkButton"
-
 import { LinkButtonCss } from "components/ui/form/Button"
+import { LinkButton } from "components/ui/LinkButton"
 
 export const Wrapper = styled.div`
   ${tw`relative transition duration-200 ease-in px-5 py-4 bg-white md:bg-transparent border border-gray-350 rounded focus:shadow-sm group-hover:(border-primary shadow-sm-primary)`}

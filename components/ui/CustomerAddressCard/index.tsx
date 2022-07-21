@@ -1,7 +1,7 @@
 import { Address, AddressField } from "@commercelayer/react-components"
 import { useTranslation } from "react-i18next"
 
-import { AddressCard } from "../AddressCard"
+import { AddressCard } from "components/ui/AddressCard"
 
 interface Props {
   showActions?: boolean
@@ -14,7 +14,7 @@ const CustomerAddressCard: React.FC<Props> = ({ showActions }) => {
 
   return (
     <Address
-      className={` ${actionsNeeded ? 'group' : ''} `}
+      className={` ${actionsNeeded ? "group" : ""} `}
       disabledClassName="opacity-50 cursor-not-allowed"
     >
       {
