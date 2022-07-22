@@ -1,9 +1,8 @@
 import { CustomerField } from "@commercelayer/react-components"
 import { Settings } from "HostedApp"
 import { useTranslation } from "react-i18next"
-import styled from "styled-components"
-import tw from "twin.macro"
 
+import NavLink from "components/composite/NavLink"
 import CreditCardIcon from "components/ui/icons/CreditCardIcon"
 import CustomerServiceIcon from "components/ui/icons/CustomerServiceIcon"
 import LocationIcon from "components/ui/icons/LocationIcon"
@@ -12,7 +11,14 @@ import ReturnsIcon from "components/ui/icons/ReturnsIcon"
 import ShoppingCartIcon from "components/ui/icons/ShoppingCartIcon"
 import Logo from "components/ui/Logo"
 
-import NavLink from "./NavLink"
+import {
+  Wrapper,
+  Sidebar,
+  LogoWrapper,
+  Nav,
+  EmailWrapper,
+  Email,
+} from "./styled"
 
 interface Props {
   settings: Settings
@@ -100,26 +106,3 @@ const Navbar: React.FC<Props> = ({ settings, onClick }) => {
 }
 
 export default Navbar
-
-const Sidebar = styled.div`
-  ${tw`flex flex-col min-h-full min-w-1/3 md:(p-5) lg:(pl-20 pr-10 pt-10) xl:(pl-48)`}
-`
-
-export const LogoWrapper = styled.div`
-  ${tw`w-full`}
-`
-
-export const Wrapper = styled.div`
-  ${tw`mt-5 md:(mt-32 flex-1)`}
-`
-
-export const EmailWrapper = styled.div`
-  ${tw`text-sm my-6 md:(hidden) text-xs text-gray-500`}
-`
-
-export const Email = styled.span`
-  ${tw`block mt-0.5 font-bold text-black`}
-`
-export const Nav = styled.nav`
-  ${tw`md:(mt-8) lg:(mt-16)`}
-`

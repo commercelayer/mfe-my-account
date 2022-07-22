@@ -1,6 +1,6 @@
-import gravatar from "gravatar"
-import styled from "styled-components"
-import tw from "twin.macro"
+import { url } from "gravatar"
+
+import { Image } from "./styled"
 
 interface Props {
   email: string
@@ -8,12 +8,8 @@ interface Props {
 }
 
 const Avatar: React.FC<Props> = ({ email, className }) => {
-  const url = gravatar.url(email, { s: "32", r: "g", d: "mp" }, true)
-  return <Image src={url} className={className} />
+  const src = url(email, { s: "32", r: "g", d: "mp" }, true)
+  return <Image src={src} className={className} />
 }
 
 export default Avatar
-
-const Image = styled.img`
-  ${tw`rounded-full`}
-`

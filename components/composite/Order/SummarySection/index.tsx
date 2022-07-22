@@ -1,11 +1,9 @@
 import { useTranslation } from "react-i18next"
 
-import { AccordionProvider } from "components/data/AccordionProvider"
-
+import AddressesSummary from "components/composite/Order/AddressesSummary"
 import LineItemList from "components/composite/Order/LineItemList"
 import PaymentSummary from "components/composite/Order/PaymentSummary"
-import AddressesSummary from "components/composite/Order/AddressesSummary"
-
+import { AccordionProvider } from "components/data/AccordionProvider"
 import { useAccordionActiveSection } from "components/hooks/useAccordionActiveSection"
 import { Accordion, AccordionItem } from "components/ui/Accordion"
 
@@ -14,7 +12,7 @@ import { Wrapper, SummaryWrapper } from "./styled"
 const OrderSummary: React.FC = () => {
   const { t } = useTranslation()
 
-  const { activeSection, setActiveSection, sections } = useAccordionActiveSection()
+  const { activeSection, setActiveSection } = useAccordionActiveSection()
 
   return (
     <Wrapper>
@@ -24,12 +22,7 @@ const OrderSummary: React.FC = () => {
           setActiveSection={setActiveSection}
           section="Summary"
         >
-          <AccordionItem
-            index={1}
-            header={
-              <span>{t("order.summary")}</span>
-            }
-          >
+          <AccordionItem index={1} header={<span>{t("order.summary")}</span>}>
             <SummaryWrapper>
               <LineItemList />
               <PaymentSummary />
@@ -41,12 +34,7 @@ const OrderSummary: React.FC = () => {
           setActiveSection={setActiveSection}
           section="Addresses"
         >
-          <AccordionItem
-            index={1}
-            header={
-              <span>{t("order.addresses")}</span>
-            }
-          >
+          <AccordionItem index={1} header={<span>{t("order.addresses")}</span>}>
             <AddressesSummary />
           </AccordionItem>
         </AccordionProvider>
@@ -57,12 +45,8 @@ const OrderSummary: React.FC = () => {
         >
           <AccordionItem
             index={1}
-            header={
-              <span>{t("order.shipments")}</span>
-            }
-          >
-            
-          </AccordionItem>
+            header={<span>{t("order.shipments")}</span>}
+          ></AccordionItem>
         </AccordionProvider>
         <AccordionProvider
           activeSection={activeSection}
@@ -71,12 +55,8 @@ const OrderSummary: React.FC = () => {
         >
           <AccordionItem
             index={1}
-            header={
-              <span>{t("order.payments")}</span>
-            }
-          >
-            
-          </AccordionItem>
+            header={<span>{t("order.payments")}</span>}
+          ></AccordionItem>
         </AccordionProvider>
       </Accordion>
     </Wrapper>

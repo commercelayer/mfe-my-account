@@ -1,10 +1,5 @@
-import styled from "styled-components"
-import tw from "twin.macro"
+import { Wrapper } from "./styled"
 
 const PageMain: React.FC = ({ children }) => <Wrapper>{children}</Wrapper>
 
 export default PageMain
-
-const Wrapper = styled.div`
-  ${tw`flex-1`}
-`

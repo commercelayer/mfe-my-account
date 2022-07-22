@@ -1,11 +1,11 @@
-import styled from "styled-components"
-import tw from "twin.macro"
-
 import { LayoutDefault } from "components/layouts/LayoutDefault"
+
+import { Sidebar, SkeletonBox, SkeletonCircle } from "./styled"
 
 export const CustomerSkeleton: React.FC = () => {
   return (
     <LayoutDefault
+      isGuest={false}
       aside={
         <Sidebar>
           <div className="flex mb-12">
@@ -89,15 +89,5 @@ export const CustomerSkeleton: React.FC = () => {
     />
   )
 }
-
-const Sidebar = styled.div`
-  ${tw`flex flex-col min-h-full min-w-1/3 md:(p-5) lg:(pl-20 pr-10 pt-10) xl:(pl-48) animate-pulse`}
-`
-const SkeletonBox = styled.div`
-  ${tw`bg-gray-300 rounded-xl`}
-`
-const SkeletonCircle = styled(SkeletonBox)`
-  ${tw`rounded-full`}
-`
 
 export default CustomerSkeleton

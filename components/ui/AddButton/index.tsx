@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next"
+
 import AddSolidIcon from "components/ui/icons/AddSolidIcon"
 
 import { Wrapper, Label } from "./styled"

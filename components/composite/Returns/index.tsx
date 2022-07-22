@@ -1,8 +1,8 @@
 import { useTranslation } from "react-i18next"
-import styled from "styled-components"
-import tw from "twin.macro"
 
 import Title from "components/ui/Title"
+
+import { ReturnsContainer } from "./styled"
 
 const Returns: React.FC = () => {
   const { t } = useTranslation()
@@ -15,7 +15,3 @@ const Returns: React.FC = () => {
 }
 
 export default Returns
-
-const ReturnsContainer = styled.div`
-  ${tw``}
-`

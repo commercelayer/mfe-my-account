@@ -7,14 +7,19 @@ import { format } from "date-fns"
 import Link from "next/link"
 import { useContext } from "react"
 import { useTranslation } from "react-i18next"
-import styled from "styled-components"
-import tw from "twin.macro"
 
 import { AppContext } from "components/data/AppProvider"
 import ActionsMenu from "components/ui/ActionsMenu"
 import ActionsMenuItem from "components/ui/ActionsMenuItem"
 import OrderStatusChip from "components/ui/StatusChip/OrderStatusChip"
 import Title from "components/ui/Title"
+
+import {
+  OrderData,
+  OrderNumber,
+  OrderItemsCount,
+  OrderUpdatedDate,
+} from "./styled"
 
 const Orders: React.FC = () => {
   const { t } = useTranslation()
@@ -139,23 +144,3 @@ const Orders: React.FC = () => {
 }
 
 export default Orders
-
-export const StyledOrderList = styled.td`
-  ${tw`relative w-full mb-8`}
-`
-
-export const OrderData = styled.td`
-  ${tw``}
-`
-
-export const OrderNumber = styled.p`
-  ${tw`text-sm font-semibold hover:(cursor-pointer)`}
-`
-
-export const OrderItemsCount = styled.p`
-  ${tw`text-sm font-light text-gray-500`}
-`
-
-export const OrderUpdatedDate = styled.p`
-  ${tw`inline-block text-sm font-extralight text-gray-600 bg-gray-200 px-3 rounded-full h-5 md:(bg-contrast px-0 w-min)`}
-`

@@ -1,14 +1,12 @@
 import { useContext } from "react"
-import styled from "styled-components"
-import tw from "twin.macro"
 
+import { AppContext } from "components/data/AppProvider"
 import CloseIcon from "components/ui/icons/CloseIcon"
 import MenuIcon from "components/ui/icons/MenuIcon"
 
-import { AppContext } from "components/data/AppProvider"
+import { Button } from "./styled"
 
 const MenuButton: React.FC = () => {
-
   const ctx = useContext(AppContext)
 
   const handlerOnClick = () => ctx?.toggleMobileMenu()
@@ -21,7 +19,3 @@ const MenuButton: React.FC = () => {
 }
 
 export default MenuButton
-
-export const Button = styled.button`
-  ${tw`w-6 md:(hidden)`}
-`

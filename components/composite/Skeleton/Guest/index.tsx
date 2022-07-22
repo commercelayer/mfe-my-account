@@ -1,7 +1,6 @@
-import styled from "styled-components"
-import tw from "twin.macro"
-
 import { LayoutDefault } from "components/layouts/LayoutDefault"
+
+import { SkeletonBox } from "./styled"
 
 export const GuestSkeleton: React.FC = () => {
   return (
@@ -36,9 +35,5 @@ export const GuestSkeleton: React.FC = () => {
     />
   )
 }
-
-const SkeletonBox = styled.div`
-  ${tw`bg-gray-300 rounded-xl`}
-`
 
 export default GuestSkeleton

@@ -1,12 +1,25 @@
 import { Settings } from "HostedApp"
 import Link from "next/link"
-import styled from "styled-components"
-import tw from "twin.macro"
 
 import CaretLeftIcon from "components/ui/icons/CaretLeftIcon"
 import StepCompletedIcon from "components/ui/icons/StepCompletedIcon"
 import StepCurrentIcon from "components/ui/icons/StepCurrentIcon"
 import ShipmentStatusChip from "components/ui/StatusChip/ShipmentStatusChip"
+
+import {
+  ShipmentContainer,
+  ShipmentHeader,
+  ShipmentHeaderTop,
+  BackToOrder,
+  Title,
+  ShipmentHeaderMain,
+  ShipmentHeaderCol,
+  ShipmentHeaderLabel,
+  ShipmentHeaderValue,
+  ShipmentRows,
+  ShipmentRow,
+  ShipmentDateChip,
+} from "./styled"
 
 interface Props {
   settings: Settings
@@ -86,51 +99,3 @@ const OrderShipment: React.FC<Props> = ({ settings, orderId, shipmentId }) => {
 }
 
 export default OrderShipment
-
-const ShipmentContainer = styled.div`
-  ${tw``}
-`
-
-const ShipmentHeader = styled.div`
-  ${tw`mt-3`}
-`
-
-const ShipmentHeaderTop = styled.div`
-  ${tw`flex items-start content-start`}
-`
-
-const BackToOrder = styled.div`
-  ${tw`flex-none rounded-full border border-gray-300 p-1 hover:bg-gray-300 cursor-pointer `}
-`
-
-const Title = styled.h2`
-  ${tw`ml-4 p-1 text-lg font-medium`}
-`
-
-const ShipmentHeaderMain = styled.div`
-  ${tw`md:pl-12 flex flex-auto justify-between`}
-`
-
-const ShipmentHeaderCol = styled.div`
-  ${tw``}
-`
-
-const ShipmentHeaderLabel = styled.label`
-  ${tw`block uppercase text-xs text-gray-300 font-bold`}
-`
-
-const ShipmentHeaderValue = styled.span`
-  ${tw`block text-sm font-bold`}
-`
-
-const ShipmentRows = styled.div`
-  ${tw`mt-10 -mx-5 px-5 pb-10 pt-10`}
-`
-
-const ShipmentRow = styled.div`
-  ${tw``}
-`
-
-const ShipmentDateChip = styled.div`
-  ${tw`inline text-sm text-center text-gray-600 bg-gray-300 capitalize text-3xs w-auto uppercase font-bold py-[2px] px-[12px] leading-snug rounded-xl align-middle`}
-`
