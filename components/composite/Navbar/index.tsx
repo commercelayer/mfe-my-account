@@ -1,6 +1,5 @@
 import { CustomerField } from "@commercelayer/react-components"
 import { Settings } from "HostedApp"
-import { Dispatch } from "react"
 import { useTranslation } from "react-i18next"
 import styled from "styled-components"
 import tw from "twin.macro"
@@ -17,7 +16,7 @@ import NavLink from "./NavLink"
 
 interface Props {
   settings: Settings
-  onClick?: Dispatch<boolean>
+  onClick?: () => void
 }
 
 const Navbar: React.FC<Props> = ({ settings, onClick }) => {
