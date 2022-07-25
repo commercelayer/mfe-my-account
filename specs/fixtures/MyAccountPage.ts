@@ -22,6 +22,29 @@ export class MyAccountPage {
   async goto({ pageUrl, token }: GoToProps) {
     const url = `${pageUrl}?accessToken=${token}`
 
+    await this.page.route("**/api/organization**", async (route) => {
+      // Fetch original response.
+      const response = await this.page.request.fetch(route.request())
+      // // Add a prefix to the title.
+      const body = await response.json()
+      // // body = body.replace('<title>', '<title>My prefix:');
+      route.fulfill({
+        // Pass all fields from the response.
+        response,
+        // Override response body.
+        body: JSON.stringify({
+          ...body,
+          data: {
+            ...body.data,
+            attributes: {
+              ...body.data.attributes,
+              ...this.attributes?.organization,
+            },
+          },
+        }),
+      })
+    })
+
     await this.page.goto(`${url}`, {
       waitUntil: "networkidle",
     })
