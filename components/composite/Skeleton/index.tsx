@@ -11,14 +11,15 @@ export const Skeleton: React.FC = () => {
   )
 
   useEffect(() => {
-    ;(async () => {
+    const guest = async () => {
       try {
         const appIsGuest = await isGuest()
         setShowGuestSkeleton(appIsGuest)
       } catch (e) {
         //
       }
-    })()
+    }
+    guest()
   }, [])
 
   if (showGuestSkeleton === null) {
