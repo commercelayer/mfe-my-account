@@ -8,9 +8,9 @@ type CustomerContainerProviderProps = Pick<Settings, "isGuest"> & {
 export const CustomerContainerProvider: React.FC<
   CustomerContainerProviderProps
 > = ({ children, isGuest }) => {
-  return !isGuest ? (
-    <CustomerContainer>{children}</CustomerContainer>
-  ) : (
+  return isGuest ? (
     <>{children}</>
+  ) : (
+    <CustomerContainer>{children}</CustomerContainer>
   )
 }

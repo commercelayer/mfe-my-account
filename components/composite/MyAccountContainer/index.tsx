@@ -48,7 +48,7 @@ const MyAccountContainer: React.FC<Props> = ({ settings, children }) => {
                     </>
                   }
                   aside={
-                    !settings.isGuest ? <Navbar settings={settings} /> : null
+                    settings.isGuest ? null : <Navbar settings={settings} />
                   }
                 />
               </CustomerContainerProvider>
