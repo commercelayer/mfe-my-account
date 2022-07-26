@@ -2,6 +2,10 @@ import { ReactNode } from "react"
 
 import { Wrapper, IconWrapper, Label } from "./styled"
 
+export type LabelProps = {
+  icon: ReactNode | null | undefined
+}
+
 interface ActionsMenuItemProps {
   label?: string
   icon?: ReactNode | undefined
@@ -24,8 +28,8 @@ const ActionsMenuItem: React.FC<ActionsMenuItemProps> = (props) => {
 
   return (
     <Wrapper onClick={handleClick}>
-      {icon !== undefined ? <IconWrapper>{icon}</IconWrapper> : ""}
-      <Label className={icon === undefined ? "ml-5" : ""}>{label}</Label>
+      {icon && <IconWrapper>{icon}</IconWrapper>}
+      <Label icon={icon}>{label}</Label>
     </Wrapper>
   )
 }
