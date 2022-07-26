@@ -5,20 +5,15 @@ interface StatusChipProps {
   status: string
 }
 
-const COMPLETED_COLOR = "green-400"
-const COMPLETED_COLOR_BG = "green-100"
-const INPROGRESS_COLOR = "yellow-400"
-const INPROGRESS_COLOR_BG = "yellow-100"
-
 const handlerStatusColor = (status: string) => {
   switch (status) {
     case "placed": // Orders
     case "approved": // Orders
     case "shipped": // Shipments
     case "received": // Returns
-      return tw`text-${COMPLETED_COLOR} bg-${COMPLETED_COLOR_BG}`
+      return tw`text-green-400 bg-green-100`
     default:
-      return tw`text-${INPROGRESS_COLOR} bg-${INPROGRESS_COLOR_BG}`
+      return tw`text-yellow-400 bg-yellow-100`
   }
 }
 
