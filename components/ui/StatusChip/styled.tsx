@@ -11,9 +11,9 @@ const handlerStatusColor = (status: string) => {
     case "approved": // Orders
     case "shipped": // Shipments
     case "received": // Returns
-      return tw`text-green-400 bg-green-100`
+      return tw`text-green-100 bg-green-100 bg-opacity-10`
     default:
-      return tw`text-yellow-400 bg-yellow-100`
+      return tw`text-yellow-400 bg-yellow-400 bg-opacity-10`
   }
 }
 
