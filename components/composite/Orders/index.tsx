@@ -9,6 +9,7 @@ import { useContext } from "react"
 import { useTranslation } from "react-i18next"
 
 import { AppContext } from "components/data/AppProvider"
+import useWindowSizeDetect from "components/hooks/useWindowSizeDetect"
 import ActionsMenu from "components/ui/ActionsMenu"
 import ActionsMenuItem from "components/ui/ActionsMenuItem"
 import OrderStatusChip from "components/ui/StatusChip/OrderStatusChip"
@@ -25,8 +26,8 @@ const Orders: React.FC = () => {
   const { t } = useTranslation()
   const ctx = useContext(AppContext)
   const accessToken = ctx?.accessToken
-  const isDesktop = window.screen.width >= 1280
-
+  const { screen } = useWindowSizeDetect()
+  const isDesktop = screen.width >= 1280
   const options = isDesktop && {
     actionsComponent: () => (
       <ActionsMenu>
