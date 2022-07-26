@@ -14,7 +14,7 @@ export const Icon = styled.div`
   ${tw`mr-2 md:mr-3 md:px-3`}
 `
 
-export const Wrapper2 = styled.div`
+export const TitleWrapper = styled.div`
   ${tw`flex-col pr-3`}
 `
 

@@ -5,7 +5,7 @@ import { ReactNode, useContext } from "react"
 
 import { AppContext } from "components/data/AppProvider"
 
-import { Wrapper, Icon, Wrapper2, Title } from "./styled"
+import { Wrapper, Icon, TitleWrapper, Title } from "./styled"
 
 type Props = Pick<Settings, "accessToken"> & {
   id: string
@@ -34,9 +34,9 @@ const NavLink: React.FC<Props> = ({
       <a onClick={() => ctx?.closeMobileMenu()}>
         <Wrapper isCurrentPage={isCurrentPage} onClick={onClick}>
           <Icon>{icon}</Icon>
-          <Wrapper2>
+          <TitleWrapper>
             <Title>{title}</Title>
-          </Wrapper2>
+          </TitleWrapper>
         </Wrapper>
       </a>
     </Link>
