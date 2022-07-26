@@ -1,7 +1,10 @@
+import { OrderStatus } from "./OrderStatusChip"
+import { ReturnStatus } from "./ReturnStatusChip"
+import { ShipmentStatus } from "./ShipmentStatusChip"
 import { StatusChipWrapper } from "./styled"
 
 interface Props {
-  status: string
+  status: OrderStatus | ReturnStatus | ShipmentStatus
   label: string
 }
 

@@ -1,15 +1,23 @@
 import { useTranslation } from "react-i18next"
+
 import StatusChip from "components/ui/StatusChip"
 
+export type OrderStatus =
+  | "draft"
+  | "pending"
+  | "placed"
+  | "approved"
+  | "cancelled"
+
 interface Props {
-  status: string
+  status: OrderStatus
 }
 
 const OrderStatusChip: React.FC<Props> = ({ status }) => {
   const { t } = useTranslation()
 
   return (
-    <StatusChip status={status} label={t(`orderStatus.${status}`)} />
+    <StatusChip status={status} label={t(`orderStatus.${status}`) as string} />
   )
 }
 
