@@ -7,7 +7,7 @@ describe("Check if current accessToken is not related to a customer", () => {
   const { location } = window
   beforeAll(function clearLocation() {
     delete (window as any).location
-    ;(window as any).location = {
+    window.location = {
       ...location,
       href: "http://domain.com",
       search: "",
