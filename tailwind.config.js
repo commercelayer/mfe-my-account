@@ -1,27 +1,19 @@
-const colors = require("tailwindcss/colors")
-const defaultTheme = require("tailwindcss/defaultTheme")
+const config = require("@commercelayer/react-utils/configs/tailwind")
+
+const pluginsForms = require("@tailwindcss/forms")({
+  strategy: "class",
+})
+config.plugins !== undefined ?
+  config.plugins.push(pluginsForms) :
+  config.plugins = [ pluginsForms ]
 
 module.exports = {
-  content: ["./components/**/*.{js,ts,jsx,tsx}", "./pages/**/*.{js,ts,jsx,tsx}"],
+  ...config,
   theme: {
-    container: {
-      screens: {
-        sm: "100%",
-        md: "100%",
-        lg: "100%",
-      },
-    },
-    fontFamily: {
-      sans: ["Manrope", "ui-sans-serif", "sans-serif"],
-    },
+    ...config.theme,
     extend: {
+      ...config.theme.extend,
       colors: {
-        primary: {
-          light: "var(--primary-light)",
-          DEFAULT: "var(--primary)",
-          dark: "var(--primary-dark)",
-        },
-        contrast: "var(--contrast)",
         gray: {
           100: "#F8F8F8",
           200: "#F4F4F4",
@@ -40,6 +32,7 @@ module.exports = {
           500: "#F59511",
         },
         green: {
+          100: "#1FDA8A",
           400: "#2BC48A",
         },
         inherit: "inherit"
@@ -92,11 +85,6 @@ module.exports = {
         9: "9",
         10: "10",
       },
-    },
-  },
-  plugins: [
-    require("@tailwindcss/forms")({
-      strategy: "class",
-    }),
-  ],
+    }
+  }
 }
