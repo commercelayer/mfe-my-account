@@ -11,7 +11,7 @@ export const Button = styled.button.attrs((props: LinkButtonProps) => ({
   ${({ variant }) =>
     variant === "default"
       ? tw`group-hover:(text-primary)`
-      : tw`group-hover:(text-red-400 border-red-100)`}
+      : tw`group-hover:(text-red-400 border-red-400 border-opacity-10)`}
 `
 
 export const Svg = styled.svg`
