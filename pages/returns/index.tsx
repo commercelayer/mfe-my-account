@@ -1,11 +1,11 @@
 import { NextPage } from "next"
 
 // import Returns from "components/composite/Returns"
-import EmptyReturns from "components/composite/Returns/EmptyReturns"
+import Empty from "components/composite/Empty"
 
 const ReturnsPage: NextPage = () => {
   // return ( <Returns /> )
-  return <EmptyReturns />
+  return <Empty type="Returns" />
 }
 
 export default ReturnsPage
