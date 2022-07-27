@@ -20,16 +20,16 @@ const Empty: React.FC<Props> = ({ type }) => {
   let icon = null
   switch (type) {
     case "Addresses":
-      icon = NoAddressesIcon
+      icon = <NoAddressesIcon />
       break
     case "Orders":
-      icon = NoOrdersIcon
+      icon = <NoOrdersIcon />
       break
     case "PaymentMethods":
-      icon = NoPaymentMethodsIcon
+      icon = <NoPaymentMethodsIcon />
       break
     case "Returns":
-      icon = NoReturnsIcon
+      icon = <NoReturnsIcon />
       break
   }
 
