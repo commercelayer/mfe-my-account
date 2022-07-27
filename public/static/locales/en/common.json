@@ -41,7 +41,7 @@
     "buttonLabel": "Go to shop"
   },
   "order": {
-    "title": "Order",
+    "title": "Order #<number />",
     "placed_on": "Placed on",
     "summary":"Summary",
     "addresses": "Addresses",

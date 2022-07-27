@@ -1,5 +1,5 @@
 import { OrderContainer, OrderNumber } from "@commercelayer/react-components"
-import { useTranslation } from "react-i18next"
+import { Trans, useTranslation } from "react-i18next"
 
 import OrderSummary from "components/composite/Order/SummarySection"
 import ActionsMenu from "components/ui/ActionsMenu"
@@ -30,7 +30,10 @@ const Order: React.FC<Props> = ({ orderId }) => {
       <OrderHeader>
         <OrderHeaderMain>
           <OrderTitle>
-            {t("order.title")} #<OrderNumber />
+            <Trans
+              i18nKey="order.title"
+              components={{ number: <OrderNumber /> }}
+            />
           </OrderTitle>
           <OrderDescription>{t("order.placed_on")} XX/XX/XX</OrderDescription>
           <OrderStatusChip status="placed" />
