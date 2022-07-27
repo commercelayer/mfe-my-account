@@ -25,7 +25,7 @@ const Header: React.FC<Props> = ({ isGuest, logoUrl, companyName }) => {
             <Logo
               logoUrl={logoUrl}
               companyName={companyName}
-              tw="self-center"
+              className="self-center"
             />
           </>
         ) : (
@@ -33,7 +33,7 @@ const Header: React.FC<Props> = ({ isGuest, logoUrl, companyName }) => {
             <Logo
               logoUrl={logoUrl}
               companyName={companyName}
-              tw="self-center md:(hidden)"
+              className="self-center md:hidden"
             />
             <Title>{t("header.title")}</Title>
             <User>
