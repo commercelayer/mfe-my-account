@@ -8,7 +8,7 @@ export type LabelProps = {
 
 interface ActionsMenuItemProps {
   label?: string
-  icon?: ReactNode | undefined
+  icon?: ReactNode
   disabled?: boolean | false
   variant?: string
   onClick?: () => void

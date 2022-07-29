@@ -3,8 +3,8 @@ import { PrimaryButton } from "./styled"
 export type PrimaryButtonProps = {
   label?: string
   onClick?: () => void
-  buttonSize?: "small" | undefined
-  buttonStyle?: "outline" | undefined
+  buttonSize?: "small"
+  buttonStyle?: "outline"
 }
 
 const Button: React.FC<PrimaryButtonProps> = (props) => {

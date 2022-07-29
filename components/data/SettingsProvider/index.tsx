@@ -20,7 +20,7 @@ type SettingsProviderValue = {
 }
 
 interface SettingsProviderProps {
-  orderId?: string | undefined
+  orderId?: string
   children: ((props: SettingsProviderValue) => ReactNode) | ReactNode
 }
 

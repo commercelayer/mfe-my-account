@@ -23,7 +23,7 @@ const makeInvalidSettings = (retryable?: boolean): InvalidSettings => ({
 })
 
 type GetSettingsProps = Pick<Settings, "accessToken"> & {
-  orderId?: string | undefined
+  orderId?: string
 }
 
 export const getSettings = async ({
