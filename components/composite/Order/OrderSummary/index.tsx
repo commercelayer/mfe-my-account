@@ -18,7 +18,7 @@ import {
   RecapLineItem,
 } from "./styled"
 
-const PaymentSummary: React.FC = () => {
+const OrderSummary: React.FC = () => {
   const { t } = useTranslation()
 
   return (
@@ -86,4 +86,4 @@ const PaymentSummary: React.FC = () => {
   )
 }
 
-export default PaymentSummary
+export default OrderSummary

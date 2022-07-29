@@ -1,11 +1,15 @@
 import { OrderContainer, OrderNumber } from "@commercelayer/react-components"
+import { Order as CLayerOrder } from "@commercelayer/sdk"
+import { format } from "date-fns"
+import { useState } from "react"
 import { Trans, useTranslation } from "react-i18next"
 
-import OrderSummary from "components/composite/Order/SummarySection"
+import OrderAccordion from "components/composite/Order/OrderAccordion"
 import ActionsMenu from "components/ui/ActionsMenu"
 import ActionsMenuItem from "components/ui/ActionsMenuItem"
-import Button from "components/ui/Button"
-import OrderStatusChip from "components/ui/StatusChip/OrderStatusChip"
+import OrderStatusChip, {
+  OrderStatus,
+} from "components/ui/StatusChip/OrderStatusChip"
 
 import {
   Wrapper,
@@ -14,8 +18,6 @@ import {
   OrderTitle,
   OrderDescription,
   OrderHeaderActions,
-  MobileOnly,
-  DesktopOnly,
 } from "./styled"
 
 interface Props {
@@ -24,8 +26,14 @@ interface Props {
 
 const Order: React.FC<Props> = ({ orderId }) => {
   const { t } = useTranslation()
+  const [order, setOrder] = useState<CLayerOrder>()
+  const orderPlacedAt = order
+    ? format(new Date(order.placed_at as string), "dd/MM/yy")
+    : ""
+  const orderStatus = order ? (order.status as OrderStatus) : "placed"
 
   return (
+    // <OrderContainer orderId={orderId} fetchOrder={setOrder}>
     <OrderContainer orderId={orderId}>
       <OrderHeader>
         <OrderHeaderMain>
@@ -35,25 +43,20 @@ const Order: React.FC<Props> = ({ orderId }) => {
               components={{ number: <OrderNumber /> }}
             />
           </OrderTitle>
-          <OrderDescription>{t("order.placed_on")} XX/XX/XX</OrderDescription>
-          <OrderStatusChip status="placed" />
+          <OrderDescription>
+            {t("order.placed_at")} {orderPlacedAt}
+          </OrderDescription>
+          <OrderStatusChip status={orderStatus} />
         </OrderHeaderMain>
         <OrderHeaderActions>
-          <MobileOnly>
-            <ActionsMenu className="mt-1">
-              <ActionsMenuItem label="Invoice" />
-              <ActionsMenuItem label="Print" />
-            </ActionsMenu>
-          </MobileOnly>
-          <DesktopOnly>
-            <Button label="Invoice" buttonSize="small" />
-            <Button label="Print" buttonSize="small" buttonStyle="outline" />
-          </DesktopOnly>
+          <ActionsMenu className="mt-1">
+            <ActionsMenuItem label="Invoice" />
+            <ActionsMenuItem label="Print" />
+          </ActionsMenu>
         </OrderHeaderActions>
       </OrderHeader>
       <Wrapper>
-        {/* <OrderTimeline /> */}
-        <OrderSummary />
+        <OrderAccordion order={order} />
       </Wrapper>
     </OrderContainer>
   )

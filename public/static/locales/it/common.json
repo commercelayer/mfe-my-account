@@ -8,7 +8,7 @@
   "orders": {
     "order": {
       "title": "Ordine #<number />",
-      "placed_on": "Effettuato il",
+      "placed_at": "Effettuato il ",
       "summary": "Riepilogo",
       "addresses": "Indirizzi",
       "shipments": "Spedizioni",
@@ -23,7 +23,16 @@
       "giftcard_amount": "Gift card",
       "total_amount": "Totale",
       "quantity": "Quantità: {{count}}",
-      "quantity_plural": "Quantità: {{count}}"
+      "quantity_plural": "Quantità: {{count}}",
+      "shipment": "Spedizione #<0/>",
+      "shipmentStatus": "Stato: <0/>",
+      "paymentMethod": {
+        "creditCard": "Carta di credito",
+        "EndingIn": "<0/> finisce con <1/>",
+        "wireTransfer": "Bonifico bancario",
+        "wireTransferDescription": "Dopo la conferma dell'ordine riceverai le istruzioni per completare il pagamento",
+        "paypalDescription": "Dopo aver effettuato l'ordine, sarai reindirizzato verso il sito PayPal per accedere e autorizzare il pagamento"
+      }
     }
   }
 }

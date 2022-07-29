@@ -42,7 +42,7 @@
   },
   "order": {
     "title": "Order #<number />",
-    "placed_on": "Placed on",
+    "placed_at": "Placed at ",
     "summary":"Summary",
     "addresses": "Addresses",
     "shipments": "Shipments",
@@ -59,7 +59,14 @@
     "quantity": "Quantity: {{count}}",
     "quantity_plural": "Quantity: {{count}}",
     "shipment": "Shimpment #<0/>",
-    "shipmentStatus": "Status: <0/>"
+    "shipmentStatus": "Status: <0/>",
+    "paymentMethod": {
+      "creditCard": "Credit card",
+      "EndingIn": "<0/> ending in <1/>",
+      "wireTransfer": "Wire transfer",
+      "wireTransferDescription": "Upon order confirmation, you'll receive wiring instructions to complete payment",
+      "paypalDescription": "After placing the order, you will be redirected to the PayPal website to sign in and authorize the payment"
+    }
   },
   "orderSummary": {
     "billedTo": "Billed to",
