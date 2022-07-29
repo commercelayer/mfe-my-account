@@ -7,15 +7,17 @@ export type PrimaryButtonProps = {
   buttonStyle?: "outline"
 }
 
-const Button: React.FC<PrimaryButtonProps> = (props) => {
-  const { label = "Click me", onClick, ...p } = props
-
+const Button: React.FC<PrimaryButtonProps> = ({
+  label = "Click me",
+  onClick,
+  ...p
+}) => {
   const handleClick = async () => {
     onClick && onClick()
   }
 
   return (
-    <PrimaryButton onClick={handleClick} {...p}>
+    <PrimaryButton label={label} onClick={handleClick} {...p}>
       {label}
     </PrimaryButton>
   )
