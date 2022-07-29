@@ -3,7 +3,8 @@ import { GlobalStylesProvider } from "@commercelayer/react-utils"
 import { Settings } from "HostedApp"
 import { GlobalStyles as BaseStyles } from "twin.macro"
 
-import Header from "components/composite/Header"
+import CustomerHeader from "components/composite/Header/Customer"
+import GuestHeader from "components/composite/Header/Guest"
 import { MyAccountHead } from "components/composite/MyAccountTitle"
 import Navbar from "components/composite/Navbar"
 import { ActionsMenuProvider } from "components/data/ActionsMenuProvider"
@@ -38,11 +39,17 @@ const MyAccountContainer: React.FC<Props> = ({ settings, children }) => {
                   isGuest={settings.isGuest}
                   main={
                     <>
-                      <Header
-                        isGuest={settings.isGuest}
-                        logoUrl={settings.logoUrl}
-                        companyName={settings.companyName}
-                      />
+                      {settings.isGuest ? (
+                        <GuestHeader
+                          logoUrl={settings.logoUrl}
+                          companyName={settings.companyName}
+                        />
+                      ) : (
+                        <CustomerHeader
+                          logoUrl={settings.logoUrl}
+                          companyName={settings.companyName}
+                        />
+                      )}
                       <PageMain>{children}</PageMain>
                       <Footer />
                     </>
