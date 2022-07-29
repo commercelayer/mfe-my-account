@@ -26,8 +26,7 @@ const Orders: React.FC = () => {
   const { t } = useTranslation()
   const ctx = useContext(AppContext)
   const accessToken = ctx?.accessToken
-  const { screen } = useWindowSizeDetect()
-  const isDesktop = screen.width >= 1280
+  const { isDesktop } = useWindowSizeDetect()
   const options = isDesktop && {
     actionsComponent: () => (
       <ActionsMenu>
