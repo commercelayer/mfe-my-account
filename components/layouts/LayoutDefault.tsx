@@ -1,6 +1,5 @@
-import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock"
 import { Settings } from "HostedApp"
-import { useEffect, useContext } from "react"
+import { useEffect, useContext, useState } from "react"
 
 import { AppContext } from "components/data/AppProvider"
 import { Base } from "components/ui/Base"
@@ -27,15 +26,16 @@ export const LayoutDefault: React.FC<LayoutDefaultProps> = ({
   isGuest,
 }) => {
   const ctx = useContext(AppContext)
+  const [noScrollClassname, setNoScrollClassName] = useState("")
 
   useEffect(() => {
-    const main = document.getElementById("main")
-    main &&
-      (ctx?.showMobileMenu ? disableBodyScroll(main) : enableBodyScroll(main))
+    ctx?.showMobileMenu
+      ? setNoScrollClassName("overflow-hidden")
+      : setNoScrollClassName("")
   }, [ctx?.showMobileMenu])
 
   return (
-    <Base>
+    <Base className={noScrollClassname}>
       <Container>
         {isGuest ? (
           <GuestWrapper>

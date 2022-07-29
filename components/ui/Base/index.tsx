@@ -1,3 +1,9 @@
 import { Wrapper } from "./styled"
 
-export const Base: React.FC = ({ children }) => <Wrapper>{children}</Wrapper>
+interface Props {
+  className?: string
+}
+
+export const Base: React.FC<Props> = ({ className, children }) => (
+  <Wrapper className={className}>{children}</Wrapper>
+)
