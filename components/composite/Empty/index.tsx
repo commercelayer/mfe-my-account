@@ -14,24 +14,28 @@ interface Props {
   type: EmptyType
 }
 
+const emptyTypes = [
+  {
+    type: "Addresses",
+    icon: <NoAddressesIcon />,
+  },
+  {
+    type: "Orders",
+    icon: <NoOrdersIcon />,
+  },
+  {
+    type: "PaymentMethods",
+    icon: <NoPaymentMethodsIcon />,
+  },
+  {
+    type: "Returns",
+    icon: <NoReturnsIcon />,
+  },
+]
+
 const Empty: React.FC<Props> = ({ type }) => {
   const { t } = useTranslation()
-
-  let icon = null
-  switch (type) {
-    case "Addresses":
-      icon = <NoAddressesIcon />
-      break
-    case "Orders":
-      icon = <NoOrdersIcon />
-      break
-    case "PaymentMethods":
-      icon = <NoPaymentMethodsIcon />
-      break
-    case "Returns":
-      icon = <NoReturnsIcon />
-      break
-  }
+  const icon = emptyTypes.find((emptyType) => emptyType.type === type)?.icon
 
   return (
     <Wrapper>
