@@ -118,6 +118,11 @@
     "discard_changes": "Discard changes",
     "save": "Save"
   },
+  "noPaymentMethods": {
+    "title": "No payment method yet",
+    "description": "Looks like you haven’t made any payment method yet",
+    "buttonLabel": "Add a payment method"
+  },
   "returns": {},
   "noReturns": {
     "title": "No returns yet",
