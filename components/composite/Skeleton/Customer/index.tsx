@@ -14,6 +14,19 @@ import {
 } from "components/composite/Skeleton/styled"
 import { LayoutDefault } from "components/layouts/LayoutDefault"
 
+interface MenuItemProps {
+  className?: string
+}
+
+const MenuItem: React.FC<MenuItemProps> = ({ className }) => {
+  return (
+    <SkeletonMenuItem className={className}>
+      <SkeletonMenuItemIcon />
+      <SkeletonMenuItemLabel />
+    </SkeletonMenuItem>
+  )
+}
+
 export const CustomerSkeleton: React.FC = () => {
   return (
     <LayoutDefault
@@ -23,30 +36,12 @@ export const CustomerSkeleton: React.FC = () => {
           <SkeletonLogoWrapper>
             <SkeletonLogo />
           </SkeletonLogoWrapper>
-          <SkeletonMenuItem className="mt-12">
-            <SkeletonMenuItemIcon />
-            <SkeletonMenuItemLabel />
-          </SkeletonMenuItem>
-          <SkeletonMenuItem className="mt-7">
-            <SkeletonMenuItemIcon />
-            <SkeletonMenuItemLabel />
-          </SkeletonMenuItem>
-          <SkeletonMenuItem className="mt-7">
-            <SkeletonMenuItemIcon />
-            <SkeletonMenuItemLabel />
-          </SkeletonMenuItem>
-          <SkeletonMenuItem className="mt-7">
-            <SkeletonMenuItemIcon />
-            <SkeletonMenuItemLabel />
-          </SkeletonMenuItem>
-          <SkeletonMenuItem className="mt-32">
-            <SkeletonMenuItemIcon />
-            <SkeletonMenuItemLabel />
-          </SkeletonMenuItem>
-          <SkeletonMenuItem className="mt-7">
-            <SkeletonMenuItemIcon />
-            <SkeletonMenuItemLabel />
-          </SkeletonMenuItem>
+          <MenuItem className="mt-12" />
+          <MenuItem className="mt-7" />
+          <MenuItem className="mt-7" />
+          <MenuItem className="mt-7" />
+          <MenuItem className="mt-32" />
+          <MenuItem className="mt-7" />
         </Sidebar>
       }
       main={
