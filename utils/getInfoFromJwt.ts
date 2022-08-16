@@ -1,3 +1,4 @@
+// import { Settings } from "HostedApp"
 import jwtDecode from "jwt-decode"
 
 interface JWTProps {
@@ -5,20 +6,26 @@ interface JWTProps {
     slug: string
     id: string
   }
-  owner: {
-    id: string
-  },
+  application: {
+    kind: string
+  }
+  owner?: {
+    id?: string
+  }
   test: boolean
 }
 
+// type GetInfoFromJwtProps = Pick<Settings, "accessToken">
+// export const getInfoFromJwt: <GetInfoFromJwtProps> (accessToken) => {
 export const getInfoFromJwt = (accessToken: string) => {
   try {
     const {
       organization: { slug },
-      owner: { id },
-      test
+      application: { kind },
+      owner,
+      test,
     } = jwtDecode(accessToken) as JWTProps
-    return { slug, customerId: id, isTest: test }
+    return { slug, kind, customerId: owner?.id, isTest: test }
   } catch (e) {
     return {}
   }

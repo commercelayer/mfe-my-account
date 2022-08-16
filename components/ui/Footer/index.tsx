@@ -1,8 +1,7 @@
 import { useTranslation } from "react-i18next"
-import styled from "styled-components"
-import tw from "twin.macro"
 
 import { Logo } from "./cl"
+import { Wrapper, LogoWrapper, ListWrapper, ListLink, ListItem } from "./styled"
 
 interface Props {
   termsUrl?: string
@@ -21,7 +20,7 @@ const Footer: React.FC<Props> = ({ termsUrl, privacyUrl }) => {
         className="group"
       >
         <LogoWrapper>
-          Powered by <Logo width="114" height="19" tw="pl-2" />
+          Powered by <Logo width="135" height="22" className="pl-2" />
         </LogoWrapper>
       </a>
       {(termsUrl || privacyUrl) && (
@@ -49,25 +48,3 @@ const Footer: React.FC<Props> = ({ termsUrl, privacyUrl }) => {
 }
 
 export default Footer
-
-const Wrapper = styled.div`
-  ${tw`flex py-3 text-xs text-gray-500 md:(border-t border-gray-300 z-20 bottom-0 sticky pb-3 bg-gray-100)`}
-
-  &::before {
-    ${tw`md:(top-0 absolute left-0 w-full z-10 h-2 shadow-top)`}
-
-    content: "";
-  }
-`
-const LogoWrapper = styled.div`
-  ${tw`flex`}
-`
-const ListWrapper = styled.div`
-  ${tw`overflow-hidden`}
-`
-const ListLink = styled.ul`
-  ${tw`flex flex-row flex-wrap justify-between -ml-0.5`}
-`
-const ListItem = styled.li`
-  ${tw`flex-grow px-1.5 md:px-4 border-l font-medium`}
-`

@@ -1,17 +1,22 @@
-import { createContext, useState, useEffect } from "react"
 import CommerceLayer from "@commercelayer/sdk"
-import { getInfoFromJwt } from "utils/getInfoFromJwt"
-import { getCustomerDetails } from "utils/getCustomerDetails"
+import { Settings } from "HostedApp"
+import { createContext, useState, useEffect } from "react"
 
-interface AppProviderData {
+import { getCustomerDetails } from "utils/getCustomerDetails"
+import { getInfoFromJwt } from "utils/getInfoFromJwt"
+
+type AppProviderData = Pick<
+  Settings,
+  "customerId" | "accessToken" | "endpoint"
+> & {
   email: string
   hasPassword: boolean
   isLoading: boolean
-  customerId: string
-  accessToken: string
-  endpoint: string
   isFirstLoading: boolean
+  showMobileMenu: boolean
   refetchCustomer: () => Promise<void>
+  closeMobileMenu: () => void
+  toggleMobileMenu: () => void
 }
 
 interface AppStateData {
@@ -19,6 +24,7 @@ interface AppStateData {
   hasPassword: boolean
   isLoading: boolean
   isFirstLoading: boolean
+  showMobileMenu: boolean
 }
 
 const initialState: AppStateData = {
@@ -26,15 +32,15 @@ const initialState: AppStateData = {
   isFirstLoading: true,
   email: "",
   hasPassword: false,
+  showMobileMenu: false,
 }
 
 export const AppContext = createContext<AppProviderData | null>(null)
 
-interface AppProviderProps {
-  endpoint: string
-  customerId: string
-  accessToken: string
-}
+type AppProviderProps = Pick<
+  Settings,
+  "customerId" | "accessToken" | "endpoint"
+>
 
 export const AppProvider: React.FC<AppProviderProps> = ({
   children,
@@ -68,14 +74,18 @@ export const AppProvider: React.FC<AppProviderProps> = ({
 
     return await getCustomerDetails({
       client,
-      customerId
+      customerId,
     }).then((customerResponse) => {
       const customer = customerResponse?.object
       setState({
-        email: customer && customer.email !== undefined ? customer.email : '',
-        hasPassword: customer && customer.has_password !== undefined ? customer.has_password : false,
+        email: customer && customer.email !== undefined ? customer.email : "",
+        hasPassword:
+          customer && customer.has_password !== undefined
+            ? customer.has_password
+            : false,
         isLoading: false,
-        isFirstLoading: false
+        isFirstLoading: false,
+        showMobileMenu: false,
       })
     })
   }
@@ -93,6 +103,12 @@ export const AppProvider: React.FC<AppProviderProps> = ({
         endpoint,
         refetchCustomer: async () => {
           return await fetchCustomerHandle(customerId, accessToken)
+        },
+        closeMobileMenu: () => {
+          setState({ ...state, showMobileMenu: false })
+        },
+        toggleMobileMenu: () => {
+          setState({ ...state, showMobileMenu: !state.showMobileMenu })
         },
       }}
     >

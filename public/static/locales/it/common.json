@@ -1,11 +1,18 @@
 {
   "general": {
-      "title": "Commerce Layer - Area Utente (IT)",
-      "invalid": "Quest'URL non è più accessibile."
+      "title": "{{companyName}} - Area Utente",
+      "retry_error_code": "Problemi di connessione",
+      "retry_error_description": "Prova a ricaricare la pagina",
+      "invalid": "Quest'URL non è accessibile."
   },
   "orders": {
     "order": {
-      "title": "Ordine",
+      "title": "Ordine #<number />",
+      "placed_at": "Effettuato il ",
+      "summary": "Riepilogo",
+      "addresses": "Indirizzi",
+      "shipments": "Spedizioni",
+      "payments": "Pagamenti",
       "contains": "Il tuo ordine contiene {{count}} articolo",
       "contains_plural": "Il tuo ordine contiene {{count}} articoli",
       "subtotal_amount": "Subtotale",
@@ -16,7 +23,16 @@
       "giftcard_amount": "Gift card",
       "total_amount": "Totale",
       "quantity": "Quantità: {{count}}",
-      "quantity_plural": "Quantità: {{count}}"
+      "quantity_plural": "Quantità: {{count}}",
+      "shipment": "Spedizione #<0/>",
+      "shipmentStatus": "Stato: <0/>",
+      "paymentMethod": {
+        "creditCard": "Carta di credito",
+        "EndingIn": "<0/> finisce con <1/>",
+        "wireTransfer": "Bonifico bancario",
+        "wireTransferDescription": "Dopo la conferma dell'ordine riceverai le istruzioni per completare il pagamento",
+        "paypalDescription": "Dopo aver effettuato l'ordine, sarai reindirizzato verso il sito PayPal per accedere e autorizzare il pagamento"
+      }
     }
   }
 }

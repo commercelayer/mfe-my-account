@@ -1,27 +1,21 @@
-import { Dispatch } from "react"
-import styled from "styled-components"
-import tw from "twin.macro"
+import { useContext } from "react"
 
+import { AppContext } from "components/data/AppProvider"
 import CloseIcon from "components/ui/icons/CloseIcon"
 import MenuIcon from "components/ui/icons/MenuIcon"
 
-interface Props {
-  showMobileMenu: boolean
-  setShowMobileMenu: Dispatch<boolean>
-}
+import { Button } from "./styled"
 
-const MenuButton: React.FC<Props> = ({ showMobileMenu, setShowMobileMenu }) => {
-  const handlerOnClick = () => setShowMobileMenu(!showMobileMenu)
+const MenuButton: React.FC = () => {
+  const ctx = useContext(AppContext)
+
+  const handlerOnClick = () => ctx?.toggleMobileMenu()
 
   return (
     <Button onClick={handlerOnClick}>
-      {showMobileMenu ? <CloseIcon /> : <MenuIcon />}
+      {ctx?.showMobileMenu ? <CloseIcon /> : <MenuIcon />}
     </Button>
   )
 }
 
 export default MenuButton
-
-export const Button = styled.button`
-  ${tw`w-6 md:(hidden)`}
-`

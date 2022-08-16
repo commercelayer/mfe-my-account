@@ -7,6 +7,7 @@
     "standard",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
+    "plugin:@next/next/recommended",
     "plugin:react/recommended",
     "plugin:import/errors",
     "plugin:import/warnings",
@@ -27,7 +28,18 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": ["react", "prettier", "@typescript-eslint"],
+  "plugins": ["react", "prettier", "import", "@typescript-eslint"],
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/resolver": {
+      "typescript": {
+        "alwaysTryTypes": true,
+        "project": "./tsconfig.json"
+      }
+    }
+  },
   "rules": {
     "prettier/prettier": "warn",
     "react/react-in-jsx-scope": "off",
@@ -35,12 +47,15 @@
     "no-var": "error",
     "no-param-reassign": "error",
     "prefer-const": "error",
-    "sort-imports": "off",
-    "camelcase": "off",
-    "import/named": "off",
-    "import/no-unresolved": "off", // unresolved are handled by ts
-    "import/order": [
+    "import/no-unresolved": [
       "error",
+      {
+        "ignore": ["HostedApp"]
+      }
+    ],
+    "import/no-named-as-default": "off",
+    "import/order": [
+      "warn",
       {
         "newlines-between": "always",
         "groups": ["external", "builtin", "parent", "sibling", "index"],
@@ -58,10 +73,15 @@
         }
       }
     ],
+    // note you must disable the base rule as it can report incorrect errors
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": "off",
     "@typescript-eslint/member-delimiter-style": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
-    "@typescript-eslint/camelcase": "off",
     "@typescript-eslint/prefer-readonly": "error",
-    "@typescript-eslint/explicit-module-boundary-types": "off"
+    "@typescript-eslint/no-inferrable-types": "off",
+    "@typescript-eslint/prefer-namespace-keyword": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@next/next/no-img-element": "off"
   }
 }

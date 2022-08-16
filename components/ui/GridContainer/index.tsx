@@ -1,5 +1,4 @@
-import styled from "styled-components"
-import tw from "twin.macro"
+import { Wrapper } from "./styled"
 
 interface Props {
   className?: string
@@ -8,7 +7,3 @@ interface Props {
 export const GridContainer: React.FC<Props> = ({ children, className }) => (
   <Wrapper className={className}>{children}</Wrapper>
 )
-
-const Wrapper = styled.div`
-  ${tw`grid gap-4 mb-6 lg:grid-cols-2`}
-`

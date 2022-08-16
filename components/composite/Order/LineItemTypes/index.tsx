@@ -7,8 +7,8 @@ import {
 } from "@commercelayer/react-components"
 import { LineItemType } from "@commercelayer/react-components/dist/typings"
 import { useTranslation } from "react-i18next"
-import styled from "styled-components"
-import tw from "twin.macro"
+
+import { LineItemWrapper, LineItemDescription, LineItemQty } from "./styled"
 
 interface Props {
   type: LineItemType
@@ -40,13 +40,3 @@ export const LineItemTypes: React.FC<Props> = ({ type }) => {
     </LineItem>
   )
 }
-
-const LineItemWrapper = styled.div`
-  ${tw`flex flex-row pt-6 pb-8 border-b`}
-`
-const LineItemDescription = styled.div`
-  ${tw`pl-4 flex flex-col flex-1 lg:pl-8`}
-`
-const LineItemQty = styled.div`
-  ${tw`text-xs uppercase mt-1 text-gray-500`}
-`

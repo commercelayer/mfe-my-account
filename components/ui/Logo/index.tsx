@@ -1,18 +1,16 @@
-import styled from "styled-components"
-import tw from "twin.macro"
+import { Settings } from "HostedApp"
 
-interface Props {
-  logoUrl: string
-  companyName: string
+import { Image, Label } from "./styled"
+
+type LogoProps = Pick<Settings, "logoUrl" | "companyName"> & {
   className?: string
 }
 
-const Logo: React.FC<Props> = ({ logoUrl, companyName, className }) => {
-  return logoUrl.length ? <Image src={logoUrl} alt={companyName} className={className} /> : <span className="uppercase">{companyName}</span>
+const Logo: React.FC<LogoProps> = ({ logoUrl, companyName, className }) => {
+  if (logoUrl) {
+    return <Image src={logoUrl} alt={companyName} className={className} />
+  }
+  return <Label className={className}>{companyName}</Label>
 }
 
 export default Logo
-
-const Image = styled.img`
-  ${tw`w-52 max-w-full`}
-`

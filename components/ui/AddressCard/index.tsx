@@ -1,6 +1,7 @@
-import CustomerAddressContext from "context/CustomerAddressContext"
 import { useContext, useState } from "react"
 import { useTranslation } from "react-i18next"
+
+import TrashIcon from "components/ui/icons/TrashIcon"
 
 import {
   EditButton,
@@ -14,8 +15,11 @@ import {
   ConfirmActions,
   ConfirmCancel,
   ConfirmDelete,
+  DeleteButtonWrapper,
   DeleteButton,
 } from "./styled"
+
+import CustomerAddressContext from "context/CustomerAddressContext"
 
 interface Props {
   firstName: string
@@ -28,6 +32,7 @@ interface Props {
   countryCode: string
   phone: string
   addressType: string
+  readonly: boolean | undefined
   editButton: string
   deleteButton: string
 }
@@ -43,6 +48,7 @@ export const AddressCard: React.FC<Props> = ({
   countryCode,
   phone,
   addressType,
+  readonly,
   editButton,
   deleteButton,
 }) => {
@@ -67,32 +73,36 @@ export const AddressCard: React.FC<Props> = ({
         {firstName} {lastName}
       </Customer>
       <Address data-cy={`full_address_${addressType}`}>
-        {[line1, line2].join(", ")}
+        {line2 != null ? [line1, line2].join(", ") : line1}
         <br />
-        {zipCode} {city} - {stateCode} ({countryCode})
+        {zipCode} {city} ({stateCode}) - {countryCode}
         <br />
         {phone}
         <br />
       </Address>
-      <ActionsWrapper>
-        <Actions>
-          <EditButton
-            type="edit"
-            variant="primary"
-            label={editButton}
-            onClick={(address) => {
-              setAddress(address)
-              setShowAddressForm(true)
-            }}
-          />
-
-          <DeleteButton
-            onClick={() => setShowDeleteConfirmation(true)}
-            variant="warning"
-            label={deleteButton}
-          />
-        </Actions>
-      </ActionsWrapper>
+      {readonly === undefined && (
+        <ActionsWrapper>
+          <Actions>
+            <EditButton
+              type="edit"
+              variant="primary"
+              label={editButton}
+              onClick={(address) => {
+                setAddress(address)
+                setShowAddressForm(true)
+              }}
+            />
+            <DeleteButtonWrapper>
+              <TrashIcon />
+              <DeleteButton
+                onClick={() => setShowDeleteConfirmation(true)}
+                variant="warning"
+                label={deleteButton}
+              />
+            </DeleteButtonWrapper>
+          </Actions>
+        </ActionsWrapper>
+      )}
     </Wrapper>
   )
 }

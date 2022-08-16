@@ -1,10 +1,8 @@
 import { CustomerField } from "@commercelayer/react-components"
-import { Dispatch } from "react"
+import { Settings } from "HostedApp"
 import { useTranslation } from "react-i18next"
-import styled from "styled-components"
-import tw from "twin.macro"
 
-import Footer from "components/ui/Footer"
+import NavLink from "components/composite/NavLink"
 import CreditCardIcon from "components/ui/icons/CreditCardIcon"
 import CustomerServiceIcon from "components/ui/icons/CustomerServiceIcon"
 import LocationIcon from "components/ui/icons/LocationIcon"
@@ -13,11 +11,18 @@ import ReturnsIcon from "components/ui/icons/ReturnsIcon"
 import ShoppingCartIcon from "components/ui/icons/ShoppingCartIcon"
 import Logo from "components/ui/Logo"
 
-import NavLink from "./NavLink"
+import {
+  Wrapper,
+  Sidebar,
+  LogoWrapper,
+  Nav,
+  EmailWrapper,
+  Email,
+} from "./styled"
 
 interface Props {
-  settings: CustomerSettings
-  onClick?: Dispatch<boolean>
+  settings: Settings
+  onClick?: () => void
 }
 
 const Navbar: React.FC<Props> = ({ settings, onClick }) => {
@@ -27,7 +32,6 @@ const Navbar: React.FC<Props> = ({ settings, onClick }) => {
   const menu = {
     orders: {
       title: t("menu.orders"),
-      description: t("menu.ordersDescription"),
       href: "/orders",
       icon: <ShoppingCartIcon />,
       accessToken,
@@ -35,7 +39,6 @@ const Navbar: React.FC<Props> = ({ settings, onClick }) => {
     },
     addresses: {
       title: t("menu.addresses"),
-      description: t("menu.addressesDescription"),
       href: "/addresses",
       icon: <LocationIcon />,
       accessToken,
@@ -43,7 +46,6 @@ const Navbar: React.FC<Props> = ({ settings, onClick }) => {
     },
     wallet: {
       title: t("menu.wallet"),
-      description: t("menu.walletDescription"),
       href: "/wallet",
       icon: <CreditCardIcon />,
       accessToken,
@@ -51,7 +53,6 @@ const Navbar: React.FC<Props> = ({ settings, onClick }) => {
     },
     returns: {
       title: t("menu.returns"),
-      description: t("menu.returnsDescription"),
       href: "/returns",
       icon: <ReturnsIcon />,
       accessToken,
@@ -59,7 +60,6 @@ const Navbar: React.FC<Props> = ({ settings, onClick }) => {
     },
     customerService: {
       title: t("menu.customerService"),
-      description: t("menu.customerServiceDescription"),
       href: "/customer_service",
       icon: <CustomerServiceIcon />,
       accessToken,
@@ -67,7 +67,6 @@ const Navbar: React.FC<Props> = ({ settings, onClick }) => {
     },
     logout: {
       title: t("menu.logout"),
-      description: t("menu.logoutDescription"),
       href: "/logout",
       icon: <LogoutIcon />,
       accessToken,
@@ -77,11 +76,13 @@ const Navbar: React.FC<Props> = ({ settings, onClick }) => {
 
   return (
     <Sidebar data-cy="navbar">
-      <Logo
-        logoUrl={logoUrl}
-        companyName={companyName}
-        className="hidden md:block"
-      />
+      <LogoWrapper>
+        <Logo
+          logoUrl={logoUrl}
+          companyName={companyName}
+          className="hidden md:block"
+        />
+      </LogoWrapper>
       <Nav>
         <ul>
           <NavLink id="orders" {...menu.orders} />
@@ -91,9 +92,7 @@ const Navbar: React.FC<Props> = ({ settings, onClick }) => {
         </ul>
       </Nav>
       <Wrapper>
-        <CustomerServiceWrapper>
-          <NavLink id="customerService" {...menu.customerService} />
-        </CustomerServiceWrapper>
+        <NavLink id="customerService" {...menu.customerService} />
         <EmailWrapper>
           {t("menu.loggedInAs")}
           <Email>
@@ -102,37 +101,8 @@ const Navbar: React.FC<Props> = ({ settings, onClick }) => {
         </EmailWrapper>
         <NavLink id="logout" {...menu.logout} />
       </Wrapper>
-      <DesktopOnly>
-        <Footer />
-      </DesktopOnly>
     </Sidebar>
   )
 }
 
 export default Navbar
-
-const Sidebar = styled.div`
-  ${tw`flex flex-col min-h-full md:(p-5) lg:(pl-20 pr-10 pt-10) xl:(pl-48)`}
-`
-
-export const Wrapper = styled.div`
-  ${tw`md:(mt-32 flex-1)`}
-`
-
-export const CustomerServiceWrapper = styled.div`
-  ${tw`border-t border-b border-gray-300 py-1 mt-3 mb-8 xl:(border-none my-0)`}
-`
-
-export const EmailWrapper = styled.div`
-  ${tw`text-sm mb-6 md:(hidden)`}
-`
-
-export const Email = styled.span`
-  ${tw`block mt-0.5 font-bold`}
-`
-export const Nav = styled.nav`
-  ${tw`md:(mt-8) lg:(mt-16)`}
-`
-const DesktopOnly = styled.div`
-  ${tw`hidden md:(block)`}
-`

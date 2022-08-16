@@ -1,14 +1,20 @@
 import { Address, AddressField } from "@commercelayer/react-components"
 import { useTranslation } from "react-i18next"
 
-import { AddressCard } from "../AddressCard"
+import { AddressCard } from "components/ui/AddressCard"
 
-const CustomerAddressCard: React.FC = () => {
+interface Props {
+  readonly?: boolean
+}
+
+const CustomerAddressCard: React.FC<Props> = ({ readonly }) => {
   const { t } = useTranslation()
+
+  const actionsNeeded = readonly === undefined
 
   return (
     <Address
-      className="group"
+      className={` ${actionsNeeded ? "group" : ""} `}
       disabledClassName="opacity-50 cursor-not-allowed"
     >
       {
@@ -25,6 +31,7 @@ const CustomerAddressCard: React.FC = () => {
               countryCode={address.countryCode}
               phone={address.phone}
               addressType="customer"
+              readonly={readonly}
               editButton={t("addresses.edit")}
               deleteButton={t("addresses.delete")}
             />

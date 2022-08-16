@@ -1,5 +1,5 @@
 import LinkButtonProps from "./props"
-import { Button, Svg } from "./styled"
+import { Button } from "./styled"
 
 export const LinkButton: React.FC<LinkButtonProps> = ({
   onClick,

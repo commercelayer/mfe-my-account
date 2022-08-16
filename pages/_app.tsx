@@ -1,33 +1,38 @@
 import "../styles/globals.css"
-
-import "components/data/i18n"
-
 import { appWithTranslation } from "next-i18next"
 import type { AppProps } from "next/app"
-import dynamic from "next/dynamic"
+import "components/data/i18n"
+import { useRouter } from "next/router"
 
-import { useSettings } from "components/hooks/useSettings"
+import Invalid from "components/composite/Invalid"
+import MyAccountContainer from "components/composite/MyAccountContainer"
+import Skeleton from "components/composite/Skeleton"
+import { SettingsProvider } from "components/data/SettingsProvider"
 
-const DynamicSpinnerLoader = dynamic(
-  () => import("components/ui/SpinnerLoader")
-)
-const DynamicInvalid = dynamic(() => import("components/composite/Invalid"))
-const DynamicAppContainer = dynamic(
-  () => import("components/composite/AppContainer")
-)
-
-function UserArea(props: AppProps) {
+function MyAccount(props: AppProps) {
   const { Component, pageProps } = props
-  const { settings, isLoading } = useSettings()
+  const router = useRouter()
+  const orderId = router.query.orderId as string
 
-  if (isLoading) return <DynamicSpinnerLoader />
-  if (!settings) return <DynamicInvalid />
-
-  return (
-    <DynamicAppContainer settings={settings}>
-      <Component {...pageProps} />
-    </DynamicAppContainer>
-  )
+  if (router.pathname !== "/404") {
+    return (
+      <SettingsProvider orderId={orderId}>
+        {({ settings, isLoading }) => {
+          return isLoading ? (
+            <Skeleton />
+          ) : !settings.isValid ? (
+            <Invalid />
+          ) : (
+            <MyAccountContainer settings={settings}>
+              <Component {...pageProps} settings={settings} />
+            </MyAccountContainer>
+          )
+        }}
+      </SettingsProvider>
+    )
+  } else {
+    return <Component {...pageProps} />
+  }
 }
 
-export default appWithTranslation(UserArea)
+export default appWithTranslation(MyAccount)

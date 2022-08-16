@@ -1,59 +1,58 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import CommerceLayer from "@commercelayer/sdk"
-import { getInfoFromJwt } from "utils/getInfoFromJwt"
-import { getOrganizationsDetails } from "utils/getOrganizationDetails"
+import { Settings, InvalidSettings } from "HostedApp"
 import type { NextApiRequest, NextApiResponse } from "next"
 
-import hex2hsl, { BLACK_COLOR } from "components/utils/hex2hsl"
+import { getInfoFromJwt } from "utils/getInfoFromJwt"
+import { getOrder } from "utils/getOrder"
+import { getOrganizations } from "utils/getOrganizations"
 
-interface JWTProps {
-  organization: {
-    slug: string
-    id: string
-  }
-  owner: {
-    id: string
-  }
+function isProduction(env: string): boolean {
+  return env === "production"
 }
 
-export const defaultSettings: InvalidCustomerSettings = {
+export const defaultSettings: InvalidSettings = {
   isValid: false,
-  primaryColor: BLACK_COLOR,
+  primaryColor: "#000000",
   language: "en",
   favicon: `${process.env.NEXT_PUBLIC_BASE_PATH}/favicon.png`,
   companyName: "Commerce Layer",
-  retryable: false
+  retryable: false,
 }
 
-const makeInvalidSettings = (retryable?: boolean): InvalidCustomerSettings => ({
-  ...defaultSettings,
-  retryable: !!retryable,
-})
-
 export default async (req: NextApiRequest, res: NextApiResponse) => {
+  const { NODE_ENV, NEXT_PUBLIC_DOMAIN, NEXT_PUBLIC_HOSTED } = process.env
   const accessToken = req.query.accessToken as string
+  const orderId = req.query.orderId as string | undefined
+
+  const domain = NEXT_PUBLIC_DOMAIN || "commercelayer.io"
+
+  function invalidateUserArea(retry?: boolean) {
+    res.statusCode = 200
+    return res.json({ isValid: false, retryOnError: !!retry })
+  }
 
   if (!accessToken) {
-    res.statusCode = 200
-    return res.json({ validUserArea: false })
+    return invalidateUserArea()
   }
 
-  const { slug, customerId, isTest } = getInfoFromJwt(accessToken)
+  const subdomain = req.headers.host?.split(":")[0].split(".")[0]
 
-  let endpoint: string
-  try {
-    if (slug) {
-      endpoint = `https://${slug}.${process.env.NEXT_PUBLIC_DOMAIN}`
-    } else {
-      return res.json({ validUserArea: false })
-    }
-  } catch (e) {
-    console.log(`error decoding access token: ${e}`)
-    res.statusCode = 200
-    return res.json({ validUserArea: false })
+  const { slug, kind, customerId, isTest } = getInfoFromJwt(accessToken)
+
+  if (!slug) {
+    return invalidateUserArea()
   }
 
-  const domain = process.env.NEXT_PUBLIC_DOMAIN || "commercelayer.io"
+  if (
+    isProduction(NODE_ENV) &&
+    !!NEXT_PUBLIC_HOSTED &&
+    (subdomain !== slug || kind !== "sales_channel")
+  ) {
+    return invalidateUserArea()
+  } else if (kind !== "sales_channel") {
+    return invalidateUserArea()
+  }
 
   const client = CommerceLayer({
     organization: slug,
@@ -62,31 +61,51 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   })
 
   const [organizationResponse] = await Promise.all([
-    getOrganizationsDetails({
+    getOrganizations({
       client,
-    })
+    }),
   ])
 
   const organization = organizationResponse?.object
 
-  if (!customerId || !organization) {
+  // if (!customerId || !organization) {
+  if (!organization) {
     res.statusCode = 200
-    return res.json({ validUserArea: false })
+    return res.json({ isValid: false })
   }
 
-  const appSettings: CustomerSettings = {
+  if (orderId) {
+    const [orderResponse] = await Promise.all([
+      getOrder({
+        client,
+        orderId,
+      }),
+    ])
+
+    const order = orderResponse?.object
+    if (!order) {
+      res.statusCode = 200
+      return res.json({ isValid: false, show404: true })
+    }
+  }
+
+  const appSettings: Settings = {
     accessToken,
-    endpoint,
-    customerId,
-    validUserArea: true,
+    endpoint: `https://${slug}.${domain}`,
+    isGuest: !customerId,
+    customerId: customerId as string,
+    isValid: true,
     companyName: organization?.name || defaultSettings.companyName,
     language: defaultSettings.language,
-    primaryColor: hex2hsl(organization?.primary_color as string) || defaultSettings.primaryColor,
-    logoUrl: organization?.logo_url || '',
+    primaryColor:
+      (organization?.primary_color as string) || defaultSettings.primaryColor,
+    logoUrl: organization?.logo_url || "",
     favicon: organization?.favicon_url || defaultSettings.favicon,
     gtmId: isTest ? organization?.gtm_id_test : organization?.gtm_id,
   }
-  res.statusCode = 200
 
-  return res.json(appSettings)
+  return res
+    .setHeader("Cache-Control", "s-maxage=1, stale-while-revalidate")
+    .status(200)
+    .json(appSettings)
 }

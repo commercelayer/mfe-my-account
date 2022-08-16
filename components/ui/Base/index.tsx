@@ -1,8 +1,9 @@
-import styled from "styled-components"
-import tw from "twin.macro"
+import { Wrapper } from "./styled"
 
-export const Base: React.FC = ({ children }) => <Wrapper>{children}</Wrapper>
+interface Props {
+  className?: string
+}
 
-const Wrapper = styled.div`
-  ${tw`bg-gray-100 min-h-screen w-auto`}
-`
+export const Base: React.FC<Props> = ({ className, children }) => (
+  <Wrapper className={className}>{children}</Wrapper>
+)

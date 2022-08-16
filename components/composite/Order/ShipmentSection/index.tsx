@@ -5,8 +5,8 @@ import {
 } from "@commercelayer/react-components"
 import { NextPage } from "next"
 import { useTranslation, Trans } from "react-i18next"
-import styled from "styled-components"
-import tw from "twin.macro"
+
+import { ShipmentDescription } from "./styled"
 
 const ShipmentSection: NextPage = () => {
   const { t } = useTranslation()
@@ -30,7 +30,3 @@ const ShipmentSection: NextPage = () => {
 }
 
 export default ShipmentSection
-
-export const ShipmentDescription = styled.p`
-  ${tw`text-gray-600 ml-3 font-normal`}
-`

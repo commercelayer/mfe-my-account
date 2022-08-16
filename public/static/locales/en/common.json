@@ -1,7 +1,9 @@
 {
   "general": {
-      "title": "Commerce Layer - User Area (EN)",
-      "invalid": "This URL is no longer accessible.",
+      "title": "{{companyName}} - User Area",
+      "retry_error_code": "Connectivity issues",
+      "retry_error_description": "Try to reload the page",
+      "invalid": "This URL is not accessible.",
       "privacy_link": "Privacy",
       "terms_link": "Terms"
   },
@@ -33,26 +35,59 @@
     "orderContains_plural": "contains {{count}} items",
     "openMenu": "Open menu"
   },
+  "noOrders": {
+    "title": "No orders yet",
+    "description": "Looks like you haven't made any orders yet",
+    "buttonLabel": "Go to shop"
+  },
   "order": {
-      "title": "Order",
-      "summary":"Summary",
-      "contains": "Your order contains {{count}} item",
-      "contains_plural": "Your order contains {{count}} items",
-      "subtotal_amount": "Subtotal",
-      "discount_amount": "Discount",
-      "shipping_amount": "Shipping",
-      "payment_method_amount": "Payment method",
-      "tax_amount": "Tax",
-      "giftcard_amount": "Gift card",
-      "total_amount": "Total",
-      "quantity": "Quantity: {{count}}",
-      "quantity_plural": "Quantity: {{count}}",
-      "shipment": "Shimpment #<0/>",
-      "shipmentStatus": "Status: <0/>"
+    "title": "Order #<number />",
+    "placed_at": "Placed at ",
+    "summary":"Summary",
+    "addresses": "Addresses",
+    "shipments": "Shipments",
+    "payments": "Payments",
+    "contains": "Your order contains {{count}} item",
+    "contains_plural": "Your order contains {{count}} items",
+    "subtotal_amount": "Subtotal",
+    "discount_amount": "Discount",
+    "shipping_amount": "Shipping",
+    "payment_method_amount": "Payment method",
+    "tax_amount": "Tax",
+    "giftcard_amount": "Gift card",
+    "total_amount": "Total",
+    "quantity": "Quantity: {{count}}",
+    "quantity_plural": "Quantity: {{count}}",
+    "shipment": "Shimpment #<0/>",
+    "shipmentStatus": "Status: <0/>",
+    "paymentMethod": {
+      "creditCard": "Credit card",
+      "EndingIn": "<0/> ending in <1/>",
+      "wireTransfer": "Wire transfer",
+      "wireTransferDescription": "Upon order confirmation, you'll receive wiring instructions to complete payment",
+      "paypalDescription": "After placing the order, you will be redirected to the PayPal website to sign in and authorize the payment"
+    }
   },
   "orderSummary": {
-    "billedTo": "Billed to:",
-    "shippedTo": "Shipped to:"
+    "billedTo": "Billed to",
+    "shippedTo": "Shipped to"
+  },
+  "orderStatus": {
+    "draft": "draft",
+    "pending": "pending",
+    "placed": "placed",
+    "approved": "approved",
+    "cancelled": "cancelled"
+  },
+  "shipmentStatus": {
+    "draft": "draft",
+    "upcoming": "upcoming",
+    "cancelled": "cancelled",
+    "on_hold": "on_hold",
+    "picking": "picking",
+    "packing": "packing",
+    "ready_to_ship": "ready_to_ship",
+    "shipped": "shipped"
   },
   "addresses": {
     "title": "My addresses",
@@ -63,8 +98,14 @@
     "yes": "Yes",
     "no": "No"
   },
+  "noAddresses": {
+    "title": "No addresses yet",
+    "description": "Looks like you haven't made any address yet",
+    "buttonLabel": "Add an address"
+  },
   "addressForm": {
-    "title": "Add a new address",
+    "new_address_title": "Add a new address",
+    "edit_address_title": "Edit my address",
     "customer_address_first_name": "first name",
     "customer_address_last_name": "last name",
     "customer_address_line_1": "address",
@@ -76,5 +117,25 @@
     "customer_address_phone": "telephone",
     "discard_changes": "Discard changes",
     "save": "Save"
+  },
+  "noPaymentMethods": {
+    "title": "No payment method yet",
+    "description": "Looks like you haven’t made any payment method yet",
+    "buttonLabel": "Add a payment method"
+  },
+  "returns": {},
+  "noReturns": {
+    "title": "No returns yet",
+    "description": "Looks like you haven't made any returns yet",
+    "buttonLabel": "Create a return"
+  },
+  "returnStatus": {
+    "draft": "draft",
+    "requested": "requested",
+    "approved": "approved",
+    "cancelled": "cancelled",
+    "shipped": "shipped",
+    "rejected": "rejected",
+    "received": "received"
   }
 }
