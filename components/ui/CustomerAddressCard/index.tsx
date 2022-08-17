@@ -21,14 +21,15 @@ const CustomerAddressCard: React.FC<Props> = ({ readonly }) => {
         <AddressField>
           {({ address }) => (
             <AddressCard
-              firstName={address.firstName}
-              lastName={address.lastName}
+              addressId={address.id}
+              firstName={address.first_name}
+              lastName={address.last_name}
               city={address.city}
-              line1={address.line1}
-              line2={address.line2}
-              zipCode={address.zipCode}
-              stateCode={address.stateCode}
-              countryCode={address.countryCode}
+              line1={address.line_1}
+              line2={address.line_2}
+              zipCode={address.zip_code}
+              stateCode={address.state_code}
+              countryCode={address.country_code}
               phone={address.phone}
               addressType="customer"
               readonly={readonly}

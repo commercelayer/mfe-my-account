@@ -22,15 +22,16 @@ import {
 import CustomerAddressContext from "context/CustomerAddressContext"
 
 interface Props {
-  firstName: string
-  lastName: string
-  city: string
-  line1: string
-  line2: string
-  zipCode: string
-  stateCode: string
-  countryCode: string
-  phone: string
+  addressId?: string
+  firstName?: string
+  lastName?: string
+  city?: string
+  line1?: string
+  line2?: string
+  zipCode?: string
+  stateCode?: string
+  countryCode?: string
+  phone?: string
   addressType: string
   readonly: boolean | undefined
   editButton: string
@@ -38,6 +39,7 @@ interface Props {
 }
 
 export const AddressCard: React.FC<Props> = ({
+  addressId,
   firstName,
   lastName,
   city,
@@ -62,7 +64,13 @@ export const AddressCard: React.FC<Props> = ({
         <Overlay>
           <Text>{t("addresses.deleteConfirmation")}</Text>
           <ConfirmActions>
-            <ConfirmDelete type="delete" label={t("addresses.yes")} />
+            <ConfirmDelete
+              type="delete"
+              label={t("addresses.yes")}
+              onClick={() => {
+                return false
+              }}
+            />
             <ConfirmCancel onClick={() => setShowDeleteConfirmation(false)}>
               {t("addresses.no")}
             </ConfirmCancel>
@@ -85,7 +93,6 @@ export const AddressCard: React.FC<Props> = ({
           <Actions>
             <EditButton
               type="edit"
-              variant="primary"
               label={editButton}
               onClick={(address) => {
                 setAddress(address)
