@@ -21,7 +21,6 @@ const CustomerAddressCard: React.FC<Props> = ({ readonly }) => {
         <AddressField>
           {({ address }) => (
             <AddressCard
-              addressId={address.id}
               firstName={address.first_name}
               lastName={address.last_name}
               city={address.city}

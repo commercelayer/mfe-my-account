@@ -22,7 +22,6 @@ import {
 import CustomerAddressContext from "context/CustomerAddressContext"
 
 interface Props {
-  addressId?: string
   firstName?: string
   lastName?: string
   city?: string
@@ -39,7 +38,6 @@ interface Props {
 }
 
 export const AddressCard: React.FC<Props> = ({
-  addressId,
   firstName,
   lastName,
   city,
@@ -68,6 +66,7 @@ export const AddressCard: React.FC<Props> = ({
               type="delete"
               label={t("addresses.yes")}
               onClick={() => {
+                // TODO: Gestire una callback visiva di conferma rimozione
                 return false
               }}
             />
