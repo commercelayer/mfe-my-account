@@ -16,4 +16,7 @@ export const Label = styled.p<LabelProps>`
   ${({ icon }) => {
     return !icon && tw`ml-5`
   }}
+  ${({ variant }) => {
+    return variant === "warning" && tw`text-red-400`
+  }}
 `
