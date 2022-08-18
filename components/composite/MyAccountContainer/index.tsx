@@ -7,7 +7,6 @@ import CustomerHeader from "components/composite/Header/Customer"
 import GuestHeader from "components/composite/Header/Guest"
 import { MyAccountHead } from "components/composite/MyAccountTitle"
 import Navbar from "components/composite/Navbar"
-import { ActionsMenuProvider } from "components/data/ActionsMenuProvider"
 import { AppProvider } from "components/data/AppProvider"
 import { CustomerContainerProvider } from "components/data/CustomerContainerProvider"
 import { LayoutDefault } from "components/layouts/LayoutDefault"
@@ -33,33 +32,29 @@ const MyAccountContainer: React.FC<Props> = ({ settings, children }) => {
             accessToken={settings.accessToken}
             endpoint={settings.endpoint}
           >
-            <ActionsMenuProvider>
-              <CustomerContainerProvider isGuest={settings.isGuest}>
-                <LayoutDefault
-                  isGuest={settings.isGuest}
-                  main={
-                    <>
-                      {settings.isGuest ? (
-                        <GuestHeader
-                          logoUrl={settings.logoUrl}
-                          companyName={settings.companyName}
-                        />
-                      ) : (
-                        <CustomerHeader
-                          logoUrl={settings.logoUrl}
-                          companyName={settings.companyName}
-                        />
-                      )}
-                      <PageMain>{children}</PageMain>
-                      <Footer />
-                    </>
-                  }
-                  aside={
-                    settings.isGuest ? null : <Navbar settings={settings} />
-                  }
-                />
-              </CustomerContainerProvider>
-            </ActionsMenuProvider>
+            <CustomerContainerProvider isGuest={settings.isGuest}>
+              <LayoutDefault
+                isGuest={settings.isGuest}
+                main={
+                  <>
+                    {settings.isGuest ? (
+                      <GuestHeader
+                        logoUrl={settings.logoUrl}
+                        companyName={settings.companyName}
+                      />
+                    ) : (
+                      <CustomerHeader
+                        logoUrl={settings.logoUrl}
+                        companyName={settings.companyName}
+                      />
+                    )}
+                    <PageMain>{children}</PageMain>
+                    <Footer />
+                  </>
+                }
+                aside={settings.isGuest ? null : <Navbar settings={settings} />}
+              />
+            </CustomerContainerProvider>
           </AppProvider>
         </GlobalStylesProvider>
       </CommerceLayer>

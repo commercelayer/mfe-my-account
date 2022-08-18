@@ -1,9 +1,8 @@
 import { Transition } from "@headlessui/react"
-import { useContext } from "react"
+import { useState } from "react"
 import { useTranslation } from "react-i18next"
 import OutsideClickHandler from "react-outside-click-handler"
 
-import { ActionsMenuContext } from "components/data/ActionsMenuProvider"
 import ActionsMenuIcon from "components/ui/icons/ActionsMenuIcon"
 
 import { Wrapper, ActionsMenuWrapper } from "./styled"
@@ -23,26 +22,24 @@ const actionMenuTransition = {
 
 const ActionsMenu: React.FC<ActionsMenuProps> = ({ children, className }) => {
   const { t } = useTranslation()
-  const actionsMenuCtx = useContext(ActionsMenuContext)
+  const [showActionsMenu, setShowActionsMenu] = useState(false)
 
   const handleClick = async () => {
-    actionsMenuCtx?.toggleActionsMenu()
+    setShowActionsMenu(!showActionsMenu)
   }
 
   return (
     <OutsideClickHandler
       onOutsideClick={() => {
-        actionsMenuCtx?.closeActionsMenu()
+        setShowActionsMenu(false)
       }}
     >
-      <Wrapper className={className}>
+      <Wrapper className={`${className} ${showActionsMenu && "z-10"}`}>
         <button
           type="button"
           onClick={handleClick}
           className={`flex items-center opacity-70 rounded-full hover:(text-gray-600 opacity-100) p-1 ${
-            actionsMenuCtx?.showActionsMenu
-              ? "bg-gray-350 text-gray-600 opacity-100"
-              : ""
+            showActionsMenu ? "bg-gray-350 text-gray-600 opacity-100" : ""
           }`}
           id="menu-button"
           aria-expanded="true"
@@ -51,10 +48,7 @@ const ActionsMenu: React.FC<ActionsMenuProps> = ({ children, className }) => {
           <span className="sr-only">{t("orders.openMenu")}</span>
           <ActionsMenuIcon />
         </button>
-        <Transition
-          show={actionsMenuCtx?.showActionsMenu}
-          {...actionMenuTransition}
-        >
+        <Transition show={showActionsMenu} {...actionMenuTransition}>
           <ActionsMenuWrapper>{children}</ActionsMenuWrapper>
         </Transition>
       </Wrapper>
