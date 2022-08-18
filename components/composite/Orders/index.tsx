@@ -34,10 +34,9 @@ const Orders: React.FC = () => {
         <ActionsMenuItem label="Print" />
       </ActionsMenu>
     ),
-    infiniteScroll: false,
     windowOptions: {
       height: 600,
-      itemSize: 82,
+      itemSize: 100,
     },
   }
 
@@ -75,10 +74,11 @@ const Orders: React.FC = () => {
     <OrderContainer>
       <Title>{t("orders.title")}</Title>
       <OrderList
-        className="relative w-full mb-8"
+        className="w-full mb-8 table-fixed"
         columns={columns}
         showActions={true}
-        actionsContainerClassName="align-top md:align-middle border-b border-gray-350 py-5 text-center"
+        infiniteScroll
+        actionsContainerClassName="order-5 align-top md:align-middle py-5 text-center"
         theadClassName="hidden md:table-row-group"
         rowTrClassName="grid grid-cols-2 md:content-center bg-white shadow-bottom mb-2 -mx-5 px-5 md:-mx-0 md:p-0 md:border-b md:border-gray-350 md:table-row md:shadow-none"
         {...options}
@@ -105,21 +105,9 @@ const Orders: React.FC = () => {
           }}
         </OrderListRow>
         <OrderListRow
-          field="updated_at"
-          className="order-4 pb-5 text-right align-top md:align-middle md:py-5 md:text-left"
-        >
-          {({ cell, order, ...p }) => {
-            return cell.map((cell) => {
-              return (
-                <OrderData key={order} {...p} {...cell.getCellProps()}>
-                  <OrderUpdatedDate>
-                    {format(new Date(cell.value), "dd/MM/yy")}
-                  </OrderUpdatedDate>
-                </OrderData>
-              )
-            })
-          }}
-        </OrderListRow>
+          field="formatted_total_amount_with_taxes"
+          className="order-2 pt-4 pb-5 font-bold text-right align-top md:py-5 md:align-middle md:text-left md:text-lg"
+        />
         <OrderListRow
           field="status"
           className="order-3 px-0 align-top md:align-middle md:py-5"
@@ -135,9 +123,21 @@ const Orders: React.FC = () => {
           }}
         </OrderListRow>
         <OrderListRow
-          field="formatted_total_amount_with_taxes"
-          className="order-2 pt-4 pb-5 font-bold text-right align-top md:py-5 md:align-middle md:text-left md:text-lg"
-        />
+          field="updated_at"
+          className="order-4 pb-5 text-right align-top md:align-middle md:py-5 md:text-left"
+        >
+          {({ cell, order, ...p }) => {
+            return cell.map((cell) => {
+              return (
+                <OrderData key={order} {...p} {...cell.getCellProps()}>
+                  <OrderUpdatedDate>
+                    {format(new Date(cell.value), "dd/MM/yy")}
+                  </OrderUpdatedDate>
+                </OrderData>
+              )
+            })
+          }}
+        </OrderListRow>
       </OrderList>
     </OrderContainer>
   )
