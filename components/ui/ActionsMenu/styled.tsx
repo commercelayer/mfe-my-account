@@ -2,7 +2,7 @@ import styled from "styled-components"
 import tw from "twin.macro"
 
 export const Wrapper = styled.div`
-  ${tw`relative flex justify-end z-10`}
+  ${tw`relative flex justify-end`}
 `
 
 export const ActionsMenuWrapper = styled.div`
