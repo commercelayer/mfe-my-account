@@ -30,8 +30,10 @@ const Orders: React.FC = () => {
   const options = isDesktop && {
     actionsComponent: () => (
       <ActionsMenu>
-        <ActionsMenuItem label="Invoice" />
-        <ActionsMenuItem label="Print" />
+        <ActionsMenuItem label="Edit order" />
+        <ActionsMenuItem label="Print invoice" />
+        <ActionsMenuItem label="Create a return" />
+        <ActionsMenuItem variant="warning" label="Delete order" />
       </ActionsMenu>
     ),
     windowOptions: {
