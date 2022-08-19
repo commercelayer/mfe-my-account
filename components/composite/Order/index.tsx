@@ -33,8 +33,7 @@ const Order: React.FC<Props> = ({ orderId }) => {
   const orderStatus = order ? (order.status as OrderStatus) : "placed"
 
   return (
-    // <OrderContainer orderId={orderId} fetchOrder={setOrder}>
-    <OrderContainer orderId={orderId}>
+    <OrderContainer orderId={orderId} fetchOrder={setOrder}>
       <OrderHeader>
         <OrderHeaderMain>
           <OrderTitle>
