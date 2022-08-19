@@ -22,17 +22,18 @@ import {
 
 interface Props {
   orderId: string
+  order?: CLayerOrder
 }
 
-const Order: React.FC<Props> = ({ orderId }) => {
-  const [order, setOrder] = useState<CLayerOrder>()
+const Order: React.FC<Props> = ({ orderId, order }) => {
+  // const [order, setOrder] = useState<CLayerOrder>()
   const orderPlacedAt = order
     ? format(new Date(order.placed_at as string), "dd/MM/yy")
     : ""
   const orderStatus = order ? (order.status as OrderStatus) : "placed"
 
   return (
-    <OrderContainer orderId={orderId} fetchOrder={setOrder}>
+    <OrderContainer orderId={orderId} /* fetchOrder={setOrder} */>
       <OrderHeader>
         <OrderHeaderMain>
           <OrderTitle>
