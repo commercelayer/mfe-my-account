@@ -7,8 +7,8 @@
   },
   "orders": {
     "order": {
-      "title": "Ordine #<number />",
-      "placed_at": "Effettuato il ",
+      "title": "Ordine #<0/>",
+      "placed_at": "Effettuato il <0/>",
       "summary": "Riepilogo",
       "addresses": "Indirizzi",
       "shipments": "Spedizioni",

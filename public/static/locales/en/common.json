@@ -41,8 +41,8 @@
     "buttonLabel": "Go to shop"
   },
   "order": {
-    "title": "Order #<number />",
-    "placed_at": "Placed at ",
+    "title": "Order #<0/>",
+    "placed_at": "Placed at <0/>",
     "summary":"Summary",
     "addresses": "Addresses",
     "shipments": "Shipments",
@@ -58,7 +58,7 @@
     "total_amount": "Total",
     "quantity": "Quantity: {{count}}",
     "quantity_plural": "Quantity: {{count}}",
-    "shipment": "Shimpment #<0/>",
+    "shipment": "Shipment #<0/>",
     "shipmentStatus": "Status: <0/>",
     "paymentMethod": {
       "creditCard": "Credit card",

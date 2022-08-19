@@ -2,7 +2,7 @@ import { OrderContainer, OrderNumber } from "@commercelayer/react-components"
 import { Order as CLayerOrder } from "@commercelayer/sdk"
 import { format } from "date-fns"
 import { useState } from "react"
-import { Trans, useTranslation } from "react-i18next"
+import { Trans } from "react-i18next"
 
 import OrderAccordion from "components/composite/Order/OrderAccordion"
 import ActionsMenu from "components/ui/ActionsMenu"
@@ -25,7 +25,6 @@ interface Props {
 }
 
 const Order: React.FC<Props> = ({ orderId }) => {
-  const { t } = useTranslation()
   const [order, setOrder] = useState<CLayerOrder>()
   const orderPlacedAt = order
     ? format(new Date(order.placed_at as string), "dd/MM/yy")
@@ -37,13 +36,12 @@ const Order: React.FC<Props> = ({ orderId }) => {
       <OrderHeader>
         <OrderHeaderMain>
           <OrderTitle>
-            <Trans
-              i18nKey="order.title"
-              components={{ number: <OrderNumber /> }}
-            />
+            <Trans i18nKey="order.title">
+              <OrderNumber />
+            </Trans>
           </OrderTitle>
           <OrderDescription>
-            {t("order.placed_at")} {orderPlacedAt}
+            <Trans i18nKey="order.placed_at">{orderPlacedAt}</Trans>
           </OrderDescription>
           <OrderStatusChip status={orderStatus} />
         </OrderHeaderMain>
