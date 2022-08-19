@@ -41,7 +41,7 @@ const OrderAccordion: React.FC<Props> = ({ order }) => {
           section="Addresses"
         >
           <AccordionItem index={1} header={<span>{t("order.addresses")}</span>}>
-            <AddressesSummary />
+            <AddressesSummary order={order} />
           </AccordionItem>
         </AccordionProvider>
         <AccordionProvider
