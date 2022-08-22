@@ -100,7 +100,7 @@ const Navbar: React.FC<Props> = ({ settings, onClick }) => {
         <EmailWrapper>
           {t("menu.loggedInAs")}
           <Email>
-            <CustomerField name="email" />
+            <CustomerField name="email" attribute="email" tagElement="p" />
           </Email>
         </EmailWrapper>
         <NavLink id="logout" {...menu.logout} />
