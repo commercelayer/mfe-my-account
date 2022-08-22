@@ -10,8 +10,7 @@ import { useTranslation } from "react-i18next"
 
 import { AppContext } from "components/data/AppProvider"
 import useWindowSizeDetect from "components/hooks/useWindowSizeDetect"
-import ActionsMenu from "components/ui/ActionsMenu"
-import ActionsMenuItem from "components/ui/ActionsMenuItem"
+import OrderActions from "components/ui/OrderActions"
 import OrderStatusChip from "components/ui/StatusChip/OrderStatusChip"
 import Title from "components/ui/Title"
 
@@ -28,14 +27,7 @@ const Orders: React.FC = () => {
   const accessToken = ctx?.accessToken
   const { isDesktop } = useWindowSizeDetect()
   const options = isDesktop && {
-    actionsComponent: () => (
-      <ActionsMenu>
-        <ActionsMenuItem label="Edit order" />
-        <ActionsMenuItem label="Print invoice" />
-        <ActionsMenuItem label="Create a return" />
-        <ActionsMenuItem variant="warning" label="Delete order" />
-      </ActionsMenu>
-    ),
+    actionsComponent: () => <OrderActions />,
     windowOptions: {
       height: 600,
       itemSize: 100,
@@ -76,13 +68,13 @@ const Orders: React.FC = () => {
     <OrderContainer>
       <Title>{t("orders.title")}</Title>
       <OrderList
-        className="w-full mb-8 table-fixed"
+        className="w-full mb-8 -mx-5 table-fixed md:-mx-0"
         columns={columns}
         showActions={true}
         infiniteScroll
-        actionsContainerClassName="absolute right-1 order-5 align-top md:align-middle py-5 text-center"
+        actionsContainerClassName="absolute right-1 order-5 align-top hidden md:block md:align-middle py-5 text-center"
         theadClassName="hidden md:table-row-group"
-        rowTrClassName="grid grid-cols-2 md:content-center bg-white shadow-bottom mb-2 -mx-5 px-5 md:-mx-0 md:p-0 md:border-b md:border-gray-350 md:table-row md:shadow-none"
+        rowTrClassName="flex justify-between md:content-center bg-white shadow-bottom mb-4 px-5 md:p-0 md:border-b md:border-gray-350 md:table-row md:shadow-none"
         {...options}
       >
         <OrderListRow
@@ -108,7 +100,7 @@ const Orders: React.FC = () => {
         </OrderListRow>
         <OrderListRow
           field="updated_at"
-          className="order-2 pb-5 text-right align-top md:align-middle md:py-5 md:text-left"
+          className="absolute order-2 text-right bottom-5 right-5 md:bottom-auto md:relative md:right-auto md:py-5 md:text-left"
         >
           {({ cell, order, ...p }) => {
             return cell.map((cell) => {
@@ -124,7 +116,7 @@ const Orders: React.FC = () => {
         </OrderListRow>
         <OrderListRow
           field="status"
-          className="order-3 px-0 align-top md:align-middle md:py-5"
+          className="absolute order-3 px-0 bottom-5 md:bottom-auto md:relative md:py-5"
         >
           {({ cell, order, ...p }) => {
             return cell.map((cell) => {

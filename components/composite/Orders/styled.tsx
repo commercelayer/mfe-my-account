@@ -5,7 +5,7 @@ export const StyledOrderList = styled.td`
   ${tw`relative w-full mb-8`}
 `
 
-export const OrderData = styled.td`
+export const OrderData = styled.div`
   ${tw``}
 `
 
