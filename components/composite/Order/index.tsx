@@ -5,8 +5,7 @@ import { useState } from "react"
 import { Trans } from "react-i18next"
 
 import OrderAccordion from "components/composite/Order/OrderAccordion"
-import ActionsMenu from "components/ui/ActionsMenu"
-import ActionsMenuItem from "components/ui/ActionsMenuItem"
+import OrderActions from "components/ui/OrderActions"
 import OrderStatusChip, {
   OrderStatus,
 } from "components/ui/StatusChip/OrderStatusChip"
@@ -47,10 +46,7 @@ const Order: React.FC<Props> = ({ orderId, order }) => {
           <OrderStatusChip status={orderStatus} />
         </OrderHeaderMain>
         <OrderHeaderActions>
-          <ActionsMenu className="mt-1">
-            <ActionsMenuItem label="Invoice" />
-            <ActionsMenuItem label="Print" />
-          </ActionsMenu>
+          <OrderActions />
         </OrderHeaderActions>
       </OrderHeader>
       <Wrapper>
