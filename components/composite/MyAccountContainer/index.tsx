@@ -1,6 +1,7 @@
 import { CommerceLayer } from "@commercelayer/react-components"
 import { GlobalStylesProvider } from "@commercelayer/react-utils"
 import { Settings } from "HostedApp"
+import { IconContext } from "phosphor-react"
 import { GlobalStyles as BaseStyles } from "twin.macro"
 
 import CustomerHeader from "components/composite/Header/Customer"
@@ -26,36 +27,46 @@ const MyAccountContainer: React.FC<Props> = ({ settings, children }) => {
         endpoint={settings.endpoint}
       >
         <GlobalStylesProvider primaryColor={settings.primaryColor}>
-          <BaseStyles />
-          <AppProvider
-            customerId={settings.customerId}
-            accessToken={settings.accessToken}
-            endpoint={settings.endpoint}
+          <IconContext.Provider
+            value={{
+              size: 32,
+              weight: "fill",
+              mirrored: false,
+            }}
           >
-            <CustomerContainerProvider isGuest={settings.isGuest}>
-              <LayoutDefault
-                isGuest={settings.isGuest}
-                main={
-                  <>
-                    {settings.isGuest ? (
-                      <GuestHeader
-                        logoUrl={settings.logoUrl}
-                        companyName={settings.companyName}
-                      />
-                    ) : (
-                      <CustomerHeader
-                        logoUrl={settings.logoUrl}
-                        companyName={settings.companyName}
-                      />
-                    )}
-                    <PageMain>{children}</PageMain>
-                    <Footer />
-                  </>
-                }
-                aside={settings.isGuest ? null : <Navbar settings={settings} />}
-              />
-            </CustomerContainerProvider>
-          </AppProvider>
+            <BaseStyles />
+            <AppProvider
+              customerId={settings.customerId}
+              accessToken={settings.accessToken}
+              endpoint={settings.endpoint}
+            >
+              <CustomerContainerProvider isGuest={settings.isGuest}>
+                <LayoutDefault
+                  isGuest={settings.isGuest}
+                  main={
+                    <>
+                      {settings.isGuest ? (
+                        <GuestHeader
+                          logoUrl={settings.logoUrl}
+                          companyName={settings.companyName}
+                        />
+                      ) : (
+                        <CustomerHeader
+                          logoUrl={settings.logoUrl}
+                          companyName={settings.companyName}
+                        />
+                      )}
+                      <PageMain>{children}</PageMain>
+                      <Footer />
+                    </>
+                  }
+                  aside={
+                    settings.isGuest ? null : <Navbar settings={settings} />
+                  }
+                />
+              </CustomerContainerProvider>
+            </AppProvider>
+          </IconContext.Provider>
         </GlobalStylesProvider>
       </CommerceLayer>
     </div>
