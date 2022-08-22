@@ -1,5 +1,6 @@
 import {
   PaymentMethodsContainer,
+  PaymentMethod,
   PaymentSource,
   PaymentSourceBrandIcon,
   PaymentSourceBrandName,
@@ -16,34 +17,36 @@ interface Props {
 
 const OrderPayments: React.FC<Props> = ({ order }) => {
   const { t } = useTranslation()
-  const paymentSourceType =
-    order && order?.payment_source_details
-      ? order.payment_source_details.type
-      : ""
 
+  return null
+
+  /*
   return (
     <PaymentMethodsContainer>
-      <PaymentSource readonly>
-        <PaymentSourceBrandIcon className="mr-2" />
-        <PaymentSourceBrandName className="mr-1">
-          {({ brand }) => {
-            if (paymentSourceType === "credit_card") {
-              return (
-                <Trans i18nKey="order.paymentMethod.EndingIn">
-                  {brand}
-                  <PaymentSourceDetail
-                    className="ml-1 font-normal"
-                    type="last4"
-                  />
-                </Trans>
-              )
-            }
-            return getTranslations(brand, t)
-          }}
-        </PaymentSourceBrandName>
-      </PaymentSource>
+      <PaymentMethod>
+        <PaymentSource readonly>
+          <PaymentSourceBrandIcon className="mr-2" />
+          <PaymentSourceBrandName className="mr-1">
+            {({ brand }) => {
+              if ((order?.payment_source?.type as string) === "credit_card") {
+                return (
+                  <Trans i18nKey="order.paymentMethod.EndingIn">
+                    {brand}
+                    <PaymentSourceDetail
+                      className="ml-1 font-normal"
+                      type="last4"
+                    />
+                  </Trans>
+                )
+              }
+              return getTranslations(brand, t)
+            }}
+          </PaymentSourceBrandName>
+        </PaymentSource>
+      </PaymentMethod>
     </PaymentMethodsContainer>
   )
+  */
 }
 
 export default OrderPayments
