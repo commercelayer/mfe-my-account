@@ -1,6 +1,5 @@
+import { PlusCircle } from "phosphor-react"
 import { useTranslation } from "react-i18next"
-
-import AddSolidIcon from "components/ui/icons/AddSolidIcon"
 
 import { Wrapper, Label } from "./styled"
 
@@ -13,7 +12,7 @@ export const AddButton: React.FC<Props> = ({ action }) => {
 
   return (
     <Wrapper onClick={action} className="group">
-      <AddSolidIcon />
+      <PlusCircle className="w-5 md:w-6" />
       <Label>{t("addresses.addNewAddress")}</Label>
     </Wrapper>
   )

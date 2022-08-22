@@ -1,7 +1,6 @@
+import { Trash } from "phosphor-react"
 import { useContext, useState } from "react"
 import { useTranslation } from "react-i18next"
-
-import TrashIcon from "components/ui/icons/TrashIcon"
 
 import {
   EditButton,
@@ -99,7 +98,7 @@ export const AddressCard: React.FC<Props> = ({
               }}
             />
             <DeleteButtonWrapper>
-              <TrashIcon />
+              <Trash className="w-3.5 h-3.5" />
               <DeleteButton
                 onClick={() => setShowDeleteConfirmation(true)}
                 variant="warning"

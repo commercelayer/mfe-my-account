@@ -1,8 +1,8 @@
+import { XCircle } from "phosphor-react"
 import { useContext } from "react"
 import { useTranslation } from "react-i18next"
 
 import { AddressInputGroup } from "components/composite/Address/AddressInputGroup"
-import CloseSolidIcon from "components/ui/icons/CloseSolidIcon"
 import Title from "components/ui/Title"
 
 import {
@@ -87,7 +87,7 @@ const CustomerAddressForm: React.FC<Props> = ({ onClose }) => {
       />
       <FormButtons>
         <DiscardChanges onClick={onClose}>
-          <CloseSolidIcon />
+          <XCircle className="w-4 h-4" />
           <Text>{t("addressForm.discard_changes")}</Text>
         </DiscardChanges>
         <SaveButton

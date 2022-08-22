@@ -1,9 +1,8 @@
 import { Transition } from "@headlessui/react"
+import { DotsThreeVertical } from "phosphor-react"
 import { useState } from "react"
 import { useTranslation } from "react-i18next"
 import OutsideClickHandler from "react-outside-click-handler"
-
-import ActionsMenuIcon from "components/ui/icons/ActionsMenuIcon"
 
 import { Wrapper, ActionsMenuWrapper } from "./styled"
 
@@ -46,7 +45,7 @@ const ActionsMenu: React.FC<ActionsMenuProps> = ({ children, className }) => {
           aria-haspopup="true"
         >
           <span className="sr-only">{t("orders.openMenu")}</span>
-          <ActionsMenuIcon />
+          <DotsThreeVertical weight="bold" className="w-5 h-5" />
         </button>
         <Transition show={showActionsMenu} {...actionMenuTransition}>
           <ActionsMenuWrapper>{children}</ActionsMenuWrapper>

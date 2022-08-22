@@ -1,8 +1,8 @@
+import { CaretDown } from "phosphor-react"
 import { ReactNode, useContext } from "react"
 
 import { AccordionContext } from "components/data/AccordionProvider"
 import { AppContext } from "components/data/AppProvider"
-import CaretDownIcon from "components/ui/icons/CaretDownIcon"
 
 import {
   Wrapper,
@@ -44,7 +44,7 @@ export const AccordionItem: React.FC<Props> = ({ children, index, header }) => {
       >
         <AccordionTitle>{header}</AccordionTitle>
         <AccordionIcon>
-          <CaretDownIcon />
+          <CaretDown weight="regular" className="w-5 md:w-6" />
         </AccordionIcon>
       </AccordionTabHeader>
       <AccordionBody>{children}</AccordionBody>

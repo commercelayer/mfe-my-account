@@ -1,14 +1,17 @@
 import { CustomerField } from "@commercelayer/react-components"
 import { Settings } from "HostedApp"
+import {
+  ArrowBendUpLeft,
+  CreditCard,
+  Lifebuoy,
+  MapPin,
+  ShoppingCart,
+  SignOut,
+} from "phosphor-react"
 import { useTranslation } from "react-i18next"
 
 import NavLink from "components/composite/NavLink"
-import CreditCardIcon from "components/ui/icons/CreditCardIcon"
-import CustomerServiceIcon from "components/ui/icons/CustomerServiceIcon"
-import LocationIcon from "components/ui/icons/LocationIcon"
-import LogoutIcon from "components/ui/icons/LogoutIcon"
-import ReturnsIcon from "components/ui/icons/ReturnsIcon"
-import ShoppingCartIcon from "components/ui/icons/ShoppingCartIcon"
+// import ShoppingCartIcon from "components/ui/icons/ShoppingCartIcon"
 import Logo from "components/ui/Logo"
 
 import {
@@ -33,42 +36,43 @@ const Navbar: React.FC<Props> = ({ settings, onClick }) => {
     orders: {
       title: t("menu.orders"),
       href: "/orders",
-      icon: <ShoppingCartIcon />,
+      // icon: <ShoppingCartIcon />,
+      icon: <ShoppingCart className="w-4 md:w-5" />,
       accessToken,
       onClick,
     },
     addresses: {
       title: t("menu.addresses"),
       href: "/addresses",
-      icon: <LocationIcon />,
+      icon: <MapPin className="w-4 md:w-5" />,
       accessToken,
       onClick,
     },
     wallet: {
       title: t("menu.wallet"),
       href: "/wallet",
-      icon: <CreditCardIcon />,
+      icon: <CreditCard className="w-4 md:w-5" />,
       accessToken,
       onClick,
     },
     returns: {
       title: t("menu.returns"),
       href: "/returns",
-      icon: <ReturnsIcon />,
+      icon: <ArrowBendUpLeft className="w-4 md:w-5" />,
       accessToken,
       onClick,
     },
     customerService: {
       title: t("menu.customerService"),
       href: "/customer_service",
-      icon: <CustomerServiceIcon />,
+      icon: <Lifebuoy className="w-4 md:w-5" />,
       accessToken,
       onClick,
     },
     logout: {
       title: t("menu.logout"),
       href: "/logout",
-      icon: <LogoutIcon />,
+      icon: <SignOut className="w-4 md:w-5" />,
       accessToken,
       onClick,
     },

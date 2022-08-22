@@ -1,8 +1,7 @@
+import { List, X } from "phosphor-react"
 import { useContext } from "react"
 
 import { AppContext } from "components/data/AppProvider"
-import CloseIcon from "components/ui/icons/CloseIcon"
-import MenuIcon from "components/ui/icons/MenuIcon"
 
 import { Button } from "./styled"
 
@@ -13,7 +12,11 @@ const MenuButton: React.FC = () => {
 
   return (
     <Button onClick={handlerOnClick}>
-      {ctx?.showMobileMenu ? <CloseIcon /> : <MenuIcon />}
+      {ctx?.showMobileMenu ? (
+        <X weight="regular" className="w-5" />
+      ) : (
+        <List weight="regular" className="w-5" />
+      )}
     </Button>
   )
 }
