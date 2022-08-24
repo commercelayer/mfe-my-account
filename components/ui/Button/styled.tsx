@@ -11,4 +11,5 @@ export const PrimaryButton = styled.button<PrimaryButtonProps>`
     buttonStyle === "outline"
       ? tw`text-gray-600 bg-gray-200 border border-gray-350`
       : tw`text-white bg-primary`}
+  ${({ onClick }) => onClick !== undefined && tw`cursor-pointer`}
 `
