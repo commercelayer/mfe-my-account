@@ -1,9 +1,16 @@
+import { Order as CLayerOrder } from "@commercelayer/sdk"
 import { ArrowBendUpLeft, NotePencil, Printer, Trash } from "phosphor-react"
 
 import ActionsMenu from "components/ui/ActionsMenu"
 import ActionsMenuItem from "components/ui/ActionsMenuItem"
 
-const OrderActions: React.FC = () => {
+type Props = {
+  order?: CLayerOrder
+}
+
+const OrderActions: React.FC<Props> = ({ order }) => {
+  // TODO: Check the content of order prop before to use it. It could be different depending on if it comes from <OrderList> or order page.
+
   return (
     <ActionsMenu>
       <ActionsMenuItem icon={<NotePencil size={12} />} label="Edit order" />

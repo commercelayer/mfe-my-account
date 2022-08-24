@@ -1,7 +1,7 @@
 import { OrderContainer, OrderNumber } from "@commercelayer/react-components"
 import { Order as CLayerOrder } from "@commercelayer/sdk"
 import { format } from "date-fns"
-import { useState } from "react"
+// import { useState } from "react"
 import { Trans } from "react-i18next"
 
 import OrderAccordion from "components/composite/Order/OrderAccordion"
@@ -46,7 +46,7 @@ const Order: React.FC<Props> = ({ orderId, order }) => {
           <OrderStatusChip status={orderStatus} />
         </OrderHeaderMain>
         <OrderHeaderActions>
-          <OrderActions />
+          <OrderActions order={order} />
         </OrderHeaderActions>
       </OrderHeader>
       <Wrapper>

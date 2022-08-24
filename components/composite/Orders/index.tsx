@@ -3,6 +3,7 @@ import {
   OrderList,
   OrderListRow,
 } from "@commercelayer/react-components"
+import { Order } from "@commercelayer/sdk"
 import { format } from "date-fns"
 import Link from "next/link"
 import { useContext } from "react"
@@ -27,7 +28,7 @@ const Orders: React.FC = () => {
   const accessToken = ctx?.accessToken
   const { isDesktop } = useWindowSizeDetect()
   const options = isDesktop && {
-    actionsComponent: () => <OrderActions />,
+    actionsComponent: (order: Order) => <OrderActions order={order} />,
     windowOptions: {
       height: 600,
       itemSize: 100,
