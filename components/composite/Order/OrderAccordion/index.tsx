@@ -1,4 +1,4 @@
-import { Order as CLayerOrder } from "@commercelayer/sdk"
+import { Order } from "@commercelayer/sdk"
 import { useTranslation } from "react-i18next"
 
 import AddressesSummary from "components/composite/Order/AddressesSummary"
@@ -12,7 +12,7 @@ import { Accordion, AccordionItem } from "components/ui/Accordion"
 import { Wrapper, SummaryWrapper } from "./styled"
 
 interface Props {
-  order?: CLayerOrder
+  order?: Order
 }
 
 const OrderAccordion: React.FC<Props> = ({ order }) => {

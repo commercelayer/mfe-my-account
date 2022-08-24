@@ -1,4 +1,4 @@
-import { Order as CLayerOrder } from "@commercelayer/sdk"
+import { Order } from "@commercelayer/sdk"
 import { useTranslation } from "react-i18next"
 
 import { AddressCard } from "components/ui/AddressCard"
@@ -11,7 +11,7 @@ import {
 } from "./styled"
 
 interface Props {
-  order?: CLayerOrder
+  order?: Order
 }
 
 const AddressesSummary: React.FC<Props> = ({ order }) => {

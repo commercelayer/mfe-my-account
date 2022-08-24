@@ -1,11 +1,11 @@
-import { Order as CLayerOrder } from "@commercelayer/sdk"
+import { Order } from "@commercelayer/sdk"
 import { ArrowBendUpLeft, NotePencil, Printer, Trash } from "phosphor-react"
 
 import ActionsMenu from "components/ui/ActionsMenu"
 import ActionsMenuItem from "components/ui/ActionsMenuItem"
 
 type Props = {
-  order?: CLayerOrder
+  order?: Order
 }
 
 const OrderActions: React.FC<Props> = ({ order }) => {

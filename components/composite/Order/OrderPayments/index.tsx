@@ -6,13 +6,13 @@ import {
   PaymentSourceBrandName,
   PaymentSourceDetail,
 } from "@commercelayer/react-components"
-import { Order as CLayerOrder } from "@commercelayer/sdk"
+import { Order } from "@commercelayer/sdk"
 import { Trans, useTranslation } from "react-i18next"
 
 import { getTranslations } from "utils/payments"
 
 interface Props {
-  order?: CLayerOrder
+  order?: Order
 }
 
 const OrderPayments: React.FC<Props> = ({ order }) => {
