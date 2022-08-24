@@ -33,7 +33,7 @@ const ActionsMenu: React.FC<ActionsMenuProps> = ({ children, className }) => {
         setShowActionsMenu(false)
       }}
     >
-      <Wrapper className={`${className} ${showActionsMenu && "z-10"}`}>
+      <Wrapper showActionsMenu={showActionsMenu} className={`${className}`}>
         <button
           type="button"
           onClick={handleClick}

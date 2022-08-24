@@ -1,8 +1,13 @@
 import styled from "styled-components"
 import tw from "twin.macro"
 
-export const Wrapper = styled.div`
+interface WrapperProps {
+  showActionsMenu: boolean
+}
+
+export const Wrapper = styled.div<WrapperProps>`
   ${tw`relative flex justify-end`}
+  ${({ showActionsMenu }) => showActionsMenu && tw`z-10`}
 `
 
 export const ActionsMenuWrapper = styled.div`
