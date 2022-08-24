@@ -35,8 +35,6 @@ const AddressesSummary: React.FC<Props> = ({ order }) => {
           phone={order?.billing_address?.phone}
           addressType="billing"
           readonly={true}
-          editButton={t("addresses.edit")}
-          deleteButton={t("addresses.delete")}
         />
       </BillingAddress>
       <ShippingAddress>
@@ -53,8 +51,6 @@ const AddressesSummary: React.FC<Props> = ({ order }) => {
           phone={order?.shipping_address?.phone}
           addressType="shipping"
           readonly={true}
-          editButton={t("addresses.edit")}
-          deleteButton={t("addresses.delete")}
         />
       </ShippingAddress>
     </Wrapper>

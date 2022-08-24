@@ -32,8 +32,8 @@ interface Props {
   phone?: string
   addressType: string
   readonly: boolean | undefined
-  editButton: string
-  deleteButton: string
+  editButton?: string
+  deleteButton?: string
 }
 
 export const AddressCard: React.FC<Props> = ({
