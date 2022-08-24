@@ -32,8 +32,6 @@ const CustomerAddressCard: React.FC<Props> = ({ readonly }) => {
               phone={address.phone}
               addressType="customer"
               readonly={readonly}
-              editButton={t("addresses.edit")}
-              deleteButton={t("addresses.delete")}
             />
           )}
         </AddressField>

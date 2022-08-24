@@ -51,9 +51,10 @@ export const AddressCard: React.FC<Props> = ({
   editButton,
   deleteButton,
 }) => {
+  const { t } = useTranslation()
+
   const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false)
   const { setAddress, setShowAddressForm } = useContext(CustomerAddressContext)
-  const { t } = useTranslation()
 
   return (
     <Wrapper>
@@ -91,7 +92,7 @@ export const AddressCard: React.FC<Props> = ({
           <Actions>
             <EditButton
               type="edit"
-              label={editButton}
+              label={editButton || t("addresses.edit")}
               onClick={(address) => {
                 setAddress(address)
                 setShowAddressForm(true)
@@ -100,9 +101,9 @@ export const AddressCard: React.FC<Props> = ({
             <DeleteButtonWrapper>
               <Trash className="w-3.5 h-3.5" />
               <DeleteButton
+                label={deleteButton || t("addresses.delete")}
                 onClick={() => setShowDeleteConfirmation(true)}
                 variant="warning"
-                label={deleteButton}
               />
             </DeleteButtonWrapper>
           </Actions>
