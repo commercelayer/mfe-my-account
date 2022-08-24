@@ -1,3 +1,4 @@
+import { Address as CLayerAddress } from "@commercelayer/sdk"
 import { Trash } from "phosphor-react"
 import { useContext, useState } from "react"
 import { useTranslation } from "react-i18next"
@@ -21,31 +22,15 @@ import {
 import CustomerAddressContext from "context/CustomerAddressContext"
 
 interface Props {
-  firstName?: string
-  lastName?: string
-  city?: string
-  line1?: string
-  line2?: string
-  zipCode?: string
-  stateCode?: string
-  countryCode?: string
-  phone?: string
+  address?: CLayerAddress
   addressType: string
-  readonly: boolean | undefined
+  readonly?: boolean
   editButton?: string
   deleteButton?: string
 }
 
 export const AddressCard: React.FC<Props> = ({
-  firstName,
-  lastName,
-  city,
-  line1,
-  line2,
-  zipCode,
-  stateCode,
-  countryCode,
-  phone,
+  address,
   addressType,
   readonly,
   editButton,
@@ -66,7 +51,7 @@ export const AddressCard: React.FC<Props> = ({
               type="delete"
               label={t("addresses.yes")}
               onClick={() => {
-                // TODO: Gestire una callback visiva di conferma rimozione
+                // TODO: Do we need to introduce a visual confirmation of address deletion?
                 return false
               }}
             />
@@ -77,14 +62,17 @@ export const AddressCard: React.FC<Props> = ({
         </Overlay>
       )}
       <Customer data-cy={`fullname_${addressType}`}>
-        {firstName} {lastName}
+        {address?.first_name} {address?.last_name}
       </Customer>
       <Address data-cy={`full_address_${addressType}`}>
-        {line2 != null ? [line1, line2].join(", ") : line1}
+        {address?.line_2 != null
+          ? [address?.line_1, address?.line_2].join(", ")
+          : address?.line_1}
         <br />
-        {zipCode} {city} ({stateCode}) - {countryCode}
+        {address?.zip_code} {address?.city} ({address?.state_code}) -{" "}
+        {address?.country_code}
         <br />
-        {phone}
+        {address?.phone}
         <br />
       </Address>
       {readonly === undefined && (
