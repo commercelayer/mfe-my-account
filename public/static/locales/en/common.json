@@ -41,8 +41,8 @@
     "buttonLabel": "Go to shop"
   },
   "order": {
-    "title": "Order #<number />",
-    "placed_at": "Placed at ",
+    "title": "Order #<0/>",
+    "placed_at": "Placed at <0/>",
     "summary":"Summary",
     "addresses": "Addresses",
     "shipments": "Shipments",
@@ -58,7 +58,7 @@
     "total_amount": "Total",
     "quantity": "Quantity: {{count}}",
     "quantity_plural": "Quantity: {{count}}",
-    "shipment": "Shimpment #<0/>",
+    "shipment": "Shipment #<0/>",
     "shipmentStatus": "Status: <0/>",
     "paymentMethod": {
       "creditCard": "Credit card",
@@ -67,6 +67,12 @@
       "wireTransferDescription": "Upon order confirmation, you'll receive wiring instructions to complete payment",
       "paypalDescription": "After placing the order, you will be redirected to the PayPal website to sign in and authorize the payment"
     }
+  },
+  "orderShipments": {
+    "shipment": "Shipment #<0/>",
+    "parcel": "Parcel #<0/>",
+    "trackingCode": "Tracking code",
+    "trackShipment": "Track shipment"
   },
   "orderSummary": {
     "billedTo": "Billed to",
@@ -106,15 +112,15 @@
   "addressForm": {
     "new_address_title": "Add a new address",
     "edit_address_title": "Edit my address",
-    "customer_address_first_name": "first name",
-    "customer_address_last_name": "last name",
-    "customer_address_line_1": "address",
-    "customer_address_city": "city",
-    "customer_address_zip_code": "zip code",
-    "customer_address_country_code": "country",
-    "customer_address_country_code_placeholder": "Select a country",
-    "customer_address_state_code": "state",
-    "customer_address_phone": "telephone",
+    "billing_address_first_name": "first name",
+    "billing_address_last_name": "last name",
+    "billing_address_line_1": "address",
+    "billing_address_city": "city",
+    "billing_address_zip_code": "zip code",
+    "billing_address_country_code": "country",
+    "billing_address_country_code_placeholder": "Select a country",
+    "billing_address_state_code": "state",
+    "billing_address_phone": "telephone",
     "discard_changes": "Discard changes",
     "save": "Save"
   },

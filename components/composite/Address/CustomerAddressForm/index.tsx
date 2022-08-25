@@ -1,8 +1,8 @@
+import { XCircle } from "phosphor-react"
 import { useContext } from "react"
 import { useTranslation } from "react-i18next"
 
 import { AddressInputGroup } from "components/composite/Address/AddressInputGroup"
-import CloseSolidIcon from "components/ui/icons/CloseSolidIcon"
 import Title from "components/ui/Title"
 
 import {
@@ -33,61 +33,61 @@ const CustomerAddressForm: React.FC<Props> = ({ onClose }) => {
       </Title>
       <Grid>
         <AddressInputGroup
-          fieldName="customer_address_first_name"
-          resource="customerAddress"
+          fieldName="billing_address_first_name"
+          resource="billing_address"
           type="text"
-          value={address?.firstName || ""}
+          value={address?.first_name || ""}
         />
         <AddressInputGroup
-          fieldName="customer_address_last_name"
-          resource="customerAddress"
+          fieldName="billing_address_last_name"
+          resource="billing_address"
           type="text"
-          value={address?.lastName || ""}
+          value={address?.last_name || ""}
         />
       </Grid>
       <AddressInputGroup
-        fieldName="customer_address_line_1"
-        resource="customerAddress"
+        fieldName="billing_address_line_1"
+        resource="billing_address"
         type="text"
-        value={address?.line1 || ""}
+        value={address?.line_1 || ""}
       />
       <Grid>
         <AddressInputGroup
-          fieldName="customer_address_city"
-          resource="customerAddress"
+          fieldName="billing_address_city"
+          resource="billing_address"
           type="text"
           value={address?.city || ""}
         />
         <AddressInputGroup
-          fieldName="customer_address_country_code"
-          resource="customerAddress"
+          fieldName="billing_address_country_code"
+          resource="billing_address"
           type="text"
-          value={address?.countryCode || ""}
+          value={address?.country_code || ""}
         />
       </Grid>
       <Grid>
         <AddressInputGroup
-          fieldName="customer_address_state_code"
-          resource="customerAddress"
+          fieldName="billing_address_state_code"
+          resource="billing_address"
           type="text"
-          value={address?.stateCode || ""}
+          value={address?.state_code || ""}
         />
         <AddressInputGroup
-          fieldName="customer_address_zip_code"
-          resource="customerAddress"
+          fieldName="billing_address_zip_code"
+          resource="billing_address"
           type="text"
-          value={address?.zipCode || ""}
+          value={address?.zip_code || ""}
         />
       </Grid>
       <AddressInputGroup
-        fieldName="customer_address_phone"
-        resource="customerAddress"
+        fieldName="billing_address_phone"
+        resource="billing_address"
         type="tel"
         value={address?.phone || ""}
       />
       <FormButtons>
         <DiscardChanges onClick={onClose}>
-          <CloseSolidIcon />
+          <XCircle className="w-4 h-4" />
           <Text>{t("addressForm.discard_changes")}</Text>
         </DiscardChanges>
         <SaveButton

@@ -16,7 +16,7 @@ const ShipmentSection: NextPage = () => {
       <Shipment>
         <ShipmentDescription>
           <Trans t={t} i18nKey="order.shipment">
-            <ShipmentField name="keyNumber" />
+            <ShipmentField name="key_number" />
           </Trans>
         </ShipmentDescription>
         <ShipmentDescription>

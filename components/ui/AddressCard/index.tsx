@@ -1,7 +1,7 @@
+import { Address as CLayerAddress } from "@commercelayer/sdk"
+import { Trash } from "phosphor-react"
 import { useContext, useState } from "react"
 import { useTranslation } from "react-i18next"
-
-import TrashIcon from "components/ui/icons/TrashIcon"
 
 import {
   EditButton,
@@ -22,39 +22,24 @@ import {
 import CustomerAddressContext from "context/CustomerAddressContext"
 
 interface Props {
-  firstName: string
-  lastName: string
-  city: string
-  line1: string
-  line2: string
-  zipCode: string
-  stateCode: string
-  countryCode: string
-  phone: string
+  address?: CLayerAddress
   addressType: string
-  readonly: boolean | undefined
-  editButton: string
-  deleteButton: string
+  readonly?: boolean
+  editButton?: string
+  deleteButton?: string
 }
 
 export const AddressCard: React.FC<Props> = ({
-  firstName,
-  lastName,
-  city,
-  line1,
-  line2,
-  zipCode,
-  stateCode,
-  countryCode,
-  phone,
+  address,
   addressType,
   readonly,
   editButton,
   deleteButton,
 }) => {
+  const { t } = useTranslation()
+
   const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false)
   const { setAddress, setShowAddressForm } = useContext(CustomerAddressContext)
-  const { t } = useTranslation()
 
   return (
     <Wrapper>
@@ -62,7 +47,14 @@ export const AddressCard: React.FC<Props> = ({
         <Overlay>
           <Text>{t("addresses.deleteConfirmation")}</Text>
           <ConfirmActions>
-            <ConfirmDelete type="delete" label={t("addresses.yes")} />
+            <ConfirmDelete
+              type="delete"
+              label={t("addresses.yes")}
+              onClick={() => {
+                // TODO: Do we need to introduce a visual confirmation of address deletion?
+                return false
+              }}
+            />
             <ConfirmCancel onClick={() => setShowDeleteConfirmation(false)}>
               {t("addresses.no")}
             </ConfirmCancel>
@@ -70,14 +62,17 @@ export const AddressCard: React.FC<Props> = ({
         </Overlay>
       )}
       <Customer data-cy={`fullname_${addressType}`}>
-        {firstName} {lastName}
+        {address?.first_name} {address?.last_name}
       </Customer>
       <Address data-cy={`full_address_${addressType}`}>
-        {line2 != null ? [line1, line2].join(", ") : line1}
+        {address?.line_2 != null
+          ? [address?.line_1, address?.line_2].join(", ")
+          : address?.line_1}
         <br />
-        {zipCode} {city} ({stateCode}) - {countryCode}
+        {address?.zip_code} {address?.city} ({address?.state_code}) -{" "}
+        {address?.country_code}
         <br />
-        {phone}
+        {address?.phone}
         <br />
       </Address>
       {readonly === undefined && (
@@ -85,19 +80,18 @@ export const AddressCard: React.FC<Props> = ({
           <Actions>
             <EditButton
               type="edit"
-              variant="primary"
-              label={editButton}
+              label={editButton || t("addresses.edit")}
               onClick={(address) => {
                 setAddress(address)
                 setShowAddressForm(true)
               }}
             />
             <DeleteButtonWrapper>
-              <TrashIcon />
+              <Trash className="w-3.5 h-3.5" />
               <DeleteButton
+                label={deleteButton || t("addresses.delete")}
                 onClick={() => setShowDeleteConfirmation(true)}
                 variant="warning"
-                label={deleteButton}
               />
             </DeleteButtonWrapper>
           </Actions>

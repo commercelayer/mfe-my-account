@@ -3,6 +3,7 @@ import {
   OrderList,
   OrderListRow,
 } from "@commercelayer/react-components"
+import { Order } from "@commercelayer/sdk"
 import { format } from "date-fns"
 import Link from "next/link"
 import { useContext } from "react"
@@ -10,8 +11,7 @@ import { useTranslation } from "react-i18next"
 
 import { AppContext } from "components/data/AppProvider"
 import useWindowSizeDetect from "components/hooks/useWindowSizeDetect"
-import ActionsMenu from "components/ui/ActionsMenu"
-import ActionsMenuItem from "components/ui/ActionsMenuItem"
+import OrderActions from "components/ui/OrderActions"
 import OrderStatusChip from "components/ui/StatusChip/OrderStatusChip"
 import Title from "components/ui/Title"
 
@@ -28,16 +28,10 @@ const Orders: React.FC = () => {
   const accessToken = ctx?.accessToken
   const { isDesktop } = useWindowSizeDetect()
   const options = isDesktop && {
-    actionsComponent: () => (
-      <ActionsMenu>
-        <ActionsMenuItem label="Invoice" />
-        <ActionsMenuItem label="Print" />
-      </ActionsMenu>
-    ),
-    infiniteScroll: false,
+    actionsComponent: (order: Order) => <OrderActions order={order} />,
     windowOptions: {
       height: 600,
-      itemSize: 82,
+      itemSize: 100,
     },
   }
 
@@ -75,12 +69,13 @@ const Orders: React.FC = () => {
     <OrderContainer>
       <Title>{t("orders.title")}</Title>
       <OrderList
-        className="relative w-full mb-8"
+        className="w-full mb-8 -mx-5 table-fixed md:-mx-0"
         columns={columns}
         showActions={true}
-        actionsContainerClassName="align-top md:align-middle border-b border-gray-350 py-5 text-center"
+        infiniteScroll
+        actionsContainerClassName="absolute right-1 order-5 align-top hidden md:block md:align-middle py-5 text-center"
         theadClassName="hidden md:table-row-group"
-        rowTrClassName="grid grid-cols-2 md:content-center bg-white shadow-bottom mb-2 -mx-5 px-5 md:-mx-0 md:p-0 md:border-b md:border-gray-350 md:table-row md:shadow-none"
+        rowTrClassName="flex justify-between md:content-center bg-white shadow-bottom mb-4 px-5 md:p-0 md:border-b md:border-gray-350 md:table-row md:shadow-none"
         {...options}
       >
         <OrderListRow
@@ -106,7 +101,7 @@ const Orders: React.FC = () => {
         </OrderListRow>
         <OrderListRow
           field="updated_at"
-          className="order-4 pb-5 text-right align-top md:align-middle md:py-5 md:text-left"
+          className="absolute order-2 text-right bottom-5 right-5 md:bottom-auto md:relative md:right-auto md:py-5 md:text-left"
         >
           {({ cell, order, ...p }) => {
             return cell.map((cell) => {
@@ -122,7 +117,7 @@ const Orders: React.FC = () => {
         </OrderListRow>
         <OrderListRow
           field="status"
-          className="order-3 px-0 align-top md:align-middle md:py-5"
+          className="absolute order-3 px-0 bottom-5 md:bottom-auto md:relative md:py-5"
         >
           {({ cell, order, ...p }) => {
             return cell.map((cell) => {
@@ -136,7 +131,7 @@ const Orders: React.FC = () => {
         </OrderListRow>
         <OrderListRow
           field="formatted_total_amount_with_taxes"
-          className="order-2 pt-4 pb-5 font-bold text-right align-top md:py-5 md:align-middle md:text-left md:text-lg"
+          className="order-4 pt-4 pb-5 font-bold text-right align-top md:py-5 md:align-middle md:text-left md:text-lg"
         />
       </OrderList>
     </OrderContainer>

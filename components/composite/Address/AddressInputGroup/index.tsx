@@ -1,12 +1,10 @@
-import {
+import type {
   AddressCountrySelectName,
   AddressInputName,
   BaseInputType,
-} from "@commercelayer/react-components/dist/typings"
-import {
   ResourceErrorType,
   ErrorComponentProps,
-} from "@commercelayer/react-components/dist/typings/errors"
+} from "@commercelayer/react-components"
 import { useEffect, useState } from "react"
 import { useTranslation } from "react-i18next"
 
@@ -37,13 +35,13 @@ export const AddressInputGroup: React.FC<Props> = ({
   const messages: ErrorComponentProps["messages"] = [
     {
       code: "VALIDATION_ERROR",
-      resource: "customerAddress",
+      resource: "billing_address",
       field: fieldName,
       message: t("input.mustBeValidFormat"),
     },
     {
       code: "EMPTY_ERROR",
-      resource: "customerAddress",
+      resource: "billing_address",
       field: fieldName,
       message: t("input.cantBlank"),
     },
@@ -53,7 +51,7 @@ export const AddressInputGroup: React.FC<Props> = ({
 
   const [valueStatus, setValueStatus] = useState(value)
 
-  const isCountry = fieldName === "customer_address_country_code"
+  const isCountry = fieldName === "billing_address_country_code"
 
   const shippingCountryCodeLock = ""
 
@@ -69,20 +67,20 @@ export const AddressInputGroup: React.FC<Props> = ({
             <StyledAddressCountrySelector
               className="form-select"
               data-cy={`input_${fieldName}`}
-              name={fieldName as AddressCountrySelectName}
+              name={fieldName}
               placeholder={{
                 label: t(`addressForm.${fieldName}_placeholder`),
                 value: "",
               }}
               value={
                 shippingCountryCodeLock &&
-                fieldName === "shipping_address_country_code"
+                fieldName === "billing_address_country_code"
                   ? shippingCountryCodeLock
                   : value
               }
               disabled={Boolean(
                 shippingCountryCodeLock &&
-                  fieldName === "shipping_address_country_code"
+                  fieldName === "billing_address_country_code"
               )}
             />
           ) : (

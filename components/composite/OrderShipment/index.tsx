@@ -1,7 +1,7 @@
 import { Settings } from "HostedApp"
 import Link from "next/link"
+import { CaretLeft } from "phosphor-react"
 
-import CaretLeftIcon from "components/ui/icons/CaretLeftIcon"
 import StepCompletedIcon from "components/ui/icons/StepCompletedIcon"
 import StepCurrentIcon from "components/ui/icons/StepCurrentIcon"
 import ShipmentStatusChip from "components/ui/StatusChip/ShipmentStatusChip"
@@ -34,7 +34,7 @@ const OrderShipment: React.FC<Props> = ({ settings, orderId, shipmentId }) => {
         <ShipmentHeaderTop>
           <Link href={`/orders/${orderId}?accessToken=${settings.accessToken}`}>
             <BackToOrder>
-              <CaretLeftIcon />
+              <CaretLeft weight="regular" className="w-7 h-7" />
             </BackToOrder>
           </Link>
           <Title>Track Shipment</Title>

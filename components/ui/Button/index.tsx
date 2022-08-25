@@ -2,6 +2,7 @@ import { PrimaryButton } from "./styled"
 
 export type PrimaryButtonProps = {
   label?: string
+  className?: string
   onClick?: () => void
   buttonSize?: "small"
   buttonStyle?: "outline"
@@ -9,6 +10,7 @@ export type PrimaryButtonProps = {
 
 const Button: React.FC<PrimaryButtonProps> = ({
   label = "Click me",
+  className = "",
   onClick,
   ...p
 }) => {
@@ -17,7 +19,7 @@ const Button: React.FC<PrimaryButtonProps> = ({
   }
 
   return (
-    <PrimaryButton label={label} onClick={handleClick} {...p}>
+    <PrimaryButton className={className} onClick={handleClick} {...p}>
       {label}
     </PrimaryButton>
   )
