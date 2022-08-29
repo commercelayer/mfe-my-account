@@ -34,14 +34,10 @@ export const ShipmentTimeBorder = styled.div<ShipmentTimeBorderProps>`
     border-width: 0 0 1px 1px;
     content: "";
     height: 8px;
-    left: -3.5px;
-    position: absolute;
     width: 8px;
-
-    /* These two lines vertically centre the point of the arrow */
-    margin-top: -14.5px;
-    top: 50%;
-
+    position: absolute;
+    top: 25px;
+    left: -3.5px;
     transform: rotate(45deg);
     -webkit-transform: rotate(135deg);
   }`}
