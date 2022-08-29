@@ -22,7 +22,7 @@ export const Title = styled.h2`
 `
 
 export const ShipmentHeaderMain = styled.div`
-  ${tw`md:pl-12 flex flex-auto justify-between`}
+  ${tw`md:pl-12 flex flex-auto justify-between gap-4`}
 `
 
 export const ShipmentHeaderCol = styled.div`
@@ -36,15 +36,6 @@ export const ShipmentHeaderLabel = styled.label`
 export const ShipmentHeaderValue = styled.span`
   ${tw`block text-sm font-bold`}
 `
-
-export const ShipmentRows = styled.div`
-  ${tw`mt-10 -mx-5 px-5 pb-10 pt-10`}
-`
-
-export const ShipmentRow = styled.div`
-  ${tw``}
-`
-
-export const ShipmentDateChip = styled.div`
-  ${tw`inline text-sm text-center text-gray-600 bg-gray-300 capitalize text-3xs w-auto uppercase font-bold py-[2px] px-[12px] leading-snug rounded-xl align-middle`}
+export const TabsWrapper = styled.div`
+  ${tw`mt-12 md:pl-12`}
 `

@@ -1,0 +1,189 @@
+[
+  {
+    "object": "TrackingDetail",
+    "source": "UPS",
+    "status": "pre_transit",
+    "message": "Shipper created a label, UPS has not received the package yet.",
+    "datetime": "2022-06-24T10:21:40Z",
+    "description": "Shipper created a label, UPS has not received the package yet.",
+    "carrier_code": "M",
+    "status_detail": "label_created",
+    "tracking_location": {
+      "zip": null,
+      "city": null,
+      "state": null,
+      "object": "TrackingLocation",
+      "country": "IT"
+    }
+  },
+  {
+    "object": "TrackingDetail",
+    "source": "UPS",
+    "status": "in_transit",
+    "message": "Pickup Scan",
+    "datetime": "2022-06-24T15:59:42Z",
+    "description": "Pickup Scan",
+    "carrier_code": "P",
+    "status_detail": "unknown",
+    "tracking_location": {
+      "zip": null,
+      "city": "Prato",
+      "state": null,
+      "object": "TrackingLocation",
+      "country": "IT"
+    }
+  },
+  {
+    "object": "TrackingDetail",
+    "source": "UPS",
+    "status": "in_transit",
+    "message": "Origin Scan",
+    "datetime": "2022-06-24T18:40:34Z",
+    "description": "Origin Scan",
+    "carrier_code": "I",
+    "status_detail": "received_at_origin_facility",
+    "tracking_location": {
+      "zip": null,
+      "city": "Prato",
+      "state": null,
+      "object": "TrackingLocation",
+      "country": "IT"
+    }
+  },
+  {
+    "object": "TrackingDetail",
+    "source": "UPS",
+    "status": "in_transit",
+    "message": "Departed from Facility",
+    "datetime": "2022-06-24T20:20:00Z",
+    "description": "Departed from Facility",
+    "carrier_code": "I",
+    "status_detail": "departed_facility",
+    "tracking_location": {
+      "zip": null,
+      "city": "Prato",
+      "state": null,
+      "object": "TrackingLocation",
+      "country": "IT"
+    }
+  },
+  {
+    "object": "TrackingDetail",
+    "source": "UPS",
+    "status": "in_transit",
+    "message": "Arrived at Facility",
+    "datetime": "2022-06-25T00:15:00Z",
+    "description": "Arrived at Facility",
+    "carrier_code": "I",
+    "status_detail": "arrived_at_facility",
+    "tracking_location": {
+      "zip": null,
+      "city": "Milano",
+      "state": null,
+      "object": "TrackingLocation",
+      "country": "IT"
+    }
+  },
+  {
+    "object": "TrackingDetail",
+    "source": "UPS",
+    "status": "in_transit",
+    "message": "Departed from Facility",
+    "datetime": "2022-06-25T05:00:00Z",
+    "description": "Departed from Facility",
+    "carrier_code": "I",
+    "status_detail": "departed_facility",
+    "tracking_location": {
+      "zip": null,
+      "city": "Milano",
+      "state": null,
+      "object": "TrackingLocation",
+      "country": "IT"
+    }
+  },
+  {
+    "object": "TrackingDetail",
+    "source": "UPS",
+    "status": "in_transit",
+    "message": "Arrived at Facility",
+    "datetime": "2022-06-26T22:19:00Z",
+    "description": "Arrived at Facility",
+    "carrier_code": "I",
+    "status_detail": "arrived_at_facility",
+    "tracking_location": {
+      "zip": null,
+      "city": "Nurnberg",
+      "state": null,
+      "object": "TrackingLocation",
+      "country": "DE"
+    }
+  },
+  {
+    "object": "TrackingDetail",
+    "source": "UPS",
+    "status": "in_transit",
+    "message": "Departed from Facility",
+    "datetime": "2022-06-28T00:01:00Z",
+    "description": "Departed from Facility",
+    "carrier_code": "I",
+    "status_detail": "departed_facility",
+    "tracking_location": {
+      "zip": null,
+      "city": "Nurnberg",
+      "state": null,
+      "object": "TrackingLocation",
+      "country": "DE"
+    }
+  },
+  {
+    "object": "TrackingDetail",
+    "source": "UPS",
+    "status": "in_transit",
+    "message": "Arrived at Facility",
+    "datetime": "2022-06-28T02:57:00Z",
+    "description": "Arrived at Facility",
+    "carrier_code": "I",
+    "status_detail": "arrived_at_facility",
+    "tracking_location": {
+      "zip": null,
+      "city": "Ulm",
+      "state": null,
+      "object": "TrackingLocation",
+      "country": "DE"
+    }
+  },
+  {
+    "object": "TrackingDetail",
+    "source": "UPS",
+    "status": "out_for_delivery",
+    "message": "Out For Delivery",
+    "datetime": "2022-06-28T03:45:00Z",
+    "description": "Out For Delivery",
+    "carrier_code": "I",
+    "status_detail": "out_for_delivery",
+    "tracking_location": {
+      "zip": null,
+      "city": "Ulm",
+      "state": null,
+      "object": "TrackingLocation",
+      "country": "DE"
+    }
+  },
+  {
+    "object": "TrackingDetail",
+    "source": "UPS",
+    "status": "delivered",
+    "message": "Delivered: Mailbox",
+    "datetime": "2022-06-28T13:17:18Z",
+    "description": "Delivered",
+    "carrier_code": "D",
+    "status_detail": "arrived_at_destination",
+    "tracking_location": {
+      "zip": "89520",
+      "city": "Heidenheim",
+      "state": null,
+      "object": "TrackingLocation",
+      "country": "DE"
+    }
+  }
+]

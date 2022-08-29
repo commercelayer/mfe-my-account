@@ -1,10 +1,14 @@
 import { Settings } from "HostedApp"
 import Link from "next/link"
 import { CaretLeft } from "phosphor-react"
+import { useTranslation } from "react-i18next"
 
-import StepCompletedIcon from "components/ui/icons/StepCompletedIcon"
-import StepCurrentIcon from "components/ui/icons/StepCurrentIcon"
+import OrderShipmentHistory from "components/composite/OrderShipment/OrderShipmentHistory"
+import { TabsProvider } from "components/data/TabsProvider"
 import ShipmentStatusChip from "components/ui/StatusChip/ShipmentStatusChip"
+import { Tabs, Tab } from "components/ui/Tabs"
+import type { TimelineSteps } from "components/ui/Timeline"
+import { Timeline } from "components/ui/Timeline"
 
 import {
   ShipmentContainer,
@@ -16,9 +20,7 @@ import {
   ShipmentHeaderCol,
   ShipmentHeaderLabel,
   ShipmentHeaderValue,
-  ShipmentRows,
-  ShipmentRow,
-  ShipmentDateChip,
+  TabsWrapper,
 } from "./styled"
 
 interface Props {
@@ -27,7 +29,25 @@ interface Props {
   shipmentId: string
 }
 
-const OrderShipment: React.FC<Props> = ({ settings, orderId, shipmentId }) => {
+const OrderShipment: React.FC<Props> = ({ settings, orderId }) => {
+  const { t } = useTranslation()
+
+  const timelineSteps: TimelineSteps[] = [
+    {
+      title: t("shipmentDetail.timeline.shipped"),
+      subTitle: "17/06/21",
+      completed: true,
+    },
+    {
+      title: t("shipmentDetail.timeline.in_transit"),
+      subTitle: "18/06/21",
+      completed: true,
+    },
+    {
+      title: t("shipmentDetail.timeline.delivered"),
+    },
+  ]
+
   return (
     <ShipmentContainer>
       <ShipmentHeader>
@@ -37,63 +57,46 @@ const OrderShipment: React.FC<Props> = ({ settings, orderId, shipmentId }) => {
               <CaretLeft weight="regular" className="w-7 h-7" />
             </BackToOrder>
           </Link>
-          <Title>Track Shipment</Title>
+          <Title>{t("shipmentDetail.title")}</Title>
         </ShipmentHeaderTop>
         <ShipmentHeaderMain className="mt-10">
           <ShipmentHeaderCol>
-            <ShipmentHeaderLabel>Tracking Code</ShipmentHeaderLabel>
+            <ShipmentHeaderLabel>
+              {t("shipmentDetail.header.tracking_code")}
+            </ShipmentHeaderLabel>
             <ShipmentHeaderValue>12d34fgv3456321</ShipmentHeaderValue>
           </ShipmentHeaderCol>
           <ShipmentHeaderCol className="w-28">
-            <ShipmentHeaderLabel>Courier</ShipmentHeaderLabel>
+            <ShipmentHeaderLabel>
+              {t("shipmentDetail.header.courier")}
+            </ShipmentHeaderLabel>
             <ShipmentHeaderValue>UPS</ShipmentHeaderValue>
+          </ShipmentHeaderCol>
+          <ShipmentHeaderCol className="text-right">
+            <ShipmentHeaderLabel>
+              {t("shipmentDetail.header.estimated_delivery")}
+            </ShipmentHeaderLabel>
+            <ShipmentHeaderValue>Tue, 19/06/21</ShipmentHeaderValue>
           </ShipmentHeaderCol>
         </ShipmentHeaderMain>
         <ShipmentHeaderMain className="mt-3">
           <ShipmentStatusChip status="upcoming" />
         </ShipmentHeaderMain>
       </ShipmentHeader>
-      <ShipmentRows>
-        <ShipmentRow>
-          <ShipmentDateChip>Jun 28, 2021</ShipmentDateChip>
-          <div className="relative flex items-start pb-4 mt-5 ml-5 text-left">
-            <div className="w-28">
-              <div className="mt-1 font-bold text-xxs">02:11 PM</div>
-            </div>
-            <div className="absolute z-10 h-full border-r border-gray-200 border-dashed left-20 top-2">
-              <div className="absolute -ml-3 -top-2">
-                <StepCurrentIcon />
-                <div className="block h-2 bg-gray-50 md:bg-white"></div>
-              </div>
-            </div>
-            <div>
-              <div className="font-bold">In transit</div>
-              <div className="text-sm text-gray-400">
-                Departed from facility
-              </div>
-              <div className="text-sm font-bold">Nurnberg, DE</div>
-            </div>
-          </div>
-          <div className="relative flex items-start pb-4 mt-5 ml-5 text-left">
-            <div className="w-28">
-              <div className="mt-1 font-bold text-xxs">02:11 PM</div>
-            </div>
-            <div className="absolute z-10 h-full border-r border-gray-200 left-20 top-2">
-              <div className="absolute -ml-3 -top-2">
-                <StepCompletedIcon />
-                <div className="block h-2 bg-gray-50 md:bg-white"></div>
-              </div>
-            </div>
-            <div>
-              <div className="font-bold">In transit</div>
-              <div className="text-sm text-gray-400">
-                Departed from facility
-              </div>
-              <div className="text-sm font-bold">Nurnberg, DE</div>
-            </div>
-          </div>
-        </ShipmentRow>
-      </ShipmentRows>
+      <TabsWrapper>
+        <TabsProvider tabsRel="shipmentViews">
+          <Tabs>
+            <Tab
+              title={t("shipmentDetail.tabs.overview")}
+              content={<Timeline steps={timelineSteps} />}
+            />
+            <Tab
+              title={t("shipmentDetail.tabs.detailed_view")}
+              content={<OrderShipmentHistory />}
+            />
+          </Tabs>
+        </TabsProvider>
+      </TabsWrapper>
     </ShipmentContainer>
   )
 }

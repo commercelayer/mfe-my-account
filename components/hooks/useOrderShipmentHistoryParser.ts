@@ -19,13 +19,14 @@ export type orderShipmentHistoryData = {
 }
 
 export type orderShipmentHistoryParsedData = {
-  date: string
+  dateIndex: string
+  dateFormatted: string
   times: [
     {
-      time: string
+      timeFormatted: string
       status: string
       message: string
-      tracking_location: string
+      trackingLocation: string
     }
   ]
 }
@@ -34,19 +35,19 @@ export default function useOrderShipmentHistoryParser(
   orderShipmentHistoryData: any[]
 ) {
   const orderShipmentHistoryParsedData: orderShipmentHistoryParsedData[] = []
-  orderShipmentHistoryData.reverse()
+  const orderShipmentHistoryDataReversed = orderShipmentHistoryData.reverse()
 
-  orderShipmentHistoryData.map((dataEntry: any) => {
+  orderShipmentHistoryDataReversed.map((dataEntry: any) => {
     const entryDateKey = format(new Date(dataEntry.datetime), "yy-MM-dd")
     const parsedDataIndex = orderShipmentHistoryParsedData.findIndex(
-      (parsedDataEntry) => parsedDataEntry.date === entryDateKey
+      (parsedDataEntry) => parsedDataEntry.dateIndex === entryDateKey
     )
 
     const parsedDataNewTimeObj = {
-      time: format(new Date(dataEntry.datetime), "hh:mm aa"),
+      timeFormatted: format(new Date(dataEntry.datetime), "hh:mm aa"),
       status: dataEntry.status,
       message: dataEntry.message,
-      tracking_location:
+      trackingLocation:
         dataEntry.tracking_location.city !== null
           ? `${dataEntry.tracking_location.city}, ${dataEntry.tracking_location.country}`
           : "",
@@ -57,8 +58,13 @@ export default function useOrderShipmentHistoryParser(
         orderShipmentHistoryParsedData[parsedDataIndex].times
       parsedDataEntryTimes.push(parsedDataNewTimeObj)
     } else {
+      const entryDateFormatted = format(
+        new Date(dataEntry.datetime),
+        "MMM dd, yyyy"
+      )
       orderShipmentHistoryParsedData.push({
-        date: entryDateKey,
+        dateIndex: entryDateKey,
+        dateFormatted: entryDateFormatted,
         times: [parsedDataNewTimeObj],
       })
     }
