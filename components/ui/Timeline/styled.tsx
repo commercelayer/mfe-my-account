@@ -30,7 +30,7 @@ type ItemContentProps = {
 }
 
 export const Wrapper = styled.div`
-  ${tw`flex items-center mt-12 pb-12 -mx-5 md:mx-0`}
+  ${tw`flex items-center mt-12 pb-12`}
 `
 export const ItemWrapper = styled.div<TimelineItemProps>`
   ${tw`flex items-center`}

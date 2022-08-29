@@ -4,7 +4,7 @@ import tw from "twin.macro"
 import { TabHeaderProps } from "./"
 
 export const Wrapper = styled.div`
-  ${tw`mt-12 pl-12`}
+  ${tw``}
 `
 export const HeaderWrapper = styled.div`
   ${tw`flex`}
