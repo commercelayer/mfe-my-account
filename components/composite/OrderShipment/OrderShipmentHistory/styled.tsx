@@ -28,20 +28,9 @@ export const ShipmentTimeBorder = styled.div<ShipmentTimeBorderProps>`
   ${({ dateTimeIsLast }) => dateTimeIsLast && tw`border-dashed`}
   ${({ dateTimeIsLast }) =>
     dateTimeIsLast &&
-    `&:before {
-    border-color: #e6e7e7;
-    border-style: solid;
-    border-width: 0 0 1px 1px;
-    content: "";
-    height: 8px;
-    width: 8px;
-    position: absolute;
-    top: 25px;
-    left: -3.5px;
-    transform: rotate(45deg);
-    -webkit-transform: rotate(135deg);
-  }`}
+    tw`before:(border-[#e6e7e7] border-t-0 border-r-0 border-b-[1px] border-l-[1px] content-[""] h-[8px] w-[8px] absolute top-[25px] left-[-3.5px] rotate-135 )`}
 `
+
 export const ShipmentTimeIconWrapper = styled.div`
   ${tw`absolute -ml-3 bg-gray-50 md:bg-white -top-2 pb-2`}
 `
