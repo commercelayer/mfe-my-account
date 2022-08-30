@@ -1,3 +1,5 @@
+import { Parcel } from "@commercelayer/sdk"
+
 import useOrderShipmentHistoryParser from "components/hooks/useOrderShipmentHistoryParser"
 import ShipmentHistoryStep from "components/ui/icons/ShipmentHistoryStep"
 import ShipmentHistoryStepLast from "components/ui/icons/ShipmentHistoryStepLast"
@@ -17,13 +19,16 @@ import {
   ShipmentTimeLocationWrapper,
 } from "./styled"
 
-import testOrderShipmentHistoryData from "public/static/testData/orderShipmentHistory.json"
+interface Props {
+  parcel?: Parcel
+}
 
-const OrderShipmentHistory: React.FC = () => {
+const OrderShipmentHistory: React.FC<Props> = ({ parcel }) => {
+  if (!parcel || parcel?.tracking_details === null) return null
+
   const orderShipmentHistoryParsed = useOrderShipmentHistoryParser(
-    testOrderShipmentHistoryData
+    parcel?.tracking_details as any
   )
-  console.log(orderShipmentHistoryParsed)
 
   return (
     <ShipmentDates>

@@ -1,3 +1,4 @@
+import { Parcel } from "@commercelayer/sdk"
 import { Settings } from "HostedApp"
 import Link from "next/link"
 import { CaretLeft } from "phosphor-react"
@@ -26,10 +27,10 @@ import {
 interface Props {
   settings: Settings
   orderId: string
-  shipmentId: string
+  parcel?: Parcel
 }
 
-const OrderShipment: React.FC<Props> = ({ settings, orderId }) => {
+const OrderShipment: React.FC<Props> = ({ settings, orderId, parcel }) => {
   const { t } = useTranslation()
 
   const timelineSteps: TimelineSteps[] = [
@@ -64,7 +65,7 @@ const OrderShipment: React.FC<Props> = ({ settings, orderId }) => {
             <ShipmentHeaderLabel>
               {t("shipmentDetail.header.tracking_code")}
             </ShipmentHeaderLabel>
-            <ShipmentHeaderValue>12d34fgv3456321</ShipmentHeaderValue>
+            <ShipmentHeaderValue>{parcel?.tracking_number}</ShipmentHeaderValue>
           </ShipmentHeaderCol>
           <ShipmentHeaderCol className="w-28">
             <ShipmentHeaderLabel>
@@ -92,7 +93,7 @@ const OrderShipment: React.FC<Props> = ({ settings, orderId }) => {
             />
             <Tab
               title={t("shipmentDetail.tabs.detailed_view")}
-              content={<OrderShipmentHistory />}
+              content={<OrderShipmentHistory parcel={parcel} />}
             />
           </Tabs>
         </TabsProvider>
