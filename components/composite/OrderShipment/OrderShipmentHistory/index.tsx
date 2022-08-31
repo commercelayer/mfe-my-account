@@ -30,6 +30,12 @@ interface Props {
 const OrderShipmentHistory: React.FC<Props> = ({ parcel }) => {
   if (!parcel || parcel?.tracking_details === null) return null
 
+  if (
+    rawDataParcelDetailsSchema.safeParse(parcel?.tracking_details).success ===
+    false
+  )
+    return null
+
   const parsedDetails = rawDataParcelDetailsSchema.parse(
     parcel?.tracking_details
   )
