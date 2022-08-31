@@ -19,50 +19,39 @@ export type ParcelTrackingDetailsType = {
 }
 
 export type ParcelTrackingDetailsParsedTimeType = {
-  timeFormatted: string
+  datetime: string
   status: string
   message: string
   trackingLocation: string
 }
 
 export type ParcelTrackingDetailsParsedDateType = {
-  dateIndex: string
-  dateFormatted: string
-  times: ParcelTrackingDetailsParsedTimeType[]
+  [key: string]: ParcelTrackingDetailsParsedTimeType[]
 }
 
-export default function useParcelTrackingDetailsParser(historyData: any[]) {
-  const historyDataReversed = historyData.reverse()
+export default function useParcelTrackingDetailsParser(trackingDetails: any[]) {
+  const trackingDetailsReversed = trackingDetails.reverse()
 
-  const historyParsedData = historyDataReversed.reduce((items, item) => {
-    const dateIndex = format(new Date(item.datetime), "yy-MM-dd")
-    const newTimeObj = {
-      timeFormatted: format(new Date(item.datetime), "hh:mm aa"),
-      status: item.status,
-      message: item.message,
-      trackingLocation:
-        item.tracking_location.city !== null
-          ? `${item.tracking_location.city}, ${item.tracking_location.country}`
-          : "",
-    }
-    const dateFormatted = format(new Date(item.datetime), "MMM dd, yyyy")
-    const newDateObj = {
-      dateIndex,
-      dateFormatted,
-      times: [newTimeObj],
-    }
+  const trackingDetailsParsed = trackingDetailsReversed.reduce(
+    (items, item) => {
+      const dateIndex = format(new Date(item.datetime), "yy-MM-dd")
+      const timeObj = {
+        datetime: item.datetime,
+        status: item.status,
+        message: item.message,
+        trackingLocation:
+          item.tracking_location.city !== null
+            ? `${item.tracking_location.city}, ${item.tracking_location.country}`
+            : "",
+      }
+      items[dateIndex] !== undefined
+        ? items[dateIndex].push(timeObj)
+        : (items[dateIndex] = [timeObj])
 
-    const searchDateIndex = items.findIndex(
-      (item: ParcelTrackingDetailsParsedDateType) =>
-        item.dateIndex === dateIndex
-    )
-    if (searchDateIndex > -1) {
-      items[searchDateIndex].times.push(newTimeObj)
-    } else {
-      items.push(newDateObj)
-    }
-    return items
-  }, [])
+      return items
+    },
+    []
+  )
 
-  return historyParsedData
+  return trackingDetailsParsed
 }

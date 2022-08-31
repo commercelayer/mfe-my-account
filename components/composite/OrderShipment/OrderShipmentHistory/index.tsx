@@ -1,10 +1,8 @@
 import { Parcel } from "@commercelayer/sdk"
+import { format } from "date-fns"
 
 import useParcelTrackingDetailsParser from "components/hooks/useParcelTrackingDetailsParser"
-import type {
-  ParcelTrackingDetailsParsedDateType,
-  ParcelTrackingDetailsParsedTimeType,
-} from "components/hooks/useParcelTrackingDetailsParser"
+import type { ParcelTrackingDetailsParsedTimeType } from "components/hooks/useParcelTrackingDetailsParser"
 import ShipmentHistoryStep from "components/ui/icons/ShipmentHistoryStep"
 import ShipmentHistoryStepLast from "components/ui/icons/ShipmentHistoryStepLast"
 
@@ -36,26 +34,33 @@ const OrderShipmentHistory: React.FC<Props> = ({ parcel }) => {
 
   return (
     <ShipmentDates>
-      {orderShipmentHistoryParsed.map(
-        (date: ParcelTrackingDetailsParsedDateType, dateIndex: number) => {
+      {Object.keys(orderShipmentHistoryParsed).map(
+        (dateKey: string, dateIndex: number) => {
+          const date = orderShipmentHistoryParsed[dateKey]
+          const dateFormatted = format(
+            new Date(date[0].datetime),
+            "MMM dd, yyyy"
+          )
           return (
             <ShipmentDate key={dateIndex}>
-              <ShipmentDateChip>{date.dateFormatted}</ShipmentDateChip>
-              {date.times.map(
+              <ShipmentDateChip>{dateFormatted}</ShipmentDateChip>
+              {date.map(
                 (
                   time: ParcelTrackingDetailsParsedTimeType,
                   timeIndex: number
                 ) => {
                   const dateTimeIsLast = dateIndex === 0 && timeIndex === 0
                   const timeIsFirstOfDate = timeIndex === 0
+                  const timeFormatted = format(
+                    new Date(time.datetime),
+                    "hh:mm aa"
+                  )
                   return (
                     <ShipmentTime
                       timeIsFirstOfDate={timeIsFirstOfDate}
                       key={timeIndex}
                     >
-                      <ShipmentTimeLabel>
-                        {time.timeFormatted}
-                      </ShipmentTimeLabel>
+                      <ShipmentTimeLabel>{timeFormatted}</ShipmentTimeLabel>
                       <ShipmentTimeBorder dateTimeIsLast={dateTimeIsLast}>
                         <ShipmentTimeIconWrapper>
                           {dateTimeIsLast ? (
