@@ -42,15 +42,17 @@ export const AddressCard: React.FC<Props> = ({
   const { setAddress, setShowAddressForm } = useContext(CustomerAddressContext)
 
   if (!address) return null
-  const { first_name } = address
-  const { last_name } = address
-  const { line_1 } = address
-  const { line_2 } = address
-  const { zip_code } = address
-  const { city } = address
-  const { state_code } = address
-  const { country_code } = address
-  const { phone } = address
+  const {
+    first_name,
+    last_name,
+    line_1,
+    line_2,
+    zip_code,
+    city,
+    state_code,
+    country_code,
+    phone,
+  } = address
 
   return (
     <Wrapper>
