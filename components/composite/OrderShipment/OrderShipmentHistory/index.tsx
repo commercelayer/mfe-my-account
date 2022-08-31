@@ -21,6 +21,8 @@ import {
   ShipmentTimeLocationWrapper,
 } from "./styled"
 
+import { rawDataParcelDetailsSchema } from "utils/types"
+
 interface Props {
   parcel?: Parcel
 }
@@ -28,9 +30,12 @@ interface Props {
 const OrderShipmentHistory: React.FC<Props> = ({ parcel }) => {
   if (!parcel || parcel?.tracking_details === null) return null
 
-  const orderShipmentHistoryParsed = useParcelTrackingDetailsParser(
-    parcel?.tracking_details as any
+  const parsedDetails = rawDataParcelDetailsSchema.parse(
+    parcel?.tracking_details
   )
+
+  const orderShipmentHistoryParsed =
+    useParcelTrackingDetailsParser(parsedDetails)
 
   return (
     <ShipmentDates>
@@ -38,7 +43,7 @@ const OrderShipmentHistory: React.FC<Props> = ({ parcel }) => {
         (dateKey: string, dateIndex: number) => {
           const date = orderShipmentHistoryParsed[dateKey]
           const dateFormatted = format(
-            new Date(date[0].datetime),
+            new Date(date[0].datetime as string | number | Date),
             "MMM dd, yyyy"
           )
           return (
@@ -52,7 +57,7 @@ const OrderShipmentHistory: React.FC<Props> = ({ parcel }) => {
                   const dateTimeIsLast = dateIndex === 0 && timeIndex === 0
                   const timeIsFirstOfDate = timeIndex === 0
                   const timeFormatted = format(
-                    new Date(time.datetime),
+                    new Date(time.datetime as string | number | Date),
                     "hh:mm aa"
                   )
                   return (

@@ -1,40 +1,30 @@
 import { format } from "date-fns"
 
-export type ParcelTrackingDetailsType = {
-  object: string
-  source: string
-  status: string
-  message: string
-  datetime: string
-  description: string
-  carrier_code: string
-  status_detail: string
-  tracking_location: {
-    zip: string
-    city: string
-    state: string
-    object: string
-    country: string
-  }
-}
+import type { RawDataParcelDetails } from "utils/types"
 
 export type ParcelTrackingDetailsParsedTimeType = {
-  datetime: string
-  status: string
-  message: string
+  datetime: Date | null
+  status: string | null
+  message: string | null
   trackingLocation: string
 }
 
-export type ParcelTrackingDetailsParsedDateType = {
-  [key: string]: ParcelTrackingDetailsParsedTimeType[]
-}
+export type ParcelTrackingDetailsParsedDateType = Record<
+  string,
+  ParcelTrackingDetailsParsedTimeType[]
+>
 
-export default function useParcelTrackingDetailsParser(trackingDetails: any[]) {
+const useParcelTrackingDetailsParser = (
+  trackingDetails: RawDataParcelDetails
+): ParcelTrackingDetailsParsedDateType => {
   const trackingDetailsReversed = trackingDetails.reverse()
 
-  const trackingDetailsParsed = trackingDetailsReversed.reduce(
-    (items, item) => {
-      const dateIndex = format(new Date(item.datetime), "yy-MM-dd")
+  return trackingDetailsReversed.reduce<ParcelTrackingDetailsParsedDateType>(
+    (acc, item) => {
+      const dateIndex = format(
+        new Date(item.datetime as string | number | Date),
+        "yy-MM-dd"
+      )
       const timeObj = {
         datetime: item.datetime,
         status: item.status,
@@ -44,14 +34,14 @@ export default function useParcelTrackingDetailsParser(trackingDetails: any[]) {
             ? `${item.tracking_location.city}, ${item.tracking_location.country}`
             : "",
       }
-      items[dateIndex] !== undefined
-        ? items[dateIndex].push(timeObj)
-        : (items[dateIndex] = [timeObj])
 
-      return items
+      acc[dateIndex] ||= []
+      acc[dateIndex].push(timeObj)
+
+      return acc
     },
-    []
+    {}
   )
-
-  return trackingDetailsParsed
 }
+
+export default useParcelTrackingDetailsParser
