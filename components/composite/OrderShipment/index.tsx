@@ -3,11 +3,11 @@ import { Settings } from "HostedApp"
 import Link from "next/link"
 import { CaretLeft } from "phosphor-react"
 import { useTranslation } from "react-i18next"
+import { Tabs, TabPanel } from "react-tabs"
 
 import OrderShipmentHistory from "components/composite/OrderShipment/OrderShipmentHistory"
-import { TabsProvider } from "components/data/TabsProvider"
+import { StyledTabList, StyledTab } from "components/ui/React-Tabs/styled"
 import ShipmentStatusChip from "components/ui/StatusChip/ShipmentStatusChip"
-import { Tabs, Tab } from "components/ui/Tabs"
 import type { TimelineSteps } from "components/ui/Timeline"
 import { Timeline } from "components/ui/Timeline"
 
@@ -85,18 +85,22 @@ const OrderShipment: React.FC<Props> = ({ settings, orderId, parcel }) => {
         </ShipmentHeaderMain>
       </ShipmentHeader>
       <TabsWrapper>
-        <TabsProvider tabsRel="shipmentViews">
-          <Tabs>
-            <Tab
-              title={t("shipmentDetail.tabs.overview")}
-              content={<Timeline steps={timelineSteps} />}
-            />
-            <Tab
-              title={t("shipmentDetail.tabs.detailed_view")}
-              content={<OrderShipmentHistory parcel={parcel} />}
-            />
-          </Tabs>
-        </TabsProvider>
+        <Tabs>
+          <StyledTabList>
+            <StyledTab selectedClassName={"bg-primary text-white"}>
+              {t("shipmentDetail.tabs.overview")}
+            </StyledTab>
+            <StyledTab selectedClassName={"bg-primary text-white"}>
+              {t("shipmentDetail.tabs.detailed_view")}
+            </StyledTab>
+          </StyledTabList>
+          <TabPanel>
+            <Timeline steps={timelineSteps} />
+          </TabPanel>
+          <TabPanel>
+            <OrderShipmentHistory parcel={parcel} />
+          </TabPanel>
+        </Tabs>
       </TabsWrapper>
     </ShipmentContainer>
   )
