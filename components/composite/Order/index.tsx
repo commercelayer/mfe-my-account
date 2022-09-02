@@ -1,6 +1,5 @@
 import { OrderContainer, OrderNumber } from "@commercelayer/react-components"
 import { Order as CLayerOrder } from "@commercelayer/sdk"
-import { format } from "date-fns"
 // import { useState } from "react"
 import { Trans } from "react-i18next"
 
@@ -19,6 +18,9 @@ import {
   OrderHeaderActions,
 } from "./styled"
 
+import type { InputDateTime } from "utils/dateTimeFormats"
+import { shortDate } from "utils/dateTimeFormats"
+
 interface Props {
   orderId: string
   order?: CLayerOrder
@@ -26,9 +28,7 @@ interface Props {
 
 const Order: React.FC<Props> = ({ orderId, order }) => {
   // const [order, setOrder] = useState<CLayerOrder>()
-  const orderPlacedAt = order
-    ? format(new Date(order.placed_at as string), "dd/MM/yy")
-    : ""
+  const orderPlacedAt = order ? shortDate(order.placed_at as InputDateTime) : ""
   const orderStatus = order ? (order.status as OrderStatus) : "placed"
 
   return (

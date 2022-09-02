@@ -4,7 +4,6 @@ import {
   OrderListRow,
 } from "@commercelayer/react-components"
 import { Order } from "@commercelayer/sdk"
-import { format } from "date-fns"
 import Link from "next/link"
 import { useContext } from "react"
 import { useTranslation } from "react-i18next"
@@ -21,6 +20,9 @@ import {
   OrderItemsCount,
   OrderUpdatedDate,
 } from "./styled"
+
+import type { InputDateTime } from "utils/dateTimeFormats"
+import { shortDate } from "utils/dateTimeFormats"
 
 const Orders: React.FC = () => {
   const { t } = useTranslation()
@@ -108,7 +110,7 @@ const Orders: React.FC = () => {
               return (
                 <OrderData key={order} {...p} {...cell.getCellProps()}>
                   <OrderUpdatedDate>
-                    {format(new Date(cell.value), "dd/MM/yy")}
+                    {shortDate(cell.value as InputDateTime)}
                   </OrderUpdatedDate>
                 </OrderData>
               )

@@ -1,5 +1,4 @@
 import { Parcel } from "@commercelayer/sdk"
-import { format } from "date-fns"
 
 import useParcelTrackingDetailsParser from "components/hooks/useParcelTrackingDetailsParser"
 import type { ParcelTrackingDetailsParsedTimeType } from "components/hooks/useParcelTrackingDetailsParser"
@@ -21,6 +20,8 @@ import {
   ShipmentTimeLocationWrapper,
 } from "./styled"
 
+import type { InputDateTime } from "utils/dateTimeFormats"
+import { longDate, amPmTime } from "utils/dateTimeFormats"
 import { rawDataParcelDetailsSchema } from "utils/types"
 
 interface Props {
@@ -48,10 +49,7 @@ const OrderShipmentHistory: React.FC<Props> = ({ parcel }) => {
       {Object.keys(orderShipmentHistoryParsed).map(
         (dateKey: string, dateIndex: number) => {
           const date = orderShipmentHistoryParsed[dateKey]
-          const dateFormatted = format(
-            new Date(date[0].datetime as string | number | Date),
-            "MMM dd, yyyy"
-          )
+          const dateFormatted = longDate(date[0].datetime as InputDateTime)
           return (
             <ShipmentDate key={dateIndex}>
               <ShipmentDateChip>{dateFormatted}</ShipmentDateChip>
@@ -62,10 +60,7 @@ const OrderShipmentHistory: React.FC<Props> = ({ parcel }) => {
                 ) => {
                   const dateTimeIsLast = dateIndex === 0 && timeIndex === 0
                   const timeIsFirstOfDate = timeIndex === 0
-                  const timeFormatted = format(
-                    new Date(time.datetime as string | number | Date),
-                    "hh:mm aa"
-                  )
+                  const timeFormatted = amPmTime(time.datetime as InputDateTime)
                   return (
                     <ShipmentTime
                       timeIsFirstOfDate={timeIsFirstOfDate}

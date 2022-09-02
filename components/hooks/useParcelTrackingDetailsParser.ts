@@ -1,5 +1,5 @@
-import { format } from "date-fns"
-
+import type { InputDateTime } from "utils/dateTimeFormats"
+import { dbDate } from "utils/dateTimeFormats"
 import type { RawDataParcelDetails } from "utils/types"
 
 export type ParcelTrackingDetailsParsedTimeType = {
@@ -21,10 +21,7 @@ const useParcelTrackingDetailsParser = (
 
   return trackingDetailsReversed.reduce<ParcelTrackingDetailsParsedDateType>(
     (acc, item) => {
-      const dateIndex = format(
-        new Date(item.datetime as string | number | Date),
-        "yy-MM-dd"
-      )
+      const dateIndex = dbDate(item.datetime as InputDateTime)
       const timeObj = {
         datetime: item.datetime,
         status: item.status,
