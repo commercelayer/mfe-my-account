@@ -50,12 +50,9 @@ export const ItemDot = styled.div<ItemDotProps>`
 `
 export const ItemContent = styled.div<ItemContentProps>`
   ${tw`absolute top-0 mt-6 text-xs font-medium`}
-  ${({ isFirst, isLast }) =>
-    isFirst
-      ? tw`left-0 text-left`
-      : isLast
-      ? tw`right-0 text-right`
-      : tw`-ml-8 text-center`}
+  ${({ isFirst, isLast }) => !isFirst && !isLast && tw`text-center -ml-8`}
+  ${({ isFirst }) => isFirst && tw`text-left left-0`}
+  ${({ isLast }) => isLast && tw`text-right right-0`}
 `
 export const ItemTitleWrapper = styled.div`
   ${tw`block text-xs font-bold text-gray-500`}
