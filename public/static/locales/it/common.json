@@ -34,5 +34,8 @@
         "paypalDescription": "Dopo aver effettuato l'ordine, sarai reindirizzato verso il sito PayPal per accedere e autorizzare il pagamento"
       }
     }
+  },
+  "actionsMenu": {
+    "mainLabel": "Apri menu"
   }
 }

@@ -32,8 +32,7 @@
   "orders": {
     "title": "My orders",
     "orderContains": "contains {{count}} item",
-    "orderContains_plural": "contains {{count}} items",
-    "openMenu": "Open menu"
+    "orderContains_plural": "contains {{count}} items"
   },
   "noOrders": {
     "title": "No orders yet",
@@ -160,5 +159,8 @@
     "shipped": "shipped",
     "rejected": "rejected",
     "received": "received"
+  },
+  "actionsMenu": {
+    "mainLabel": "Open menu"
   }
 }
