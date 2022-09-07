@@ -28,7 +28,8 @@ interface Props {
 
 const Order: React.FC<Props> = ({ orderId, order }) => {
   // const [order, setOrder] = useState<CLayerOrder>()
-  const orderPlacedAt = order ? shortDate(order.placed_at as InputDateTime) : ""
+  const orderPlacedAt =
+    (order?.placed_at && shortDate(order.placed_at as InputDateTime)) || ""
   const orderStatus = order ? (order.status as OrderStatus) : "placed"
 
   return (
