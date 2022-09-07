@@ -61,11 +61,10 @@ export const ItemSubTitleWrapper = styled.div`
   ${tw`block w-20 text-sm font-bold text-black`}
 `
 export const ItemLine = styled.div<ItemLineProps>`
-  ${tw`flex-auto border-t-2 transition duration-500 ease-in-out`}
+  ${tw`flex-auto border-t-2 transition duration-500 ease-in-out hidden`}
+  ${({ completed }) => completed && tw`flex`}
   ${({ completed, lastCompleted }) =>
-    completed && !lastCompleted
-      ? tw`border-black`
-      : completed && lastCompleted
-      ? tw`border-gray-300 border-dashed`
-      : tw`hidden`}
+    completed && !lastCompleted && tw`border-black`}
+  ${({ completed, lastCompleted }) =>
+    completed && lastCompleted && tw`border-gray-300 border-dashed`}
 `
