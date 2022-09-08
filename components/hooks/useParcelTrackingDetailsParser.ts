@@ -1,9 +1,8 @@
-import type { InputDateTime } from "utils/dateTimeFormats"
 import { dbDate } from "utils/dateTimeFormats"
 import type { RawDataParcelDetails } from "utils/types"
 
 export type ParcelTrackingDetailsParsedTimeType = {
-  datetime?: Date
+  datetime?: string
   status?: string
   message?: string
   trackingLocation: string
@@ -21,9 +20,9 @@ const useParcelTrackingDetailsParser = (
 
   return trackingDetailsReversed.reduce<ParcelTrackingDetailsParsedDateType>(
     (acc, item) => {
-      const dateIndex = dbDate(item.datetime as InputDateTime)
+      const dateIndex = dbDate(item.datetime as string)
       const timeObj = {
-        datetime: item.datetime as Date,
+        datetime: item.datetime as string,
         status: item.status as string,
         message: item.message as string,
         trackingLocation:

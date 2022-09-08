@@ -18,7 +18,6 @@ import {
   OrderHeaderActions,
 } from "./styled"
 
-import type { InputDateTime } from "utils/dateTimeFormats"
 import { shortDate } from "utils/dateTimeFormats"
 
 interface Props {
@@ -29,7 +28,7 @@ interface Props {
 const Order: React.FC<Props> = ({ orderId, order }) => {
   // const [order, setOrder] = useState<CLayerOrder>()
   const orderPlacedAt =
-    (order?.placed_at && shortDate(order.placed_at as InputDateTime)) || ""
+    (order?.placed_at && shortDate(order.placed_at as string)) || ""
   const orderStatus = order ? (order.status as OrderStatus) : "placed"
 
   return (

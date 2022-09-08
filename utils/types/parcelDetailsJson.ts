@@ -18,7 +18,7 @@ const parcelDetailSchema = z.object({
   source: z.string().nullable(),
   status: z.string().nullable(),
   message: z.string().nullable(),
-  datetime: dateSchema.nullable(),
+  datetime: z.string().nullable(),
   description: z.string().nullable(),
   carrier_code: z.string().nullable(),
   status_detail: z.string().nullable(),

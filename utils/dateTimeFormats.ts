@@ -1,19 +1,21 @@
 import { format } from "date-fns"
 
-export type InputDateTime = string | number | Date
-
-export const dbDate = (date: InputDateTime) => {
-  return format(new Date(date), "yy-MM-dd")
+const formatDate = (date: string, pattern: string) => {
+  return format(new Date(date), pattern)
 }
 
-export const shortDate = (date: InputDateTime) => {
-  return format(new Date(date), "dd/MM/yy")
+export const dbDate = (date: string) => {
+  return formatDate(date, "yy-MM-dd")
 }
 
-export const longDate = (date: InputDateTime) => {
-  return format(new Date(date), "MMM dd, yyyy")
+export const shortDate = (date: string) => {
+  return formatDate(date, "dd/MM/yy")
 }
 
-export const amPmTime = (time: InputDateTime) => {
-  return format(new Date(time), "hh:mm aa")
+export const longDate = (date: string) => {
+  return formatDate(date, "MMM dd, yyyy")
+}
+
+export const amPmTime = (time: string) => {
+  return formatDate(time, "hh:mm aa")
 }
