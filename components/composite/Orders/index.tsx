@@ -21,7 +21,7 @@ import {
   OrderUpdatedDate,
 } from "./styled"
 
-import { shortDate } from "utils/dateTimeFormats"
+import { formatDate, shortDate } from "utils/dateTimeFormats"
 
 const Orders: React.FC = () => {
   const { t } = useTranslation()
@@ -109,7 +109,7 @@ const Orders: React.FC = () => {
               return (
                 <OrderData key={order} {...p} {...cell.getCellProps()}>
                   <OrderUpdatedDate>
-                    {shortDate(cell.value as string)}
+                    {formatDate(cell.value as string, shortDate)}
                   </OrderUpdatedDate>
                 </OrderData>
               )

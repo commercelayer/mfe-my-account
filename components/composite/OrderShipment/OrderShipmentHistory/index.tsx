@@ -23,7 +23,7 @@ import {
   ShipmentTimeLocationWrapper,
 } from "./styled"
 
-import { longDate, amPmTime } from "utils/dateTimeFormats"
+import { formatDate, longDate, amPmTime } from "utils/dateTimeFormats"
 import { rawDataParcelDetailsSchema } from "utils/types"
 
 interface Props {
@@ -49,7 +49,7 @@ const OrderShipmentHistoryTime: React.FC<OrderShipmentHistoryTimeProps> = ({
 }) => {
   const dateTimeIsLast = dateIndex === 0 && timeIndex === 0
   const timeIsFirstOfDate = timeIndex === 0
-  const timeFormatted = amPmTime(time.datetime as string)
+  const timeFormatted = formatDate(time.datetime as string, amPmTime)
   return (
     <ShipmentTime timeIsFirstOfDate={timeIsFirstOfDate} key={timeIndex}>
       <ShipmentTimeLabel>{timeFormatted}</ShipmentTimeLabel>
@@ -80,7 +80,7 @@ const OrderShipmentHistoryDate: React.FC<OrderShipmentHistoryDateProps> = ({
   parsedData,
 }) => {
   const date = parsedData[dateKey]
-  const dateFormatted = longDate(date[0].datetime as string)
+  const dateFormatted = formatDate(date[0].datetime as string, longDate)
 
   return (
     <ShipmentDate key={dateIndex}>
