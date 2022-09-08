@@ -49,7 +49,7 @@ const OrderShipmentHistoryTime: React.FC<OrderShipmentHistoryTimeProps> = ({
 }) => {
   const dateTimeIsLast = dateIndex === 0 && timeIndex === 0
   const timeIsFirstOfDate = timeIndex === 0
-  const timeFormatted = formatDate(time.datetime as string, amPmTime)
+  const timeFormatted = time.datetime && formatDate(time.datetime, amPmTime)
   return (
     <ShipmentTime timeIsFirstOfDate={timeIsFirstOfDate} key={timeIndex}>
       <ShipmentTimeLabel>{timeFormatted}</ShipmentTimeLabel>
@@ -80,7 +80,8 @@ const OrderShipmentHistoryDate: React.FC<OrderShipmentHistoryDateProps> = ({
   parsedData,
 }) => {
   const date = parsedData[dateKey]
-  const dateFormatted = formatDate(date[0].datetime as string, longDate)
+  const dateFormatted =
+    date[0].datetime && formatDate(date[0].datetime, longDate)
 
   return (
     <ShipmentDate key={dateIndex}>

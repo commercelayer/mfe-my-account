@@ -109,7 +109,7 @@ const Orders: React.FC = () => {
               return (
                 <OrderData key={order} {...p} {...cell.getCellProps()}>
                   <OrderUpdatedDate>
-                    {formatDate(cell.value as string, shortDate)}
+                    {cell.value && formatDate(cell.value, shortDate)}
                   </OrderUpdatedDate>
                 </OrderData>
               )

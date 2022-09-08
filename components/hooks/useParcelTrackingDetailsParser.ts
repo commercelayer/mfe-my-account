@@ -20,20 +20,21 @@ const useParcelTrackingDetailsParser = (
 
   return trackingDetailsReversed.reduce<ParcelTrackingDetailsParsedDateType>(
     (acc, item) => {
-      const dateIndex = formatDate(item.datetime as string, dbDate)
-      const timeObj = {
-        datetime: item.datetime as string,
-        status: item.status as string,
-        message: item.message as string,
-        trackingLocation:
-          item.tracking_location.city !== null
-            ? `${item.tracking_location.city}, ${item.tracking_location.country}`
-            : "",
+      if (item.datetime) {
+        const dateIndex = formatDate(item.datetime, dbDate)
+        const timeObj = {
+          datetime: item.datetime,
+          status: item.status as string,
+          message: item.message as string,
+          trackingLocation:
+            item.tracking_location.city !== null
+              ? `${item.tracking_location.city}, ${item.tracking_location.country}`
+              : "",
+        }
+
+        acc[dateIndex] ||= []
+        acc[dateIndex].push(timeObj)
       }
-
-      acc[dateIndex] ||= []
-      acc[dateIndex].push(timeObj)
-
       return acc
     },
     {}
