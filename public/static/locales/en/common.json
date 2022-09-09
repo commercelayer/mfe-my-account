@@ -32,8 +32,7 @@
   "orders": {
     "title": "My orders",
     "orderContains": "contains {{count}} item",
-    "orderContains_plural": "contains {{count}} items",
-    "openMenu": "Open menu"
+    "orderContains_plural": "contains {{count}} items"
   },
   "noOrders": {
     "title": "No orders yet",
@@ -95,6 +94,23 @@
     "ready_to_ship": "ready_to_ship",
     "shipped": "shipped"
   },
+  "shipmentDetail": {
+    "title": "Track Shipment",
+    "header": {
+      "tracking_code": "Tracking code",
+      "courier": "Courier",
+      "estimated_delivery": "Estimated delivery"
+    },
+    "tabs": {
+      "overview": "Overview",
+      "detailed_view": "Detailed view"
+    },
+    "timeline": {
+      "shipped": "Shipped",
+      "in_transit": "In transit",
+      "delivered": "Delivered"
+    }
+  },
   "addresses": {
     "title": "My addresses",
     "edit": "Edit",
@@ -143,5 +159,8 @@
     "shipped": "shipped",
     "rejected": "rejected",
     "received": "received"
+  },
+  "actionsMenu": {
+    "mainLabel": "Open menu"
   }
 }

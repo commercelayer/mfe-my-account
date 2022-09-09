@@ -41,6 +41,19 @@ export const AddressCard: React.FC<Props> = ({
   const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false)
   const { setAddress, setShowAddressForm } = useContext(CustomerAddressContext)
 
+  if (!address) return null
+  const {
+    first_name,
+    last_name,
+    line_1,
+    line_2,
+    zip_code,
+    city,
+    state_code,
+    country_code,
+    phone,
+  } = address
+
   return (
     <Wrapper>
       {showDeleteConfirmation && (
@@ -62,17 +75,14 @@ export const AddressCard: React.FC<Props> = ({
         </Overlay>
       )}
       <Customer data-cy={`fullname_${addressType}`}>
-        {address?.first_name} {address?.last_name}
+        {first_name} {last_name}
       </Customer>
       <Address data-cy={`full_address_${addressType}`}>
-        {address?.line_2 != null
-          ? [address?.line_1, address?.line_2].join(", ")
-          : address?.line_1}
+        {line_2 != null ? [line_1, line_2].join(", ") : line_1}
         <br />
-        {address?.zip_code} {address?.city} ({address?.state_code}) -{" "}
-        {address?.country_code}
+        {zip_code} {city} ({state_code}) - {country_code}
         <br />
-        {address?.phone}
+        {phone}
         <br />
       </Address>
       {readonly === undefined && (

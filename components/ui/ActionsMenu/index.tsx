@@ -4,7 +4,9 @@ import { useState } from "react"
 import { useTranslation } from "react-i18next"
 import OutsideClickHandler from "react-outside-click-handler"
 
-import { Wrapper, ActionsMenuWrapper } from "./styled"
+import { SrOnly } from "components/ui/Common/styled"
+
+import { Wrapper, ActionsMenuWrapper, ActionsMenuButton } from "./styled"
 
 interface ActionsMenuProps {
   className?: string
@@ -34,19 +36,14 @@ const ActionsMenu: React.FC<ActionsMenuProps> = ({ children, className }) => {
       }}
     >
       <Wrapper showActionsMenu={showActionsMenu} className={`${className}`}>
-        <button
+        <ActionsMenuButton
           type="button"
           onClick={handleClick}
-          className={`flex items-center opacity-70 rounded-full hover:(text-gray-600 opacity-100) p-1 ${
-            showActionsMenu ? "bg-gray-350 text-gray-600 opacity-100" : ""
-          }`}
-          id="menu-button"
-          aria-expanded="true"
-          aria-haspopup="true"
+          showActionsMenu={showActionsMenu}
         >
-          <span className="sr-only">{t("orders.openMenu")}</span>
+          <SrOnly>{t("actionsMenu.mainLabel")}</SrOnly>
           <DotsThreeVertical weight="bold" className="w-5 h-5" />
-        </button>
+        </ActionsMenuButton>
         <Transition show={showActionsMenu} {...actionMenuTransition}>
           <ActionsMenuWrapper>{children}</ActionsMenuWrapper>
         </Transition>
