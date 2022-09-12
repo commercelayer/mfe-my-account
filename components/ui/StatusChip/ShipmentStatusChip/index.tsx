@@ -13,10 +13,11 @@ export type ShipmentStatus =
   | "shipped"
 
 interface Props {
-  status: ShipmentStatus
+  status?: ShipmentStatus
 }
 
 const ShipmentStatusChip: React.FC<Props> = ({ status }) => {
+  if (status === undefined) return null
   const { t } = useTranslation()
 
   return (
