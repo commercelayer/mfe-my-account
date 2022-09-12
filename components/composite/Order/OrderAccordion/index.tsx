@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next"
 import AddressesSummary from "components/composite/Order/AddressesSummary"
 import LineItemList from "components/composite/Order/LineItemList"
 import OrderPayments from "components/composite/Order/OrderPayments"
+import OrderShipments from "components/composite/Order/OrderShipments"
 import OrderSummary from "components/composite/Order/OrderSummary"
 import { AccordionProvider } from "components/data/AccordionProvider"
 import { useAccordionActiveSection } from "components/hooks/useAccordionActiveSection"
@@ -49,10 +50,9 @@ const OrderAccordion: React.FC<Props> = ({ order }) => {
           setActiveSection={setActiveSection}
           section="Shipments"
         >
-          <AccordionItem
-            index={1}
-            header={<span>{t("order.shipments")}</span>}
-          ></AccordionItem>
+          <AccordionItem index={1} header={<span>{t("order.shipments")}</span>}>
+            <OrderShipments order={order} />
+          </AccordionItem>
         </AccordionProvider>
         <AccordionProvider
           activeSection={activeSection}
