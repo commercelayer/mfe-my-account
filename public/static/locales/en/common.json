@@ -162,5 +162,9 @@
   },
   "actionsMenu": {
     "mainLabel": "Open menu"
+  },
+  "showHideMenu": {
+    "mainLabel": "show 1 item",
+    "mainLabel_plural": "show <0/> items"
   }
 }
