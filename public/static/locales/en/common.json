@@ -116,7 +116,7 @@
     "edit": "Edit",
     "delete": "Delete",
     "addNewAddress":"Add new address",
-    "deleteConfirmation": "Are you sure you want to delete this address?",
+    "deleteConfirmation": "Delete your address?",
     "yes": "Yes",
     "no": "No"
   },
