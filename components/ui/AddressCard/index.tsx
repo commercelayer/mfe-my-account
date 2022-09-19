@@ -1,11 +1,12 @@
 import { Address as CLayerAddress } from "@commercelayer/sdk"
-import { Trash } from "phosphor-react"
+import { Trash, X } from "phosphor-react"
 import { useContext, useState } from "react"
 import { useTranslation } from "react-i18next"
 
 import {
   EditButton,
   Wrapper,
+  Content,
   Customer,
   Address,
   ActionsWrapper,
@@ -13,7 +14,7 @@ import {
   Text,
   Overlay,
   ConfirmActions,
-  ConfirmCancel,
+  // ConfirmCancel,
   ConfirmDelete,
   DeleteButtonWrapper,
   DeleteButton,
@@ -58,6 +59,11 @@ export const AddressCard: React.FC<Props> = ({
     <Wrapper>
       {showDeleteConfirmation && (
         <Overlay>
+          <X
+            weight="regular"
+            className="absolute w-5 h-5 text-gray-300 cursor-pointer right-2 top-2"
+            onClick={() => setShowDeleteConfirmation(false)}
+          />
           <Text>{t("addresses.deleteConfirmation")}</Text>
           <ConfirmActions>
             <ConfirmDelete
@@ -68,45 +74,47 @@ export const AddressCard: React.FC<Props> = ({
                 return false
               }}
             />
-            <ConfirmCancel onClick={() => setShowDeleteConfirmation(false)}>
+            {/* <ConfirmCancel onClick={() => setShowDeleteConfirmation(false)}>
               {t("addresses.no")}
-            </ConfirmCancel>
+            </ConfirmCancel> */}
           </ConfirmActions>
         </Overlay>
       )}
-      <Customer data-cy={`fullname_${addressType}`}>
-        {first_name} {last_name}
-      </Customer>
-      <Address data-cy={`full_address_${addressType}`}>
-        {line_2 != null ? [line_1, line_2].join(", ") : line_1}
-        <br />
-        {zip_code} {city} ({state_code}) - {country_code}
-        <br />
-        {phone}
-        <br />
-      </Address>
-      {readonly === undefined && (
-        <ActionsWrapper>
-          <Actions>
-            <EditButton
-              type="edit"
-              label={editButton || t("addresses.edit")}
-              onClick={(address) => {
-                setAddress(address)
-                setShowAddressForm(true)
-              }}
-            />
-            <DeleteButtonWrapper>
-              <Trash className="w-3.5 h-3.5" />
-              <DeleteButton
-                label={deleteButton || t("addresses.delete")}
-                onClick={() => setShowDeleteConfirmation(true)}
-                variant="warning"
+      <Content>
+        <Customer data-cy={`fullname_${addressType}`}>
+          {first_name} {last_name}
+        </Customer>
+        <Address data-cy={`full_address_${addressType}`}>
+          {line_2 != null ? [line_1, line_2].join(", ") : line_1}
+          <br />
+          {zip_code} {city} ({state_code}) - {country_code}
+          <br />
+          {phone}
+          <br />
+        </Address>
+        {readonly === undefined && (
+          <ActionsWrapper>
+            <Actions>
+              <EditButton
+                type="edit"
+                label={editButton || t("addresses.edit")}
+                onClick={(address) => {
+                  setAddress(address)
+                  setShowAddressForm(true)
+                }}
               />
-            </DeleteButtonWrapper>
-          </Actions>
-        </ActionsWrapper>
-      )}
+              <DeleteButtonWrapper>
+                <Trash className="w-3.5 h-3.5" />
+                <DeleteButton
+                  label={deleteButton || t("addresses.delete")}
+                  onClick={() => setShowDeleteConfirmation(true)}
+                  variant="warning"
+                />
+              </DeleteButtonWrapper>
+            </Actions>
+          </ActionsWrapper>
+        )}
+      </Content>
     </Wrapper>
   )
 }
