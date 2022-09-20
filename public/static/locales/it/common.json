@@ -37,5 +37,9 @@
   },
   "actionsMenu": {
     "mainLabel": "Apri menu"
+  },
+  "showHideMenu": {
+    "mainLabel": "mostra 1 elemento",
+    "mainLabel_plural": "mostra <0/> elementi"
   }
 }

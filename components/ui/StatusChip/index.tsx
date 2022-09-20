@@ -4,11 +4,12 @@ import { ShipmentStatus } from "./ShipmentStatusChip"
 import { StatusChipWrapper } from "./styled"
 
 interface Props {
-  status: OrderStatus | ReturnStatus | ShipmentStatus
+  status?: OrderStatus | ReturnStatus | ShipmentStatus
   label: string
 }
 
 const StatusChip: React.FC<Props> = ({ status, label }) => {
+  if (status === undefined) return null
   return <StatusChipWrapper status={status}>{label}</StatusChipWrapper>
 }
 

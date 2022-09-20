@@ -10,10 +10,11 @@ export type OrderStatus =
   | "cancelled"
 
 interface Props {
-  status: OrderStatus
+  status?: OrderStatus
 }
 
 const OrderStatusChip: React.FC<Props> = ({ status }) => {
+  if (status === undefined) return null
   const { t } = useTranslation()
 
   return (

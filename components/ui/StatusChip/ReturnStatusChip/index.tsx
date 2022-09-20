@@ -12,10 +12,11 @@ export type ReturnStatus =
   | "received"
 
 interface Props {
-  status: ReturnStatus
+  status?: ReturnStatus
 }
 
 const ReturnStatusChip: React.FC<Props> = ({ status }) => {
+  if (status === undefined) return null
   const { t } = useTranslation()
 
   return (
