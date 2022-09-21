@@ -4,6 +4,12 @@ interface Props {
   className?: string
 }
 
-export const GridContainer: React.FC<Props> = ({ children, className }) => (
-  <Wrapper className={className}>{children}</Wrapper>
-)
+export const GridContainer: React.FC<Props> = (props) => {
+  const { children, className } = props
+
+  return (
+    <Wrapper className={className} {...props}>
+      {children}
+    </Wrapper>
+  )
+}

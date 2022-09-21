@@ -50,6 +50,10 @@ export class MyAccountPage {
     })
   }
 
+  async checkPageElement(selector: string) {
+    await expect(this.page.locator(selector)).toBeVisible()
+  }
+
   async checkPageTitle(text: string) {
     await expect(this.page.locator(`text=${text}`)).toBeVisible()
   }

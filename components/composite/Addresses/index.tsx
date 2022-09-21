@@ -23,10 +23,11 @@ const Addresses: React.FC = () => {
       <AddressesContainer>
         <Transition show={!showAddressForm} {...addressesTransition}>
           <Title>{t("addresses.title")}</Title>
-          <GridContainer>
+          <GridContainer data-test-id="addresses-wrapper">
             <CustomerAddressCard />
           </GridContainer>
           <AddButton
+            data-test-id="showNewAddress"
             action={() => {
               setShowAddressForm(true)
               setAddress({})
