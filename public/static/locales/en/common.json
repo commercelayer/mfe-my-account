@@ -111,6 +111,12 @@
       "delivered": "Delivered"
     }
   },
+  "parcelStatus": {
+    "delivered": "Delivered",
+    "out_for_delivery": "Out for delivery",
+    "in_transit": "In transit",
+    "pre_transit": "Pre transit"
+  },
   "addresses": {
     "title": "My addresses",
     "edit": "Edit",

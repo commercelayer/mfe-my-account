@@ -1,4 +1,5 @@
 import { Parcel } from "@commercelayer/sdk"
+import { Trans } from "react-i18next"
 
 import useParcelTrackingDetailsParser from "components/hooks/useParcelTrackingDetailsParser"
 import type {
@@ -42,6 +43,12 @@ type OrderShipmentHistoryTimeProps = {
   dateIndex: number
 }
 
+type ParcelStatus =
+  | "parcelStatus.delivered"
+  | "parcelStatus.out_for_delivery"
+  | "parcelStatus.in_transit"
+  | "parcelStatus.pre_transit"
+
 const OrderShipmentHistoryTime: React.FC<OrderShipmentHistoryTimeProps> = ({
   time,
   timeIndex,
@@ -50,6 +57,9 @@ const OrderShipmentHistoryTime: React.FC<OrderShipmentHistoryTimeProps> = ({
   const dateTimeIsLast = dateIndex === 0 && timeIndex === 0
   const timeIsFirstOfDate = timeIndex === 0
   const timeFormatted = time.datetime && formatDate(time.datetime, amPmTime)
+  const parcelStatusTrans = `parcelStatus.${
+    time.status as string
+  }` as ParcelStatus
   return (
     <ShipmentTime timeIsFirstOfDate={timeIsFirstOfDate} key={timeIndex}>
       <ShipmentTimeLabel>{timeFormatted}</ShipmentTimeLabel>
@@ -64,7 +74,9 @@ const OrderShipmentHistoryTime: React.FC<OrderShipmentHistoryTimeProps> = ({
         </ShipmentTimeIconWrapper>
       </ShipmentTimeBorder>
       <ShipmentTimeContentWrapper>
-        <ShipmentTimeStatusWrapper>{time.status}</ShipmentTimeStatusWrapper>
+        <ShipmentTimeStatusWrapper>
+          <Trans i18nKey={parcelStatusTrans} />
+        </ShipmentTimeStatusWrapper>
         <ShipmentTimeMessageWrapper>{time.message}</ShipmentTimeMessageWrapper>
         <ShipmentTimeLocationWrapper>
           {time.trackingLocation}
