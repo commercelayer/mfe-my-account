@@ -85,7 +85,7 @@ const OrderShipment: React.FC<Props> = ({ settings, orderId, parcel }) => {
         </ShipmentHeaderMain>
       </ShipmentHeader>
       <TabsWrapper>
-        <Tabs>
+        {/* <Tabs>
           <StyledTabList>
             <StyledTab selectedClassName={"bg-primary text-white"}>
               {t("shipmentDetail.tabs.overview")}
@@ -100,7 +100,8 @@ const OrderShipment: React.FC<Props> = ({ settings, orderId, parcel }) => {
           <TabPanel>
             <OrderShipmentHistory parcel={parcel} />
           </TabPanel>
-        </Tabs>
+        </Tabs> */}
+        <OrderShipmentHistory parcel={parcel} />
       </TabsWrapper>
     </ShipmentContainer>
   )
