@@ -2,7 +2,7 @@ import styled from "styled-components"
 import tw from "twin.macro"
 
 export const Sidebar = styled.div`
-  ${tw`flex flex-col min-h-full min-w-1/3 md:(p-5) lg:(pl-20 pr-10 pt-10) xl:(pl-48)`}
+  ${tw`flex flex-col min-h-full min-w-1/3 md:(p-5) lg:(pl-10 pr-10 pt-10)`}
 `
 
 export const LogoWrapper = styled.div`

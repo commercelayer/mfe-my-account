@@ -52,7 +52,9 @@ export const LayoutDefault: React.FC<LayoutDefaultProps> = ({
             </DesktopOnly>
             {ctx?.showMobileMenu && <MobileMenu>{aside}</MobileMenu>}
             <Main id="main">
-              <Card fullHeight>{main}</Card>
+              <Card fullHeight centered>
+                {main}
+              </Card>
             </Main>
           </CustomerWrapper>
         )}
