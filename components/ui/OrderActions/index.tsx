@@ -13,9 +13,9 @@ const OrderActions: React.FC<Props> = ({ order }) => {
 
   return (
     <ActionsMenu>
-      <ActionsMenuItem icon={<NotePencil size={12} />} label="Edit order" />
-      <ActionsMenuItem icon={<Printer size={12} />} label="Print invoice" />
-      <ActionsMenuItem
+      {/* <ActionsMenuItem icon={<NotePencil size={12} />} label="Edit order" /> */}
+      <ActionsMenuItem icon={<Printer size={12} />} label="Print order" />
+      {/* <ActionsMenuItem
         icon={<ArrowBendUpLeft size={12} />}
         label="Create a return"
       />
@@ -23,7 +23,7 @@ const OrderActions: React.FC<Props> = ({ order }) => {
         icon={<Trash size={12} color="#ED5959" />}
         variant="warning"
         label="Delete order"
-      />
+      /> */}
     </ActionsMenu>
   )
 }
