@@ -27,9 +27,9 @@ export const AccordionIcon = styled.div`
   }
 `
 export const AccordionBody = styled.div`
-  ${tw`max-h-0 transition duration-200 ease-in opacity-0`}
+  ${tw`max-h-0 opacity-0`}
   .active & {
-    ${tw`max-h-full opacity-100 py-6 md:py-12`}
+    ${tw`max-h-full opacity-100 py-6 md:py-12 transition duration-200 ease-in`}
   }
 
   .disabled & {
