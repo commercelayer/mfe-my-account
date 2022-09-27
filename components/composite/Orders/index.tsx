@@ -31,7 +31,9 @@ const Orders: React.FC = () => {
   const accessToken = ctx?.accessToken
   const { isDesktop } = useWindowSizeDetect()
   const options = isDesktop && {
-    actionsComponent: (order: Order) => <OrderActions order={order} />,
+    actionsComponent: (props: { order: Order }) => (
+      <OrderActions order={props.order} />
+    ),
     windowOptions: {
       height: 600,
       itemSize: 100,
