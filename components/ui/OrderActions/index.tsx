@@ -8,7 +8,7 @@ type Props = {
   order?: Order
 }
 
-const OrderActions: React.FC<Props> = ({ order }) => {
+function OrderActions({ order }: Props): JSX.Element {
   // TODO: Check the content of order prop before to use it. It could be different depending on if it comes from <OrderList> or order page.
 
   return (
