@@ -75,10 +75,10 @@ const Orders: React.FC = () => {
         className="w-full mb-8 -mx-5 table-fixed md:-mx-0"
         columns={columns}
         showActions={true}
-        infiniteScroll
         actionsContainerClassName="absolute right-1 order-5 align-top hidden md:block md:align-middle py-5 text-center"
         theadClassName="hidden md:table-row-group"
         rowTrClassName="flex justify-between md:content-center bg-white shadow-bottom mb-4 px-5 md:p-0 md:border-b md:border-gray-350 md:table-row md:shadow-none"
+        infiniteScroll
         {...options}
       >
         <OrderListEmpty>{() => <Empty type="Orders" />}</OrderListEmpty>
@@ -87,8 +87,7 @@ const Orders: React.FC = () => {
           className="order-1 pt-5 pb-2.5 md:py-5 md:align-middle"
         >
           {({ cell, order, ...p }) => {
-            if (!cell || !order) return null
-            return cell.map((cell) => {
+            const cols = cell?.map((cell) => {
               return (
                 <OrderData key={order} {...p} {...cell.getCellProps()}>
                   <Link href={`/orders/${order.id}?accessToken=${accessToken}`}>
@@ -102,6 +101,7 @@ const Orders: React.FC = () => {
                 </OrderData>
               )
             })
+            return <>{cols}</>
           }}
         </OrderListRow>
         <OrderListRow
@@ -109,8 +109,7 @@ const Orders: React.FC = () => {
           className="absolute order-2 text-right bottom-5 right-5 md:bottom-auto md:relative md:right-auto md:py-5 md:text-left"
         >
           {({ cell, order, ...p }) => {
-            if (!cell || !order) return null
-            return cell.map((cell) => {
+            const cols = cell?.map((cell) => {
               return (
                 <OrderData key={order} {...p} {...cell.getCellProps()}>
                   <OrderUpdatedDate>
@@ -119,6 +118,7 @@ const Orders: React.FC = () => {
                 </OrderData>
               )
             })
+            return <>{cols}</>
           }}
         </OrderListRow>
         <OrderListRow
@@ -126,14 +126,14 @@ const Orders: React.FC = () => {
           className="absolute order-3 px-0 bottom-5 md:bottom-auto md:relative md:py-5"
         >
           {({ cell, order, ...p }) => {
-            if (!cell || !order) return null
-            return cell.map((cell) => {
+            const cols = cell?.map((cell) => {
               return (
                 <OrderData key={order} {...p} {...cell.getCellProps()}>
                   <OrderStatusChip status={p.row.values.status} />
                 </OrderData>
               )
             })
+            return <>{cols}</>
           }}
         </OrderListRow>
         <OrderListRow
