@@ -12,6 +12,7 @@ export type EmptyType = "Addresses" | "Orders" | "PaymentMethods" | "Returns"
 // TODO: Define a prop for the CTA click handler
 interface Props {
   type: EmptyType
+  buttonClick?: () => void
 }
 
 const emptyTypes = [
@@ -33,7 +34,7 @@ const emptyTypes = [
   },
 ]
 
-const Empty: React.FC<Props> = ({ type }) => {
+const Empty: React.FC<Props> = ({ type, buttonClick }) => {
   const { t } = useTranslation()
   const icon = emptyTypes.find((emptyType) => emptyType.type === type)?.icon
 
@@ -42,7 +43,12 @@ const Empty: React.FC<Props> = ({ type }) => {
       {icon}
       <Title>{t(`no${type}.title`)}</Title>
       <Description>{t(`no${type}.description`)}</Description>
-      <NoItemsButton label={t(`no${type}.buttonLabel`) as string} />
+      {buttonClick && (
+        <NoItemsButton
+          label={t(`no${type}.buttonLabel`) as string}
+          onClick={buttonClick}
+        />
+      )}
     </Wrapper>
   )
 }
