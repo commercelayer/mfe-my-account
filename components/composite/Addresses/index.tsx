@@ -1,9 +1,13 @@
-import { AddressesContainer } from "@commercelayer/react-components"
+import {
+  AddressesContainer,
+  AddressesEmpty,
+} from "@commercelayer/react-components"
 import { Transition } from "@headlessui/react"
 import { useState } from "react"
 import { useTranslation } from "react-i18next"
 
 import CustomerAddressForm from "components/composite/Address/CustomerAddressForm"
+import Empty from "components/composite/Empty"
 import { AddButton } from "components/ui/AddButton"
 import CustomerAddressCard from "components/ui/CustomerAddressCard"
 import { GridContainer } from "components/ui/GridContainer"
@@ -23,6 +27,7 @@ const Addresses: React.FC = () => {
       <AddressesContainer>
         <Transition show={!showAddressForm} {...addressesTransition}>
           <Title>{t("addresses.title")}</Title>
+          <AddressesEmpty>{() => <Empty type="Addresses" />}</AddressesEmpty>
           <GridContainer>
             <CustomerAddressCard />
           </GridContainer>
