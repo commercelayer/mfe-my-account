@@ -91,7 +91,7 @@ const CustomerAddressForm: React.FC<Props> = ({ onClose }) => {
           <Text>{t("addressForm.discard_changes")}</Text>
         </DiscardChanges>
         <SaveButton
-          data-test-id="saveAddress"
+          data-test-id="save-address"
           label={t("addressForm.save")}
           onClick={() => setShowAddressForm(false)}
           addressId={address.id}

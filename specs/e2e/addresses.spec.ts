@@ -23,7 +23,7 @@ test.describe("Empty addresses page", () => {
 
     await addressesPage.countVisibleAddresses(1)
 
-    await addressesPage.editNthAddress(1, euAddress2)
+    await addressesPage.editNthAddress({ index: 1, address: euAddress2 })
 
     await addressesPage.countVisibleAddresses(1)
 
@@ -55,7 +55,7 @@ test.describe("Addresses page with 1 address", () => {
 
     await addressesPage.countVisibleAddresses(2)
 
-    await addressesPage.editNthAddress(2, euAddress3)
+    await addressesPage.editNthAddress({ index: 2, address: euAddress3 })
 
     await addressesPage.countVisibleAddresses(2)
 
@@ -85,7 +85,7 @@ test.describe("Addresses page with 2 address", () => {
 
     await addressesPage.countVisibleAddresses(3)
 
-    await addressesPage.editNthAddress(3, euAddress4)
+    await addressesPage.editNthAddress({ index: 3, address: euAddress4 })
 
     await addressesPage.countVisibleAddresses(3)
 

@@ -27,7 +27,7 @@ const Addresses: React.FC = () => {
             <CustomerAddressCard />
           </GridContainer>
           <AddButton
-            data-test-id="showNewAddress"
+            data-test-id="show-new-address"
             action={() => {
               setShowAddressForm(true)
               setAddress({})

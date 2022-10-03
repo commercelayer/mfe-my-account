@@ -1,5 +1,6 @@
 import { Address } from "@commercelayer/sdk"
 import { expect } from "@playwright/test"
+import { number } from "zod"
 
 import { MyAccountPage } from "./MyAccountPage"
 
@@ -42,8 +43,8 @@ export class AddressesPage extends MyAccountPage {
   }
 
   async createAddress(address: Partial<Address>) {
-    this.checkPageElement("[data-test-id=showNewAddress]")
-    this.page.click("[data-test-id=showNewAddress]")
+    this.checkPageElement("[data-test-id=show-new-address]")
+    this.page.click("[data-test-id=show-new-address]")
 
     await this.page
       .locator("text=New address")
@@ -51,8 +52,8 @@ export class AddressesPage extends MyAccountPage {
 
     this.fillAddress(address)
 
-    this.checkPageElement("[data-test-id=saveAddress]")
-    this.page.click("[data-test-id=saveAddress]")
+    this.checkPageElement("[data-test-id=save-address]")
+    this.page.click("[data-test-id=save-address]")
   }
 
   async countVisibleAddresses(count: number) {
@@ -60,7 +61,13 @@ export class AddressesPage extends MyAccountPage {
     await expect(elements).toHaveCount(count)
   }
 
-  async editNthAddress(index: number, address: Partial<Address>) {
+  async editNthAddress({
+    index,
+    address,
+  }: {
+    index: number
+    address: Partial<Address>
+  }) {
     const nthAddressEditButton = `${this.addressesCardSelector}:nth-child(${index}) >> .address-edit-button`
     this.checkPageElement(nthAddressEditButton)
     this.page.click(nthAddressEditButton)
@@ -71,8 +78,8 @@ export class AddressesPage extends MyAccountPage {
 
     this.fillAddress(address)
 
-    this.checkPageElement("[data-test-id=saveAddress]")
-    this.page.click("[data-test-id=saveAddress]")
+    this.checkPageElement("[data-test-id=save-address]")
+    this.page.click("[data-test-id=save-address]")
   }
 
   async deleteNthAddress(index: number) {
