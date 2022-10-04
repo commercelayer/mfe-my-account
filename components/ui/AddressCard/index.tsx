@@ -69,6 +69,7 @@ export const AddressCard: React.FC<Props> = ({
             <ConfirmDelete
               type="delete"
               label={t("addresses.yes")}
+              className="address-confirm-delete-button"
               onClick={() => {
                 // TODO: Do we need to introduce a visual confirmation of address deletion?
                 return false
@@ -98,16 +99,19 @@ export const AddressCard: React.FC<Props> = ({
               <EditButton
                 type="edit"
                 label={editButton || t("addresses.edit")}
+                className="address-edit-button"
                 onClick={(address) => {
                   setAddress(address)
                   setShowAddressForm(true)
                 }}
               />
-              <DeleteButtonWrapper>
+              <DeleteButtonWrapper
+                onClick={() => setShowDeleteConfirmation(true)}
+                className="address-delete-button"
+              >
                 <Trash className="w-3.5 h-3.5" />
                 <DeleteButton
                   label={deleteButton || t("addresses.delete")}
-                  onClick={() => setShowDeleteConfirmation(true)}
                   variant="warning"
                 />
               </DeleteButtonWrapper>

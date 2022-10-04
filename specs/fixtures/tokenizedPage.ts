@@ -4,15 +4,18 @@ import {
   getSalesChannelToken,
 } from "@commercelayer/js-auth"
 import CommerceLayer, {
-  CommerceLayerClient
+  Address,
+  AddressCreate,
+  CommerceLayerClient,
 } from "@commercelayer/sdk"
 import { test as base } from "@playwright/test"
 import dotenv from "dotenv"
 import jwt_decode from "jwt-decode"
 
 import path from "path"
-import { OrdersPage } from "./OrdersPage"
+
 import { AddressesPage } from "./AddressesPage"
+import { OrdersPage } from "./OrdersPage"
 
 dotenv.config({ path: path.resolve(__dirname, "../../.env.local") })
 
@@ -29,6 +32,7 @@ interface DefaultParamsProps {
     email: string
     password: string
   }
+  customerAddresses?: Partial<Address>[]
 }
 
 type FixtureType = {
@@ -54,7 +58,7 @@ const getClient = async (token: string) => {
   return CommerceLayer({
     organization: process.env.E2E_SLUG as string,
     accessToken: token,
-    domain: process.env.NEXT_PUBLIC_DOMAIN
+    domain: process.env.NEXT_PUBLIC_DOMAIN,
   })
 }
 
@@ -88,7 +92,7 @@ const getCustomerUserToken = async ({
     },
     {
       username: email,
-      password: password,
+      password,
     }
   )
   return data?.accessToken as string
@@ -96,8 +100,7 @@ const getCustomerUserToken = async ({
 
 const getSuperToken = async () => {
   const clientId = process.env.E2E_INTEGRATION_CLIENT_ID as string
-  const clientSecret = process.env
-    .E2E_INTEGRATION_CLIENT_SECRET as string
+  const clientSecret = process.env.E2E_INTEGRATION_CLIENT_SECRET as string
   const endpoint = process.env.E2E_ENDPOINT as string
   const scope = process.env.E2E_SCOPE as string
   const data = await getIntegrationToken({
@@ -109,8 +112,49 @@ const getSuperToken = async () => {
   return data?.accessToken as string
 }
 
+const createCustomerAddresses = async (
+  cl: CommerceLayerClient,
+  params: DefaultParamsProps
+) => {
+  console.log("createCustomerAddresses")
+  if (
+    params.customer &&
+    params.customerAddresses &&
+    params.customerAddresses.length > 0
+  ) {
+    const token = await getCustomerUserToken({
+      email: params.customer.email,
+      password: params.customer.password,
+    })
+    const customerCl = await getClient(token)
+    const {
+      owner: { id },
+    } = jwt_decode(token) as JWTProps
+
+    const promises = params.customerAddresses.map(async (address) => {
+      const a = await customerCl.addresses.create({
+        ...address,
+      } as AddressCreate)
+      await customerCl.addresses.update({
+        id: a.id,
+        reference: a.id,
+      })
+      return customerCl.customer_addresses.create({
+        customer: customerCl.customers.relationship(id),
+        address: customerCl.addresses.relationship(a),
+      })
+    })
+    await Promise.all(promises)
+  }
+}
+
 export const test = base.extend<FixtureType>({
-  defaultParams: { customer: { email: process.env.E2E_CUSTOMER_USERNAME as string, password: process.env.E2E_CUSTOMER_PASSWORD as string } },
+  defaultParams: {
+    customer: {
+      email: process.env.E2E_CUSTOMER_USERNAME as string,
+      password: process.env.E2E_CUSTOMER_PASSWORD as string,
+    },
+  },
   ordersPage: async ({ page, defaultParams }, use) => {
     const token = await (defaultParams.customer
       ? getCustomerUserToken(defaultParams.customer)
@@ -120,7 +164,7 @@ export const test = base.extend<FixtureType>({
 
     const ordersPage = new OrdersPage(page)
     await ordersPage.goto({
-      pageUrl: 'orders',
+      pageUrl: "orders",
       token: accessToken,
     })
     await use(ordersPage)
@@ -129,12 +173,15 @@ export const test = base.extend<FixtureType>({
     const token = await (defaultParams.customer
       ? getCustomerUserToken(defaultParams.customer)
       : getToken(defaultParams.market))
+
+    const cl = await getClient(token)
+    await createCustomerAddresses(cl, defaultParams)
+
     const accessToken =
       defaultParams.token === undefined ? token : defaultParams.token
-
     const addressesPage = new AddressesPage(page)
     await addressesPage.goto({
-      pageUrl: 'addresses',
+      pageUrl: "addresses",
       token: accessToken,
     })
     await use(addressesPage)

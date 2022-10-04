@@ -27,7 +27,7 @@ const CustomerAddressForm: React.FC<Props> = ({ onClose }) => {
   return (
     <Form>
       <Title>
-        {address
+        {address.first_name !== undefined
           ? t("addressForm.edit_address_title")
           : t("addressForm.new_address_title")}
       </Title>
@@ -91,6 +91,7 @@ const CustomerAddressForm: React.FC<Props> = ({ onClose }) => {
           <Text>{t("addressForm.discard_changes")}</Text>
         </DiscardChanges>
         <SaveButton
+          data-test-id="save-address"
           label={t("addressForm.save")}
           onClick={() => setShowAddressForm(false)}
           addressId={address.id}
