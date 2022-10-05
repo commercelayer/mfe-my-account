@@ -61,7 +61,8 @@
     "shipmentStatus": "Status: <0/>",
     "paymentMethod": {
       "creditCard": "Credit card",
-      "EndingIn": "<0/> ending in <1/>",
+      "EndingIn": "ending in <0/>",
+      "ValidUntil": "valid until <0/>/<1/>",
       "wireTransfer": "Wire transfer",
       "wireTransferDescription": "Upon order confirmation, you'll receive wiring instructions to complete payment",
       "paypalDescription": "After placing the order, you will be redirected to the PayPal website to sign in and authorize the payment"
@@ -71,7 +72,7 @@
     "shipment": "Shipment #<0/>",
     "parcel": "Parcel <0/>",
     "trackingCode": "Tracking code",
-    "trackShipment": "Track shipment",
+    "trackParcel": "Track parcel",
     "parcels": {
       "lineItemQuantity": "Quantity: <0/>"
     }
@@ -97,8 +98,8 @@
     "ready_to_ship": "ready_to_ship",
     "shipped": "shipped"
   },
-  "shipmentDetail": {
-    "title": "Track Shipment",
+  "parcelDetail": {
+    "title": "Track Parcel",
     "header": {
       "tracking_code": "Tracking code",
       "courier": "Courier",

@@ -1,9 +1,11 @@
 import {
   ShipmentsContainer,
+  ShipmentsCount,
   Shipment,
   ShipmentField,
   Parcels,
   ParcelField,
+  ParcelLineItemsCount,
   ParcelLineItem,
   ParcelLineItemField,
 } from "@commercelayer/react-components"
@@ -78,11 +80,11 @@ const ParcelLink: React.FC<ParcelLinkProps> = ({ orderId }) => {
         return (
           <Button
             className="uppercase"
-            label={t("orderShipments.trackShipment") as string}
+            label={t("orderShipments.trackParcel") as string}
             buttonSize="small"
             onClick={() =>
               router.push(
-                `/orders/${orderId}/shipments/${props?.attributeValue}?accessToken=${accessToken}`
+                `/orders/${orderId}/parcels/${props?.attributeValue}?accessToken=${accessToken}`
               )
             }
           />
@@ -107,42 +109,50 @@ const Parcel: React.FC<ParcelProps> = ({ orderId }) => {
         </ParcelHeaderRight>
       </ParcelHeader>
       <ParcelContent>
-        <ShowHideMenu itemsCounter={2}>
-          <ParcelLineItem>
-            <ParcelLineItemWrapper>
-              <ParcelLineItemImageWrapper>
-                <ParcelLineItemField tagElement="img" attribute="image_url" />
-              </ParcelLineItemImageWrapper>
-              <ParcelLineItemContentWrapper>
-                <ParcelLineItemName>
-                  <ParcelLineItemField tagElement="span" attribute="name" />
-                </ParcelLineItemName>
-                <ParcelLineItemQuantity>
-                  <Trans i18nKey="orderShipments.parcels.lineItemQuantity">
-                    <ParcelLineItemField
-                      tagElement="span"
-                      attribute="quantity"
-                    />
-                  </Trans>
-                </ParcelLineItemQuantity>
-              </ParcelLineItemContentWrapper>
-            </ParcelLineItemWrapper>
-          </ParcelLineItem>
-        </ShowHideMenu>
+        <ParcelLineItemsCount>
+          {(props) => {
+            return (
+              <ShowHideMenu itemsCounter={props?.quantity}>
+                <ParcelLineItem>
+                  <ParcelLineItemWrapper>
+                    <ParcelLineItemImageWrapper>
+                      <ParcelLineItemField
+                        tagElement="img"
+                        attribute="image_url"
+                      />
+                    </ParcelLineItemImageWrapper>
+                    <ParcelLineItemContentWrapper>
+                      <ParcelLineItemName>
+                        <ParcelLineItemField
+                          tagElement="span"
+                          attribute="name"
+                        />
+                      </ParcelLineItemName>
+                      <ParcelLineItemQuantity>
+                        <Trans i18nKey="orderShipments.parcels.lineItemQuantity">
+                          <ParcelLineItemField
+                            tagElement="span"
+                            attribute="quantity"
+                          />
+                        </Trans>
+                      </ParcelLineItemQuantity>
+                    </ParcelLineItemContentWrapper>
+                  </ParcelLineItemWrapper>
+                </ParcelLineItem>
+              </ShowHideMenu>
+            )
+          }}
+        </ParcelLineItemsCount>
       </ParcelContent>
     </ParcelWrapper>
   )
 }
 
-type ShipmentProps = {
-  shipmentsCount: number
-}
-
-const ShipmentTop: React.FC<ShipmentProps> = ({ shipmentsCount = 1 }) => {
+const ShipmentTop: React.FC = () => {
   return (
     <ShipmentHeader>
       <ShipmentCounter>
-        <ShipmentField name="key_number" />/<span>{shipmentsCount}</span>
+        <ShipmentField name="key_number" />/<ShipmentsCount />
       </ShipmentCounter>
       <ShipmentHeaderRight>
         <ShipmentHeaderRightRow>
@@ -180,7 +190,7 @@ const OrderShipments: React.FC<OrderShipments> = ({ order }) => {
     <ShipmentsContainer>
       <Shipment>
         <ShipmentWrapper>
-          <ShipmentTop shipmentsCount={order?.shipments?.length as number} />
+          <ShipmentTop />
           <Parcels>
             <ParcelsWrapper>
               <Parcel orderId={order?.id} />

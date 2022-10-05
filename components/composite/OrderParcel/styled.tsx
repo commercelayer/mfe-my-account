@@ -1,15 +1,15 @@
 import styled from "styled-components"
 import tw from "twin.macro"
 
-export const ShipmentContainer = styled.div`
+export const ParcelContainer = styled.div`
   ${tw``}
 `
 
-export const ShipmentHeader = styled.div`
+export const ParcelHeader = styled.div`
   ${tw`mt-3`}
 `
 
-export const ShipmentHeaderTop = styled.div`
+export const ParcelHeaderTop = styled.div`
   ${tw`flex items-start content-start`}
 `
 
@@ -21,19 +21,19 @@ export const Title = styled.h2`
   ${tw`ml-4 p-1 text-lg font-medium`}
 `
 
-export const ShipmentHeaderMain = styled.div`
+export const ParcelHeaderMain = styled.div`
   ${tw`md:pl-12 flex flex-auto justify-between gap-4`}
 `
 
-export const ShipmentHeaderCol = styled.div`
+export const ParcelHeaderCol = styled.div`
   ${tw``}
 `
 
-export const ShipmentHeaderLabel = styled.label`
+export const ParcelHeaderLabel = styled.label`
   ${tw`block uppercase text-xs text-gray-300 font-bold`}
 `
 
-export const ShipmentHeaderValue = styled.span`
+export const ParcelHeaderValue = styled.span`
   ${tw`block text-sm font-bold`}
 `
 export const TabsWrapper = styled.div`
