@@ -1,6 +1,5 @@
 import { Address } from "@commercelayer/sdk"
 import { expect } from "@playwright/test"
-import { number } from "zod"
 
 import { MyAccountPage } from "./MyAccountPage"
 
@@ -9,19 +8,19 @@ export class AddressesPage extends MyAccountPage {
 
   async fillAddress(address: Partial<Address>) {
     await this.page
-      .locator("input[id=billing_address_first_name]")
+      .locator("input[name=billing_address_first_name]")
       .fill(address.first_name as string)
 
     await this.page
-      .locator("input[id=billing_address_last_name]")
+      .locator("input[name=billing_address_last_name]")
       .fill(address.last_name as string)
 
     await this.page
-      .locator("input[id=billing_address_line_1]")
+      .locator("input[name=billing_address_line_1]")
       .fill(address.line_1 as string)
 
     await this.page
-      .locator("input[id=billing_address_city]")
+      .locator("input[name=billing_address_city]")
       .fill(address.city as string)
 
     await this.page.selectOption(
@@ -30,15 +29,15 @@ export class AddressesPage extends MyAccountPage {
     )
 
     await this.page
-      .locator("input[id=billing_address_state_code]")
+      .locator("input[name=billing_address_state_code]")
       .fill(address.state_code as string)
 
     await this.page
-      .locator("input[id=billing_address_zip_code]")
+      .locator("input[name=billing_address_zip_code]")
       .fill(address.zip_code as string)
 
     await this.page
-      .locator("input[id=billing_address_phone]")
+      .locator("input[name=billing_address_phone]")
       .fill(address.phone as string)
   }
 
@@ -46,14 +45,12 @@ export class AddressesPage extends MyAccountPage {
     this.checkPageElement("[data-test-id=show-new-address]")
     this.page.click("[data-test-id=show-new-address]")
 
-    await this.page
-      .locator("text=New address")
-      .waitFor({ state: "visible", timeout: 600 })
+    await this.page.locator("text=New address")
 
-    this.fillAddress(address)
+    await this.fillAddress(address)
 
-    this.checkPageElement("[data-test-id=save-address]")
-    this.page.click("[data-test-id=save-address]")
+    await this.checkPageElement("[data-test-id=save-address]")
+    await this.page.click("[data-test-id=save-address]")
   }
 
   async countVisibleAddresses(count: number) {
@@ -72,14 +69,12 @@ export class AddressesPage extends MyAccountPage {
     this.checkPageElement(nthAddressEditButton)
     this.page.click(nthAddressEditButton)
 
-    await this.page
-      .locator("text=Edit my address")
-      .waitFor({ state: "visible", timeout: 600 })
+    await this.page.locator("text=Edit my address")
 
-    this.fillAddress(address)
+    await this.fillAddress(address)
 
-    this.checkPageElement("[data-test-id=save-address]")
-    this.page.click("[data-test-id=save-address]")
+    await this.checkPageElement("[data-test-id=save-address]")
+    await this.page.click("[data-test-id=save-address]")
   }
 
   async deleteNthAddress(index: number) {
