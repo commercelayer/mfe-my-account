@@ -64,3 +64,23 @@ export const ParcelTrackingNumberCode = styled.div`
 export const ParcelContent = styled.div`
   ${tw`py-3`}
 `
+
+export const ParcelLineItemWrapper = styled.div`
+  ${tw`flex flex-row py-4`}
+`
+
+export const ParcelLineItemImageWrapper = styled.div`
+  ${tw`p-1 border rounded w-[45px]`}
+`
+
+export const ParcelLineItemContentWrapper = styled.div`
+  ${tw`flex flex-col flex-1 pl-4`}
+`
+
+export const ParcelLineItemName = styled.span`
+  ${tw`text-sm font-bold`}
+`
+
+export const ParcelLineItemQuantity = styled.span`
+  ${tw`mt-1 text-xs text-gray-500 uppercase`}
+`

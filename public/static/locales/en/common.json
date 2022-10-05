@@ -69,9 +69,12 @@
   },
   "orderShipments": {
     "shipment": "Shipment #<0/>",
-    "parcel": "Parcel #<0/>",
+    "parcel": "Parcel <0/>",
     "trackingCode": "Tracking code",
-    "trackShipment": "Track shipment"
+    "trackShipment": "Track shipment",
+    "parcels": {
+      "lineItemQuantity": "Quantity: <0/>"
+    }
   },
   "orderSummary": {
     "billedTo": "Billed to",
