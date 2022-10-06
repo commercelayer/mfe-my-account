@@ -1,3 +1,4 @@
+import SkeletonMain from "components/composite/Skeleton/Main"
 import {
   Sidebar,
   SkeletonLogoWrapper,
@@ -5,12 +6,6 @@ import {
   SkeletonMenuItem,
   SkeletonMenuItemIcon,
   SkeletonMenuItemLabel,
-  SkeletonWrapper,
-  SkeletonHeader,
-  SkeletonTitle,
-  SkeletonTableRow,
-  SkeletonTableTh,
-  SkeletonTableTd,
 } from "components/composite/Skeleton/styled"
 import { LayoutDefault } from "components/layouts/LayoutDefault"
 
@@ -44,31 +39,7 @@ export const CustomerSkeleton: React.FC = () => {
           <MenuItem className="mt-7" />
         </Sidebar>
       }
-      main={
-        <SkeletonWrapper>
-          <SkeletonHeader>
-            <SkeletonTitle />
-          </SkeletonHeader>
-          <SkeletonTableRow>
-            <SkeletonTableTh />
-            <SkeletonTableTh />
-            <SkeletonTableTh />
-            <SkeletonTableTh />
-          </SkeletonTableRow>
-          <SkeletonTableRow>
-            <SkeletonTableTd />
-            <SkeletonTableTd />
-            <SkeletonTableTd />
-            <SkeletonTableTd />
-          </SkeletonTableRow>
-          <SkeletonTableRow>
-            <SkeletonTableTd />
-            <SkeletonTableTd />
-            <SkeletonTableTd />
-            <SkeletonTableTd />
-          </SkeletonTableRow>
-        </SkeletonWrapper>
-      }
+      main={<SkeletonMain />}
     />
   )
 }
