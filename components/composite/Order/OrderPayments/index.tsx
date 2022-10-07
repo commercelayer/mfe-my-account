@@ -1,6 +1,5 @@
 import {
   PaymentMethodsContainer,
-  PaymentMethod,
   PaymentSource,
   PaymentSourceBrandIcon,
   PaymentSourceBrandName,
@@ -28,46 +27,42 @@ const OrderPayments: React.FC<Props> = ({ order }) => {
 
   return (
     <PaymentMethodsContainer>
-      <PaymentMethod>
-        <PaymentSource readonly>
-          <PaymentSourceWrapper>
-            <PaymentSourceBrandIcon className="mr-2" />
-            <PaymentSourceBrandNameWrapper>
-              <PaymentSourceBrandName>
-                {(props) => {
-                  if (
-                    (order?.payment_source?.type as string) === "credit_card"
-                  ) {
-                    return (
-                      <CreditCardBrandNameWrapper>
-                        <PaymentSourceBrandNamePrimary>
-                          {getTranslations(props?.brand, t)}
-                        </PaymentSourceBrandNamePrimary>
-                        <PaymentSourceBrandNamePrimary>
-                          <Trans i18nKey="order.paymentMethod.EndingIn">
-                            <PaymentSourceDetail type="last4" />
-                          </Trans>
-                        </PaymentSourceBrandNamePrimary>
-                        <PaymentSourceBrandNameSecondary>
-                          <Trans i18nKey="order.paymentMethod.ValidUntil">
-                            <PaymentSourceDetail type="exp_month" />
-                            <PaymentSourceDetail type="exp_year" />
-                          </Trans>
-                        </PaymentSourceBrandNameSecondary>
-                      </CreditCardBrandNameWrapper>
-                    )
-                  }
+      <PaymentSource readonly>
+        <PaymentSourceWrapper>
+          <PaymentSourceBrandIcon className="mr-2" />
+          <PaymentSourceBrandNameWrapper>
+            <PaymentSourceBrandName>
+              {(props) => {
+                if ((order?.payment_source?.type as string) === "credit_card") {
                   return (
-                    <PaymentSourceBrandNamePrimary>
-                      {getTranslations(props?.brand, t)}
-                    </PaymentSourceBrandNamePrimary>
+                    <CreditCardBrandNameWrapper>
+                      <PaymentSourceBrandNamePrimary>
+                        {getTranslations(props?.brand, t)}
+                      </PaymentSourceBrandNamePrimary>
+                      <PaymentSourceBrandNamePrimary>
+                        <Trans i18nKey="order.paymentMethod.EndingIn">
+                          <PaymentSourceDetail type="last4" />
+                        </Trans>
+                      </PaymentSourceBrandNamePrimary>
+                      <PaymentSourceBrandNameSecondary>
+                        <Trans i18nKey="order.paymentMethod.ValidUntil">
+                          <PaymentSourceDetail type="exp_month" />
+                          <PaymentSourceDetail type="exp_year" />
+                        </Trans>
+                      </PaymentSourceBrandNameSecondary>
+                    </CreditCardBrandNameWrapper>
                   )
-                }}
-              </PaymentSourceBrandName>
-            </PaymentSourceBrandNameWrapper>
-          </PaymentSourceWrapper>
-        </PaymentSource>
-      </PaymentMethod>
+                }
+                return (
+                  <PaymentSourceBrandNamePrimary>
+                    {getTranslations(props?.brand, t)}
+                  </PaymentSourceBrandNamePrimary>
+                )
+              }}
+            </PaymentSourceBrandName>
+          </PaymentSourceBrandNameWrapper>
+        </PaymentSourceWrapper>
+      </PaymentSource>
     </PaymentMethodsContainer>
   )
 }
