@@ -5,7 +5,7 @@ import {
   LineItemQuantity,
   LineItemAmount,
 } from "@commercelayer/react-components"
-import { LineItemType } from "@commercelayer/react-components/dist/typings"
+import type { LineItemType } from "@commercelayer/react-components"
 import { useTranslation } from "react-i18next"
 
 import { LineItemWrapper, LineItemDescription, LineItemQty } from "./styled"
