@@ -34,7 +34,7 @@ const OrderPayments: React.FC = () => {
             </PaymentSourceBrandName>
             <PaymentSourceDetail type="last4">
               {(props) => {
-                if (props.text === null) return <></>
+                if (props.text === null || props.text.length === 0) return <></>
                 return (
                   <>
                     <PaymentSourceBrandNamePrimary>

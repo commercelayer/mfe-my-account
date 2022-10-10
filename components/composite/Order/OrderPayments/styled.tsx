@@ -6,11 +6,11 @@ export const PaymentSourceWrapper = styled.div`
 `
 
 export const PaymentSourceBrandNameWrapper = styled.div`
-  ${tw`flex justify-between w-full text-sm ml-3`}
+  ${tw`flex w-full text-sm ml-3`}
 `
 
 export const PaymentSourceBrandNamePrimary = styled.span`
-  ${tw`font-bold`}
+  ${tw`font-bold pr-1`}
 `
 
 export const PaymentSourceBrandNameSecondary = styled.span`
