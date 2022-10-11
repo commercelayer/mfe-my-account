@@ -6,5 +6,5 @@ export const Image = styled.img`
 `
 
 export const Label = styled.h1`
-  ${tw`mb-5 md:mb-12 font-extrabold uppercase tracking-wide text-xl text-black`}
+  ${tw`mb-0 md:mt-1 md:mb-12 font-extrabold uppercase tracking-wide text-xl text-black`}
 `

@@ -29,16 +29,25 @@ const Orders: React.FC = () => {
   const { t } = useTranslation()
   const ctx = useContext(AppContext)
   const accessToken = ctx?.accessToken
-  const { isDesktop } = useWindowSizeDetect()
-  const options = isDesktop && {
-    actionsComponent: (props: { order: Order }) => (
-      <OrderActions order={props.order} />
-    ),
-    windowOptions: {
-      height: 600,
-      itemSize: 100,
-    },
-  }
+  const { isDesktop, screen } = useWindowSizeDetect()
+  const options = isDesktop
+    ? {
+        actionsComponent: (props: { order: Order }) => (
+          <OrderActions order={props.order} />
+        ),
+        windowOptions: {
+          width: 600,
+          height: 600,
+          itemSize: 100,
+        },
+      }
+    : {
+        windowOptions: {
+          width: screen.width,
+          height: 600,
+          itemSize: 100,
+        },
+      }
 
   const colClassName =
     "text-left text-xs font-thin text-gray-600 pb-5 border-b border-gray-300 md:border-none md:text-gray-400 md:font-semibold md:uppercase md:relative"
@@ -79,7 +88,7 @@ const Orders: React.FC = () => {
         showActions={true}
         actionsContainerClassName="absolute right-1 order-5 align-top hidden md:block md:align-middle py-5 text-center"
         theadClassName="hidden md:table-row-group"
-        rowTrClassName="flex justify-between md:content-center bg-white shadow-bottom mb-4 px-5 md:p-0 md:border-b md:border-gray-350 md:table-row md:shadow-none"
+        rowTrClassName="flex justify-between md:content-center bg-white shadow-bottom mb-4 pb-28 md:pb-0 px-5 md:p-0 md:border-b md:border-gray-350 md:table-row md:shadow-none"
         infiniteScroll
         {...options}
       >

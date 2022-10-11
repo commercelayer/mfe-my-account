@@ -10,7 +10,7 @@ export const PaymentSourceBrandNameWrapper = styled.div`
 `
 
 export const PaymentSourceBrandNamePrimary = styled.span`
-  ${tw`font-bold pr-1`}
+  ${tw`font-bold pr-1 break-all`}
 `
 
 export const PaymentSourceBrandNameSecondary = styled.span`
