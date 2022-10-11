@@ -20,6 +20,10 @@ export class AddressesPage extends MyAccountPage {
       .fill(address.line_1 as string)
 
     await this.page
+      .locator("input[name=billing_address_line_2]")
+      .fill(address.line_2 as string)
+
+    await this.page
       .locator("input[name=billing_address_city]")
       .fill(address.city as string)
 
