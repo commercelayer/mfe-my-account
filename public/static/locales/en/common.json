@@ -138,15 +138,18 @@
   "addressForm": {
     "new_address_title": "Add a new address",
     "edit_address_title": "Edit my address",
-    "billing_address_first_name": "first name",
-    "billing_address_last_name": "last name",
-    "billing_address_line_1": "address",
-    "billing_address_city": "city",
-    "billing_address_zip_code": "zip code",
-    "billing_address_country_code": "country",
+    "fields": {
+      "billing_address_first_name": "first name",
+      "billing_address_last_name": "last name",
+      "billing_address_line_1": "address (line 1)",
+      "billing_address_line_2": "address (line 2)",
+      "billing_address_city": "city",
+      "billing_address_zip_code": "zip code",
+      "billing_address_country_code": "country",
+      "billing_address_state_code": "state",
+      "billing_address_phone": "telephone"
+    },
     "billing_address_country_code_placeholder": "Select a country",
-    "billing_address_state_code": "state",
-    "billing_address_phone": "telephone",
     "discard_changes": "Discard changes",
     "save": "Save"
   },
@@ -155,7 +158,9 @@
     "description": "Looks like you haven’t made any payment method yet",
     "buttonLabel": "Add a payment method"
   },
-  "returns": {},
+  "returns": {
+    "title": "My returns"
+  },
   "noReturns": {
     "title": "No returns yet",
     "description": "Looks like you haven't made any returns yet",

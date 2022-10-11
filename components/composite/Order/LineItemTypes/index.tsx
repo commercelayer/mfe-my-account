@@ -28,10 +28,12 @@ export const LineItemTypes: React.FC<Props> = ({ type }) => {
           <LineItemName className="font-bold" />
           <LineItemQty>
             <LineItemQuantity>
-              {(props) =>
-                !!props.quantity &&
-                t("order.quantity", { count: props.quantity })
-              }
+              {(props) => (
+                <>
+                  {!!props.quantity &&
+                    t("order.quantity", { count: props.quantity })}
+                </>
+              )}
             </LineItemQuantity>
           </LineItemQty>
           <LineItemAmount className="mt-2 font-extrabold" />

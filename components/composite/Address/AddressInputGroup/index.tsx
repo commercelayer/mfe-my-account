@@ -1,10 +1,9 @@
 import type {
-  AddressCountrySelectName,
-  AddressInputName,
   BaseInputType,
   ResourceErrorType,
   ErrorComponentProps,
 } from "@commercelayer/react-components"
+import { Address } from "@commercelayer/sdk"
 import { useEffect, useState } from "react"
 import { useTranslation } from "react-i18next"
 
@@ -19,7 +18,18 @@ import {
 
 interface Props {
   type: BaseInputType
-  fieldName: AddressInputName | AddressCountrySelectName | "email"
+  fieldName: `billing_address_${Extract<
+    keyof Address,
+    | "first_name"
+    | "last_name"
+    | "line_1"
+    | "line_2"
+    | "city"
+    | "zip_code"
+    | "country_code"
+    | "state_code"
+    | "phone"
+  >}`
   resource: ResourceErrorType
   value?: string
 }
@@ -47,7 +57,7 @@ export const AddressInputGroup: React.FC<Props> = ({
     },
   ]
 
-  const label = t(`addressForm.${fieldName}`)
+  const label = t(`addressForm.fields.${fieldName}`)
 
   const [valueStatus, setValueStatus] = useState(value)
 
@@ -66,10 +76,12 @@ export const AddressInputGroup: React.FC<Props> = ({
           {isCountry ? (
             <StyledAddressCountrySelector
               className="form-select"
-              data-cy={`input_${fieldName}`}
+              data-cy={`input_billing_address_country_code`}
               name={fieldName}
               placeholder={{
-                label: t(`addressForm.${fieldName}_placeholder`),
+                label: t(
+                  `addressForm.billing_address_country_code_placeholder`
+                ),
                 value: "",
               }}
               value={
@@ -88,7 +100,7 @@ export const AddressInputGroup: React.FC<Props> = ({
               <StyledAddressInput
                 id={fieldName}
                 data-cy={`input_${fieldName}`}
-                name={fieldName as AddressInputName}
+                name={fieldName}
                 type={type}
                 value={valueStatus}
                 className="form-input"
