@@ -1,7 +1,16 @@
 import styled from "styled-components"
 import tw from "twin.macro"
 
-export const Wrapper = styled.div`
+type OrderWrapperProps = {
+  hidden?: boolean
+}
+
+export const OrderWrapper = styled.div<OrderWrapperProps>`
+  ${tw``}
+  ${({ hidden }) => hidden && tw`hidden`}
+`
+
+export const OrderAccordionWrapper = styled.div`
   ${tw`px-5 w-full md:(px-0)`}
 `
 

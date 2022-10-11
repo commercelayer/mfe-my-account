@@ -1,21 +1,23 @@
 import { OrderContainer, OrderNumber } from "@commercelayer/react-components"
 import { Order as CLayerOrder } from "@commercelayer/sdk"
-// import { useState } from "react"
+import { useState } from "react"
 import { Trans } from "react-i18next"
 
 import OrderAccordion from "components/composite/Order/OrderAccordion"
+import SkeletonMain from "components/composite/Skeleton/Main"
 import OrderActions from "components/ui/OrderActions"
 import OrderStatusChip, {
   OrderStatus,
 } from "components/ui/StatusChip/OrderStatusChip"
 
 import {
-  Wrapper,
+  OrderWrapper,
   OrderHeader,
   OrderHeaderMain,
   OrderTitle,
   OrderDescription,
   OrderHeaderActions,
+  OrderAccordionWrapper,
 } from "./styled"
 
 import { formatDate, shortDate } from "utils/dateTimeFormats"
@@ -26,32 +28,39 @@ interface Props {
 }
 
 const Order: React.FC<Props> = ({ orderId, order }) => {
-  // const [order, setOrder] = useState<CLayerOrder>()
+  const [fetchedOrder, setOrder] = useState<CLayerOrder>()
   const orderPlacedAt =
-    (order?.placed_at && formatDate(order.placed_at, shortDate)) || ""
-  const orderStatus = order ? (order.status as OrderStatus) : "placed"
+    (fetchedOrder?.placed_at &&
+      formatDate(fetchedOrder.placed_at, shortDate)) ||
+    ""
+  const orderStatus = fetchedOrder
+    ? (fetchedOrder.status as OrderStatus)
+    : "placed"
 
   return (
-    <OrderContainer orderId={orderId} /* fetchOrder={setOrder} */>
-      <OrderHeader>
-        <OrderHeaderMain>
-          <OrderTitle>
-            <Trans i18nKey="order.title">
-              <OrderNumber />
-            </Trans>
-          </OrderTitle>
-          <OrderDescription>
-            <Trans i18nKey="order.placed_at">{orderPlacedAt}</Trans>
-          </OrderDescription>
-          <OrderStatusChip status={orderStatus} />
-        </OrderHeaderMain>
-        <OrderHeaderActions>
-          <OrderActions order={order} />
-        </OrderHeaderActions>
-      </OrderHeader>
-      <Wrapper>
-        <OrderAccordion order={order} />
-      </Wrapper>
+    <OrderContainer orderId={orderId} fetchOrder={setOrder}>
+      <SkeletonMain shown={fetchedOrder === undefined} />
+      <OrderWrapper hidden={fetchedOrder === undefined}>
+        <OrderHeader>
+          <OrderHeaderMain>
+            <OrderTitle>
+              <Trans i18nKey="order.title">
+                <OrderNumber />
+              </Trans>
+            </OrderTitle>
+            <OrderDescription>
+              <Trans i18nKey="order.placed_at">{orderPlacedAt}</Trans>
+            </OrderDescription>
+            <OrderStatusChip status={orderStatus} />
+          </OrderHeaderMain>
+          <OrderHeaderActions>
+            <OrderActions order={order} />
+          </OrderHeaderActions>
+        </OrderHeader>
+        <OrderAccordionWrapper>
+          <OrderAccordion order={order} />
+        </OrderAccordionWrapper>
+      </OrderWrapper>
     </OrderContainer>
   )
 }

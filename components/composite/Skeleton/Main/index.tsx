@@ -7,9 +7,13 @@ import {
   SkeletonTableTd,
 } from "components/composite/Skeleton/styled"
 
-export const SkeletonMain: React.FC = () => {
+type Props = {
+  shown?: boolean
+}
+
+export const SkeletonMain: React.FC<Props> = ({ shown = true }) => {
   return (
-    <SkeletonWrapper>
+    <SkeletonWrapper shown={shown}>
       <SkeletonHeader>
         <SkeletonTitle />
       </SkeletonHeader>
