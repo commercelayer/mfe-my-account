@@ -5,15 +5,16 @@ import { Wrapper, Label } from "./styled"
 
 interface Props {
   action: () => void
+  testId: string
 }
 
 export const AddButton: React.FC<Props> = (props) => {
   const { t } = useTranslation()
 
-  const { action } = props
+  const { action, testId } = props
 
   return (
-    <Wrapper onClick={action} className="group" {...props}>
+    <Wrapper onClick={action} className="group" data-test-id={testId}>
       <PlusCircle className="w-5 md:w-6" />
       <Label>{t("addresses.addNewAddress")}</Label>
     </Wrapper>

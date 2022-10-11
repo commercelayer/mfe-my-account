@@ -32,11 +32,11 @@ const Addresses: React.FC = () => {
             <CustomerAddressCard />
           </GridContainer>
           <AddButton
-            data-test-id="show-new-address"
             action={() => {
               setShowAddressForm(true)
               setAddress({})
             }}
+            testId="show-new-address"
           />
         </Transition>
         <Transition show={showAddressForm} {...formTransition}>
