@@ -1,6 +1,6 @@
 {
-  "name": "commercelayer-myaccount",
-  "version": "0.1.0",
+  "name": "commercelayer-my-account",
+  "version": "1.0.0",
   "engines": {
     "node": ">=18.x",
     "pnpm": "7.x"
