@@ -1,5 +1,4 @@
 import { ParcelField } from "@commercelayer/react-components"
-import { Parcel } from "@commercelayer/sdk"
 import { Trans } from "react-i18next"
 
 import useParcelTrackingDetailsParser from "components/hooks/useParcelTrackingDetailsParser"

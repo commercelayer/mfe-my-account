@@ -21,10 +21,10 @@ export const AccordionProvider: React.FC<AccordionProviderProps> = ({
   children,
   section,
   activeSection,
-  setActiveSection
+  setActiveSection,
 }) => {
   const [isActive, setIsActive] = useState(false)
-  
+
   const setSection = () => {
     setActiveSection && setActiveSection(section)
   }
@@ -43,7 +43,7 @@ export const AccordionProvider: React.FC<AccordionProviderProps> = ({
         isActive,
         section,
         setSection,
-        closeSection
+        closeSection,
       }}
     >
       {children}

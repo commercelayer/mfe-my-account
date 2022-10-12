@@ -9,10 +9,16 @@ interface UseAccordionActiveSection {
   sections: OrderSectionEnum[]
 }
 
-const SECTIONS: OrderSectionEnum[] = ["Summary", "Addresses", "Shipments", "Payments"]
+const SECTIONS: OrderSectionEnum[] = [
+  "Summary",
+  "Addresses",
+  "Shipments",
+  "Payments",
+]
 
 export const useAccordionActiveSection = (): UseAccordionActiveSection => {
-  const [activeSection, setActiveSection] = useState<OrderSectionEnum>("Summary")
+  const [activeSection, setActiveSection] =
+    useState<OrderSectionEnum>("Summary")
   const [sections] = useState<OrderSectionEnum[]>(SECTIONS)
 
   const ctx = useContext(AppContext)
@@ -25,7 +31,7 @@ export const useAccordionActiveSection = (): UseAccordionActiveSection => {
       sections,
     }
 
-  const { isFirstLoading, isLoading } = ctx
+  const { isLoading } = ctx
 
   return {
     activeSection,
