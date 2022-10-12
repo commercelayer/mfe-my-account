@@ -1,6 +1,10 @@
 import styled from "styled-components"
 import tw from "twin.macro"
 
+type SkeletonWrapperProps = {
+  shown: boolean
+}
+
 export const SkeletonBox = styled.div`
   ${tw`bg-gray-300 rounded-xl`}
 `
@@ -33,8 +37,9 @@ export const SkeletonMenuItemLabel = styled(SkeletonBox)`
   ${tw`w-4/6 h-6`}
 `
 
-export const SkeletonWrapper = styled.div`
+export const SkeletonWrapper = styled.div<SkeletonWrapperProps>`
   ${tw`mt-4 animate-pulse flex-shrink flex-grow`}
+  ${({ shown }) => !shown && tw`hidden`}
 `
 
 export const SkeletonHeader = styled.div`

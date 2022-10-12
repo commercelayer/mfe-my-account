@@ -1,4 +1,6 @@
+import { ParcelField } from "@commercelayer/react-components"
 import { Parcel } from "@commercelayer/sdk"
+import { Trans } from "react-i18next"
 
 import useParcelTrackingDetailsParser from "components/hooks/useParcelTrackingDetailsParser"
 import type {
@@ -26,23 +28,25 @@ import {
 import { formatDate, longDate, amPmTime } from "utils/dateTimeFormats"
 import { rawDataParcelDetailsSchema } from "utils/types"
 
-interface Props {
-  parcel?: Parcel
-}
-
-type OrderShipmentHistoryDateProps = {
+type OrderParcelHistoryDateProps = {
   dateKey: string
   dateIndex: number
   parsedData: ParcelTrackingDetailsParsedDateType
 }
 
-type OrderShipmentHistoryTimeProps = {
+type OrderParcelHistoryTimeProps = {
   time: ParcelTrackingDetailsParsedTimeType
   timeIndex: number
   dateIndex: number
 }
 
-const OrderShipmentHistoryTime: React.FC<OrderShipmentHistoryTimeProps> = ({
+type ParcelStatus =
+  | "parcelStatus.delivered"
+  | "parcelStatus.out_for_delivery"
+  | "parcelStatus.in_transit"
+  | "parcelStatus.pre_transit"
+
+const OrderParcelHistoryTime: React.FC<OrderParcelHistoryTimeProps> = ({
   time,
   timeIndex,
   dateIndex,
@@ -50,6 +54,9 @@ const OrderShipmentHistoryTime: React.FC<OrderShipmentHistoryTimeProps> = ({
   const dateTimeIsLast = dateIndex === 0 && timeIndex === 0
   const timeIsFirstOfDate = timeIndex === 0
   const timeFormatted = time.datetime && formatDate(time.datetime, amPmTime)
+  const parcelStatusTrans = `parcelStatus.${
+    time.status as string
+  }` as ParcelStatus
   return (
     <ShipmentTime timeIsFirstOfDate={timeIsFirstOfDate} key={timeIndex}>
       <ShipmentTimeLabel>{timeFormatted}</ShipmentTimeLabel>
@@ -64,7 +71,9 @@ const OrderShipmentHistoryTime: React.FC<OrderShipmentHistoryTimeProps> = ({
         </ShipmentTimeIconWrapper>
       </ShipmentTimeBorder>
       <ShipmentTimeContentWrapper>
-        <ShipmentTimeStatusWrapper>{time.status}</ShipmentTimeStatusWrapper>
+        <ShipmentTimeStatusWrapper>
+          <Trans i18nKey={parcelStatusTrans} />
+        </ShipmentTimeStatusWrapper>
         <ShipmentTimeMessageWrapper>{time.message}</ShipmentTimeMessageWrapper>
         <ShipmentTimeLocationWrapper>
           {time.trackingLocation}
@@ -74,7 +83,7 @@ const OrderShipmentHistoryTime: React.FC<OrderShipmentHistoryTimeProps> = ({
   )
 }
 
-const OrderShipmentHistoryDate: React.FC<OrderShipmentHistoryDateProps> = ({
+const OrderParcelHistoryDate: React.FC<OrderParcelHistoryDateProps> = ({
   dateKey,
   dateIndex,
   parsedData,
@@ -89,7 +98,7 @@ const OrderShipmentHistoryDate: React.FC<OrderShipmentHistoryDateProps> = ({
       {date.map(
         (time: ParcelTrackingDetailsParsedTimeType, timeIndex: number) => {
           return (
-            <OrderShipmentHistoryTime
+            <OrderParcelHistoryTime
               dateIndex={dateIndex}
               timeIndex={timeIndex}
               time={time}
@@ -102,36 +111,41 @@ const OrderShipmentHistoryDate: React.FC<OrderShipmentHistoryDateProps> = ({
   )
 }
 
-const OrderShipmentHistory: React.FC<Props> = ({ parcel }) => {
-  if (!parcel || parcel?.tracking_details === null) return null
-
-  if (
-    rawDataParcelDetailsSchema.safeParse(parcel?.tracking_details).success ===
-    false
-  )
-    return null
-
-  const parsedDetails = rawDataParcelDetailsSchema.parse(
-    parcel?.tracking_details
-  )
-
-  const orderShipmentHistoryParsed =
-    useParcelTrackingDetailsParser(parsedDetails)
-
+const OrderParcelHistory: React.FC = () => {
   return (
-    <ShipmentDates>
-      {Object.keys(orderShipmentHistoryParsed).map(
-        (dateKey: string, dateIndex: number) => (
-          <OrderShipmentHistoryDate
-            dateKey={dateKey}
-            dateIndex={dateIndex}
-            parsedData={orderShipmentHistoryParsed}
-            key={dateIndex}
-          />
+    <ParcelField attribute="tracking_details" tagElement="span">
+      {(props: any) => {
+        if (
+          props?.attributeValue === null ||
+          rawDataParcelDetailsSchema.safeParse(props?.attributeValue)
+            .success === false
         )
-      )}
-    </ShipmentDates>
+          return <span></span>
+
+        const parsedDetails = rawDataParcelDetailsSchema.parse(
+          props?.attributeValue
+        )
+
+        const OrderParcelHistoryParsed =
+          useParcelTrackingDetailsParser(parsedDetails)
+
+        return (
+          <ShipmentDates>
+            {Object.keys(OrderParcelHistoryParsed).map(
+              (dateKey: string, dateIndex: number) => (
+                <OrderParcelHistoryDate
+                  dateKey={dateKey}
+                  dateIndex={dateIndex}
+                  parsedData={OrderParcelHistoryParsed}
+                  key={dateIndex}
+                />
+              )
+            )}
+          </ShipmentDates>
+        )
+      }}
+    </ParcelField>
   )
 }
 
-export default OrderShipmentHistory
+export default OrderParcelHistory

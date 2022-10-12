@@ -28,7 +28,8 @@
       "shipmentStatus": "Stato: <0/>",
       "paymentMethod": {
         "creditCard": "Carta di credito",
-        "EndingIn": "<0/> finisce con <1/>",
+        "EndingIn": "finisce con <0/>",
+        "ValidUntil": "valida fino al <0/>/<1/>",
         "wireTransfer": "Bonifico bancario",
         "wireTransferDescription": "Dopo la conferma dell'ordine riceverai le istruzioni per completare il pagamento",
         "paypalDescription": "Dopo aver effettuato l'ordine, sarai reindirizzato verso il sito PayPal per accedere e autorizzare il pagamento"

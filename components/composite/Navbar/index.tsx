@@ -91,12 +91,12 @@ const Navbar: React.FC<Props> = ({ settings, onClick }) => {
         <ul>
           <NavLink id="orders" {...menu.orders} />
           <NavLink id="addresses" {...menu.addresses} />
-          <NavLink id="wallet" {...menu.wallet} />
-          <NavLink id="returns" {...menu.returns} />
+          {/* <NavLink id="wallet" {...menu.wallet} />
+          <NavLink id="returns" {...menu.returns} /> */}
         </ul>
       </Nav>
       <Wrapper>
-        <NavLink id="customerService" {...menu.customerService} />
+        {/* <NavLink id="customerService" {...menu.customerService} /> */}
         <EmailWrapper>
           {t("menu.loggedInAs")}
           <Email>

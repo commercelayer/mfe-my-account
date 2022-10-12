@@ -5,7 +5,7 @@ import {
   LineItemQuantity,
   LineItemAmount,
 } from "@commercelayer/react-components"
-import { LineItemType } from "@commercelayer/react-components/dist/typings"
+import type { LineItemType } from "@commercelayer/react-components"
 import { useTranslation } from "react-i18next"
 
 import { LineItemWrapper, LineItemDescription, LineItemQty } from "./styled"
@@ -28,10 +28,12 @@ export const LineItemTypes: React.FC<Props> = ({ type }) => {
           <LineItemName className="font-bold" />
           <LineItemQty>
             <LineItemQuantity>
-              {(props) =>
-                !!props.quantity &&
-                t("order.quantity", { count: props.quantity })
-              }
+              {(props) => (
+                <>
+                  {!!props.quantity &&
+                    t("order.quantity", { count: props.quantity })}
+                </>
+              )}
             </LineItemQuantity>
           </LineItemQty>
           <LineItemAmount className="mt-2 font-extrabold" />

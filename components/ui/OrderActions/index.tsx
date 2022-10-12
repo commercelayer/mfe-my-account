@@ -8,14 +8,14 @@ type Props = {
   order?: Order
 }
 
-const OrderActions: React.FC<Props> = ({ order }) => {
+function OrderActions({ order }: Props): JSX.Element {
   // TODO: Check the content of order prop before to use it. It could be different depending on if it comes from <OrderList> or order page.
 
   return (
     <ActionsMenu>
-      <ActionsMenuItem icon={<NotePencil size={12} />} label="Edit order" />
-      <ActionsMenuItem icon={<Printer size={12} />} label="Print invoice" />
-      <ActionsMenuItem
+      {/* <ActionsMenuItem icon={<NotePencil size={12} />} label="Edit order" /> */}
+      <ActionsMenuItem icon={<Printer size={12} />} label="Print order" />
+      {/* <ActionsMenuItem
         icon={<ArrowBendUpLeft size={12} />}
         label="Create a return"
       />
@@ -23,7 +23,7 @@ const OrderActions: React.FC<Props> = ({ order }) => {
         icon={<Trash size={12} color="#ED5959" />}
         variant="warning"
         label="Delete order"
-      />
+      /> */}
     </ActionsMenu>
   )
 }

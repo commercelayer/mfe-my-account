@@ -2,14 +2,14 @@ import { Settings } from "HostedApp"
 import { NextPage } from "next"
 import { useRouter } from "next/router"
 
-import OrderShipment from "components/composite/OrderShipment"
+import OrderParcel from "components/composite/OrderParcel"
 import { ParcelProvider } from "components/data/ParcelProvider"
 
 interface Props {
   settings: Settings
 }
 
-const OrderShipmentPage: NextPage<Props> = ({ settings }) => {
+const OrderParcelPage: NextPage<Props> = ({ settings }) => {
   const { query } = useRouter()
   const orderId = query.orderId as string
   const parcelId = query.parcelId as string
@@ -19,9 +19,10 @@ const OrderShipmentPage: NextPage<Props> = ({ settings }) => {
     <ParcelProvider parcelId={parcelId} accessToken={accessToken}>
       {({ parcel }) => {
         return (
-          <OrderShipment
+          <OrderParcel
             settings={settings}
             orderId={orderId}
+            parcelId={parcelId}
             parcel={parcel}
           />
         )
@@ -30,4 +31,4 @@ const OrderShipmentPage: NextPage<Props> = ({ settings }) => {
   )
 }
 
-export default OrderShipmentPage
+export default OrderParcelPage

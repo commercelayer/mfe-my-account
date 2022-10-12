@@ -1,52 +1,62 @@
 import {
   PaymentMethodsContainer,
-  PaymentMethod,
   PaymentSource,
   PaymentSourceBrandIcon,
   PaymentSourceBrandName,
   PaymentSourceDetail,
 } from "@commercelayer/react-components"
-import { Order } from "@commercelayer/sdk"
 import { Trans, useTranslation } from "react-i18next"
+
+import {
+  PaymentSourceWrapper,
+  PaymentSourceBrandNameWrapper,
+  PaymentSourceBrandNamePrimary,
+  PaymentSourceBrandNameSecondary,
+} from "./styled"
 
 import { getTranslations } from "utils/payments"
 
-interface Props {
-  order?: Order
-}
-
-const OrderPayments: React.FC<Props> = ({ order }) => {
+const OrderPayments: React.FC = () => {
   const { t } = useTranslation()
 
-  return null
-
-  /*
   return (
     <PaymentMethodsContainer>
-      <PaymentMethod>
-        <PaymentSource readonly>
+      <PaymentSource readonly>
+        <PaymentSourceWrapper>
           <PaymentSourceBrandIcon className="mr-2" />
-          <PaymentSourceBrandName className="mr-1">
-            {({ brand }) => {
-              if ((order?.payment_source?.type as string) === "credit_card") {
+          <PaymentSourceBrandNameWrapper>
+            <PaymentSourceBrandName>
+              {(props) => (
+                <PaymentSourceBrandNamePrimary>
+                  {getTranslations(props?.brand, t)}
+                </PaymentSourceBrandNamePrimary>
+              )}
+            </PaymentSourceBrandName>
+            <PaymentSourceDetail type="last4">
+              {(props) => {
+                if (props.text === null || props.text.length === 0) return <></>
                 return (
-                  <Trans i18nKey="order.paymentMethod.EndingIn">
-                    {brand}
-                    <PaymentSourceDetail
-                      className="ml-1 font-normal"
-                      type="last4"
-                    />
-                  </Trans>
+                  <>
+                    <PaymentSourceBrandNamePrimary>
+                      <Trans i18nKey="order.paymentMethod.EndingIn">
+                        <PaymentSourceDetail type="last4" />
+                      </Trans>
+                    </PaymentSourceBrandNamePrimary>
+                    <PaymentSourceBrandNameSecondary>
+                      <Trans i18nKey="order.paymentMethod.ValidUntil">
+                        <PaymentSourceDetail type="exp_month" />
+                        <PaymentSourceDetail type="exp_year" />
+                      </Trans>
+                    </PaymentSourceBrandNameSecondary>
+                  </>
                 )
-              }
-              return getTranslations(brand, t)
-            }}
-          </PaymentSourceBrandName>
-        </PaymentSource>
-      </PaymentMethod>
+              }}
+            </PaymentSourceDetail>
+          </PaymentSourceBrandNameWrapper>
+        </PaymentSourceWrapper>
+      </PaymentSource>
     </PaymentMethodsContainer>
   )
-  */
 }
 
 export default OrderPayments
