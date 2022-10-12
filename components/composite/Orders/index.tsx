@@ -32,9 +32,9 @@ const Orders: React.FC = () => {
   const { isDesktop, screen } = useWindowSizeDetect()
   const options = isDesktop
     ? {
-        actionsComponent: (props: { order: Order }) => (
-          <OrderActions order={props.order} />
-        ),
+        // actionsComponent: (props: { order: Order }) => (
+        //   <OrderActions order={props.order} />
+        // ),
         windowOptions: {
           width: 600,
           height: 600,

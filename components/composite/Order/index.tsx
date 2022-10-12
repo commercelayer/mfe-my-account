@@ -53,9 +53,9 @@ const Order: React.FC<Props> = ({ orderId, order }) => {
             </OrderDescription>
             <OrderStatusChip status={orderStatus} />
           </OrderHeaderMain>
-          <OrderHeaderActions>
+          {/* <OrderHeaderActions>
             <OrderActions order={order} />
-          </OrderHeaderActions>
+          </OrderHeaderActions> */}
         </OrderHeader>
         <OrderAccordionWrapper>
           <OrderAccordion order={order} />
