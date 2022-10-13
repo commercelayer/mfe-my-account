@@ -22,7 +22,7 @@ The Commerce Layer My Account application (React) provides you with a production
 
 1. Create your organization and get your credentials by following one of our [onboarding tutorials](https://docs.commercelayer.io/developers/welcome).
 
-2. Set on your hosting provider the required environment variables `NODE_ENV`, `NEXT_PUBLIC_BASE_PATH`, `NEXT_PUBLIC_DOMAIN` and `NEXT_PUBLIC_HOSTED` using default values found in `.env.local.example` file and be sure to build the forked repository using the node environment (`NODE_ENV`) as production.
+2. Set on your hosting provider the required environment variables `NEXT_PUBLIC_BASE_PATH` and `NEXT_PUBLIC_SLUG` starting from example values found in `.env.local.example` file.
 
 3. Deploy the forked repository to your preferred hosting service or host it yourself. You can deploy with one click below:
 
@@ -32,7 +32,7 @@ The Commerce Layer My Account application (React) provides you with a production
 
 5. Get a [customer access token](https://docs.commercelayer.io/core/authentication/password) for your application. You should generate this in your sales channel or use our Javascript [authentication library](https://github.com/commercelayer/commercelayer-js-auth).
 
-6. View my account related to the customer contained in the created accessToken using the URL format: `<your-deployed-my-account-url>/<my-account-base-path>?accessToken=<your-access-token>`.
+6. View customer's my account using the URL format: `<your-deployed-my-account-url>/<my-account-base-path>?accessToken=<your-access-token>`.
 
 ### Example
 
