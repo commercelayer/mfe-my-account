@@ -13,6 +13,7 @@ The Commerce Layer My Account application (React) provides a production-ready re
 - [Getting started](#getting-started)
 - [Hosted version](#hosted-version)
 - [Features](#features)
+- [Using the CLI to get a valid accessToken](#using-the-cli-to-get-a-valid-accesstoken)
 - [Contributors guide](#contributors-guide)
 - [Help and support](#need-help)
 - [License](#license)
@@ -72,6 +73,20 @@ By clicking a parcel's tracking link the customer will enter parcel's detail pag
 ### Addresses Management
 
 Here is where customers will be able to list, create, update or delete their personal saved addresses. 
+
+## Using the CLI to get a valid accessToken
+
+If you are using [Commerce Layer CLI](https://github.com/commercelayer/commercelayer-cli) you can easily obtain a valid customer access token suitable for my account application logging into your organization through customer's credentials.
+
+```bash
+$ cl app:login -o <your-organization-slug> -e <customer-username> -p <customer-password> -i <client-id> -S <scope> -a <cli-login-alias>
+```
+
+Once the login is successfull you can ask for the generation of a valid customer's access token.
+
+```bash
+$ cl app:token
+```
 
 ## Contributors guide
 
