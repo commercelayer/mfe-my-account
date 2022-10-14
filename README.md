@@ -12,6 +12,7 @@ The Commerce Layer My Account application (React) provides a production-ready re
 
 - [Getting started](#getting-started)
 - [Hosted version](#hosted-version)
+- [Features](#features)
 - [Contributors guide](#contributors-guide)
 - [Help and support](#need-help)
 - [License](#license)
@@ -47,6 +48,30 @@ You can use the hosted version of the My Account application with the following 
 ### Example
 
 `https://yourbrand.commercelayer.app/my-account?accessToken=eyJhbGciOiJIUzUxMiJ9`
+
+## Features
+
+My Account application is currently focused on Orders and Addresses management features. The application will be in continuous development to add lots of other major and minor features (like Payments and Refunds, just to make brief examples).
+
+### Orders History
+
+As soon as the customer lands on to the application he will reach the orders history screen, my account's welcome page, showing a sortable list of customer's orders based on order number, date, status and amount informations.
+
+### Order Detail
+
+By clicking an order from the history list the customer will enter order's detail page showing:
+- Order summary informations with line items and total amounts
+- Billing and shipping addresses
+- Order shipments with parcels overview and tracking link
+- Order payment method
+
+### Parcel Detail
+
+By clicking a parcel's tracking link the customer will enter parcel's detail page showing a full timeline of parcel's movements and updates.
+
+### Addresses Management
+
+Here is where customers will be able to list, create, update or delete their personal saved addresses. 
 
 ## Contributors guide
 
