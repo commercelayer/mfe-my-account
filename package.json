@@ -5,6 +5,28 @@
     "node": ">=18.x",
     "pnpm": "7.x"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/commercelayer/commercelayer-my-account.git"
+  },
+  "author": {
+    "name": "Pier Francesco Ferrari",
+    "email": "pierfrancesco@commercelayer.io"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/commercelayer/commercelayer-my-account/issues"
+  },
+  "homepage": "https://github.com/commercelayer/commercelayer-my-account#readme",
+  "keywords": [
+    "reactjs",
+    "nextjs",
+    "jamstack",
+    "headless",
+    "ecommerce",
+    "api",
+    "commercelayer"
+  ],
   "private": true,
   "scripts": {
     "preinstall": "npx only-allow pnpm",
