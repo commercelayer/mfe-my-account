@@ -32,7 +32,7 @@ The Commerce Layer My Account application (React) provides a production-ready re
 
 4. Build your sales channel with your favorite technologies and frameworks by leveraging our [developer resources](https://commercelayer.io/developers) and [documentation](https://docs.commercelayer.io).
 
-5. Get a [customer access token](https://docs.commercelayer.io/core/authentication/password) for your application. You should generate this in your sales channel (see how to do it [using the Commerce Layer CLI](#using-the-cli-to-get-a-valid-access-token)) or use our Javascript [authentication library](https://github.com/commercelayer/commercelayer-js-auth).
+5. Get a [customer access token](https://docs.commercelayer.io/core/authentication/password) for your application. You should generate this in your sales channel (see how to do it [using the Commerce Layer CLI](#using-the-cli-to-get-a-valid-customer-token)) or use our Javascript [authentication library](https://github.com/commercelayer/commercelayer-js-auth).
 
 6. View the customer's account page using the URL format: `<your-deployed-my-account-url>/<my-account-base-path>?accessToken=<your-access-token>`.
 
