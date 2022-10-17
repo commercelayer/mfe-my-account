@@ -39,7 +39,7 @@
     "test:e2e": "playwright test"
   },
   "dependencies": {
-    "@commercelayer/react-components": "4.0.0-alpha.11",
+    "@commercelayer/react-components": "4.0.0-alpha.12",
     "@commercelayer/react-utils": "1.0.0-beta.2",
     "@commercelayer/sdk": "^4.15.0",
     "@headlessui/react": "^1.6.4",
