@@ -2,7 +2,7 @@ import { getAccessTokenFromUrl } from "./getAccessTokenFromUrl"
 import { getInfoFromJwt } from "./getInfoFromJwt"
 
 /**
- * Checks if provided accessToken is not owned by a customer.
+ * Verifies if provided accessToken is not owned by a customer.
  *
  * @returns a boolean flag set as `true` in case accessToken is not owned by a customer.
  */

@@ -1,6 +1,6 @@
 declare module "HostedApp" {
   /**
-   * Settings are all the settings used by the my-account application:
+   * Settings are all the settings used by the My Account application:
    * Starting from @accessToken we can get all the settings needed
    * for the my account to work, picking them from the order and the
    * organization resources. (Organization: https://docs.commercelayer.io/core/v/api-reference/organization/object)
@@ -9,7 +9,7 @@ declare module "HostedApp" {
   export type Settings = {
     /**
      * Access Token for a sales channel API credentials to be used to authenticate all Commerce Layer API requests.
-     * Read more at {@link https://docs.commercelayer.io/core/authentication/client-credentials#sales-channel}
+     * Read more at {@link https://docs.commercelayer.io/core/authentication/client-credentials#sales-channel}, {@link https://docs.commercelayer.io/core/authentication/password}
      */
     accessToken: string
     /**

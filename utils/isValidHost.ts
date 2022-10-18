@@ -16,7 +16,7 @@ const isProduction = (forceProductionEnv?: boolean) =>
 const isCommerceLayerHosted = () => process.env.NEXT_PUBLIC_HOSTED === "true"
 
 /**
- * Checks if app is loaded from a valid URL and the `slug` found in JWT belongs
+ * Verifies if application is loaded from a valid URL and the `slug` found in JWT belongs
  * to the authorized subdomain.
  *
  * @param hostname - The full `window.location.hostname` Example: "my-org.commercelayer.app"
@@ -37,8 +37,10 @@ export const isValidHost = (
     return false
   }
 
-  // when app is not hosted by CL we can't rely on subdomain to match organization slug
-  // so we require to fill `NEXT_PUBLIC_SLUG` env
+  /**
+   * When the application is not hosted by Commerce Layer we can't rely on subdomain
+   * to match organization slug so we require to fill `NEXT_PUBLIC_SLUG` env variable
+   */
   const subdomain = isCommerceLayerHosted()
     ? makeSubdomain(hostname)
     : process.env.NEXT_PUBLIC_SLUG

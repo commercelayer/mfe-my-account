@@ -30,7 +30,7 @@ type GetSettingsProps = Pick<Settings, "accessToken"> & {
  * Retrieves a list of `Settings` required to show the my account app
  *
  * @param accessToken - Access Token for a sales channel API credentials to be used to authenticate all Commerce Layer API requests.
- * Read more at {@link https://docs.commercelayer.io/developers/authentication/client-credentials#sales-channel}
+ * Read more at {@link https://docs.commercelayer.io/developers/authentication/client-credentials#sales-channel}, {@link https://docs.commercelayer.io/core/authentication/password}
  * @param orderId - Not required Order Id used, if filled, to verify if it exists the requested order.
  * Read more at {@link https://docs.commercelayer.io/developers/api-specification#base-endpoint}.
  *
