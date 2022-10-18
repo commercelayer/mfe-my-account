@@ -21,7 +21,10 @@ interface Props {
 const MyAccountContainer: React.FC<Props> = ({ settings, children }) => {
   return (
     <div>
-      <MyAccountHead title={settings.companyName} favicon={settings.favicon} />
+      <MyAccountHead
+        title={settings.companyName}
+        faviconUrl={settings.faviconUrl}
+      />
       <CommerceLayer
         accessToken={settings.accessToken}
         endpoint={settings.endpoint}
