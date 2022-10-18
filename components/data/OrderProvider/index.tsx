@@ -1,8 +1,8 @@
 import CommerceLayer, { Order } from "@commercelayer/sdk"
 import { createContext, useState, useEffect, ReactNode } from "react"
 
-import { fetchOrder } from "utils/fetchOrder"
 import { getInfoFromJwt } from "utils/getInfoFromJwt"
+import { getOrder } from "utils/getOrder"
 
 interface OrderProviderData {
   order?: Order
@@ -49,7 +49,10 @@ export const OrderProvider: React.FC<OrderProviderProps> = ({
       domain,
     })
 
-    const order = await fetchOrder(cl, orderId)
+    const [orderResponse] = await Promise.all([
+      getOrder({ client: cl, orderId }),
+    ])
+    const order = orderResponse?.object
 
     setState({
       ...state,
