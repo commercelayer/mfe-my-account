@@ -1,6 +1,6 @@
 {
   "general": {
-      "title": "{{companyName}} - User Area",
+      "title": "{{companyName}} - My Account",
       "retry_error_code": "Connectivity issues",
       "retry_error_description": "Try to reload the page",
       "invalid": "This URL is not accessible.",
@@ -132,7 +132,7 @@
   },
   "noAddresses": {
     "title": "No addresses yet",
-    "description": "Looks like you haven't made any address yet",
+    "description": "Looks like you haven't saved any address yet",
     "buttonLabel": "Add an address"
   },
   "addressForm": {
@@ -155,7 +155,7 @@
   },
   "noPaymentMethods": {
     "title": "No payment method yet",
-    "description": "Looks like you haven’t made any payment method yet",
+    "description": "Looks like you haven’t saved any payment method yet",
     "buttonLabel": "Add a payment method"
   },
   "returns": {
