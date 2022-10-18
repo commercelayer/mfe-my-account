@@ -5,7 +5,6 @@ import {
   Parcels,
   ParcelField,
 } from "@commercelayer/react-components"
-import { Parcel } from "@commercelayer/sdk"
 import { Settings } from "HostedApp"
 import Link from "next/link"
 import { CaretLeft } from "phosphor-react"
@@ -31,7 +30,6 @@ interface Props {
   settings: Settings
   orderId: string
   parcelId: string
-  parcel?: Parcel
 }
 
 const OrderParcel: React.FC<Props> = ({ settings, orderId, parcelId }) => {
