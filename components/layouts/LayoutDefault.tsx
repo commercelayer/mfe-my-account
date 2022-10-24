@@ -1,4 +1,4 @@
-import { Settings } from "HostedApp"
+import type { Settings } from "HostedApp"
 import { useEffect, useContext, useState } from "react"
 
 import { AppContext } from "components/data/AppProvider"

@@ -1,4 +1,4 @@
-import { Settings } from "HostedApp"
+import type { Settings } from "HostedApp"
 import Head from "next/head"
 import { useTranslation } from "react-i18next"
 

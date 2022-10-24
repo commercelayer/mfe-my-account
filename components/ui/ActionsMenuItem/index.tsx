@@ -1,21 +1,19 @@
-import { ReactNode } from "react"
-
 import { Wrapper, IconWrapper, Label } from "./styled"
 
 export type LabelProps = {
-  icon: ReactNode | null | undefined
+  icon: React.ReactNode | null | undefined
   variant?: string
 }
 
-interface ActionsMenuItemProps {
+type Props = {
   label?: string
-  icon?: ReactNode
+  icon?: React.ReactNode
   disabled?: boolean | false
   variant?: string
   onClick?: () => void
 }
 
-const ActionsMenuItem: React.FC<ActionsMenuItemProps> = (props) => {
+const ActionsMenuItem: React.FC<Props> = (props) => {
   const {
     label = "Menu item",
     icon = undefined,

@@ -22,7 +22,7 @@ import {
 
 import CustomerAddressContext from "context/CustomerAddressContext"
 
-interface Props {
+type Props = {
   address?: CLayerAddress
   addressType: string
   readonly?: boolean

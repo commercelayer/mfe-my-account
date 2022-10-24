@@ -12,7 +12,7 @@ import { Accordion, AccordionItem } from "components/ui/Accordion"
 
 import { Wrapper, SummaryWrapper } from "./styled"
 
-interface Props {
+type Props = {
   order?: Order
 }
 

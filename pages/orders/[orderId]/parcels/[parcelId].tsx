@@ -1,10 +1,10 @@
-import { Settings } from "HostedApp"
+import type { Settings } from "HostedApp"
 import { NextPage } from "next"
 import { useRouter } from "next/router"
 
 import OrderParcel from "components/composite/OrderParcel"
 
-interface Props {
+type Props = {
   settings: Settings
 }
 

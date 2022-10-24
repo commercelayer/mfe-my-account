@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import tw from "twin.macro"
 
-import { LabelProps } from "./"
+import type { LabelProps } from "./"
 
 export const Wrapper = styled.div`
   ${tw`flex items-center px-2 py-4 bg-white hover:bg-gray-200 cursor-default`}

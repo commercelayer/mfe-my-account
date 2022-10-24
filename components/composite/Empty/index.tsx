@@ -7,10 +7,9 @@ import NoReturnsIcon from "components/ui/icons/NoReturnsIcon"
 
 import { Wrapper, Title, Description, NoItemsButton } from "./styled"
 
-export type EmptyType = "Addresses" | "Orders" | "PaymentMethods" | "Returns"
+type EmptyType = "Addresses" | "Orders" | "PaymentMethods" | "Returns"
 
-// TODO: Define a prop for the CTA click handler
-interface Props {
+type Props = {
   type: EmptyType
   buttonClick?: () => void
 }

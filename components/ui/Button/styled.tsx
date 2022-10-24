@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import tw from "twin.macro"
 
-import { PrimaryButtonProps } from "."
+import type { PrimaryButtonProps } from "."
 
 export const PrimaryButton = styled.button<PrimaryButtonProps>`
   ${tw` text-center font-semibold h-11 rounded-md shadow-sm disabled:opacity-50 hover:opacity-80 transition duration-500 ease-in-out`}

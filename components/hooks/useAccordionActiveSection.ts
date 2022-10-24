@@ -2,7 +2,7 @@ import { useState, useContext } from "react"
 
 import { AppContext } from "components/data/AppProvider"
 
-interface UseAccordionActiveSection {
+type UseAccordionActiveSection = {
   activeSection: OrderSectionEnum
   setActiveSection: (section: OrderSectionEnum) => void
   isLoading: boolean

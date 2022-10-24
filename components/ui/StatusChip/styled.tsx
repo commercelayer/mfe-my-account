@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import tw from "twin.macro"
 
-interface StatusChipProps {
+type StatusChipProps = {
   status?: string
 }
 

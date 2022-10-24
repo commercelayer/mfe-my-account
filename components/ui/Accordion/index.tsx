@@ -1,5 +1,5 @@
 import { CaretDown } from "phosphor-react"
-import { ReactNode, useContext } from "react"
+import { useContext } from "react"
 
 import { AccordionContext } from "components/data/AccordionProvider"
 import { AppContext } from "components/data/AppProvider"
@@ -13,9 +13,9 @@ import {
   AccordionBody,
 } from "./styled"
 
-interface Props {
+type Props = {
   index: number
-  header: ReactNode
+  header: React.ReactNode
 }
 
 export const Accordion: React.FC = ({ children }) => {

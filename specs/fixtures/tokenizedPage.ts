@@ -19,13 +19,13 @@ import { OrdersPage } from "./OrdersPage"
 
 dotenv.config({ path: path.resolve(__dirname, "../../.env.local") })
 
-interface JWTProps {
+type JWTProps = {
   owner: {
     id: string
   }
 }
 
-interface DefaultParamsProps {
+type DefaultParamsProps = {
   token?: string
   market?: string
   customer?: {

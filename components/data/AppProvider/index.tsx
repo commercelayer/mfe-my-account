@@ -1,5 +1,5 @@
 import CommerceLayer from "@commercelayer/sdk"
-import { Settings } from "HostedApp"
+import type { Settings } from "HostedApp"
 import { createContext, useState, useEffect } from "react"
 
 import { getCustomerDetails } from "utils/getCustomerDetails"
@@ -19,7 +19,7 @@ type AppProviderData = Pick<
   toggleMobileMenu: () => void
 }
 
-interface AppStateData {
+type AppStateData = {
   email: string
   hasPassword: boolean
   isLoading: boolean

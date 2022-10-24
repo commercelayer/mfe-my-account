@@ -1,14 +1,14 @@
 import CommerceLayer, { Order } from "@commercelayer/sdk"
-import { createContext, useState, useEffect, ReactNode } from "react"
+import { createContext, useState, useEffect } from "react"
 
 import { getInfoFromJwt } from "utils/getInfoFromJwt"
 import { getOrder } from "utils/getOrder"
 
-interface OrderProviderData {
+type OrderProviderData = {
   order?: Order
 }
 
-interface OrderStateData {
+type OrderStateData = {
   order?: Order
 }
 
@@ -18,10 +18,10 @@ const initialState: OrderStateData = {
 
 export const OrderContext = createContext<OrderProviderData | null>(null)
 
-interface OrderProviderProps {
+type OrderProviderProps = {
   orderId: string
   accessToken: string
-  children: ((props: OrderProviderData) => ReactNode) | ReactNode
+  children: ((props: OrderProviderData) => React.ReactNode) | React.ReactNode
 }
 
 export const OrderProvider: React.FC<OrderProviderProps> = ({

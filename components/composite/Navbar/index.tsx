@@ -1,5 +1,5 @@
 import { CustomerField } from "@commercelayer/react-components"
-import { Settings } from "HostedApp"
+import type { Settings } from "HostedApp"
 import {
   ArrowBendUpLeft,
   CreditCard,
@@ -23,7 +23,7 @@ import {
   Email,
 } from "./styled"
 
-interface Props {
+type Props = {
   settings: Settings
   onClick?: () => void
 }

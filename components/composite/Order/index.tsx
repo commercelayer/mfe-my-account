@@ -5,9 +5,8 @@ import { Trans } from "react-i18next"
 
 import OrderAccordion from "components/composite/Order/OrderAccordion"
 import SkeletonMain from "components/composite/Skeleton/Main"
-import OrderStatusChip, {
-  OrderStatus,
-} from "components/ui/StatusChip/OrderStatusChip"
+import OrderStatusChip from "components/ui/StatusChip/OrderStatusChip"
+import type { OrderStatus } from "components/ui/StatusChip/OrderStatusChip"
 
 import {
   OrderWrapper,
@@ -20,7 +19,7 @@ import {
 
 import { formatDate, shortDate } from "utils/dateTimeFormats"
 
-interface Props {
+type Props = {
   orderId: string
   order?: CLayerOrder
 }

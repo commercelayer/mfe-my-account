@@ -1,5 +1,5 @@
 import { CustomerContainer } from "@commercelayer/react-components"
-import { Settings } from "HostedApp"
+import type { Settings } from "HostedApp"
 
 type CustomerContainerProviderProps = Pick<Settings, "isGuest"> & {
   children: React.ReactNode

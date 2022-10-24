@@ -1,8 +1,8 @@
 import styled, { css } from "styled-components"
 
-interface WrapperProps {
+type WrapperProps = {
   color: string
-  sizepx: number
+  sizePx: number
 }
 
 export const Wrapper = styled.div`
@@ -19,8 +19,8 @@ export const Wrapper = styled.div`
 `
 
 export const Spinner = styled.div<WrapperProps>`
-  width: ${({ sizepx }) => sizepx}px;
-  height: ${({ sizepx }) => sizepx}px;
+  width: ${({ sizePx }) => sizePx}px;
+  height: ${({ sizePx }) => sizePx}px;
   animation: spinner 0.75s linear infinite;
 
   span {
@@ -46,9 +46,9 @@ export const Spinner = styled.div<WrapperProps>`
   .spinner-inner-3 {
     background: #fff;
 
-    ${({ sizepx }) => {
-      const offset = sizepx * 0.1
-      const computedSize = sizepx - offset * 2
+    ${({ sizePx }) => {
+      const offset = sizePx * 0.1
+      const computedSize = sizePx - offset * 2
       return css`
         top: ${offset}px;
         left: ${offset}px;

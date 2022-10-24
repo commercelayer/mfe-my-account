@@ -1,6 +1,6 @@
 import { CommerceLayer } from "@commercelayer/react-components"
 import { GlobalStylesProvider } from "@commercelayer/react-utils"
-import { Settings } from "HostedApp"
+import type { Settings } from "HostedApp"
 import { IconContext } from "phosphor-react"
 import { GlobalStyles as BaseStyles } from "twin.macro"
 
@@ -14,7 +14,7 @@ import { LayoutDefault } from "components/layouts/LayoutDefault"
 import Footer from "components/ui/Footer"
 import PageMain from "components/ui/PageMain"
 
-interface Props {
+type Props = {
   settings: Settings
 }
 

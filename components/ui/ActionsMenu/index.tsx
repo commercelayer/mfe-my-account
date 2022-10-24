@@ -8,7 +8,7 @@ import { SrOnly } from "components/ui/Common/styled"
 
 import { Wrapper, ActionsMenuWrapper, ActionsMenuButton } from "./styled"
 
-interface ActionsMenuProps {
+type Props = {
   className?: string
 }
 
@@ -21,7 +21,7 @@ const actionMenuTransition = {
   leaveTo: "transform scale-95 opacity-0",
 }
 
-const ActionsMenu: React.FC<ActionsMenuProps> = ({ children, className }) => {
+const ActionsMenu: React.FC<Props> = ({ children, className }) => {
   const { t } = useTranslation()
   const [showActionsMenu, setShowActionsMenu] = useState(false)
 

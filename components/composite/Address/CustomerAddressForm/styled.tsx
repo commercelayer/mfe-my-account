@@ -18,7 +18,7 @@ export const Grid = styled.div`
   ${tw`grid lg:(grid-cols-2 gap-4)`}
 `
 
-interface DiscardChanges {
+type DiscardChangesProps = {
   onClick: Dispatch<boolean>
 }
 
@@ -26,7 +26,7 @@ export const FormButtons = styled.div`
   ${tw`flex justify-between items-center pb-10`}
 `
 
-export const DiscardChanges = styled.div<DiscardChanges>`
+export const DiscardChanges = styled.div<DiscardChangesProps>`
   ${tw`flex items-center text-ss text-primary underline border-red-400 font-bold hover:(cursor-pointer)`}
 `
 

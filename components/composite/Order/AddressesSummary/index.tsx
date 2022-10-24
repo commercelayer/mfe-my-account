@@ -10,7 +10,7 @@ import {
   ShippingAddress,
 } from "./styled"
 
-interface Props {
+type Props = {
   order?: Order
 }
 

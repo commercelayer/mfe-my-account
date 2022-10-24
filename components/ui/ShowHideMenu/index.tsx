@@ -11,7 +11,7 @@ import {
   ShowHideMenuButtonIcon,
 } from "./styled"
 
-interface ShowHideMenuProps {
+type Props = {
   itemsCounter: number
 }
 
@@ -24,10 +24,7 @@ const showHideMenuTransition = {
   leaveTo: "transform opacity-0",
 }
 
-const ShowHideMenu: React.FC<ShowHideMenuProps> = ({
-  children,
-  itemsCounter,
-}) => {
+const ShowHideMenu: React.FC<Props> = ({ children, itemsCounter }) => {
   const [showHideMenu, setShowHideMenu] = useState(false)
 
   const handleClick = async () => {
