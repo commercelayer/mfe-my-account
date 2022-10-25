@@ -1,8 +1,8 @@
-import { Settings } from "HostedApp"
+import type { Settings } from "HostedApp"
 import Head from "next/head"
 import { useTranslation } from "react-i18next"
 
-type MyAccountHeadProps = Pick<Settings, "favicon"> & {
+type MyAccountHeadProps = Pick<Settings, "faviconUrl"> & {
   title: string
 }
 
@@ -12,7 +12,7 @@ export const MyAccountHead: React.FC<MyAccountHeadProps> = (props) => {
   return (
     <Head>
       <title>{t("general.title", { companyName: props.title })}</title>
-      <link rel="icon" href={props.favicon} />
+      <link rel="icon" href={props.faviconUrl} />
     </Head>
   )
 }

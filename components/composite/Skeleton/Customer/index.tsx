@@ -9,7 +9,7 @@ import {
 } from "components/composite/Skeleton/styled"
 import { LayoutDefault } from "components/layouts/LayoutDefault"
 
-interface MenuItemProps {
+type MenuItemProps = {
   className?: string
 }
 

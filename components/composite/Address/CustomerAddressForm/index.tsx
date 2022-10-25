@@ -16,7 +16,7 @@ import {
 
 import CustomerAddressContext from "context/CustomerAddressContext"
 
-interface Props {
+type Props = {
   onClose: () => void
 }
 

@@ -2,17 +2,23 @@ import { useState, useContext } from "react"
 
 import { AppContext } from "components/data/AppProvider"
 
-interface UseAccordionActiveSection {
+type UseAccordionActiveSection = {
   activeSection: OrderSectionEnum
   setActiveSection: (section: OrderSectionEnum) => void
   isLoading: boolean
   sections: OrderSectionEnum[]
 }
 
-const SECTIONS: OrderSectionEnum[] = ["Summary", "Addresses", "Shipments", "Payments"]
+const SECTIONS: OrderSectionEnum[] = [
+  "Summary",
+  "Addresses",
+  "Shipments",
+  "Payments",
+]
 
 export const useAccordionActiveSection = (): UseAccordionActiveSection => {
-  const [activeSection, setActiveSection] = useState<OrderSectionEnum>("Summary")
+  const [activeSection, setActiveSection] =
+    useState<OrderSectionEnum>("Summary")
   const [sections] = useState<OrderSectionEnum[]>(SECTIONS)
 
   const ctx = useContext(AppContext)
@@ -25,7 +31,7 @@ export const useAccordionActiveSection = (): UseAccordionActiveSection => {
       sections,
     }
 
-  const { isFirstLoading, isLoading } = ctx
+  const { isLoading } = ctx
 
   return {
     activeSection,

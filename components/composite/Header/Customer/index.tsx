@@ -1,4 +1,4 @@
-import { Settings } from "HostedApp"
+import type { Settings } from "HostedApp"
 import { useContext } from "react"
 import { useTranslation } from "react-i18next"
 

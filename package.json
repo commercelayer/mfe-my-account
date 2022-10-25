@@ -1,14 +1,37 @@
 {
-  "name": "commercelayer-myaccount",
-  "version": "0.1.0",
+  "name": "commercelayer-my-account",
+  "version": "1.0.0",
   "engines": {
     "node": ">=18.x",
     "pnpm": "7.x"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/commercelayer/commercelayer-my-account.git"
+  },
+  "author": {
+    "name": "Pier Francesco Ferrari",
+    "email": "pierfrancesco@commercelayer.io"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/commercelayer/commercelayer-my-account/issues"
+  },
+  "homepage": "https://github.com/commercelayer/commercelayer-my-account#readme",
+  "keywords": [
+    "reactjs",
+    "nextjs",
+    "jamstack",
+    "headless",
+    "ecommerce",
+    "api",
+    "commercelayer"
+  ],
   "private": true,
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "dev": "NODE_OPTIONS='--inspect' next dev",
-    "build": "ANALYZE=true next build",
+    "build": "next build",
     "start": "next start -p $PORT",
     "lint": "eslint ./ --ext .js,.jsx,.tsx,.ts",
     "lint:fix": "eslint ./ --ext .tsx,.ts --fix",
@@ -16,7 +39,7 @@
     "test:e2e": "playwright test"
   },
   "dependencies": {
-    "@commercelayer/react-components": "4.0.0-alpha.11",
+    "@commercelayer/react-components": "4.0.0-alpha.12",
     "@commercelayer/react-utils": "1.0.0-beta.2",
     "@commercelayer/sdk": "^4.15.0",
     "@headlessui/react": "^1.6.4",
@@ -36,7 +59,7 @@
     "gravatar": "^1.8.2",
     "i18next": "^21.9.1",
     "jwt-decode": "^3.1.2",
-    "next": "^12.1.6",
+    "next": "^12.3.0",
     "next-i18next": "^12.0.1",
     "phosphor-react": "^1.4.1",
     "postcss": "^8.4.14",
@@ -55,14 +78,14 @@
   "devDependencies": {
     "@commercelayer/js-auth": "^2.3.0",
     "@faker-js/faker": "^7.3.0",
-    "@next/bundle-analyzer": "^12.1.6",
-    "@next/eslint-plugin-next": "^12.1.6",
-    "@playwright/test": "^1.22.2",
+    "@next/bundle-analyzer": "^12.3.0",
+    "@next/eslint-plugin-next": "^12.3.0",
+    "@playwright/test": "^1.25.2",
     "@typescript-eslint/eslint-plugin": "^5.28.0",
     "@typescript-eslint/parser": "^5.28.0",
     "dotenv": "^16.0.1",
     "eslint": "8.17.0",
-    "eslint-config-next": "^12.1.6",
+    "eslint-config-next": "^12.3.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "2.26.0",
@@ -72,9 +95,12 @@
     "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-react": "^7.30.0",
     "eslint-plugin-tailwind": "^0.2.1",
+    "jest": "^28.1.0",
+    "jest-environment-jsdom": "^28.1.0",
     "prettier": "^2.7.0",
     "stylelint": "^14.9.1",
-    "stylelint-config-standard": "^26.0.0"
+    "stylelint-config-standard": "^26.0.0",
+    "ts-jest": "^28.0.2"
   },
   "resolutions": {
     "@types/react": "<18.0.0",

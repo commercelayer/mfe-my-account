@@ -5,8 +5,7 @@ import {
   Parcels,
   ParcelField,
 } from "@commercelayer/react-components"
-import { Parcel } from "@commercelayer/sdk"
-import { Settings } from "HostedApp"
+import type { Settings } from "HostedApp"
 import Link from "next/link"
 import { CaretLeft } from "phosphor-react"
 import { useTranslation } from "react-i18next"
@@ -27,11 +26,10 @@ import {
   TabsWrapper,
 } from "./styled"
 
-interface Props {
+type Props = {
   settings: Settings
   orderId: string
   parcelId: string
-  parcel?: Parcel
 }
 
 const OrderParcel: React.FC<Props> = ({ settings, orderId, parcelId }) => {

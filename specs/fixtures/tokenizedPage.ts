@@ -19,13 +19,13 @@ import { OrdersPage } from "./OrdersPage"
 
 dotenv.config({ path: path.resolve(__dirname, "../../.env.local") })
 
-interface JWTProps {
+type JWTProps = {
   owner: {
     id: string
   }
 }
 
-interface DefaultParamsProps {
+type DefaultParamsProps = {
   token?: string
   market?: string
   customer?: {
@@ -58,7 +58,7 @@ const getClient = async (token: string) => {
   return CommerceLayer({
     organization: process.env.E2E_SLUG as string,
     accessToken: token,
-    domain: process.env.NEXT_PUBLIC_DOMAIN,
+    domain: process.env.NEXT_PUBLIC_DOMAIN || "commercelayer.io",
   })
 }
 

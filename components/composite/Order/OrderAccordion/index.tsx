@@ -12,7 +12,7 @@ import { Accordion, AccordionItem } from "components/ui/Accordion"
 
 import { Wrapper, SummaryWrapper } from "./styled"
 
-interface Props {
+type Props = {
   order?: Order
 }
 
@@ -51,7 +51,7 @@ const OrderAccordion: React.FC<Props> = ({ order }) => {
           section="Shipments"
         >
           <AccordionItem index={1} header={<span>{t("order.shipments")}</span>}>
-            <OrderShipments order={order} />
+            <OrderShipments />
           </AccordionItem>
         </AccordionProvider>
         <AccordionProvider

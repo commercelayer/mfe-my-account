@@ -1,13 +1,6 @@
 import { Settings, InvalidSettings } from "HostedApp"
 import { changeLanguage } from "i18next"
-import {
-  createContext,
-  FC,
-  ReactNode,
-  useContext,
-  useEffect,
-  useState,
-} from "react"
+import { createContext, useContext, useEffect, useState } from "react"
 
 import { parseLanguageCode } from "components/data/i18n/parseLanguageCode"
 
@@ -19,9 +12,11 @@ type SettingsProviderValue = {
   isLoading: boolean
 }
 
-interface SettingsProviderProps {
+type SettingsProviderProps = {
   orderId?: string
-  children: ((props: SettingsProviderValue) => ReactNode) | ReactNode
+  children:
+    | ((props: SettingsProviderValue) => React.ReactNode)
+    | React.ReactNode
 }
 
 const initialValues: SettingsProviderValue = {
@@ -40,7 +35,9 @@ export const useSettings = (): SettingsProviderValue => {
   }
 }
 
-export const SettingsProvider: FC<SettingsProviderProps> = ({ children }) => {
+export const SettingsProvider: React.FC<SettingsProviderProps> = ({
+  children,
+}) => {
   const [settings, setSettings] = useState<Settings | InvalidSettings>(
     defaultSettings
   )

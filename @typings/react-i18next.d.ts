@@ -8,7 +8,7 @@ declare module "react-i18next" {
     common: typeof commonEn
   }
 
-  interface CustomTypeOptions {
+  type CustomTypeOptions = {
     defaultNS: "common"
     resources: AppResources
   }

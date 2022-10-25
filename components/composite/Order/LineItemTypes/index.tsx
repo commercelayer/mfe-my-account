@@ -10,7 +10,7 @@ import { useTranslation } from "react-i18next"
 
 import { LineItemWrapper, LineItemDescription, LineItemQty } from "./styled"
 
-interface Props {
+type Props = {
   type: LineItemType
 }
 

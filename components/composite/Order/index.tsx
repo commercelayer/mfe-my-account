@@ -5,10 +5,8 @@ import { Trans } from "react-i18next"
 
 import OrderAccordion from "components/composite/Order/OrderAccordion"
 import SkeletonMain from "components/composite/Skeleton/Main"
-import OrderActions from "components/ui/OrderActions"
-import OrderStatusChip, {
-  OrderStatus,
-} from "components/ui/StatusChip/OrderStatusChip"
+import OrderStatusChip from "components/ui/StatusChip/OrderStatusChip"
+import type { OrderStatus } from "components/ui/StatusChip/OrderStatusChip"
 
 import {
   OrderWrapper,
@@ -16,13 +14,12 @@ import {
   OrderHeaderMain,
   OrderTitle,
   OrderDescription,
-  OrderHeaderActions,
   OrderAccordionWrapper,
 } from "./styled"
 
 import { formatDate, shortDate } from "utils/dateTimeFormats"
 
-interface Props {
+type Props = {
   orderId: string
   order?: CLayerOrder
 }
@@ -53,9 +50,6 @@ const Order: React.FC<Props> = ({ orderId, order }) => {
             </OrderDescription>
             <OrderStatusChip status={orderStatus} />
           </OrderHeaderMain>
-          <OrderHeaderActions>
-            <OrderActions order={order} />
-          </OrderHeaderActions>
         </OrderHeader>
         <OrderAccordionWrapper>
           <OrderAccordion order={order} />

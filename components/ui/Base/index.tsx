@@ -1,6 +1,6 @@
 import { Wrapper } from "./styled"
 
-interface Props {
+type Props = {
   className?: string
 }
 

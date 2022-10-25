@@ -1,17 +1,17 @@
 import { createContext, useState, useEffect } from "react"
 
-interface AccordionProviderData {
+type AccordionProviderConfig = {
   isActive: boolean
   section: OrderSectionEnum
   setSection: () => void
   closeSection: () => void
 }
 
-export const AccordionContext = createContext<AccordionProviderData | null>(
+export const AccordionContext = createContext<AccordionProviderConfig | null>(
   null
 )
 
-interface AccordionProviderProps {
+type AccordionProviderProps = {
   section: OrderSectionEnum
   activeSection: OrderSectionEnum
   setActiveSection?: (section: OrderSectionEnum) => void
@@ -21,10 +21,10 @@ export const AccordionProvider: React.FC<AccordionProviderProps> = ({
   children,
   section,
   activeSection,
-  setActiveSection
+  setActiveSection,
 }) => {
   const [isActive, setIsActive] = useState(false)
-  
+
   const setSection = () => {
     setActiveSection && setActiveSection(section)
   }
@@ -43,7 +43,7 @@ export const AccordionProvider: React.FC<AccordionProviderProps> = ({
         isActive,
         section,
         setSection,
-        closeSection
+        closeSection,
       }}
     >
       {children}

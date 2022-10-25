@@ -9,7 +9,7 @@ export type OrderStatus =
   | "approved"
   | "cancelled"
 
-interface Props {
+type Props = {
   status?: OrderStatus
 }
 

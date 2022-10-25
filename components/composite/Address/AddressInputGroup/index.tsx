@@ -16,7 +16,7 @@ import {
   StyledErrors,
 } from "./styled"
 
-interface Props {
+type Props = {
   type: BaseInputType
   fieldName: `billing_address_${Extract<
     keyof Address,

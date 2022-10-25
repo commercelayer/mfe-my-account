@@ -1,7 +1,7 @@
-import { Settings } from "HostedApp"
+import type { Settings } from "HostedApp"
 import Link from "next/link"
 import { useRouter } from "next/router"
-import { ReactNode, useContext } from "react"
+import { useContext } from "react"
 
 import { AppContext } from "components/data/AppProvider"
 
@@ -11,7 +11,7 @@ type Props = Pick<Settings, "accessToken"> & {
   id: string
   title: string
   href: string
-  icon: ReactNode
+  icon: React.ReactNode
   onClick?: () => void
 }
 

@@ -1,6 +1,6 @@
 type ButtonVariants = "default" | "warning"
 
-interface LinkButtonProps {
+type LinkButtonProps = {
   onClick?: () => void
   label?: string
   variant?: ButtonVariants

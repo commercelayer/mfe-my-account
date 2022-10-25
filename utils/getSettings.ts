@@ -12,7 +12,7 @@ export const defaultSettings: InvalidSettings = {
   isValid: false,
   primaryColor: "#000000",
   language: "en",
-  favicon: `${process.env.NEXT_PUBLIC_BASE_PATH}/favicon.png`,
+  faviconUrl: `${process.env.NEXT_PUBLIC_BASE_PATH}/favicon.png`,
   companyName: "Commerce Layer",
   retryable: false,
 }
@@ -26,6 +26,16 @@ type GetSettingsProps = Pick<Settings, "accessToken"> & {
   orderId?: string
 }
 
+/**
+ * Retrieves a list of `Settings` required to show the my account app
+ *
+ * @param accessToken - Access Token for a sales channel API credentials to be used to authenticate all Commerce Layer API requests.
+ * Read more at {@link https://docs.commercelayer.io/developers/authentication/client-credentials#sales-channel}, {@link https://docs.commercelayer.io/core/authentication/password}
+ * @param orderId - Not required Order Id used, if filled, to verify if it exists the requested order.
+ * Read more at {@link https://docs.commercelayer.io/developers/api-specification#base-endpoint}.
+ *
+ * @returns an union type of `Settings` or `InvalidSettings`
+ */
 export const getSettings = async ({
   accessToken,
   orderId,
@@ -85,7 +95,7 @@ export const getSettings = async ({
     primaryColor:
       (organization?.primary_color as string) || defaultSettings.primaryColor,
     logoUrl: organization?.logo_url || "",
-    favicon: organization?.favicon_url || defaultSettings.favicon,
+    faviconUrl: organization?.favicon_url || defaultSettings.faviconUrl,
     gtmId: isTest ? organization?.gtm_id_test : organization?.gtm_id,
   }
 }

@@ -11,7 +11,7 @@ export type ReturnStatus =
   | "rejected"
   | "received"
 
-interface Props {
+type Props = {
   status?: ReturnStatus
 }
 

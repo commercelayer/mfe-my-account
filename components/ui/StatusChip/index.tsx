@@ -1,9 +1,9 @@
-import { OrderStatus } from "./OrderStatusChip"
-import { ReturnStatus } from "./ReturnStatusChip"
-import { ShipmentStatus } from "./ShipmentStatusChip"
+import type { OrderStatus } from "./OrderStatusChip"
+import type { ReturnStatus } from "./ReturnStatusChip"
+import type { ShipmentStatus } from "./ShipmentStatusChip"
 import { StatusChipWrapper } from "./styled"
 
-interface Props {
+type Props = {
   status?: OrderStatus | ReturnStatus | ShipmentStatus
   label: string
 }

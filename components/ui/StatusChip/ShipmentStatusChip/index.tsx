@@ -12,7 +12,7 @@ export type ShipmentStatus =
   | "ready_to_ship"
   | "shipped"
 
-interface Props {
+type Props = {
   status?: ShipmentStatus
 }
 

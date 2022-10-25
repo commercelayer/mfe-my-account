@@ -4,7 +4,6 @@ import {
   OrderListEmpty,
   OrderListRow,
 } from "@commercelayer/react-components"
-import { Order } from "@commercelayer/sdk"
 import Link from "next/link"
 import { useContext } from "react"
 import { useTranslation } from "react-i18next"
@@ -12,7 +11,6 @@ import { useTranslation } from "react-i18next"
 import Empty from "components/composite/Empty"
 import { AppContext } from "components/data/AppProvider"
 import useWindowSizeDetect from "components/hooks/useWindowSizeDetect"
-import OrderActions from "components/ui/OrderActions"
 import OrderStatusChip from "components/ui/StatusChip/OrderStatusChip"
 import Title from "components/ui/Title"
 
@@ -32,9 +30,6 @@ const Orders: React.FC = () => {
   const { isDesktop, screen } = useWindowSizeDetect()
   const options = isDesktop
     ? {
-        actionsComponent: (props: { order: Order }) => (
-          <OrderActions order={props.order} />
-        ),
         windowOptions: {
           width: 600,
           height: 600,

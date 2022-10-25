@@ -1,4 +1,4 @@
-import { Settings } from "HostedApp"
+import type { Settings } from "HostedApp"
 
 import { Image, Label } from "./styled"
 

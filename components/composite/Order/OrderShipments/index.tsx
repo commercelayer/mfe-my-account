@@ -9,7 +9,6 @@ import {
   ParcelLineItem,
   ParcelLineItemField,
 } from "@commercelayer/react-components"
-import { Order as CLayerOrder } from "@commercelayer/sdk"
 import { useRouter } from "next/router"
 import { useContext } from "react"
 import { Trans, useTranslation } from "react-i18next"
@@ -44,18 +43,6 @@ import {
   ParcelLineItemQuantity,
 } from "./styled"
 
-type OrderShipments = {
-  order?: CLayerOrder
-}
-
-type ParcelLinkProps = {
-  orderId?: string
-}
-
-type ParcelProps = {
-  orderId?: string
-}
-
 const ParcelTrackingNumber: React.FC = () => {
   return (
     <ParcelTrackingNumberWrapper>
@@ -69,10 +56,11 @@ const ParcelTrackingNumber: React.FC = () => {
   )
 }
 
-const ParcelLink: React.FC<ParcelLinkProps> = ({ orderId }) => {
+const ParcelLink: React.FC = () => {
   const router = useRouter()
   const { t } = useTranslation()
   const ctx = useContext(AppContext)
+  const orderId = router.query.orderId as string
   const accessToken = ctx?.accessToken
   return (
     <ParcelField attribute="id" tagElement="span">
@@ -94,7 +82,7 @@ const ParcelLink: React.FC<ParcelLinkProps> = ({ orderId }) => {
   )
 }
 
-const Parcel: React.FC<ParcelProps> = ({ orderId }) => {
+const Parcel: React.FC = () => {
   return (
     <ParcelWrapper>
       <ParcelHeader>
@@ -105,7 +93,7 @@ const Parcel: React.FC<ParcelProps> = ({ orderId }) => {
         </ParcelTitle>
         <ParcelHeaderRight>
           <ParcelTrackingNumber />
-          <ParcelLink orderId={orderId} />
+          <ParcelLink />
         </ParcelHeaderRight>
       </ParcelHeader>
       <ParcelContent>
@@ -185,7 +173,7 @@ const ShipmentTop: React.FC = () => {
   )
 }
 
-const OrderShipments: React.FC<OrderShipments> = ({ order }) => {
+const OrderShipments: React.FC = () => {
   return (
     <ShipmentsContainer>
       <Shipment>
@@ -193,7 +181,7 @@ const OrderShipments: React.FC<OrderShipments> = ({ order }) => {
           <ShipmentTop />
           <Parcels>
             <ParcelsWrapper>
-              <Parcel orderId={order?.id} />
+              <Parcel />
             </ParcelsWrapper>
           </Parcels>
         </ShipmentWrapper>

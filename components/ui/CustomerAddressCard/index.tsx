@@ -2,7 +2,7 @@ import { Address, AddressField } from "@commercelayer/react-components"
 
 import { AddressCard } from "components/ui/AddressCard"
 
-interface Props {
+type Props = {
   readonly?: boolean
 }
 
