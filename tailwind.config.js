@@ -9,6 +9,10 @@ config.plugins !== undefined ?
 
 module.exports = {
   ...config,
+  content: [
+    "./src/components/**/*.{js,ts,jsx,tsx}",
+    "./src/pages/**/*.{js,ts,jsx,tsx}",
+  ],
   theme: {
     ...config.theme,
     extend: {

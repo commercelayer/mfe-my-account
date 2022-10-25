@@ -1,5 +1,5 @@
 module.exports = {
-  roots: ["<rootDir>/components", "<rootDir>/utils"],
+  roots: ["<rootDir>/src/components", "<rootDir>/src/utils"],
   transform: {
     "^.+\\.ts(x)?$": "ts-jest",
   },
@@ -15,8 +15,8 @@ module.exports = {
   setupFiles: ["<rootDir>/jest.env.config.js"],
   // map TS path aliases to be used also in test files
   moduleNameMapper: {
-    "#components/(.*)": "<rootDir>/components/$1",
-    "#utils/(.*)": "<rootDir>/utils/$1",
+    "#components/(.*)": "<rootDir>/src/components/$1",
+    "#utils/(.*)": "<rootDir>/src/utils/$1",
     "public/(.*)": "<rootDir>/public/$1",
   },
 }
