@@ -87,15 +87,15 @@ const Navbar: React.FC<Props> = ({ settings, onClick }) => {
           className="hidden md:block"
         />
       </LogoWrapper>
-      <Nav>
-        <ul>
-          <NavLink id="orders" {...menu.orders} />
-          <NavLink id="addresses" {...menu.addresses} />
-          {/* <NavLink id="wallet" {...menu.wallet} />
-          <NavLink id="returns" {...menu.returns} /> */}
-        </ul>
-      </Nav>
       <Wrapper>
+        <Nav>
+          <ul>
+            <NavLink id="orders" {...menu.orders} />
+            <NavLink id="addresses" {...menu.addresses} />
+            {/* <NavLink id="wallet" {...menu.wallet} />
+          <NavLink id="returns" {...menu.returns} /> */}
+          </ul>
+        </Nav>
         {/* <NavLink id="customerService" {...menu.customerService} /> */}
         <EmailWrapper>
           {t("menu.loggedInAs")}

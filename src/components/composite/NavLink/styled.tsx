@@ -6,7 +6,7 @@ type WrapperProps = {
 }
 
 export const Wrapper = styled.li<WrapperProps>`
-  ${tw`flex h-12 md:h-14 items-center content-center sm:text-black md:text-gray-500 hover:(cursor-pointer bg-white rounded-xl) active:(bg-gray-100) xl:(w-64 self-end)`}
+  ${tw`flex h-12 md:h-14 items-center content-center sm:text-black md:text-gray-500 hover:(cursor-pointer bg-white rounded-md) active:bg-gray-100`}
   ${({ isCurrentPage }) => isCurrentPage && tw`md:text-black`}
 `
 

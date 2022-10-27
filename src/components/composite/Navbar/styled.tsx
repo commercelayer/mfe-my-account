@@ -2,7 +2,7 @@ import styled from "styled-components"
 import tw from "twin.macro"
 
 export const Sidebar = styled.div`
-  ${tw`flex flex-col min-h-full min-w-1/3 md:(p-5) lg:(pl-10 pr-10 pt-10)`}
+  ${tw`flex flex-col min-h-full p-5 lg:(p-15) xl:pl-48 bg-gray-50`}
 `
 
 export const LogoWrapper = styled.div`
@@ -10,7 +10,7 @@ export const LogoWrapper = styled.div`
 `
 
 export const Wrapper = styled.div`
-  ${tw`mt-5 md:(mt-32 flex-1)`}
+  ${tw`mt-5 w-sidebar md:(flex-1)`}
 `
 
 export const EmailWrapper = styled.div`
@@ -22,5 +22,5 @@ export const Email = styled.span`
 `
 
 export const Nav = styled.nav`
-  ${tw`md:(mt-8) lg:(mt-16)`}
+  ${tw`md:(my-8) lg:(my-16)`}
 `

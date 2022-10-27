@@ -55,6 +55,7 @@ module.exports = {
       },
       width: {
         22: "5.75rem",
+        sidebar: "240px",
       },
       height: {
         21: "5.325rem",
@@ -92,6 +93,9 @@ module.exports = {
       },
       rotate: {
         '135': '135deg',
+      },
+      spacing: {
+        '15': '3.75rem',
       }
     }
   }
