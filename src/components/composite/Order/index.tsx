@@ -4,7 +4,7 @@ import { useState } from "react"
 import { Trans } from "react-i18next"
 
 import OrderAccordion from "src/components/composite/Order/OrderAccordion"
-import SkeletonMain from "src/components/composite/Skeleton/Main"
+import { SkeletonMainOrder } from "src/components/composite/Skeleton/Main"
 import OrderStatusChip from "src/components/ui/StatusChip/OrderStatusChip"
 import type { OrderStatus } from "src/components/ui/StatusChip/OrderStatusChip"
 
@@ -36,7 +36,7 @@ const Order: React.FC<Props> = ({ orderId, order }) => {
 
   return (
     <OrderContainer orderId={orderId} fetchOrder={setOrder}>
-      <SkeletonMain shown={fetchedOrder === undefined} />
+      <SkeletonMainOrder shown={fetchedOrder === undefined} />
       <OrderWrapper hidden={fetchedOrder === undefined}>
         <OrderHeader>
           <OrderHeaderMain>
