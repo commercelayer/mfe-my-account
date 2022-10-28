@@ -11,7 +11,7 @@ type Props = {
   shown?: boolean
 }
 
-export const SkeletonMain: React.FC<Props> = ({ shown = true }) => {
+export const SkeletonMainList: React.FC<Props> = ({ shown = true }) => {
   return (
     <SkeletonWrapper shown={shown}>
       <SkeletonHeader>
@@ -38,5 +38,3 @@ export const SkeletonMain: React.FC<Props> = ({ shown = true }) => {
     </SkeletonWrapper>
   )
 }
-
-export default SkeletonMain

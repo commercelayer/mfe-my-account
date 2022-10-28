@@ -11,7 +11,7 @@ import { CaretLeft } from "phosphor-react"
 import { useTranslation } from "react-i18next"
 
 import OrderParcelHistory from "src/components/composite/OrderParcel/OrderParcelHistory"
-import SkeletonMain from "src/components/composite/Skeleton/Main"
+import { SkeletonMainParcel } from "src/components/composite/Skeleton/Main"
 
 import {
   ParcelContainer,
@@ -38,7 +38,7 @@ const OrderParcel: React.FC<Props> = ({ settings, orderId, parcelId }) => {
   return (
     <OrderContainer orderId={orderId}>
       <ShipmentsContainer>
-        <Shipment loader={<SkeletonMain />}>
+        <Shipment loader={<SkeletonMainParcel />}>
           <Parcels filterBy={[parcelId]}>
             <ParcelContainer>
               <ParcelHeader>
