@@ -2,7 +2,7 @@ import styled from "styled-components"
 import tw from "twin.macro"
 
 export const Sidebar = styled.div`
-  ${tw`flex flex-col min-h-full p-5 lg:(p-15 sticky top-8) xl:pl-48 bg-gray-50`}
+  ${tw`flex flex-col min-h-full p-5 lg:(p-15 sticky top-8) xl:pl-48 bg-gray-50 md:bg-white`}
 `
 export const Wrapper = styled.div`
   ${tw`lg:(sticky top-8)`}

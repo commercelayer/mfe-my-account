@@ -8,7 +8,7 @@ type WrapperProps = {
 }
 
 export const Wrapper = styled.div<WrapperProps>`
-  ${tw`p-5 md:(p-15) xl:pr-48 2xl:pr-15 bg-white shadow-sm`}
+  ${tw`px-5 md:(p-15) xl:pr-48 2xl:pr-15 md:bg-white shadow-sm`}
   ${({ rounded }) => (rounded ? tw`rounded-md` : null)}
   ${({ fullHeight }) => (fullHeight ? tw`min-h-full ` : null)}
   ${({ centered }) => (centered ? null : tw` lg:pr-20 xl:pr-48 `)}
