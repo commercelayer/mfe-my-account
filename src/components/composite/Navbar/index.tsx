@@ -17,6 +17,7 @@ import Logo from "src/components/ui/Logo"
 import {
   Wrapper,
   Sidebar,
+  MenuWrapper,
   LogoWrapper,
   Nav,
   EmailWrapper,
@@ -80,30 +81,32 @@ const Navbar: React.FC<Props> = ({ settings, onClick }) => {
 
   return (
     <Sidebar data-cy="navbar">
-      <LogoWrapper>
-        <Logo
-          logoUrl={logoUrl}
-          companyName={companyName}
-          className="hidden md:block"
-        />
-      </LogoWrapper>
       <Wrapper>
-        <Nav>
-          <ul>
-            <NavLink id="orders" {...menu.orders} />
-            <NavLink id="addresses" {...menu.addresses} />
-            {/* <NavLink id="wallet" {...menu.wallet} />
+        <LogoWrapper>
+          <Logo
+            logoUrl={logoUrl}
+            companyName={companyName}
+            className="hidden md:block"
+          />
+        </LogoWrapper>
+        <MenuWrapper>
+          <Nav>
+            <ul>
+              <NavLink id="orders" {...menu.orders} />
+              <NavLink id="addresses" {...menu.addresses} />
+              {/* <NavLink id="wallet" {...menu.wallet} />
           <NavLink id="returns" {...menu.returns} /> */}
-          </ul>
-        </Nav>
-        {/* <NavLink id="customerService" {...menu.customerService} /> */}
-        <EmailWrapper>
-          {t("menu.loggedInAs")}
-          <Email>
-            <CustomerField name="email" attribute="email" tagElement="p" />
-          </Email>
-        </EmailWrapper>
-        <NavLink id="logout" {...menu.logout} />
+            </ul>
+          </Nav>
+          {/* <NavLink id="customerService" {...menu.customerService} /> */}
+          <EmailWrapper>
+            {t("menu.loggedInAs")}
+            <Email>
+              <CustomerField name="email" attribute="email" tagElement="p" />
+            </Email>
+          </EmailWrapper>
+          <NavLink id="logout" {...menu.logout} />
+        </MenuWrapper>
       </Wrapper>
     </Sidebar>
   )

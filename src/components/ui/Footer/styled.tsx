@@ -6,7 +6,7 @@ export const Svg = styled.svg`
 `
 
 export const Wrapper = styled.div`
-  ${tw`flex py-3 bg-inherit text-xs text-gray-500 sticky bottom-0 -mx-5 px-5 md:(mx-0 border-t border-gray-300 z-20 px-0 pb-3 mt-20) overflow-hidden z-10`}
+  ${tw`flex py-3 bg-inherit text-xs text-gray-500 -mx-5 px-5 md:(mx-0 border-t border-gray-300 z-20 px-0 pb-3 mt-20) overflow-hidden z-10`}
 
   &::before {
     ${tw`md:(top-0 absolute left-0 w-full z-10 h-2 shadow-top)`}

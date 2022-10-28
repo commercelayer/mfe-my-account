@@ -29,7 +29,7 @@ const CustomerHeader: React.FC<Props> = ({ logoUrl, companyName }) => {
         <Logo
           logoUrl={logoUrl}
           companyName={companyName}
-          className="self-center md:hidden"
+          className="self-center lg:hidden"
         />
         <Title>{t("header.title")}</Title>
         <User>
