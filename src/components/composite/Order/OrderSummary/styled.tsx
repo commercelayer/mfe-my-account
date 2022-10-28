@@ -2,7 +2,7 @@ import styled from "styled-components"
 import tw from "twin.macro"
 
 export const TotalWrapper = styled.div`
-  ${tw`flex flex-row py-6 text-sm`}
+  ${tw`flex flex-row py-6 text-sm pl-[91px] md:pl-[117px]`}
 `
 export const AmountWrapper = styled.div`
   ${tw`flex flex-col flex-1`}
