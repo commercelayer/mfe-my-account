@@ -20,10 +20,7 @@ export const LineItemTypes: React.FC<Props> = ({ type }) => {
   return (
     <LineItem type={type}>
       <LineItemWrapper>
-        <LineItemImage
-          width={85}
-          className="self-start p-1 border rounded bg-contrast"
-        />
+        <LineItemImage className="self-start p-1 border rounded w-[75px] md:w-[85px] bg-contrast" />
         <LineItemDescription>
           <LineItemName className="font-bold" />
           <LineItemQty>
