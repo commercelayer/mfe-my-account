@@ -5,6 +5,10 @@ export const StyledOrderList = styled.td`
   ${tw`relative w-full mb-8`}
 `
 
+export const OrderListWrapper = styled.div`
+  ${tw`-mx-5 md:mx-auto`}
+`
+
 export const OrderData = styled.td`
   ${tw``}
 `
