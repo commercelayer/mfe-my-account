@@ -6,12 +6,14 @@ type WrapperProps = {
 }
 
 export const Wrapper = styled.li<WrapperProps>`
-  ${tw`flex h-12 md:h-14 items-center content-center sm:text-black md:text-gray-500 hover:(cursor-pointer bg-white rounded-md) active:bg-gray-100`}
-  ${({ isCurrentPage }) => isCurrentPage && tw`md:text-black`}
+  ${tw`flex h-8 items-center text-brand-black lg:text-gray-501 hover:(cursor-pointer text-gray-601)`}
+  ${({ isCurrentPage }) => {
+    return isCurrentPage && tw`lg:text-brand-black`
+  }}
 `
 
 export const Icon = styled.div`
-  ${tw`mr-2 md:mr-3 md:px-3`}
+  ${tw`mr-2`}
 `
 
 export const TitleWrapper = styled.div`

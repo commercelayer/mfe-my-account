@@ -22,5 +22,5 @@ export const Aside = styled.div`
 `
 
 export const MobileMenu = styled.div`
-  ${tw`z-10 fixed top-19 left-0 bottom-0 flex flex-col min-w-full max-w-sm md:py-6 md:px-5 md:px-6 md:bg-white border-r overflow-y-auto lg:(hidden)`}
+  ${tw`z-10 fixed top-19 md:top-36 left-0 bottom-0 flex flex-col min-w-full max-w-sm md:p-12 bg-white border-r overflow-y-auto lg:(hidden)`}
 `

@@ -18,6 +18,7 @@ module.exports = {
     extend: {
       ...config.theme.extend,
       colors: {
+        "brand-black": "#101111",
         gray: {
           100: "#F8F8F8",
           200: "#F4F4F4",
@@ -26,7 +27,9 @@ module.exports = {
           400: "#C4C4C4",
           450: "#C5C5C5",
           500: "#8D8D8D",
+          501: "#686E6E",
           600: "#666666",
+          601: "#404141"
         },
         red: {
           300: "#FF656B",

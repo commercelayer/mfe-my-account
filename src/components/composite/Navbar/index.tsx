@@ -12,6 +12,7 @@ import { useTranslation } from "react-i18next"
 
 import NavLink from "src/components/composite/NavLink"
 // import ShoppingCartIcon from "src/components/ui/icons/ShoppingCartIcon"
+import Footer from "src/components/ui/Footer"
 import Logo from "src/components/ui/Logo"
 
 import {
@@ -19,6 +20,7 @@ import {
   Sidebar,
   MenuWrapper,
   LogoWrapper,
+  FooterWrapper,
   Nav,
   EmailWrapper,
   Email,
@@ -38,42 +40,42 @@ const Navbar: React.FC<Props> = ({ settings, onClick }) => {
       title: t("menu.orders"),
       href: "/orders",
       // icon: <ShoppingCartIcon />,
-      icon: <ShoppingCart className="w-4 md:w-5" />,
+      icon: <ShoppingCart className="w-4" />,
       accessToken,
       onClick,
     },
     addresses: {
       title: t("menu.addresses"),
       href: "/addresses",
-      icon: <MapPin className="w-4 md:w-5" />,
+      icon: <MapPin className="w-4" />,
       accessToken,
       onClick,
     },
     wallet: {
       title: t("menu.wallet"),
       href: "/wallet",
-      icon: <CreditCard className="w-4 md:w-5" />,
+      icon: <CreditCard className="w-4" />,
       accessToken,
       onClick,
     },
     returns: {
       title: t("menu.returns"),
       href: "/returns",
-      icon: <ArrowBendUpLeft className="w-4 md:w-5" />,
+      icon: <ArrowBendUpLeft className="w-4" />,
       accessToken,
       onClick,
     },
     customerService: {
       title: t("menu.customerService"),
       href: "/customer_service",
-      icon: <Lifebuoy className="w-4 md:w-5" />,
+      icon: <Lifebuoy className="w-4" />,
       accessToken,
       onClick,
     },
     logout: {
       title: t("menu.logout"),
       href: "/logout",
-      icon: <SignOut className="w-4 md:w-5" />,
+      icon: <SignOut className="w-4" />,
       accessToken,
       onClick,
     },
@@ -86,12 +88,12 @@ const Navbar: React.FC<Props> = ({ settings, onClick }) => {
           <Logo
             logoUrl={logoUrl}
             companyName={companyName}
-            className="hidden md:block"
+            className="hidden lg:block"
           />
         </LogoWrapper>
         <MenuWrapper>
           <Nav>
-            <ul>
+            <ul className="flex flex-col gap-[18px]">
               <NavLink id="orders" {...menu.orders} />
               <NavLink id="addresses" {...menu.addresses} />
               {/* <NavLink id="wallet" {...menu.wallet} />
@@ -106,6 +108,9 @@ const Navbar: React.FC<Props> = ({ settings, onClick }) => {
             </Email>
           </EmailWrapper>
           <NavLink id="logout" {...menu.logout} />
+          <FooterWrapper>
+            <Footer />
+          </FooterWrapper>
         </MenuWrapper>
       </Wrapper>
     </Sidebar>
