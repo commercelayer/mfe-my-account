@@ -21,6 +21,9 @@ export const ErrorCode = styled.p`
 export const LogoWrapper = styled.div`
   ${tw`md:max-w-xs`}
 `
+export const FooterWrapper = styled.div`
+  ${tw`block lg:hidden pb-2`}
+`
 export const FullLogo = styled(Logo)`
   ${tw`text-black`}
 `

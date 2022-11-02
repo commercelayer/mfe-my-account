@@ -12,6 +12,8 @@ import { LayoutDefault } from "src/components/layouts/LayoutDefault"
 import Footer from "src/components/ui/Footer"
 import PageMain from "src/components/ui/PageMain"
 
+import { FooterWrapper } from "./styled"
+
 import { AppProvider } from "src/providers/AppProvider"
 import { CustomerContainerProvider } from "src/providers/CustomerContainerProvider"
 
@@ -61,7 +63,9 @@ const MyAccountContainer: React.FC<Props> = ({ settings, children }) => {
                         />
                       )}
                       <PageMain>{children}</PageMain>
-                      <Footer />
+                      <FooterWrapper>
+                        <Footer />
+                      </FooterWrapper>
                     </>
                   }
                   aside={

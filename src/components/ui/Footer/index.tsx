@@ -20,7 +20,7 @@ const Footer: React.FC<Props> = ({ termsUrl, privacyUrl }) => {
         className="group"
       >
         <LogoWrapper>
-          Powered by <Logo width="135" height="22" className="pl-2" />
+          powered by <Logo width="135" height="22" />
         </LogoWrapper>
       </a>
       {(termsUrl || privacyUrl) && (

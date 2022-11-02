@@ -2,7 +2,14 @@ import { Base } from "src/components/ui/Base"
 import { Container } from "src/components/ui/Container"
 import Footer from "src/components/ui/Footer"
 
-import { Wrapper, LogoWrapper, FullLogo, Main, Error } from "./styled"
+import {
+  Wrapper,
+  LogoWrapper,
+  FooterWrapper,
+  FullLogo,
+  Main,
+  Error,
+} from "./styled"
 
 export const ErrorContainer: React.FC = ({ children }) => {
   return (
@@ -15,7 +22,9 @@ export const ErrorContainer: React.FC = ({ children }) => {
           <Main>
             <Error>{children}</Error>
           </Main>
-          <Footer />
+          <FooterWrapper>
+            <Footer />
+          </FooterWrapper>
         </Wrapper>
       </Container>
     </Base>
