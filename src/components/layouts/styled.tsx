@@ -14,7 +14,7 @@ export const Main = styled.div`
 `
 
 export const DesktopOnly = styled.div`
-  ${tw`hidden lg:(inline bg-gray-100)`}
+  ${tw`hidden lg:(inline bg-gray-50)`}
 `
 
 export const Aside = styled.div`

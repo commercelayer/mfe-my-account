@@ -6,9 +6,9 @@ type WrapperProps = {
 }
 
 export const Wrapper = styled.li<WrapperProps>`
-  ${tw`flex h-8 items-center text-brand-black lg:text-gray-501 hover:(cursor-pointer text-gray-601)`}
+  ${tw`flex h-8 items-center text-black lg:text-gray-500 hover:(cursor-pointer text-gray-600)`}
   ${({ isCurrentPage }) => {
-    return isCurrentPage && tw`lg:text-brand-black`
+    return isCurrentPage && tw`lg:text-black`
   }}
 `
 

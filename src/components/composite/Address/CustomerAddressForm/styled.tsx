@@ -31,7 +31,7 @@ export const DiscardChanges = styled.div<DiscardChangesProps>`
 `
 
 export const SaveButton = styled(SaveAddressesButton)`
-  ${tw`text-ss font-bold text-white bg-primary text-center px-24 h-11 rounded-md shadow-sm disabled:opacity-50`}
+  ${tw`text-ss font-bold text-white bg-primary text-center px-20 h-11 rounded-md shadow-sm disabled:opacity-50`}
 `
 
 export const Text = styled.p`

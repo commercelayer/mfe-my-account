@@ -29,7 +29,7 @@ const Orders: React.FC = () => {
   const accessToken = ctx?.accessToken
 
   const colClassName =
-    "text-left text-xs font-thin text-gray-600 border-b border-gray-300 md:border-none md:text-gray-400 md:font-semibold md:uppercase md:relative"
+    "text-left text-xs font-thin border-b border-gray-200 md:border-none text-gray-300 md:font-semibold md:uppercase md:relative"
   const titleClassName = ""
   const columns = [
     {
@@ -69,7 +69,7 @@ const Orders: React.FC = () => {
           loadingElement={<span></span>}
           actionsContainerClassName="absolute right-1 order-5 align-top hidden md:relative md:align-middle py-5 text-center"
           theadClassName="hidden md:table-row-group"
-          rowTrClassName="flex justify-between items-center relative md:content-center bg-white shadow-bottom mb-4 pb-12 md:pb-0 px-5 md:p-0 md:border-b md:border-gray-350 md:table-row md:shadow-none h-[107px] md:h-[96px]"
+          rowTrClassName="flex justify-between items-center relative md:content-center bg-white shadow-bottom mb-4 pb-12 md:pb-0 px-5 md:p-0 md:border-b md:border-gray-300 md:table-row md:shadow-none h-[107px] md:h-[96px]"
         >
           <OrderListEmpty>{() => <Empty type="Orders" />}</OrderListEmpty>
           <OrderListRow

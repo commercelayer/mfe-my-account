@@ -18,30 +18,9 @@ module.exports = {
     extend: {
       ...config.theme.extend,
       colors: {
-        "brand-black": "#101111",
-        gray: {
-          100: "#F8F8F8",
-          200: "#F4F4F4",
-          300: "#E6E6E6",
-          350: "#E5E5E5",
-          400: "#C4C4C4",
-          450: "#C5C5C5",
-          500: "#8D8D8D",
-          501: "#686E6E",
-          600: "#666666",
-          601: "#404141"
-        },
-        red: {
-          300: "#FF656B",
-          400: "#ED5959"
-        },
         yellow: {
           400: "#FFAB2E",
           500: "#F59511",
-        },
-        green: {
-          100: "#1FDA8A",
-          400: "#2BC48A",
         },
         inherit: "inherit"
       },
