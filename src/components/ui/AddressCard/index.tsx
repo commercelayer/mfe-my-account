@@ -68,7 +68,7 @@ export const AddressCard: React.FC<Props> = ({
           <ConfirmActions>
             <ConfirmDelete
               type="delete"
-              label={t("addresses.yes")}
+              label={t("addresses.yes") as string}
               className="address-confirm-delete-button"
               onClick={() => {
                 // TODO: Do we need to introduce a visual confirmation of address deletion?
