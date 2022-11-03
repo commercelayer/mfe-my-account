@@ -2,7 +2,7 @@ import styled from "styled-components"
 import tw from "twin.macro"
 
 export const HeaderContainer = styled.header`
-  ${tw`flex border-b-2 bg-white border-gray-300 mb-8 -mx-5 md:(-mx-0 p-5 border-b) lg:(mb-16 px-0 pt-0 pb-2.5)`}
+  ${tw`flex border-b-2 bg-white border-gray-300 mb-8 -mx-5 md:(-mx-0 p-5 border-b) lg:(mb-16 px-0 pt-0 pb-0 h-[50px] items-center)`}
 `
 
 export const Wrapper = styled.div`

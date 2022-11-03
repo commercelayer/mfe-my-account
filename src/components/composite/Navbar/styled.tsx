@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
 `
 
 export const LogoWrapper = styled.div`
-  ${tw`w-full h-auto lg:h-[50px]`}
+  ${tw`w-full h-auto lg:(h-[50px] flex items-center )`}
 `
 
 export const FooterWrapper = styled.div`
