@@ -29,7 +29,7 @@ const Orders: React.FC = () => {
   const accessToken = ctx?.accessToken
 
   const colClassName =
-    "text-left text-xs font-thin text-gray-600 pb-5 border-b border-gray-300 md:border-none md:text-gray-400 md:font-semibold md:uppercase md:relative"
+    "text-left text-xs font-thin text-gray-600 border-b border-gray-300 md:border-none md:text-gray-400 md:font-semibold md:uppercase md:relative"
   const titleClassName = ""
   const columns = [
     {
@@ -68,12 +68,12 @@ const Orders: React.FC = () => {
           showActions={true}
           actionsContainerClassName="absolute right-1 order-5 align-top hidden md:relative md:align-middle py-5 text-center"
           theadClassName="hidden md:table-row-group"
-          rowTrClassName="flex justify-between items-center relative md:content-center bg-white shadow-bottom mb-4 pb-12 md:pb-0 px-5 md:p-0 md:border-b md:border-gray-350 md:table-row md:shadow-none"
+          rowTrClassName="flex justify-between items-center relative md:content-center bg-white shadow-bottom mb-4 pb-12 md:pb-0 px-5 md:p-0 md:border-b md:border-gray-350 md:table-row md:shadow-none h-[107px] md:h-[96px]"
         >
           <OrderListEmpty>{() => <Empty type="Orders" />}</OrderListEmpty>
           <OrderListRow
             field="number"
-            className="order-1 pt-5 pb-2.5 md:py-5 md:align-middle"
+            className="order-1 pt-6 pb-2.5 md:p-0  md:align-middle"
           >
             {({ cell, order, ...p }) => {
               const cols = cell?.map((cell) => {
@@ -97,7 +97,7 @@ const Orders: React.FC = () => {
           </OrderListRow>
           <OrderListRow
             field="updated_at"
-            className="absolute order-2 text-right bottom-5 right-5 md:bottom-auto md:relative md:right-auto md:text-left"
+            className="absolute order-2 text-right bottom-4 right-5 md:bottom-auto md:relative md:right-auto md:text-left"
           >
             {({ cell, order, ...p }) => {
               const cols = cell?.map((cell) => {
@@ -114,7 +114,7 @@ const Orders: React.FC = () => {
           </OrderListRow>
           <OrderListRow
             field="status"
-            className="absolute order-3 bottom-5 md:bottom-auto md:relative"
+            className="absolute order-3 bottom-4 md:bottom-auto md:relative"
           >
             {({ cell, order, ...p }) => {
               const cols = cell?.map((cell) => {
