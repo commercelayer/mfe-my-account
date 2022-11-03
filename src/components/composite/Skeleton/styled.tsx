@@ -112,19 +112,23 @@ type SkeletonTableRowProps = {
 }
 
 export const SkeletonTableRow = styled.div<SkeletonTableRowProps>`
-  ${tw`flex mt-2 gap-4`}
+  ${tw`flex h-[107px] my-4 gap-4 bg-gray-300 lg:(bg-transparent h-auto)`}
   ${({ align }) =>
     align === "start"
       ? tw`justify-items-start`
       : tw`justify-between items-baseline`}
 `
 
+export const SkeletonTableTHead = styled(SkeletonTableRow)`
+  ${tw`hidden lg:flex`}
+`
+
 export const SkeletonTableTh = styled(SkeletonBox)`
-  ${tw`w-1/4 h-8 mt-10 md:w-4/6 md:mt-5`}
+  ${tw`w-1/4 h-4 md:w-4/6`}
 `
 
 export const SkeletonTableTd = styled(SkeletonBox)`
-  ${tw`w-1/4 h-12 mt-10 md:w-4/6 md:mt-5`}
+  ${tw`w-1/4 h-12 my-2 md:w-4/6 md:my-4`}
 `
 
 export const SkeletonTableImg = styled(SkeletonBox)`
