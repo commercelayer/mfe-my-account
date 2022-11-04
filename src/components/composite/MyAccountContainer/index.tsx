@@ -9,10 +9,9 @@ import GuestHeader from "src/components/composite/Header/Guest"
 import { MyAccountHead } from "src/components/composite/MyAccountTitle"
 import Navbar from "src/components/composite/Navbar"
 import { LayoutDefault } from "src/components/layouts/LayoutDefault"
+import { FooterWrapper } from "src/components/ui/Common/styled"
 import Footer from "src/components/ui/Footer"
 import PageMain from "src/components/ui/PageMain"
-
-import { FooterWrapper } from "./styled"
 
 import { AppProvider } from "src/providers/AppProvider"
 import { CustomerContainerProvider } from "src/providers/CustomerContainerProvider"

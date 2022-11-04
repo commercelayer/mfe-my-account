@@ -1,15 +1,9 @@
 import { Base } from "src/components/ui/Base"
+import { FooterWrapper } from "src/components/ui/Common/styled"
 import { Container } from "src/components/ui/Container"
 import Footer from "src/components/ui/Footer"
 
-import {
-  Wrapper,
-  LogoWrapper,
-  FooterWrapper,
-  FullLogo,
-  Main,
-  Error,
-} from "./styled"
+import { Wrapper, LogoWrapper, FullLogo, Main, Error } from "./styled"
 
 export const ErrorContainer: React.FC = ({ children }) => {
   return (
