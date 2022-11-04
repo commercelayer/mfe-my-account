@@ -6,7 +6,7 @@ export const PaymentSourceWrapper = styled.div`
 `
 
 export const PaymentSourceBrandNameWrapper = styled.div`
-  ${tw`flex w-full text-sm ml-3`}
+  ${tw`flex flex-col w-full text-sm ml-3`}
 `
 
 export const PaymentSourceBrandNamePrimary = styled.span`
