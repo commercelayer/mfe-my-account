@@ -35,7 +35,7 @@ const OrderPayments: React.FC = () => {
     <PaymentMethodsContainer>
       <PaymentSource readonly>
         <PaymentSourceWrapper>
-          <PaymentSourceBrandIcon className="mr-2" />
+          <PaymentSourceBrandIcon />
           <PaymentSourceBrandNameWrapper>
             <PaymentSourceDetail type="last4">
               {(props) => {
