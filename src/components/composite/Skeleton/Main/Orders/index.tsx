@@ -1,8 +1,7 @@
 import {
   SkeletonWrapper,
-  SkeletonHeader,
-  SkeletonTitle,
   SkeletonTableRow,
+  SkeletonTableTHead,
   SkeletonTableTh,
   SkeletonTableTd,
 } from "src/components/composite/Skeleton/styled"
@@ -11,17 +10,20 @@ type Props = {
   shown?: boolean
 }
 
-export const SkeletonMain: React.FC<Props> = ({ shown = true }) => {
+export const SkeletonMainOrders: React.FC<Props> = ({ shown = true }) => {
   return (
     <SkeletonWrapper shown={shown}>
-      <SkeletonHeader>
-        <SkeletonTitle />
-      </SkeletonHeader>
+      <SkeletonTableTHead>
+        <SkeletonTableTh />
+        <SkeletonTableTh />
+        <SkeletonTableTh />
+        <SkeletonTableTh />
+      </SkeletonTableTHead>
       <SkeletonTableRow>
-        <SkeletonTableTh />
-        <SkeletonTableTh />
-        <SkeletonTableTh />
-        <SkeletonTableTh />
+        <SkeletonTableTd />
+        <SkeletonTableTd />
+        <SkeletonTableTd />
+        <SkeletonTableTd />
       </SkeletonTableRow>
       <SkeletonTableRow>
         <SkeletonTableTd />
@@ -38,5 +40,3 @@ export const SkeletonMain: React.FC<Props> = ({ shown = true }) => {
     </SkeletonWrapper>
   )
 }
-
-export default SkeletonMain

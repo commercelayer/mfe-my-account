@@ -42,22 +42,95 @@ export const SkeletonWrapper = styled.div<SkeletonWrapperProps>`
   ${({ shown }) => !shown && tw`hidden`}
 `
 
-export const SkeletonHeader = styled.div`
-  ${tw`flex flex-row items-baseline justify-between`}
+type SkeletonColProps = {
+  padded?: boolean
+}
+
+export const SkeletonCol = styled.div<SkeletonColProps>`
+  ${tw`flex flex-col gap-3`}
+  ${({ padded }) => padded && tw`lg:pl-12`}
+`
+
+type SkeletonRowProps = {
+  centered?: boolean
+}
+
+export const SkeletonRow = styled.div<SkeletonRowProps>`
+  ${tw`flex flex-row gap-4`}
+  ${({ centered }) => centered && tw`items-center`}
+`
+
+export const SkeletonHeader = styled(SkeletonRow)`
+  ${tw`items-baseline justify-between`}
 `
 
 export const SkeletonTitle = styled(SkeletonBox)`
   ${tw`w-40 h-10`}
 `
 
-export const SkeletonTableRow = styled.div`
-  ${tw`flex items-baseline justify-between mt-2 gap-4`}
+type SkeletonSubtitle = {
+  size?: string
+}
+
+export const SkeletonSubtitle = styled(SkeletonBox)<SkeletonSubtitle>`
+  ${tw`h-5`}
+  ${({ size }) => {
+    if (size === "small") return tw`w-20`
+    if (size === "medium") return tw`w-40`
+    return tw`w-60`
+  }}
+`
+
+type SkeletonSpanProps = {
+  size?: string
+}
+
+export const SkeletonSpan = styled(SkeletonBox)<SkeletonSpanProps>`
+  ${tw`h-3`}
+  ${({ size }) => {
+    if (size === "small") return tw`w-16`
+    if (size === "medium") return tw`w-24`
+    if (size === "long") return tw`w-32`
+    return tw`w-36`
+  }}
+`
+
+export const SkeletonSpacer = styled(SkeletonBox)`
+  ${tw`w-40 h-6 bg-transparent`}
+`
+
+export const SkeletonRoundIcon = styled(SkeletonCircle)`
+  ${tw`w-[24px] h-[24px]`}
+`
+
+export const SkeletonRoundBackBtn = styled(SkeletonCircle)`
+  ${tw`w-[38px] h-[38px]`}
+`
+
+type SkeletonTableRowProps = {
+  align?: string
+}
+
+export const SkeletonTableRow = styled.div<SkeletonTableRowProps>`
+  ${tw`flex h-[107px] my-4 gap-4 bg-gray-300 md:(bg-transparent h-auto)`}
+  ${({ align }) =>
+    align === "start"
+      ? tw`justify-items-start`
+      : tw`justify-between items-baseline`}
+`
+
+export const SkeletonTableTHead = styled(SkeletonTableRow)`
+  ${tw`hidden md:flex`}
 `
 
 export const SkeletonTableTh = styled(SkeletonBox)`
-  ${tw`w-1/4 h-8 mt-10 md:w-4/6 md:mt-5`}
+  ${tw`w-1/4 h-4 md:w-4/6`}
 `
 
 export const SkeletonTableTd = styled(SkeletonBox)`
-  ${tw`w-1/4 h-12 mt-10 md:w-4/6 md:mt-5`}
+  ${tw`w-1/4 h-12 my-2 md:w-4/6 md:my-4`}
+`
+
+export const SkeletonTableImg = styled(SkeletonBox)`
+  ${tw`flex-shrink-0 w-[85px] h-[85px] `}
 `

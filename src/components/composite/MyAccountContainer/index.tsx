@@ -9,6 +9,7 @@ import GuestHeader from "src/components/composite/Header/Guest"
 import { MyAccountHead } from "src/components/composite/MyAccountTitle"
 import Navbar from "src/components/composite/Navbar"
 import { LayoutDefault } from "src/components/layouts/LayoutDefault"
+import { FooterWrapper } from "src/components/ui/Common/styled"
 import Footer from "src/components/ui/Footer"
 import PageMain from "src/components/ui/PageMain"
 
@@ -61,7 +62,9 @@ const MyAccountContainer: React.FC<Props> = ({ settings, children }) => {
                         />
                       )}
                       <PageMain>{children}</PageMain>
-                      <Footer />
+                      <FooterWrapper>
+                        <Footer />
+                      </FooterWrapper>
                     </>
                   }
                   aside={

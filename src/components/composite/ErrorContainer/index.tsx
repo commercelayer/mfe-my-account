@@ -1,4 +1,5 @@
 import { Base } from "src/components/ui/Base"
+import { FooterWrapper } from "src/components/ui/Common/styled"
 import { Container } from "src/components/ui/Container"
 import Footer from "src/components/ui/Footer"
 
@@ -15,7 +16,9 @@ export const ErrorContainer: React.FC = ({ children }) => {
           <Main>
             <Error>{children}</Error>
           </Main>
-          <Footer />
+          <FooterWrapper>
+            <Footer />
+          </FooterWrapper>
         </Wrapper>
       </Container>
     </Base>

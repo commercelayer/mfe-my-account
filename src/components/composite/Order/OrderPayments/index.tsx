@@ -16,28 +16,39 @@ import {
 
 import { getTranslations } from "src/utils/payments"
 
-const OrderPayments: React.FC = () => {
+const OrderPaymentSourceBrandName: React.FC = () => {
   const { t } = useTranslation()
 
+  return (
+    <PaymentSourceBrandName>
+      {(props) => (
+        <PaymentSourceBrandNamePrimary>
+          {getTranslations(props?.brand, t)}
+        </PaymentSourceBrandNamePrimary>
+      )}
+    </PaymentSourceBrandName>
+  )
+}
+
+const OrderPayments: React.FC = () => {
   return (
     <PaymentMethodsContainer>
       <PaymentSource readonly>
         <PaymentSourceWrapper>
-          <PaymentSourceBrandIcon className="mr-2" />
+          <PaymentSourceBrandIcon />
           <PaymentSourceBrandNameWrapper>
-            <PaymentSourceBrandName>
-              {(props) => (
-                <PaymentSourceBrandNamePrimary>
-                  {getTranslations(props?.brand, t)}
-                </PaymentSourceBrandNamePrimary>
-              )}
-            </PaymentSourceBrandName>
             <PaymentSourceDetail type="last4">
               {(props) => {
-                if (props.text === null || props.text.length === 0) return <></>
+                if (props.text === null || props.text.length === 0)
+                  return (
+                    <PaymentSourceBrandNamePrimary>
+                      <OrderPaymentSourceBrandName />
+                    </PaymentSourceBrandNamePrimary>
+                  )
                 return (
                   <>
                     <PaymentSourceBrandNamePrimary>
+                      <OrderPaymentSourceBrandName />
                       <Trans i18nKey="order.paymentMethod.EndingIn">
                         <PaymentSourceDetail type="last4" />
                       </Trans>

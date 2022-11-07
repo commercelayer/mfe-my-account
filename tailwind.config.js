@@ -18,27 +18,9 @@ module.exports = {
     extend: {
       ...config.theme.extend,
       colors: {
-        gray: {
-          100: "#F8F8F8",
-          200: "#F4F4F4",
-          300: "#E6E6E6",
-          350: "#E5E5E5",
-          400: "#C4C4C4",
-          450: "#C5C5C5",
-          500: "#8D8D8D",
-          600: "#666666",
-        },
-        red: {
-          300: "#FF656B",
-          400: "#ED5959"
-        },
         yellow: {
           400: "#FFAB2E",
           500: "#F59511",
-        },
-        green: {
-          100: "#1FDA8A",
-          400: "#2BC48A",
         },
         inherit: "inherit"
       },
@@ -55,6 +37,7 @@ module.exports = {
       },
       width: {
         22: "5.75rem",
+        sidebar: "240px",
       },
       height: {
         21: "5.325rem",
@@ -92,6 +75,9 @@ module.exports = {
       },
       rotate: {
         '135': '135deg',
+      },
+      spacing: {
+        '15': '3.75rem',
       }
     }
   }

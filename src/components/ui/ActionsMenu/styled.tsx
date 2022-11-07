@@ -20,5 +20,5 @@ type ActionsMenuButtonProps = {
 export const ActionsMenuButton = styled.button<ActionsMenuButtonProps>`
   ${tw`flex items-center opacity-70 rounded-full hover:(text-gray-600 opacity-100) p-1`}
   ${({ showActionsMenu }) =>
-    showActionsMenu && tw`bg-gray-350 text-gray-600 opacity-100`}
+    showActionsMenu && tw`bg-gray-300 text-gray-600 opacity-100`}
 `
