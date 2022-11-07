@@ -1,7 +1,7 @@
 import { CustomerField } from "@commercelayer/react-components"
 import type { Settings } from "HostedApp"
 import {
-  ArrowBendUpLeft,
+  Package,
   CreditCard,
   Lifebuoy,
   MapPin,
@@ -64,7 +64,7 @@ const Navbar: React.FC<Props> = ({ settings, onClick }) => {
     returns: {
       title: t("menu.returns"),
       href: "/returns",
-      icon: <ArrowBendUpLeft className="w-4" />,
+      icon: <Package className="w-4" />,
       comingSoon: true,
       accessToken,
       onClick,
