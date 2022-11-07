@@ -41,6 +41,7 @@ const Navbar: React.FC<Props> = ({ settings, onClick }) => {
       href: "/orders",
       // icon: <ShoppingCartIcon />,
       icon: <ShoppingCart className="w-4" />,
+      comingSoon: false,
       accessToken,
       onClick,
     },
@@ -48,6 +49,7 @@ const Navbar: React.FC<Props> = ({ settings, onClick }) => {
       title: t("menu.addresses"),
       href: "/addresses",
       icon: <MapPin className="w-4" />,
+      comingSoon: false,
       accessToken,
       onClick,
     },
@@ -55,6 +57,7 @@ const Navbar: React.FC<Props> = ({ settings, onClick }) => {
       title: t("menu.wallet"),
       href: "/wallet",
       icon: <CreditCard className="w-4" />,
+      comingSoon: true,
       accessToken,
       onClick,
     },
@@ -62,6 +65,7 @@ const Navbar: React.FC<Props> = ({ settings, onClick }) => {
       title: t("menu.returns"),
       href: "/returns",
       icon: <ArrowBendUpLeft className="w-4" />,
+      comingSoon: true,
       accessToken,
       onClick,
     },
@@ -96,8 +100,8 @@ const Navbar: React.FC<Props> = ({ settings, onClick }) => {
             <ul className="flex flex-col gap-[18px]">
               <NavLink id="orders" {...menu.orders} />
               <NavLink id="addresses" {...menu.addresses} />
-              {/* <NavLink id="wallet" {...menu.wallet} />
-          <NavLink id="returns" {...menu.returns} /> */}
+              <NavLink id="wallet" {...menu.wallet} />
+              <NavLink id="returns" {...menu.returns} />
             </ul>
           </Nav>
           {/* <NavLink id="customerService" {...menu.customerService} /> */}
