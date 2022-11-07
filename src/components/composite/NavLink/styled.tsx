@@ -10,12 +10,17 @@ export const Wrapper = styled.li<WrapperProps>`
   ${tw`flex h-8 items-center select-none`}
   ${({ comingSoon }) =>
     !comingSoon && tw`text-gray-500 hover:(cursor-pointer text-gray-600)`}
-  ${({ comingSoon }) => comingSoon && tw`text-gray-500`}
+  ${({ comingSoon }) => comingSoon && tw`text-gray-400`}
   ${({ isCurrentPage }) => isCurrentPage && tw`text-black`}
 `
 
-export const Icon = styled.div`
+type IconProps = {
+  comingSoon?: boolean
+}
+
+export const Icon = styled.div<IconProps>`
   ${tw`mr-2`}
+  ${({ comingSoon }) => comingSoon && tw`text-gray-300`}
 `
 
 export const TitleWrapper = styled.div`

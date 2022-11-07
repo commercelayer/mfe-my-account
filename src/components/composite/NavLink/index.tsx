@@ -32,7 +32,7 @@ const NavLinkButton: React.FC<Props> = (props) => {
       comingSoon={comingSoon}
       onClick={onClick}
     >
-      <Icon>{icon}</Icon>
+      <Icon comingSoon={comingSoon}>{icon}</Icon>
       <TitleWrapper>
         <Title>{title}</Title>
         {comingSoon && <ComingSoonBadge />}
