@@ -1,4 +1,4 @@
-import { SkeletonMainList } from "src/components/composite/Skeleton/Main"
+import { SkeletonMainOrders } from "src/components/composite/Skeleton/Main"
 import {
   Sidebar,
   SkeletonLogoWrapper,
@@ -39,7 +39,7 @@ export const CustomerSkeleton: React.FC = () => {
           <MenuItem className="mt-7" />
         </Sidebar>
       }
-      main={<SkeletonMainList />}
+      main={<SkeletonMainOrders />}
     />
   )
 }

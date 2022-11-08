@@ -1,9 +1,8 @@
+import { SkeletonMainOrdersTable } from "src/components/composite/Skeleton/Main/OrdersTable"
 import {
   SkeletonWrapper,
-  SkeletonTableRow,
-  SkeletonTableTHead,
-  SkeletonTableTh,
-  SkeletonTableTd,
+  SkeletonHeader,
+  SkeletonTitle,
 } from "src/components/composite/Skeleton/styled"
 
 type Props = {
@@ -13,30 +12,10 @@ type Props = {
 export const SkeletonMainOrders: React.FC<Props> = ({ shown = true }) => {
   return (
     <SkeletonWrapper shown={shown}>
-      <SkeletonTableTHead>
-        <SkeletonTableTh />
-        <SkeletonTableTh />
-        <SkeletonTableTh />
-        <SkeletonTableTh />
-      </SkeletonTableTHead>
-      <SkeletonTableRow>
-        <SkeletonTableTd />
-        <SkeletonTableTd />
-        <SkeletonTableTd />
-        <SkeletonTableTd />
-      </SkeletonTableRow>
-      <SkeletonTableRow>
-        <SkeletonTableTd />
-        <SkeletonTableTd />
-        <SkeletonTableTd />
-        <SkeletonTableTd />
-      </SkeletonTableRow>
-      <SkeletonTableRow>
-        <SkeletonTableTd />
-        <SkeletonTableTd />
-        <SkeletonTableTd />
-        <SkeletonTableTd />
-      </SkeletonTableRow>
+      <SkeletonHeader>
+        <SkeletonTitle />
+      </SkeletonHeader>
+      <SkeletonMainOrdersTable />
     </SkeletonWrapper>
   )
 }
