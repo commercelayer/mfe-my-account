@@ -1,6 +1,9 @@
-import { SkeletonMainOrders } from "src/components/composite/Skeleton/Main"
+import { SkeletonMainLoader } from "src/components/composite/Skeleton/Main"
 import {
   Sidebar,
+  SkeletonHeader,
+  SkeletonTitle,
+  SkeletonSpacer,
   SkeletonLogoWrapper,
   SkeletonLogo,
   SkeletonMenuItem,
@@ -28,18 +31,28 @@ export const CustomerSkeleton: React.FC = () => {
       isGuest={false}
       aside={
         <Sidebar>
-          <SkeletonLogoWrapper>
-            <SkeletonLogo />
-          </SkeletonLogoWrapper>
-          <MenuItem className="mt-12" />
-          <MenuItem className="mt-7" />
-          <MenuItem className="mt-7" />
-          <MenuItem className="mt-7" />
-          <MenuItem className="mt-32" />
-          <MenuItem className="mt-7" />
+          <div className="w-[240px]">
+            <SkeletonLogoWrapper>
+              <SkeletonLogo />
+            </SkeletonLogoWrapper>
+            <MenuItem className="mt-12" />
+            <MenuItem className="mt-7" />
+            <MenuItem className="mt-7" />
+            <MenuItem className="mt-7" />
+            <MenuItem className="mt-20" />
+          </div>
         </Sidebar>
       }
-      main={<SkeletonMainOrders />}
+      main={
+        <>
+          <SkeletonHeader>
+            <SkeletonTitle />
+          </SkeletonHeader>
+          <SkeletonSpacer />
+          <SkeletonSpacer />
+          <SkeletonMainLoader />
+        </>
+      }
     />
   )
 }
