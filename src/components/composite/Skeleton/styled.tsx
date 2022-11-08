@@ -64,6 +64,10 @@ export const SkeletonHeader = styled(SkeletonRow)`
   ${tw`items-baseline justify-between`}
 `
 
+export const SkeletonButton = styled(SkeletonBox)`
+  ${tw`h-14`}
+`
+
 export const SkeletonTitle = styled(SkeletonBox)`
   ${tw`w-40 h-10`}
 `
