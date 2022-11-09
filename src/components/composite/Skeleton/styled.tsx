@@ -14,11 +14,11 @@ export const SkeletonCircle = styled(SkeletonBox)`
 `
 
 export const Sidebar = styled.div`
-  ${tw`flex flex-col min-h-full min-w-1/3 md:(p-5) lg:(pl-20 pr-10 pt-10) xl:(pl-48) animate-pulse`}
+  ${tw`flex flex-col min-h-full p-5 lg:(p-15 sticky top-8) xl:pl-48 animate-pulse`}
 `
 
 export const SkeletonLogoWrapper = styled.div`
-  ${tw`flex mb-12`}
+  ${tw`flex items-center mb-16 w-[240px] h-[50px]`}
 `
 
 export const SkeletonLogo = styled(SkeletonBox)`
@@ -26,15 +26,15 @@ export const SkeletonLogo = styled(SkeletonBox)`
 `
 
 export const SkeletonMenuItem = styled.div`
-  ${tw`flex items-center`}
+  ${tw`flex items-center h-[32px] mb-[18px]`}
 `
 
 export const SkeletonMenuItemIcon = styled(SkeletonCircle)`
-  ${tw`w-8 h-8 mr-5`}
+  ${tw`w-4 h-4 mr-2`}
 `
 
 export const SkeletonMenuItemLabel = styled(SkeletonBox)`
-  ${tw`w-4/6 h-6`}
+  ${tw`w-1/3 h-4`}
 `
 
 export const SkeletonWrapper = styled.div<SkeletonWrapperProps>`

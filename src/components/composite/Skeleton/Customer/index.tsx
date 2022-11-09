@@ -31,16 +31,14 @@ export const CustomerSkeleton: React.FC = () => {
       isGuest={false}
       aside={
         <Sidebar>
-          <div className="w-[240px]">
-            <SkeletonLogoWrapper>
-              <SkeletonLogo />
-            </SkeletonLogoWrapper>
-            <MenuItem className="mt-12" />
-            <MenuItem className="mt-7" />
-            <MenuItem className="mt-7" />
-            <MenuItem className="mt-7" />
-            <MenuItem className="mt-20" />
-          </div>
+          <SkeletonLogoWrapper>
+            <SkeletonLogo />
+          </SkeletonLogoWrapper>
+          <MenuItem />
+          <MenuItem />
+          <MenuItem />
+          <MenuItem />
+          <MenuItem className="mt-12" />
         </Sidebar>
       }
       main={
