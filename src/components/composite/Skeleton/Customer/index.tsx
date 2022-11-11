@@ -1,6 +1,7 @@
 import { SkeletonMainLoader } from "src/components/composite/Skeleton/Main"
 import {
   Sidebar,
+  Main,
   SkeletonHeader,
   SkeletonRow,
   SkeletonTitle,
@@ -45,7 +46,7 @@ export const CustomerSkeleton: React.FC = () => {
         </Sidebar>
       }
       main={
-        <>
+        <Main>
           <SkeletonHeader className="h-[50px]">
             <SkeletonTitle />
             <SkeletonRow className="items-center">
@@ -56,7 +57,7 @@ export const CustomerSkeleton: React.FC = () => {
           <SkeletonSpacer />
           <SkeletonSpacer />
           <SkeletonMainLoader />
-        </>
+        </Main>
       }
     />
   )

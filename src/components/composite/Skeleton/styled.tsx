@@ -17,6 +17,10 @@ export const Sidebar = styled.div`
   ${tw`flex flex-col min-h-full p-5 lg:(p-15 sticky top-8) xl:pl-48 animate-pulse`}
 `
 
+export const Main = styled.div`
+  ${tw`animate-pulse`}
+`
+
 export const SkeletonLogoWrapper = styled.div`
   ${tw`flex items-center mb-16 w-[240px] h-[50px]`}
 `
