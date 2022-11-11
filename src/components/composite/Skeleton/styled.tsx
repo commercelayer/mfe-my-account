@@ -61,7 +61,7 @@ export const SkeletonRow = styled.div<SkeletonRowProps>`
 `
 
 export const SkeletonHeader = styled(SkeletonRow)`
-  ${tw`items-baseline justify-between`}
+  ${tw`items-center justify-between`}
 `
 
 export const SkeletonButton = styled(SkeletonBox)`
