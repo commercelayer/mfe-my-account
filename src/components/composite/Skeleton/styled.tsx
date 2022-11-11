@@ -120,23 +120,13 @@ type SkeletonTableRowProps = {
 }
 
 export const SkeletonTableRow = styled.div<SkeletonTableRowProps>`
-  ${tw`flex h-[107px] my-4 gap-4 bg-gray-300 md:(bg-transparent h-auto)`}
+  ${tw`flex`}
   ${({ align }) =>
-    align === "start"
-      ? tw`justify-items-start`
-      : tw`justify-between items-baseline`}
+    align === "start" ? tw`justify-items-start` : tw`justify-between`}
 `
 
 export const SkeletonTableTHead = styled(SkeletonTableRow)`
   ${tw`hidden md:flex`}
-`
-
-export const SkeletonTableTh = styled(SkeletonBox)`
-  ${tw`w-1/4 h-4 md:w-4/6`}
-`
-
-export const SkeletonTableTd = styled(SkeletonBox)`
-  ${tw`w-1/4 h-12 my-2 md:w-4/6 md:my-4`}
 `
 
 export const SkeletonTableImg = styled(SkeletonBox)`
