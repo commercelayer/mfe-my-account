@@ -60,3 +60,26 @@ export const SkeletonMainPageTitle: React.FC<SkeletonMainPageTitleProps> = ({
     </SkeletonCol>
   )
 }
+
+interface SkeletonMainAddressCardProps {
+  showActions?: boolean
+}
+
+export const SkeletonMainAddressCard: React.FC<
+  SkeletonMainAddressCardProps
+> = ({ showActions }) => {
+  return (
+    <SkeletonCol className="p-4 mt-4">
+      <SkeletonSubtitle size="medium" />
+      <SkeletonSpan />
+      <SkeletonSpan />
+      <SkeletonSpan />
+      {showActions && (
+        <SkeletonRow className="mt-2">
+          <SkeletonSpan size={"small"} />
+          <SkeletonSpan size={"small"} className="ml-36" />
+        </SkeletonRow>
+      )}
+    </SkeletonCol>
+  )
+}
