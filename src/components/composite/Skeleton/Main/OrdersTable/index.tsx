@@ -17,11 +17,11 @@ const SkeletonMainOrdersTableRow: React.FC = () => {
         <SkeletonSpan size="small" />
         <SkeletonSpan size="medium" />
       </SkeletonCol>
-      <SkeletonCol className="absolute order-2 w-1/4 bottom-4 md:bottom-auto md:relative md:text-left">
-        <SkeletonSpan size="small" />
-      </SkeletonCol>
-      <SkeletonCol className="absolute right-0 order-3 w-1/4 bottom-4 md:bottom-auto md:relative">
+      <SkeletonCol className="absolute right-0 order-2 w-1/4 bottom-4 md:bottom-auto md:relative md:text-left">
         <SkeletonSpan size="medium" className="self-end md:self-auto" />
+      </SkeletonCol>
+      <SkeletonCol className="absolute left-0 order-3 w-1/4 bottom-4 md:bottom-auto md:relative">
+        <SkeletonSpan size="small" />
       </SkeletonCol>
       <SkeletonCol className="order-4 w-1/4 font-bold text-right md:text-left md:text-lg">
         <SkeletonSpan size="small" className="self-end md:self-auto" />
