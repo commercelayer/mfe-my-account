@@ -1,12 +1,11 @@
+import { SkeletonMainPageTitle } from "src/components/composite/Skeleton/Main/Common"
 import {
   SkeletonWrapper,
-  SkeletonHeader,
   SkeletonCol,
   SkeletonRow,
   SkeletonSubtitle,
   SkeletonSpan,
   SkeletonButton,
-  SkeletonSpacer,
 } from "src/components/composite/Skeleton/styled"
 
 interface Props {
@@ -31,10 +30,7 @@ const SkeletonAddress: React.FC = () => {
 export const SkeletonMainAddresses: React.FC<Props> = ({ shown = true }) => {
   return (
     <SkeletonWrapper shown={shown}>
-      <SkeletonHeader>
-        <SkeletonSubtitle size="small" />
-      </SkeletonHeader>
-      <SkeletonSpacer />
+      <SkeletonMainPageTitle />
       <SkeletonAddress />
       <SkeletonButton className="w-full mt-8" />
     </SkeletonWrapper>

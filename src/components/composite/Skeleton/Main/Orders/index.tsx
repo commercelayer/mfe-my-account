@@ -1,9 +1,6 @@
+import { SkeletonMainPageTitle } from "src/components/composite/Skeleton/Main/Common"
 import { SkeletonMainOrdersTable } from "src/components/composite/Skeleton/Main/OrdersTable"
-import {
-  SkeletonWrapper,
-  SkeletonHeader,
-  SkeletonTitle,
-} from "src/components/composite/Skeleton/styled"
+import { SkeletonWrapper } from "src/components/composite/Skeleton/styled"
 
 type Props = {
   shown?: boolean
@@ -12,9 +9,7 @@ type Props = {
 export const SkeletonMainOrders: React.FC<Props> = ({ shown = true }) => {
   return (
     <SkeletonWrapper shown={shown}>
-      <SkeletonHeader>
-        <SkeletonTitle />
-      </SkeletonHeader>
+      <SkeletonMainPageTitle />
       <SkeletonMainOrdersTable />
     </SkeletonWrapper>
   )
