@@ -25,10 +25,10 @@ export const SkeletonMainParcel: React.FC<Props> = ({ shown = true }) => {
         <SkeletonSpan />
         <SkeletonSpan />
         <SkeletonSpacer />
-        <SkeletonSpan />
+        <SkeletonSpan size="medium" />
         <SkeletonSpacer />
-        <SkeletonCol className={"ml-2 -mt-2"}>
-          <SkeletonRow>
+        <SkeletonCol className={"ml-2 mt-1"}>
+          <SkeletonRow className={"-mt-1"}>
             <SkeletonSpan size={"small"} />
             <SkeletonRoundIcon className={"-mt-1"} />
             <SkeletonCol>
@@ -37,7 +37,7 @@ export const SkeletonMainParcel: React.FC<Props> = ({ shown = true }) => {
               <SkeletonSpan size={"small"} />
             </SkeletonCol>
           </SkeletonRow>
-          <SkeletonRow className={"mt-3"}>
+          <SkeletonRow className={"mt-8"}>
             <SkeletonSpan size={"small"} />
             <SkeletonRoundIcon className={"-mt-1"} />
             <SkeletonCol>
@@ -46,7 +46,7 @@ export const SkeletonMainParcel: React.FC<Props> = ({ shown = true }) => {
               <SkeletonSpan size={"small"} />
             </SkeletonCol>
           </SkeletonRow>
-          <SkeletonRow className={"mt-3"}>
+          <SkeletonRow className={"mt-8"}>
             <SkeletonSpan size={"small"} />
             <SkeletonRoundIcon className={"-mt-1"} />
             <SkeletonCol>
