@@ -48,11 +48,13 @@ export const SkeletonWrapper = styled.div<SkeletonWrapperProps>`
 
 type SkeletonColProps = {
   padded?: boolean
+  noGap?: boolean
 }
 
 export const SkeletonCol = styled.div<SkeletonColProps>`
-  ${tw`flex flex-col gap-3`}
+  ${tw`flex flex-col`}
   ${({ padded }) => padded && tw`lg:pl-12`}
+  ${({ noGap }) => !noGap && tw`gap-3`}
 `
 
 type SkeletonRowProps = {

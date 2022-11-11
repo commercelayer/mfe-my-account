@@ -2,6 +2,7 @@ import {
   SkeletonHeader,
   SkeletonSubtitle,
   SkeletonRow,
+  SkeletonCol,
   SkeletonTitle,
   SkeletonSpan,
   SkeletonCircle,
@@ -43,10 +44,19 @@ export const SkeletonMainHeader: React.FC = () => {
   )
 }
 
-export const SkeletonMainPageTitle: React.FC = () => {
+interface SkeletonMainPageTitleProps {
+  additionalContent?: React.ReactNode
+}
+
+export const SkeletonMainPageTitle: React.FC<SkeletonMainPageTitleProps> = ({
+  additionalContent,
+}) => {
   return (
-    <SkeletonHeader className="mb-8 h-[32px]">
-      <SkeletonSubtitle size="small" />
-    </SkeletonHeader>
+    <SkeletonCol noGap className="pt-3 mb-8 lg:pt-0">
+      <SkeletonRow centered className="h-[32px]">
+        <SkeletonSubtitle size="small" />
+      </SkeletonRow>
+      {additionalContent && <div className="block">{additionalContent}</div>}
+    </SkeletonCol>
   )
 }
