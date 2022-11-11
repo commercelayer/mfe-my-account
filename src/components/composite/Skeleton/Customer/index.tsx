@@ -39,7 +39,6 @@ export const CustomerSkeleton: React.FC = () => {
           <MenuItem />
           <MenuItem />
           <MenuItem />
-          <MenuItem className="mt-12" />
         </Sidebar>
       }
       main={
