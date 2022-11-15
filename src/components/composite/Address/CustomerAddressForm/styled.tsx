@@ -1,5 +1,5 @@
 import {
-  CustomerAddressForm,
+  BillingAddressForm,
   SaveAddressesButton,
 } from "@commercelayer/react-components"
 import { Dispatch } from "react"
@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
   ${tw`mt-0 absolute top-0 translate-y-5 opacity-0`}
 `
 
-export const Form = styled(CustomerAddressForm)`
+export const Form = styled(BillingAddressForm)`
   ${tw``}
 `
 
