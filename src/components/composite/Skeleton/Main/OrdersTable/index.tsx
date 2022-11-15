@@ -24,7 +24,7 @@ const SkeletonMainOrdersTableRow: React.FC = () => {
         <SkeletonSpan size="small" />
       </SkeletonCol>
       <SkeletonCol className="order-4 w-1/4 font-bold text-right md:text-left md:text-lg">
-        <SkeletonSpan size="small" className="self-end md:self-auto" />
+        <SkeletonSpan size="small-higher" className="self-end md:self-auto" />
       </SkeletonCol>
     </SkeletonTableRow>
   )

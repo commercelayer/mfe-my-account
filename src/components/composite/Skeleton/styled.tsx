@@ -96,12 +96,14 @@ type SkeletonSpanProps = {
 }
 
 export const SkeletonSpan = styled(SkeletonBox)<SkeletonSpanProps>`
-  ${tw`h-3`}
   ${({ size }) => {
-    if (size === "small") return tw`w-16`
-    if (size === "medium") return tw`w-24`
-    if (size === "long") return tw`w-32`
-    return tw`w-36`
+    if (size === "small") return tw`w-16 h-3`
+    if (size === "small-higher") return tw`w-16 h-4`
+    if (size === "medium") return tw`w-24 h-3`
+    if (size === "medium-higher") return tw`w-24 h-4`
+    if (size === "long") return tw`w-32 h-3`
+    if (size === "long-higher") return tw`w-32 h-4`
+    return tw`w-36 h-3`
   }}
 `
 
