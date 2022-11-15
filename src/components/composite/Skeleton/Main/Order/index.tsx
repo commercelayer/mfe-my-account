@@ -17,7 +17,7 @@ type Props = {
 const SkeletonMainOrderLineItem: React.FC = () => {
   return (
     <>
-      <SkeletonTableRow align={"start"} className={"pt-6 pb-3"}>
+      <SkeletonTableRow align={"start"} className={"pt-3 lg:pt-6 pb-6 lg:pb-3"}>
         <SkeletonTableImg />
         <SkeletonCol className={"ml-4 lg:ml-8 w-full"}>
           <SkeletonSpan />
@@ -50,6 +50,7 @@ export const SkeletonMainOrder: React.FC<Props> = ({ shown = true }) => {
   return (
     <SkeletonWrapper shown={shown}>
       <SkeletonMainPageTitle
+        className="pt-3 lg:pt-0"
         additionalContent={
           <>
             <SkeletonSpan className={"block mt-1"} />

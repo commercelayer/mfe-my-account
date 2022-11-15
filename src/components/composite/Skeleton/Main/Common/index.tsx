@@ -46,13 +46,17 @@ export const SkeletonMainHeader: React.FC = () => {
 
 interface SkeletonMainPageTitleProps {
   additionalContent?: React.ReactNode
+  className?: string
 }
 
 export const SkeletonMainPageTitle: React.FC<SkeletonMainPageTitleProps> = ({
   additionalContent,
+  className,
 }) => {
+  const classNames = `mb-8 ${className}`
+
   return (
-    <SkeletonCol noGap className="pt-3 mb-8 lg:pt-0">
+    <SkeletonCol noGap className={classNames}>
       <SkeletonRow centered className="h-[32px]">
         <SkeletonSubtitle size="small" />
       </SkeletonRow>
