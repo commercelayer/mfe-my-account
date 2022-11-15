@@ -14,11 +14,15 @@ export const SkeletonCircle = styled(SkeletonBox)`
 `
 
 export const Sidebar = styled.div`
-  ${tw`flex flex-col min-h-full min-w-1/3 md:(p-5) lg:(pl-20 pr-10 pt-10) xl:(pl-48) animate-pulse`}
+  ${tw`flex flex-col min-h-full p-5 lg:(p-15 sticky top-8) xl:pl-48 animate-pulse`}
+`
+
+export const Main = styled.div`
+  ${tw`animate-pulse`}
 `
 
 export const SkeletonLogoWrapper = styled.div`
-  ${tw`flex mb-12`}
+  ${tw`flex items-center mb-16 w-[240px] h-[50px]`}
 `
 
 export const SkeletonLogo = styled(SkeletonBox)`
@@ -26,15 +30,15 @@ export const SkeletonLogo = styled(SkeletonBox)`
 `
 
 export const SkeletonMenuItem = styled.div`
-  ${tw`flex items-center`}
+  ${tw`flex items-center h-[32px] mb-[18px]`}
 `
 
 export const SkeletonMenuItemIcon = styled(SkeletonCircle)`
-  ${tw`w-8 h-8 mr-5`}
+  ${tw`w-4 h-4 mr-2`}
 `
 
 export const SkeletonMenuItemLabel = styled(SkeletonBox)`
-  ${tw`w-4/6 h-6`}
+  ${tw`w-1/3 h-4`}
 `
 
 export const SkeletonWrapper = styled.div<SkeletonWrapperProps>`
@@ -44,11 +48,13 @@ export const SkeletonWrapper = styled.div<SkeletonWrapperProps>`
 
 type SkeletonColProps = {
   padded?: boolean
+  noGap?: boolean
 }
 
 export const SkeletonCol = styled.div<SkeletonColProps>`
-  ${tw`flex flex-col gap-3`}
+  ${tw`flex flex-col`}
   ${({ padded }) => padded && tw`lg:pl-12`}
+  ${({ noGap }) => !noGap && tw`gap-3`}
 `
 
 type SkeletonRowProps = {
@@ -61,7 +67,7 @@ export const SkeletonRow = styled.div<SkeletonRowProps>`
 `
 
 export const SkeletonHeader = styled(SkeletonRow)`
-  ${tw`items-baseline justify-between`}
+  ${tw`items-center justify-between`}
 `
 
 export const SkeletonButton = styled(SkeletonBox)`
@@ -90,12 +96,14 @@ type SkeletonSpanProps = {
 }
 
 export const SkeletonSpan = styled(SkeletonBox)<SkeletonSpanProps>`
-  ${tw`h-3`}
   ${({ size }) => {
-    if (size === "small") return tw`w-16`
-    if (size === "medium") return tw`w-24`
-    if (size === "long") return tw`w-32`
-    return tw`w-36`
+    if (size === "small") return tw`w-16 h-3`
+    if (size === "small-higher") return tw`w-16 h-4`
+    if (size === "medium") return tw`w-24 h-3`
+    if (size === "medium-higher") return tw`w-24 h-4`
+    if (size === "long") return tw`w-32 h-3`
+    if (size === "long-higher") return tw`w-32 h-4`
+    return tw`w-36 h-3`
   }}
 `
 
@@ -116,25 +124,15 @@ type SkeletonTableRowProps = {
 }
 
 export const SkeletonTableRow = styled.div<SkeletonTableRowProps>`
-  ${tw`flex h-[107px] my-4 gap-4 bg-gray-300 md:(bg-transparent h-auto)`}
+  ${tw`flex`}
   ${({ align }) =>
-    align === "start"
-      ? tw`justify-items-start`
-      : tw`justify-between items-baseline`}
+    align === "start" ? tw`justify-items-start` : tw`justify-between`}
 `
 
 export const SkeletonTableTHead = styled(SkeletonTableRow)`
   ${tw`hidden md:flex`}
 `
 
-export const SkeletonTableTh = styled(SkeletonBox)`
-  ${tw`w-1/4 h-4 md:w-4/6`}
-`
-
-export const SkeletonTableTd = styled(SkeletonBox)`
-  ${tw`w-1/4 h-12 my-2 md:w-4/6 md:my-4`}
-`
-
 export const SkeletonTableImg = styled(SkeletonBox)`
-  ${tw`flex-shrink-0 w-[85px] h-[85px] `}
+  ${tw`flex-shrink-0 w-[75px] h-[75px] md:(w-[85px] h-[85px]) `}
 `
