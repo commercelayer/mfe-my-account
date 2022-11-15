@@ -67,7 +67,11 @@ const Orders: React.FC = () => {
           className="w-full mb-8 table-fixed md:-mx-0"
           columns={columns}
           showActions={true}
-          loadingElement={<SkeletonMainOrdersTable />}
+          loadingElement={
+            <div className="px-5 lg:p-0">
+              <SkeletonMainOrdersTable />
+            </div>
+          }
           actionsContainerClassName="absolute right-1 order-5 align-top hidden md:relative md:align-middle py-5 text-center"
           theadClassName="hidden md:table-row-group"
           rowTrClassName="flex justify-between items-center relative md:content-center bg-white shadow-bottom mb-4 pb-12 md:pb-0 px-5 md:p-0 md:border-b md:border-gray-300 md:table-row md:shadow-none h-[107px] md:h-[96px]"
