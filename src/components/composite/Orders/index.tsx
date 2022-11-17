@@ -82,6 +82,11 @@ const Orders: React.FC = () => {
             className="order-1 pt-6 pb-2.5 md:p-0  md:align-middle"
           >
             {({ cell, order, ...p }) => {
+              const orderContainsTextLabel =
+                (order?.skus_count as number) > 1
+                  ? "orders.orderContains_plural"
+                  : "orders.orderContains"
+
               const cols = cell?.map((cell) => {
                 return (
                   <OrderData key={order} {...p} {...cell.getCellProps()}>
@@ -91,7 +96,7 @@ const Orders: React.FC = () => {
                       <OrderNumber># {cell.render("Cell")}</OrderNumber>
                     </Link>
                     <OrderItemsCount>
-                      {t("orders.orderContains", {
+                      {t(orderContainsTextLabel, {
                         count: order.skus_count,
                       })}
                     </OrderItemsCount>
