@@ -6,7 +6,6 @@ import {
   Lifebuoy,
   MapPin,
   ShoppingCart,
-  SignOut,
 } from "phosphor-react"
 import { useTranslation } from "react-i18next"
 
@@ -76,13 +75,6 @@ const Navbar: React.FC<Props> = ({ settings, onClick }) => {
       accessToken,
       onClick,
     },
-    logout: {
-      title: t("menu.logout"),
-      href: "/logout",
-      icon: <SignOut className="w-4" />,
-      accessToken,
-      onClick,
-    },
   }
 
   return (
@@ -111,7 +103,6 @@ const Navbar: React.FC<Props> = ({ settings, onClick }) => {
               <CustomerField name="email" attribute="email" tagElement="p" />
             </Email>
           </EmailWrapper>
-          <NavLink id="logout" {...menu.logout} />
           <FooterWrapper>
             <Footer />
           </FooterWrapper>
