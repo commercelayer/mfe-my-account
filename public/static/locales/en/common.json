@@ -32,7 +32,7 @@
   "orders": {
     "title": "My orders",
     "orderContains": "contains {{count}} item",
-    "orderContains_plural": "contains {{count}} items"
+    "orderContains_other": "contains {{count}} items"
   },
   "noOrders": {
     "title": "No orders yet",

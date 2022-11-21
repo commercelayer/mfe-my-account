@@ -92,7 +92,7 @@ const Orders: React.FC = () => {
                     </Link>
                     <OrderItemsCount>
                       {t("orders.orderContains", {
-                        count: order.skus_count,
+                        count: order.skus_count as number,
                       })}
                     </OrderItemsCount>
                   </OrderData>

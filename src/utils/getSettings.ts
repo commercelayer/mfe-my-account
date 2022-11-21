@@ -12,7 +12,9 @@ export const defaultSettings: InvalidSettings = {
   isValid: false,
   primaryColor: "#000000",
   language: "en",
-  faviconUrl: `${process.env.NEXT_PUBLIC_BASE_PATH}/favicon.png`,
+  // faviconUrl: `${process.env.NEXT_PUBLIC_BASE_PATH}/favicon.png`,
+  faviconUrl:
+    "https://data.commercelayer.app/assets/images/favicons/favicon-32x32.png",
   companyName: "Commerce Layer",
   retryable: false,
 }
