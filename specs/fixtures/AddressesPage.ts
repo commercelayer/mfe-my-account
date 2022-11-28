@@ -32,9 +32,20 @@ export class AddressesPage extends MyAccountPage {
       address.country_code as string
     )
 
-    await this.page
-      .locator("input[name=billing_address_state_code]")
-      .fill(address.state_code as string)
+    const inputStateCode = await this.page.$$("input[name=billing_address_state_code]");
+    if (inputStateCode.length) {
+      await this.page
+        .locator("input[name=billing_address_state_code]")
+        .fill(address.state_code as string)
+    }
+
+    const selectStateCode = await this.page.$$("select[name=billing_address_state_code]");
+    if (selectStateCode.length) {
+      await this.page.selectOption(
+        "select[name=billing_address_state_code]",
+        address.state_code as string
+      )
+    }
 
     await this.page
       .locator("input[name=billing_address_zip_code]")
