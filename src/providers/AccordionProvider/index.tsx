@@ -1,6 +1,6 @@
 import { createContext, useState, useEffect } from "react"
 
-type AccordionProviderConfig = {
+interface AccordionProviderConfig {
   isActive: boolean
   section: OrderSectionEnum
   setSection: () => void
@@ -11,7 +11,7 @@ export const AccordionContext = createContext<AccordionProviderConfig | null>(
   null
 )
 
-type AccordionProviderProps = {
+interface AccordionProviderProps {
   section: OrderSectionEnum
   activeSection: OrderSectionEnum
   setActiveSection?: (section: OrderSectionEnum) => void

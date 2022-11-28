@@ -3,7 +3,7 @@ import type { ReturnStatus } from "./ReturnStatusChip"
 import type { ShipmentStatus } from "./ShipmentStatusChip"
 import { StatusChipWrapper } from "./styled"
 
-type Props = {
+interface Props {
   status?: OrderStatus | ReturnStatus | ShipmentStatus
   label: string
 }

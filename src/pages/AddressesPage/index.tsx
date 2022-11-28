@@ -6,16 +6,16 @@ import { Transition } from "@headlessui/react"
 import { useState } from "react"
 import { useTranslation } from "react-i18next"
 
-import CustomerAddressForm from "src/components/composite/Address/CustomerAddressForm"
-import Empty from "src/components/composite/Empty"
-import { AddButton } from "src/components/ui/AddButton"
-import CustomerAddressCard from "src/components/ui/CustomerAddressCard"
-import { GridContainer } from "src/components/ui/GridContainer"
-import Title from "src/components/ui/Title"
+import CustomerAddressForm from "#components/composite/Address/CustomerAddressForm"
+import Empty from "#components/composite/Empty"
+import { AddButton } from "#components/ui/AddButton"
+import CustomerAddressCard from "#components/ui/CustomerAddressCard"
+import { GridContainer } from "#components/ui/GridContainer"
+import Title from "#components/ui/Title"
 
-import CustomerAddressContext from "src/context/CustomerAddressContext"
+import CustomerAddressContext from "#context/CustomerAddressContext"
 
-const Addresses: React.FC = () => {
+function AddressesPage(): JSX.Element {
   const { t } = useTranslation()
   const [showAddressForm, setShowAddressForm] = useState(false)
   const [address, setAddress] = useState<any>({})
@@ -47,7 +47,7 @@ const Addresses: React.FC = () => {
   )
 }
 
-export default Addresses
+export default AddressesPage
 
 const addressesTransition = {
   enter: "transition easy-out duration-500",

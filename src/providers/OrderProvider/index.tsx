@@ -1,14 +1,14 @@
 import CommerceLayer, { Order } from "@commercelayer/sdk"
 import { createContext, useState, useEffect } from "react"
 
-import { getInfoFromJwt } from "src/utils/getInfoFromJwt"
-import { getOrder } from "src/utils/getOrder"
+import { getInfoFromJwt } from "#utils/getInfoFromJwt"
+import { getOrder } from "#utils/getOrder"
 
-type OrderProviderData = {
+interface OrderProviderData {
   order?: Order
 }
 
-type OrderStateData = {
+interface OrderStateData {
   order?: Order
 }
 
@@ -18,7 +18,7 @@ const initialState: OrderStateData = {
 
 export const OrderContext = createContext<OrderProviderData | null>(null)
 
-type OrderProviderProps = {
+interface OrderProviderProps {
   orderId: string
   accessToken: string
   children: ((props: OrderProviderData) => React.ReactNode) | React.ReactNode
@@ -41,7 +41,7 @@ export const OrderProvider: React.FC<OrderProviderProps> = ({
       return
     }
 
-    const domain = process.env.NEXT_PUBLIC_DOMAIN || "commercelayer.io"
+    const domain = import.meta.env.PUBLIC_DOMAIN || "commercelayer.io"
 
     const cl = CommerceLayer({
       organization: slug,

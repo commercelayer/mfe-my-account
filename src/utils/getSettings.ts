@@ -1,5 +1,5 @@
 import CommerceLayer from "@commercelayer/sdk"
-import { Settings, InvalidSettings } from "HostedApp"
+import type { Settings, InvalidSettings } from "HostedApp"
 
 import { getInfoFromJwt } from "./getInfoFromJwt"
 import { getOrder } from "./getOrder"
@@ -12,7 +12,6 @@ export const defaultSettings: InvalidSettings = {
   isValid: false,
   primaryColor: "#000000",
   language: "en",
-  // faviconUrl: `${process.env.NEXT_PUBLIC_BASE_PATH}/favicon.png`,
   faviconUrl:
     "https://data.commercelayer.app/assets/images/favicons/favicon-32x32.png",
   companyName: "Commerce Layer",
@@ -42,7 +41,7 @@ export const getSettings = async ({
   accessToken,
   orderId,
 }: GetSettingsProps): Promise<Settings | InvalidSettings> => {
-  const domain = process.env.NEXT_PUBLIC_DOMAIN || "commercelayer.io"
+  const domain = import.meta.env.PUBLIC_DOMAIN || "commercelayer.io"
   const { slug, kind, customerId, isTest } = getInfoFromJwt(accessToken)
 
   if (!slug) {

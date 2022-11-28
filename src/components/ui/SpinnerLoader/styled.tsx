@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components"
 
-type WrapperProps = {
+interface WrapperProps {
   color: string
   sizePx: number
 }

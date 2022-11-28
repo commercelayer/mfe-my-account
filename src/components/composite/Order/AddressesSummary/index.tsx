@@ -1,7 +1,7 @@
-import { Order } from "@commercelayer/sdk"
+import type { Order } from "@commercelayer/sdk"
 import { useTranslation } from "react-i18next"
 
-import { AddressCard } from "src/components/ui/AddressCard"
+import { AddressCard } from "#components/ui/AddressCard"
 
 import {
   Wrapper,
@@ -10,7 +10,7 @@ import {
   ShippingAddress,
 } from "./styled"
 
-type Props = {
+interface Props {
   order?: Order
 }
 

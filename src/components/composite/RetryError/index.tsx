@@ -1,7 +1,7 @@
-import { useTranslation } from "next-i18next"
+import { useTranslation } from "react-i18next"
 
-import { ErrorContainer } from "src/components/composite/ErrorContainer"
-import { ErrorCode, Text } from "src/components/composite/ErrorContainer/styled"
+import { ErrorContainer } from "#components/composite/ErrorContainer"
+import { ErrorCode, Text } from "#components/composite/ErrorContainer/styled"
 
 export const RetryError = () => {
   const { t } = useTranslation()

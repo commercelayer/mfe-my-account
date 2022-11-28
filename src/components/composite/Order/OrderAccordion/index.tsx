@@ -1,20 +1,20 @@
-import { Order } from "@commercelayer/sdk"
+import type { Order } from "@commercelayer/sdk"
 import { useTranslation } from "react-i18next"
 
-import AddressesSummary from "src/components/composite/Order/AddressesSummary"
-import LineItemList from "src/components/composite/Order/LineItemList"
-import OrderPayments from "src/components/composite/Order/OrderPayments"
-import OrderShipments from "src/components/composite/Order/OrderShipments"
-import OrderSummary from "src/components/composite/Order/OrderSummary"
-import { OrderSection, OrderSectionItem } from "src/components/ui/OrderSection"
+import AddressesSummary from "#components/composite/Order/AddressesSummary"
+import LineItemList from "#components/composite/Order/LineItemList"
+import OrderPayments from "#components/composite/Order/OrderPayments"
+import OrderShipments from "#components/composite/Order/OrderShipments"
+import OrderSummary from "#components/composite/Order/OrderSummary"
+import { OrderSection, OrderSectionItem } from "#components/ui/OrderSection"
 
 import { Wrapper, SummaryWrapper } from "./styled"
 
-type Props = {
+interface Props {
   order?: Order
 }
 
-const OrderOrderSection: React.FC<Props> = ({ order }) => {
+const OrderSections: React.FC<Props> = ({ order }) => {
   const { t } = useTranslation()
 
   return (
@@ -36,7 +36,7 @@ const OrderOrderSection: React.FC<Props> = ({ order }) => {
           index={3}
           header={<span>{t("order.shipments")}</span>}
         >
-          <OrderShipments />
+          <OrderShipments order={order} />
         </OrderSectionItem>
         <OrderSectionItem index={4} header={<span>{t("order.payments")}</span>}>
           <OrderPayments />
@@ -46,4 +46,4 @@ const OrderOrderSection: React.FC<Props> = ({ order }) => {
   )
 }
 
-export default OrderOrderSection
+export default OrderSections

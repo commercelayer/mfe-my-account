@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import tw from "twin.macro"
 
-type OrderWrapperProps = {
+interface OrderWrapperProps {
   hidden?: boolean
 }
 

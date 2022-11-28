@@ -14,7 +14,7 @@ import {
   PaymentSourceBrandNameSecondary,
 } from "./styled"
 
-import { getTranslations } from "src/utils/payments"
+import { getTranslations } from "#utils/payments"
 
 const OrderPaymentSourceBrandName: React.FC = () => {
   const { t } = useTranslation()
@@ -49,12 +49,12 @@ const OrderPayments: React.FC = () => {
                   <>
                     <PaymentSourceBrandNamePrimary>
                       <OrderPaymentSourceBrandName />
-                      <Trans i18nKey="order.paymentMethod.EndingIn">
+                      <Trans i18nKey="orderPaymentMethod.EndingIn">
                         <PaymentSourceDetail type="last4" />
                       </Trans>
                     </PaymentSourceBrandNamePrimary>
                     <PaymentSourceBrandNameSecondary>
-                      <Trans i18nKey="order.paymentMethod.ValidUntil">
+                      <Trans i18nKey="orderPaymentMethod.ValidUntil">
                         <PaymentSourceDetail type="exp_month" />
                         <PaymentSourceDetail type="exp_year" />
                       </Trans>

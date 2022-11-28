@@ -1,4 +1,4 @@
-import { Address } from "@commercelayer/sdk"
+import type { Address } from "@commercelayer/sdk"
 import { expect } from "@playwright/test"
 
 import { MyAccountPage } from "./MyAccountPage"

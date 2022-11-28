@@ -1,4 +1,4 @@
-import { SkeletonMainPageTitle } from "src/components/composite/Skeleton/Main/Common"
+import { SkeletonMainPageTitle } from "#components/composite/Skeleton/Main/Common"
 import {
   SkeletonWrapper,
   SkeletonCol,
@@ -8,9 +8,9 @@ import {
   SkeletonTableRow,
   SkeletonTableImg,
   SkeletonSpacer,
-} from "src/components/composite/Skeleton/styled"
+} from "#components/composite/Skeleton/styled"
 
-type Props = {
+interface Props {
   shown?: boolean
 }
 

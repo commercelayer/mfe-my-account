@@ -10,19 +10,19 @@ import {
   ItemLine,
 } from "./styled"
 
-export type TimelineSteps = {
+export interface TimelineSteps {
   title: string
   subTitle?: string
   completed?: boolean
 }
 
-export type TimelineStepProps = {
+export interface TimelineStepProps {
   steps: TimelineSteps[]
   step: TimelineSteps
   index: number
 }
 
-export type TimelineProps = {
+export interface TimelineProps {
   steps: TimelineSteps[]
 }
 

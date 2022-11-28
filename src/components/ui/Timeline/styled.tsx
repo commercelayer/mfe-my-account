@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import tw from "twin.macro"
 
-type TimelineItemProps = {
+interface TimelineItemProps {
   index?: number
   title?: string
   subTitle?: string
@@ -9,21 +9,21 @@ type TimelineItemProps = {
   count?: number
 }
 
-type ItemDotWrapperProps = {
+interface ItemDotWrapperProps {
   isFirst?: boolean
   completed?: boolean
 }
 
-type ItemDotProps = {
+interface ItemDotProps {
   completed?: boolean
 }
 
-type ItemLineProps = {
+interface ItemLineProps {
   completed?: boolean
   lastCompleted?: boolean
 }
 
-type ItemContentProps = {
+interface ItemContentProps {
   isFirst?: boolean
   isLast?: boolean
   completed?: boolean

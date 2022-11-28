@@ -2,8 +2,8 @@ import { XCircle } from "phosphor-react"
 import { useContext } from "react"
 import { useTranslation } from "react-i18next"
 
-import { AddressInputGroup } from "src/components/composite/Address/AddressInputGroup"
-import Title from "src/components/ui/Title"
+import { AddressInputGroup } from "#components/composite/Address/AddressInputGroup"
+import Title from "#components/ui/Title"
 
 import {
   Form,
@@ -14,9 +14,9 @@ import {
   SaveButton,
 } from "./styled"
 
-import CustomerAddressContext from "src/context/CustomerAddressContext"
+import CustomerAddressContext from "#context/CustomerAddressContext"
 
-type Props = {
+interface Props {
   onClose: () => void
 }
 

@@ -3,12 +3,11 @@ import {
   Shipment,
   ShipmentField,
 } from "@commercelayer/react-components"
-import { NextPage } from "next"
 import { useTranslation, Trans } from "react-i18next"
 
 import { ShipmentDescription } from "./styled"
 
-const ShipmentSection: NextPage = () => {
+function ShipmentSection(): JSX.Element {
   const { t } = useTranslation()
 
   return (

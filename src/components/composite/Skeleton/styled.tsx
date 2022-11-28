@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import tw from "twin.macro"
 
-type SkeletonWrapperProps = {
+interface SkeletonWrapperProps {
   shown: boolean
 }
 
@@ -46,7 +46,7 @@ export const SkeletonWrapper = styled.div<SkeletonWrapperProps>`
   ${({ shown }) => !shown && tw`hidden`}
 `
 
-type SkeletonColProps = {
+interface SkeletonColProps {
   padded?: boolean
   noGap?: boolean
 }
@@ -57,7 +57,7 @@ export const SkeletonCol = styled.div<SkeletonColProps>`
   ${({ noGap }) => !noGap && tw`gap-3`}
 `
 
-type SkeletonRowProps = {
+interface SkeletonRowProps {
   centered?: boolean
 }
 
@@ -78,11 +78,11 @@ export const SkeletonTitle = styled(SkeletonBox)`
   ${tw`w-40 h-10`}
 `
 
-type SkeletonSubtitle = {
+interface SkeletonSubtitleProps {
   size?: string
 }
 
-export const SkeletonSubtitle = styled(SkeletonBox)<SkeletonSubtitle>`
+export const SkeletonSubtitle = styled(SkeletonBox)<SkeletonSubtitleProps>`
   ${tw`h-5`}
   ${({ size }) => {
     if (size === "small") return tw`w-20`
@@ -91,7 +91,7 @@ export const SkeletonSubtitle = styled(SkeletonBox)<SkeletonSubtitle>`
   }}
 `
 
-type SkeletonSpanProps = {
+interface SkeletonSpanProps {
   size?: string
 }
 
@@ -119,7 +119,7 @@ export const SkeletonRoundBackBtn = styled(SkeletonCircle)`
   ${tw`w-[38px] h-[38px]`}
 `
 
-type SkeletonTableRowProps = {
+interface SkeletonTableRowProps {
   align?: string
 }
 

@@ -6,12 +6,12 @@ import {
   ParcelField,
 } from "@commercelayer/react-components"
 import type { Settings } from "HostedApp"
-import Link from "next/link"
+import { Link } from "wouter"
 import { CaretLeft } from "phosphor-react"
 import { useTranslation } from "react-i18next"
 
-import OrderParcelHistory from "src/components/composite/OrderParcel/OrderParcelHistory"
-import { SkeletonMainParcel } from "src/components/composite/Skeleton/Main"
+import OrderParcelHistory from "#components/composite/OrderParcel/OrderParcelHistory"
+import { SkeletonMainParcel } from "#components/composite/Skeleton/Main"
 
 import {
   ParcelContainer,
@@ -26,13 +26,13 @@ import {
   TabsWrapper,
 } from "./styled"
 
-type Props = {
+interface Props {
   settings: Settings
   orderId: string
   parcelId: string
 }
 
-const OrderParcel: React.FC<Props> = ({ settings, orderId, parcelId }) => {
+function ParcelPage({ settings, orderId, parcelId }: Props): JSX.Element {
   const { t } = useTranslation()
 
   return (
@@ -55,7 +55,7 @@ const OrderParcel: React.FC<Props> = ({ settings, orderId, parcelId }) => {
                 <ParcelHeaderMain className="mt-10">
                   <ParcelHeaderCol>
                     <ParcelHeaderLabel>
-                      {t("parcelDetail.header.tracking_code")}
+                      {t("parcelDetailHeader.trackingCode")}
                     </ParcelHeaderLabel>
                     <ParcelHeaderValue>
                       <ParcelField
@@ -77,4 +77,4 @@ const OrderParcel: React.FC<Props> = ({ settings, orderId, parcelId }) => {
   )
 }
 
-export default OrderParcel
+export default ParcelPage

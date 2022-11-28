@@ -4,14 +4,14 @@ import {
   OrderListEmpty,
   OrderListRow,
 } from "@commercelayer/react-components"
-import Link from "next/link"
+import { Link } from "wouter"
 import { useContext } from "react"
 import { useTranslation } from "react-i18next"
 
-import Empty from "src/components/composite/Empty"
-import { SkeletonMainOrdersTable } from "src/components/composite/Skeleton/Main/OrdersTable"
-import OrderStatusChip from "src/components/ui/StatusChip/OrderStatusChip"
-import Title from "src/components/ui/Title"
+import Empty from "#components/composite/Empty"
+import { SkeletonMainOrdersTable } from "#components/composite/Skeleton/Main/OrdersTable"
+import OrderStatusChip from "#components/ui/StatusChip/OrderStatusChip"
+import Title from "#components/ui/Title"
 
 import {
   OrderListWrapper,
@@ -21,10 +21,10 @@ import {
   OrderUpdatedDate,
 } from "./styled"
 
-import { AppContext } from "src/providers/AppProvider"
-import { formatDate, shortDate } from "src/utils/dateTimeFormats"
+import { AppContext } from "#providers/AppProvider"
+import { formatDate, shortDate } from "#utils/dateTimeFormats"
 
-const Orders: React.FC = () => {
+function OrdersPage(): JSX.Element {
   const { t } = useTranslation()
   const ctx = useContext(AppContext)
   const accessToken = ctx?.accessToken
@@ -143,4 +143,4 @@ const Orders: React.FC = () => {
   )
 }
 
-export default Orders
+export default OrdersPage

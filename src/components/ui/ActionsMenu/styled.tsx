@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import tw from "twin.macro"
 
-type WrapperProps = {
+interface WrapperProps {
   showActionsMenu: boolean
 }
 
@@ -13,7 +13,7 @@ export const ActionsMenuWrapper = styled.div`
   ${tw`absolute mt-2 top-[24px] right-0 bg-white overflow-hidden rounded-xl shadow w-[165px]`}
 `
 
-type ActionsMenuButtonProps = {
+interface ActionsMenuButtonProps {
   showActionsMenu: boolean
 }
 

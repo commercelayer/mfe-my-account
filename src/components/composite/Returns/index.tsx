@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next"
 
-import Title from "src/components/ui/Title"
+import Title from "#components/ui/Title"
 
 import { ReturnsContainer } from "./styled"
 

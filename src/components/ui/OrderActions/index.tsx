@@ -1,10 +1,10 @@
-import { Order } from "@commercelayer/sdk"
+import type { Order } from "@commercelayer/sdk"
 import { ArrowBendUpLeft, NotePencil, Printer, Trash } from "phosphor-react"
 
-import ActionsMenu from "src/components/ui/ActionsMenu"
-import ActionsMenuItem from "src/components/ui/ActionsMenuItem"
+import ActionsMenu from "#components/ui/ActionsMenu"
+import ActionsMenuItem from "#components/ui/ActionsMenuItem"
 
-type Props = {
+interface Props {
   order?: Order
 }
 

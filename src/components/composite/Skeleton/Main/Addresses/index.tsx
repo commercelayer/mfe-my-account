@@ -1,11 +1,11 @@
 import {
   SkeletonMainPageTitle,
   SkeletonMainAddressCard,
-} from "src/components/composite/Skeleton/Main/Common"
+} from "#components/composite/Skeleton/Main/Common"
 import {
   SkeletonWrapper,
   SkeletonButton,
-} from "src/components/composite/Skeleton/styled"
+} from "#components/composite/Skeleton/styled"
 
 interface Props {
   shown?: boolean

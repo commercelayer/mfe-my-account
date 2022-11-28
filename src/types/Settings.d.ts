@@ -6,7 +6,7 @@ declare module "HostedApp" {
    * organization resources. (Organization: https://docs.commercelayer.io/core/v/api-reference/organization/object)
    */
 
-  export type Settings = {
+  export interface Settings {
     /**
      * Access Token for a sales channel API credentials to be used to authenticate all Commerce Layer API requests.
      * Read more at {@link https://docs.commercelayer.io/core/authentication/client-credentials#sales-channel}, {@link https://docs.commercelayer.io/core/authentication/password}

@@ -1,11 +1,11 @@
 import { Page, expect } from "@playwright/test"
 
-type GoToProps = {
+interface GoToProps {
   pageUrl: string
   token: string
 }
 
-type AttributesProps = {
+interface AttributesProps {
   organization?: object
 }
 

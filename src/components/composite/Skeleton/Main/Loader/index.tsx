@@ -1,23 +1,21 @@
-import { useRouter } from "next/router"
+import { useLocation } from "wouter"
 
 import {
   SkeletonMainAddresses,
   SkeletonMainOrders,
   SkeletonMainOrder,
   SkeletonMainParcel,
-} from "src/components/composite/Skeleton/Main"
+} from "#components/composite/Skeleton/Main"
 
 export const SkeletonMainLoader: React.FC = () => {
-  const router = useRouter()
-  switch (router.pathname) {
-    case "/addresses":
-      return <SkeletonMainAddresses />
-    case "/orders/[orderId]":
-      return <SkeletonMainOrder />
-    case "/orders/[orderId]/parcels/[parcelId]":
-      return <SkeletonMainParcel />
-    case "/orders":
-    default:
-      return <SkeletonMainOrders />
+  const [location] = useLocation()
+  if (location === "/addresses") {
+    return <SkeletonMainAddresses />
+  } else if (location.indexOf("/parcels") > -1) {
+    return <SkeletonMainParcel />
+  } else if (location.indexOf("/orders/") > -1) {
+    return <SkeletonMainOrder />
+  } else {
+    return <SkeletonMainOrders />
   }
 }

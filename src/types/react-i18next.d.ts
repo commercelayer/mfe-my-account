@@ -4,11 +4,11 @@ import commonEn from "public/static/locales/en/common.json"
 declare module "react-i18next" {
   export type AllowedLocaleKeys = "en" | "it"
 
-  type AppResources = {
+  interface AppResources {
     common: typeof commonEn
   }
 
-  type CustomTypeOptions = {
+  interface CustomTypeOptions {
     defaultNS: "common"
     resources: AppResources
   }

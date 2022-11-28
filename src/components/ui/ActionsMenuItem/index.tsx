@@ -1,11 +1,11 @@
 import { Wrapper, IconWrapper, Label } from "./styled"
 
-export type LabelProps = {
+export interface LabelProps {
   icon: React.ReactNode | null | undefined
   variant?: string
 }
 
-type Props = {
+interface Props {
   label?: string
   icon?: React.ReactNode
   disabled?: boolean | false

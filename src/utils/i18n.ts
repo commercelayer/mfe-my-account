@@ -1,8 +1,8 @@
 import i18n, { use } from "i18next"
 import { initReactI18next } from "react-i18next"
 
-import translationEN from "public/static/locales/en/common.json"
-import translationIT from "public/static/locales/it/common.json"
+import translationEN from "#assets/locales/en/common.json"
+import translationIT from "#assets/locales/it/common.json"
 
 const languages = ["en", "it"]
 

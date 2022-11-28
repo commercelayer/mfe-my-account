@@ -1,17 +1,17 @@
-import { Settings, InvalidSettings } from "HostedApp"
+import type { Settings, InvalidSettings } from "HostedApp"
 import { changeLanguage } from "i18next"
 import { createContext, useContext, useEffect, useState } from "react"
 
-import { getAccessTokenFromUrl } from "src/utils/getAccessTokenFromUrl"
-import { defaultSettings, getSettings } from "src/utils/getSettings"
-import { parseLanguageCode } from "src/utils/parseLanguageCode"
+import { getAccessTokenFromUrl } from "#utils/getAccessTokenFromUrl"
+import { defaultSettings, getSettings } from "#utils/getSettings"
+import { parseLanguageCode } from "#utils/parseLanguageCode"
 
-type SettingsProviderValue = {
+interface SettingsProviderValue {
   settings: Settings | InvalidSettings
   isLoading: boolean
 }
 
-type SettingsProviderProps = {
+interface SettingsProviderProps {
   orderId?: string
   children:
     | ((props: SettingsProviderValue) => React.ReactNode)
@@ -35,6 +35,7 @@ export const useSettings = (): SettingsProviderValue => {
 }
 
 export const SettingsProvider: React.FC<SettingsProviderProps> = ({
+  orderId,
   children,
 }) => {
   const [settings, setSettings] = useState<Settings | InvalidSettings>(
@@ -42,12 +43,12 @@ export const SettingsProvider: React.FC<SettingsProviderProps> = ({
   )
   const [isLoading, setIsLoading] = useState(true)
   const accessToken = getAccessTokenFromUrl()
-
+  
   useEffect(() => {
     setIsLoading(!!accessToken)
 
     if (accessToken) {
-      getSettings({ accessToken })
+      getSettings({ accessToken, orderId })
         .then(setSettings)
         .finally(() => {
           setIsLoading(false)

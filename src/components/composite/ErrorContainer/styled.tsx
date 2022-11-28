@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import tw from "twin.macro"
 
-import { Logo } from "src/components/ui/Footer/cl"
+import { Logo } from "#components/ui/Footer/cl"
 
 export const Main = styled.div`
   ${tw`flex flex-col flex-1 justify-center items-center text-center`}

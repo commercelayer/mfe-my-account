@@ -17,7 +17,7 @@ import {
   LineItemQty,
 } from "./styled"
 
-type Props = {
+interface Props {
   type: LineItemType
 }
 

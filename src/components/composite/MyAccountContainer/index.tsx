@@ -1,30 +1,30 @@
 import { CommerceLayer } from "@commercelayer/react-components"
 import { GlobalStylesProvider } from "@commercelayer/react-utils"
+import { GlobalStyles as BaseStyles } from 'twin.macro'
 import type { Settings } from "HostedApp"
 import { IconContext } from "phosphor-react"
-import { GlobalStyles as BaseStyles } from "twin.macro"
 
-import CustomerHeader from "src/components/composite/Header/Customer"
-import GuestHeader from "src/components/composite/Header/Guest"
-import { MyAccountHead } from "src/components/composite/MyAccountTitle"
-import Navbar from "src/components/composite/Navbar"
-import { LayoutDefault } from "src/components/layouts/LayoutDefault"
-import { FooterWrapper } from "src/components/ui/Common/styled"
-import Footer from "src/components/ui/Footer"
-import PageMain from "src/components/ui/PageMain"
+import CustomerHeader from "#components/composite/Header/Customer"
+import GuestHeader from "#components/composite/Header/Guest"
+import { PageHead } from "#components/composite/PageHead"
+import Navbar from "#components/composite/Navbar"
+import { LayoutDefault } from "#components/layouts/LayoutDefault"
+import { FooterWrapper } from "#components/ui/Common/styled"
+import Footer from "#components/ui/Footer"
+import PageMain from "#components/ui/PageMain"
 
-import { AppProvider } from "src/providers/AppProvider"
-import { CustomerContainerProvider } from "src/providers/CustomerContainerProvider"
+import { AppProvider } from "#providers/AppProvider"
+import { CustomerContainerProvider } from "#providers/CustomerContainerProvider"
 
-type Props = {
+interface Props {
   settings: Settings
 }
 
 const MyAccountContainer: React.FC<Props> = ({ settings, children }) => {
   return (
-    <div>
-      <MyAccountHead
-        title={settings.companyName}
+    <>
+      <PageHead
+        title={`${settings.companyName} - My Account`}
         faviconUrl={settings.faviconUrl}
       />
       <CommerceLayer
@@ -76,7 +76,7 @@ const MyAccountContainer: React.FC<Props> = ({ settings, children }) => {
           </IconContext.Provider>
         </GlobalStylesProvider>
       </CommerceLayer>
-    </div>
+    </>
   )
 }
 

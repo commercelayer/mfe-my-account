@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next"
 
 import { Wrapper, Label } from "./styled"
 
-type Props = {
+interface Props {
   action: () => void
   testId: string
 }

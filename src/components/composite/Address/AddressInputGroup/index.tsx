@@ -3,11 +3,11 @@ import type {
   ResourceErrorType,
   ErrorComponentProps,
 } from "@commercelayer/react-components"
-import { Address } from "@commercelayer/sdk"
+import type { Address } from "@commercelayer/sdk"
 import { useEffect, useState } from "react"
 import { useTranslation } from "react-i18next"
 
-import { Label } from "src/components/ui/form/Label"
+import { Label } from "#components/ui/form/Label"
 
 import {
   Wrapper,
@@ -17,7 +17,7 @@ import {
   StyledErrors,
 } from "./styled"
 
-type Props = {
+interface Props {
   type: BaseInputType
   fieldName: `billing_address_${Extract<
     keyof Address,
@@ -58,7 +58,7 @@ export const AddressInputGroup: React.FC<Props> = ({
     },
   ]
 
-  const label = t(`addressForm.fields.${fieldName}`)
+  const label = t(`addressFormFields.${fieldName}`)
 
   const [valueStatus, setValueStatus] = useState(value)
 

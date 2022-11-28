@@ -7,9 +7,9 @@ import {
   SkeletonSpacer,
   SkeletonRoundIcon,
   SkeletonRoundBackBtn,
-} from "src/components/composite/Skeleton/styled"
+} from "#components/composite/Skeleton/styled"
 
-type Props = {
+interface Props {
   shown?: boolean
 }
 

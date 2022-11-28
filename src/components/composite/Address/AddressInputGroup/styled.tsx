@@ -7,8 +7,8 @@ import {
 import styled from "styled-components"
 import tw from "twin.macro"
 
-import { ErrorCss } from "src/components/ui/form/Error"
-import { InputCss } from "src/components/ui/form/Input"
+import { ErrorCss } from "#components/ui/form/Error"
+import { InputCss } from "#components/ui/form/Input"
 
 export const Wrapper = styled.div`
   position: relative;

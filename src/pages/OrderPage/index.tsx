@@ -1,12 +1,12 @@
 import { OrderContainer, OrderNumber } from "@commercelayer/react-components"
-import { Order as CLayerOrder } from "@commercelayer/sdk"
+import type { Order as CLayerOrder } from "@commercelayer/sdk"
 import { useState } from "react"
 import { Trans } from "react-i18next"
 
-import OrderAccordion from "src/components/composite/Order/OrderAccordion"
-import { SkeletonMainOrder } from "src/components/composite/Skeleton/Main"
-import OrderStatusChip from "src/components/ui/StatusChip/OrderStatusChip"
-import type { OrderStatus } from "src/components/ui/StatusChip/OrderStatusChip"
+import OrderAccordion from "#components/composite/Order/OrderAccordion"
+import { SkeletonMainOrder } from "#components/composite/Skeleton/Main"
+import OrderStatusChip from "#components/ui/StatusChip/OrderStatusChip"
+import type { OrderStatus } from "#components/ui/StatusChip/OrderStatusChip"
 
 import {
   OrderWrapper,
@@ -17,14 +17,14 @@ import {
   OrderAccordionWrapper,
 } from "./styled"
 
-import { formatDate, shortDate } from "src/utils/dateTimeFormats"
+import { formatDate, shortDate } from "#utils/dateTimeFormats"
 
-type Props = {
+interface Props {
   orderId: string
   order?: CLayerOrder
 }
 
-const Order: React.FC<Props> = ({ orderId, order }) => {
+function OrderPage({ orderId, order }: Props): JSX.Element {
   const [fetchedOrder, setOrder] = useState<CLayerOrder>()
   const orderPlacedAt =
     (fetchedOrder?.placed_at &&
@@ -59,4 +59,4 @@ const Order: React.FC<Props> = ({ orderId, order }) => {
   )
 }
 
-export default Order
+export default OrderPage

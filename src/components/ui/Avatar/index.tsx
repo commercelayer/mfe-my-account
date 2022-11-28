@@ -2,7 +2,7 @@ import { url } from "gravatar"
 
 import { Image } from "./styled"
 
-type Props = {
+interface Props {
   email: string
   className?: string
 }

@@ -1,15 +1,15 @@
 {
   "general": {
-      "title": "{{companyName}} - My Account",
-      "retry_error_code": "Connectivity issues",
-      "retry_error_description": "Try to reload the page",
-      "invalid": "This URL is not accessible.",
-      "privacy_link": "Privacy",
-      "terms_link": "Terms"
+    "title": "{{companyName}} - My Account",
+    "retry_error_code": "Connectivity issues",
+    "retry_error_description": "Try to reload the page",
+    "invalid": "This URL is not accessible.",
+    "privacy_link": "Privacy",
+    "terms_link": "Terms"
   },
   "input": {
-      "cantBlank" : "Can't be blank",
-      "mustBeValidFormat" : "Must be valid format"
+    "cantBlank" : "Can't be blank",
+    "mustBeValidFormat" : "Must be valid format"
   },
   "menu": {
     "orders": "Orders",
@@ -58,24 +58,22 @@
     "quantity": "Quantity: {{count}}",
     "quantity_plural": "Quantity: {{count}}",
     "shipment": "Shipment #<0/>",
-    "shipmentStatus": "Status: <0/>",
-    "paymentMethod": {
-      "creditCard": "Credit card",
-      "EndingIn": "ending in <0/>",
-      "ValidUntil": "valid until <0/>/<1/>",
-      "wireTransfer": "Wire transfer",
-      "wireTransferDescription": "Upon order confirmation, you'll receive wiring instructions to complete payment",
-      "paypalDescription": "After placing the order, you will be redirected to the PayPal website to sign in and authorize the payment"
-    }
+    "shipmentStatus": "Status: <0/>"
+  },
+  "orderPaymentMethod": {
+    "creditCard": "Credit card",
+    "EndingIn": "ending in <0/>",
+    "ValidUntil": "valid until <0/>/<1/>",
+    "wireTransfer": "Wire transfer",
+    "wireTransferDescription": "Upon order confirmation, you'll receive wiring instructions to complete payment",
+    "paypalDescription": "After placing the order, you will be redirected to the PayPal website to sign in and authorize the payment"
   },
   "orderShipments": {
     "shipment": "Shipment #<0/>",
     "parcel": "Parcel <0/>",
     "trackingCode": "Tracking code",
     "trackParcel": "Track parcel",
-    "parcels": {
-      "lineItemQuantity": "Quantity: <0/>"
-    }
+    "parcelLineItemQuantity": "Quantity: <0/>"
   },
   "orderSummary": {
     "billedTo": "Billed to",
@@ -99,21 +97,21 @@
     "shipped": "shipped"
   },
   "parcelDetail": {
-    "title": "Track Parcel",
-    "header": {
-      "tracking_code": "Tracking code",
-      "courier": "Courier",
-      "estimated_delivery": "Estimated delivery"
-    },
-    "tabs": {
-      "overview": "Overview",
-      "detailed_view": "Detailed view"
-    },
-    "timeline": {
-      "shipped": "Shipped",
-      "in_transit": "In transit",
-      "delivered": "Delivered"
-    }
+    "title": "Track Parcel"
+  },
+  "parcelDetailHeader": {
+    "trackingCode": "Tracking code",
+    "courier": "Courier",
+    "estimated_delivery": "Estimated delivery"
+  },
+  "parcelDetailTabs": {
+    "overview": "Overview",
+    "detailed_view": "Detailed view"
+  },
+  "parcelDetailTimeline": {
+    "shipped": "Shipped",
+    "in_transit": "In transit",
+    "delivered": "Delivered"
   },
   "parcelStatus": {
     "delivered": "Delivered",
@@ -138,23 +136,23 @@
   "addressForm": {
     "new_address_title": "Add a new address",
     "edit_address_title": "Edit my address",
-    "fields": {
-      "billing_address_first_name": "First name",
-      "billing_address_last_name": "Last name",
-      "billing_address_line_1": "Address line 1",
-      "billing_address_line_2": "Address line 2",
-      "billing_address_city": "City",
-      "billing_address_country_code_placeholder": "Select a country/region",
-      "billing_address_country_code": "Country/Region",
-      "billing_address_state_code": "Province/State",
-      "billing_address_state_code_placeholder": "Select a province/state",
-      "billing_address_zip_code": "Zip Code",
-      "billing_address_phone": "Phone",
-      "billing_address_billing_info": "Billing info"
-    },
     "billing_address_country_code_placeholder": "Select a country",
     "discard_changes": "Discard changes",
     "save": "Save"
+  },
+  "addressFormFields": {
+    "billing_address_first_name": "First name",
+    "billing_address_last_name": "Last name",
+    "billing_address_line_1": "Address line 1",
+    "billing_address_line_2": "Address line 2",
+    "billing_address_city": "City",
+    "billing_address_country_code_placeholder": "Select a country/region",
+    "billing_address_country_code": "Country/Region",
+    "billing_address_state_code": "Province/State",
+    "billing_address_state_code_placeholder": "Select a province/state",
+    "billing_address_zip_code": "Zip Code",
+    "billing_address_phone": "Phone",
+    "billing_address_billing_info": "Billing info"
   },
   "noPaymentMethods": {
     "title": "No payment method yet",

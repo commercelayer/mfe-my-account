@@ -1,8 +1,8 @@
-import { CommerceLayerClient } from "@commercelayer/sdk"
+import type { CommerceLayerClient } from "@commercelayer/sdk"
 
 import { retryCall } from "./retryCall"
 
-type GetOrganizationsConfig = {
+interface GetOrganizationsConfig {
   /**
    * The signed Commerce Layer SDK client
    */

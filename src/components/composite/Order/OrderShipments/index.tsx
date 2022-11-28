@@ -1,3 +1,4 @@
+import type { Order } from "@commercelayer/sdk"
 import {
   ShipmentsContainer,
   ShipmentsCount,
@@ -9,14 +10,14 @@ import {
   ParcelLineItem,
   ParcelLineItemField,
 } from "@commercelayer/react-components"
-import { useRouter } from "next/router"
+import { useLocation } from "wouter";
 import { useContext } from "react"
 import { Trans, useTranslation } from "react-i18next"
 
-import Button from "src/components/ui/Button"
-import ShowHideMenu from "src/components/ui/ShowHideMenu"
-import ShipmentStatusChip from "src/components/ui/StatusChip/ShipmentStatusChip"
-import type { ShipmentStatus } from "src/components/ui/StatusChip/ShipmentStatusChip"
+import Button from "#components/ui/Button"
+import ShowHideMenu from "#components/ui/ShowHideMenu"
+import ShipmentStatusChip from "#components/ui/StatusChip/ShipmentStatusChip"
+import type { ShipmentStatus } from "#components/ui/StatusChip/ShipmentStatusChip"
 
 import {
   ShipmentWrapper,
@@ -42,7 +43,7 @@ import {
   ParcelLineItemQuantity,
 } from "./styled"
 
-import { AppContext } from "src/providers/AppProvider"
+import { AppContext } from "#providers/AppProvider"
 
 const ParcelTrackingNumber: React.FC = () => {
   return (
@@ -57,11 +58,14 @@ const ParcelTrackingNumber: React.FC = () => {
   )
 }
 
-const ParcelLink: React.FC = () => {
-  const router = useRouter()
+interface ParcelLinkProps {
+  orderId?: string
+}
+
+const ParcelLink: React.FC<ParcelLinkProps> = ({ orderId }) => {
+  const [location, setLocation] = useLocation()
   const { t } = useTranslation()
   const ctx = useContext(AppContext)
-  const orderId = router.query.orderId as string
   const accessToken = ctx?.accessToken
   return (
     <ParcelField attribute="id" tagElement="span">
@@ -72,7 +76,7 @@ const ParcelLink: React.FC = () => {
             label={t("orderShipments.trackParcel") as string}
             buttonSize="small"
             onClick={() =>
-              router.push(
+              setLocation(
                 `/orders/${orderId}/parcels/${props?.attributeValue}?accessToken=${accessToken}`
               )
             }
@@ -83,7 +87,11 @@ const ParcelLink: React.FC = () => {
   )
 }
 
-const Parcel: React.FC = () => {
+interface ParcelProps {
+  orderId?: string
+}
+
+const Parcel: React.FC<ParcelProps> = ({ orderId }) => {
   return (
     <ParcelWrapper>
       <ParcelHeader>
@@ -94,7 +102,7 @@ const Parcel: React.FC = () => {
         </ParcelTitle>
         <ParcelHeaderRight>
           <ParcelTrackingNumber />
-          <ParcelLink />
+          <ParcelLink orderId={orderId} />
         </ParcelHeaderRight>
       </ParcelHeader>
       <ParcelContent>
@@ -118,7 +126,7 @@ const Parcel: React.FC = () => {
                         />
                       </ParcelLineItemName>
                       <ParcelLineItemQuantity>
-                        <Trans i18nKey="orderShipments.parcels.lineItemQuantity">
+                        <Trans i18nKey="orderShipments.parcelLineItemQuantity">
                           <ParcelLineItemField
                             tagElement="span"
                             attribute="quantity"
@@ -174,7 +182,11 @@ const ShipmentTop: React.FC = () => {
   )
 }
 
-const OrderShipments: React.FC = () => {
+interface Props {
+  order?: Order
+}
+
+const OrderShipments: React.FC<Props> = ({ order }) => {
   return (
     <ShipmentsContainer>
       <Shipment>
@@ -182,7 +194,7 @@ const OrderShipments: React.FC = () => {
           <ShipmentTop />
           <Parcels>
             <ParcelsWrapper>
-              <Parcel />
+              <Parcel orderId={order?.id} />
             </ParcelsWrapper>
           </Parcels>
         </ShipmentWrapper>

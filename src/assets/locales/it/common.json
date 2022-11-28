@@ -1,11 +1,11 @@
 {
   "general": {
-      "title": "{{companyName}} - My Account",
-      "retry_error_code": "Problemi di connessione",
-      "retry_error_description": "Prova a ricaricare la pagina",
-      "invalid": "Quest'URL non è accessibile.",
-      "privacy_link": "Privacy",
-      "terms_link": "Termini"
+    "title": "{{companyName}} - My Account",
+    "retry_error_code": "Problemi di connessione",
+    "retry_error_description": "Prova a ricaricare la pagina",
+    "invalid": "Quest'URL non è accessibile.",
+    "privacy_link": "Privacy",
+    "terms_link": "Termini"
   },
   "input": {
     "cantBlank" : "Non può essere vuoto",
@@ -58,24 +58,22 @@
     "quantity": "Quantità: {{count}}",
     "quantity_plural": "Quantità: {{count}}",
     "shipment": "Spedizione #<0/>",
-    "shipmentStatus": "Stato: <0/>",
-    "paymentMethod": {
-      "creditCard": "Carta di credito",
-      "EndingIn": "finisce con <0/>",
-      "ValidUntil": "valida fino al <0/>/<1/>",
-      "wireTransfer": "Bonifico bancario",
-      "wireTransferDescription": "Dopo la conferma dell'ordine riceverai le istruzioni per completare il pagamento",
-      "paypalDescription": "Dopo aver effettuato l'ordine, sarai reindirizzato verso il sito PayPal per accedere e autorizzare il pagamento"
-    }
+    "shipmentStatus": "Stato: <0/>"
+  },
+  "orderPaymentMethod": {
+    "creditCard": "Carta di credito",
+    "EndingIn": "finisce con <0/>",
+    "ValidUntil": "valida fino al <0/>/<1/>",
+    "wireTransfer": "Bonifico bancario",
+    "wireTransferDescription": "Dopo la conferma dell'ordine riceverai le istruzioni per completare il pagamento",
+    "paypalDescription": "Dopo aver effettuato l'ordine, sarai reindirizzato verso il sito PayPal per accedere e autorizzare il pagamento"
   },
   "orderShipments": {
     "shipment": "Spedizione #<0/>",
     "parcel": "Pacco <0/>",
     "trackingCode": "Codice di tracciamento",
     "trackParcel": "Traccia pacco",
-    "parcels": {
-      "lineItemQuantity": "Quantità: <0/>"
-    }
+    "parcelLineItemQuantity": "Quantità: <0/>"
   },
   "orderSummary": {
     "billedTo": "Fatturato a",
@@ -99,21 +97,21 @@
     "shipped": "shipped"
   },
   "parcelDetail": {
-    "title": "Traccia Pacco",
-    "header": {
-      "tracking_code": "Codice di tracciamento",
-      "courier": "Spedizioniere",
-      "estimated_delivery": "Consegna stimata"
-    },
-    "tabs": {
-      "overview": "Anteprima",
-      "detailed_view": "Vista dettagliata"
-    },
-    "timeline": {
-      "shipped": "Spedito",
-      "in_transit": "In transito",
-      "delivered": "Consegnato"
-    }
+    "title": "Traccia Pacco"
+  },
+  "parcelDetailHeader": {
+    "trackingCode": "Codice di tracciamento",
+    "courier": "Spedizioniere",
+    "estimated_delivery": "Consegna stimata"
+  },
+  "parcelDetailTabs": {
+    "overview": "Anteprima",
+    "detailed_view": "Vista dettagliata"
+  },
+  "parcelDetailTimeline": {
+    "shipped": "Spedito",
+    "in_transit": "In transito",
+    "delivered": "Consegnato"
   },
   "parcelStatus": {
     "delivered": "Consegnato",
@@ -138,23 +136,23 @@
   "addressForm": {
     "new_address_title": "Aggiungi un indirizzo",
     "edit_address_title": "Modifica un indirizzo",
-    "fields": {
-      "billing_address_first_name": "Nome",
-      "billing_address_last_name": "Cognome",
-      "billing_address_line_1": "Indirizzo",
-      "billing_address_line_2": "Presso",
-      "billing_address_city": "Città",
-      "billing_address_country_code": "Paese",
-      "billing_address_country_code_placeholder": "Seleziona un paese",
-      "billing_address_state_code": "Provincia",
-      "billing_address_state_code_placeholder": "Seleziona una provincia",
-      "billing_address_zip_code": "CAP",
-      "billing_address_phone": "Telefono",
-      "billing_address_billing_info": "Informazioni di fatturazione"
-    },
     "billing_address_country_code_placeholder": "Seleziona un paese",
     "discard_changes": "Annulla modifiche",
     "save": "Salva"
+  },
+  "addressFormFields": {
+    "billing_address_first_name": "Nome",
+    "billing_address_last_name": "Cognome",
+    "billing_address_line_1": "Indirizzo",
+    "billing_address_line_2": "Presso",
+    "billing_address_city": "Città",
+    "billing_address_country_code": "Paese",
+    "billing_address_country_code_placeholder": "Seleziona un paese",
+    "billing_address_state_code": "Provincia",
+    "billing_address_state_code_placeholder": "Seleziona una provincia",
+    "billing_address_zip_code": "CAP",
+    "billing_address_phone": "Telefono",
+    "billing_address_billing_info": "Informazioni di fatturazione"
   },
   "noPaymentMethods": {
     "title": "Nessun metodo di pagamento",

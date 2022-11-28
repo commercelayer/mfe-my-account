@@ -1,6 +1,6 @@
 import { PrimaryButton } from "./styled"
 
-export type PrimaryButtonProps = {
+export interface PrimaryButtonProps {
   label?: string
   className?: string
   onClick?: () => void

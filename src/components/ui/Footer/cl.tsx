@@ -1,6 +1,6 @@
 import { Svg } from "./styled"
 
-type Props = {
+interface Props {
   width?: string
   height?: string
   className?: string

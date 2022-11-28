@@ -1,6 +1,6 @@
 import { useState, useContext } from "react"
 
-import { AppContext } from "src/providers/AppProvider"
+import { AppContext } from "#providers/AppProvider"
 
 type UseAccordionActiveSection = {
   activeSection: OrderSectionEnum

@@ -10,10 +10,10 @@ import {
   AccordionBody,
 } from "./styled"
 
-import { AccordionContext } from "src/providers/AccordionProvider"
-import { AppContext } from "src/providers/AppProvider"
+import { AccordionContext } from "#providers/AccordionProvider"
+import { AppContext } from "#providers/AppProvider"
 
-type Props = {
+interface Props {
   index: number
   header: React.ReactNode
 }

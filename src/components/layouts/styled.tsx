@@ -2,11 +2,11 @@ import styled from "styled-components"
 import tw from "twin.macro"
 
 export const GuestWrapper = styled.div`
-  ${tw`flex flex-wrap justify-end items-stretch flex-col max-w-screen-md mx-auto min-h-full md:(h-screen flex-row)`}
+  ${tw`flex flex-wrap justify-end items-stretch flex-col max-w-screen-md mx-auto min-h-screen md:flex-row`}
 `
 
 export const CustomerWrapper = styled.div`
-  ${tw`flex flex-wrap justify-end items-stretch flex-col min-h-full md:(h-screen flex-row)`}
+  ${tw`flex flex-wrap justify-end items-stretch flex-col min-h-screen md:flex-row`}
 `
 
 export const Main = styled.div`

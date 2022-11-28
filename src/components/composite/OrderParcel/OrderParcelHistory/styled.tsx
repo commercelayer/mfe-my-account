@@ -10,7 +10,7 @@ export const ShipmentDate = styled.div`
 export const ShipmentDateChip = styled.div`
   ${tw`inline text-sm text-center text-gray-600 bg-gray-300 capitalize text-3xs w-auto uppercase font-bold py-[2px] px-[12px] leading-snug rounded-xl align-middle`}
 `
-type ShipmentTimeProps = {
+interface ShipmentTimeProps {
   timeIsFirstOfDate: boolean
 }
 export const ShipmentTime = styled.div<ShipmentTimeProps>`
@@ -20,7 +20,7 @@ export const ShipmentTime = styled.div<ShipmentTimeProps>`
 export const ShipmentTimeLabel = styled.div`
   ${tw`mt-1 font-bold w-28 text-xxs`}
 `
-type ShipmentTimeBorderProps = {
+interface ShipmentTimeBorderProps {
   dateTimeIsLast: boolean
 }
 export const ShipmentTimeBorder = styled.div<ShipmentTimeBorderProps>`

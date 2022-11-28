@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import tw from "twin.macro"
 
-type WrapperProps = {
+interface WrapperProps {
   rounded?: boolean
   fullHeight?: boolean
   centered?: boolean

@@ -1,8 +1,8 @@
-import { SkeletonMainPageTitle } from "src/components/composite/Skeleton/Main/Common"
-import { SkeletonMainOrdersTable } from "src/components/composite/Skeleton/Main/OrdersTable"
-import { SkeletonWrapper } from "src/components/composite/Skeleton/styled"
+import { SkeletonMainPageTitle } from "#components/composite/Skeleton/Main/Common"
+import { SkeletonMainOrdersTable } from "#components/composite/Skeleton/Main/OrdersTable"
+import { SkeletonWrapper } from "#components/composite/Skeleton/styled"
 
-type Props = {
+interface Props {
   shown?: boolean
 }
 

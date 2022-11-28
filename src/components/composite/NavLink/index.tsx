@@ -1,11 +1,10 @@
 import type { Settings } from "HostedApp"
-import Link from "next/link"
-import { useRouter } from "next/router"
+import { useLocation, useRoute, Link } from "wouter"
 import { useContext } from "react"
 
 import { Wrapper, Icon, TitleWrapper, Title, ComingSoon } from "./styled"
 
-import { AppContext } from "src/providers/AppProvider"
+import { AppContext } from "#providers/AppProvider"
 
 type Props = Pick<Settings, "accessToken"> & {
   id: string
@@ -22,9 +21,9 @@ const ComingSoonBadge: React.FC = () => {
 
 const NavLinkButton: React.FC<Props> = (props) => {
   const { title, href, icon, comingSoon, onClick } = props
-  const router = useRouter()
-  const isCurrentPage =
-    router.pathname === href || router.pathname.indexOf(href) >= 0
+  const [location] = useLocation()
+  const [isActive] = useRoute(href)
+  const isCurrentPage = isActive || location.indexOf(href) >= 0
 
   return (
     <Wrapper
