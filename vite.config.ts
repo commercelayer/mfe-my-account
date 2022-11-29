@@ -24,7 +24,24 @@ export default defineConfig(({ mode }) => {
     build: {
       sourcemap: false,
       target: "es2020",
-      outDir: "build"
+      outDir: "build",
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            vendor: [
+              "react",
+              "react-dom",
+              "react-helmet-async",
+              "wouter",
+              "react-i18next",
+            ],
+            commercelayer: [
+              "@commercelayer/sdk",
+              "@commercelayer/react-components",
+            ]
+          },
+        },
+      },
     },
     resolve: {
       alias: {
