@@ -1,10 +1,8 @@
-import {
-  PaymentMethodsContainer,
-  PaymentSource,
-  PaymentSourceBrandIcon,
-  PaymentSourceBrandName,
-  PaymentSourceDetail,
-} from "@commercelayer/react-components"
+import { PaymentMethodsContainer } from "@commercelayer/react-components/payment_methods/PaymentMethodsContainer"
+import { PaymentSource } from "@commercelayer/react-components/payment_source/PaymentSource"
+import { PaymentSourceBrandIcon } from "@commercelayer/react-components/payment_source/PaymentSourceBrandIcon"
+import { PaymentSourceBrandName } from "@commercelayer/react-components/payment_source/PaymentSourceBrandName"
+import { PaymentSourceDetail } from "@commercelayer/react-components/payment_source/PaymentSourceDetail"
 import { Trans, useTranslation } from "react-i18next"
 
 import {

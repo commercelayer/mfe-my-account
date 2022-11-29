@@ -1,9 +1,7 @@
-import {
-  Errors,
-  AddressInput,
-  AddressStateSelector,
-  AddressCountrySelector,
-} from "@commercelayer/react-components"
+import { Errors } from "@commercelayer/react-components"
+import { AddressInput } from "@commercelayer/react-components/addresses/AddressInput"
+import { AddressStateSelector } from "@commercelayer/react-components/addresses/AddressStateSelector"
+import { AddressCountrySelector } from "@commercelayer/react-components/addresses/AddressCountrySelector"
 import styled from "styled-components"
 import tw from "twin.macro"
 

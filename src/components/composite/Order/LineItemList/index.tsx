@@ -1,4 +1,4 @@
-import { LineItemsContainer } from "@commercelayer/react-components"
+import { LineItemsContainer } from "@commercelayer/react-components/line_items/LineItemsContainer"
 
 import { LineItemTypes } from "#components/composite/Order/LineItemTypes"
 

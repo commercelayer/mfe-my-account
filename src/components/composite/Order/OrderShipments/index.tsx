@@ -1,15 +1,13 @@
 import type { Order } from "@commercelayer/sdk"
-import {
-  ShipmentsContainer,
-  ShipmentsCount,
-  Shipment,
-  ShipmentField,
-  Parcels,
-  ParcelField,
-  ParcelLineItemsCount,
-  ParcelLineItem,
-  ParcelLineItemField,
-} from "@commercelayer/react-components"
+import { ShipmentsContainer } from "@commercelayer/react-components/shipments/ShipmentsContainer"
+import { ShipmentsCount } from "@commercelayer/react-components/shipments/ShipmentsCount"
+import { Shipment } from "@commercelayer/react-components/shipments/Shipment"
+import { ShipmentField } from "@commercelayer/react-components/shipments/ShipmentField"
+import { Parcels } from "@commercelayer/react-components/parcels/Parcels"
+import { ParcelField } from "@commercelayer/react-components/parcels/ParcelField"
+import { ParcelLineItemsCount } from "@commercelayer/react-components/parcels/ParcelLineItemsCount"
+import { ParcelLineItem } from "@commercelayer/react-components/parcels/ParcelLineItem"
+import { ParcelLineItemField } from "@commercelayer/react-components/parcels/ParcelLineItemField"
 import { useLocation } from "wouter";
 import { useContext } from "react"
 import { Trans, useTranslation } from "react-i18next"

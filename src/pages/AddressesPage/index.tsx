@@ -1,7 +1,5 @@
-import {
-  AddressesContainer,
-  AddressesEmpty,
-} from "@commercelayer/react-components"
+import { AddressesContainer } from "@commercelayer/react-components/addresses/AddressesContainer"
+import { AddressesEmpty } from "@commercelayer/react-components/addresses/AddressesEmpty"
 import { Transition } from "@headlessui/react"
 import { useState } from "react"
 import { useTranslation } from "react-i18next"

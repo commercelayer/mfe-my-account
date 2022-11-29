@@ -1,12 +1,10 @@
-import {
-  TaxesAmount,
-  ShippingAmount,
-  TotalAmount,
-  PaymentMethodAmount,
-  SubTotalAmount,
-  DiscountAmount,
-  GiftCardAmount,
-} from "@commercelayer/react-components"
+import { TaxesAmount } from "@commercelayer/react-components/orders/TaxesAmount"
+import { ShippingAmount } from "@commercelayer/react-components/orders/ShippingAmount"
+import { TotalAmount } from "@commercelayer/react-components/orders/TotalAmount"
+import { PaymentMethodAmount } from "@commercelayer/react-components/orders/PaymentMethodAmount"
+import { SubTotalAmount } from "@commercelayer/react-components/orders/SubTotalAmount"
+import { DiscountAmount } from "@commercelayer/react-components/orders/DiscountAmount"
+import { GiftCardAmount } from "@commercelayer/react-components/orders/GiftCardAmount"
 import { useTranslation } from "react-i18next"
 
 import {

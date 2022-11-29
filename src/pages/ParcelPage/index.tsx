@@ -1,10 +1,9 @@
-import {
-  OrderContainer,
-  ShipmentsContainer,
-  Shipment,
-  Parcels,
-  ParcelField,
-} from "@commercelayer/react-components"
+import { OrderContainer } from "@commercelayer/react-components/orders/OrderContainer"
+import { ShipmentsContainer } from "@commercelayer/react-components/shipments/ShipmentsContainer"
+import { Shipment } from "@commercelayer/react-components/shipments/Shipment"
+import { Parcels } from "@commercelayer/react-components/parcels/Parcels"
+import { ParcelField } from "@commercelayer/react-components/parcels/ParcelField"
+
 import type { Settings } from "HostedApp"
 import { Link } from "wouter"
 import { CaretLeft } from "phosphor-react"

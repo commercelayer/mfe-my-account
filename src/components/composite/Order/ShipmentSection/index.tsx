@@ -1,8 +1,6 @@
-import {
-  ShipmentsContainer,
-  Shipment,
-  ShipmentField,
-} from "@commercelayer/react-components"
+import { ShipmentsContainer } from "@commercelayer/react-components/shipments/ShipmentsContainer"
+import { Shipment } from "@commercelayer/react-components/shipments/Shipment"
+import { ShipmentField } from "@commercelayer/react-components/shipments/ShipmentField"
 import { useTranslation, Trans } from "react-i18next"
 
 import { ShipmentDescription } from "./styled"

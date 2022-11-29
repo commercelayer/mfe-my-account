@@ -1,9 +1,8 @@
-import {
-  OrderContainer,
-  OrderList,
-  OrderListEmpty,
-  OrderListRow,
-} from "@commercelayer/react-components"
+import { OrderContainer } from "@commercelayer/react-components/orders/OrderContainer"
+import { OrderList } from "@commercelayer/react-components/orders/OrderList"
+import { OrderListEmpty } from "@commercelayer/react-components/orders/OrderListEmpty"
+import { OrderListRow } from "@commercelayer/react-components/orders/OrderListRow"
+
 import { Link } from "wouter"
 import { useContext } from "react"
 import { useTranslation } from "react-i18next"

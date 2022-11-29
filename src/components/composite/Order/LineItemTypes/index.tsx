@@ -1,11 +1,9 @@
-import {
-  LineItem,
-  LineItemImage,
-  LineItemName,
-  LineItemCode,
-  LineItemQuantity,
-  LineItemAmount,
-} from "@commercelayer/react-components"
+import { LineItem } from "@commercelayer/react-components/line_items/LineItem"
+import { LineItemImage } from "@commercelayer/react-components/line_items/LineItemImage"
+import { LineItemName } from "@commercelayer/react-components/line_items/LineItemName"
+import { LineItemCode } from "@commercelayer/react-components/line_items/LineItemCode"
+import { LineItemQuantity } from "@commercelayer/react-components/line_items/LineItemQuantity"
+import { LineItemAmount } from "@commercelayer/react-components/line_items/LineItemAmount"
 import type { LineItemType } from "@commercelayer/react-components"
 import { useTranslation } from "react-i18next"
 

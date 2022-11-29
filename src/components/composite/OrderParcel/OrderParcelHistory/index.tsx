@@ -1,4 +1,4 @@
-import { ParcelField } from "@commercelayer/react-components"
+import { ParcelField } from "@commercelayer/react-components/parcels/ParcelField"
 import { Trans } from "react-i18next"
 
 import ShipmentHistoryStep from "#components/ui/icons/ShipmentHistoryStep"

@@ -1,4 +1,4 @@
-import { CommerceLayer } from "@commercelayer/react-components"
+import { CommerceLayer } from "@commercelayer/react-components/auth/CommerceLayer"
 import { GlobalStylesProvider } from "@commercelayer/react-utils"
 import { GlobalStyles as BaseStyles } from 'twin.macro'
 import type { Settings } from "HostedApp"

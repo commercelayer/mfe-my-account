@@ -1,4 +1,4 @@
-import { AddressField } from "@commercelayer/react-components"
+import { AddressField } from "@commercelayer/react-components/addresses/AddressField"
 import styled from "styled-components"
 import tw from "twin.macro"
 

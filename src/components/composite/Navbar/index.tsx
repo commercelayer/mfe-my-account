@@ -1,4 +1,4 @@
-import { CustomerField } from "@commercelayer/react-components"
+import { CustomerField } from "@commercelayer/react-components/customers/CustomerField"
 import type { Settings } from "HostedApp"
 import {
   Package,
