@@ -42,7 +42,7 @@ export const SkeletonMenuItemLabel = styled(SkeletonBox)`
 `
 
 export const SkeletonWrapper = styled.div<SkeletonWrapperProps>`
-  ${tw`mt-4 animate-pulse flex-shrink flex-grow`}
+  ${tw`animate-pulse flex-shrink flex-grow`}
   ${({ shown }) => !shown && tw`hidden`}
 `
 

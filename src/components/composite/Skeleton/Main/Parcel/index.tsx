@@ -16,7 +16,7 @@ interface Props {
 export const SkeletonMainParcel: React.FC<Props> = ({ shown = true }) => {
   return (
     <SkeletonWrapper shown={shown}>
-      <SkeletonRow centered className={"pt-4 lg:(-mt-1 pt-0)"}>
+      <SkeletonRow centered className={"pt-4 lg:pt-0"}>
         <SkeletonRoundBackBtn />
         <SkeletonSubtitle />
       </SkeletonRow>
