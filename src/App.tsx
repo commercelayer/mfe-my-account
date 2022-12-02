@@ -5,7 +5,6 @@ import MyAccountContainer from "#components/composite/MyAccountContainer"
 import Skeleton from "#components/composite/Skeleton"
 import Invalid from "#components/composite/Invalid"
 
-import { OrderProvider } from "#providers/OrderProvider"
 import { SettingsProvider } from "#providers/SettingsProvider"
 
 const LazyOrderPage = lazy(() => import("#pages/OrderPage"))
