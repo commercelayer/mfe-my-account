@@ -55,6 +55,10 @@ declare module "HostedApp" {
      */
     customerId: string
     /**
+     * Order Id information picked by routing param (if current route is supposed to refer to an order)
+     */
+    orderId?: string
+    /**
      * When `true` it indicates that current accessToken is not owned by a customer.
      * This conditional variable allows the application to show/hide or enable/disable
      * particular behaviours depending on dealing or not with a logged customer.

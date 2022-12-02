@@ -75,17 +75,7 @@ export const getSettings = async ({
     return makeInvalidSettings(!organizationResponse?.bailed)
   }
 
-  if (orderId) {
-    const [orderResponse] = await Promise.all([getOrder({ orderId, client })])
-
-    // validating order
-    const order = orderResponse?.object
-    if (!order) {
-      return makeInvalidSettings(!orderResponse?.bailed)
-    }
-  }
-
-  return {
+  const settings : Settings = {
     accessToken,
     endpoint: `https://${slug}.${domain}`,
     isGuest: !customerId,
@@ -97,6 +87,25 @@ export const getSettings = async ({
       (organization?.primary_color as string) || defaultSettings.primaryColor,
     logoUrl: organization?.logo_url || "",
     faviconUrl: organization?.favicon_url || defaultSettings.faviconUrl,
-    gtmId: isTest ? organization?.gtm_id_test : organization?.gtm_id,
+    gtmId: isTest ? organization?.gtm_id_test : organization?.gtm_id
   }
+
+  if (orderId) {
+    const [orderResponse] = await Promise.all([
+      getOrder({ 
+        orderId, 
+        client,
+      })
+    ])
+    
+    // validating organization
+    const order = orderResponse?.object
+    if (!order) {
+      return makeInvalidSettings(!orderResponse?.bailed)
+    } else {
+      settings.orderId = order.id
+    }
+  }
+
+  return settings
 }

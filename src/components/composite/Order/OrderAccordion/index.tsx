@@ -36,7 +36,7 @@ const OrderSections: React.FC<Props> = ({ order }) => {
           index={3}
           header={<span>{t("order.shipments")}</span>}
         >
-          <OrderShipments order={order} />
+          <OrderShipments />
         </OrderSectionItem>
         <OrderSectionItem index={4} header={<span>{t("order.payments")}</span>}>
           <OrderPayments />

@@ -42,6 +42,7 @@ const MyAccountContainer: React.FC<Props> = ({ settings, children }) => {
             <BaseStyles />
             <AppProvider
               customerId={settings.customerId}
+              orderId={settings.orderId}
               accessToken={settings.accessToken}
               endpoint={settings.endpoint}
             >
