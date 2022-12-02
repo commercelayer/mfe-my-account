@@ -42,42 +42,95 @@
   "order": {
     "title": "Order #<0/>",
     "placed_at": "Placed at <0/>",
-    "summary":"Summary",
-    "addresses": "Addresses",
-    "shipments": "Shipments",
-    "payments": "Payments",
-    "contains": "Your order contains {{count}} item",
-    "contains_plural": "Your order contains {{count}} items",
-    "subtotal_amount": "Subtotal",
-    "discount_amount": "Discount",
-    "shipping_amount": "Shipping",
-    "payment_method_amount": "Payment method",
-    "tax_amount": "Tax",
-    "giftcard_amount": "Gift card",
-    "total_amount": "Total",
-    "quantity": "Quantity: {{count}}",
-    "quantity_plural": "Quantity: {{count}}",
-    "shipment": "Shipment #<0/>",
-    "shipmentStatus": "Status: <0/>"
+    "summary": {
+      "title": "Summary",
+      "subtotal_amount": "Subtotal",
+      "discount_amount": "Discount",
+      "shipping_amount": "Shipping",
+      "payment_method_amount": "Payment method",
+      "tax_amount": "Tax",
+      "giftcard_amount": "Gift card",
+      "total_amount": "Total",
+      "quantity": "Quantity: {{count}}",
+      "quantity_plural": "Quantity: {{count}}"
+    },
+    "addresses": {
+      "title": "Addresses",
+      "billedTo": "Billed to",
+      "shippedTo": "Shipped to"
+    },
+    "shipments": {
+      "title": "Shipments",
+      "shipment": "Shipment #<0/>",
+      "shipmentStatus": "Status: <0/>",
+      "parcel": "Parcel <0/>",
+      "trackingCode": "Tracking code",
+      "trackParcel": "Track parcel",
+      "parcelLineItemQuantity": "Quantity: <0/>",
+      "parcelDetail": {
+        "title": "Track Parcel",
+        "trackingCode": "Tracking code"
+      }
+    },
+    "payments": {
+      "title": "Payments",
+      "paymentMethod": {
+        "creditCard": "Credit card",
+        "EndingIn": "ending in <0/>",
+        "ValidUntil": "valid until <0/>/<1/>",
+        "wireTransfer": "Wire transfer",
+        "wireTransferDescription": "Upon order confirmation, you'll receive wiring instructions to complete payment",
+        "paypalDescription": "After placing the order, you will be redirected to the PayPal website to sign in and authorize the payment"
+      }
+    }
   },
-  "orderPaymentMethod": {
-    "creditCard": "Credit card",
-    "EndingIn": "ending in <0/>",
-    "ValidUntil": "valid until <0/>/<1/>",
-    "wireTransfer": "Wire transfer",
-    "wireTransferDescription": "Upon order confirmation, you'll receive wiring instructions to complete payment",
-    "paypalDescription": "After placing the order, you will be redirected to the PayPal website to sign in and authorize the payment"
+  "addresses": {
+    "title": "My addresses",
+    "edit": "Edit",
+    "delete": "Delete",
+    "addNewAddress":"Add new address",
+    "deleteConfirmation": "Delete your address?",
+    "yes": "Yes",
+    "no": "No",
+    "addressForm": {
+      "new_address_title": "Add a new address",
+      "edit_address_title": "Edit my address",
+      "billing_address_country_code_placeholder": "Select a country",
+      "discard_changes": "Discard changes",
+      "save": "Save",
+      "fields": {
+        "billing_address_first_name": "First name",
+        "billing_address_last_name": "Last name",
+        "billing_address_line_1": "Address line 1",
+        "billing_address_line_2": "Address line 2",
+        "billing_address_city": "City",
+        "billing_address_country_code_placeholder": "Select a country/region",
+        "billing_address_country_code": "Country/Region",
+        "billing_address_state_code": "Province/State",
+        "billing_address_state_code_placeholder": "Select a province/state",
+        "billing_address_zip_code": "Zip Code",
+        "billing_address_phone": "Phone",
+        "billing_address_billing_info": "Billing info"
+      }
+    }
   },
-  "orderShipments": {
-    "shipment": "Shipment #<0/>",
-    "parcel": "Parcel <0/>",
-    "trackingCode": "Tracking code",
-    "trackParcel": "Track parcel",
-    "parcelLineItemQuantity": "Quantity: <0/>"
+  "noAddresses": {
+    "title": "No addresses yet",
+    "description": "Looks like you haven't saved any address yet",
+    "buttonLabel": "Add an address"
   },
-  "orderSummary": {
-    "billedTo": "Billed to",
-    "shippedTo": "Shipped to"
+  "noPaymentMethods": {
+    "title": "No payment method yet",
+    "description": "Looks like you haven’t saved any payment method yet",
+    "buttonLabel": "Add a payment method"
+  },
+  "returns": {
+    "title": "My returns"
+  },
+  "noReturns": {
+    "title": "No returns yet",
+    "description": "Looks like you haven't made any returns yet",
+    "buttonLabel": "Create a return"
   },
   "orderStatus": {
     "draft": "draft",
@@ -96,76 +149,11 @@
     "ready_to_ship": "ready_to_ship",
     "shipped": "shipped"
   },
-  "parcelDetail": {
-    "title": "Track Parcel"
-  },
-  "parcelDetailHeader": {
-    "trackingCode": "Tracking code",
-    "courier": "Courier",
-    "estimated_delivery": "Estimated delivery"
-  },
-  "parcelDetailTabs": {
-    "overview": "Overview",
-    "detailed_view": "Detailed view"
-  },
-  "parcelDetailTimeline": {
-    "shipped": "Shipped",
-    "in_transit": "In transit",
-    "delivered": "Delivered"
-  },
   "parcelStatus": {
     "delivered": "Delivered",
     "out_for_delivery": "Out for delivery",
     "in_transit": "In transit",
     "pre_transit": "Pre transit"
-  },
-  "addresses": {
-    "title": "My addresses",
-    "edit": "Edit",
-    "delete": "Delete",
-    "addNewAddress":"Add new address",
-    "deleteConfirmation": "Delete your address?",
-    "yes": "Yes",
-    "no": "No"
-  },
-  "noAddresses": {
-    "title": "No addresses yet",
-    "description": "Looks like you haven't saved any address yet",
-    "buttonLabel": "Add an address"
-  },
-  "addressForm": {
-    "new_address_title": "Add a new address",
-    "edit_address_title": "Edit my address",
-    "billing_address_country_code_placeholder": "Select a country",
-    "discard_changes": "Discard changes",
-    "save": "Save"
-  },
-  "addressFormFields": {
-    "billing_address_first_name": "First name",
-    "billing_address_last_name": "Last name",
-    "billing_address_line_1": "Address line 1",
-    "billing_address_line_2": "Address line 2",
-    "billing_address_city": "City",
-    "billing_address_country_code_placeholder": "Select a country/region",
-    "billing_address_country_code": "Country/Region",
-    "billing_address_state_code": "Province/State",
-    "billing_address_state_code_placeholder": "Select a province/state",
-    "billing_address_zip_code": "Zip Code",
-    "billing_address_phone": "Phone",
-    "billing_address_billing_info": "Billing info"
-  },
-  "noPaymentMethods": {
-    "title": "No payment method yet",
-    "description": "Looks like you haven’t saved any payment method yet",
-    "buttonLabel": "Add a payment method"
-  },
-  "returns": {
-    "title": "My returns"
-  },
-  "noReturns": {
-    "title": "No returns yet",
-    "description": "Looks like you haven't made any returns yet",
-    "buttonLabel": "Create a return"
   },
   "returnStatus": {
     "draft": "draft",

@@ -12,12 +12,12 @@ function ShipmentSection(): JSX.Element {
     <ShipmentsContainer>
       <Shipment>
         <ShipmentDescription>
-          <Trans t={t} i18nKey="order.shipment">
+          <Trans t={t} i18nKey="order.shipments.shipment">
             <ShipmentField name="key_number" />
           </Trans>
         </ShipmentDescription>
         <ShipmentDescription>
-          <Trans t={t} i18nKey="order.shipmentStatus">
+          <Trans t={t} i18nKey="order.shipments.shipmentStatus">
             <ShipmentField name="status" />
           </Trans>
         </ShipmentDescription>

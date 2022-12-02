@@ -16,7 +16,7 @@ const OrderSections: React.FC = () => {
   return (
     <Wrapper>
       <OrderSection>
-        <OrderSectionItem index={1} header={<span>{t("order.summary")}</span>}>
+        <OrderSectionItem index={1} header={<span>{t("order.summary.title")}</span>}>
           <SummaryWrapper>
             <LineItemList />
             <OrderSummary />
@@ -24,17 +24,17 @@ const OrderSections: React.FC = () => {
         </OrderSectionItem>
         <OrderSectionItem
           index={2}
-          header={<span>{t("order.addresses")}</span>}
+          header={<span>{t("order.addresses.title")}</span>}
         >
           <AddressesSummary />
         </OrderSectionItem>
         <OrderSectionItem
           index={3}
-          header={<span>{t("order.shipments")}</span>}
+          header={<span>{t("order.shipments.title")}</span>}
         >
           <OrderShipments />
         </OrderSectionItem>
-        <OrderSectionItem index={4} header={<span>{t("order.payments")}</span>}>
+        <OrderSectionItem index={4} header={<span>{t("order.payments.title")}</span>}>
           <OrderPayments />
         </OrderSectionItem>
       </OrderSection>

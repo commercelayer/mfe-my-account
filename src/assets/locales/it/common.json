@@ -42,42 +42,95 @@
   "order": {
     "title": "Ordine #<0/>",
     "placed_at": "Effettuato il <0/>",
-    "summary": "Riepilogo",
-    "addresses": "Indirizzi",
-    "shipments": "Spedizioni",
-    "payments": "Pagamenti",
-    "contains": "Il tuo ordine contiene {{count}} articolo",
-    "contains_plural": "Il tuo ordine contiene {{count}} articoli",
-    "subtotal_amount": "Subtotale",
-    "discount_amount": "Sconto",
-    "shipping_amount": "Spedizione",
-    "payment_method_amount": "Metodo di pagamento",
-    "tax_amount": "Tasse",
-    "giftcard_amount": "Gift card",
-    "total_amount": "Totale",
-    "quantity": "Quantità: {{count}}",
-    "quantity_plural": "Quantità: {{count}}",
-    "shipment": "Spedizione #<0/>",
-    "shipmentStatus": "Stato: <0/>"
+    "summary": {
+      "title": "Riepilogo",
+      "subtotal_amount": "Subtotale",
+      "discount_amount": "Sconto",
+      "shipping_amount": "Spedizione",
+      "payment_method_amount": "Metodo di pagamento",
+      "tax_amount": "Tasse",
+      "giftcard_amount": "Gift card",
+      "total_amount": "Totale",
+      "quantity": "Quantità: {{count}}",
+      "quantity_plural": "Quantità: {{count}}"
+    },
+    "addresses": {
+      "title": "Indirizzi",
+      "billedTo": "Fatturato a",
+      "shippedTo": "Spedito a"
+    },
+    "shipments": {
+      "title": "Spedizioni",
+      "shipment": "Spedizione #<0/>",
+      "shipmentStatus": "Stato: <0/>",
+      "parcel": "Pacco <0/>",
+      "trackingCode": "Codice di tracciamento",
+      "trackParcel": "Traccia pacco",
+      "parcelLineItemQuantity": "Quantità: <0/>",
+      "parcelDetail": {
+        "title": "Traccia Pacco",
+        "trackingCode": "Codice di tracciamento"
+      }
+    },
+    "payments": {
+      "title": "Pagamenti",
+      "paymentMethod": {
+        "creditCard": "Carta di credito",
+        "EndingIn": "finisce con <0/>",
+        "ValidUntil": "valida fino al <0/>/<1/>",
+        "wireTransfer": "Bonifico bancario",
+        "wireTransferDescription": "Dopo la conferma dell'ordine riceverai le istruzioni per completare il pagamento",
+        "paypalDescription": "Dopo aver effettuato l'ordine, sarai reindirizzato verso il sito PayPal per accedere e autorizzare il pagamento"
+      }
+    }
   },
-  "orderPaymentMethod": {
-    "creditCard": "Carta di credito",
-    "EndingIn": "finisce con <0/>",
-    "ValidUntil": "valida fino al <0/>/<1/>",
-    "wireTransfer": "Bonifico bancario",
-    "wireTransferDescription": "Dopo la conferma dell'ordine riceverai le istruzioni per completare il pagamento",
-    "paypalDescription": "Dopo aver effettuato l'ordine, sarai reindirizzato verso il sito PayPal per accedere e autorizzare il pagamento"
+  "addresses": {
+    "title": "I miei indirizzi",
+    "edit": "Modifica",
+    "delete": "Cancella",
+    "addNewAddress":"Aggiungi un nuovo indirizzo",
+    "deleteConfirmation": "Cancelli il tuo indirizzo?",
+    "yes": "Si",
+    "no": "No",
+    "addressForm": {
+      "new_address_title": "Aggiungi un indirizzo",
+      "edit_address_title": "Modifica un indirizzo",
+      "billing_address_country_code_placeholder": "Seleziona un paese",
+      "discard_changes": "Annulla modifiche",
+      "save": "Salva",
+      "fields": {
+        "billing_address_first_name": "Nome",
+        "billing_address_last_name": "Cognome",
+        "billing_address_line_1": "Indirizzo",
+        "billing_address_line_2": "Presso",
+        "billing_address_city": "Città",
+        "billing_address_country_code": "Paese",
+        "billing_address_country_code_placeholder": "Seleziona un paese",
+        "billing_address_state_code": "Provincia",
+        "billing_address_state_code_placeholder": "Seleziona una provincia",
+        "billing_address_zip_code": "CAP",
+        "billing_address_phone": "Telefono",
+        "billing_address_billing_info": "Informazioni di fatturazione"
+      }
+    }
   },
-  "orderShipments": {
-    "shipment": "Spedizione #<0/>",
-    "parcel": "Pacco <0/>",
-    "trackingCode": "Codice di tracciamento",
-    "trackParcel": "Traccia pacco",
-    "parcelLineItemQuantity": "Quantità: <0/>"
+  "noAddresses": {
+    "title": "Nessun indirizzo presente",
+    "description": "Sembra che tu non abbaia ancora nessun indirizzo salvato",
+    "buttonLabel": "Aggiungi un indirizzo"
   },
-  "orderSummary": {
-    "billedTo": "Fatturato a",
-    "shippedTo": "Spedito a"
+  "noPaymentMethods": {
+    "title": "Nessun metodo di pagamento",
+    "description": "Sembra che tu non ancora nessun metodo di pagamento salvato",
+    "buttonLabel": "Aggiungi un metodo di pagamento"
+  },
+  "returns": {
+    "title": "I miei resi"
+  },
+  "noReturns": {
+    "title": "Nessun reso",
+    "description": "Sembra che tu non abbia ancora fatto nessun reso",
+    "buttonLabel": "Crea un reso"
   },
   "orderStatus": {
     "draft": "draft",
@@ -96,76 +149,11 @@
     "ready_to_ship": "ready_to_ship",
     "shipped": "shipped"
   },
-  "parcelDetail": {
-    "title": "Traccia Pacco"
-  },
-  "parcelDetailHeader": {
-    "trackingCode": "Codice di tracciamento",
-    "courier": "Spedizioniere",
-    "estimated_delivery": "Consegna stimata"
-  },
-  "parcelDetailTabs": {
-    "overview": "Anteprima",
-    "detailed_view": "Vista dettagliata"
-  },
-  "parcelDetailTimeline": {
-    "shipped": "Spedito",
-    "in_transit": "In transito",
-    "delivered": "Consegnato"
-  },
   "parcelStatus": {
     "delivered": "Consegnato",
     "out_for_delivery": "Fuori per consegna",
     "in_transit": "In transito",
     "pre_transit": "Pre transito"
-  },
-  "addresses": {
-    "title": "I miei indirizzi",
-    "edit": "Modifica",
-    "delete": "Cancella",
-    "addNewAddress":"Aggiungi un nuovo indirizzo",
-    "deleteConfirmation": "Cancelli il tuo indirizzo?",
-    "yes": "Si",
-    "no": "No"
-  },
-  "noAddresses": {
-    "title": "Nessun indirizzo presente",
-    "description": "Sembra che tu non abbaia ancora nessun indirizzo salvato",
-    "buttonLabel": "Aggiungi un indirizzo"
-  },
-  "addressForm": {
-    "new_address_title": "Aggiungi un indirizzo",
-    "edit_address_title": "Modifica un indirizzo",
-    "billing_address_country_code_placeholder": "Seleziona un paese",
-    "discard_changes": "Annulla modifiche",
-    "save": "Salva"
-  },
-  "addressFormFields": {
-    "billing_address_first_name": "Nome",
-    "billing_address_last_name": "Cognome",
-    "billing_address_line_1": "Indirizzo",
-    "billing_address_line_2": "Presso",
-    "billing_address_city": "Città",
-    "billing_address_country_code": "Paese",
-    "billing_address_country_code_placeholder": "Seleziona un paese",
-    "billing_address_state_code": "Provincia",
-    "billing_address_state_code_placeholder": "Seleziona una provincia",
-    "billing_address_zip_code": "CAP",
-    "billing_address_phone": "Telefono",
-    "billing_address_billing_info": "Informazioni di fatturazione"
-  },
-  "noPaymentMethods": {
-    "title": "Nessun metodo di pagamento",
-    "description": "Sembra che tu non ancora nessun metodo di pagamento salvato",
-    "buttonLabel": "Aggiungi un metodo di pagamento"
-  },
-  "returns": {
-    "title": "I miei resi"
-  },
-  "noReturns": {
-    "title": "Nessun reso",
-    "description": "Sembra che tu non abbia ancora fatto nessun reso",
-    "buttonLabel": "Crea un reso"
   },
   "returnStatus": {
     "draft": "draft",

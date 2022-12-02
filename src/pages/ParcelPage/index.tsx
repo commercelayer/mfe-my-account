@@ -49,12 +49,12 @@ function ParcelPage({ settings, orderId, parcelId }: Props): JSX.Element {
                       <CaretLeft weight="regular" className="w-7 h-7" />
                     </BackToOrder>
                   </Link>
-                  <Title>{t("parcelDetail.title")}</Title>
+                  <Title>{t("order.shipments.parcelDetail.title")}</Title>
                 </ParcelHeaderTop>
                 <ParcelHeaderMain className="mt-10">
                   <ParcelHeaderCol>
                     <ParcelHeaderLabel>
-                      {t("parcelDetailHeader.trackingCode")}
+                      {t("order.shipments.parcelDetail.trackingCode")}
                     </ParcelHeaderLabel>
                     <ParcelHeaderValue>
                       <ParcelField

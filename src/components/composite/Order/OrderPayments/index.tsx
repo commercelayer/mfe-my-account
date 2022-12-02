@@ -47,12 +47,12 @@ const OrderPayments: React.FC = () => {
                   <>
                     <PaymentSourceBrandNamePrimary>
                       <OrderPaymentSourceBrandName />
-                      <Trans i18nKey="orderPaymentMethod.EndingIn">
+                      <Trans i18nKey="order.payments.paymentMethod.EndingIn">
                         <PaymentSourceDetail type="last4" />
                       </Trans>
                     </PaymentSourceBrandNamePrimary>
                     <PaymentSourceBrandNameSecondary>
-                      <Trans i18nKey="orderPaymentMethod.ValidUntil">
+                      <Trans i18nKey="order.payments.paymentMethod.ValidUntil">
                         <PaymentSourceDetail type="exp_month" />
                         <PaymentSourceDetail type="exp_year" />
                       </Trans>

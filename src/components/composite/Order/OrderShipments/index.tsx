@@ -47,7 +47,7 @@ const ParcelTrackingNumber: React.FC = () => {
   return (
     <ParcelTrackingNumberWrapper>
       <ParcelTrackingNumberLabel>
-        <Trans i18nKey="orderShipments.trackingCode" />
+        <Trans i18nKey="order.shipments.trackingCode" />
       </ParcelTrackingNumberLabel>
       <ParcelTrackingNumberCode>
         <ParcelField attribute="tracking_number" tagElement="span" />
@@ -68,7 +68,7 @@ const ParcelLink: React.FC = () => {
         return (
           <Button
             className="uppercase"
-            label={t("orderShipments.trackParcel") as string}
+            label={t("order.shipments.trackParcel") as string}
             buttonSize="small"
             onClick={() =>
               setLocation(
@@ -87,7 +87,7 @@ const Parcel: React.FC = () => {
     <ParcelWrapper>
       <ParcelHeader>
         <ParcelTitle>
-          <Trans i18nKey="orderShipments.parcel">
+          <Trans i18nKey="order.shipments.parcel">
             <ParcelField attribute="number" tagElement="span" />
           </Trans>
         </ParcelTitle>
@@ -117,7 +117,7 @@ const Parcel: React.FC = () => {
                         />
                       </ParcelLineItemName>
                       <ParcelLineItemQuantity>
-                        <Trans i18nKey="orderShipments.parcelLineItemQuantity">
+                        <Trans i18nKey="order.shipments.parcelLineItemQuantity">
                           <ParcelLineItemField
                             tagElement="span"
                             attribute="quantity"
@@ -145,7 +145,7 @@ const ShipmentTop: React.FC = () => {
       <ShipmentHeaderRight>
         <ShipmentHeaderRightRow>
           <ShipmentTitle>
-            <Trans i18nKey="orderShipments.shipment">
+            <Trans i18nKey="order.shipments.shipment">
               <ShipmentField name="number" />
             </Trans>
           </ShipmentTitle>

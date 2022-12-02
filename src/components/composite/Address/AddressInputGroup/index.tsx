@@ -58,7 +58,7 @@ export const AddressInputGroup: React.FC<Props> = ({
     },
   ]
 
-  const label = t(`addressFormFields.${fieldName}`)
+  const label = t(`addresses.addressForm.fields.${fieldName}`)
 
   const [valueStatus, setValueStatus] = useState(value)
 
@@ -81,7 +81,7 @@ export const AddressInputGroup: React.FC<Props> = ({
             data-cy={`input_billing_address_country_code`}
             name={fieldName}
             placeholder={{
-              label: t(`addressForm.billing_address_country_code_placeholder`),
+              label: t(`addresses.addressForm.billing_address_country_code_placeholder`),
               value: "",
             }}
             value={

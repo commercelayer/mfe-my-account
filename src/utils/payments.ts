@@ -13,14 +13,14 @@ export function getTranslations(value: string, t: (a: string) => string) {
     case "Adyen Payment":
     case "Braintree Payment":
     case "Checkout Com Payment":
-      return t("orderPaymentMethod.creditCard")
+      return t("order.payments.paymentMethod.creditCard")
 
     case "Paypal Payment":
       return "PayPal"
 
     case "Wire transfer":
     case "Wire Transfer":
-      return t("orderPaymentMethod.wireTransfer")
+      return t("order.payments.paymentMethod.wireTransfer")
 
     default:
       return value || ""
