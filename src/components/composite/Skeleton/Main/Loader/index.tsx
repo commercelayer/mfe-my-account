@@ -9,13 +9,14 @@ import {
 
 export const SkeletonMainLoader: React.FC = () => {
   const [location] = useLocation()
-  if (location === "/addresses") {
-    return <SkeletonMainAddresses />
-  } else if (location.indexOf("/parcels") > -1) {
-    return <SkeletonMainParcel />
-  } else if (location.indexOf("/orders/") > -1) {
-    return <SkeletonMainOrder />
-  } else {
-    return <SkeletonMainOrders />
+  switch(true) {
+    case /\/addresses/.test(location):
+      return <SkeletonMainAddresses />
+    case /\/parcels/.test(location):
+      return <SkeletonMainParcel />
+    case /\/orders/.test(location):
+      return <SkeletonMainOrder />
+    default:
+      return <SkeletonMainOrders />
   }
 }
