@@ -1,7 +1,7 @@
 import { OrderContainer } from "@commercelayer/react-components/orders/OrderContainer"
 import { OrderNumber } from "@commercelayer/react-components/orders/OrderNumber"
 import type { Order as CLayerOrder } from "@commercelayer/sdk"
-import { useState } from "react"
+import { useState, useContext } from "react"
 import { Trans } from "react-i18next"
 
 import OrderAccordion from "#components/composite/Order/OrderAccordion"
@@ -20,12 +20,12 @@ import {
 
 import { formatDate, shortDate } from "#utils/dateTimeFormats"
 
-interface Props {
-  orderId: string
-  order?: CLayerOrder
-}
+import { AppContext } from "#providers/AppProvider"
 
-function OrderPage({ orderId, order }: Props): JSX.Element {
+function OrderPage(): JSX.Element {
+  const ctx = useContext(AppContext)
+  const orderId = ctx?.orderId
+
   const [fetchedOrder, setOrder] = useState<CLayerOrder>()
   const orderPlacedAt =
     (fetchedOrder?.placed_at &&
@@ -53,7 +53,7 @@ function OrderPage({ orderId, order }: Props): JSX.Element {
           </OrderHeaderMain>
         </OrderHeader>
         <OrderAccordionWrapper>
-          <OrderAccordion order={order} />
+          <OrderAccordion />
         </OrderAccordionWrapper>
       </OrderWrapper>
     </OrderContainer>

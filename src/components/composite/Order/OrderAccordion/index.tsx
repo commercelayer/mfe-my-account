@@ -10,11 +10,7 @@ import { OrderSection, OrderSectionItem } from "#components/ui/OrderSection"
 
 import { Wrapper, SummaryWrapper } from "./styled"
 
-interface Props {
-  order?: Order
-}
-
-const OrderSections: React.FC<Props> = ({ order }) => {
+const OrderSections: React.FC = () => {
   const { t } = useTranslation()
 
   return (
@@ -30,7 +26,7 @@ const OrderSections: React.FC<Props> = ({ order }) => {
           index={2}
           header={<span>{t("order.addresses")}</span>}
         >
-          <AddressesSummary order={order} />
+          <AddressesSummary />
         </OrderSectionItem>
         <OrderSectionItem
           index={3}

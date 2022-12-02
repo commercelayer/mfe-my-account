@@ -49,20 +49,9 @@ function App(): JSX.Element {
                       </Suspense>
                     </Route>
                     <Route path={"/orders/:orderId"}>
-                      {(params) => (
-                        <OrderProvider orderId={params.orderId} accessToken={settings.accessToken}>
-                          {({ order }) => { 
-                            return (
-                              <Suspense fallback={<></>}>
-                                <LazyOrderPage
-                                  orderId={params.orderId}
-                                  order={order}
-                                />
-                              </Suspense>
-                            )
-                          }}
-                        </OrderProvider>
-                      )}
+                      <Suspense fallback={<></>}>
+                        <LazyOrderPage />
+                      </Suspense>
                     </Route>
                     <Route path={"/orders/:orderId/parcels"}>
                       {(params) => {

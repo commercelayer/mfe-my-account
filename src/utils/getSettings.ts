@@ -104,6 +104,7 @@ export const getSettings = async ({
       return makeInvalidSettings(!orderResponse?.bailed)
     } else {
       settings.orderId = order.id
+      settings.orderData = order
     }
   }
 

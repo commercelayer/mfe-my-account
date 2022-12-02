@@ -54,7 +54,7 @@ export const SettingsProvider: React.FC<SettingsProviderProps> = ({
           setIsLoading(false)
         })
     }
-  }, [accessToken])
+  }, [accessToken, orderId])
 
   // keep i18n in sync
   useEffect(() => {

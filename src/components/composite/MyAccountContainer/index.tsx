@@ -43,6 +43,7 @@ const MyAccountContainer: React.FC<Props> = ({ settings, children }) => {
             <AppProvider
               customerId={settings.customerId}
               orderId={settings.orderId}
+              orderData={settings.orderData}
               accessToken={settings.accessToken}
               endpoint={settings.endpoint}
             >

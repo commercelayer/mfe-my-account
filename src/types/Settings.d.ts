@@ -6,6 +6,8 @@ declare module "HostedApp" {
    * organization resources. (Organization: https://docs.commercelayer.io/core/v/api-reference/organization/object)
    */
 
+  import { Order } from "@commercelayer/sdk"
+
   export interface Settings {
     /**
      * Access Token for a sales channel API credentials to be used to authenticate all Commerce Layer API requests.
@@ -35,7 +37,7 @@ declare module "HostedApp" {
      */
     logoUrl?: string
     /**
-     * Favicon URL found, if set, in current organization
+     * Favicon URL found, if set, in current organization.
      * Read more at {@link https://docs.commercelayer.io/core/v/api-reference/organization/object}.
      */
     faviconUrl: string
@@ -50,14 +52,19 @@ declare module "HostedApp" {
      */
     language: string
     /**
-     * Customer Id information picked by owner?.id property inside parsed accessToken
+     * Customer Id information picked by owner?.id property inside parsed accessToken.
      * Read more at {@link https://docs.commercelayer.io/core/authentication/password}
      */
     customerId: string
     /**
-     * Order Id information picked by routing param (if current route is supposed to refer to an order)
+     * Order Id information picked by routing param (if current route is supposed to refer to an order).
      */
     orderId?: string
+    /**
+     * Order object based on current orderId. Order data is fetched whenever orderId changes.
+     * Read more at {@link https://docs.commercelayer.io/core/v/api-reference/orders/object}
+     */
+    orderData?: Order
     /**
      * When `true` it indicates that current accessToken is not owned by a customer.
      * This conditional variable allows the application to show/hide or enable/disable
