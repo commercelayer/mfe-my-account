@@ -26,7 +26,7 @@ function OrderPage(): JSX.Element {
   const ctx = useContext(AppContext)
   const orderId = ctx?.orderId
 
-  const [fetchedOrder, setOrder] = useState<CLayerOrder>()
+  const [fetchedOrder, setFetchedOrder] = useState<CLayerOrder>()
   const orderPlacedAt =
     (fetchedOrder?.placed_at &&
       formatDate(fetchedOrder.placed_at, shortDate)) ||
@@ -36,7 +36,7 @@ function OrderPage(): JSX.Element {
     : "placed"
 
   return (
-    <OrderContainer orderId={orderId} fetchOrder={setOrder}>
+    <OrderContainer orderId={orderId} fetchOrder={setFetchedOrder}>
       <SkeletonMainOrder shown={fetchedOrder === undefined} />
       <OrderWrapper hidden={fetchedOrder === undefined}>
         <OrderHeader>
