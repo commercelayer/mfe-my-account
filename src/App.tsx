@@ -17,9 +17,8 @@ const AppBasePath = import.meta.env.PUBLIC_BASE_PATH
 function App(): JSX.Element {
   const [location, setLocation] = useLocation()
 
-  let orderIdForSettings = undefined
-  const [match, params] = useRoute(`${AppBasePath}/orders/:orderId*`);
-  if (params?.orderId !== undefined) orderIdForSettings = params?.orderId.split('/')[0]
+  const [match, params] = useRoute(`${AppBasePath}/orders/:orderId/:subPaths*`);
+  const orderIdForSettings = params?.orderId
 
   return (
     <>
