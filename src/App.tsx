@@ -12,17 +12,17 @@ const LazyOrdersPage = lazy(() => import("#pages/OrdersPage"))
 const LazyParcelPage = lazy(() => import("#pages/ParcelPage"))
 const LazyAddressesPage = lazy(() => import("#pages/AddressesPage"))
 
-const AppBasePath = import.meta.env.PUBLIC_BASE_PATH
+const {PUBLIC_BASE_PATH} = import.meta.env
 
 function App(): JSX.Element {
   const [location, setLocation] = useLocation()
 
-  const [match, params] = useRoute(`${AppBasePath}/orders/:orderId/:subPaths*`);
+  const [match, params] = useRoute(`${PUBLIC_BASE_PATH}/orders/:orderId/:subPaths*`);
   const orderIdForSettings = params?.orderId
 
   return (
     <>
-      <Router base={AppBasePath}>
+      <Router base={PUBLIC_BASE_PATH}>
         <SettingsProvider orderId={orderIdForSettings}>
           {({ settings, isLoading }) => {
             return isLoading ? (
