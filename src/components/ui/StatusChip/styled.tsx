@@ -2,10 +2,10 @@ import styled from "styled-components"
 import tw from "twin.macro"
 
 interface StatusChipProps {
-  status?: string
+  status: string
 }
 
-const handlerStatusColor = (status?: string) => {
+const handlerStatusColor = (status: string) => {
   switch (status) {
     case "placed": // Orders
     case "approved": // Orders
