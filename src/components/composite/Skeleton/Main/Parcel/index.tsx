@@ -9,13 +9,9 @@ import {
   SkeletonRoundBackBtn,
 } from "#components/composite/Skeleton/styled"
 
-interface Props {
-  shown?: boolean
-}
-
-export const SkeletonMainParcel: React.FC<Props> = ({ shown = true }) => {
+export const SkeletonMainParcel: React.FC = () => {
   return (
-    <SkeletonWrapper shown={shown}>
+    <SkeletonWrapper shown={true}>
       <SkeletonRow centered className={"pt-4 lg:pt-0"}>
         <SkeletonRoundBackBtn />
         <SkeletonSubtitle />
