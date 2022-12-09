@@ -4,7 +4,6 @@ import { createContext, useContext, useEffect, useState } from "react"
 
 import { getAccessTokenFromUrl } from "#utils/getAccessTokenFromUrl"
 import { defaultSettings, getSettings } from "#utils/getSettings"
-import { getOrder } from "#utils/getOrder"
 import { parseLanguageCode } from "#utils/parseLanguageCode"
 
 interface SettingsProviderValue {
@@ -13,7 +12,6 @@ interface SettingsProviderValue {
 }
 
 interface SettingsProviderProps {
-  orderId?: string
   children:
     | ((props: SettingsProviderValue) => React.ReactNode)
     | React.ReactNode
@@ -36,7 +34,6 @@ export const useSettings = (): SettingsProviderValue => {
 }
 
 export const SettingsProvider: React.FC<SettingsProviderProps> = ({
-  orderId,
   children,
 }) => {
   const [settings, setSettings] = useState<Settings | InvalidSettings>(
@@ -49,13 +46,13 @@ export const SettingsProvider: React.FC<SettingsProviderProps> = ({
     setIsLoading(!!accessToken)
 
     if (accessToken) {
-      getSettings({ accessToken, orderId })
+      getSettings({ accessToken })
         .then(setSettings)
         .finally(() => {
           setIsLoading(false)
         })
     }
-  }, [accessToken, orderId])
+  }, [accessToken])
 
   // keep i18n in sync
   useEffect(() => {
