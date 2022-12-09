@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next"
 
 import { AddressCard } from "#components/ui/AddressCard"
 
-import { AppContext } from "#providers/AppProvider"
+import { OrderContext } from "#providers/OrderProvider"
 
 import {
   Wrapper,
@@ -15,17 +15,17 @@ import {
 const AddressesSummary: React.FC = () => {
   const { t } = useTranslation()
 
-  const ctx = useContext(AppContext)
-  const orderData = ctx?.orderData
+  const ctx = useContext(OrderContext)
+  const order = ctx?.order
 
-  if (!orderData || !orderData?.billing_address || !orderData?.shipping_address) return null
+  if (!order || !order?.billing_address || !order?.shipping_address) return null
 
   return (
     <Wrapper>
       <BillingAddress>
         <AddressesTitle>{t("order.addresses.billedTo")}</AddressesTitle>
         <AddressCard
-          address={orderData?.billing_address}
+          address={order?.billing_address}
           addressType="billing"
           readonly={true}
         />
@@ -33,7 +33,7 @@ const AddressesSummary: React.FC = () => {
       <ShippingAddress>
         <AddressesTitle>{t("order.addresses.shippedTo")}</AddressesTitle>
         <AddressCard
-          address={orderData?.shipping_address}
+          address={order?.shipping_address}
           addressType="shipping"
           readonly={true}
         />

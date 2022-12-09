@@ -4,6 +4,7 @@ import { createContext, useContext, useEffect, useState } from "react"
 
 import { getAccessTokenFromUrl } from "#utils/getAccessTokenFromUrl"
 import { defaultSettings, getSettings } from "#utils/getSettings"
+import { getOrder } from "#utils/getOrder"
 import { parseLanguageCode } from "#utils/parseLanguageCode"
 
 interface SettingsProviderValue {

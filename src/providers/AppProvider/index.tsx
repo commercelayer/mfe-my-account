@@ -7,7 +7,7 @@ import { getInfoFromJwt } from "#utils/getInfoFromJwt"
 
 type AppProviderData = Pick<
   Settings,
-  "customerId" | "orderId" | "orderData" | "accessToken" | "endpoint"
+  "customerId" | "accessToken" | "endpoint"
 > & {
   email: string
   hasPassword: boolean
@@ -39,14 +39,12 @@ export const AppContext = createContext<AppProviderData | null>(null)
 
 type AppProviderProps = Pick<
   Settings,
-  "customerId" | "orderId" | "orderData" | "accessToken" | "endpoint"
+  "customerId" | "accessToken" | "endpoint"
 >
 
 export const AppProvider: React.FC<AppProviderProps> = ({
   children,
   customerId,
-  orderId,
-  orderData,
   accessToken,
   endpoint,
 }) => {
@@ -100,8 +98,6 @@ export const AppProvider: React.FC<AppProviderProps> = ({
     <AppContext.Provider
       value={{
         ...state,
-        orderId,
-        orderData,
         customerId,
         accessToken,
         endpoint,

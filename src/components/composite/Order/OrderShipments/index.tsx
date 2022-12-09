@@ -1,4 +1,3 @@
-import type { Order } from "@commercelayer/sdk"
 import { ShipmentsContainer } from "@commercelayer/react-components/shipments/ShipmentsContainer"
 import { ShipmentsCount } from "@commercelayer/react-components/shipments/ShipmentsCount"
 import { Shipment } from "@commercelayer/react-components/shipments/Shipment"
@@ -42,6 +41,7 @@ import {
 } from "./styled"
 
 import { AppContext } from "#providers/AppProvider"
+import { OrderContext } from "#providers/OrderProvider"
 
 const ParcelTrackingNumber: React.FC = () => {
   return (
@@ -61,7 +61,8 @@ const ParcelLink: React.FC = () => {
   const { t } = useTranslation()
   const ctx = useContext(AppContext)
   const accessToken = ctx?.accessToken
-  const orderId = ctx?.orderId
+  const orderCtx = useContext(OrderContext)
+  const orderId = orderCtx?.order?.id
   return (
     <ParcelField attribute="id" tagElement="span">
       {(props: any) => {
