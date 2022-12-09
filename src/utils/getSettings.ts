@@ -2,7 +2,6 @@ import CommerceLayer from "@commercelayer/sdk"
 import type { Settings, InvalidSettings } from "HostedApp"
 
 import { getInfoFromJwt } from "./getInfoFromJwt"
-import { getOrder } from "./getOrder"
 import { getOrganizations } from "./getOrganizations"
 import { isValidHost } from "./isValidHost"
 
