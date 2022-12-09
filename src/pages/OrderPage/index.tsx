@@ -37,7 +37,7 @@ function OrderPage(): JSX.Element {
 
   return (
     <OrderContainer orderId={orderId} fetchOrder={setFetchedOrder}>
-      <SkeletonMainOrder shown={fetchedOrder === undefined} />
+      <SkeletonMainOrder visible={fetchedOrder === undefined} />
       <OrderWrapper hidden={fetchedOrder === undefined}>
         <OrderHeader>
           <OrderHeaderMain>

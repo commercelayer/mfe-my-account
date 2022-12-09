@@ -11,7 +11,7 @@ import {
 
 export const SkeletonMainParcel: React.FC = () => {
   return (
-    <SkeletonWrapper shown={true}>
+    <SkeletonWrapper visible={true}>
       <SkeletonRow centered className={"pt-4 lg:pt-0"}>
         <SkeletonRoundBackBtn />
         <SkeletonSubtitle />

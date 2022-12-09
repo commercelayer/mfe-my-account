@@ -8,12 +8,12 @@ import {
 } from "#components/composite/Skeleton/styled"
 
 interface Props {
-  shown?: boolean
+  visible?: boolean
 }
 
-export const SkeletonMainAddresses: React.FC<Props> = ({ shown = true }) => {
+export const SkeletonMainAddresses: React.FC<Props> = ({ visible = true }) => {
   return (
-    <SkeletonWrapper shown={shown}>
+    <SkeletonWrapper visible={visible}>
       <SkeletonMainPageTitle />
       <SkeletonMainAddressCard showActions />
       <SkeletonButton className="w-full mt-8" />

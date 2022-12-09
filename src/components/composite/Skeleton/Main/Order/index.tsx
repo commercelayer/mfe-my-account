@@ -11,7 +11,7 @@ import {
 } from "#components/composite/Skeleton/styled"
 
 interface Props {
-  shown?: boolean
+  visible?: boolean
 }
 
 const SkeletonMainOrderLineItem: React.FC = () => {
@@ -46,9 +46,9 @@ const SkeletonMainOrderSubtotalsRow: React.FC = () => {
   )
 }
 
-export const SkeletonMainOrder: React.FC<Props> = ({ shown = true }) => {
+export const SkeletonMainOrder: React.FC<Props> = ({ visible = true }) => {
   return (
-    <SkeletonWrapper shown={shown}>
+    <SkeletonWrapper visible={visible}>
       <SkeletonMainPageTitle
         className="pt-3 lg:pt-0"
         additionalContent={

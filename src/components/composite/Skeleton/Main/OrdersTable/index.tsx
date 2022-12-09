@@ -7,7 +7,7 @@ import {
 } from "#components/composite/Skeleton/styled"
 
 interface Props {
-  shown?: boolean
+  visible?: boolean
 }
 
 const SkeletonMainOrdersTableRow: React.FC = () => {
@@ -30,9 +30,9 @@ const SkeletonMainOrdersTableRow: React.FC = () => {
   )
 }
 
-export const SkeletonMainOrdersTable: React.FC<Props> = ({ shown = true }) => {
+export const SkeletonMainOrdersTable: React.FC<Props> = ({ visible = true }) => {
   return (
-    <SkeletonWrapper shown={shown}>
+    <SkeletonWrapper visible={visible}>
       <SkeletonTableTHead className="items-center h-[18px]">
         <SkeletonCol className=" w-1/4">
           <SkeletonSpan size="small" />

@@ -2,7 +2,7 @@ import styled from "styled-components"
 import tw from "twin.macro"
 
 interface SkeletonWrapperProps {
-  shown: boolean
+  visible: boolean
 }
 
 export const SkeletonBox = styled.div`
@@ -43,7 +43,7 @@ export const SkeletonMenuItemLabel = styled(SkeletonBox)`
 
 export const SkeletonWrapper = styled.div<SkeletonWrapperProps>`
   ${tw`animate-pulse flex-shrink flex-grow`}
-  ${({ shown }) => !shown && tw`hidden`}
+  ${({ visible }) => !visible && tw`hidden`}
 `
 
 interface SkeletonColProps {

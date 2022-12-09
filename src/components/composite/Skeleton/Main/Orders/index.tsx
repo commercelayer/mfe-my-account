@@ -3,12 +3,12 @@ import { SkeletonMainOrdersTable } from "#components/composite/Skeleton/Main/Ord
 import { SkeletonWrapper } from "#components/composite/Skeleton/styled"
 
 interface Props {
-  shown?: boolean
+  visible?: boolean
 }
 
-export const SkeletonMainOrders: React.FC<Props> = ({ shown = true }) => {
+export const SkeletonMainOrders: React.FC<Props> = ({ visible = true }) => {
   return (
-    <SkeletonWrapper shown={shown}>
+    <SkeletonWrapper visible={visible}>
       <SkeletonMainPageTitle />
       <SkeletonMainOrdersTable />
     </SkeletonWrapper>
