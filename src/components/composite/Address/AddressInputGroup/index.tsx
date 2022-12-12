@@ -30,9 +30,11 @@ interface Props {
     | "country_code"
     | "state_code"
     | "phone"
+    | "billing_info"
   >}`
   resource: ResourceErrorType
   value?: string
+  required?: boolean
 }
 
 export const AddressInputGroup: React.FC<Props> = ({
@@ -40,6 +42,7 @@ export const AddressInputGroup: React.FC<Props> = ({
   resource,
   type,
   value,
+  required,
 }) => {
   const { t } = useTranslation()
 
@@ -123,6 +126,7 @@ export const AddressInputGroup: React.FC<Props> = ({
             name={fieldName}
             type={type}
             value={valueStatus}
+            required={required}
             className="form-input"
           />
           <Label htmlFor={fieldName}>{label}</Label>
