@@ -51,6 +51,7 @@ const CustomerAddressForm: React.FC<Props> = ({ onClose }) => {
         value={address?.line_1 || ""}
       />
       <AddressInputGroup
+        required={false}
         fieldName="billing_address_line_2"
         resource="billing_address"
         type="text"
