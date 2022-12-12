@@ -47,12 +47,7 @@
     "no-var": "error",
     "no-param-reassign": "error",
     "prefer-const": "error",
-    "import/no-unresolved": [
-      "warn",
-      {
-        "ignore": ["HostedApp"]
-      }
-    ],
+    "import/no-unresolved": "off",
     "import/no-named-as-default": "off",
     "import/order": [
       "warn",
