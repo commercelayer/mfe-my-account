@@ -1,9 +1,6 @@
 import type { Settings } from "HostedApp"
 
-import {
-  Wrapper,
-  HeaderContainer,
-} from "#components/composite/Header/styled"
+import { Wrapper, HeaderContainer } from "#components/composite/Header/styled"
 import Logo from "#components/ui/Logo"
 import MenuButton from "#components/ui/MenuButton"
 

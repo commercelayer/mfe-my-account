@@ -9,11 +9,6 @@ import {
 } from "phosphor-react"
 import { useTranslation } from "react-i18next"
 
-import NavLink from "#components/composite/NavLink"
-// import ShoppingCartIcon from "#components/ui/icons/ShoppingCartIcon"
-import Footer from "#components/ui/Footer"
-import Logo from "#components/ui/Logo"
-
 import {
   Wrapper,
   Sidebar,
@@ -24,6 +19,11 @@ import {
   EmailWrapper,
   Email,
 } from "./styled"
+
+import NavLink from "#components/composite/NavLink"
+// import ShoppingCartIcon from "#components/ui/icons/ShoppingCartIcon"
+import Footer from "#components/ui/Footer"
+import Logo from "#components/ui/Logo"
 
 interface Props {
   settings: Settings

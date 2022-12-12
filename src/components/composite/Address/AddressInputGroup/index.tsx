@@ -7,8 +7,6 @@ import type { Address } from "@commercelayer/sdk"
 import { useEffect, useState } from "react"
 import { useTranslation } from "react-i18next"
 
-import { Label } from "#components/ui/form/Label"
-
 import {
   Wrapper,
   StyledAddressInput,
@@ -16,6 +14,8 @@ import {
   StyledAddressStateSelector,
   StyledErrors,
 } from "./styled"
+
+import { Label } from "#components/ui/form/Label"
 
 interface Props {
   type: BaseInputType
@@ -81,7 +81,9 @@ export const AddressInputGroup: React.FC<Props> = ({
             data-cy={`input_billing_address_country_code`}
             name={fieldName}
             placeholder={{
-              label: t(`addresses.addressForm.billing_address_country_code_placeholder`),
+              label: t(
+                "addresses.addressForm.billing_address_country_code_placeholder"
+              ),
               value: "",
             }}
             value={

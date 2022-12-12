@@ -1,8 +1,8 @@
 import { useTranslation } from "react-i18next"
 
-import Title from "#components/ui/Title"
-
 import { ReturnsContainer } from "./styled"
+
+import Title from "#components/ui/Title"
 
 const Returns: React.FC = () => {
   const { t } = useTranslation()

@@ -1,10 +1,9 @@
-import { Router, Route, Switch, useRoute, Redirect } from "wouter"
 import { lazy, Suspense } from "react"
+import { Router, Route, Switch, Redirect } from "wouter"
 
+import Invalid from "#components/composite/Invalid"
 import MyAccountContainer from "#components/composite/MyAccountContainer"
 import Skeleton from "#components/composite/Skeleton"
-import Invalid from "#components/composite/Invalid"
-
 import { SettingsProvider } from "#providers/SettingsProvider"
 
 const LazyOrderPage = lazy(() => import("#pages/OrderPage"))
@@ -12,11 +11,7 @@ const LazyOrdersPage = lazy(() => import("#pages/OrdersPage"))
 const LazyParcelPage = lazy(() => import("#pages/ParcelPage"))
 const LazyAddressesPage = lazy(() => import("#pages/AddressesPage"))
 
-const {PUBLIC_BASE_PATH} = import.meta.env
-
-interface goToOrdersProps { 
-  accessToken: string
-}
+const { PUBLIC_BASE_PATH } = import.meta.env
 
 function App(): JSX.Element {
   return (
@@ -35,7 +30,9 @@ function App(): JSX.Element {
                     <Invalid />
                   </Route>
                   <Route path={"/"}>
-                    <Redirect to={`/orders?accessToken=${settings.accessToken}`} />
+                    <Redirect
+                      to={`/orders?accessToken=${settings.accessToken}`}
+                    />
                   </Route>
                   <Route path={"/orders"}>
                     <Suspense fallback={<></>}>
@@ -50,14 +47,20 @@ function App(): JSX.Element {
                     )}
                   </Route>
                   <Route path={"/orders/:orderId/parcels"}>
-                    {(params) => 
-                      <Redirect to={`/orders/${params.orderId}?accessToken=${settings.accessToken}`} />
-                    }
+                    {(params) => (
+                      <Redirect
+                        to={`/orders/${params.orderId}?accessToken=${settings.accessToken}`}
+                      />
+                    )}
                   </Route>
                   <Route path={"/orders/:orderId/parcels/:parcelId"}>
                     {(params) => (
                       <Suspense fallback={<></>}>
-                        <LazyParcelPage settings={settings} orderId={params.orderId} parcelId={params.parcelId} />
+                        <LazyParcelPage
+                          settings={settings}
+                          orderId={params.orderId}
+                          parcelId={params.parcelId}
+                        />
                       </Suspense>
                     )}
                   </Route>

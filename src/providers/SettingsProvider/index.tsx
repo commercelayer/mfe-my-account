@@ -41,7 +41,7 @@ export const SettingsProvider: React.FC<SettingsProviderProps> = ({
   )
   const [isLoading, setIsLoading] = useState(true)
   const accessToken = getAccessTokenFromUrl()
-  
+
   useEffect(() => {
     setIsLoading(!!accessToken)
 

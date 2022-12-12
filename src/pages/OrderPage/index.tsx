@@ -5,11 +5,6 @@ import { useState, useContext } from "react"
 import { Trans } from "react-i18next"
 import { Redirect } from "wouter"
 
-import OrderAccordion from "#components/composite/Order/OrderAccordion"
-import { SkeletonMainOrder } from "#components/composite/Skeleton/Main"
-import OrderStatusChip from "#components/ui/StatusChip/OrderStatusChip"
-import type { OrderStatus } from "#components/ui/StatusChip/OrderStatusChip"
-
 import {
   OrderWrapper,
   OrderHeader,
@@ -19,10 +14,13 @@ import {
   OrderAccordionWrapper,
 } from "./styled"
 
-import { formatDate, shortDate } from "#utils/dateTimeFormats"
-
+import OrderAccordion from "#components/composite/Order/OrderAccordion"
+import { SkeletonMainOrder } from "#components/composite/Skeleton/Main"
+import OrderStatusChip from "#components/ui/StatusChip/OrderStatusChip"
+import type { OrderStatus } from "#components/ui/StatusChip/OrderStatusChip"
 import { AppContext } from "#providers/AppProvider"
 import { OrderProvider } from "#providers/OrderProvider"
+import { formatDate, shortDate } from "#utils/dateTimeFormats"
 
 interface OrderPageProps {
   orderId: string

@@ -1,16 +1,9 @@
-import { OrderContainer } from "@commercelayer/react-components/orders/OrderContainer"
 import { OrderList } from "@commercelayer/react-components/orders/OrderList"
 import { OrderListEmpty } from "@commercelayer/react-components/orders/OrderListEmpty"
 import { OrderListRow } from "@commercelayer/react-components/orders/OrderListRow"
-
-import { Link } from "wouter"
 import { useContext } from "react"
 import { useTranslation } from "react-i18next"
-
-import Empty from "#components/composite/Empty"
-import { SkeletonMainOrdersTable } from "#components/composite/Skeleton/Main/OrdersTable"
-import OrderStatusChip from "#components/ui/StatusChip/OrderStatusChip"
-import Title from "#components/ui/Title"
+import { Link } from "wouter"
 
 import {
   OrderListWrapper,
@@ -20,6 +13,10 @@ import {
   OrderUpdatedDate,
 } from "./styled"
 
+import Empty from "#components/composite/Empty"
+import { SkeletonMainOrdersTable } from "#components/composite/Skeleton/Main/OrdersTable"
+import OrderStatusChip from "#components/ui/StatusChip/OrderStatusChip"
+import Title from "#components/ui/Title"
 import { AppContext } from "#providers/AppProvider"
 import { formatDate, shortDate } from "#utils/dateTimeFormats"
 
@@ -30,7 +27,7 @@ function OrdersPage(): JSX.Element {
 
   const colClassName =
     "text-left text-xs font-thin border-b border-gray-200 md:border-none text-gray-300 md:font-semibold md:uppercase md:relative"
-  const titleClassName = ""
+  const titleClassName = "flex gap-2"
   const columns = [
     {
       Header: "Order",
@@ -59,7 +56,7 @@ function OrdersPage(): JSX.Element {
   ]
 
   return (
-    <OrderContainer>
+    <>
       <Title>{t("orders.title")}</Title>
       <OrderListWrapper>
         <OrderList
@@ -81,23 +78,26 @@ function OrdersPage(): JSX.Element {
             className="order-1 pt-6 pb-2.5 md:p-0  md:align-middle"
           >
             {({ cell, order, ...p }) => {
-              const cols = cell?.map((cell) => {
-                return (
-                  <OrderData key={order} {...p} {...cell.getCellProps()}>
-                    <Link
-                      href={`/orders/${order.id}?accessToken=${accessToken}`}
-                    >
-                      <OrderNumber># {cell.render("Cell")}</OrderNumber>
-                    </Link>
-                    <OrderItemsCount>
-                      {t("orders.orderContains", {
-                        count: order.skus_count as number,
-                      })}
-                    </OrderItemsCount>
-                  </OrderData>
-                )
-              })
-              return <>{cols}</>
+              return (
+                <>
+                  {cell?.map((cell) => {
+                    return (
+                      <OrderData key={order} {...p} {...cell.getCellProps()}>
+                        <Link
+                          href={`/orders/${order.id}?accessToken=${accessToken}`}
+                        >
+                          <OrderNumber># {cell.render("Cell")}</OrderNumber>
+                        </Link>
+                        <OrderItemsCount>
+                          {t("orders.orderContains", {
+                            count: order.skus_count as number,
+                          })}
+                        </OrderItemsCount>
+                      </OrderData>
+                    )
+                  })}
+                </>
+              )
             }}
           </OrderListRow>
           <OrderListRow
@@ -138,7 +138,7 @@ function OrdersPage(): JSX.Element {
           />
         </OrderList>
       </OrderListWrapper>
-    </OrderContainer>
+    </>
   )
 }
 

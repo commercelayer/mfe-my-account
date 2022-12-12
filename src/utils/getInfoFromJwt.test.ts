@@ -5,7 +5,9 @@ const jwtSalesChannelOrgAcme =
 
 describe("Get info from JWT", () => {
   test("Parsing a valid token", () => {
-    const { isTest, customerId, kind, slug } = getInfoFromJwt(jwtSalesChannelOrgAcme)
+    const { isTest, customerId, kind, slug } = getInfoFromJwt(
+      jwtSalesChannelOrgAcme
+    )
     expect(isTest).toBe(true)
     expect(customerId).toBe(undefined)
     expect(kind).toBe("sales_channel")

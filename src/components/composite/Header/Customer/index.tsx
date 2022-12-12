@@ -12,7 +12,6 @@ import {
 import Avatar from "#components/ui/Avatar"
 import Logo from "#components/ui/Logo"
 import MenuButton from "#components/ui/MenuButton"
-
 import { AppContext } from "#providers/AppProvider"
 
 type Props = Pick<Settings, "logoUrl" | "companyName">

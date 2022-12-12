@@ -2,9 +2,6 @@ import { XCircle } from "phosphor-react"
 import { useContext } from "react"
 import { useTranslation } from "react-i18next"
 
-import { AddressInputGroup } from "#components/composite/Address/AddressInputGroup"
-import Title from "#components/ui/Title"
-
 import {
   Form,
   Grid,
@@ -14,6 +11,8 @@ import {
   SaveButton,
 } from "./styled"
 
+import { AddressInputGroup } from "#components/composite/Address/AddressInputGroup"
+import Title from "#components/ui/Title"
 import CustomerAddressContext from "#context/CustomerAddressContext"
 
 interface Props {

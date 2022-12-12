@@ -13,7 +13,8 @@ export const makeSubdomain = (hostname: string) => {
 const isProduction = (forceProductionEnv?: boolean) =>
   forceProductionEnv ? true : import.meta.env.NODE_ENV === "production"
 
-const isCommerceLayerHosted = () => Boolean(import.meta.env.PUBLIC_HOSTED) === true
+const isCommerceLayerHosted = () =>
+  Boolean(import.meta.env.PUBLIC_HOSTED) === true
 
 /**
  * Verifies if application is loaded from a valid URL and the `slug` found in JWT belongs

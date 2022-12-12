@@ -1,9 +1,6 @@
 import { ParcelField } from "@commercelayer/react-components/parcels/ParcelField"
 import { Trans } from "react-i18next"
 
-import ShipmentHistoryStep from "#components/ui/icons/ShipmentHistoryStep"
-import ShipmentHistoryStepLast from "#components/ui/icons/ShipmentHistoryStepLast"
-
 import {
   ShipmentDates,
   ShipmentDate,
@@ -19,6 +16,8 @@ import {
   ShipmentTimeLocationWrapper,
 } from "./styled"
 
+import ShipmentHistoryStep from "#components/ui/icons/ShipmentHistoryStep"
+import ShipmentHistoryStepLast from "#components/ui/icons/ShipmentHistoryStepLast"
 import type {
   ParcelTrackingDetailsParsedTimeType,
   ParcelTrackingDetailsParsedDateType,

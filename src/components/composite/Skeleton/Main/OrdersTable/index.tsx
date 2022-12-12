@@ -30,7 +30,9 @@ const SkeletonMainOrdersTableRow: React.FC = () => {
   )
 }
 
-export const SkeletonMainOrdersTable: React.FC<Props> = ({ visible = true }) => {
+export const SkeletonMainOrdersTable: React.FC<Props> = ({
+  visible = true,
+}) => {
   return (
     <SkeletonWrapper visible={visible}>
       <SkeletonTableTHead className="items-center h-[18px]">

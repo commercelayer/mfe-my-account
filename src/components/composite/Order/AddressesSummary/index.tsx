@@ -1,16 +1,15 @@
 import { useContext } from "react"
 import { useTranslation } from "react-i18next"
 
-import { AddressCard } from "#components/ui/AddressCard"
-
-import { OrderContext } from "#providers/OrderProvider"
-
 import {
   Wrapper,
   AddressesTitle,
   BillingAddress,
   ShippingAddress,
 } from "./styled"
+
+import { AddressCard } from "#components/ui/AddressCard"
+import { OrderContext } from "#providers/OrderProvider"
 
 const AddressesSummary: React.FC = () => {
   const { t } = useTranslation()

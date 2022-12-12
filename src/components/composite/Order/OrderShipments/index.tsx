@@ -1,20 +1,15 @@
-import { ShipmentsContainer } from "@commercelayer/react-components/shipments/ShipmentsContainer"
-import { ShipmentsCount } from "@commercelayer/react-components/shipments/ShipmentsCount"
-import { Shipment } from "@commercelayer/react-components/shipments/Shipment"
-import { ShipmentField } from "@commercelayer/react-components/shipments/ShipmentField"
-import { Parcels } from "@commercelayer/react-components/parcels/Parcels"
 import { ParcelField } from "@commercelayer/react-components/parcels/ParcelField"
-import { ParcelLineItemsCount } from "@commercelayer/react-components/parcels/ParcelLineItemsCount"
 import { ParcelLineItem } from "@commercelayer/react-components/parcels/ParcelLineItem"
 import { ParcelLineItemField } from "@commercelayer/react-components/parcels/ParcelLineItemField"
-import { useLocation } from "wouter";
+import { ParcelLineItemsCount } from "@commercelayer/react-components/parcels/ParcelLineItemsCount"
+import { Parcels } from "@commercelayer/react-components/parcels/Parcels"
+import { Shipment } from "@commercelayer/react-components/shipments/Shipment"
+import { ShipmentField } from "@commercelayer/react-components/shipments/ShipmentField"
+import { ShipmentsContainer } from "@commercelayer/react-components/shipments/ShipmentsContainer"
+import { ShipmentsCount } from "@commercelayer/react-components/shipments/ShipmentsCount"
 import { useContext } from "react"
 import { Trans, useTranslation } from "react-i18next"
-
-import Button from "#components/ui/Button"
-import ShowHideMenu from "#components/ui/ShowHideMenu"
-import ShipmentStatusChip from "#components/ui/StatusChip/ShipmentStatusChip"
-import type { ShipmentStatus } from "#components/ui/StatusChip/ShipmentStatusChip"
+import { useLocation } from "wouter"
 
 import {
   ShipmentWrapper,
@@ -40,6 +35,10 @@ import {
   ParcelLineItemQuantity,
 } from "./styled"
 
+import Button from "#components/ui/Button"
+import ShowHideMenu from "#components/ui/ShowHideMenu"
+import ShipmentStatusChip from "#components/ui/StatusChip/ShipmentStatusChip"
+import type { ShipmentStatus } from "#components/ui/StatusChip/ShipmentStatusChip"
 import { AppContext } from "#providers/AppProvider"
 import { OrderContext } from "#providers/OrderProvider"
 
@@ -57,7 +56,7 @@ const ParcelTrackingNumber: React.FC = () => {
 }
 
 const ParcelLink: React.FC = () => {
-  const [location, setLocation] = useLocation()
+  const [, setLocation] = useLocation()
   const { t } = useTranslation()
   const ctx = useContext(AppContext)
   const accessToken = ctx?.accessToken

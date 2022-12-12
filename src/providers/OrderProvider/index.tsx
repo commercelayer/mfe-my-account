@@ -16,7 +16,7 @@ type OrderStateData = {
 
 const initialState: OrderStateData = {
   order: undefined,
-  invalidOrder: false
+  invalidOrder: false,
 }
 
 export const OrderContext = createContext<OrderProviderData | null>(null)
@@ -72,7 +72,7 @@ export const OrderProvider: React.FC<OrderProviderProps> = ({
   const value = {
     ...state,
     order: state.order,
-    invalidOrder: state.invalidOrder
+    invalidOrder: state.invalidOrder,
   }
 
   return (

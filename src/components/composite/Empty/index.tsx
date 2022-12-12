@@ -1,11 +1,11 @@
 import { useTranslation } from "react-i18next"
 
+import { Wrapper, Title, Description, NoItemsButton } from "./styled"
+
 import NoAddressesIcon from "#components/ui/icons/NoAddressesIcon"
 import NoOrdersIcon from "#components/ui/icons/NoOrdersIcon"
 import NoPaymentMethodsIcon from "#components/ui/icons/NoPaymentMethodsIcon"
 import NoReturnsIcon from "#components/ui/icons/NoReturnsIcon"
-
-import { Wrapper, Title, Description, NoItemsButton } from "./styled"
 
 type EmptyType = "Addresses" | "Orders" | "PaymentMethods" | "Returns"
 

@@ -1,16 +1,12 @@
 import { OrderContainer } from "@commercelayer/react-components/orders/OrderContainer"
-import { ShipmentsContainer } from "@commercelayer/react-components/shipments/ShipmentsContainer"
-import { Shipment } from "@commercelayer/react-components/shipments/Shipment"
-import { Parcels } from "@commercelayer/react-components/parcels/Parcels"
 import { ParcelField } from "@commercelayer/react-components/parcels/ParcelField"
-
+import { Parcels } from "@commercelayer/react-components/parcels/Parcels"
+import { Shipment } from "@commercelayer/react-components/shipments/Shipment"
+import { ShipmentsContainer } from "@commercelayer/react-components/shipments/ShipmentsContainer"
 import type { Settings } from "HostedApp"
-import { Link, Redirect } from "wouter"
 import { CaretLeft } from "phosphor-react"
 import { useTranslation } from "react-i18next"
-
-import OrderParcelHistory from "#components/composite/OrderParcel/OrderParcelHistory"
-import { SkeletonMainParcel } from "#components/composite/Skeleton/Main"
+import { Link, Redirect } from "wouter"
 
 import {
   ParcelContainer,
@@ -25,6 +21,8 @@ import {
   TabsWrapper,
 } from "./styled"
 
+import OrderParcelHistory from "#components/composite/OrderParcel/OrderParcelHistory"
+import { SkeletonMainParcel } from "#components/composite/Skeleton/Main"
 import { OrderProvider } from "#providers/OrderProvider"
 
 interface Props {
@@ -57,7 +55,9 @@ function ParcelPage({ settings, orderId, parcelId }: Props): JSX.Element {
                               <CaretLeft weight="regular" className="w-7 h-7" />
                             </BackToOrder>
                           </Link>
-                          <Title>{t("order.shipments.parcelDetail.title")}</Title>
+                          <Title>
+                            {t("order.shipments.parcelDetail.title")}
+                          </Title>
                         </ParcelHeaderTop>
                         <ParcelHeaderMain className="mt-10">
                           <ParcelHeaderCol>

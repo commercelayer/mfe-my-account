@@ -9,7 +9,7 @@ import {
 
 export const SkeletonMainLoader: React.FC = () => {
   const [location] = useLocation()
-  switch(true) {
+  switch (true) {
     case /\/addresses/.test(location):
       return <SkeletonMainAddresses />
     case /\/parcels/.test(location):
