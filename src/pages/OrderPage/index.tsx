@@ -30,14 +30,10 @@ function OrderPage({ orderId }: OrderPageProps): JSX.Element {
   const ctx = useContext(AppContext)
   const accessToken = ctx?.accessToken
 
-  const [fetchedOrder, setFetchedOrder] = useState<CLayerOrder>()
+  const [order, setOrder] = useState<CLayerOrder>()
   const orderPlacedAt =
-    (fetchedOrder?.placed_at &&
-      formatDate(fetchedOrder.placed_at, shortDate)) ||
-    ""
-  const orderStatus = fetchedOrder
-    ? (fetchedOrder.status as OrderStatus)
-    : "placed"
+    (order?.placed_at && formatDate(order.placed_at, shortDate)) || ""
+  const orderStatus = order ? (order.status as OrderStatus) : "placed"
 
   return (
     <OrderProvider orderId={orderId} accessToken={accessToken as string}>
@@ -46,9 +42,9 @@ function OrderPage({ orderId }: OrderPageProps): JSX.Element {
           return <Redirect to={`/orders?accessToken=${accessToken}`} />
         } else {
           return (
-            <OrderContainer orderId={orderId} fetchOrder={setFetchedOrder}>
-              <SkeletonMainOrder visible={fetchedOrder === undefined} />
-              <OrderWrapper hidden={fetchedOrder === undefined}>
+            <OrderContainer orderId={orderId} fetchOrder={setOrder}>
+              <SkeletonMainOrder visible={order === undefined} />
+              <OrderWrapper hidden={order === undefined}>
                 <OrderHeader>
                   <OrderHeaderMain>
                     <OrderTitle>
