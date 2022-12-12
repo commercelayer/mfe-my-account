@@ -1,18 +1,17 @@
-import { Settings, InvalidSettings } from "HostedApp"
+import type { Settings, InvalidSettings } from "HostedApp"
 import { changeLanguage } from "i18next"
 import { createContext, useContext, useEffect, useState } from "react"
 
-import { getAccessTokenFromUrl } from "src/utils/getAccessTokenFromUrl"
-import { defaultSettings, getSettings } from "src/utils/getSettings"
-import { parseLanguageCode } from "src/utils/parseLanguageCode"
+import { getAccessTokenFromUrl } from "#utils/getAccessTokenFromUrl"
+import { defaultSettings, getSettings } from "#utils/getSettings"
+import { parseLanguageCode } from "#utils/parseLanguageCode"
 
-type SettingsProviderValue = {
+interface SettingsProviderValue {
   settings: Settings | InvalidSettings
   isLoading: boolean
 }
 
-type SettingsProviderProps = {
-  orderId?: string
+interface SettingsProviderProps {
   children:
     | ((props: SettingsProviderValue) => React.ReactNode)
     | React.ReactNode

@@ -1,4 +1,4 @@
-import { Address } from "@commercelayer/sdk"
+import type { Address } from "@commercelayer/sdk"
 import { expect } from "@playwright/test"
 
 import { MyAccountPage } from "./MyAccountPage"
@@ -32,9 +32,17 @@ export class AddressesPage extends MyAccountPage {
       address.country_code as string
     )
 
-    await this.page
-      .locator("input[name=billing_address_state_code]")
-      .fill(address.state_code as string)
+    const inputStateCode = this.page.locator("input[name=billing_address_state_code]")
+    if (await inputStateCode.count() > 0) {
+      await inputStateCode.fill(address.state_code as string)
+    }
+
+    if (await this.page.locator("select[name=billing_address_state_code]").count() > 0) {
+      await this.page.selectOption(
+        "select[name=billing_address_state_code]",
+        address.state_code as string
+      )
+    }
 
     await this.page
       .locator("input[name=billing_address_zip_code]")

@@ -1,22 +1,15 @@
-import {
-  ShipmentsContainer,
-  ShipmentsCount,
-  Shipment,
-  ShipmentField,
-  Parcels,
-  ParcelField,
-  ParcelLineItemsCount,
-  ParcelLineItem,
-  ParcelLineItemField,
-} from "@commercelayer/react-components"
-import { useRouter } from "next/router"
+import { ParcelField } from "@commercelayer/react-components/parcels/ParcelField"
+import { ParcelLineItem } from "@commercelayer/react-components/parcels/ParcelLineItem"
+import { ParcelLineItemField } from "@commercelayer/react-components/parcels/ParcelLineItemField"
+import { ParcelLineItemsCount } from "@commercelayer/react-components/parcels/ParcelLineItemsCount"
+import { Parcels } from "@commercelayer/react-components/parcels/Parcels"
+import { Shipment } from "@commercelayer/react-components/shipments/Shipment"
+import { ShipmentField } from "@commercelayer/react-components/shipments/ShipmentField"
+import { ShipmentsContainer } from "@commercelayer/react-components/shipments/ShipmentsContainer"
+import { ShipmentsCount } from "@commercelayer/react-components/shipments/ShipmentsCount"
 import { useContext } from "react"
 import { Trans, useTranslation } from "react-i18next"
-
-import Button from "src/components/ui/Button"
-import ShowHideMenu from "src/components/ui/ShowHideMenu"
-import ShipmentStatusChip from "src/components/ui/StatusChip/ShipmentStatusChip"
-import type { ShipmentStatus } from "src/components/ui/StatusChip/ShipmentStatusChip"
+import { useLocation } from "wouter"
 
 import {
   ShipmentWrapper,
@@ -42,13 +35,18 @@ import {
   ParcelLineItemQuantity,
 } from "./styled"
 
-import { AppContext } from "src/providers/AppProvider"
+import Button from "#components/ui/Button"
+import ShowHideMenu from "#components/ui/ShowHideMenu"
+import ShipmentStatusChip from "#components/ui/StatusChip/ShipmentStatusChip"
+import type { ShipmentStatus } from "#components/ui/StatusChip/ShipmentStatusChip"
+import { AppContext } from "#providers/AppProvider"
+import { OrderContext } from "#providers/OrderProvider"
 
 const ParcelTrackingNumber: React.FC = () => {
   return (
     <ParcelTrackingNumberWrapper>
       <ParcelTrackingNumberLabel>
-        <Trans i18nKey="orderShipments.trackingCode" />
+        <Trans i18nKey="order.shipments.trackingCode" />
       </ParcelTrackingNumberLabel>
       <ParcelTrackingNumberCode>
         <ParcelField attribute="tracking_number" tagElement="span" />
@@ -58,21 +56,22 @@ const ParcelTrackingNumber: React.FC = () => {
 }
 
 const ParcelLink: React.FC = () => {
-  const router = useRouter()
+  const [, setLocation] = useLocation()
   const { t } = useTranslation()
   const ctx = useContext(AppContext)
-  const orderId = router.query.orderId as string
   const accessToken = ctx?.accessToken
+  const orderCtx = useContext(OrderContext)
+  const orderId = orderCtx?.order?.id
   return (
     <ParcelField attribute="id" tagElement="span">
       {(props: any) => {
         return (
           <Button
             className="uppercase"
-            label={t("orderShipments.trackParcel") as string}
+            label={t("order.shipments.trackParcel") as string}
             buttonSize="small"
             onClick={() =>
-              router.push(
+              setLocation(
                 `/orders/${orderId}/parcels/${props?.attributeValue}?accessToken=${accessToken}`
               )
             }
@@ -88,7 +87,7 @@ const Parcel: React.FC = () => {
     <ParcelWrapper>
       <ParcelHeader>
         <ParcelTitle>
-          <Trans i18nKey="orderShipments.parcel">
+          <Trans i18nKey="order.shipments.parcel">
             <ParcelField attribute="number" tagElement="span" />
           </Trans>
         </ParcelTitle>
@@ -118,7 +117,7 @@ const Parcel: React.FC = () => {
                         />
                       </ParcelLineItemName>
                       <ParcelLineItemQuantity>
-                        <Trans i18nKey="orderShipments.parcels.lineItemQuantity">
+                        <Trans i18nKey="order.shipments.parcelLineItemQuantity">
                           <ParcelLineItemField
                             tagElement="span"
                             attribute="quantity"
@@ -146,7 +145,7 @@ const ShipmentTop: React.FC = () => {
       <ShipmentHeaderRight>
         <ShipmentHeaderRightRow>
           <ShipmentTitle>
-            <Trans i18nKey="orderShipments.shipment">
+            <Trans i18nKey="order.shipments.shipment">
               <ShipmentField name="number" />
             </Trans>
           </ShipmentTitle>

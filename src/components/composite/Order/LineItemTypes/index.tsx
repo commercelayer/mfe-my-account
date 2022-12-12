@@ -1,12 +1,10 @@
-import {
-  LineItem,
-  LineItemImage,
-  LineItemName,
-  LineItemCode,
-  LineItemQuantity,
-  LineItemAmount,
-} from "@commercelayer/react-components"
 import type { LineItemType } from "@commercelayer/react-components"
+import { LineItem } from "@commercelayer/react-components/line_items/LineItem"
+import { LineItemAmount } from "@commercelayer/react-components/line_items/LineItemAmount"
+import { LineItemCode } from "@commercelayer/react-components/line_items/LineItemCode"
+import { LineItemImage } from "@commercelayer/react-components/line_items/LineItemImage"
+import { LineItemName } from "@commercelayer/react-components/line_items/LineItemName"
+import { LineItemQuantity } from "@commercelayer/react-components/line_items/LineItemQuantity"
 import { useTranslation } from "react-i18next"
 
 import {
@@ -17,7 +15,7 @@ import {
   LineItemQty,
 } from "./styled"
 
-type Props = {
+interface Props {
   type: LineItemType
 }
 
@@ -39,7 +37,7 @@ export const LineItemTypes: React.FC<Props> = ({ type }) => {
                 {(props) => (
                   <>
                     {!!props.quantity &&
-                      t("order.quantity", { count: props.quantity })}
+                      t("order.summary.quantity", { count: props.quantity })}
                   </>
                 )}
               </LineItemQuantity>

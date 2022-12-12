@@ -1,4 +1,4 @@
-import { Address } from "@commercelayer/sdk"
+import type { Address } from "@commercelayer/sdk"
 
 export const euAddress: Partial<Address> = {
   first_name: "Darth",

@@ -1,5 +1,5 @@
-import type { RawDataParcelDetails } from "src/types/parcelDetailsJson"
-import { formatDate, dbDate } from "src/utils/dateTimeFormats"
+import type { RawDataParcelDetails } from "#types/parcelDetailsJson"
+import { formatDate, dbDate } from "#utils/dateTimeFormats"
 
 export type ParcelTrackingDetailsParsedTimeType = {
   datetime?: string

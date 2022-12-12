@@ -1,7 +1,7 @@
-import { Address } from "@commercelayer/sdk"
+import type { Address } from "@commercelayer/sdk"
 import { createContext, Dispatch } from "react"
 
-type DefaultContext = {
+interface DefaultContext {
   address: any
   setAddress: Dispatch<Address>
   setShowAddressForm: Dispatch<boolean>

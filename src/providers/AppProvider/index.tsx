@@ -2,8 +2,8 @@ import CommerceLayer from "@commercelayer/sdk"
 import type { Settings } from "HostedApp"
 import { createContext, useState, useEffect } from "react"
 
-import { getCustomerDetails } from "src/utils/getCustomerDetails"
-import { getInfoFromJwt } from "src/utils/getInfoFromJwt"
+import { getCustomerDetails } from "#utils/getCustomerDetails"
+import { getInfoFromJwt } from "#utils/getInfoFromJwt"
 
 type AppProviderData = Pick<
   Settings,
@@ -19,7 +19,7 @@ type AppProviderData = Pick<
   toggleMobileMenu: () => void
 }
 
-type AppStateData = {
+interface AppStateData {
   email: string
   hasPassword: boolean
   isLoading: boolean
@@ -64,7 +64,7 @@ export const AppProvider: React.FC<AppProviderProps> = ({
       return
     }
 
-    const domain = process.env.NEXT_PUBLIC_DOMAIN || "commercelayer.io"
+    const domain = import.meta.env.PUBLIC_DOMAIN || "commercelayer.io"
 
     const client = CommerceLayer({
       organization: slug,

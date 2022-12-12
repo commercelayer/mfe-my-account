@@ -1,7 +1,5 @@
-import { Order } from "@commercelayer/sdk"
+import { useContext } from "react"
 import { useTranslation } from "react-i18next"
-
-import { AddressCard } from "src/components/ui/AddressCard"
 
 import {
   Wrapper,
@@ -10,19 +8,21 @@ import {
   ShippingAddress,
 } from "./styled"
 
-type Props = {
-  order?: Order
-}
+import { AddressCard } from "#components/ui/AddressCard"
+import { OrderContext } from "#providers/OrderProvider"
 
-const AddressesSummary: React.FC<Props> = ({ order }) => {
+const AddressesSummary: React.FC = () => {
   const { t } = useTranslation()
+
+  const ctx = useContext(OrderContext)
+  const order = ctx?.order
 
   if (!order || !order?.billing_address || !order?.shipping_address) return null
 
   return (
     <Wrapper>
       <BillingAddress>
-        <AddressesTitle>{t("orderSummary.billedTo")}</AddressesTitle>
+        <AddressesTitle>{t("order.addresses.billedTo")}</AddressesTitle>
         <AddressCard
           address={order?.billing_address}
           addressType="billing"
@@ -30,7 +30,7 @@ const AddressesSummary: React.FC<Props> = ({ order }) => {
         />
       </BillingAddress>
       <ShippingAddress>
-        <AddressesTitle>{t("orderSummary.shippedTo")}</AddressesTitle>
+        <AddressesTitle>{t("order.addresses.shippedTo")}</AddressesTitle>
         <AddressCard
           address={order?.shipping_address}
           addressType="shipping"

@@ -3,7 +3,7 @@ import { useContext } from "react"
 
 import { Button } from "./styled"
 
-import { AppContext } from "src/providers/AppProvider"
+import { AppContext } from "#providers/AppProvider"
 
 const MenuButton: React.FC = () => {
   const ctx = useContext(AppContext)

@@ -1,9 +1,13 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState, lazy, Suspense } from "react"
 
-import CustomerSkeleton from "src/components/composite/Skeleton/Customer"
-import GuestSkeleton from "src/components/composite/Skeleton/Guest"
+import { isGuest } from "#utils/isGuest"
 
-import { isGuest } from "src/utils/isGuest"
+const LazyCustomerSkeleton = lazy(
+  () => import("#components/composite/Skeleton/Customer")
+)
+const LazyGuestSkeleton = lazy(
+  () => import("#components/composite/Skeleton/Guest")
+)
 
 export const Skeleton: React.FC = () => {
   const [showGuestSkeleton, setShowGuestSkeleton] = useState<null | boolean>(
@@ -26,7 +30,15 @@ export const Skeleton: React.FC = () => {
     return <></>
   }
 
-  return showGuestSkeleton === true ? <GuestSkeleton /> : <CustomerSkeleton />
+  return showGuestSkeleton === true ? (
+    <Suspense fallback={<></>}>
+      <LazyGuestSkeleton />
+    </Suspense>
+  ) : (
+    <Suspense fallback={<></>}>
+      <LazyCustomerSkeleton />
+    </Suspense>
+  )
 }
 
 export default Skeleton

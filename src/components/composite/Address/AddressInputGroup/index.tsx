@@ -3,11 +3,9 @@ import type {
   ResourceErrorType,
   ErrorComponentProps,
 } from "@commercelayer/react-components"
-import { Address } from "@commercelayer/sdk"
+import type { Address } from "@commercelayer/sdk"
 import { useEffect, useState } from "react"
 import { useTranslation } from "react-i18next"
-
-import { Label } from "src/components/ui/form/Label"
 
 import {
   Wrapper,
@@ -17,7 +15,9 @@ import {
   StyledErrors,
 } from "./styled"
 
-type Props = {
+import { Label } from "#components/ui/form/Label"
+
+interface Props {
   type: BaseInputType
   fieldName: `billing_address_${Extract<
     keyof Address,
@@ -58,7 +58,7 @@ export const AddressInputGroup: React.FC<Props> = ({
     },
   ]
 
-  const label = t(`addressForm.fields.${fieldName}`)
+  const label = t(`addresses.addressForm.fields.${fieldName}`)
 
   const [valueStatus, setValueStatus] = useState(value)
 
@@ -81,7 +81,9 @@ export const AddressInputGroup: React.FC<Props> = ({
             data-cy={`input_billing_address_country_code`}
             name={fieldName}
             placeholder={{
-              label: t(`addressForm.billing_address_country_code_placeholder`),
+              label: t(
+                "addresses.addressForm.billing_address_country_code_placeholder"
+              ),
               value: "",
             }}
             value={

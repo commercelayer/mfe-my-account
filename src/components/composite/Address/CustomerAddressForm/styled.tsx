@@ -1,8 +1,6 @@
-import {
-  BillingAddressForm,
-  SaveAddressesButton,
-} from "@commercelayer/react-components"
-import { Dispatch } from "react"
+import { BillingAddressForm } from "@commercelayer/react-components/addresses/BillingAddressForm"
+import { SaveAddressesButton } from "@commercelayer/react-components/addresses/SaveAddressesButton"
+import type { Dispatch } from "react"
 import styled from "styled-components"
 import tw from "twin.macro"
 
@@ -18,7 +16,7 @@ export const Grid = styled.div`
   ${tw`grid lg:(grid-cols-2 gap-4)`}
 `
 
-type DiscardChangesProps = {
+interface DiscardChangesProps {
   onClick: Dispatch<boolean>
 }
 

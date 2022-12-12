@@ -8,12 +8,9 @@
 # testing
 /coverage
 
-# next.js
-/.next/
-/out/
-
 # production
-/build
+build
+tsconfig.tsbuildinfo
 
 # misc
 .DS_Store

@@ -1,10 +1,6 @@
 import type { Settings } from "HostedApp"
 import { useEffect, useContext, useState } from "react"
 
-import { Base } from "src/components/ui/Base"
-import { Card } from "src/components/ui/Card"
-import { Container } from "src/components/ui/Container"
-
 import {
   GuestWrapper,
   Main,
@@ -14,7 +10,10 @@ import {
   MobileMenu,
 } from "./styled"
 
-import { AppContext } from "src/providers/AppProvider"
+import { Base } from "#components/ui/Base"
+import { Card } from "#components/ui/Card"
+import { Container } from "#components/ui/Container"
+import { AppContext } from "#providers/AppProvider"
 
 type LayoutDefaultProps = Pick<Settings, "isGuest"> & {
   aside: React.ReactNode | null

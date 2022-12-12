@@ -1,4 +1,4 @@
-import { CustomerField } from "@commercelayer/react-components"
+import { CustomerField } from "@commercelayer/react-components/customers/CustomerField"
 import type { Settings } from "HostedApp"
 import {
   Package,
@@ -8,11 +8,6 @@ import {
   ShoppingCart,
 } from "phosphor-react"
 import { useTranslation } from "react-i18next"
-
-import NavLink from "src/components/composite/NavLink"
-// import ShoppingCartIcon from "src/components/ui/icons/ShoppingCartIcon"
-import Footer from "src/components/ui/Footer"
-import Logo from "src/components/ui/Logo"
 
 import {
   Wrapper,
@@ -25,7 +20,12 @@ import {
   Email,
 } from "./styled"
 
-type Props = {
+import NavLink from "#components/composite/NavLink"
+// import ShoppingCartIcon from "#components/ui/icons/ShoppingCartIcon"
+import Footer from "#components/ui/Footer"
+import Logo from "#components/ui/Logo"
+
+interface Props {
   settings: Settings
   onClick?: () => void
 }

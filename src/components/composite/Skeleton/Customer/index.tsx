@@ -1,7 +1,7 @@
 import {
   SkeletonMainHeader,
   SkeletonMainLoader,
-} from "src/components/composite/Skeleton/Main"
+} from "#components/composite/Skeleton/Main"
 import {
   Sidebar,
   Main,
@@ -10,10 +10,10 @@ import {
   SkeletonMenuItem,
   SkeletonMenuItemIcon,
   SkeletonMenuItemLabel,
-} from "src/components/composite/Skeleton/styled"
-import { LayoutDefault } from "src/components/layouts/LayoutDefault"
+} from "#components/composite/Skeleton/styled"
+import { LayoutDefault } from "#components/layouts/LayoutDefault"
 
-type MenuItemProps = {
+interface MenuItemProps {
   className?: string
 }
 

@@ -2,9 +2,6 @@ import { XCircle } from "phosphor-react"
 import { useContext } from "react"
 import { useTranslation } from "react-i18next"
 
-import { AddressInputGroup } from "src/components/composite/Address/AddressInputGroup"
-import Title from "src/components/ui/Title"
-
 import {
   Form,
   Grid,
@@ -14,9 +11,11 @@ import {
   SaveButton,
 } from "./styled"
 
-import CustomerAddressContext from "src/context/CustomerAddressContext"
+import { AddressInputGroup } from "#components/composite/Address/AddressInputGroup"
+import Title from "#components/ui/Title"
+import CustomerAddressContext from "#context/CustomerAddressContext"
 
-type Props = {
+interface Props {
   onClose: () => void
 }
 
@@ -28,8 +27,8 @@ const CustomerAddressForm: React.FC<Props> = ({ onClose }) => {
     <Form>
       <Title>
         {address.first_name !== undefined
-          ? t("addressForm.edit_address_title")
-          : t("addressForm.new_address_title")}
+          ? t("addresses.addressForm.edit_address_title")
+          : t("addresses.addressForm.new_address_title")}
       </Title>
       <Grid>
         <AddressInputGroup
@@ -94,11 +93,11 @@ const CustomerAddressForm: React.FC<Props> = ({ onClose }) => {
       <FormButtons>
         <DiscardChanges onClick={onClose}>
           <XCircle className="w-4 h-4" />
-          <Text>{t("addressForm.discard_changes")}</Text>
+          <Text>{t("addresses.addressForm.discard_changes")}</Text>
         </DiscardChanges>
         <SaveButton
           data-test-id="save-address"
-          label={t("addressForm.save")}
+          label={t("addresses.addressForm.save")}
           onClick={() => setShowAddressForm(false)}
           addressId={address.id}
         />

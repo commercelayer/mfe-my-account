@@ -1,13 +1,9 @@
-declare global {
-  namespace NodeJS {
-    interface ProcessEnv {
-      PORT: number
-      NEXT_PUBLIC_BASE_PATH: string
-      NEXT_PUBLIC_SLUG: string
-      NEXT_PUBLIC_DOMAIN: string
-      NEXT_PUBLIC_HOSTED: string
-    }
+interface ImportMeta {
+  env: ImportMetaEnv & {
+    PORT: number
+    PUBLIC_BASE_PATH: string
+    PUBLIC_SLUG: string
+    PUBLIC_DOMAIN: string
+    PUBLIC_HOSTED: string
   }
 }
-
-export {}

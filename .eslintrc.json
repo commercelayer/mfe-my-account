@@ -7,7 +7,6 @@
     "standard",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:@next/next/recommended",
     "plugin:react/recommended",
     "plugin:import/errors",
     "plugin:import/warnings",
@@ -48,12 +47,7 @@
     "no-var": "error",
     "no-param-reassign": "error",
     "prefer-const": "error",
-    "import/no-unresolved": [
-      "error",
-      {
-        "ignore": ["HostedApp"]
-      }
-    ],
+    "import/no-unresolved": "off",
     "import/no-named-as-default": "off",
     "import/order": [
       "warn",
@@ -82,7 +76,6 @@
     "@typescript-eslint/prefer-readonly": "error",
     "@typescript-eslint/no-inferrable-types": "off",
     "@typescript-eslint/prefer-namespace-keyword": "off",
-    "@typescript-eslint/no-explicit-any": "off",
-    "@next/next/no-img-element": "off"
+    "@typescript-eslint/no-explicit-any": "off"
   }
 }

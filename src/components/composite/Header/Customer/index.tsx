@@ -8,12 +8,11 @@ import {
   HeaderContainer,
   User,
   Email,
-} from "src/components/composite/Header/styled"
-import Avatar from "src/components/ui/Avatar"
-import Logo from "src/components/ui/Logo"
-import MenuButton from "src/components/ui/MenuButton"
-
-import { AppContext } from "src/providers/AppProvider"
+} from "#components/composite/Header/styled"
+import Avatar from "#components/ui/Avatar"
+import Logo from "#components/ui/Logo"
+import MenuButton from "#components/ui/MenuButton"
+import { AppContext } from "#providers/AppProvider"
 
 type Props = Pick<Settings, "logoUrl" | "companyName">
 

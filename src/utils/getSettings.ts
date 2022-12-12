@@ -1,8 +1,7 @@
 import CommerceLayer from "@commercelayer/sdk"
-import { Settings, InvalidSettings } from "HostedApp"
+import type { Settings, InvalidSettings } from "HostedApp"
 
 import { getInfoFromJwt } from "./getInfoFromJwt"
-import { getOrder } from "./getOrder"
 import { getOrganizations } from "./getOrganizations"
 import { isValidHost } from "./isValidHost"
 
@@ -12,7 +11,6 @@ export const defaultSettings: InvalidSettings = {
   isValid: false,
   primaryColor: "#000000",
   language: "en",
-  // faviconUrl: `${process.env.NEXT_PUBLIC_BASE_PATH}/favicon.png`,
   faviconUrl:
     "https://data.commercelayer.app/assets/images/favicons/favicon-32x32.png",
   companyName: "Commerce Layer",
@@ -24,25 +22,20 @@ const makeInvalidSettings = (retryable?: boolean): InvalidSettings => ({
   retryable: !!retryable,
 })
 
-type GetSettingsProps = Pick<Settings, "accessToken"> & {
-  orderId?: string
-}
+type GetSettingsProps = Pick<Settings, "accessToken">
 
 /**
  * Retrieves a list of `Settings` required to show the my account app
  *
  * @param accessToken - Access Token for a sales channel API credentials to be used to authenticate all Commerce Layer API requests.
  * Read more at {@link https://docs.commercelayer.io/developers/authentication/client-credentials#sales-channel}, {@link https://docs.commercelayer.io/core/authentication/password}
- * @param orderId - Not required Order Id used, if filled, to verify if it exists the requested order.
- * Read more at {@link https://docs.commercelayer.io/developers/api-specification#base-endpoint}.
  *
  * @returns an union type of `Settings` or `InvalidSettings`
  */
 export const getSettings = async ({
   accessToken,
-  orderId,
 }: GetSettingsProps): Promise<Settings | InvalidSettings> => {
-  const domain = process.env.NEXT_PUBLIC_DOMAIN || "commercelayer.io"
+  const domain = import.meta.env.PUBLIC_DOMAIN || "commercelayer.io"
   const { slug, kind, customerId, isTest } = getInfoFromJwt(accessToken)
 
   if (!slug) {
@@ -74,16 +67,6 @@ export const getSettings = async ({
   const organization = organizationResponse?.object
   if (!organization) {
     return makeInvalidSettings(!organizationResponse?.bailed)
-  }
-
-  if (orderId) {
-    const [orderResponse] = await Promise.all([getOrder({ orderId, client })])
-
-    // validating order
-    const order = orderResponse?.object
-    if (!order) {
-      return makeInvalidSettings(!orderResponse?.bailed)
-    }
   }
 
   return {

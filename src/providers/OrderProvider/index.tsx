@@ -1,19 +1,22 @@
 import CommerceLayer, { Order } from "@commercelayer/sdk"
 import { createContext, useState, useEffect } from "react"
 
-import { getInfoFromJwt } from "src/utils/getInfoFromJwt"
-import { getOrder } from "src/utils/getOrder"
+import { getInfoFromJwt } from "#utils/getInfoFromJwt"
+import { getOrder } from "#utils/getOrder"
 
 type OrderProviderData = {
   order?: Order
+  invalidOrder: boolean
 }
 
 type OrderStateData = {
   order?: Order
+  invalidOrder: boolean
 }
 
 const initialState: OrderStateData = {
   order: undefined,
+  invalidOrder: false,
 }
 
 export const OrderContext = createContext<OrderProviderData | null>(null)
@@ -41,7 +44,7 @@ export const OrderProvider: React.FC<OrderProviderProps> = ({
       return
     }
 
-    const domain = process.env.NEXT_PUBLIC_DOMAIN || "commercelayer.io"
+    const domain = import.meta.env.PUBLIC_DOMAIN || "commercelayer.io"
 
     const cl = CommerceLayer({
       organization: slug,
@@ -53,10 +56,12 @@ export const OrderProvider: React.FC<OrderProviderProps> = ({
       getOrder({ client: cl, orderId }),
     ])
     const order = orderResponse?.object
+    const invalidOrder = !order
 
     setState({
       ...state,
       order,
+      invalidOrder,
     })
   }
 
@@ -67,6 +72,7 @@ export const OrderProvider: React.FC<OrderProviderProps> = ({
   const value = {
     ...state,
     order: state.order,
+    invalidOrder: state.invalidOrder,
   }
 
   return (

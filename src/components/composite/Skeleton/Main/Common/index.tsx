@@ -6,8 +6,8 @@ import {
   SkeletonTitle,
   SkeletonSpan,
   SkeletonCircle,
-} from "src/components/composite/Skeleton/styled"
-import { DesktopOnly, MobileOnly } from "src/components/ui/Common/styled"
+} from "#components/composite/Skeleton/styled"
+import { DesktopOnly, MobileOnly } from "#components/ui/Common/styled"
 
 export const SkeletonMainHeaderDesktop: React.FC = () => {
   return (

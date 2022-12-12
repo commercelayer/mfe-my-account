@@ -4,11 +4,11 @@ import { useState } from "react"
 import { useTranslation } from "react-i18next"
 import OutsideClickHandler from "react-outside-click-handler"
 
-import { SrOnly } from "src/components/ui/Common/styled"
-
 import { Wrapper, ActionsMenuWrapper, ActionsMenuButton } from "./styled"
 
-type Props = {
+import { SrOnly } from "#components/ui/Common/styled"
+
+interface Props {
   className?: string
 }
 

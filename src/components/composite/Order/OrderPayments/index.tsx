@@ -1,10 +1,8 @@
-import {
-  PaymentMethodsContainer,
-  PaymentSource,
-  PaymentSourceBrandIcon,
-  PaymentSourceBrandName,
-  PaymentSourceDetail,
-} from "@commercelayer/react-components"
+import { PaymentMethodsContainer } from "@commercelayer/react-components/payment_methods/PaymentMethodsContainer"
+import { PaymentSource } from "@commercelayer/react-components/payment_source/PaymentSource"
+import { PaymentSourceBrandIcon } from "@commercelayer/react-components/payment_source/PaymentSourceBrandIcon"
+import { PaymentSourceBrandName } from "@commercelayer/react-components/payment_source/PaymentSourceBrandName"
+import { PaymentSourceDetail } from "@commercelayer/react-components/payment_source/PaymentSourceDetail"
 import { Trans, useTranslation } from "react-i18next"
 
 import {
@@ -14,7 +12,7 @@ import {
   PaymentSourceBrandNameSecondary,
 } from "./styled"
 
-import { getTranslations } from "src/utils/payments"
+import { getTranslations } from "#utils/payments"
 
 const OrderPaymentSourceBrandName: React.FC = () => {
   const { t } = useTranslation()
@@ -49,12 +47,12 @@ const OrderPayments: React.FC = () => {
                   <>
                     <PaymentSourceBrandNamePrimary>
                       <OrderPaymentSourceBrandName />
-                      <Trans i18nKey="order.paymentMethod.EndingIn">
+                      <Trans i18nKey="order.payments.paymentMethod.EndingIn">
                         <PaymentSourceDetail type="last4" />
                       </Trans>
                     </PaymentSourceBrandNamePrimary>
                     <PaymentSourceBrandNameSecondary>
-                      <Trans i18nKey="order.paymentMethod.ValidUntil">
+                      <Trans i18nKey="order.payments.paymentMethod.ValidUntil">
                         <PaymentSourceDetail type="exp_month" />
                         <PaymentSourceDetail type="exp_year" />
                       </Trans>

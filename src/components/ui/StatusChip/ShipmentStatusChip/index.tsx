@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next"
 
-import StatusChip from "src/components/ui/StatusChip"
+import StatusChip from "#components/ui/StatusChip"
 
 export type ShipmentStatus =
   | "draft"
@@ -12,7 +12,7 @@ export type ShipmentStatus =
   | "ready_to_ship"
   | "shipped"
 
-type Props = {
+interface Props {
   status?: ShipmentStatus
 }
 

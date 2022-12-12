@@ -19,13 +19,13 @@ import { OrdersPage } from "./OrdersPage"
 
 dotenv.config({ path: path.resolve(__dirname, "../../.env.local") })
 
-type JWTProps = {
+interface JWTProps {
   owner: {
     id: string
   }
 }
 
-type DefaultParamsProps = {
+interface DefaultParamsProps {
   token?: string
   market?: string
   customer?: {
@@ -116,7 +116,6 @@ const createCustomerAddresses = async (
   cl: CommerceLayerClient,
   params: DefaultParamsProps
 ) => {
-  console.log("createCustomerAddresses")
   if (
     params.customer &&
     params.customerAddresses &&

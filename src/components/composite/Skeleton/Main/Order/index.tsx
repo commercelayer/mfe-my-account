@@ -1,4 +1,4 @@
-import { SkeletonMainPageTitle } from "src/components/composite/Skeleton/Main/Common"
+import { SkeletonMainPageTitle } from "#components/composite/Skeleton/Main/Common"
 import {
   SkeletonWrapper,
   SkeletonCol,
@@ -8,10 +8,10 @@ import {
   SkeletonTableRow,
   SkeletonTableImg,
   SkeletonSpacer,
-} from "src/components/composite/Skeleton/styled"
+} from "#components/composite/Skeleton/styled"
 
-type Props = {
-  shown?: boolean
+interface Props {
+  visible?: boolean
 }
 
 const SkeletonMainOrderLineItem: React.FC = () => {
@@ -46,9 +46,9 @@ const SkeletonMainOrderSubtotalsRow: React.FC = () => {
   )
 }
 
-export const SkeletonMainOrder: React.FC<Props> = ({ shown = true }) => {
+export const SkeletonMainOrder: React.FC<Props> = ({ visible = true }) => {
   return (
-    <SkeletonWrapper shown={shown}>
+    <SkeletonWrapper visible={visible}>
       <SkeletonMainPageTitle
         className="pt-3 lg:pt-0"
         additionalContent={

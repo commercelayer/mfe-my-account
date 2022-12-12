@@ -6,7 +6,7 @@ import {
   OrderSectionBody,
 } from "./styled"
 
-type Props = {
+interface Props {
   index: number
   header: React.ReactNode
 }

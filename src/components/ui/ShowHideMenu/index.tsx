@@ -11,7 +11,7 @@ import {
   ShowHideMenuButtonIcon,
 } from "./styled"
 
-type Props = {
+interface Props {
   itemsCounter: number
 }
 

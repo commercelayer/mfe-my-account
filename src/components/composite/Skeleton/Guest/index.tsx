@@ -1,5 +1,5 @@
-import { SkeletonMainOrders } from "src/components/composite/Skeleton/Main"
-import { LayoutDefault } from "src/components/layouts/LayoutDefault"
+import { SkeletonMainOrders } from "#components/composite/Skeleton/Main"
+import { LayoutDefault } from "#components/layouts/LayoutDefault"
 
 export const GuestSkeleton: React.FC = () => {
   return (

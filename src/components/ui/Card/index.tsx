@@ -1,6 +1,6 @@
 import { Wrapper } from "./styled"
 
-type Props = {
+interface Props {
   className?: string
   rounded?: boolean
   fullHeight?: boolean

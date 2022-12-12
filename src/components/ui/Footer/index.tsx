@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next"
 import { Logo } from "./cl"
 import { Wrapper, LogoWrapper, ListWrapper, ListLink, ListItem } from "./styled"
 
-type Props = {
+interface Props {
   termsUrl?: string
   privacyUrl?: string
 }

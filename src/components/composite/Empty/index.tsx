@@ -1,15 +1,15 @@
 import { useTranslation } from "react-i18next"
 
-import NoAddressesIcon from "src/components/ui/icons/NoAddressesIcon"
-import NoOrdersIcon from "src/components/ui/icons/NoOrdersIcon"
-import NoPaymentMethodsIcon from "src/components/ui/icons/NoPaymentMethodsIcon"
-import NoReturnsIcon from "src/components/ui/icons/NoReturnsIcon"
-
 import { Wrapper, Title, Description, NoItemsButton } from "./styled"
+
+import NoAddressesIcon from "#components/ui/icons/NoAddressesIcon"
+import NoOrdersIcon from "#components/ui/icons/NoOrdersIcon"
+import NoPaymentMethodsIcon from "#components/ui/icons/NoPaymentMethodsIcon"
+import NoReturnsIcon from "#components/ui/icons/NoReturnsIcon"
 
 type EmptyType = "Addresses" | "Orders" | "PaymentMethods" | "Returns"
 
-type Props = {
+interface Props {
   type: EmptyType
   buttonClick?: () => void
 }

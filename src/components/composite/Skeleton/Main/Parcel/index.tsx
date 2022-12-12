@@ -7,16 +7,12 @@ import {
   SkeletonSpacer,
   SkeletonRoundIcon,
   SkeletonRoundBackBtn,
-} from "src/components/composite/Skeleton/styled"
+} from "#components/composite/Skeleton/styled"
 
-type Props = {
-  shown?: boolean
-}
-
-export const SkeletonMainParcel: React.FC<Props> = ({ shown = true }) => {
+export const SkeletonMainParcel: React.FC = () => {
   return (
-    <SkeletonWrapper shown={shown}>
-      <SkeletonRow centered className={"pt-4 lg:(-mt-1 pt-0)"}>
+    <SkeletonWrapper visible={true}>
+      <SkeletonRow centered className={"pt-4 lg:pt-0"}>
         <SkeletonRoundBackBtn />
         <SkeletonSubtitle />
       </SkeletonRow>

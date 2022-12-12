@@ -1,4 +1,4 @@
-import { Address as CLayerAddress } from "@commercelayer/sdk"
+import type { Address as CLayerAddress } from "@commercelayer/sdk"
 import { Trash, X } from "phosphor-react"
 import { useContext, useState } from "react"
 import { useTranslation } from "react-i18next"
@@ -20,9 +20,9 @@ import {
   DeleteButton,
 } from "./styled"
 
-import CustomerAddressContext from "src/context/CustomerAddressContext"
+import CustomerAddressContext from "#context/CustomerAddressContext"
 
-type Props = {
+interface Props {
   address?: CLayerAddress
   addressType: string
   readonly?: boolean

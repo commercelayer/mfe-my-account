@@ -1,6 +1,6 @@
-import { LineItemsContainer } from "@commercelayer/react-components"
+import { LineItemsContainer } from "@commercelayer/react-components/line_items/LineItemsContainer"
 
-import { LineItemTypes } from "src/components/composite/Order/LineItemTypes"
+import { LineItemTypes } from "#components/composite/Order/LineItemTypes"
 
 const LineItemList: React.FC = () => {
   return (

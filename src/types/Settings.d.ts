@@ -6,7 +6,7 @@ declare module "HostedApp" {
    * organization resources. (Organization: https://docs.commercelayer.io/core/v/api-reference/organization/object)
    */
 
-  export type Settings = {
+  export interface Settings {
     /**
      * Access Token for a sales channel API credentials to be used to authenticate all Commerce Layer API requests.
      * Read more at {@link https://docs.commercelayer.io/core/authentication/client-credentials#sales-channel}, {@link https://docs.commercelayer.io/core/authentication/password}
@@ -35,7 +35,7 @@ declare module "HostedApp" {
      */
     logoUrl?: string
     /**
-     * Favicon URL found, if set, in current organization
+     * Favicon URL found, if set, in current organization.
      * Read more at {@link https://docs.commercelayer.io/core/v/api-reference/organization/object}.
      */
     faviconUrl: string
@@ -50,7 +50,7 @@ declare module "HostedApp" {
      */
     language: string
     /**
-     * Customer Id information picked by owner?.id property inside parsed accessToken
+     * Customer Id information picked by owner?.id property inside parsed accessToken.
      * Read more at {@link https://docs.commercelayer.io/core/authentication/password}
      */
     customerId: string

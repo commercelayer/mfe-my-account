@@ -1,8 +1,8 @@
 import styled from "styled-components"
 import tw from "twin.macro"
 
-type SkeletonWrapperProps = {
-  shown: boolean
+interface SkeletonWrapperProps {
+  visible: boolean
 }
 
 export const SkeletonBox = styled.div`
@@ -42,11 +42,11 @@ export const SkeletonMenuItemLabel = styled(SkeletonBox)`
 `
 
 export const SkeletonWrapper = styled.div<SkeletonWrapperProps>`
-  ${tw`mt-4 animate-pulse flex-shrink flex-grow`}
-  ${({ shown }) => !shown && tw`hidden`}
+  ${tw`animate-pulse flex-shrink flex-grow`}
+  ${({ visible }) => !visible && tw`hidden`}
 `
 
-type SkeletonColProps = {
+interface SkeletonColProps {
   padded?: boolean
   noGap?: boolean
 }
@@ -57,7 +57,7 @@ export const SkeletonCol = styled.div<SkeletonColProps>`
   ${({ noGap }) => !noGap && tw`gap-3`}
 `
 
-type SkeletonRowProps = {
+interface SkeletonRowProps {
   centered?: boolean
 }
 
@@ -78,11 +78,11 @@ export const SkeletonTitle = styled(SkeletonBox)`
   ${tw`w-40 h-10`}
 `
 
-type SkeletonSubtitle = {
+interface SkeletonSubtitleProps {
   size?: string
 }
 
-export const SkeletonSubtitle = styled(SkeletonBox)<SkeletonSubtitle>`
+export const SkeletonSubtitle = styled(SkeletonBox)<SkeletonSubtitleProps>`
   ${tw`h-5`}
   ${({ size }) => {
     if (size === "small") return tw`w-20`
@@ -91,7 +91,7 @@ export const SkeletonSubtitle = styled(SkeletonBox)<SkeletonSubtitle>`
   }}
 `
 
-type SkeletonSpanProps = {
+interface SkeletonSpanProps {
   size?: string
 }
 
@@ -119,7 +119,7 @@ export const SkeletonRoundBackBtn = styled(SkeletonCircle)`
   ${tw`w-[38px] h-[38px]`}
 `
 
-type SkeletonTableRowProps = {
+interface SkeletonTableRowProps {
   align?: string
 }
 

@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import tw from "twin.macro"
 
-import LinkButtonProps from "./props"
+import type LinkButtonProps from "./props"
 
 export const Button = styled.button.attrs((props: LinkButtonProps) => ({
   variant: props.variant,

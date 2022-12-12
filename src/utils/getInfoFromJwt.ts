@@ -1,6 +1,6 @@
 import jwtDecode from "jwt-decode"
 
-type JWTProps = {
+interface JWTProps {
   /**
    * The Organization `slug` and `id` present in the provided access token.
    */

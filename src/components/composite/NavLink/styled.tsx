@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import tw from "twin.macro"
 
-type WrapperProps = {
+interface WrapperProps {
   isCurrentPage: boolean
   comingSoon?: boolean
 }
@@ -14,7 +14,7 @@ export const Wrapper = styled.li<WrapperProps>`
   ${({ isCurrentPage }) => isCurrentPage && tw`text-black`}
 `
 
-type IconProps = {
+interface IconProps {
   comingSoon?: boolean
 }
 

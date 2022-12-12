@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import tw from "twin.macro"
 
-import Button from "src/components/ui/Button"
+import Button from "#components/ui/Button"
 
 export const Wrapper = styled.div`
   ${tw`flex flex-col items-center content-center`}
