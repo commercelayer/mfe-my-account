@@ -90,6 +90,13 @@ const CustomerAddressForm: React.FC<Props> = ({ onClose }) => {
         type="tel"
         value={address?.phone || ""}
       />
+      <AddressInputGroup
+        required={false}
+        fieldName="billing_address_billing_info"
+        resource="billing_address"
+        type="text"
+        value={address?.billing_info || ""}
+      />
       <FormButtons>
         <DiscardChanges onClick={onClose}>
           <XCircle className="w-4 h-4" />
