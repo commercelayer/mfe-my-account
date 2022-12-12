@@ -1,6 +1,6 @@
 import { OrderContainer } from "@commercelayer/react-components/orders/OrderContainer"
 import { OrderNumber } from "@commercelayer/react-components/orders/OrderNumber"
-import type { Order as CLayerOrder } from "@commercelayer/sdk"
+import type { Order } from "@commercelayer/sdk"
 import { useState, useContext } from "react"
 import { Trans } from "react-i18next"
 import { Redirect } from "wouter"
@@ -30,7 +30,7 @@ function OrderPage({ orderId }: OrderPageProps): JSX.Element {
   const ctx = useContext(AppContext)
   const accessToken = ctx?.accessToken
 
-  const [order, setOrder] = useState<CLayerOrder>()
+  const [order, setOrder] = useState<Order>()
   const orderPlacedAt =
     (order?.placed_at && formatDate(order.placed_at, shortDate)) || ""
   const orderStatus = order ? (order.status as OrderStatus) : "placed"
