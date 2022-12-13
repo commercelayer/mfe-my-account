@@ -58,7 +58,7 @@ const getClient = async (token: string) => {
   return CommerceLayer({
     organization: process.env.E2E_SLUG as string,
     accessToken: token,
-    domain: process.env.NEXT_PUBLIC_DOMAIN || "commercelayer.io",
+    domain: process.env.E2E_DOMAIN || "commercelayer.io",
   })
 }
 
