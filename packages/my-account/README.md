@@ -94,9 +94,9 @@ By clicking a parcel's tracking link you can enter the selected parcel's detail 
 
 By clicking on the *Addresses* menu item you can see the list of your saved addresses (if any). Each address can be edited or deleted. New addresses can be directly created from the app and added to the list. 
 
-![my-account-edit-address](https://user-images.githubusercontent.com/105653649/207383388-9a5c9658-d2d4-4ef8-b6d0-d4747223e518.jpg)
-
 ![my-account-select-address](https://user-images.githubusercontent.com/105653649/207383421-188971d7-d1d7-4ed1-b7c3-869613bd75d6.jpg)
+
+![my-account-edit-address](https://user-images.githubusercontent.com/105653649/207383388-9a5c9658-d2d4-4ef8-b6d0-d4747223e518.jpg)
 
 ## Using the CLI to get a valid customer token
 
