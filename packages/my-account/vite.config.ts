@@ -1,7 +1,7 @@
+import { NodeGlobalsPolyfillPlugin } from "@esbuild-plugins/node-globals-polyfill"
 import react from "@vitejs/plugin-react"
 import { visualizer } from "rollup-plugin-visualizer"
 import { loadEnv, PluginOption } from "vite"
-import { NodeGlobalsPolyfillPlugin } from '@esbuild-plugins/node-globals-polyfill'
 import { defineConfig } from "vitest/config"
 
 import { resolve } from "path"
@@ -10,9 +10,10 @@ import { resolve } from "path"
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), "")
   const analyzeBundle = env.ANALYZE_BUNDLE === "true"
-  const basePath = env.PUBLIC_BASE_PATH || ""
+  const basePath =
+    env.PUBLIC_PROJECT_PATH != null ? `/${env.PUBLIC_PROJECT_PATH}` : ""
 
-  process.env = {...process.env, ...loadEnv(mode, process.cwd())};
+  process.env = { ...process.env, ...loadEnv(mode, process.cwd()) }
 
   return {
     plugins: preparePlugins({ analyzeBundle }),
@@ -38,7 +39,7 @@ export default defineConfig(({ mode }) => {
             commercelayer: [
               "@commercelayer/sdk",
               "@commercelayer/react-components",
-            ]
+            ],
           },
         },
       },
@@ -55,7 +56,7 @@ export default defineConfig(({ mode }) => {
         "#utils": resolve(__dirname, "./src/utils"),
         "#types": resolve(__dirname, "./src/types"),
         "#specs": resolve(__dirname, "./specs"),
-        util: 'rollup-plugin-node-polyfills/polyfills/util'
+        util: "rollup-plugin-node-polyfills/polyfills/util",
       },
     },
     test: {
@@ -65,24 +66,24 @@ export default defineConfig(({ mode }) => {
     },
     esbuild: {
       // https://github.com/vitejs/vite/issues/8644#issuecomment-1159308803
-      logOverride: { 'this-is-undefined-in-esm': 'silent' },
+      logOverride: { "this-is-undefined-in-esm": "silent" },
     },
     optimizeDeps: {
       esbuildOptions: {
-        target: 'es2020',
+        target: "es2020",
         define: {
-          global: 'globalThis'
+          global: "globalThis",
         },
         plugins: [
           // add node.JS builtin lib polyfills for ESbuild
           // https://github.com/browserify/node-util/issues/43#issuecomment-1046110526
           NodeGlobalsPolyfillPlugin({
             // buffer: true,
-            process: true
-          })
-        ]
-      }
-    }
+            process: true,
+          }),
+        ],
+      },
+    },
   }
 })
 
@@ -90,7 +91,7 @@ function preparePlugins({ analyzeBundle }: { analyzeBundle: boolean }) {
   const plugins: PluginOption[] = [
     react({
       babel: {
-        plugins: ['babel-plugin-macros', 'babel-plugin-styled-components'],
+        plugins: ["babel-plugin-macros", "babel-plugin-styled-components"],
       },
     }),
     // babel(),

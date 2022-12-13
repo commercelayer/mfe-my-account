@@ -24,7 +24,7 @@ The Commerce Layer My Account application (React) provides a production-ready re
 
 1. Create your organization and get your credentials by following one of our [onboarding tutorials](https://docs.commercelayer.io/core/welcome).
 
-2. Set on your hosting provider the required environment variables `PUBLIC_BASE_PATH` and `PUBLIC_SLUG` starting from example values found in `.env.local.example` file.
+2. Set on your hosting provider the required environment variables `PUBLIC_PROJECT_PATH` and `PUBLIC_SLUG` starting from example values found in `.env.local.example` file.
 
 3. Deploy the forked repository to your preferred hosting service or host it yourself. You can deploy with one click below:
 

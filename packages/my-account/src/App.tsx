@@ -11,12 +11,15 @@ const LazyOrdersPage = lazy(() => import("#pages/OrdersPage"))
 const LazyParcelPage = lazy(() => import("#pages/ParcelPage"))
 const LazyAddressesPage = lazy(() => import("#pages/AddressesPage"))
 
-const { PUBLIC_BASE_PATH } = import.meta.env
+const basePath =
+  import.meta.env.PUBLIC_PROJECT_PATH != null
+    ? `/${import.meta.env.PUBLIC_PROJECT_PATH}`
+    : undefined
 
 function App(): JSX.Element {
   return (
     <>
-      <Router base={PUBLIC_BASE_PATH}>
+      <Router base={basePath}>
         <SettingsProvider>
           {({ settings, isLoading }) => {
             return isLoading ? (
