@@ -2,7 +2,7 @@
 
 The Commerce Layer My Account application (React) provides a production-ready reserved user area with order history and address management features, powered by Commerce Layer APIs. You can fork this repository and deploy it to any hosting service or use it as a reference application to build your own. A hosted version is also available.
 
-![Commerce Layer My Account demo](./public/my-account.gif)
+![my-account-low-res](https://user-images.githubusercontent.com/105653649/207382775-e1948090-9000-4dad-bf62-a73c94cf0a31.gif)
 
 ## What is Commerce Layer?
 
@@ -62,7 +62,7 @@ The My Account application's main features are currently focused on the manageme
 
 As soon as you land on the application (or click on the *Orders* menu item) you will be shown the order history screen.
 
-![Commerce Layer My Account orders page](./public/my-account-orders.jpg)
+![my-account-orders](https://user-images.githubusercontent.com/105653649/207383160-c82818ab-c81f-43f9-b778-9c7c93ed8d12.jpg)
 
 This works as the My Account app's welcome page, showing a list of the customer's orders. The list is paginated and can be sorted based on each column piece of information:
 
@@ -80,19 +80,13 @@ By clicking on one of the order numbers of the history list you can enter the se
 - The shipments associated with the order (including the related parcels overview and tracking code).
 - The payment method used for the order.
 
-![Commerce Layer My Account order summary](./public/my-account-summary.jpg)
-
-![Commerce Layer My Account order addresses](./public/my-account-addresses.jpg)
-
-![Commerce Layer My Account order shipments](./public/my-account-shipments.jpg)
-
-![Commerce Layer My Account order payments](./public/my-account-payments.jpg)
+![my-account-order-details](https://user-images.githubusercontent.com/105653649/207383301-7fd246dd-af1d-41b4-a3db-f3318e712c9d.jpg)
 
 #### Parcel tracking details
 
 By clicking a parcel's tracking link you can enter the selected parcel's detail page showing the full timeline of the parcel's movements and updates.
 
-![Commerce Layer My Account parcel tracking](./public/my-account-parcel-tracking.jpg)
+![my-account-parcel-tracking](https://user-images.githubusercontent.com/105653649/207383343-fc38a0af-626c-4319-96ca-15a14b2c8200.jpg)
 
 ### Addresses
 
@@ -100,9 +94,9 @@ By clicking a parcel's tracking link you can enter the selected parcel's detail 
 
 By clicking on the *Addresses* menu item you can see the list of your saved addresses (if any). Each address can be edited or deleted. New addresses can be directly created from the app and added to the list. 
 
-![Commerce Layer My Account address list](./public/my-account-select-address.jpg)
+![my-account-edit-address](https://user-images.githubusercontent.com/105653649/207383388-9a5c9658-d2d4-4ef8-b6d0-d4747223e518.jpg)
 
-![Commerce Layer My Account address editing](./public/my-account-edit-address.jpg)
+![my-account-select-address](https://user-images.githubusercontent.com/105653649/207383421-188971d7-d1d7-4ed1-b7c3-869613bd75d6.jpg)
 
 ## Using the CLI to get a valid customer token
 
