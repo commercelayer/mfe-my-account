@@ -3,7 +3,7 @@ import { getInfoFromJwt } from "./getInfoFromJwt"
 /**
  * Gets the subdomain from a full hostname
  *
- * @param hostname - Example: "my-org.commercelayer.app"
+ * @param hostname - Example: "my-org.cart.commercelayer.app"
  * @returns the last level of subdomain found. Example `my-org`
  */
 export const makeSubdomain = (hostname: string) => {
@@ -11,26 +11,30 @@ export const makeSubdomain = (hostname: string) => {
 }
 
 const isProduction = (forceProductionEnv?: boolean) =>
-  forceProductionEnv ? true : import.meta.env.NODE_ENV === "production"
-
-const isCommerceLayerHosted = () =>
-  Boolean(import.meta.env.PUBLIC_HOSTED) === true
+  forceProductionEnv ? true : import.meta.env.PROD
 
 /**
- * Verifies if application is loaded from a valid URL and the `slug` found in JWT belongs
+ * Checks if app is loaded from a valid URL and the `slug` found in JWT belongs
  * to the authorized subdomain.
  *
- * @param hostname - The full `window.location.hostname` Example: "my-org.commercelayer.app"
+ * @param hostname - The full `window.location.hostname` Example: "my-org.cart.commercelayer.app"
  * @param accessToken - The JWT used to authenticate Commerce Layer Api requests
  * @param forceProductionEnv - To be used to emulate production deployment during E2E tests
+ * @param selfHostedSlug - The organization slug used to generate the accessToken.
  *
  * @returns a boolean flag set as `true` in case app is loaded from a valid URL.
  */
-export const isValidHost = (
-  hostname: string,
-  accessToken: string,
+export const isValidHost = ({
+  hostname,
+  accessToken,
+  forceProductionEnv,
+  selfHostedSlug,
+}: {
+  hostname: string
+  accessToken: string
   forceProductionEnv?: boolean
-) => {
+  selfHostedSlug?: string | null
+}) => {
   const { slug, kind } = getInfoFromJwt(accessToken)
 
   const isInvalidChannel = kind !== "sales_channel"
@@ -38,13 +42,12 @@ export const isValidHost = (
     return false
   }
 
-  /**
-   * When the application is not hosted by Commerce Layer we can't rely on subdomain
-   * to match organization slug so we require to fill `PUBLIC_SLUG` env variable
-   */
-  const subdomain = isCommerceLayerHosted()
+  // when app is not hosted by CL we can't rely on subdomain to match organization slug
+  // so we require to fill `selfHostedSlug` prop in `public/config.json`
+  const isCommerceLayerHosted = selfHostedSlug == null
+  const subdomain = isCommerceLayerHosted
     ? makeSubdomain(hostname)
-    : import.meta.env.PUBLIC_SLUG
+    : selfHostedSlug
 
   const isInvalidSubdomain = subdomain !== slug
   if (isProduction(forceProductionEnv) && isInvalidSubdomain) {

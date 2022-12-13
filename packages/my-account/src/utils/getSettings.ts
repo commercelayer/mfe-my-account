@@ -22,7 +22,9 @@ const makeInvalidSettings = (retryable?: boolean): InvalidSettings => ({
   retryable: !!retryable,
 })
 
-type GetSettingsProps = Pick<Settings, "accessToken">
+type GetSettingsProps = Pick<Settings, "accessToken"> & {
+  config: RuntimeConfig
+}
 
 /**
  * Retrieves a list of `Settings` required to show the my account app
@@ -34,8 +36,9 @@ type GetSettingsProps = Pick<Settings, "accessToken">
  */
 export const getSettings = async ({
   accessToken,
+  config,
 }: GetSettingsProps): Promise<Settings | InvalidSettings> => {
-  const domain = import.meta.env.PUBLIC_DOMAIN || "commercelayer.io"
+  const domain = config.domain || "commercelayer.io"
   const { slug, kind, customerId, isTest } = getInfoFromJwt(accessToken)
 
   if (!slug) {
@@ -47,7 +50,13 @@ export const getSettings = async ({
   }
 
   const hostname = typeof window && window.location.hostname
-  if (!isValidHost(hostname, accessToken)) {
+  if (
+    !isValidHost({
+      hostname,
+      accessToken,
+      selfHostedSlug: config.selfHostedSlug,
+    })
+  ) {
     return makeInvalidSettings()
   }
 

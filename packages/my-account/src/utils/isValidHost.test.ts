@@ -14,25 +14,43 @@ describe("Is valid host", () => {
 
   test("Subdomain matches organization slug and JWT kind is for sales channel", () => {
     expect(
-      isValidHost("acme.cart.commercelayer.app", jwtSalesChannelOrgAcme)
+      isValidHost({
+        hostname: "acme.commercelayer.app",
+        accessToken: jwtSalesChannelOrgAcme,
+        selfHostedSlug: null,
+      })
     ).toBe(true)
   })
 
   test("Check for wrong channel/kind in JWT", () => {
     expect(
-      isValidHost("acme.cart.commercelayer.app", jwtIntegrationOrgAcme)
+      isValidHost({
+        hostname: "acme.commercelayer.app",
+        accessToken: jwtIntegrationOrgAcme,
+        selfHostedSlug: "acme",
+      })
     ).toBe(false)
   })
 
   test("Hostname does not match JWT organization in hosted production", () => {
     expect(
-      isValidHost("akme.cart.commercelayer.app", jwtSalesChannelOrgAcme, true)
+      isValidHost({
+        hostname: "akme.commercelayer.app",
+        accessToken: jwtSalesChannelOrgAcme,
+        forceProductionEnv: true,
+        selfHostedSlug: null,
+      })
     ).toBe(false)
   })
 
   test("Hostname does not match JWT organization in development", () => {
     expect(
-      isValidHost("akme.cart.commercelayer.app", jwtSalesChannelOrgAcme, false)
+      isValidHost({
+        hostname: "akme.commercelayer.app",
+        accessToken: jwtSalesChannelOrgAcme,
+        forceProductionEnv: false,
+        selfHostedSlug: "akme",
+      })
     ).toBe(true)
   })
 })

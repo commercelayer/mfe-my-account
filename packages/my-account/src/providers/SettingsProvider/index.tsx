@@ -12,6 +12,20 @@ interface SettingsProviderValue {
 }
 
 interface SettingsProviderProps {
+  /**
+   * App config served locally from public/config.json
+   */
+  config: RuntimeConfig
+  /**
+   * If needed, context value can be also accessed using a function as a child.
+   *
+   * Example:
+   * ```
+   * <SettingsProvider orderId={orderId}>
+   *  {(ctx) => <div>cart</div>}
+   * </SettingsProvider>
+   * ```
+   */
   children:
     | ((props: SettingsProviderValue) => React.ReactNode)
     | React.ReactNode
@@ -34,6 +48,7 @@ export const useSettings = (): SettingsProviderValue => {
 }
 
 export function SettingsProvider({
+  config,
   children,
 }: SettingsProviderProps): JSX.Element {
   const [settings, setSettings] = useState<Settings | InvalidSettings>(
@@ -46,7 +61,7 @@ export function SettingsProvider({
     setIsLoading(!!accessToken)
 
     if (accessToken) {
-      getSettings({ accessToken })
+      getSettings({ accessToken, config })
         .then(setSettings)
         .finally(() => {
           setIsLoading(false)

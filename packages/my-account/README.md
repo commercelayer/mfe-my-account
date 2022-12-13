@@ -24,7 +24,7 @@ The Commerce Layer My Account application (React) provides a production-ready re
 
 1. Create your organization and get your credentials by following one of our [onboarding tutorials](https://docs.commercelayer.io/core/welcome).
 
-2. Set on your hosting provider the required environment variables `PUBLIC_PROJECT_PATH` and `PUBLIC_SLUG` starting from example values found in `.env.local.example` file.
+2. Configure the `selfHostedSlug` property in `/public/config.json` to match your organization slug (subdomain).
 
 3. Deploy the forked repository to your preferred hosting service or host it yourself. You can deploy with one click below:
 
@@ -54,7 +54,7 @@ You can use the hosted version of the My Account application with the following 
 
 The My Account application's main features are currently focused on the management of customer [orders](#orders) and [addresses](#addresses). 
 
-> Lots of other major and minor features (e.g. payments, refunds, and more) are already included in the development roadmap – check the Commerce Layer [changelog](https://docs.commercelayer.io/changelog/) to be regularly updated about all the new releases.
+> Lots of other major and minor features (e.g. customer wallet, returns, and more) are already included in the development roadmap – check the Commerce Layer [changelog](https://docs.commercelayer.io/changelog/) to be regularly updated about all the new releases.
 
 ### Orders
 
@@ -64,16 +64,16 @@ As soon as you land on the application (or click on the *Orders* menu item) you 
 
 ![Commerce Layer My Account orders page](./public/my-account-orders.jpg)
 
-This works as the My Account app's welcome page, showing a list of the customer's orders. The list can be sorted based on each column piece of information:
+This works as the My Account app's welcome page, showing a list of the customer's orders. The list is paginated and can be sorted based on each column piece of information:
 
-- order number
+- order number (default)
 - date of placement
 - order status
 - order amount
 
 #### Order details
 
-By clicking on one of the order numbers of the history list you can enter the selected order's details page where, by opening the related dropdowns, you can see:
+By clicking on one of the order numbers of the history list you can enter the selected order's details page where you can see:
 
 - The order summary information with the single line items and total amounts.
 - The billing and shipping address details.
