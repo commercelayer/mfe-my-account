@@ -26,36 +26,38 @@ const RETRIES = 3
 export const retryCall = async <T>(
   f: () => Promise<T>
 ): Promise<FetchResource<T> | undefined> => {
-  const options: any = {
-    retries: RETRIES,
-  }
-
-  return await retry(async (_, attempt) => {
-    try {
-      return {
-        object: await f(),
-        success: true,
-      }
-    } catch (error: any) {
-      // sdk return sa structured object in case of api error
-      // we assume we hit a not-retriable error when the error object returned has no keys
-      const isNotRetryiable = error.status === 401 || !Object.keys(error).length
-      if (isNotRetryiable) {
+  return await retry(
+    async (_, attempt) => {
+      try {
         return {
-          object: undefined,
-          success: false,
-          bailed: true,
+          object: await f(),
+          success: true,
         }
-      }
-
-      if (attempt === RETRIES + 1) {
-        return {
-          object: undefined,
-          success: false,
+      } catch (error: any) {
+        // sdk return sa structured object in case of api error
+        // we assume we hit a not-retriable error when the error object returned has no keys
+        const isNotRetryiable =
+          error.status === 401 || !Object.keys(error).length
+        if (isNotRetryiable) {
+          return {
+            object: undefined,
+            success: false,
+            bailed: true,
+          }
         }
-      }
 
-      throw error
+        if (attempt === RETRIES + 1) {
+          return {
+            object: undefined,
+            success: false,
+          }
+        }
+
+        throw error
+      }
+    },
+    {
+      retries: RETRIES,
     }
-  }, options)
+  )
 }

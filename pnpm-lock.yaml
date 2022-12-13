@@ -19,7 +19,7 @@ importers:
       '@headlessui/react': ^1.6.4
       '@playwright/test': ^1.25.2
       '@tailwindcss/forms': ^0.5.2
-      '@types/async-retry': 1.4.4
+      '@types/async-retry': 1.4.3
       '@types/common-tags': ^1.8.1
       '@types/gravatar': ^1.8.3
       '@types/node': 17.0.42
@@ -80,7 +80,7 @@ importers:
       '@esbuild-plugins/node-globals-polyfill': 0.1.1
       '@headlessui/react': 1.7.5_biqbaboplfbrettd7655fr4n2y
       '@tailwindcss/forms': 0.5.3_tailwindcss@3.2.4
-      '@types/async-retry': 1.4.4
+      '@types/async-retry': 1.4.3
       '@types/common-tags': 1.8.1
       '@types/gravatar': 1.8.3
       '@types/node': 17.0.42
@@ -1964,8 +1964,8 @@ packages:
     resolution: {integrity: sha512-RqaVZWy1Kj4e1PoUoOI8uA+4UuuLpicQFxfU9Y/xWJFZFT6mFB4PiiY911iDxFk7pdvaj5HKH7VsWRisRca1Rg==}
     dev: false
 
-  /@types/async-retry/1.4.4:
-    resolution: {integrity: sha512-IGT+yESLPYje0MV8MfOpT5V5oH9lAKLwlosQRyq75tYJmntkkWcfEThHLxsgYjGmYXJEY7ZZkYPb4xuW+NA6GA==}
+  /@types/async-retry/1.4.3:
+    resolution: {integrity: sha512-B3C9QmmNULVPL2uSJQ088eGWTNPIeUk35hca6CV8rRDJ8GXuQJP5CCVWA1ZUCrb9xYP7Js/RkLqnNNwKhe+Zsw==}
     dependencies:
       '@types/retry': 0.12.0
     dev: false
