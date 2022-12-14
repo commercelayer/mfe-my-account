@@ -36,7 +36,11 @@ function OrderPage({ orderId }: OrderPageProps): JSX.Element {
   const orderStatus = order ? (order.status as OrderStatus) : "placed"
 
   return (
-    <OrderProvider orderId={orderId} accessToken={accessToken as string}>
+    <OrderProvider
+      orderId={orderId}
+      accessToken={accessToken as string}
+      domain={ctx?.domain as string}
+    >
       {({ invalidOrder }) => {
         if (invalidOrder) {
           return <Redirect to={`/orders?accessToken=${accessToken}`} />
