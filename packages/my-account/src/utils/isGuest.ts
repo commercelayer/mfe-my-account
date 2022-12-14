@@ -1,5 +1,5 @@
-import { getAccessTokenFromUrl } from "./getAccessTokenFromUrl"
-import { getInfoFromJwt } from "./getInfoFromJwt"
+import { getAccessTokenFromUrl } from "#utils/getAccessTokenFromUrl"
+import { getInfoFromJwt } from "#utils/getInfoFromJwt"
 
 /**
  * Verifies if provided accessToken is not owned by a customer.

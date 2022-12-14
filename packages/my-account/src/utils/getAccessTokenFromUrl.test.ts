@@ -1,4 +1,4 @@
-import { getAccessTokenFromUrl } from "./getAccessTokenFromUrl"
+import { getAccessTokenFromUrl } from "#utils/getAccessTokenFromUrl"
 
 describe("Read JWT from URL", () => {
   const { location } = window

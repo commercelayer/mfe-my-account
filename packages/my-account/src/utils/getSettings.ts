@@ -1,9 +1,9 @@
 import CommerceLayer from "@commercelayer/sdk"
 import type { Settings, InvalidSettings } from "HostedApp"
 
-import { getInfoFromJwt } from "./getInfoFromJwt"
-import { getOrganizations } from "./getOrganizations"
-import { isValidHost } from "./isValidHost"
+import { getInfoFromJwt } from "#utils/getInfoFromJwt"
+import { getOrganizations } from "#utils/getOrganizations"
+import { isValidHost } from "#utils/isValidHost"
 
 // default settings are by their nature not valid to show a full cart
 // they will be used as fallback for errors or 404 page

@@ -1,6 +1,6 @@
 import type { CommerceLayerClient } from "@commercelayer/sdk"
 
-import { retryCall } from "./retryCall"
+import { retryCall } from "#utils/retryCall"
 
 interface GetOrderConfig {
   /**
