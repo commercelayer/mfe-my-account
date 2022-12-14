@@ -82,7 +82,7 @@
     "vite": "^3.2.4",
     "vitest": "^0.25.0",
     "wouter": "^2.8.1",
-    "zod": "^3.18.0"
+    "zod": "3.20.2"
   },
   "devDependencies": {
     "@commercelayer/js-auth": "^2.3.0",
