@@ -1,13 +1,12 @@
-import React from "react"
-import { render } from "react-dom"
+import * as React from "react"
+import { createRoot } from "react-dom/client"
 
 import "./styles/globals.css"
 import "./utils/i18n"
 import App from "./App"
 
-render(
+createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <App />
-  </React.StrictMode>,
-  document.getElementById("root")
+  </React.StrictMode>
 )
