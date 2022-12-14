@@ -49,6 +49,10 @@ export const getSettings = async ({
     return makeInvalidSettings()
   }
 
+  if (!customerId) {
+    return makeInvalidSettings()
+  }
+
   const hostname = typeof window && window.location.hostname
   if (
     !isValidHost({
