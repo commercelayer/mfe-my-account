@@ -14,8 +14,8 @@ import jwt_decode from "jwt-decode"
 
 import path from "path"
 
-import { AddressesPage } from "./AddressesPage"
-import { OrdersPage } from "./OrdersPage"
+import { AddressesPage } from "#specs/fixtures/AddressesPage"
+import { OrdersPage } from "#specs/fixtures/OrdersPage"
 
 dotenv.config({ path: path.resolve(__dirname, "../../.env.local") })
 

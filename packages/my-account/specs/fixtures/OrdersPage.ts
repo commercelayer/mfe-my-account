@@ -1,6 +1,3 @@
-import { expect } from "@playwright/test"
-import { MyAccountPage } from "./MyAccountPage"
+import { MyAccountPage } from "#specs/fixtures/MyAccountPage"
 
-export class OrdersPage extends MyAccountPage {
-  
-}
+export class OrdersPage extends MyAccountPage {}
