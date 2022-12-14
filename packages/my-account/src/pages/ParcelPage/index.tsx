@@ -5,6 +5,7 @@ import { Shipment } from "@commercelayer/react-components/shipments/Shipment"
 import { ShipmentsContainer } from "@commercelayer/react-components/shipments/ShipmentsContainer"
 import type { Settings } from "HostedApp"
 import { CaretLeft } from "phosphor-react"
+import { useContext } from "react"
 import { useTranslation } from "react-i18next"
 import { Link, Redirect } from "wouter"
 
@@ -23,6 +24,7 @@ import {
 
 import OrderParcelHistory from "#components/composite/OrderParcel/OrderParcelHistory"
 import { SkeletonMainParcel } from "#components/composite/Skeleton/Main"
+import { AppContext } from "#providers/AppProvider"
 import { OrderProvider } from "#providers/OrderProvider"
 
 interface Props {
@@ -32,10 +34,15 @@ interface Props {
 }
 
 function ParcelPage({ settings, orderId, parcelId }: Props): JSX.Element {
+  const ctx = useContext(AppContext)
   const { t } = useTranslation()
 
   return (
-    <OrderProvider orderId={orderId} accessToken={settings.accessToken}>
+    <OrderProvider
+      orderId={orderId}
+      accessToken={settings.accessToken}
+      domain={ctx?.domain as string}
+    >
       {({ invalidOrder }) => {
         if (invalidOrder) {
           return <Redirect to={`/orders?accessToken=${settings.accessToken}`} />

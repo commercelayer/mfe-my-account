@@ -18,9 +18,14 @@ import { CustomerContainerProvider } from "#providers/CustomerContainerProvider"
 interface Props {
   settings: Settings
   children: React.ReactElement
+  config: RuntimeConfig
 }
 
-function MyAccountContainer({ settings, children }: Props): JSX.Element {
+function MyAccountContainer({
+  settings,
+  children,
+  config,
+}: Props): JSX.Element {
   return (
     <>
       <PageHead
@@ -44,6 +49,7 @@ function MyAccountContainer({ settings, children }: Props): JSX.Element {
               customerId={settings.customerId}
               accessToken={settings.accessToken}
               endpoint={settings.endpoint}
+              domain={config.domain}
             >
               <CustomerContainerProvider isGuest={settings.isGuest}>
                 <LayoutDefault

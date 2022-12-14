@@ -24,6 +24,7 @@ export const OrderContext = createContext<OrderProviderData | null>(null)
 type OrderProviderProps = {
   orderId: string
   accessToken: string
+  domain: string
   children: ((props: OrderProviderData) => React.ReactNode) | React.ReactNode
 }
 
@@ -31,6 +32,7 @@ export function OrderProvider({
   children,
   orderId,
   accessToken,
+  domain,
 }: OrderProviderProps): JSX.Element {
   const [state, setState] = useState(initialState)
 
@@ -43,8 +45,6 @@ export function OrderProvider({
     if (!slug) {
       return
     }
-
-    const domain = import.meta.env.PUBLIC_DOMAIN || "commercelayer.io"
 
     const cl = CommerceLayer({
       organization: slug,

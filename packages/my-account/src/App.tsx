@@ -30,7 +30,7 @@ function App(): JSX.Element {
                 ) : !settings.isValid ? (
                   <Invalid />
                 ) : (
-                  <MyAccountContainer settings={settings}>
+                  <MyAccountContainer settings={settings} config={config}>
                     <Switch>
                       <Route path={"/404"}>
                         <Invalid />

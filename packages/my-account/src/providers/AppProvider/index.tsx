@@ -9,6 +9,7 @@ type AppProviderData = Pick<
   Settings,
   "customerId" | "accessToken" | "endpoint"
 > & {
+  domain: string
   email: string
   hasPassword: boolean
   isLoading: boolean
@@ -41,6 +42,7 @@ type AppProviderProps = Pick<
   Settings,
   "customerId" | "accessToken" | "endpoint"
 > & {
+  domain: string
   children: React.ReactNode
 }
 
@@ -49,6 +51,7 @@ export function AppProvider({
   customerId,
   accessToken,
   endpoint,
+  domain,
 }: AppProviderProps): JSX.Element {
   const [state, setState] = useState(initialState)
 
@@ -65,8 +68,6 @@ export function AppProvider({
     if (!slug) {
       return
     }
-
-    const domain = import.meta.env.PUBLIC_DOMAIN || "commercelayer.io"
 
     const client = CommerceLayer({
       organization: slug,
@@ -103,6 +104,7 @@ export function AppProvider({
         customerId,
         accessToken,
         endpoint,
+        domain,
         refetchCustomer: async () => {
           return await fetchCustomerHandle(customerId, accessToken)
         },
