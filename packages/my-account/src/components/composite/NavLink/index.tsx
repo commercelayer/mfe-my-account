@@ -48,10 +48,11 @@ function NavLink(props: Props): JSX.Element {
   if (comingSoon) return <NavLinkButton {...props} />
 
   return (
-    <Link href={`${href}?accessToken=${accessToken}`}>
-      <a onClick={() => ctx?.closeMobileMenu()}>
-        <NavLinkButton {...props} />
-      </a>
+    <Link
+      href={`${href}?accessToken=${accessToken}`}
+      onClick={() => ctx?.closeMobileMenu()}
+    >
+      <NavLinkButton {...props} />
     </Link>
   )
 }
