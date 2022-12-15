@@ -1,7 +1,7 @@
 {
   "name": "commercelayer-my-account",
   "private": true,
-  "version": "1.0.0-stg.3",
+  "version": "1.0.0-stg.4",
   "engines": {
     "node": ">=16",
     "pnpm": ">=7"
