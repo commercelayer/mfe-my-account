@@ -21,8 +21,8 @@ interface SettingsProviderProps {
    *
    * Example:
    * ```
-   * <SettingsProvider orderId={orderId}>
-   *  {(ctx) => <div>cart</div>}
+   * <SettingsProvider config={config}>
+   *  {(ctx) => <div>my-account</div>}
    * </SettingsProvider>
    * ```
    */
