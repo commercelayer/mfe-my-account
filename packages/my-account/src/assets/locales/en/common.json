@@ -140,13 +140,9 @@
     "cancelled": "cancelled"
   },
   "shipmentStatus": {
-    "draft": "draft",
     "upcoming": "upcoming",
+    "in_progress": "in progress",
     "cancelled": "cancelled",
-    "on_hold": "on_hold",
-    "picking": "picking",
-    "packing": "packing",
-    "ready_to_ship": "ready_to_ship",
     "shipped": "shipped"
   },
   "parcelStatus": {
