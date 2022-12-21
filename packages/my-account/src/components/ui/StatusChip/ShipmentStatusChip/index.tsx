@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next"
 
 import StatusChip from "#components/ui/StatusChip"
+import { getStatusTranslations } from "#utils/shipments"
 
 export type ShipmentStatus =
   | "draft"
@@ -20,12 +21,7 @@ function ShipmentStatusChip({ status }: Props): JSX.Element {
   if (status === undefined) return <></>
   const { t } = useTranslation()
 
-  return (
-    <StatusChip
-      status={status}
-      label={t(`shipmentStatus.${status}`) as string}
-    />
-  )
+  return <StatusChip status={status} label={getStatusTranslations(status, t)} />
 }
 
 export default ShipmentStatusChip
