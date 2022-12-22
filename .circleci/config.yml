@@ -22,8 +22,16 @@ jobs:
       - checkout
       - <<: *setup
       - run:
-          name: Test 
+          name: Unit Test
           command: pnpm test
+  test-e2e:
+    <<: *image
+    steps:
+      - checkout
+      - <<: *setup
+      - run:
+          name: Integration Test
+          command: pnpm test:e2e
   build:
     <<: *image
     environment:
@@ -49,6 +57,11 @@ workflows:
           filters:
             tags:
               ignore: /v.*/
+      - test-e2e:
+          context: commercelayer
+          filters:
+            tags:
+              ignore: /v.*/
   
   test-build-and-push:
     jobs:
@@ -59,9 +72,17 @@ workflows:
               only: /^v(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*).*/
             branches:
               ignore: /.*/
+      - test-e2e:
+          context: commercelayer
+          filters:
+            tags:
+              only: /^v(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*).*/
+            branches:
+              ignore: /.*/
       - build:
           requires:
             - test
+            - test-e2e
           context: commercelayer
           filters:
             tags:
