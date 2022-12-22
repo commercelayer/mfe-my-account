@@ -5,7 +5,7 @@ import { getInfoFromJwt } from "#utils/getInfoFromJwt"
 import { getOrganizations } from "#utils/getOrganizations"
 import { isValidHost } from "#utils/isValidHost"
 
-// default settings are by their nature not valid to show a full cart
+// default settings are by their nature not valid to show My Account data
 // they will be used as fallback for errors or 404 page
 export const defaultSettings: InvalidSettings = {
   isValid: false,
