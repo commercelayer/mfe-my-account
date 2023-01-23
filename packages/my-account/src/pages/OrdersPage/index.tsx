@@ -82,12 +82,18 @@ function OrdersPage(): JSX.Element {
             field="number"
             className="order-1 pt-6 pb-2.5 md:p-0  md:align-middle"
           >
-            {({ cell, order, ...p }) => {
+            {({ cell, row, ...p }) => {
+              const order = row?.original
+              if (!order) return <></>
               return (
                 <>
                   {cell?.map((cell) => {
                     return (
-                      <OrderData key={order} {...p} {...cell.getCellProps()}>
+                      <OrderData
+                        key={order.number}
+                        {...p}
+                        {...cell.getCellProps()}
+                      >
                         <Link
                           href={`/orders/${order.id}?accessToken=${accessToken}`}
                         >
@@ -109,10 +115,12 @@ function OrdersPage(): JSX.Element {
             field="updated_at"
             className="absolute order-2 text-right bottom-4 right-5 md:bottom-auto md:relative md:right-auto md:text-left"
           >
-            {({ cell, order, ...p }) => {
+            {({ cell, row, ...p }) => {
+              const order = row?.original
+              if (!order) return <></>
               const cols = cell?.map((cell) => {
                 return (
-                  <OrderData key={order} {...p} {...cell.getCellProps()}>
+                  <OrderData key={order.number} {...p} {...cell.getCellProps()}>
                     <OrderUpdatedDate>
                       {cell.value && formatDate(cell.value, shortDate)}
                     </OrderUpdatedDate>
@@ -126,11 +134,13 @@ function OrdersPage(): JSX.Element {
             field="status"
             className="absolute order-3 bottom-4 md:bottom-auto md:relative"
           >
-            {({ cell, order, ...p }) => {
+            {({ cell, row, ...p }) => {
+              const order = row?.original
+              if (!order) return <></>
               const cols = cell?.map((cell) => {
                 return (
-                  <OrderData key={order} {...p} {...cell.getCellProps()}>
-                    <OrderStatusChip status={p.row.values.status} />
+                  <OrderData key={order.number} {...p} {...cell.getCellProps()}>
+                    <OrderStatusChip status={order.status} />
                   </OrderData>
                 )
               })
