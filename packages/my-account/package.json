@@ -1,7 +1,7 @@
 {
   "name": "commercelayer-my-account",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.0.1",
   "engines": {
     "node": ">=16",
     "pnpm": ">=7"
