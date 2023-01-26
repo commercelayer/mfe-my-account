@@ -4,6 +4,7 @@ import { Router, Route, Switch, Redirect } from "wouter"
 import Invalid from "#components/composite/Invalid"
 import MyAccountContainer from "#components/composite/MyAccountContainer"
 import Skeleton from "#components/composite/Skeleton"
+import { OrderProvider } from "#providers/OrderProvider"
 import { RuntimeConfigProvider } from "#providers/RuntimeConfigProvider"
 import { SettingsProvider } from "#providers/SettingsProvider"
 
@@ -48,7 +49,13 @@ function App(): JSX.Element {
                       <Route path={"/orders/:orderId"}>
                         {(params) => (
                           <Suspense fallback={<></>}>
-                            <LazyOrderPage orderId={params.orderId} />
+                            <OrderProvider
+                              orderId={params.orderId}
+                              accessToken={settings.accessToken}
+                              domain={config.domain}
+                            >
+                              <LazyOrderPage orderId={params.orderId} />
+                            </OrderProvider>
                           </Suspense>
                         )}
                       </Route>
@@ -62,11 +69,16 @@ function App(): JSX.Element {
                       <Route path={"/orders/:orderId/parcels/:parcelId"}>
                         {(params) => (
                           <Suspense fallback={<></>}>
-                            <LazyParcelPage
-                              settings={settings}
+                            <OrderProvider
                               orderId={params.orderId}
-                              parcelId={params.parcelId}
-                            />
+                              accessToken={settings.accessToken}
+                              domain={config.domain}
+                            >
+                              <LazyParcelPage
+                                orderId={params.orderId}
+                                parcelId={params.parcelId}
+                              />
+                            </OrderProvider>
                           </Suspense>
                         )}
                       </Route>
