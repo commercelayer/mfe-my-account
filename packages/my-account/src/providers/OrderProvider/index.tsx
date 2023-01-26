@@ -6,17 +6,20 @@ import { getOrder } from "#utils/getOrder"
 
 type OrderProviderData = {
   order?: Order
-  invalidOrder: boolean
+  isLoading: boolean
+  isInvalid: boolean
 }
 
 type OrderStateData = {
   order?: Order
-  invalidOrder: boolean
+  isLoading: boolean
+  isInvalid: boolean
 }
 
 const initialState: OrderStateData = {
   order: undefined,
-  invalidOrder: false,
+  isLoading: true,
+  isInvalid: false,
 }
 
 export const OrderContext = createContext<OrderProviderData | null>(null)
@@ -52,27 +55,27 @@ export function OrderProvider({
       domain,
     })
 
-    const [orderResponse] = await Promise.all([
-      getOrder({ client: cl, orderId }),
-    ])
+    const orderResponse = await getOrder({ client: cl, orderId })
     const order = orderResponse?.object
-    const invalidOrder = !order
 
     setState({
       ...state,
       order,
-      invalidOrder,
+      isLoading: false,
+      isInvalid: !order,
     })
   }
 
   useEffect(() => {
+    setState({ ...state, isLoading: true })
     fetchInitialOrder(orderId, accessToken)
   }, [orderId, accessToken])
 
   const value = {
     ...state,
     order: state.order,
-    invalidOrder: state.invalidOrder,
+    isLoading: state.isLoading,
+    isInvalid: state.isInvalid,
   }
 
   return (

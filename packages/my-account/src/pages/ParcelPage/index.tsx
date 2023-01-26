@@ -36,11 +36,10 @@ function ParcelPage({ orderId, parcelId }: Props): JSX.Element {
   const accessToken = ctx?.accessToken
 
   const orderCtx = useContext(OrderContext)
-  const invalidOrder = orderCtx?.invalidOrder
 
   const { t } = useTranslation()
 
-  if (invalidOrder) {
+  if (orderCtx?.isInvalid) {
     return <Redirect to={`/orders?accessToken=${accessToken}`} />
   } else {
     return (
