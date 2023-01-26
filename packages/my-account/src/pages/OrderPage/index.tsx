@@ -28,16 +28,14 @@ function OrderPage({ orderId }: OrderPageProps): JSX.Element {
   const accessToken = ctx?.accessToken
 
   const orderCtx = useContext(OrderContext)
-  const order = orderCtx?.order
-  const invalidOrder = orderCtx?.invalidOrder
 
-  if (invalidOrder) {
+  if (orderCtx?.isInvalid) {
     return <Redirect to={`/orders?accessToken=${accessToken}`} />
   } else {
     return (
       <OrderContainer orderId={orderId}>
-        <SkeletonMainOrder visible={order === undefined} />
-        <OrderWrapper hidden={order === undefined}>
+        <SkeletonMainOrder visible={orderCtx?.isLoading} />
+        <OrderWrapper hidden={orderCtx?.isLoading}>
           <OrderHeader>
             <OrderHeaderMain>
               <OrderTitle>
