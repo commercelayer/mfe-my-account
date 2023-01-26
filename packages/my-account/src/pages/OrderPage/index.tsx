@@ -9,17 +9,15 @@ import {
   OrderHeader,
   OrderHeaderMain,
   OrderTitle,
-  OrderDescription,
   OrderAccordionWrapper,
 } from "./styled"
 
 import OrderAccordion from "#components/composite/Order/OrderAccordion"
+import OrderDate from "#components/composite/Order/OrderDate"
+import OrderStatus from "#components/composite/Order/OrderStatus"
 import { SkeletonMainOrder } from "#components/composite/Skeleton/Main"
-import OrderStatusChip from "#components/ui/StatusChip/OrderStatusChip"
-import type { OrderStatus } from "#components/ui/StatusChip/OrderStatusChip"
 import { AppContext } from "#providers/AppProvider"
 import { OrderContext } from "#providers/OrderProvider"
-import { formatDate, shortDate } from "#utils/dateTimeFormats"
 
 interface OrderPageProps {
   orderId: string
@@ -32,10 +30,6 @@ function OrderPage({ orderId }: OrderPageProps): JSX.Element {
   const orderCtx = useContext(OrderContext)
   const order = orderCtx?.order
   const invalidOrder = orderCtx?.invalidOrder
-
-  const orderPlacedAt =
-    (order?.placed_at && formatDate(order.placed_at, shortDate)) || ""
-  const orderStatus = order ? (order.status as OrderStatus) : "placed"
 
   if (invalidOrder) {
     return <Redirect to={`/orders?accessToken=${accessToken}`} />
@@ -51,10 +45,8 @@ function OrderPage({ orderId }: OrderPageProps): JSX.Element {
                   <OrderNumber />
                 </Trans>
               </OrderTitle>
-              <OrderDescription>
-                <Trans i18nKey="order.placed_at">{orderPlacedAt}</Trans>
-              </OrderDescription>
-              <OrderStatusChip status={orderStatus} />
+              <OrderDate />
+              <OrderStatus />
             </OrderHeaderMain>
           </OrderHeader>
           <OrderAccordionWrapper>

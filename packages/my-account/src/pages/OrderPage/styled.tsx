@@ -26,10 +26,6 @@ export const OrderTitle = styled.h2`
   ${tw`block text-lg font-medium`}
 `
 
-export const OrderDescription = styled.p`
-  ${tw`block text-sm text-gray-500 mb-2`}
-`
-
 export const OrderHeaderActions = styled.div`
   ${tw`flex justify-end`}
 `
