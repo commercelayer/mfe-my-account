@@ -14,7 +14,7 @@ import {
 
 import OrderAccordion from "#components/composite/Order/OrderAccordion"
 import OrderDate from "#components/composite/Order/OrderDate"
-import OrderStatus from "#components/composite/Order/OrderStatus"
+import OrderStatusBadge from "#components/composite/Order/OrderStatusBadge"
 import { SkeletonMainOrder } from "#components/composite/Skeleton/Main"
 import { AppContext } from "#providers/AppProvider"
 import { OrderContext } from "#providers/OrderProvider"
@@ -46,7 +46,7 @@ function OrderPage({ orderId }: OrderPageProps): JSX.Element {
                 </Trans>
               </OrderTitle>
               <OrderDate />
-              <OrderStatus />
+              <OrderStatusBadge />
             </OrderHeaderMain>
           </OrderHeader>
           <OrderAccordionWrapper>

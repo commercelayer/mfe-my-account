@@ -4,7 +4,7 @@ import type { OrderStatus } from "#components/ui/StatusChip/OrderStatusChip"
 import OrderStatusChip from "#components/ui/StatusChip/OrderStatusChip"
 import { OrderContext } from "#providers/OrderProvider"
 
-function OrderStatus(): JSX.Element {
+function OrderStatusBadge(): JSX.Element {
   const orderCtx = useContext(OrderContext)
   const order = orderCtx?.order
 
@@ -13,4 +13,4 @@ function OrderStatus(): JSX.Element {
   return <OrderStatusChip status={orderStatus} />
 }
 
-export default OrderStatus
+export default OrderStatusBadge
