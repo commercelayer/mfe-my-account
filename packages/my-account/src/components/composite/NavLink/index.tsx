@@ -23,7 +23,7 @@ function NavLinkButton(props: Props): JSX.Element {
   const { title, href, icon, comingSoon, onClick } = props
   const [location] = useLocation()
   const [isActive] = useRoute(href)
-  const isCurrentPage = isActive || location.indexOf(href) >= 0
+  const isCurrentPage = isActive || href.indexOf(location) >= 0
 
   return (
     <Wrapper
