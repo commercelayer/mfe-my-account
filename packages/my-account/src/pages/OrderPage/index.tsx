@@ -18,7 +18,7 @@ import { SkeletonMainOrder } from "#components/composite/Skeleton/Main"
 import OrderStatusChip from "#components/ui/StatusChip/OrderStatusChip"
 import type { OrderStatus } from "#components/ui/StatusChip/OrderStatusChip"
 import { AppContext } from "#providers/AppProvider"
-import { OrderProvider } from "#providers/OrderProvider"
+import { OrderContext } from "#providers/OrderProvider"
 import { formatDate, shortDate } from "#utils/dateTimeFormats"
 
 interface OrderPageProps {
@@ -29,47 +29,41 @@ function OrderPage({ orderId }: OrderPageProps): JSX.Element {
   const ctx = useContext(AppContext)
   const accessToken = ctx?.accessToken
 
-  return (
-    <OrderProvider
-      orderId={orderId}
-      accessToken={accessToken as string}
-      domain={ctx?.domain as string}
-    >
-      {({ order, invalidOrder }) => {
-        const orderPlacedAt =
-          (order?.placed_at && formatDate(order.placed_at, shortDate)) || ""
-        const orderStatus = order ? (order.status as OrderStatus) : "placed"
+  const orderCtx = useContext(OrderContext)
+  const order = orderCtx?.order
+  const invalidOrder = orderCtx?.invalidOrder
 
-        if (invalidOrder) {
-          return <Redirect to={`/orders?accessToken=${accessToken}`} />
-        } else {
-          return (
-            <OrderContainer orderId={orderId}>
-              <SkeletonMainOrder visible={order === undefined} />
-              <OrderWrapper hidden={order === undefined}>
-                <OrderHeader>
-                  <OrderHeaderMain>
-                    <OrderTitle>
-                      <Trans i18nKey="order.title">
-                        <OrderNumber />
-                      </Trans>
-                    </OrderTitle>
-                    <OrderDescription>
-                      <Trans i18nKey="order.placed_at">{orderPlacedAt}</Trans>
-                    </OrderDescription>
-                    <OrderStatusChip status={orderStatus} />
-                  </OrderHeaderMain>
-                </OrderHeader>
-                <OrderAccordionWrapper>
-                  <OrderAccordion />
-                </OrderAccordionWrapper>
-              </OrderWrapper>
-            </OrderContainer>
-          )
-        }
-      }}
-    </OrderProvider>
-  )
+  const orderPlacedAt =
+    (order?.placed_at && formatDate(order.placed_at, shortDate)) || ""
+  const orderStatus = order ? (order.status as OrderStatus) : "placed"
+
+  if (invalidOrder) {
+    return <Redirect to={`/orders?accessToken=${accessToken}`} />
+  } else {
+    return (
+      <OrderContainer orderId={orderId}>
+        <SkeletonMainOrder visible={order === undefined} />
+        <OrderWrapper hidden={order === undefined}>
+          <OrderHeader>
+            <OrderHeaderMain>
+              <OrderTitle>
+                <Trans i18nKey="order.title">
+                  <OrderNumber />
+                </Trans>
+              </OrderTitle>
+              <OrderDescription>
+                <Trans i18nKey="order.placed_at">{orderPlacedAt}</Trans>
+              </OrderDescription>
+              <OrderStatusChip status={orderStatus} />
+            </OrderHeaderMain>
+          </OrderHeader>
+          <OrderAccordionWrapper>
+            <OrderAccordion />
+          </OrderAccordionWrapper>
+        </OrderWrapper>
+      </OrderContainer>
+    )
+  }
 }
 
 export default OrderPage
