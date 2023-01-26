@@ -81,11 +81,8 @@ export function AppProvider({
     }).then((customerResponse) => {
       const customer = customerResponse?.object
       setState({
-        email: customer && customer.email !== undefined ? customer.email : "",
-        hasPassword:
-          customer && customer.has_password !== undefined
-            ? customer.has_password
-            : false,
+        email: customer?.email ?? "",
+        hasPassword: customer?.has_password ?? false,
         isLoading: false,
         isFirstLoading: false,
         showMobileMenu: false,
