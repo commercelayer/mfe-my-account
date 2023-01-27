@@ -4,7 +4,6 @@ import { Router, Route, Switch, Redirect } from "wouter"
 import Invalid from "#components/composite/Invalid"
 import MyAccountContainer from "#components/composite/MyAccountContainer"
 import Skeleton from "#components/composite/Skeleton"
-import { OrderProvider } from "#providers/OrderProvider"
 import { RuntimeConfigProvider } from "#providers/RuntimeConfigProvider"
 import { SettingsProvider } from "#providers/SettingsProvider"
 
@@ -49,13 +48,7 @@ function App(): JSX.Element {
                       <Route path={"/orders/:orderId"}>
                         {(params) => (
                           <Suspense fallback={<></>}>
-                            <OrderProvider
-                              orderId={params.orderId}
-                              accessToken={settings.accessToken}
-                              domain={config.domain}
-                            >
-                              <LazyOrderPage orderId={params.orderId} />
-                            </OrderProvider>
+                            <LazyOrderPage orderId={params.orderId} />
                           </Suspense>
                         )}
                       </Route>
@@ -69,16 +62,10 @@ function App(): JSX.Element {
                       <Route path={"/orders/:orderId/parcels/:parcelId"}>
                         {(params) => (
                           <Suspense fallback={<></>}>
-                            <OrderProvider
+                            <LazyParcelPage
                               orderId={params.orderId}
-                              accessToken={settings.accessToken}
-                              domain={config.domain}
-                            >
-                              <LazyParcelPage
-                                orderId={params.orderId}
-                                parcelId={params.parcelId}
-                              />
-                            </OrderProvider>
+                              parcelId={params.parcelId}
+                            />
                           </Suspense>
                         )}
                       </Route>

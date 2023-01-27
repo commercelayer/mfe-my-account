@@ -35,10 +35,10 @@ import {
   ParcelLineItemQuantity,
 } from "./styled"
 
+import ShipmentStatusChip from "#components/composite/Order/ShipmentStatusChip"
+import type { ShipmentStatus } from "#components/composite/Order/ShipmentStatusChip"
 import Button from "#components/ui/Button"
 import ShowHideMenu from "#components/ui/ShowHideMenu"
-import ShipmentStatusChip from "#components/ui/StatusChip/ShipmentStatusChip"
-import type { ShipmentStatus } from "#components/ui/StatusChip/ShipmentStatusChip"
 import { AppContext } from "#providers/AppProvider"
 import { OrderContext } from "#providers/OrderProvider"
 

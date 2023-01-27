@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next"
 
-import StatusChip from "#components/ui/StatusChip"
+import { StatusChipWrapper } from "#components/ui/StatusChip/styled"
 
 export type OrderStatus =
   | "draft"
@@ -14,11 +14,12 @@ interface Props {
 }
 
 function OrderStatusChip({ status }: Props): JSX.Element {
-  if (status === undefined) return <></>
   const { t } = useTranslation()
-
+  if (status === undefined) return <></>
   return (
-    <StatusChip status={status} label={t(`orderStatus.${status}`) as string} />
+    <StatusChipWrapper status={status}>
+      {t(`orderStatus.${status}`) as string}
+    </StatusChipWrapper>
   )
 }
 

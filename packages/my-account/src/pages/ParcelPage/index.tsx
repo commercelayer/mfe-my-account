@@ -24,7 +24,7 @@ import {
 import OrderParcelHistory from "#components/composite/OrderParcel/OrderParcelHistory"
 import { SkeletonMainParcel } from "#components/composite/Skeleton/Main"
 import { AppContext } from "#providers/AppProvider"
-import { OrderContext } from "#providers/OrderProvider"
+import { OrderProvider } from "#providers/OrderProvider"
 
 interface Props {
   orderId: string
@@ -35,54 +35,64 @@ function ParcelPage({ orderId, parcelId }: Props): JSX.Element {
   const ctx = useContext(AppContext)
   const accessToken = ctx?.accessToken
 
-  const orderCtx = useContext(OrderContext)
-
   const { t } = useTranslation()
 
-  if (orderCtx?.isInvalid) {
-    return <Redirect to={`/orders?accessToken=${accessToken}`} />
-  } else {
-    return (
-      <OrderContainer orderId={orderId}>
-        <ShipmentsContainer>
-          <Shipment loader={<SkeletonMainParcel />}>
-            <Parcels filterBy={[parcelId]}>
-              <ParcelContainer>
-                <ParcelHeader>
-                  <ParcelHeaderTop>
-                    <Link
-                      href={`/orders/${orderId}?accessToken=${accessToken}`}
-                    >
-                      <BackToOrder>
-                        <CaretLeft weight="regular" className="w-7 h-7" />
-                      </BackToOrder>
-                    </Link>
-                    <Title>{t("order.shipments.parcelDetail.title")}</Title>
-                  </ParcelHeaderTop>
-                  <ParcelHeaderMain className="mt-10">
-                    <ParcelHeaderCol>
-                      <ParcelHeaderLabel>
-                        {t("order.shipments.parcelDetail.trackingCode")}
-                      </ParcelHeaderLabel>
-                      <ParcelHeaderValue>
-                        <ParcelField
-                          attribute="tracking_number"
-                          tagElement="span"
-                        />
-                      </ParcelHeaderValue>
-                    </ParcelHeaderCol>
-                  </ParcelHeaderMain>
-                </ParcelHeader>
-                <TabsWrapper>
-                  <OrderParcelHistory />
-                </TabsWrapper>
-              </ParcelContainer>
-            </Parcels>
-          </Shipment>
-        </ShipmentsContainer>
-      </OrderContainer>
-    )
-  }
+  return (
+    <OrderProvider
+      orderId={orderId}
+      accessToken={accessToken as string}
+      domain={ctx?.domain as string}
+    >
+      {({ isInvalid }) => (
+        <>
+          {isInvalid ? (
+            <Redirect to={`/orders?accessToken=${accessToken}`} />
+          ) : (
+            <OrderContainer orderId={orderId}>
+              <ShipmentsContainer>
+                <Shipment loader={<SkeletonMainParcel />}>
+                  <Parcels filterBy={[parcelId]}>
+                    <ParcelContainer>
+                      <ParcelHeader>
+                        <ParcelHeaderTop>
+                          <Link
+                            href={`/orders/${orderId}?accessToken=${accessToken}`}
+                          >
+                            <BackToOrder>
+                              <CaretLeft weight="regular" className="w-7 h-7" />
+                            </BackToOrder>
+                          </Link>
+                          <Title>
+                            {t("order.shipments.parcelDetail.title")}
+                          </Title>
+                        </ParcelHeaderTop>
+                        <ParcelHeaderMain className="mt-10">
+                          <ParcelHeaderCol>
+                            <ParcelHeaderLabel>
+                              {t("order.shipments.parcelDetail.trackingCode")}
+                            </ParcelHeaderLabel>
+                            <ParcelHeaderValue>
+                              <ParcelField
+                                attribute="tracking_number"
+                                tagElement="span"
+                              />
+                            </ParcelHeaderValue>
+                          </ParcelHeaderCol>
+                        </ParcelHeaderMain>
+                      </ParcelHeader>
+                      <TabsWrapper>
+                        <OrderParcelHistory />
+                      </TabsWrapper>
+                    </ParcelContainer>
+                  </Parcels>
+                </Shipment>
+              </ShipmentsContainer>
+            </OrderContainer>
+          )}
+        </>
+      )}
+    </OrderProvider>
+  )
 }
 
 export default ParcelPage
