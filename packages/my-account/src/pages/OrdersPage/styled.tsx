@@ -21,6 +21,6 @@ export const OrderItemsCount = styled.p`
   ${tw`text-sm font-light text-gray-400`}
 `
 
-export const OrderUpdatedDate = styled.p`
+export const OrderDate = styled.p`
   ${tw`inline-block text-sm font-extralight text-gray-400 bg-gray-200 px-3 rounded-full h-5 md:(bg-contrast px-0 w-min)`}
 `
