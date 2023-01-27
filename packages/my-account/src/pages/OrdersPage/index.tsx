@@ -12,7 +12,7 @@ import {
   OrderData,
   OrderNumber,
   OrderItemsCount,
-  OrderUpdatedDate,
+  OrderDate,
 } from "./styled"
 
 import Empty from "#components/composite/Empty"
@@ -39,7 +39,7 @@ function OrdersPage(): JSX.Element {
     },
     {
       Header: "Date",
-      accessor: "updated_at",
+      accessor: "placed_at",
       className: colClassName,
       titleClassName,
     },
@@ -112,7 +112,7 @@ function OrdersPage(): JSX.Element {
             }}
           </OrderListRow>
           <OrderListRow
-            field="updated_at"
+            field="placed_at"
             className="absolute order-2 text-right bottom-4 right-5 md:bottom-auto md:relative md:right-auto md:text-left"
           >
             {({ cell, row, ...p }) => {
@@ -121,9 +121,9 @@ function OrdersPage(): JSX.Element {
               const cols = cell?.map((cell) => {
                 return (
                   <OrderData key={order.number} {...p} {...cell.getCellProps()}>
-                    <OrderUpdatedDate>
+                    <OrderDate>
                       {cell.value && formatDate(cell.value, shortDate)}
-                    </OrderUpdatedDate>
+                    </OrderDate>
                   </OrderData>
                 )
               })
