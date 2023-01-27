@@ -16,8 +16,8 @@ import {
 } from "./styled"
 
 import Empty from "#components/composite/Empty"
-import { SkeletonMainOrdersTable } from "#components/composite/Skeleton/Main/OrdersTable"
 import OrderStatusChip from "#components/composite/Order/OrderStatusChip"
+import { SkeletonMainOrdersTable } from "#components/composite/Skeleton/Main/OrdersTable"
 import Title from "#components/ui/Title"
 import { AppContext } from "#providers/AppProvider"
 import { formatDate, shortDate } from "#utils/dateTimeFormats"
