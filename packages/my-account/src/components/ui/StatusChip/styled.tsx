@@ -1,8 +1,11 @@
 import styled from "styled-components"
 import tw from "twin.macro"
 
+import type { OrderStatus } from "../../composite/Order/OrderStatusChip"
+import type { ShipmentStatus } from "../../composite/Order/ShipmentStatusChip"
+
 interface StatusChipProps {
-  status: string
+  status: OrderStatus | ShipmentStatus
 }
 
 const handlerStatusColor = (status: string) => {

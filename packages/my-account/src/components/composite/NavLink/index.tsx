@@ -1,6 +1,6 @@
 import type { Settings } from "HostedApp"
 import { useContext } from "react"
-import { useLocation, useRoute, Link } from "wouter"
+import { useRouter, useLocation, useRoute, Link } from "wouter"
 
 import { Wrapper, Icon, TitleWrapper, Title, ComingSoon } from "./styled"
 
@@ -21,9 +21,10 @@ function ComingSoonBadge(): JSX.Element {
 
 function NavLinkButton(props: Props): JSX.Element {
   const { title, href, icon, comingSoon, onClick } = props
+  const router = useRouter()
   const [location] = useLocation()
-  const [isActive] = useRoute(href)
-  const isCurrentPage = isActive || location.indexOf(href) >= 0
+  const hrefWithoutBase = href.replace(router.base, "").split("?")[0]
+  const isCurrentPage = location.indexOf(hrefWithoutBase) >= 0
 
   return (
     <Wrapper

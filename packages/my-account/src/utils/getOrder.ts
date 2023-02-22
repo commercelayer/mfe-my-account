@@ -31,6 +31,7 @@ const getAsyncOrder = async (client: CommerceLayerClient, orderId: string) => {
       orders: [
         "id",
         "status",
+        "placed_at",
         "number",
         "guest",
         "shipping_address",

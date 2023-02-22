@@ -3,7 +3,6 @@ import { ParcelField } from "@commercelayer/react-components/parcels/ParcelField
 import { Parcels } from "@commercelayer/react-components/parcels/Parcels"
 import { Shipment } from "@commercelayer/react-components/shipments/Shipment"
 import { ShipmentsContainer } from "@commercelayer/react-components/shipments/ShipmentsContainer"
-import type { Settings } from "HostedApp"
 import { CaretLeft } from "phosphor-react"
 import { useContext } from "react"
 import { useTranslation } from "react-i18next"
@@ -28,26 +27,27 @@ import { AppContext } from "#providers/AppProvider"
 import { OrderProvider } from "#providers/OrderProvider"
 
 interface Props {
-  settings: Settings
   orderId: string
   parcelId: string
 }
 
-function ParcelPage({ settings, orderId, parcelId }: Props): JSX.Element {
+function ParcelPage({ orderId, parcelId }: Props): JSX.Element {
   const ctx = useContext(AppContext)
+  const accessToken = ctx?.accessToken
+
   const { t } = useTranslation()
 
   return (
     <OrderProvider
       orderId={orderId}
-      accessToken={settings.accessToken}
+      accessToken={accessToken as string}
       domain={ctx?.domain as string}
     >
-      {({ invalidOrder }) => {
-        if (invalidOrder) {
-          return <Redirect to={`/orders?accessToken=${settings.accessToken}`} />
-        } else {
-          return (
+      {({ isInvalid }) => (
+        <>
+          {isInvalid ? (
+            <Redirect to={`/orders?accessToken=${accessToken}`} />
+          ) : (
             <OrderContainer orderId={orderId}>
               <ShipmentsContainer>
                 <Shipment loader={<SkeletonMainParcel />}>
@@ -56,7 +56,7 @@ function ParcelPage({ settings, orderId, parcelId }: Props): JSX.Element {
                       <ParcelHeader>
                         <ParcelHeaderTop>
                           <Link
-                            href={`/orders/${orderId}?accessToken=${settings.accessToken}`}
+                            href={`/orders/${orderId}?accessToken=${accessToken}`}
                           >
                             <BackToOrder>
                               <CaretLeft weight="regular" className="w-7 h-7" />
@@ -88,9 +88,9 @@ function ParcelPage({ settings, orderId, parcelId }: Props): JSX.Element {
                 </Shipment>
               </ShipmentsContainer>
             </OrderContainer>
-          )
-        }
-      }}
+          )}
+        </>
+      )}
     </OrderProvider>
   )
 }

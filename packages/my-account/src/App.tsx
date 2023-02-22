@@ -63,7 +63,6 @@ function App(): JSX.Element {
                         {(params) => (
                           <Suspense fallback={<></>}>
                             <LazyParcelPage
-                              settings={settings}
                               orderId={params.orderId}
                               parcelId={params.parcelId}
                             />
