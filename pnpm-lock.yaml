@@ -11,7 +11,7 @@ importers:
   packages/my-account:
     specifiers:
       '@commercelayer/js-auth': ^2.3.0
-      '@commercelayer/react-components': 4.1.0
+      '@commercelayer/react-components': 4.2.3-beta.0
       '@commercelayer/react-utils': 1.0.0-beta.3
       '@commercelayer/sdk': ^4.20.0
       '@esbuild-plugins/node-globals-polyfill': ^0.1.1
@@ -74,7 +74,7 @@ importers:
       wouter: ^2.8.1
       zod: 3.20.2
     dependencies:
-      '@commercelayer/react-components': 4.1.0_biqbaboplfbrettd7655fr4n2y
+      '@commercelayer/react-components': 4.2.3-beta.0_biqbaboplfbrettd7655fr4n2y
       '@commercelayer/react-utils': 1.0.0-beta.3_bvai3i5a2wg6lfiumjdxdzymmm
       '@commercelayer/sdk': 4.20.0
       '@esbuild-plugins/node-globals-polyfill': 0.1.1
@@ -151,8 +151,8 @@ packages:
     engines: {node: '>=10'}
     dev: false
 
-  /@adyen/adyen-web/5.31.3:
-    resolution: {integrity: sha512-37LM16goSP0vTN2QWopT6qJeIdQsg+cy5MB2+5Gd3ZoKjS3033qwX6kNcgocstBMS/sxYw4+hRy2zDl5vth1xA==}
+  /@adyen/adyen-web/5.33.0:
+    resolution: {integrity: sha512-UKYjlEVasf4D4ujVxsAb9dvY+oDhNxM7KaBZMFJ7l3sU9bHE037g3Y1+3yraUxJaHfSJQnNVHGrTd3QmQZntbA==}
     dependencies:
       '@babel/runtime': 7.20.6
       '@babel/runtime-corejs3': 7.20.6
@@ -512,23 +512,22 @@ packages:
       tslib: 2.4.1
     dev: true
 
-  /@commercelayer/react-components/4.1.0_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-CDq/57QeSWFfSK13BRc/J8bXdLlpocso9hmRMwS+GN6Uj4M0J4ag5YVDPVENJ160V3I9wKNUKbqEkQim/Z/L9w==}
+  /@commercelayer/react-components/4.2.3-beta.0_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-T0UIhaFLqtwoL2ZsKBYeAPLFZZH0LNiUM1RO+dQYWum0LGB1o+tmoHCIbJIw1RCkp1LgSFh9Fw85NQpKNRE/Ug==}
     peerDependencies:
       react: ^18.0.0
     dependencies:
       '@ac-dev/countries-service': 1.2.0
       '@ac-dev/states-service': 1.1.1
-      '@adyen/adyen-web': 5.31.3
-      '@commercelayer/sdk': 4.21.0
+      '@adyen/adyen-web': 5.33.0
+      '@commercelayer/sdk': 4.25.0
       '@stripe/react-stripe-js': 1.16.4_keartrz7uyerl3wkpjpue4xbhy
       '@stripe/stripe-js': 1.46.0
-      axios: 1.2.3
+      axios: 1.3.4
       braintree-web: 3.90.0
       frames-react: 1.1.0_react@18.2.0
       jwt-decode: 3.1.2
       lodash: 4.17.21
-      lodash-es: 4.17.21
       rapid-form: 2.1.0
       react: 18.2.0
       react-table: 7.8.0_react@18.2.0
@@ -571,11 +570,11 @@ packages:
       - debug
     dev: false
 
-  /@commercelayer/sdk/4.21.0:
-    resolution: {integrity: sha512-eZI80LcME5qY2HgD/iuVGRED38LVpjrFWW3ghNKomH2z0zHusx0saLEL6V/g9EmJBMq0i9MAIh4zA7SkDpemIw==}
+  /@commercelayer/sdk/4.25.0:
+    resolution: {integrity: sha512-5PZflCUFy+daavuw5AEGJTDF3xbhwQQHMxImmgEh5N7li2lPyw+9pBZ1Aq/DSaYLsIgb/MhnIs8a/u6M7Gto/g==}
     engines: {node: '>=16 || ^14.17'}
     dependencies:
-      axios: 1.1.3
+      axios: 1.3.2
     transitivePeerDependencies:
       - debug
     dev: false
@@ -2605,16 +2604,6 @@ packages:
       postcss-value-parser: 4.2.0
     dev: false
 
-  /axios/1.1.3:
-    resolution: {integrity: sha512-00tXVRwKx/FZr/IDVFt4C+f9FYairX517WoGCL6dpOntqLkZofjhu43F/Xl44UOpqa+9sLFDrG/XAnFsUYgkDA==}
-    dependencies:
-      follow-redirects: 1.15.2
-      form-data: 4.0.0
-      proxy-from-env: 1.1.0
-    transitivePeerDependencies:
-      - debug
-    dev: false
-
   /axios/1.2.1:
     resolution: {integrity: sha512-I88cFiGu9ryt/tfVEi4kX2SITsvDddTajXTOFmt2uK1ZVA8LytjtdeyefdQWEf5PU8w+4SSJDoYnggflB5tW4A==}
     dependencies:
@@ -2624,8 +2613,18 @@ packages:
     transitivePeerDependencies:
       - debug
 
-  /axios/1.2.3:
-    resolution: {integrity: sha512-pdDkMYJeuXLZ6Xj/Q5J3Phpe+jbGdsSzlQaFVkMQzRUL05+6+tetX8TV3p4HrU4kzuO9bt+io/yGQxuyxA/xcw==}
+  /axios/1.3.2:
+    resolution: {integrity: sha512-1M3O703bYqYuPhbHeya5bnhpYVsDDRyQSabNja04mZtboLNSuZ4YrltestrLXfHgmzua4TpUqRiVKbiQuo2epw==}
+    dependencies:
+      follow-redirects: 1.15.2
+      form-data: 4.0.0
+      proxy-from-env: 1.1.0
+    transitivePeerDependencies:
+      - debug
+    dev: false
+
+  /axios/1.3.4:
+    resolution: {integrity: sha512-toYm+Bsyl6VC5wSkfkbbNB6ROv7KY93PEBBL6xyDczaIHasAiv4wPqQ/c4RjoQzipxRD2W5g21cOqQulZ7rHwQ==}
     dependencies:
       follow-redirects: 1.15.2
       form-data: 4.0.0
@@ -5830,10 +5829,6 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       p-locate: 4.1.0
-
-  /lodash-es/4.17.21:
-    resolution: {integrity: sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==}
-    dev: false
 
   /lodash.capitalize/4.2.1:
     resolution: {integrity: sha512-kZzYOKspf8XVX5AvmQF94gQW0lejFVgb80G85bU4ZWzoJ6C03PQg3coYAUpSTpQWelrZELd3XWgHzw4Ck5kaIw==}

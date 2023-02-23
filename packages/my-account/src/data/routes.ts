@@ -17,4 +17,8 @@ export const appRoutes = {
     path: "/addresses/:addressId/edit",
     makePath: (addressId: string) => `/addresses/${addressId}/edit`,
   },
+  wallet: {
+    path: "/wallet",
+    makePath: () => "/wallet",
+  },
 }

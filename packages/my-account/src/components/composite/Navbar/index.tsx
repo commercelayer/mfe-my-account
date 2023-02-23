@@ -56,7 +56,7 @@ function Navbar({ settings, onClick }: Props): JSX.Element {
       title: t("menu.wallet"),
       href: "/wallet",
       icon: <CreditCard className="w-4" />,
-      comingSoon: true,
+      comingSoon: false,
       accessToken,
       onClick,
     },
