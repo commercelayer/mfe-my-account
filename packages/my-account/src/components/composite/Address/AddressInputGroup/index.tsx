@@ -16,22 +16,11 @@ import {
 } from "./styled"
 
 import { Label } from "#components/ui/form/Label"
+import type { AddressFormFields } from "#types/addresses"
 
 interface Props {
   type: BaseInputType
-  fieldName: `billing_address_${Extract<
-    keyof Address,
-    | "first_name"
-    | "last_name"
-    | "line_1"
-    | "line_2"
-    | "city"
-    | "zip_code"
-    | "country_code"
-    | "state_code"
-    | "phone"
-    | "billing_info"
-  >}`
+  fieldName: `billing_address_${Extract<keyof Address, AddressFormFields>}`
   resource: ResourceErrorType
   value?: string
   required?: boolean

@@ -4,12 +4,14 @@ import { Router, Route, Switch, Redirect } from "wouter"
 import Invalid from "#components/composite/Invalid"
 import MyAccountContainer from "#components/composite/MyAccountContainer"
 import Skeleton from "#components/composite/Skeleton"
+import { appRoutes } from "#data/routes"
 import { RuntimeConfigProvider } from "#providers/RuntimeConfigProvider"
 import { SettingsProvider } from "#providers/SettingsProvider"
 
 const LazyOrderPage = lazy(() => import("#pages/OrderPage"))
 const LazyOrdersPage = lazy(() => import("#pages/OrdersPage"))
 const LazyParcelPage = lazy(() => import("#pages/ParcelPage"))
+const LazyAddressFormPage = lazy(() => import("#pages/AdddressFormPage"))
 const LazyAddressesPage = lazy(() => import("#pages/AddressesPage"))
 
 const basePath =
@@ -69,7 +71,17 @@ function App(): JSX.Element {
                           </Suspense>
                         )}
                       </Route>
-                      <Route path={"/addresses"}>
+                      <Route path={appRoutes.newAddress.path}>
+                        <Suspense fallback={<></>}>
+                          <LazyAddressFormPage />
+                        </Suspense>
+                      </Route>
+                      <Route path={appRoutes.editAddress.path}>
+                        <Suspense fallback={<></>}>
+                          <LazyAddressFormPage />
+                        </Suspense>
+                      </Route>
+                      <Route path={appRoutes.addresses.path}>
                         <Suspense fallback={<></>}>
                           <LazyAddressesPage />
                         </Suspense>

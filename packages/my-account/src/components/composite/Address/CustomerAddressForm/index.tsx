@@ -1,6 +1,7 @@
 import { XCircle } from "phosphor-react"
 import { useContext } from "react"
 import { useTranslation } from "react-i18next"
+import { useLocation, useRoute } from "wouter"
 
 import {
   Form,
@@ -13,22 +14,25 @@ import {
 
 import { AddressInputGroup } from "#components/composite/Address/AddressInputGroup"
 import Title from "#components/ui/Title"
-import CustomerAddressContext from "#context/CustomerAddressContext"
+import { appRoutes } from "#data/routes"
+import { AppContext } from "#providers/AppProvider"
+import { CustomerAddressContext } from "#providers/CustomerAddressProvider"
 
-interface Props {
-  onClose: () => void
-}
-
-function CustomerAddressForm({ onClose }: Props): JSX.Element {
+function CustomerAddressForm(): JSX.Element | null {
+  const appCtx = useContext(AppContext)
+  const ctx = useContext(CustomerAddressContext)
   const { t } = useTranslation()
-  const { address, setShowAddressForm } = useContext(CustomerAddressContext)
+  const [, setLocation] = useLocation()
+  const address = ctx?.address
+  const [, params] = useRoute(appRoutes.editAddress.path)
+  const addressId = params == null ? undefined : params.addressId
 
-  return (
+  return address === undefined && addressId !== undefined ? null : (
     <Form>
       <Title>
-        {address.first_name !== undefined
-          ? t("addresses.addressForm.edit_address_title")
-          : t("addresses.addressForm.new_address_title")}
+        {addressId === undefined
+          ? t("addresses.addressForm.new_address_title")
+          : t("addresses.addressForm.edit_address_title")}
       </Title>
       <Grid>
         <AddressInputGroup
@@ -99,15 +103,29 @@ function CustomerAddressForm({ onClose }: Props): JSX.Element {
         value={address?.billing_info || ""}
       />
       <FormButtons>
-        <DiscardChanges onClick={onClose}>
+        <DiscardChanges
+          onClick={() => {
+            setLocation(
+              `${appRoutes.addresses.makePath()}?accessToken=${
+                appCtx?.accessToken
+              }`
+            )
+          }}
+        >
           <XCircle className="w-4 h-4" />
           <Text>{t("addresses.addressForm.discard_changes")}</Text>
         </DiscardChanges>
         <SaveButton
           data-test-id="save-address"
           label={t("addresses.addressForm.save")}
-          onClick={() => setShowAddressForm(false)}
-          addressId={address.id}
+          onClick={() => {
+            setLocation(
+              `${appRoutes.addresses.makePath()}?accessToken=${
+                appCtx?.accessToken
+              }`
+            )
+          }}
+          addressId={address?.id}
         />
       </FormButtons>
     </Form>
