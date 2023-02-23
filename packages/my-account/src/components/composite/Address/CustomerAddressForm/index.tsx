@@ -1,5 +1,5 @@
 import { XCircle } from "phosphor-react"
-import { useContext, useEffect, useState } from "react"
+import { useContext } from "react"
 import { useTranslation } from "react-i18next"
 import { useLocation, useRoute } from "wouter"
 
@@ -22,25 +22,17 @@ function CustomerAddressForm(): JSX.Element | null {
   const appCtx = useContext(AppContext)
   const ctx = useContext(CustomerAddressContext)
   const { t } = useTranslation()
-  const [showForm, setShowForm] = useState(false)
   const [, setLocation] = useLocation()
   const address = ctx?.address
   const [, params] = useRoute(appRoutes.editAddress.path)
   const addressId = params == null ? undefined : params.addressId
 
-  useEffect(() => {
-    if (address != null || addressId === undefined) setShowForm(true)
-    return () => {
-      setShowForm(false)
-    }
-  }, [address])
-
-  return showForm === false ? null : (
+  return address === undefined && addressId !== undefined ? null : (
     <Form>
       <Title>
-        {address?.first_name !== undefined
-          ? t("addresses.addressForm.edit_address_title")
-          : t("addresses.addressForm.new_address_title")}
+        {addressId === undefined
+          ? t("addresses.addressForm.new_address_title")
+          : t("addresses.addressForm.edit_address_title")}
       </Title>
       <Grid>
         <AddressInputGroup
