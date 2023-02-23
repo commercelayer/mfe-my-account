@@ -1,0 +1,11 @@
+export type AddressFormFields =
+  | "first_name"
+  | "last_name"
+  | "line_1"
+  | "line_2"
+  | "city"
+  | "country_code"
+  | "state_code"
+  | "zip_code"
+  | "phone"
+  | "billing_info"

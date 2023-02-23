@@ -46,11 +46,11 @@ export default defineConfig(({ mode }) => {
     },
     resolve: {
       alias: {
+        "#data": resolve(__dirname, "./src/data"),
         "#styles": resolve(__dirname, "./src/styles"),
         "#pages": resolve(__dirname, "./src/pages"),
         "#components": resolve(__dirname, "./src/components"),
         "#hooks": resolve(__dirname, "./src/hooks"),
-        "#context": resolve(__dirname, "./src/context"),
         "#providers": resolve(__dirname, "./src/providers"),
         "#assets": resolve(__dirname, "./src/assets"),
         "#utils": resolve(__dirname, "./src/utils"),

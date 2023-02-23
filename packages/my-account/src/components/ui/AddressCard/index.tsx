@@ -2,6 +2,7 @@ import type { Address as CLayerAddress } from "@commercelayer/sdk"
 import { Trash, X } from "phosphor-react"
 import { useContext, useState } from "react"
 import { useTranslation } from "react-i18next"
+import { useLocation } from "wouter"
 
 import {
   EditButton,
@@ -20,7 +21,8 @@ import {
   DeleteButton,
 } from "./styled"
 
-import CustomerAddressContext from "#context/CustomerAddressContext"
+import { appRoutes } from "#data/routes"
+import { AppContext } from "#providers/AppProvider"
 
 interface Props {
   address?: CLayerAddress
@@ -40,7 +42,8 @@ export function AddressCard({
   const { t } = useTranslation()
 
   const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false)
-  const { setAddress, setShowAddressForm } = useContext(CustomerAddressContext)
+  const [, setLocation] = useLocation()
+  const appCtx = useContext(AppContext)
 
   if (!address) return <></>
   const {
@@ -101,8 +104,11 @@ export function AddressCard({
                 label={editButton || t("addresses.edit")}
                 className="address-edit-button"
                 onClick={(address) => {
-                  setAddress(address)
-                  setShowAddressForm(true)
+                  setLocation(
+                    `${appRoutes.editAddress.makePath(
+                      address?.id
+                    )}?accessToken=${appCtx?.accessToken}`
+                  )
                 }}
               />
               <DeleteButtonWrapper
