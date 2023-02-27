@@ -73,15 +73,7 @@
       }
     },
     "payments": {
-      "title": "Pagamenti",
-      "paymentMethod": {
-        "creditCard": "Carta di credito",
-        "EndingIn": "finisce con <0/>",
-        "ValidUntil": "valida fino al <0/>/<1/>",
-        "wireTransfer": "Bonifico bancario",
-        "wireTransferDescription": "Dopo la conferma dell'ordine riceverai le istruzioni per completare il pagamento",
-        "paypalDescription": "Dopo aver effettuato l'ordine, sarai reindirizzato verso il sito PayPal per accedere e autorizzare il pagamento"
-      }
+      "title": "Pagamenti"
     }
   },
   "addresses": {
@@ -119,10 +111,23 @@
     "description": "Sembra che tu non abbaia ancora nessun indirizzo salvato",
     "buttonLabel": "Aggiungi un indirizzo"
   },
+  "wallet": {
+    "title": "Il mio Wallet"
+  },
   "noPaymentMethods": {
     "title": "Nessun metodo di pagamento",
     "description": "Sembra che tu non ancora nessun metodo di pagamento salvato",
     "buttonLabel": "Aggiungi un metodo di pagamento"
+  },
+  "paymentSource": {
+    "creditCard": "Carta di credito",
+    "number": "**** **** **** ",
+    "endingIn": "finisce con <0/>",
+    "validUntil": "valida fino al <0/>/<1/>",
+    "expires": "scade <0/>/<1/>",
+    "wireTransfer": "Bonifico bancario",
+    "wireTransferDescription": "Dopo la conferma dell'ordine riceverai le istruzioni per completare il pagamento",
+    "paypalDescription": "Dopo aver effettuato l'ordine, sarai reindirizzato verso il sito PayPal per accedere e autorizzare il pagamento"
   },
   "returns": {
     "title": "I miei resi"
