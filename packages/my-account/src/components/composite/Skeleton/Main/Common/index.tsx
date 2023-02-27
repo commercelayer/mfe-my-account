@@ -6,6 +6,7 @@ import {
   SkeletonTitle,
   SkeletonSpan,
   SkeletonCircle,
+  SkeletonPaymentSourceBrandImage,
 } from "#components/composite/Skeleton/styled"
 import { DesktopOnly, MobileOnly } from "#components/ui/Common/styled"
 
@@ -84,6 +85,24 @@ export function SkeletonMainAddressCard({
           <SkeletonSpan size={"small"} className="ml-36" />
         </SkeletonRow>
       )}
+    </SkeletonCol>
+  )
+}
+
+interface SkeletonMainWalletCardProps {
+  noGap?: boolean
+}
+
+export function SkeletonMainWalletCard({
+  noGap = false,
+}: SkeletonMainWalletCardProps): JSX.Element {
+  const className = `p-4 ${!noGap && "mt-4"}`
+
+  return (
+    <SkeletonCol className={className}>
+      <SkeletonPaymentSourceBrandImage />
+      <SkeletonSpan size="medium" />
+      <SkeletonSpan size="small" />
     </SkeletonCol>
   )
 }
