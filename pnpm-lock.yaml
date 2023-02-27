@@ -13,7 +13,7 @@ importers:
       '@commercelayer/js-auth': ^2.3.0
       '@commercelayer/react-components': 4.2.3-beta.0
       '@commercelayer/react-utils': 1.0.0-beta.3
-      '@commercelayer/sdk': ^4.20.0
+      '@commercelayer/sdk': ^4.24.0
       '@esbuild-plugins/node-globals-polyfill': ^0.1.1
       '@faker-js/faker': ^7.3.0
       '@headlessui/react': ^1.6.4
@@ -76,7 +76,7 @@ importers:
     dependencies:
       '@commercelayer/react-components': 4.2.3-beta.0_biqbaboplfbrettd7655fr4n2y
       '@commercelayer/react-utils': 1.0.0-beta.3_bvai3i5a2wg6lfiumjdxdzymmm
-      '@commercelayer/sdk': 4.20.0
+      '@commercelayer/sdk': 4.25.0
       '@esbuild-plugins/node-globals-polyfill': 0.1.1
       '@headlessui/react': 1.7.5_biqbaboplfbrettd7655fr4n2y
       '@tailwindcss/forms': 0.5.3_tailwindcss@3.2.4
@@ -559,15 +559,6 @@ packages:
       - react-is
       - supports-color
       - tailwindcss
-    dev: false
-
-  /@commercelayer/sdk/4.20.0:
-    resolution: {integrity: sha512-jPTv6YML4DM6UvucXwsSazWOjhuYzHbHeQLe3nSgHrQy4zL6cE4YTo0N87+mARa45w+rKZL6DwKyn1lN66Qf7g==}
-    engines: {node: '>=16 || ^14.17'}
-    dependencies:
-      axios: 1.2.1
-    transitivePeerDependencies:
-      - debug
     dev: false
 
   /@commercelayer/sdk/4.25.0:
@@ -2604,15 +2595,6 @@ packages:
       postcss-value-parser: 4.2.0
     dev: false
 
-  /axios/1.2.1:
-    resolution: {integrity: sha512-I88cFiGu9ryt/tfVEi4kX2SITsvDddTajXTOFmt2uK1ZVA8LytjtdeyefdQWEf5PU8w+4SSJDoYnggflB5tW4A==}
-    dependencies:
-      follow-redirects: 1.15.2
-      form-data: 4.0.0
-      proxy-from-env: 1.1.0
-    transitivePeerDependencies:
-      - debug
-
   /axios/1.3.2:
     resolution: {integrity: sha512-1M3O703bYqYuPhbHeya5bnhpYVsDDRyQSabNja04mZtboLNSuZ4YrltestrLXfHgmzua4TpUqRiVKbiQuo2epw==}
     dependencies:
@@ -2631,7 +2613,6 @@ packages:
       proxy-from-env: 1.1.0
     transitivePeerDependencies:
       - debug
-    dev: false
 
   /babel-plugin-macros/2.8.0:
     resolution: {integrity: sha512-SEP5kJpfGYqYKpBrj5XU3ahw5p5GOHJ0U5ssOSQ/WBVdwkD2Dzlce95exQTs3jOVWPPKLBN2rlEWkCK7dSmLvg==}
@@ -6585,7 +6566,7 @@ packages:
       '@yarnpkg/lockfile': 1.1.0
       '@yarnpkg/parsers': 3.0.0-rc.32
       '@zkochan/js-yaml': 0.0.6
-      axios: 1.2.1
+      axios: 1.3.4
       chalk: 4.1.0
       chokidar: 3.5.3
       cli-cursor: 3.1.0
