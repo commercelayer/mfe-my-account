@@ -47,12 +47,12 @@ function OrderPayments(): JSX.Element {
                   <>
                     <PaymentSourceBrandNamePrimary>
                       <OrderPaymentSourceBrandName />
-                      <Trans i18nKey="order.payments.paymentMethod.EndingIn">
+                      <Trans i18nKey="paymentSource.endingIn">
                         <PaymentSourceDetail type="last4" />
                       </Trans>
                     </PaymentSourceBrandNamePrimary>
                     <PaymentSourceBrandNameSecondary>
-                      <Trans i18nKey="order.payments.paymentMethod.ValidUntil">
+                      <Trans i18nKey="paymentSource.validUntil">
                         <PaymentSourceDetail type="exp_month" />
                         <PaymentSourceDetail type="exp_year" />
                       </Trans>
