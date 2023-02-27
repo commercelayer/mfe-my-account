@@ -18,7 +18,7 @@ export function PaymentSourceCard(): JSX.Element {
   return (
     <PaymentSourceWrapper>
       <PaymentSourceBrandIconWrapper>
-        <PaymentSourceBrandIcon />
+        <PaymentSourceBrandIcon width={50} />
       </PaymentSourceBrandIconWrapper>
       <PaymentSourceBrandNameWrapper>
         <PaymentSourceDetail type="last4">
