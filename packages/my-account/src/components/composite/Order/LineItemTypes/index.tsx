@@ -1,4 +1,4 @@
-import type { LineItemType } from "@commercelayer/react-components"
+import type { TLineItem } from "@commercelayer/react-components"
 import { LineItem } from "@commercelayer/react-components/line_items/LineItem"
 import { LineItemAmount } from "@commercelayer/react-components/line_items/LineItemAmount"
 import { LineItemCode } from "@commercelayer/react-components/line_items/LineItemCode"
@@ -16,7 +16,7 @@ import {
 } from "./styled"
 
 interface Props {
-  type: LineItemType
+  type: TLineItem
 }
 
 export function LineItemTypes({ type }: Props): JSX.Element {

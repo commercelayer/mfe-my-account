@@ -1,7 +1,6 @@
 import type {
-  BaseInputType,
-  ResourceErrorType,
-  ErrorComponentProps,
+  TResourceError,
+  TErrorComponent,
 } from "@commercelayer/react-components"
 import type { Address } from "@commercelayer/sdk"
 import { useEffect, useState } from "react"
@@ -19,9 +18,9 @@ import { Label } from "#components/ui/form/Label"
 import type { AddressFormFields } from "#types/addresses"
 
 interface Props {
-  type: BaseInputType
+  type: string
   fieldName: `billing_address_${Extract<keyof Address, AddressFormFields>}`
-  resource: ResourceErrorType
+  resource: TResourceError
   value?: string
   required?: boolean
 }
@@ -35,7 +34,7 @@ export function AddressInputGroup({
 }: Props): JSX.Element {
   const { t } = useTranslation()
 
-  const messages: ErrorComponentProps["messages"] = [
+  const messages: TErrorComponent["messages"] = [
     {
       code: "VALIDATION_ERROR",
       resource: "billing_address",

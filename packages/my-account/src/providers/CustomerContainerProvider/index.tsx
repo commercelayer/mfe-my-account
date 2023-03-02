@@ -2,7 +2,7 @@ import { CustomerContainer } from "@commercelayer/react-components/customers/Cus
 import type { Settings } from "HostedApp"
 
 type CustomerContainerProviderProps = Pick<Settings, "isGuest"> & {
-  children: React.ReactNode
+  children: JSX.Element | JSX.Element[] | null
 }
 
 export function CustomerContainerProvider({
