@@ -34,7 +34,7 @@ export function PaymentSourceCard(): JSX.Element {
                 <PaymentSourceTextWrapper>
                   <PaymentSourceCreditCardNumber />
                 </PaymentSourceTextWrapper>
-                <PaymentSourceCreditCardExpires />
+                <PaymentSourceCreditCardExpires variant="card" />
               </>
             )
           }}

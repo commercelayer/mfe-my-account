@@ -6,7 +6,7 @@ import { PaymentSourceWrapper, PaymentSourceBrandNameWrapper } from "./styled"
 import {
   PaymentSourceName,
   PaymentSourceCreditCardEndingIn,
-  PaymentSourceCreditCardValidUntil,
+  PaymentSourceCreditCardExpires,
 } from "#components/ui/PaymentSource"
 import {
   PaymentSourceBrandIconWrapper,
@@ -34,7 +34,7 @@ export function PaymentSourceRow(): JSX.Element {
                   <PaymentSourceName />
                   <PaymentSourceCreditCardEndingIn />
                 </PaymentSourceTextWrapper>
-                <PaymentSourceCreditCardValidUntil />
+                <PaymentSourceCreditCardExpires variant="row" />
               </>
             )
           }}

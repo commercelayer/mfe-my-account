@@ -123,7 +123,6 @@
     "creditCard": "Credit card",
     "number": "**** **** **** ",
     "endingIn": "ending in <0/>",
-    "validUntil": "valid until <0/>/<1/>",
     "expires": "expires <0/>/<1/>",
     "wireTransfer": "Wire transfer",
     "wireTransferDescription": "Upon order confirmation, you'll receive wiring instructions to complete payment",

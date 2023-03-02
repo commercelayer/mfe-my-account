@@ -123,7 +123,6 @@
     "creditCard": "Carta di credito",
     "number": "**** **** **** ",
     "endingIn": "finisce con <0/>",
-    "validUntil": "valida fino al <0/>/<1/>",
     "expires": "scade <0/>/<1/>",
     "wireTransfer": "Bonifico bancario",
     "wireTransferDescription": "Dopo la conferma dell'ordine riceverai le istruzioni per completare il pagamento",

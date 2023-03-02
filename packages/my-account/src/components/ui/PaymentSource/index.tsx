@@ -48,25 +48,23 @@ export function PaymentSourceCreditCardNumber(): JSX.Element {
     </PaymentSourceNumberWrapper>
   )
 }
-
-export function PaymentSourceCreditCardValidUntil(): JSX.Element {
-  return (
-    <PaymentSourceTextSecondary>
-      <Trans i18nKey="paymentSource.validUntil">
-        <PaymentSourceDetail type="exp_month" />
-        <PaymentSourceDetail type="exp_year" />
-      </Trans>
-    </PaymentSourceTextSecondary>
-  )
+interface PaymentSourceCreditCardExpiresProps {
+  variant: "row" | "card"
 }
 
-export function PaymentSourceCreditCardExpires(): JSX.Element {
-  return (
-    <PaymentSourceNumberSecondary>
-      <Trans i18nKey="paymentSource.expires">
-        <PaymentSourceDetail type="exp_month" />
-        <PaymentSourceDetail type="exp_year" />
-      </Trans>
-    </PaymentSourceNumberSecondary>
+export function PaymentSourceCreditCardExpires({
+  variant,
+}: PaymentSourceCreditCardExpiresProps): JSX.Element {
+  const label = (
+    <Trans i18nKey="paymentSource.expires">
+      <PaymentSourceDetail type="exp_month" />
+      <PaymentSourceDetail type="exp_year" />
+    </Trans>
+  )
+
+  return variant === "card" ? (
+    <PaymentSourceNumberSecondary>{label}</PaymentSourceNumberSecondary>
+  ) : (
+    <PaymentSourceTextSecondary>{label}</PaymentSourceTextSecondary>
   )
 }
