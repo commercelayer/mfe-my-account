@@ -52,7 +52,7 @@ function OrderPayments(): JSX.Element {
                       </Trans>
                     </PaymentSourceBrandNamePrimary>
                     <PaymentSourceBrandNameSecondary>
-                      <Trans i18nKey="paymentSource.validUntil">
+                      <Trans i18nKey="paymentSource.expires">
                         <PaymentSourceDetail type="exp_month" />
                         <PaymentSourceDetail type="exp_year" />
                       </Trans>
