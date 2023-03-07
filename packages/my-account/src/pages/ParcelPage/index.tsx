@@ -63,7 +63,8 @@ function ParcelPage({ orderId, parcelId }: Props): JSX.Element {
                             </BackToOrder>
                           </Link>
                           <Title>
-                            {t("order.shipments.parcelDetail.title")}
+                            {t("order.shipments.parcelDetail.title")}{" "}
+                            <ParcelField attribute="number" tagElement="span" />
                           </Title>
                         </ParcelHeaderTop>
                         <ParcelHeaderMain className="mt-10">
