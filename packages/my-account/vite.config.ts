@@ -2,6 +2,7 @@ import { NodeGlobalsPolyfillPlugin } from "@esbuild-plugins/node-globals-polyfil
 import react from "@vitejs/plugin-react"
 import { visualizer } from "rollup-plugin-visualizer"
 import { loadEnv, PluginOption } from "vite"
+import tsconfigPaths from "vite-tsconfig-paths"
 import { defineConfig } from "vitest/config"
 
 import { resolve } from "path"
@@ -44,21 +45,6 @@ export default defineConfig(({ mode }) => {
         },
       },
     },
-    resolve: {
-      alias: {
-        "#data": resolve(__dirname, "./src/data"),
-        "#styles": resolve(__dirname, "./src/styles"),
-        "#pages": resolve(__dirname, "./src/pages"),
-        "#components": resolve(__dirname, "./src/components"),
-        "#hooks": resolve(__dirname, "./src/hooks"),
-        "#providers": resolve(__dirname, "./src/providers"),
-        "#assets": resolve(__dirname, "./src/assets"),
-        "#utils": resolve(__dirname, "./src/utils"),
-        "#types": resolve(__dirname, "./src/types"),
-        "#specs": resolve(__dirname, "./specs"),
-        util: "rollup-plugin-node-polyfills/polyfills/util",
-      },
-    },
     test: {
       globals: true,
       environment: "jsdom",
@@ -94,6 +80,7 @@ function preparePlugins({ analyzeBundle }: { analyzeBundle: boolean }) {
         plugins: ["babel-plugin-macros", "babel-plugin-styled-components"],
       },
     }),
+    tsconfigPaths(),
     // babel(),
     // macrosPlugin(),
     analyzeBundle &&
