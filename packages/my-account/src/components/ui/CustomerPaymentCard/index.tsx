@@ -7,7 +7,7 @@ import { PaymentSourceCard } from "#components/ui/PaymentSource/Card"
 function CustomerPaymentCard(): JSX.Element {
   return (
     <CustomerPaymentSource loader={<SkeletonMainWalletCard noGap />}>
-      <GridCard>
+      <GridCard hover="none">
         <PaymentSourceCard />
       </GridCard>
     </CustomerPaymentSource>
