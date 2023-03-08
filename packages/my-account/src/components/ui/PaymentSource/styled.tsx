@@ -30,5 +30,5 @@ export const PaymentSourceNumberPrimary = styled.span`
 `
 
 export const PaymentSourceNumberSecondary = styled.span`
-  ${tw`text-xs text-gray-400 leading-[13px]`}
+  ${tw`font-light text-[13px] text-gray-500 leading-[13px]`}
 `
