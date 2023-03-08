@@ -121,9 +121,8 @@
   },
   "paymentSource": {
     "creditCard": "Carta di credito",
-    "number": "**** **** **** ",
     "endingIn": "finisce con <0/>",
-    "expires": "scade <0/>/<1/>",
+    "expires": "scade ",
     "wireTransfer": "Bonifico bancario",
     "wireTransferDescription": "Dopo la conferma dell'ordine riceverai le istruzioni per completare il pagamento",
     "paypalDescription": "Dopo aver effettuato l'ordine, sarai reindirizzato verso il sito PayPal per accedere e autorizzare il pagamento"

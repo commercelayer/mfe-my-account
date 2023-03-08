@@ -1,5 +1,6 @@
 import { PaymentSourceBrandName } from "@commercelayer/react-components/payment_source/PaymentSourceBrandName"
 import { PaymentSourceDetail } from "@commercelayer/react-components/payment_source/PaymentSourceDetail"
+import { AsteriskSimple } from "phosphor-react"
 import { Trans, useTranslation } from "react-i18next"
 
 import {
@@ -38,12 +39,50 @@ export function PaymentSourceCreditCardEndingIn(): JSX.Element {
   )
 }
 
+function PaymentSourceCreditCardAsterisks(): JSX.Element {
+  return (
+    <div className="flex items-center">
+      <AsteriskSimple weight="bold" size={10} />
+      <AsteriskSimple weight="bold" size={10} />
+      <AsteriskSimple weight="bold" size={10} />
+      <AsteriskSimple weight="bold" size={10} />
+    </div>
+  )
+}
+
+function PaymentSourceCreditCardAsterisksGroup(): JSX.Element {
+  return (
+    <div className="flex items-center py-1 gap-1">
+      <PaymentSourceCreditCardAsterisks />
+      <PaymentSourceCreditCardAsterisks />
+      <PaymentSourceCreditCardAsterisks />
+    </div>
+  )
+}
+
+function PaymentSourceCreditCardExpiresAsterisks(): JSX.Element {
+  return (
+    <div className="flex items-center">
+      <AsteriskSimple weight="bold" size={8} />
+      <AsteriskSimple weight="bold" size={8} />
+    </div>
+  )
+}
+
 export function PaymentSourceCreditCardNumber(): JSX.Element {
   return (
     <PaymentSourceNumberWrapper>
-      <Trans i18nKey="paymentSource.number" />
+      <PaymentSourceCreditCardAsterisksGroup />
       <PaymentSourceNumberPrimary>
-        <PaymentSourceDetail type="last4" />
+        <PaymentSourceDetail type="last4">
+          {({ text }) => {
+            return text === "****" ? (
+              <PaymentSourceCreditCardAsterisks />
+            ) : (
+              <span>{text}</span>
+            )
+          }}
+        </PaymentSourceDetail>
       </PaymentSourceNumberPrimary>
     </PaymentSourceNumberWrapper>
   )
@@ -55,11 +94,37 @@ interface PaymentSourceCreditCardExpiresProps {
 export function PaymentSourceCreditCardExpires({
   variant,
 }: PaymentSourceCreditCardExpiresProps): JSX.Element {
+  const expiry_month = (
+    <PaymentSourceDetail type="exp_month">
+      {({ text }) =>
+        text === "**" ? (
+          <PaymentSourceCreditCardExpiresAsterisks />
+        ) : (
+          <span>{text}</span>
+        )
+      }
+    </PaymentSourceDetail>
+  )
+
+  const exp_year = (
+    <PaymentSourceDetail type="exp_year">
+      {({ text }) =>
+        text === "**" ? (
+          <PaymentSourceCreditCardExpiresAsterisks />
+        ) : (
+          <span>{text.toString().slice(-2)}</span>
+        )
+      }
+    </PaymentSourceDetail>
+  )
+
   const label = (
-    <Trans i18nKey="paymentSource.expires">
-      <PaymentSourceDetail type="exp_month" />
-      <PaymentSourceDetail type="exp_year" />
-    </Trans>
+    <div className="flex items-center gap-1">
+      <Trans i18nKey="paymentSource.expires" />
+      <div className="flex">
+        {expiry_month}/{exp_year}
+      </div>
+    </div>
   )
 
   return variant === "card" ? (

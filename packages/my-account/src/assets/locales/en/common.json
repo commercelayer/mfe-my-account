@@ -121,9 +121,8 @@
   },
   "paymentSource": {
     "creditCard": "Credit card",
-    "number": "**** **** **** ",
     "endingIn": "ending in <0/>",
-    "expires": "expires <0/>/<1/>",
+    "expires": "expires ",
     "wireTransfer": "Wire transfer",
     "wireTransferDescription": "Upon order confirmation, you'll receive wiring instructions to complete payment",
     "paypalDescription": "After placing the order, you will be redirected to the PayPal website to sign in and authorize the payment"
