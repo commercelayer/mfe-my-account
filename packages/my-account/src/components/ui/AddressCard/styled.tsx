@@ -8,16 +8,13 @@ import { LinkButton } from "#components/ui/LinkButton"
 export const Wrapper = styled.div`
   ${tw`relative transition duration-200 ease-in bg-white md:bg-transparent focus:shadow-sm`}
 `
-export const Content = styled.div`
-  ${tw`px-5 py-4 rounded border border-gray-200 group-hover:(border-primary shadow-sm-primary)`}
-`
 
 export const Customer = styled.p`
   ${tw`font-bold text-md`}
 `
 
 export const Address = styled.p`
-  ${tw`text-sm text-gray-400`}
+  ${tw`text-[13px] text-gray-400`}
 `
 
 export const ActionsWrapper = styled.div`

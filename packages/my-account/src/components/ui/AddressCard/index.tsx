@@ -7,7 +7,6 @@ import { useLocation } from "wouter"
 import {
   EditButton,
   Wrapper,
-  Content,
   Customer,
   Address,
   ActionsWrapper,
@@ -21,6 +20,7 @@ import {
   DeleteButton,
 } from "./styled"
 
+import { GridCard } from "#components/ui/GridCard"
 import { appRoutes } from "#data/routes"
 import { AppContext } from "#providers/AppProvider"
 
@@ -77,13 +77,10 @@ export function AddressCard({
                 setShowDeleteConfirmation(false)
               }}
             />
-            {/* <ConfirmCancel onClick={() => setShowDeleteConfirmation(false)}>
-              {t("addresses.no")}
-            </ConfirmCancel> */}
           </ConfirmActions>
         </Overlay>
       )}
-      <Content>
+      <GridCard>
         <Customer data-cy={`fullname_${addressType}`}>
           {first_name} {last_name}
         </Customer>
@@ -123,7 +120,7 @@ export function AddressCard({
             </Actions>
           </ActionsWrapper>
         )}
-      </Content>
+      </GridCard>
     </Wrapper>
   )
 }
