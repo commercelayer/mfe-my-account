@@ -74,8 +74,7 @@ export function AddressCard({
               label={t("addresses.yes") as string}
               className="address-confirm-delete-button"
               onClick={() => {
-                // TODO: Do we need to introduce a visual confirmation of address deletion?
-                return false
+                setShowDeleteConfirmation(false)
               }}
             />
             {/* <ConfirmCancel onClick={() => setShowDeleteConfirmation(false)}>
