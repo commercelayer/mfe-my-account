@@ -22,13 +22,13 @@ export const PaymentSourceTextSecondary = styled.div`
 `
 
 export const PaymentSourceNumberWrapper = styled.div`
-  ${tw`flex items-center gap-1 leading-[14px]`}
+  ${tw`flex items-center gap-1 min-h-[20px] leading-[20px]`}
 `
 
 export const PaymentSourceNumberPrimary = styled.span`
-  ${tw`text-base leading-[16px] font-bold`}
+  ${tw`text-[15px] leading-[20px] font-bold text-black`}
 `
 
 export const PaymentSourceNumberSecondary = styled.span`
-  ${tw`antialiased text-sm leading-[14px] text-gray-500`}
+  ${tw`antialiased text-[13px] leading-[20px] text-gray-400 mt-[4px]`}
 `

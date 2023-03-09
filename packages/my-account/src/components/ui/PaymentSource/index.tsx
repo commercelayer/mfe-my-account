@@ -42,10 +42,10 @@ export function PaymentSourceCreditCardEndingIn(): JSX.Element {
 function PaymentSourceCreditCardAsterisks(): JSX.Element {
   return (
     <div className="flex items-center">
-      <AsteriskSimple weight="bold" size={10} />
-      <AsteriskSimple weight="bold" size={10} />
-      <AsteriskSimple weight="bold" size={10} />
-      <AsteriskSimple weight="bold" size={10} />
+      <AsteriskSimple size={8} />
+      <AsteriskSimple size={8} />
+      <AsteriskSimple size={8} />
+      <AsteriskSimple size={8} />
     </div>
   )
 }
@@ -63,8 +63,8 @@ function PaymentSourceCreditCardAsterisksGroup(): JSX.Element {
 function PaymentSourceCreditCardExpiresAsterisks(): JSX.Element {
   return (
     <div className="flex items-center">
-      <AsteriskSimple weight="bold" size={8} />
-      <AsteriskSimple weight="bold" size={8} />
+      <AsteriskSimple size={8} />
+      <AsteriskSimple size={8} />
     </div>
   )
 }
