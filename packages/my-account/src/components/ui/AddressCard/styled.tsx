@@ -14,11 +14,11 @@ export const Customer = styled.p`
 `
 
 export const Address = styled.p`
-  ${tw`text-[13px] text-gray-400`}
+  ${tw`text-[13px] text-gray-400 antialiased`}
 `
 
 export const ActionsWrapper = styled.div`
-  ${tw`flex flex-col justify-end pt-4`}
+  ${tw`flex flex-col justify-end pt-2`}
 `
 
 export const Actions = styled.div`
