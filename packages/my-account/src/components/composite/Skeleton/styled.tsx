@@ -136,3 +136,7 @@ export const SkeletonTableTHead = styled(SkeletonTableRow)`
 export const SkeletonTableImg = styled(SkeletonBox)`
   ${tw`flex-shrink-0 w-[75px] h-[75px] md:(w-[85px] h-[85px]) `}
 `
+
+export const SkeletonPaymentSourceBrandImage = styled(SkeletonBox)`
+  ${tw`w-[50px] h-[34px] mb-4`}
+`

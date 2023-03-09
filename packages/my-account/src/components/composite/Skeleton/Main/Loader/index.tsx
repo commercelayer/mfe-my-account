@@ -2,6 +2,7 @@ import { useLocation } from "wouter"
 
 import {
   SkeletonMainAddresses,
+  SkeletonMainWallet,
   SkeletonMainOrders,
   SkeletonMainOrder,
   SkeletonMainParcel,
@@ -12,6 +13,8 @@ export function SkeletonMainLoader(): JSX.Element {
   switch (true) {
     case /\/addresses/.test(location):
       return <SkeletonMainAddresses />
+    case /\/wallet/.test(location):
+      return <SkeletonMainWallet />
     case /\/parcels/.test(location):
       return <SkeletonMainParcel />
     case /\/orders/.test(location):

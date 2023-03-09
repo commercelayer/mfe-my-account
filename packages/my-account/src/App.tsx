@@ -13,6 +13,7 @@ const LazyOrdersPage = lazy(() => import("#pages/OrdersPage"))
 const LazyParcelPage = lazy(() => import("#pages/ParcelPage"))
 const LazyAddressFormPage = lazy(() => import("#pages/AdddressFormPage"))
 const LazyAddressesPage = lazy(() => import("#pages/AddressesPage"))
+const LazyWalletPage = lazy(() => import("#pages/WalletPage"))
 
 const basePath =
   import.meta.env.PUBLIC_PROJECT_PATH != null
@@ -84,6 +85,11 @@ function App(): JSX.Element {
                       <Route path={appRoutes.addresses.path}>
                         <Suspense fallback={<></>}>
                           <LazyAddressesPage />
+                        </Suspense>
+                      </Route>
+                      <Route path={appRoutes.wallet.path}>
+                        <Suspense fallback={<></>}>
+                          <LazyWalletPage />
                         </Suspense>
                       </Route>
                       <Route>

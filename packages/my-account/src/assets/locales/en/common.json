@@ -73,15 +73,7 @@
       }
     },
     "payments": {
-      "title": "Payments",
-      "paymentMethod": {
-        "creditCard": "Credit card",
-        "EndingIn": "ending in <0/>",
-        "ValidUntil": "valid until <0/>/<1/>",
-        "wireTransfer": "Wire transfer",
-        "wireTransferDescription": "Upon order confirmation, you'll receive wiring instructions to complete payment",
-        "paypalDescription": "After placing the order, you will be redirected to the PayPal website to sign in and authorize the payment"
-      }
+      "title": "Payments"
     }
   },
   "addresses": {
@@ -119,10 +111,21 @@
     "description": "Looks like you haven't saved any address yet",
     "buttonLabel": "Add an address"
   },
+  "wallet": {
+    "title": "My Wallet"
+  },
   "noPaymentMethods": {
     "title": "No payment method yet",
     "description": "Looks like you haven’t saved any payment method yet",
     "buttonLabel": "Add a payment method"
+  },
+  "paymentSource": {
+    "creditCard": "Credit card",
+    "endingIn": "ending in <0/>",
+    "expires": "expires ",
+    "wireTransfer": "Wire transfer",
+    "wireTransferDescription": "Upon order confirmation, you'll receive wiring instructions to complete payment",
+    "paypalDescription": "After placing the order, you will be redirected to the PayPal website to sign in and authorize the payment"
   },
   "returns": {
     "title": "My returns"
