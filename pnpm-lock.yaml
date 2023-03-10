@@ -11,7 +11,7 @@ importers:
   packages/my-account:
     specifiers:
       '@commercelayer/js-auth': ^2.3.0
-      '@commercelayer/react-components': 4.2.3-beta.2
+      '@commercelayer/react-components': 4.3.0
       '@commercelayer/react-utils': 1.0.0-beta.3
       '@commercelayer/sdk': ^4.24.0
       '@esbuild-plugins/node-globals-polyfill': ^0.1.1
@@ -75,7 +75,7 @@ importers:
       wouter: ^2.8.1
       zod: 3.20.2
     dependencies:
-      '@commercelayer/react-components': 4.2.3-beta.2_biqbaboplfbrettd7655fr4n2y
+      '@commercelayer/react-components': 4.3.0_biqbaboplfbrettd7655fr4n2y
       '@commercelayer/react-utils': 1.0.0-beta.3_bvai3i5a2wg6lfiumjdxdzymmm
       '@commercelayer/sdk': 4.25.0
       '@esbuild-plugins/node-globals-polyfill': 0.1.1
@@ -514,8 +514,8 @@ packages:
       tslib: 2.4.1
     dev: true
 
-  /@commercelayer/react-components/4.2.3-beta.2_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-B/8vGkIdRQLHp1RHXaMcgUx1P91etEN/DbgNHpiHt3Vi8is9CShx4WeC1Zl/FCg4OD7kGpXAffUAqKc72pPPfA==}
+  /@commercelayer/react-components/4.3.0_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-J7dEG1gzg1qZCHx7rkItCDdnWsoDzo6m7RCSfcnwehLOwTw0I7OdAfzKUOfffSvlkcsUi3SB0rGYmcLo/RhUOA==}
     peerDependencies:
       react: ^18.0.0
     dependencies:
