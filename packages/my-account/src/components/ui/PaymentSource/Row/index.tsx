@@ -17,7 +17,7 @@ export function PaymentSourceRow(): JSX.Element {
   return (
     <PaymentSourceWrapper>
       <PaymentSourceBrandIconWrapper>
-        <PaymentSourceBrandIcon />
+        <PaymentSourceBrandIcon width={36} />
       </PaymentSourceBrandIconWrapper>
       <PaymentSourceBrandNameWrapper>
         <PaymentSourceDetail type="last4">
