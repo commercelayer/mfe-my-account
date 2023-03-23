@@ -37,7 +37,8 @@
     "lint:fix": "eslint ./ --ext .tsx,.ts --fix",
     "test": "vitest run",
     "test:watch": "vitest",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "prepare": "touch ./public/config.local.js"
   },
   "dependencies": {
     "@commercelayer/react-components": "4.3.1",

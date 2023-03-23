@@ -13,10 +13,6 @@ interface SettingsProviderValue {
 
 interface SettingsProviderProps {
   /**
-   * App config served locally from public/config.json
-   */
-  config: RuntimeConfig
-  /**
    * If needed, context value can be also accessed using a function as a child.
    *
    * Example:
@@ -29,6 +25,7 @@ interface SettingsProviderProps {
   children:
     | ((props: SettingsProviderValue) => React.ReactNode)
     | React.ReactNode
+  config: CommerceLayerAppConfig
 }
 
 const initialValues: SettingsProviderValue = {

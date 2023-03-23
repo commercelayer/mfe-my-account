@@ -18,7 +18,7 @@ import { CustomerContainerProvider } from "#providers/CustomerContainerProvider"
 interface Props {
   settings: Settings
   children: React.ReactElement
-  config: RuntimeConfig
+  config: CommerceLayerAppConfig
 }
 
 function MyAccountContainer({
