@@ -23,7 +23,7 @@ const makeInvalidSettings = (retryable?: boolean): InvalidSettings => ({
 })
 
 type GetSettingsProps = Pick<Settings, "accessToken"> & {
-  config: RuntimeConfig
+  config: CommerceLayerAppConfig
 }
 
 /**
@@ -38,7 +38,7 @@ export const getSettings = async ({
   accessToken,
   config,
 }: GetSettingsProps): Promise<Settings | InvalidSettings> => {
-  const domain = config.domain || "commercelayer.io"
+  const domain = config.domain
   const { slug, kind, customerId, isTest } = getInfoFromJwt(accessToken)
 
   if (!slug) {

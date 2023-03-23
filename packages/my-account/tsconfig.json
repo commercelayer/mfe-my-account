@@ -3,7 +3,7 @@
     "target": "ESNext",
     "lib": ["dom", "dom.iterable", "esnext"],
     "types": ["vitest/globals"],
-    "typeRoots": ["./node_modules/@types", "./src/types"],
+    //   "typeRoots": ["./node_modules/@types", "./src/types"],
     "downlevelIteration": true,
     "allowJs": true,
     "skipLibCheck": true,
@@ -31,6 +31,13 @@
     },
     "incremental": true
   },
-  "include": ["env.d.ts", "**/*.ts", "**/*.tsx", "**/*.js", ".eslintrc.cjs"],
-  "exclude": ["node_modules", "public", "playwright.config.*"]
+  "include": [
+    "**/*.ts",
+    "**/*.d.ts",
+    "**/*.tsx",
+    "public/config*.js",
+    "*.config.js",
+    ".eslintrc.cjs"
+  ],
+  "exclude": ["node_modules", "playwright.config.*"]
 }

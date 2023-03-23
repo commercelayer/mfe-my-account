@@ -24,7 +24,7 @@ The Commerce Layer My Account application (React) provides a production-ready re
 
 1. Create your organization and get your credentials by following one of our [onboarding tutorials](https://docs.commercelayer.io/core/welcome).
 
-2. Configure the `selfHostedSlug` property in `/public/config.json` to match your organization slug (subdomain).
+2. Configure the `selfHostedSlug` property in `/public/config.local.js` to match your organization slug (subdomain).
 
 3. Deploy the forked repository to your preferred hosting service or host it yourself. You can deploy with one click below:
 
