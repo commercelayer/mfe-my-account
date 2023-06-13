@@ -32,7 +32,7 @@ interface Props {
 
 function Navbar({ settings, onClick }: Props): JSX.Element {
   const { t } = useTranslation()
-  const { accessToken, logoUrl, companyName } = settings
+  const { accessToken, logoUrl, companyName, continueShoppingUrl } = settings
 
   const menu = {
     orders: {
@@ -75,6 +75,9 @@ function Navbar({ settings, onClick }: Props): JSX.Element {
       accessToken,
       onClick,
     },
+    continue: {
+      href: continueShoppingUrl,
+    },
   }
 
   return (
@@ -103,6 +106,9 @@ function Navbar({ settings, onClick }: Props): JSX.Element {
               <CustomerField name="email" attribute="email" tagElement="p" />
             </Email>
           </EmailWrapper>
+          <a href={menu.continue.href ?? ""} rel="noreferrer">
+            {t("general.continue_shopping")}
+          </a>
           <FooterWrapper>
             <Footer />
           </FooterWrapper>

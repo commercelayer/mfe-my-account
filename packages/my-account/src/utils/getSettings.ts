@@ -22,9 +22,10 @@ const makeInvalidSettings = (retryable?: boolean): InvalidSettings => ({
   retryable: !!retryable,
 })
 
-type GetSettingsProps = Pick<Settings, "accessToken"> & {
-  config: CommerceLayerAppConfig
-}
+type GetSettingsProps = Pick<Settings, "accessToken"> &
+  Pick<Settings, "continueShoppingUrl"> & {
+    config: CommerceLayerAppConfig
+  }
 
 /**
  * Retrieves a list of `Settings` required to show the my account app
@@ -36,6 +37,7 @@ type GetSettingsProps = Pick<Settings, "accessToken"> & {
  */
 export const getSettings = async ({
   accessToken,
+  continueShoppingUrl,
   config,
 }: GetSettingsProps): Promise<Settings | InvalidSettings> => {
   const domain = config.domain
@@ -84,6 +86,7 @@ export const getSettings = async ({
 
   return {
     accessToken,
+    continueShoppingUrl,
     endpoint: `https://${slug}.${domain}`,
     isGuest: !customerId,
     customerId: customerId as string,

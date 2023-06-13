@@ -3,6 +3,7 @@ import { changeLanguage } from "i18next"
 import { createContext, useContext, useEffect, useState } from "react"
 
 import { getAccessTokenFromUrl } from "#utils/getAccessTokenFromUrl"
+import { getContinueShoppingFromUrl } from "#utils/getContinueShoppingFromUrl"
 import { defaultSettings, getSettings } from "#utils/getSettings"
 import { parseLanguageCode } from "#utils/parseLanguageCode"
 
@@ -53,12 +54,13 @@ export function SettingsProvider({
   )
   const [isLoading, setIsLoading] = useState(true)
   const accessToken = getAccessTokenFromUrl()
+  const continueShoppingUrl = getContinueShoppingFromUrl()
 
   useEffect(() => {
     setIsLoading(!!accessToken)
 
     if (accessToken) {
-      getSettings({ accessToken, config })
+      getSettings({ accessToken, continueShoppingUrl, config })
         .then(setSettings)
         .finally(() => {
           setIsLoading(false)

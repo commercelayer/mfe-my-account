@@ -12,6 +12,11 @@ declare module "HostedApp" {
      * Read more at {@link https://docs.commercelayer.io/core/authentication/client-credentials#sales-channel}, {@link https://docs.commercelayer.io/core/authentication/password}
      */
     accessToken: string
+
+    /**
+     * Continue Shopping Url
+     */
+    continueShoppingUrl: string | null | undefined
     /**
      * Base endpoint URL to be used for API requests by `@commercelayer/react-components` library.
      * Example: `https://yourdomain.commercelayer.io`
