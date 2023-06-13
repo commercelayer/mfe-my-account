@@ -1,19 +1,20 @@
 import type { Settings } from "HostedApp"
 import { useContext } from "react"
-import { useRouter, useLocation, useRoute, Link } from "wouter"
+import { useRouter, useLocation, Link } from "wouter"
 
 import { Wrapper, Icon, TitleWrapper, Title, ComingSoon } from "./styled"
 
 import { AppContext } from "#providers/AppProvider"
 
-type Props = Pick<Settings, "accessToken"> & {
-  id: string
-  title: string
-  href: string
-  icon: React.ReactNode
-  comingSoon?: boolean
-  onClick?: () => void
-}
+type Props = Pick<Settings, "accessToken"> &
+  Pick<Settings, "continueShoppingUrl"> & {
+    id: string
+    title: string
+    href: string
+    icon: React.ReactNode
+    comingSoon?: boolean
+    onClick?: () => void
+  }
 
 function ComingSoonBadge(): JSX.Element {
   return <ComingSoon>Soon</ComingSoon>
@@ -42,7 +43,7 @@ function NavLinkButton(props: Props): JSX.Element {
 }
 
 function NavLink(props: Props): JSX.Element {
-  const { href, accessToken, comingSoon } = props
+  const { href, accessToken, comingSoon, continueShoppingUrl } = props
 
   const ctx = useContext(AppContext)
 
@@ -50,7 +51,7 @@ function NavLink(props: Props): JSX.Element {
 
   return (
     <Link
-      href={`${href}?accessToken=${accessToken}`}
+      href={`${href}?accessToken=${accessToken}&continueShopping=${continueShoppingUrl}`}
       onClick={() => ctx?.closeMobileMenu()}
     >
       <NavLinkButton {...props} />

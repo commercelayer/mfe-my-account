@@ -5,7 +5,8 @@
     "retry_error_description": "Try to reload the page",
     "invalid": "This URL is not accessible.",
     "privacy_link": "Privacy",
-    "terms_link": "Terms"
+    "terms_link": "Terms",
+    "continue_shopping": "<< Continue Shopping"
   },
   "input": {
     "cantBlank" : "Can't be blank",
