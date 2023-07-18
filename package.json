@@ -1,5 +1,5 @@
 {
-  "name": "commercelayer-my-account",
+  "name": "mfe-my-account",
   "private": true,
   "engines": {
     "node": ">=16",
@@ -7,7 +7,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/commercelayer/commercelayer-my-account.git"
+    "url": "git+https://github.com/commercelayer/mfe-my-account.git"
   },
   "author": {
     "name": "Pier Francesco Ferrari",
@@ -15,9 +15,9 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/commercelayer/commercelayer-my-account/issues"
+    "url": "https://github.com/commercelayer/mfe-my-account/issues"
   },
-  "homepage": "https://github.com/commercelayer/commercelayer-my-account#readme",
+  "homepage": "https://github.com/commercelayer/mfe-my-account#readme",
   "keywords": [
     "reactjs",
     "vitejs",

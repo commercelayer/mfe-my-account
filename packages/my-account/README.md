@@ -28,7 +28,7 @@ The Commerce Layer My Account application (React) provides a production-ready re
 
 3. Deploy the forked repository to your preferred hosting service or host it yourself. You can deploy with one click below:
 
-[<img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify" height="35">](https://app.netlify.com/start/deploy?repository=https://github.com/commercelayer/commercelayer-my-account) [<img src="https://vercel.com/button" alt="Deploy to Vercel" height="35">](https://vercel.com/new/clone?repository-url=https://github.com/commercelayer/commercelayer-my-account) [<img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy to Heroku" height="35">](https://heroku.com/deploy?template=https://github.com/commercelayer/commercelayer-my-account) [<img src="https://www.deploytodo.com/do-btn-blue.svg" alt="Deploy to Digital Ocean" height="35">](https://cloud.digitalocean.com/apps/new?repo=https://github.com/commercelayer/commercelayer-my-account/tree/main)
+[<img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify" height="35">](https://app.netlify.com/start/deploy?repository=https://github.com/commercelayer/mfe-my-account) [<img src="https://vercel.com/button" alt="Deploy to Vercel" height="35">](https://vercel.com/new/clone?repository-url=https://github.com/commercelayer/mfe-my-account) [<img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy to Heroku" height="35">](https://heroku.com/deploy?template=https://github.com/commercelayer/mfe-my-account) [<img src="https://www.deploytodo.com/do-btn-blue.svg" alt="Deploy to Digital Ocean" height="35">](https://cloud.digitalocean.com/apps/new?repo=https://github.com/commercelayer/mfe-my-account/tree/main)
 
 4. Build your sales channel with your favorite technologies and frameworks by leveraging our [developer resources](https://commercelayer.io/developers) and [documentation](https://docs.commercelayer.io).
 
@@ -52,7 +52,7 @@ You can use the hosted version of the My Account application with the following 
 
 ## Features
 
-The My Account application's main features are currently focused on the management of customer [orders](#orders) and [addresses](#addresses). 
+The My Account application's main features are currently focused on the management of customer [orders](#orders) and [addresses](#addresses).
 
 > Lots of other major and minor features (e.g. customer wallet, returns, and more) are already included in the development roadmap – check the Commerce Layer [changelog](https://docs.commercelayer.io/changelog/) to be regularly updated about all the new releases.
 
@@ -60,7 +60,7 @@ The My Account application's main features are currently focused on the manageme
 
 #### Order history
 
-As soon as you land on the application (or click on the *Orders* menu item) you will be shown the order history screen.
+As soon as you land on the application (or click on the _Orders_ menu item) you will be shown the order history screen.
 
 ![my-account-orders](https://user-images.githubusercontent.com/105653649/207383160-c82818ab-c81f-43f9-b778-9c7c93ed8d12.jpg)
 
@@ -92,7 +92,7 @@ By clicking a parcel's tracking link you can enter the selected parcel's detail 
 
 #### Addresses Management
 
-By clicking on the *Addresses* menu item you can see the list of your saved addresses (if any). Each address can be edited or deleted. New addresses can be directly created from the app and added to the list. 
+By clicking on the _Addresses_ menu item you can see the list of your saved addresses (if any). Each address can be edited or deleted. New addresses can be directly created from the app and added to the list.
 
 ![my-account-select-address](https://user-images.githubusercontent.com/105653649/207383421-188971d7-d1d7-4ed1-b7c3-869613bd75d6.jpg)
 
@@ -116,12 +116,12 @@ $ cl app:token
 
 ## Contributors guide
 
-1. Fork [this repository](https://github.com/commercelayer/commercelayer-my-account) (you can learn how to do this [here](https://help.github.com/articles/fork-a-repo)).
+1. Fork [this repository](https://github.com/commercelayer/mfe-my-account) (you can learn how to do this [here](https://help.github.com/articles/fork-a-repo)).
 
 2. Clone the forked repository like so:
 
 ```bash
-git clone https://github.com/<your username>/commercelayer-my-account.git && cd commercelayer-my-account
+git clone https://github.com/<your username>/mfe-my-account.git && cd mfe-my-account
 ```
 
 3. First, install dependencies and run the development server:
@@ -143,7 +143,7 @@ pnpm dev
 
 1. Join [Commerce Layer's Slack community](https://slack.commercelayer.app).
 
-2. Create an [issue](https://github.com/commercelayer/commercelayer-my-account/issues) in this repository.
+2. Create an [issue](https://github.com/commercelayer/mfe-my-account/issues) in this repository.
 
 3. Ping us [on Twitter](https://twitter.com/commercelayer).
 
