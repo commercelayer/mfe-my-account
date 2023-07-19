@@ -8,7 +8,7 @@ export const OrderSectionTab = styled.div`
   ${tw`outline-none bg-white shadow-bottom px-5 md:px-0 mb-6 md:mb-0 md:shadow-none md:border-b`}
 `
 export const OrderSectionTabHeader = styled.div`
-  ${tw`text-black relative flex items-center justify-between cursor-pointer transition ease duration-500 focus:bg-gray-400`}
+  ${tw`text-black relative flex items-center justify-between transition ease duration-500 focus:bg-gray-400`}
   .disabled & {
     ${tw`pointer-events-none`}
   }
