@@ -80,7 +80,7 @@ export function AddressCard({
           </ConfirmActions>
         </Overlay>
       )}
-      <GridCard>
+      <GridCard hover={readonly ? "none" : undefined}>
         <Customer data-cy={`fullname_${addressType}`}>
           {first_name} {last_name}
         </Customer>
