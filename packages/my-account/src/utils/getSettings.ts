@@ -94,6 +94,8 @@ export const getSettings = async ({
       (organization?.primary_color as string) || defaultSettings.primaryColor,
     logoUrl: organization?.logo_url || "",
     faviconUrl: organization?.favicon_url || defaultSettings.faviconUrl,
-    gtmId: isTest ? organization?.gtm_id_test : organization?.gtm_id,
+    gtmId: isTest
+      ? organization?.gtm_id_test ?? ""
+      : organization?.gtm_id ?? "",
   }
 }

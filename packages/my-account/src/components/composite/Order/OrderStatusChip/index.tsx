@@ -8,6 +8,9 @@ export type OrderStatus =
   | "placed"
   | "approved"
   | "cancelled"
+  | "editing"
+  | "inactive"
+  | "active"
 
 interface Props {
   status?: OrderStatus

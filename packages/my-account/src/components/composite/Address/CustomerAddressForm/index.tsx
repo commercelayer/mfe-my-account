@@ -28,7 +28,7 @@ function CustomerAddressForm(): JSX.Element | null {
   const addressId = params == null ? undefined : params.addressId
 
   return address === undefined && addressId !== undefined ? null : (
-    <Form>
+    <Form errorClassName="hasError">
       <Title>
         {addressId === undefined
           ? t("addresses.addressForm.new_address_title")
