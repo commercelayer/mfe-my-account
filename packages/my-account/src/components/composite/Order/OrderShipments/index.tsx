@@ -140,7 +140,17 @@ function ShipmentTop(): JSX.Element {
   return (
     <ShipmentHeader>
       <ShipmentCounter>
-        <ShipmentField name="key_number" />/<ShipmentsCount />
+        <ShipmentField name="key_number">
+          {(shipment) => {
+            const key_number = parseInt(
+              shipment.shipment.number?.split("/")[
+                shipment.shipment.number?.split("/").length - 1
+              ] ?? ""
+            )
+            return <>{key_number}</>
+          }}
+        </ShipmentField>
+        /<ShipmentsCount />
       </ShipmentCounter>
       <ShipmentHeaderRight>
         <ShipmentHeaderRightRow>

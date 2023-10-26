@@ -36,8 +36,9 @@ const getAsyncOrder = async (client: CommerceLayerClient, orderId: string) => {
         "guest",
         "shipping_address",
         "billing_address",
+        "shipments",
       ],
     },
-    include: ["shipping_address", "billing_address"],
+    include: ["shipping_address", "billing_address", "shipments"],
   })
 }

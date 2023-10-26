@@ -9,7 +9,7 @@ import CommerceLayer, {
   CommerceLayerClient,
 } from "@commercelayer/sdk"
 import { test as base } from "@playwright/test"
-import dotenv from "dotenv"
+import { config } from "dotenv"
 import jwt_decode from "jwt-decode"
 
 import path from "path"
@@ -17,7 +17,7 @@ import path from "path"
 import { AddressesPage } from "#specs/fixtures/AddressesPage"
 import { OrdersPage } from "#specs/fixtures/OrdersPage"
 
-dotenv.config({ path: path.resolve(__dirname, "../../.env.local") })
+config({ path: path.resolve(__dirname, "../../.env.local") })
 
 interface JWTProps {
   owner: {
@@ -139,6 +139,7 @@ const createCustomerAddresses = async (
         reference: a.id,
       })
       return customerCl.customer_addresses.create({
+        customer_email: params.customer?.email ?? "",
         customer: customerCl.customers.relationship(id),
         address: customerCl.addresses.relationship(a),
       })
