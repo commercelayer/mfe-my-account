@@ -9,7 +9,6 @@ import { Link } from "wouter"
 
 import {
   OrderListWrapper,
-  OrderData,
   OrderNumber,
   OrderItemsCount,
   OrderDate,
@@ -32,26 +31,26 @@ function OrdersPage(): JSX.Element {
   const titleClassName = "flex gap-2"
   const columns = [
     {
-      Header: "Order",
-      accessor: "number",
+      header: "Order",
+      accessorKey: "number",
       className: colClassName,
       titleClassName,
     },
     {
-      Header: "Date",
-      accessor: "placed_at",
+      header: "Date",
+      accessorKey: "placed_at",
       className: colClassName,
       titleClassName,
     },
     {
-      Header: "Status",
-      accessor: "status",
+      header: "Status",
+      accessorKey: "status",
       className: colClassName,
       titleClassName,
     },
     {
-      Header: "Amount",
-      accessor: "formatted_total_amount_with_taxes",
+      header: "Amount",
+      accessorKey: "formatted_total_amount_with_taxes",
       className: colClassName,
       titleClassName,
     },
@@ -87,24 +86,22 @@ function OrdersPage(): JSX.Element {
               if (!order) return <></>
               return (
                 <>
-                  {cell?.map((cell) => {
+                  {cell?.map(() => {
                     return (
-                      <OrderData
-                        key={order.number}
-                        {...p}
-                        {...cell.getCellProps()}
-                      >
+                      <div key={order.number} {...p}>
                         <Link
                           href={`/orders/${order.id}?accessToken=${accessToken}`}
                         >
-                          <OrderNumber># {cell.render("Cell")}</OrderNumber>
+                          <OrderNumber># {order.number}</OrderNumber>
                         </Link>
-                        <OrderItemsCount>
-                          {t("orders.orderContains", {
-                            count: order.skus_count as number,
-                          })}
-                        </OrderItemsCount>
-                      </OrderData>
+                        {order.type === "orders" && (
+                          <OrderItemsCount>
+                            {t("orders.orderContains", {
+                              count: order.skus_count as number,
+                            })}
+                          </OrderItemsCount>
+                        )}
+                      </div>
                     )
                   })}
                 </>
@@ -120,11 +117,12 @@ function OrdersPage(): JSX.Element {
               if (!order) return <></>
               const cols = cell?.map((cell) => {
                 return (
-                  <OrderData key={order.number} {...p} {...cell.getCellProps()}>
+                  <div key={order.number} {...p}>
                     <OrderDate>
-                      {cell.value && formatDate(cell.value, shortDate)}
+                      {cell.getValue() != null &&
+                        formatDate(cell.getValue() as string, shortDate)}
                     </OrderDate>
-                  </OrderData>
+                  </div>
                 )
               })
               return <>{cols}</>
@@ -137,11 +135,11 @@ function OrdersPage(): JSX.Element {
             {({ cell, row, ...p }) => {
               const order = row?.original
               if (!order) return <></>
-              const cols = cell?.map((cell) => {
+              const cols = cell?.map(() => {
                 return (
-                  <OrderData key={order.number} {...p} {...cell.getCellProps()}>
+                  <div key={order.number} {...p}>
                     <OrderStatusChip status={order.status} />
-                  </OrderData>
+                  </div>
                 )
               })
               return <>{cols}</>

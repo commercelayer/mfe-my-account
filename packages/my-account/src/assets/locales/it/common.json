@@ -140,7 +140,8 @@
     "pending": "pending",
     "placed": "placed",
     "approved": "approved",
-    "cancelled": "cancelled"
+    "cancelled": "cancelled",
+    "editing": "editing"
   },
   "shipmentStatus": {
     "upcoming": "imminente",

@@ -9,10 +9,6 @@ export const OrderListWrapper = styled.div`
   ${tw`-mx-5 md:mx-auto`}
 `
 
-export const OrderData = styled.td`
-  ${tw``}
-`
-
 export const OrderNumber = styled.p`
   ${tw`text-sm font-semibold hover:(cursor-pointer)`}
 `
