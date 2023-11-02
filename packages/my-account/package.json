@@ -41,7 +41,7 @@
     "prepare": "touch ./public/config.local.js"
   },
   "dependencies": {
-    "@commercelayer/react-components": "4.7.4",
+    "@commercelayer/react-components": "4.7.5",
     "@commercelayer/react-utils": "1.0.0-beta.3",
     "@commercelayer/sdk": "^5.19.0",
     "@esbuild-plugins/node-globals-polyfill": "^0.1.1",
