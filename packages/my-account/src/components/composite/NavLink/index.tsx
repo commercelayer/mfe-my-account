@@ -20,7 +20,7 @@ function ComingSoonBadge(): JSX.Element {
 }
 
 function NavLinkButton(props: Props): JSX.Element {
-  const { title, href, icon, comingSoon, onClick } = props
+  const { id, title, href, icon, comingSoon, onClick } = props
   const router = useRouter()
   const [location] = useLocation()
   const hrefWithoutBase = href.replace(router.base, "").split("?")[0]
@@ -31,6 +31,8 @@ function NavLinkButton(props: Props): JSX.Element {
       isCurrentPage={isCurrentPage}
       comingSoon={comingSoon}
       onClick={onClick}
+      aria-label={id}
+      disabled={comingSoon}
     >
       <Icon comingSoon={comingSoon}>{icon}</Icon>
       <TitleWrapper>

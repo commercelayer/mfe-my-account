@@ -89,12 +89,10 @@ function Navbar({ settings, onClick }: Props): JSX.Element {
         </LogoWrapper>
         <MenuWrapper>
           <Nav>
-            <ul className="flex flex-col gap-[18px]">
-              <NavLink id="orders" {...menu.orders} />
-              <NavLink id="addresses" {...menu.addresses} />
-              <NavLink id="wallet" {...menu.wallet} />
-              <NavLink id="returns" {...menu.returns} />
-            </ul>
+            <NavLink id="orders" {...menu.orders} />
+            <NavLink id="addresses" {...menu.addresses} />
+            <NavLink id="wallet" {...menu.wallet} />
+            <NavLink id="returns" {...menu.returns} />
           </Nav>
           {/* <NavLink id="customerService" {...menu.customerService} /> */}
           <EmailWrapper>

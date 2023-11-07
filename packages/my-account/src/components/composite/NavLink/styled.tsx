@@ -6,7 +6,7 @@ interface WrapperProps {
   comingSoon?: boolean
 }
 
-export const Wrapper = styled.li<WrapperProps>`
+export const Wrapper = styled.button<WrapperProps>`
   ${tw`flex h-8 items-center select-none`}
   ${({ comingSoon }) =>
     !comingSoon && tw`text-gray-500 hover:(cursor-pointer text-gray-600)`}
