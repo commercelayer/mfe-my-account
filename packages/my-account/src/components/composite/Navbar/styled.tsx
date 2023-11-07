@@ -29,5 +29,5 @@ export const Email = styled.span`
 `
 
 export const Nav = styled.nav`
-  ${tw`md:(my-8) lg:(my-16)`}
+  ${tw`md:(my-8) lg:(my-16) flex flex-col gap-[18px]`}
 `
