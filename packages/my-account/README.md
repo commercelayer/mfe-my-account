@@ -2,7 +2,7 @@
 
 The Commerce Layer My Account application (React) provides a production-ready reserved user area with order history and address management features, powered by Commerce Layer APIs. You can fork this repository and deploy it to any hosting service or use it as a reference application to build your own. A hosted version is also available.
 
-![my-account-low-res](https://user-images.githubusercontent.com/105653649/207382775-e1948090-9000-4dad-bf62-a73c94cf0a31.gif)
+![my-account-low-res](https://github.com/commercelayer/mfe-my-account/assets/55532244/050b24f0-a18f-4244-b347-08b6407b9e89)
 
 ## What is Commerce Layer?
 
@@ -50,9 +50,9 @@ You can use the hosted version of the My Account application with the following 
 
 ## Features
 
-The My Account application's main features are currently focused on the management of customer [orders](#orders) and [addresses](#addresses).
+The My Account application's main features are currently focused on the management of customer [orders](#orders) and [addresses](#addresses), along with the overview of the customer [wallet](#wallet).
 
-> Lots of other major and minor features (e.g. customer wallet, returns, and more) are already included in the development roadmap – check the Commerce Layer [changelog](https://docs.commercelayer.io/changelog/) to be regularly updated about all the new releases.
+> Lots of other major and minor features (e.g. returns and more) are already included in the development roadmap – check the Commerce Layer [changelog](https://docs.commercelayer.io/changelog/) to be regularly updated about all the new releases.
 
 ### Orders
 
@@ -60,7 +60,7 @@ The My Account application's main features are currently focused on the manageme
 
 As soon as you land on the application (or click on the _Orders_ menu item) you will be shown the order history screen.
 
-![my-account-orders](https://user-images.githubusercontent.com/105653649/207383160-c82818ab-c81f-43f9-b778-9c7c93ed8d12.jpg)
+![my-account-orders](https://github.com/commercelayer/mfe-my-account/assets/55532244/8c9b6182-baf1-4636-80ab-b4dbcb553d74)
 
 This works as the My Account app's welcome page, showing a list of the customer's orders. The list is paginated and can be sorted based on each column piece of information:
 
@@ -77,14 +77,14 @@ By clicking on one of the order numbers of the history list you can enter the se
 - The billing and shipping address details.
 - The shipments associated with the order (including the related parcels overview and tracking code).
 - The payment method used for the order.
-
-![my-account-order-details](https://user-images.githubusercontent.com/105653649/207383301-7fd246dd-af1d-41b4-a3db-f3318e712c9d.jpg)
+  
+![my-account-order-details](https://github.com/commercelayer/mfe-my-account/assets/55532244/397ca3b1-642b-4efd-910a-47680dfe85a6)
 
 #### Parcel tracking details
 
 By clicking a parcel's tracking link you can enter the selected parcel's detail page showing the full timeline of the parcel's movements and updates.
 
-![my-account-parcel-tracking](https://user-images.githubusercontent.com/105653649/207383343-fc38a0af-626c-4319-96ca-15a14b2c8200.jpg)
+![my-account-parcel-tracking](https://github.com/commercelayer/mfe-my-account/assets/55532244/bc26e5d5-5836-4946-920d-e71d7501b096)
 
 ### Addresses
 
@@ -92,9 +92,17 @@ By clicking a parcel's tracking link you can enter the selected parcel's detail 
 
 By clicking on the _Addresses_ menu item you can see the list of your saved addresses (if any). Each address can be edited or deleted. New addresses can be directly created from the app and added to the list.
 
-![my-account-select-address](https://user-images.githubusercontent.com/105653649/207383421-188971d7-d1d7-4ed1-b7c3-869613bd75d6.jpg)
+![my-account-select-address](https://github.com/commercelayer/mfe-my-account/assets/55532244/4d244e31-9a81-4e15-a10e-0984da672d53)
 
-![my-account-edit-address](https://user-images.githubusercontent.com/105653649/207383388-9a5c9658-d2d4-4ef8-b6d0-d4747223e518.jpg)
+![my-account-edit-address](https://github.com/commercelayer/mfe-my-account/assets/55532244/9f96616c-97f8-4936-96b0-2ed90ab45d64)
+
+### Wallet
+
+#### Saved cards list
+
+By clicking on the _Wallet_ menu item you can see the list of your saved credit cards (if any).
+
+![my-account-wallet](https://github.com/commercelayer/mfe-my-account/assets/55532244/ebce7758-1ae0-46f1-9061-bc2d251fe80a)
 
 ## Using the CLI to get a valid customer token
 
