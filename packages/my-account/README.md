@@ -50,7 +50,7 @@ You can use the hosted version of the My Account application with the following 
 
 ## Features
 
-The My Account application's main features are currently focused on the management of customer [orders](#orders), [addresses](#addresses), and [wallet](#wallet).
+The My Account application's main features are currently focused on the management of customer [orders](#orders) and [addresses](#addresses), along with the overview of the customer [wallet](#wallet).
 
 > Lots of other major and minor features (e.g. returns and more) are already included in the development roadmap – check the Commerce Layer [changelog](https://docs.commercelayer.io/changelog/) to be regularly updated about all the new releases.
 
