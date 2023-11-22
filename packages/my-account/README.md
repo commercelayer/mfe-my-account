@@ -50,9 +50,9 @@ You can use the hosted version of the My Account application with the following 
 
 ## Features
 
-The My Account application's main features are currently focused on the management of customer [orders](#orders) and [addresses](#addresses).
+The My Account application's main features are currently focused on the management of customer [orders](#orders), [addresses](#addresses), and [wallet](#wallet).
 
-> Lots of other major and minor features (e.g. customer wallet, returns, and more) are already included in the development roadmap – check the Commerce Layer [changelog](https://docs.commercelayer.io/changelog/) to be regularly updated about all the new releases.
+> Lots of other major and minor features (e.g. returns and more) are already included in the development roadmap – check the Commerce Layer [changelog](https://docs.commercelayer.io/changelog/) to be regularly updated about all the new releases.
 
 ### Orders
 
@@ -95,6 +95,12 @@ By clicking on the _Addresses_ menu item you can see the list of your saved addr
 ![my-account-select-address](https://user-images.githubusercontent.com/105653649/207383421-188971d7-d1d7-4ed1-b7c3-869613bd75d6.jpg)
 
 ![my-account-edit-address](https://user-images.githubusercontent.com/105653649/207383388-9a5c9658-d2d4-4ef8-b6d0-d4747223e518.jpg)
+
+### Wallet
+
+#### Saved cards list
+
+By clicking on the _Wallet_ menu item you can see the list of your saved credit cards (if any). 
 
 ## Using the CLI to get a valid customer token
 
