@@ -33,7 +33,11 @@
     "build": "pnpm --filter '*' build",
     "start": "pnpm --filter '*' start",
     "test": "pnpm --filter '*' test",
-    "test:e2e": "pnpm --filter '*' test:e2e"
+    "test:e2e": "pnpm --filter '*' test:e2e",
+    "dep:upgrade:major": "pnpm -r exec npm-check-updates -u",
+    "dep:upgrade:minor": "pnpm dep:upgrade:major -t minor",
+    "dep:self-upgrade:major": "pnpm exec npm-check-updates -u",
+    "dep:self-upgrade:minor": "pnpm dep:self-upgrade:major -t minor"
   },
   "workspaces": [
     "packages/*"
