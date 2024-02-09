@@ -24,7 +24,7 @@ function CustomerAddressForm(): JSX.Element | null {
   const { t } = useTranslation()
   const [, setLocation] = useLocation()
   const address = ctx?.address
-  const [, params] = useRoute(appRoutes.editAddress.path)
+  const [, params] = useRoute<{ addressId: string }>(appRoutes.editAddress.path)
   const addressId = params == null ? undefined : params.addressId
 
   return address === undefined && addressId !== undefined ? null : (

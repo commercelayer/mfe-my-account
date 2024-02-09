@@ -1,6 +1,6 @@
 import type { Settings } from "HostedApp"
 import { useContext } from "react"
-import { useRouter, useLocation, useRoute, Link } from "wouter"
+import { useRouter, useLocation, Link } from "wouter"
 
 import { Wrapper, Icon, TitleWrapper, Title, ComingSoon } from "./styled"
 
