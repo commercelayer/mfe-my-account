@@ -97,11 +97,11 @@ export class AddressesPage extends MyAccountPage {
 
   async deleteNthAddress(index: number) {
     const nthAddressDeleteButton = `${this.addressesCardSelector}:nth-child(${index}) >> .address-delete-button`
-    this.checkPageElement(nthAddressDeleteButton)
+    await this.checkPageElement(nthAddressDeleteButton)
     this.page.click(nthAddressDeleteButton)
 
     const nthAddressConfirmDeleteButton = `${this.addressesCardSelector}:nth-child(${index}) >> .address-confirm-delete-button`
-    this.checkPageElement(nthAddressConfirmDeleteButton)
+    await this.checkPageElement(nthAddressConfirmDeleteButton)
     this.page.click(nthAddressConfirmDeleteButton)
   }
 }
