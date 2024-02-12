@@ -1,8 +1,12 @@
 import { faker } from "@faker-js/faker"
 
+import {
+  euAddress,
+  euAddress2,
+  euAddress3,
+  euAddress4,
+} from "../../src/utils/addresses"
 import { test } from "../fixtures/tokenizedPage"
-
-import { euAddress, euAddress2, euAddress3, euAddress4 } from "../../src/utils/addresses"
 
 test.describe("Empty addresses page", () => {
   const customerEmail = faker.internet.email().toLocaleLowerCase()

@@ -8,7 +8,7 @@ import { AppContext } from "#providers/AppProvider"
 import { CustomerAddressProvider } from "#providers/CustomerAddressProvider"
 
 function AddressFormPage(): JSX.Element {
-  const [, params] = useRoute(appRoutes.editAddress.path)
+  const [, params] = useRoute<{ addressId: string }>(appRoutes.editAddress.path)
   const addressId = params == null ? undefined : params.addressId
   const ctx = useContext(AppContext)
 

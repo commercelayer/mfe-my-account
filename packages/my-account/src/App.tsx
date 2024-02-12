@@ -5,8 +5,8 @@ import Invalid from "#components/composite/Invalid"
 import MyAccountContainer from "#components/composite/MyAccountContainer"
 import Skeleton from "#components/composite/Skeleton"
 import { appRoutes } from "#data/routes"
-import { SettingsProvider } from "#providers/SettingsProvider"
 import { GTMProvider } from "#providers/GTMProvider"
+import { SettingsProvider } from "#providers/SettingsProvider"
 
 const LazyOrderPage = lazy(() => import("#pages/OrderPage"))
 const LazyOrdersPage = lazy(() => import("#pages/OrdersPage"))
