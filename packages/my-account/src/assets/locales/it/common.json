@@ -16,6 +16,8 @@
     "ordersDescription": "Visualizza i tuoi ordini effettuati",
     "addresses": "Indirizzi",
     "addressesDescription": "Gestisci i tuoi indirizzi",
+    "subscriptions": "Abbonamenti",
+    "subscriptionsDescription": "Gestisci i tuoi abbonamenti",
     "wallet": "Wallet",
     "walletDescription": "Gestisci i tuoi metodi di pagamento",
     "returns": "Resi",
@@ -32,7 +34,13 @@
   "orders": {
     "title": "I miei ordini",
     "orderContains": "contiene {{count}} elemento",
-    "orderContains_other": "contiene {{count}} elementi"
+    "orderContains_other": "contiene {{count}} elementi",
+    "columns": {
+      "order": "Ordine",
+      "status": "Stato",
+      "date": "Data",
+      "amount": "Importo"
+    }
   },
   "noOrders": {
     "title": "Nessun ordine presente",
@@ -75,6 +83,43 @@
     "payments": {
       "title": "Pagamenti"
     }
+  },
+  "subscriptions": {
+    "title": "I tuoi abbonamenti",
+    "subscriptionContains": "contiene {{count}} elemento",
+    "subscriptionContains_other": "contiene {{count}} elementi",
+    "columns": {
+      "subscription": "Abbonamento",
+      "status": "Stato",
+      "frequency": "Frequenza",
+      "next_run_at": "Rinnovo"
+    }
+  },
+  "noSubscriptions": {
+    "title": "Nessun abbonamento presente",
+    "description": "Sembra che tu non abbia ancora fatto abbonamenti",
+    "buttonLabel": "Vai allo shop"
+  },
+  "subscription": {
+    "title": "Abbonamento #<0/>",
+    "starts_at": "iniziata il <0/>",
+    "next_run": "Rinnovo",
+    "expires_at": "scade il <0/>"
+  },
+  "subscriptionFrequency": {
+    "hourly": "oraria",
+    "daily": "giornaliera",
+    "weekly": "settimanale",
+    "monthly": "mensile",
+    "two-month": "ogni due mesi",
+    "three-month": "ogni tre mesi",
+    "four-month": "ogni quattro mesi",
+    "six-month": "ogni sei mesi",
+    "yearly": "annuale"
+  },
+  "subscriptionProgress": {
+    "prefix": "Tra",
+    "notRunning": "Non attivo"
   },
   "addresses": {
     "title": "I miei indirizzi",
@@ -142,6 +187,12 @@
     "approved": "approved",
     "cancelled": "cancelled",
     "editing": "editing"
+  },
+  "subscriptionStatus": {
+    "draft": "bozza",
+    "inactive": "inattiva",
+    "active": "attiva",
+    "cancelled": "cancellata"
   },
   "shipmentStatus": {
     "upcoming": "imminente",

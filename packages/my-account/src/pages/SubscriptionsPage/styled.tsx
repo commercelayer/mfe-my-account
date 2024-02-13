@@ -18,5 +18,9 @@ export const OrderItemsCount = styled.p`
 `
 
 export const OrderDate = styled.p`
-  ${tw`inline-block text-sm font-extralight text-gray-400 bg-gray-200 px-3 rounded-full h-5 md:(bg-contrast px-0 w-min)`}
+  ${tw`inline-block text-sm font-extralight text-gray-400 bg-gray-200 px-3 rounded-full h-5 md:(bg-contrast px-0)`}
+`
+
+export const SubscriptionFrequency = styled.p`
+  ${tw`capitalize inline-block text-sm font-extralight text-gray-400 bg-gray-200 px-3 rounded-full h-5 md:(bg-contrast px-0)`}
 `

@@ -3,25 +3,26 @@ import { OrderListEmpty } from "@commercelayer/react-components/orders/OrderList
 import { OrderListPaginationButtons } from "@commercelayer/react-components/orders/OrderListPaginationButtons"
 import { OrderListPaginationInfo } from "@commercelayer/react-components/orders/OrderListPaginationInfo"
 import { OrderListRow } from "@commercelayer/react-components/orders/OrderListRow"
-import { useContext } from "react"
-import { useTranslation } from "react-i18next"
-import { Link } from "wouter"
+import { Trans, useTranslation } from "react-i18next"
 
 import {
+  OrderDate,
   OrderListWrapper,
   OrderNumber,
-  OrderItemsCount,
-  OrderDate,
+  SubscriptionFrequency,
 } from "./styled"
 
 import Empty from "#components/composite/Empty"
-import OrderStatusChip from "#components/composite/Order/OrderStatusChip"
-import { SkeletonMainOrdersTable } from "#components/composite/Skeleton/Main/OrdersTable"
+import { SkeletonMainSubscriptionsTable } from "#components/composite/Skeleton/Main/SubscriptionsTable"
+import SubscriptionNextRunProgress from "#components/composite/Subscription/SubscriptionNextRunProgress"
+import SubscriptionStatusChip from "#components/composite/Subscription/SubscriptionStatusChip"
 import Title from "#components/ui/Title"
 import { AppContext } from "#providers/AppProvider"
 import { formatDate, shortDate } from "#utils/dateTimeFormats"
+import { useContext } from "react"
+import { Link } from "wouter"
 
-function OrdersPage(): JSX.Element {
+function SubscriptionsPage(): JSX.Element {
   const { t } = useTranslation()
   const ctx = useContext(AppContext)
   const accessToken = ctx?.accessToken
@@ -31,26 +32,26 @@ function OrdersPage(): JSX.Element {
   const titleClassName = "flex gap-2"
   const columns = [
     {
-      header: t('orders.columns.order'),
+      header: t("subscriptions.columns.subscription"),
       accessorKey: "number",
       className: colClassName,
       titleClassName,
     },
     {
-      header: t('orders.columns.date'),
-      accessorKey: "placed_at",
-      className: colClassName,
-      titleClassName,
-    },
-    {
-      header: t('orders.columns.status'),
+      header: t("subscriptions.columns.status"),
       accessorKey: "status",
       className: colClassName,
       titleClassName,
     },
     {
-      header: t('orders.columns.amount'),
-      accessorKey: "formatted_total_amount_with_taxes",
+      header: t("subscriptions.columns.frequency"),
+      accessorKey: "frequency",
+      className: colClassName,
+      titleClassName,
+    },
+    {
+      header: t("subscriptions.columns.next_run_at"),
+      accessorKey: "next_run_at",
       className: colClassName,
       titleClassName,
     },
@@ -58,15 +59,16 @@ function OrdersPage(): JSX.Element {
 
   return (
     <>
-      <Title>{t("orders.title")}</Title>
+      <Title>{t("subscriptions.title")}</Title>
       <OrderListWrapper>
         <OrderList
+          type="subscriptions"
           className="w-full mb-8 table-fixed md:-mx-0"
           columns={columns}
           showActions={true}
           loadingElement={
             <div className="px-5 lg:p-0">
-              <SkeletonMainOrdersTable />
+              <SkeletonMainSubscriptionsTable />
             </div>
           }
           actionsContainerClassName="absolute right-1 order-5 align-top hidden md:relative md:align-middle py-5 text-center"
@@ -76,7 +78,7 @@ function OrdersPage(): JSX.Element {
           pageSize={15}
           paginationContainerClassName="flex justify-between items-center"
         >
-          <OrderListEmpty>{() => <Empty type="Orders" />}</OrderListEmpty>
+          <OrderListEmpty>{() => <Empty type="Subscriptions" />}</OrderListEmpty>
           <OrderListRow
             field="number"
             className="order-1 pt-6 pb-2.5 md:p-0  md:align-middle"
@@ -90,18 +92,16 @@ function OrdersPage(): JSX.Element {
                     return (
                       <div key={order.number} {...p}>
                         <Link
-                          href={`/orders/${order.id}?accessToken=${accessToken}`}
+                          href={`/subscriptions/${order.id}?accessToken=${accessToken}`}
                         >
                           <a>
                             <OrderNumber># {order.number}</OrderNumber>
                           </a>
                         </Link>
-                        {order.type === "orders" && (
-                          <OrderItemsCount>
-                            {t("orders.orderContains", {
-                              count: order.skus_count as number,
-                            })}
-                          </OrderItemsCount>
+                        {order.type === 'order_subscriptions' && order.starts_at != null && (
+                          <OrderDate>
+                            <Trans i18nKey="subscription.starts_at">{formatDate(order.starts_at as string, shortDate)}</Trans>
+                          </OrderDate>
                         )}
                       </div>
                     )
@@ -111,36 +111,16 @@ function OrdersPage(): JSX.Element {
             }}
           </OrderListRow>
           <OrderListRow
-            field="placed_at"
-            className="absolute order-2 text-right bottom-4 right-5 md:bottom-auto md:relative md:right-auto md:text-left"
-          >
-            {({ cell, row, ...p }) => {
-              const order = row?.original
-              if (!order) return <></>
-              const cols = cell?.map((cell) => {
-                return (
-                  <div key={order.number} {...p}>
-                    <OrderDate>
-                      {cell.getValue() != null &&
-                        formatDate(cell.getValue() as string, shortDate)}
-                    </OrderDate>
-                  </div>
-                )
-              })
-              return <>{cols}</>
-            }}
-          </OrderListRow>
-          <OrderListRow
             field="status"
             className="absolute order-3 bottom-4 md:bottom-auto md:relative"
           >
             {({ cell, row, ...p }) => {
               const order = row?.original
-              if (!order) return <></>
+              if (!order || order.type != 'order_subscriptions') return <></>
               const cols = cell?.map(() => {
                 return (
                   <div key={order.number} {...p}>
-                    <OrderStatusChip status={order.status} />
+                    <SubscriptionStatusChip status={order.status} />
                   </div>
                 )
               })
@@ -148,9 +128,36 @@ function OrdersPage(): JSX.Element {
             }}
           </OrderListRow>
           <OrderListRow
-            field="formatted_total_amount_with_taxes"
+            field="frequency"
+            className="absolute order-2 text-right bottom-4 right-5 md:bottom-auto md:relative md:right-auto md:text-left"
+          >
+            {({ cell, row, ...p }) => {
+              const order = row?.original
+              if (!order || order.type != 'order_subscriptions') return <></>
+              const cols = cell?.map((cell) => {
+                return (
+                  <div key={order.frequency} {...p}>
+                    <SubscriptionFrequency>
+                      {cell.getValue() != null &&
+                        t(`subscriptionFrequency.${cell.getValue()}`)}
+                    </SubscriptionFrequency>
+                  </div>
+                )
+              })
+              return <>{cols}</>
+            }}
+          </OrderListRow>
+          
+          <OrderListRow
+            field="next_run_at"
             className="order-4 font-bold text-right md:text-left md:text-lg"
-          />
+          >
+            {({ cell, row, ...p }) => {
+              const order = row?.original
+              if (!order || order.type != 'order_subscriptions') return <></>
+              return (<SubscriptionNextRunProgress variant="list" subscription={order} />)
+            }}
+          </OrderListRow>
           <OrderListPaginationInfo className="text-sm text-gray-500" />
           <OrderListPaginationButtons
             previousPageButton={{
@@ -179,4 +186,4 @@ function OrdersPage(): JSX.Element {
   )
 }
 
-export default OrdersPage
+export default SubscriptionsPage

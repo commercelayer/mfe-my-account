@@ -8,6 +8,7 @@ interface WrapperProps {
 
 export const Wrapper = styled.button<WrapperProps>`
   ${tw`flex h-8 items-center select-none`}
+  ${({ hidden }) => hidden === true && tw`hidden`}
   ${({ comingSoon }) =>
     !comingSoon && tw`text-gray-500 hover:(cursor-pointer text-gray-600)`}
   ${({ comingSoon }) => comingSoon && tw`text-gray-400`}

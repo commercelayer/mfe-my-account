@@ -16,6 +16,8 @@
     "ordersDescription": "See your placed orders",
     "addresses": "Addresses",
     "addressesDescription": "Manage your addresses",
+    "subscriptions": "Subscriptions",
+    "subscriptionsDescription": "Manage your subscriptions",
     "wallet": "Wallet",
     "walletDescription": "Manage your payment methods",
     "returns": "Returns",
@@ -32,7 +34,13 @@
   "orders": {
     "title": "My orders",
     "orderContains": "contains {{count}} item",
-    "orderContains_other": "contains {{count}} items"
+    "orderContains_other": "contains {{count}} items",
+    "columns": {
+      "order": "Order",
+      "status": "Status",
+      "date": "Date",
+      "amount": "Amount"
+    }
   },
   "noOrders": {
     "title": "No orders yet",
@@ -75,6 +83,42 @@
     "payments": {
       "title": "Payments"
     }
+  },
+  "subscriptions": {
+    "title": "My subscriptions",
+    "subscriptionContains": "contains {{count}} item",
+    "subscriptionContains_other": "contains {{count}} items",
+    "columns": {
+      "subscription": "Subscription",
+      "status": "Status",
+      "frequency": "Frequency",
+      "next_run_at": "Next run"
+    }
+  },
+  "noSubscriptions": {
+    "title": "No subscription yet",
+    "description": "Looks like you haven't made any subscriptions yet",
+    "buttonLabel": "Go to shop"
+  },
+  "subscription": {
+    "title": "Subscription #<0/>",
+    "starts_at": "started on <0/>",
+    "next_run": "Next run",
+    "expires_at": "expires on <0/>"
+  },
+  "subscriptionFrequency": {
+    "hourly": "hourly",
+    "daily": "daily",
+    "weekly": "weekly",
+    "monthly": "monthly",
+    "two-month": "every two month",
+    "three-month": "every three month",
+    "six-month": "every six month",
+    "yearly": "yearly"
+  },
+  "subscriptionProgress": {
+    "prefix": "In",
+    "notRunning": "Not running"
   },
   "addresses": {
     "title": "My addresses",
@@ -142,6 +186,12 @@
     "approved": "approved",
     "cancelled": "cancelled",
     "editing": "editing"
+  },
+  "subscriptionStatus": {
+    "draft": "draft",
+    "inactive": "inactive",
+    "active": "active",
+    "cancelled": "cancelled"
   },
   "shipmentStatus": {
     "upcoming": "upcoming",

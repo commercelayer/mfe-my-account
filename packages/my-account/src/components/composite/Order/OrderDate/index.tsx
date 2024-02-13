@@ -1,7 +1,6 @@
 import { Trans } from "react-i18next"
 
-import { OrderDateWrapper } from "./styled"
-
+import { DateWrapper } from "#components/ui/Common/styled"
 import { formatDate, shortDate } from "#utils/dateTimeFormats"
 
 interface Props {
@@ -13,9 +12,9 @@ function OrderDate({ placed_at }: Props): JSX.Element {
     (placed_at != null && formatDate(placed_at, shortDate)) || ""
 
   return (
-    <OrderDateWrapper>
+    <DateWrapper>
       <Trans i18nKey="order.placed_at">{orderPlacedAt}</Trans>
-    </OrderDateWrapper>
+    </DateWrapper>
   )
 }
 

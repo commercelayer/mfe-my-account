@@ -10,11 +10,14 @@ interface StatusChipProps {
 
 const handlerStatusColor = (status: string) => {
   switch (status) {
+    case "active": // Subscriptions
     case "placed": // Orders
     case "approved": // Orders
     case "shipped": // Shipments
     case "received": // Returns
       return tw`text-green-400 bg-green-400 bg-opacity-10`
+    case "cancelled":
+      return tw`text-red-400 bg-red-400 bg-opacity-10`
     default:
       return tw`text-yellow-400 bg-yellow-400 bg-opacity-10`
   }

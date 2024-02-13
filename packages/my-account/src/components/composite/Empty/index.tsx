@@ -7,7 +7,7 @@ import NoOrdersIcon from "#components/ui/icons/NoOrdersIcon"
 import NoPaymentMethodsIcon from "#components/ui/icons/NoPaymentMethodsIcon"
 import NoReturnsIcon from "#components/ui/icons/NoReturnsIcon"
 
-type EmptyType = "Addresses" | "Orders" | "PaymentMethods" | "Returns"
+type EmptyType = "Addresses" | "Orders" | "Subscriptions" | "PaymentMethods" | "Returns"
 
 interface Props {
   type: EmptyType
@@ -21,6 +21,10 @@ const emptyTypes = [
   },
   {
     type: "Orders",
+    icon: <NoOrdersIcon />,
+  },
+  {
+    type: "Subscriptions",
     icon: <NoOrdersIcon />,
   },
   {

@@ -10,6 +10,8 @@ import { SettingsProvider } from "#providers/SettingsProvider"
 
 const LazyOrderPage = lazy(() => import("#pages/OrderPage"))
 const LazyOrdersPage = lazy(() => import("#pages/OrdersPage"))
+const LazySubscriptionsPage = lazy(() => import("#pages/SubscriptionsPage"))
+const LazySubscriptionPage = lazy(() => import("#pages/SubscriptionPage"))
 const LazyParcelPage = lazy(() => import("#pages/ParcelPage"))
 const LazyAddressFormPage = lazy(() => import("#pages/AdddressFormPage"))
 const LazyAddressesPage = lazy(() => import("#pages/AddressesPage"))
@@ -71,6 +73,18 @@ function App(): JSX.Element {
                             orderId={params.orderId}
                             parcelId={params.parcelId}
                           />
+                        </Suspense>
+                      )}
+                    </Route>
+                    <Route path={appRoutes.subscriptions.path}>
+                      <Suspense fallback={<></>}>
+                        <LazySubscriptionsPage />
+                      </Suspense>
+                    </Route>
+                    <Route path={appRoutes.subscription.path}>
+                      {(params) => (
+                        <Suspense fallback={<></>}>
+                          <LazySubscriptionPage subscriptionId={params.subscriptionId} />
                         </Suspense>
                       )}
                     </Route>

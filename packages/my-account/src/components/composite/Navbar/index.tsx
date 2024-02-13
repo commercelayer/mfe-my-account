@@ -6,6 +6,7 @@ import {
   Lifebuoy,
   MapPin,
   ShoppingCart,
+  CalendarCheck
 } from "phosphor-react"
 import { useTranslation } from "react-i18next"
 
@@ -52,6 +53,14 @@ function Navbar({ settings, onClick }: Props): JSX.Element {
       accessToken,
       onClick,
     },
+    subscriptions: {
+      title: t("menu.subscriptions"),
+      href: "/subscriptions",
+      icon: <CalendarCheck className="w-4" />,
+      comingSoon: false,
+      accessToken,
+      onClick,
+    },
     wallet: {
       title: t("menu.wallet"),
       href: "/wallet",
@@ -65,6 +74,7 @@ function Navbar({ settings, onClick }: Props): JSX.Element {
       href: "/returns",
       icon: <Package className="w-4" />,
       comingSoon: true,
+      hidden: true,
       accessToken,
       onClick,
     },
@@ -91,6 +101,7 @@ function Navbar({ settings, onClick }: Props): JSX.Element {
           <Nav>
             <NavLink id="orders" {...menu.orders} />
             <NavLink id="addresses" {...menu.addresses} />
+            <NavLink id="subscriptions" {...menu.subscriptions} />
             <NavLink id="wallet" {...menu.wallet} />
             <NavLink id="returns" {...menu.returns} />
           </Nav>

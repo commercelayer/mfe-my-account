@@ -12,6 +12,7 @@ type Props = Pick<Settings, "accessToken"> & {
   href: string
   icon: React.ReactNode
   comingSoon?: boolean
+  hidden?: boolean
   onClick?: () => void
 }
 
@@ -20,7 +21,7 @@ function ComingSoonBadge(): JSX.Element {
 }
 
 function NavLinkButton(props: Props): JSX.Element {
-  const { id, title, href, icon, comingSoon, onClick } = props
+  const { id, title, href, icon, comingSoon, hidden = false, onClick } = props
   const router = useRouter()
   const [location] = useLocation()
   const hrefWithoutBase = href.replace(router.base, "").split("?")[0]
@@ -30,9 +31,10 @@ function NavLinkButton(props: Props): JSX.Element {
     <Wrapper
       isCurrentPage={isCurrentPage}
       comingSoon={comingSoon}
+      hidden={hidden}
       onClick={onClick}
       aria-label={id}
-      disabled={comingSoon}
+      disabled={comingSoon} 
     >
       <Icon comingSoon={comingSoon}>{icon}</Icon>
       <TitleWrapper>
