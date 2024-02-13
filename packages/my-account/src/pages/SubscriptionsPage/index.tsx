@@ -3,24 +3,26 @@ import { OrderListEmpty } from "@commercelayer/react-components/orders/OrderList
 import { OrderListPaginationButtons } from "@commercelayer/react-components/orders/OrderListPaginationButtons"
 import { OrderListPaginationInfo } from "@commercelayer/react-components/orders/OrderListPaginationInfo"
 import { OrderListRow } from "@commercelayer/react-components/orders/OrderListRow"
+import { useContext } from "react"
 import { Trans, useTranslation } from "react-i18next"
+import { Link } from "wouter"
 
 import {
   OrderDate,
   OrderListWrapper,
   OrderNumber,
   SubscriptionFrequency,
+  SubscriptionNextRunAt,
 } from "./styled"
 
 import Empty from "#components/composite/Empty"
 import { SkeletonMainSubscriptionsTable } from "#components/composite/Skeleton/Main/SubscriptionsTable"
 import SubscriptionNextRunProgress from "#components/composite/Subscription/SubscriptionNextRunProgress"
 import SubscriptionStatusChip from "#components/composite/Subscription/SubscriptionStatusChip"
+import FormattedDate from "#components/ui/FormattedDate"
 import Title from "#components/ui/Title"
 import { AppContext } from "#providers/AppProvider"
 import { formatDate, shortDate } from "#utils/dateTimeFormats"
-import { useContext } from "react"
-import { Link } from "wouter"
 
 function SubscriptionsPage(): JSX.Element {
   const { t } = useTranslation()
@@ -78,7 +80,9 @@ function SubscriptionsPage(): JSX.Element {
           pageSize={15}
           paginationContainerClassName="flex justify-between items-center"
         >
-          <OrderListEmpty>{() => <Empty type="Subscriptions" />}</OrderListEmpty>
+          <OrderListEmpty>
+            {() => <Empty type="Subscriptions" />}
+          </OrderListEmpty>
           <OrderListRow
             field="number"
             className="order-1 pt-6 pb-2.5 md:p-0  md:align-middle"
@@ -98,11 +102,17 @@ function SubscriptionsPage(): JSX.Element {
                             <OrderNumber># {order.number}</OrderNumber>
                           </a>
                         </Link>
-                        {order.type === 'order_subscriptions' && order.starts_at != null && (
-                          <OrderDate>
-                            <Trans i18nKey="subscription.starts_at">{formatDate(order.starts_at as string, shortDate)}</Trans>
-                          </OrderDate>
-                        )}
+                        {order.type === "order_subscriptions" &&
+                          order.starts_at != null && (
+                            <OrderDate>
+                              <Trans i18nKey="subscription.starts_at">
+                                {formatDate(
+                                  order.starts_at as string,
+                                  shortDate
+                                )}
+                              </Trans>
+                            </OrderDate>
+                          )}
                       </div>
                     )
                   })}
@@ -116,7 +126,7 @@ function SubscriptionsPage(): JSX.Element {
           >
             {({ cell, row, ...p }) => {
               const order = row?.original
-              if (!order || order.type != 'order_subscriptions') return <></>
+              if (!order || order.type !== "order_subscriptions") return <></>
               const cols = cell?.map(() => {
                 return (
                   <div key={order.number} {...p}>
@@ -133,7 +143,7 @@ function SubscriptionsPage(): JSX.Element {
           >
             {({ cell, row, ...p }) => {
               const order = row?.original
-              if (!order || order.type != 'order_subscriptions') return <></>
+              if (!order || order.type !== "order_subscriptions") return <></>
               const cols = cell?.map((cell) => {
                 return (
                   <div key={order.frequency} {...p}>
@@ -147,15 +157,30 @@ function SubscriptionsPage(): JSX.Element {
               return <>{cols}</>
             }}
           </OrderListRow>
-          
+
           <OrderListRow
             field="next_run_at"
             className="order-4 font-bold text-right md:text-left md:text-lg"
           >
-            {({ cell, row, ...p }) => {
+            {({ row }) => {
               const order = row?.original
-              if (!order || order.type != 'order_subscriptions') return <></>
-              return (<SubscriptionNextRunProgress variant="list" subscription={order} />)
+              if (!order || order.type !== "order_subscriptions") return <></>
+              if (order.last_run_at != null) {
+                return (
+                  <SubscriptionNextRunProgress
+                    variant="list"
+                    subscription={order}
+                  />
+                )
+              }
+              if (order.status === "active" && order.next_run_at != null) {
+                return (
+                  <SubscriptionNextRunAt>
+                    {FormattedDate({ date: order.next_run_at })}
+                  </SubscriptionNextRunAt>
+                )
+              }
+              return <SubscriptionNextRunAt>&#8212;</SubscriptionNextRunAt>
             }}
           </OrderListRow>
           <OrderListPaginationInfo className="text-sm text-gray-500" />

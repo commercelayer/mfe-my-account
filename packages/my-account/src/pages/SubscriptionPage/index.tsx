@@ -1,5 +1,6 @@
+import { OrderSubscription } from "@commercelayer/sdk"
 import { useContext } from "react"
-import { Trans, useTranslation } from "react-i18next"
+import { Trans } from "react-i18next"
 import { Redirect } from "wouter"
 
 import {
@@ -10,32 +11,35 @@ import {
   OrderSubscriptionStackItemValue,
   OrderSubscriptionStackItemWrapper,
   OrderSubscriptionStackWrapper,
-  OrderWrapper
+  OrderWrapper,
 } from "./styled"
 
 import { SkeletonMainOrder } from "#components/composite/Skeleton/Main"
 import SubscriptionNextRunProgress from "#components/composite/Subscription/SubscriptionNextRunProgress"
 import SubscriptionStatusChip from "#components/composite/Subscription/SubscriptionStatusChip"
-import { DateWrapper, LittleDateWrapper, PageSecondaryTitle, PageTitle } from "#components/ui/Common/styled"
+import {
+  DateWrapper,
+  LittleDateWrapper,
+  PageSecondaryTitle,
+  PageTitle,
+} from "#components/ui/Common/styled"
 import FormattedDate from "#components/ui/FormattedDate"
 import { Stack } from "#components/ui/Stack"
 import { AppContext } from "#providers/AppProvider"
 import { OrderSubscriptionProvider } from "#providers/OrderSubscriptionProvider"
-import { OrderSubscription } from "@commercelayer/sdk"
 
 interface SubscriptionPageProps {
   subscriptionId?: string
 }
 
-function SubscriptionPage({ subscriptionId }: SubscriptionPageProps): JSX.Element {
+function SubscriptionPage({
+  subscriptionId,
+}: SubscriptionPageProps): JSX.Element {
   const ctx = useContext(AppContext)
   const accessToken = ctx?.accessToken
-  const { t } = useTranslation()
 
   if (subscriptionId == null) {
-    return (
-      <Redirect to={`/subscriptions?accessToken=${accessToken}`} />
-    )
+    return <Redirect to={`/subscriptions?accessToken=${accessToken}`} />
   }
 
   return (
@@ -52,54 +56,85 @@ function SubscriptionPage({ subscriptionId }: SubscriptionPageProps): JSX.Elemen
               <Redirect to={`/subscriptions?accessToken=${accessToken}`} />
             ) : (
               <>
-                <SkeletonMainOrder visible={isLoading} />{/*  TODO */}
+                <SkeletonMainOrder visible={isLoading} />
+                {/*  TODO */}
                 {!isLoading && (
-                <OrderWrapper hidden={isLoading}>
-                  <OrderSubscriptionHeader>
-                    <OrderSubscriptionHeaderMain>
-                      <PageTitle>
-                        <Trans i18nKey="subscription.title">
-                          {orderSubscription?.number}
-                        </Trans>
-                      </PageTitle>
-                      <DateWrapper>
-                        <Trans i18nKey="subscription.starts_at"><FormattedDate date={orderSubscription?.starts_at} /></Trans>
-                      </DateWrapper>
-                      <SubscriptionStatusChip status={orderSubscription?.status} />
-                    </OrderSubscriptionHeaderMain>
-                  </OrderSubscriptionHeader>
-                  <OrderSubscriptionNextRunWrapper>
-                    <PageSecondaryTitle><Trans i18nKey="subscription.next_run" /></PageSecondaryTitle>
-                    <OrderSubscriptionNextRunProgressWrapper>
-                      <SubscriptionNextRunProgress subscription={orderSubscription as OrderSubscription} variant="detail" />
-                      {orderSubscription?.expires_at != null && (
-                        <LittleDateWrapper>
-                          <Trans i18nKey="subscription.expires_at">
-                            <FormattedDate date={orderSubscription?.expires_at} />  
+                  <OrderWrapper hidden={isLoading}>
+                    <OrderSubscriptionHeader>
+                      <OrderSubscriptionHeaderMain>
+                        <PageTitle>
+                          <Trans i18nKey="subscription.title">
+                            {orderSubscription?.number}
                           </Trans>
-                        </LittleDateWrapper>
-                      )}
-                    </OrderSubscriptionNextRunProgressWrapper>
-                  </OrderSubscriptionNextRunWrapper>
-                  <OrderSubscriptionStackWrapper>
-                    <Stack>
-                      <OrderSubscriptionStackItemWrapper>
-                        <PageSecondaryTitle>Frequency</PageSecondaryTitle>
-                        <OrderSubscriptionStackItemValue capitalize>{orderSubscription?.frequency}</OrderSubscriptionStackItemValue>
-                      </OrderSubscriptionStackItemWrapper>
-                      <OrderSubscriptionStackItemWrapper>
-                        <PageSecondaryTitle>Next run date</PageSecondaryTitle>
-                        <OrderSubscriptionStackItemValue><FormattedDate date={orderSubscription?.next_run_at} /></OrderSubscriptionStackItemValue>
-                      </OrderSubscriptionStackItemWrapper>
-                    </Stack>
-                  </OrderSubscriptionStackWrapper>
-                </OrderWrapper>
+                        </PageTitle>
+                        <DateWrapper>
+                          <Trans i18nKey="subscription.starts_at">
+                            <FormattedDate
+                              date={orderSubscription?.starts_at}
+                            />
+                          </Trans>
+                        </DateWrapper>
+                        <SubscriptionStatusChip
+                          status={orderSubscription?.status}
+                        />
+                      </OrderSubscriptionHeaderMain>
+                    </OrderSubscriptionHeader>
+                    {(orderSubscription?.last_run_at != null ||
+                      orderSubscription?.expires_at != null) && (
+                      <OrderSubscriptionNextRunWrapper>
+                        <PageSecondaryTitle>
+                          <Trans i18nKey="subscription.next_run" />
+                        </PageSecondaryTitle>
+                        <OrderSubscriptionNextRunProgressWrapper>
+                          {orderSubscription?.last_run_at != null && (
+                            <SubscriptionNextRunProgress
+                              subscription={
+                                orderSubscription as OrderSubscription
+                              }
+                              variant="detail"
+                            />
+                          )}
+                          {orderSubscription?.expires_at != null && (
+                            <LittleDateWrapper>
+                              <Trans i18nKey="subscription.expires_at">
+                                <FormattedDate
+                                  date={orderSubscription?.expires_at}
+                                />
+                              </Trans>
+                            </LittleDateWrapper>
+                          )}
+                        </OrderSubscriptionNextRunProgressWrapper>
+                      </OrderSubscriptionNextRunWrapper>
+                    )}
+                    <OrderSubscriptionStackWrapper>
+                      <Stack>
+                        <OrderSubscriptionStackItemWrapper>
+                          <PageSecondaryTitle>Frequency</PageSecondaryTitle>
+                          <OrderSubscriptionStackItemValue capitalize>
+                            {orderSubscription?.frequency}
+                          </OrderSubscriptionStackItemValue>
+                        </OrderSubscriptionStackItemWrapper>
+                        <OrderSubscriptionStackItemWrapper>
+                          <PageSecondaryTitle>Next run date</PageSecondaryTitle>
+                          <OrderSubscriptionStackItemValue>
+                            {orderSubscription?.status === "active" ? (
+                              <FormattedDate
+                                date={orderSubscription?.next_run_at}
+                              />
+                            ) : (
+                              <>&#8212;</>
+                            )}
+                          </OrderSubscriptionStackItemValue>
+                        </OrderSubscriptionStackItemWrapper>
+                      </Stack>
+                    </OrderSubscriptionStackWrapper>
+                  </OrderWrapper>
                 )}
               </>
             )}
           </>
-        )}
-      }
+        )
+      }}
     </OrderSubscriptionProvider>
   )
 }
