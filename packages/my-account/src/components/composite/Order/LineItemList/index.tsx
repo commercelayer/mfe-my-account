@@ -5,7 +5,9 @@ import { LineItemTypes } from "#components/composite/Order/LineItemTypes"
 function LineItemList(): JSX.Element {
   return (
     <LineItemsContainer>
-      <LineItemTypes type="skus" />
+      <div className="flex flex-col gap-6">
+        <LineItemTypes type="skus" />
+      </div>
     </LineItemsContainer>
   )
 }

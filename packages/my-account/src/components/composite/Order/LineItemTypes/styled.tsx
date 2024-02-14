@@ -2,7 +2,7 @@ import styled from "styled-components"
 import tw from "twin.macro"
 
 export const LineItemWrapper = styled.div`
-  ${tw`flex flex-row w-full pt-6 pb-8 border-b`}
+  ${tw`flex flex-row w-full pb-6 border-b`}
 `
 export const LineItemContent = styled.div`
   ${tw`flex justify-between w-full pl-4 md:pl-8`}
