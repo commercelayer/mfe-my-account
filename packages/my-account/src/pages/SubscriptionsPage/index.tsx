@@ -98,9 +98,7 @@ function SubscriptionsPage(): JSX.Element {
                         <Link
                           href={`/subscriptions/${order.id}?accessToken=${accessToken}`}
                         >
-                          <a>
-                            <OrderNumber># {order.number}</OrderNumber>
-                          </a>
+                          <OrderNumber># {order.number}</OrderNumber>
                         </Link>
                         {order.type === "order_subscriptions" &&
                           order.starts_at != null && (
