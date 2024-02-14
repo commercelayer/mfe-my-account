@@ -28,28 +28,28 @@ function OrdersPage(): JSX.Element {
 
   const colClassName =
     "text-left text-xs font-thin border-b border-gray-200 md:border-none text-gray-300 md:font-semibold md:uppercase md:relative"
-  const titleClassName = "flex gap-2"
+  const titleClassName = "flex gap-2 items-center"
   const columns = [
     {
-      header: t('orders.columns.order'),
+      header: t("orders.columns.order"),
       accessorKey: "number",
       className: colClassName,
       titleClassName,
     },
     {
-      header: t('orders.columns.date'),
+      header: t("orders.columns.date"),
       accessorKey: "placed_at",
       className: colClassName,
       titleClassName,
     },
     {
-      header: t('orders.columns.status'),
+      header: t("orders.columns.status"),
       accessorKey: "status",
       className: colClassName,
       titleClassName,
     },
     {
-      header: t('orders.columns.amount'),
+      header: t("orders.columns.amount"),
       accessorKey: "formatted_total_amount_with_taxes",
       className: colClassName,
       titleClassName,
@@ -92,9 +92,7 @@ function OrdersPage(): JSX.Element {
                         <Link
                           href={`/orders/${order.id}?accessToken=${accessToken}`}
                         >
-                          <a>
-                            <OrderNumber># {order.number}</OrderNumber>
-                          </a>
+                          <OrderNumber># {order.number}</OrderNumber>
                         </Link>
                         {order.type === "orders" && (
                           <OrderItemsCount>
