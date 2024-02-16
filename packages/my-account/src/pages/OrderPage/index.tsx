@@ -17,6 +17,7 @@ import OrderDate from "#components/composite/Order/OrderDate"
 import type { OrderStatus } from "#components/composite/Order/OrderStatusChip"
 import OrderStatusChip from "#components/composite/Order/OrderStatusChip"
 import { SkeletonMainOrder } from "#components/composite/Skeleton/Main"
+import { ScrollToTop } from "#components/ui/ScrollToTop"
 import { AppContext } from "#providers/AppProvider"
 import { OrderProvider } from "#providers/OrderProvider"
 
@@ -57,6 +58,7 @@ function OrderPage({ orderId }: OrderPageProps): JSX.Element {
                   <OrderAccordion />
                 </OrderAccordionWrapper>
               </OrderWrapper>
+              <ScrollToTop />
             </OrderContainer>
           )}
         </>

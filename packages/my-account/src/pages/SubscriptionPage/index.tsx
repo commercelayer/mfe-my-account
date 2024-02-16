@@ -29,6 +29,7 @@ import { OrderSection, OrderSectionItem } from "#components/ui/OrderSection"
 import { AppContext } from "#providers/AppProvider"
 import { OrderSubscriptionProvider } from "#providers/OrderSubscriptionProvider"
 import SubscriptionSummary from "#components/composite/Subscription/SubscriptionSummary"
+import { ScrollToTop } from "#components/ui/ScrollToTop"
 
 interface SubscriptionPageProps {
   subscriptionId?: string
@@ -142,6 +143,7 @@ function SubscriptionPage({
                         </OrderSectionItem>
                       </OrderSection>
                     </OrderAccordionWrapper>
+                    <ScrollToTop />
                   </OrderWrapper>
                 )}
               </>
