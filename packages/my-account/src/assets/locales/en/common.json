@@ -39,6 +39,7 @@
       "order": "Order",
       "status": "Status",
       "date": "Date",
+      "payment": "Payment",
       "amount": "Amount"
     }
   },
@@ -104,7 +105,8 @@
     "title": "Subscription #<0/>",
     "starts_at": "started on <0/>",
     "next_run": "Next run",
-    "expires_at": "expires on <0/>"
+    "expires_at": "expires on <0/>",
+    "order_history": "Order history"
   },
   "subscriptionFrequency": {
     "hourly": "hourly",

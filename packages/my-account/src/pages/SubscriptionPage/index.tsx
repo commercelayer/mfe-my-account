@@ -1,9 +1,10 @@
 import { OrderSubscription } from "@commercelayer/sdk"
 import { useContext } from "react"
-import { Trans } from "react-i18next"
+import { Trans, useTranslation } from "react-i18next"
 import { Redirect } from "wouter"
 
 import {
+  OrderAccordionWrapper,
   OrderSubscriptionHeader,
   OrderSubscriptionHeaderMain,
   OrderSubscriptionNextRunProgressWrapper,
@@ -16,6 +17,7 @@ import {
 
 import { SkeletonMainOrder } from "#components/composite/Skeleton/Main"
 import SubscriptionNextRunProgress from "#components/composite/Subscription/SubscriptionNextRunProgress"
+import SubscriptionOrders from "#components/composite/Subscription/SubscriptionOrders"
 import SubscriptionStatusChip from "#components/composite/Subscription/SubscriptionStatusChip"
 import {
   DateWrapper,
@@ -24,6 +26,7 @@ import {
   PageTitle,
 } from "#components/ui/Common/styled"
 import FormattedDate from "#components/ui/FormattedDate"
+import { OrderSection, OrderSectionItem } from "#components/ui/OrderSection"
 import { Stack } from "#components/ui/Stack"
 import { AppContext } from "#providers/AppProvider"
 import { OrderSubscriptionProvider } from "#providers/OrderSubscriptionProvider"
@@ -37,6 +40,7 @@ function SubscriptionPage({
 }: SubscriptionPageProps): JSX.Element {
   const ctx = useContext(AppContext)
   const accessToken = ctx?.accessToken
+  const { t } = useTranslation()
 
   if (subscriptionId == null) {
     return <Redirect to={`/subscriptions?accessToken=${accessToken}`} />
@@ -49,7 +53,6 @@ function SubscriptionPage({
       domain={ctx?.domain as string}
     >
       {({ isInvalid, isLoading, orderSubscription }) => {
-        console.log(orderSubscription)
         return (
           <>
             {isInvalid ? (
@@ -128,6 +131,22 @@ function SubscriptionPage({
                         </OrderSubscriptionStackItemWrapper>
                       </Stack>
                     </OrderSubscriptionStackWrapper>
+                    <OrderAccordionWrapper>
+                      <OrderSection noBorder>
+                        {orderSubscription != null && (
+                          <OrderSectionItem
+                            index={1}
+                            header={
+                              <span>{t("subscription.order_history")}</span>
+                            }
+                          >
+                            <SubscriptionOrders
+                              orderSubscription={orderSubscription}
+                            />
+                          </OrderSectionItem>
+                        )}
+                      </OrderSection>
+                    </OrderAccordionWrapper>
                   </OrderWrapper>
                 )}
               </>

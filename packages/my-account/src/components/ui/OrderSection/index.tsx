@@ -14,10 +14,12 @@ interface Props {
 
 export function OrderSection({
   children,
+  noBorder,
 }: {
   children: React.ReactNode
+  noBorder?: boolean
 }): JSX.Element {
-  return <Wrapper>{children}</Wrapper>
+  return <Wrapper noBorder={noBorder}>{children}</Wrapper>
 }
 
 export function OrderSectionItem({

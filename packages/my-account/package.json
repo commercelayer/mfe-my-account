@@ -41,7 +41,7 @@
     "prepare": "touch ./public/config.local.js"
   },
   "dependencies": {
-    "@commercelayer/react-components": "4.9.0",
+    "@commercelayer/react-components": "4.10.0",
     "@commercelayer/react-utils": "1.0.0-beta.3",
     "@commercelayer/sdk": "^5.31.1",
     "@esbuild-plugins/node-globals-polyfill": "^0.2.3",
@@ -68,7 +68,7 @@
     "dotenv": "^16.4.1",
     "gravatar": "^1.8.2",
     "i18next": "^23.8.2",
-    "jwt-decode": "^3.1.2",
+    "jwt-decode": "^4.0.0",
     "lodash": "^4.17.21",
     "phosphor-react": "^1.4.1",
     "postcss": "^8.4.35",

@@ -39,6 +39,7 @@
       "order": "Ordine",
       "status": "Stato",
       "date": "Data",
+      "payment": "Pagamento",
       "amount": "Importo"
     }
   },
@@ -104,7 +105,8 @@
     "title": "Abbonamento #<0/>",
     "starts_at": "iniziata il <0/>",
     "next_run": "Rinnovo",
-    "expires_at": "scade il <0/>"
+    "expires_at": "scade il <0/>",
+    "order_history": "Lista degli ordini"
   },
   "subscriptionFrequency": {
     "hourly": "oraria",

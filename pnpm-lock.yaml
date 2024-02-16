@@ -24,8 +24,8 @@ importers:
   packages/my-account:
     dependencies:
       '@commercelayer/react-components':
-        specifier: 4.9.0
-        version: 4.9.0(react-dom@18.2.0)(react@18.2.0)
+        specifier: 4.10.0
+        version: 4.10.0(react-dom@18.2.0)(react@18.2.0)
       '@commercelayer/react-utils':
         specifier: 1.0.0-beta.3
         version: 1.0.0-beta.3(@babel/core@7.23.9)(@semantic-release/changelog@6.0.2)(@semantic-release/commit-analyzer@9.0.2)(@semantic-release/git@10.0.1)(@semantic-release/github@8.0.7)(@semantic-release/npm@9.0.1)(@semantic-release/release-notes-generator@10.0.3)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(semantic-release@19.0.5)(tailwindcss@3.4.1)
@@ -105,8 +105,8 @@ importers:
         specifier: ^23.8.2
         version: 23.8.2
       jwt-decode:
-        specifier: ^3.1.2
-        version: 3.1.2
+        specifier: ^4.0.0
+        version: 4.0.0
       lodash:
         specifier: ^4.17.21
         version: 4.17.21
@@ -239,12 +239,12 @@ packages:
   /@adyen/adyen-web@5.57.0:
     resolution: {integrity: sha512-O+QFic6jvDl96nxK7We9qdDPOzuGHtZu8onUUpyfWVzxXGnTMCjIJKE8rhinFt8Pme9ip0SI2XMVGv0AX1NAEw==}
     dependencies:
-      '@babel/runtime': 7.23.2
-      '@babel/runtime-corejs3': 7.20.6
+      '@babel/runtime': 7.23.9
+      '@babel/runtime-corejs3': 7.23.9
       '@types/applepayjs': 3.0.4
-      '@types/googlepay': 0.7.3
-      classnames: 2.3.2
-      core-js-pure: 3.26.1
+      '@types/googlepay': 0.7.5
+      classnames: 2.5.1
+      core-js-pure: 3.36.0
       preact: 10.13.2
     dev: false
 
@@ -496,12 +496,12 @@ packages:
       '@babel/helper-plugin-utils': 7.22.5
     dev: false
 
-  /@babel/runtime-corejs3@7.20.6:
-    resolution: {integrity: sha512-tqeujPiuEfcH067mx+7otTQWROVMKHXEaOQcAeNV5dDdbPWvPcFA8/W9LXw2NfjNmOetqLl03dfnG2WALPlsRQ==}
+  /@babel/runtime-corejs3@7.23.9:
+    resolution: {integrity: sha512-oeOFTrYWdWXCvXGB5orvMTJ6gCZ9I6FBjR+M38iKNXCsPxr4xT0RTdg5uz1H7QP8pp74IzPtwritEr+JscqHXQ==}
     engines: {node: '>=6.9.0'}
     dependencies:
-      core-js-pure: 3.26.1
-      regenerator-runtime: 0.13.11
+      core-js-pure: 3.36.0
+      regenerator-runtime: 0.14.0
     dev: false
 
   /@babel/runtime@7.20.6:
@@ -681,16 +681,16 @@ packages:
       tslib: 2.4.1
     dev: true
 
-  /@commercelayer/react-components@4.9.0(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-uhVOr0BGZZfPfVyXXFCX3B0Led+CgWxsV3BpGQ3yiofAyxhb6TGIZPMMNop/ocqiaMy8Lqzgo2Um/BmPFRLXLw==}
+  /@commercelayer/react-components@4.10.0(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-19UU/BTTI9yBzUiHchvdLaDt7TfuyM7Gx0P9uqq41/UCJzX0Cq/mQA50+RG95ed9A0LsT3R9E61ZyIjV8XmI9g==}
     peerDependencies:
-      react: ^18.0.0
+      react: '>=18.0.0'
     dependencies:
       '@adyen/adyen-web': 5.57.0
       '@commercelayer/sdk': 5.31.1
-      '@stripe/react-stripe-js': 2.4.0(@stripe/stripe-js@2.4.0)(react-dom@18.2.0)(react@18.2.0)
+      '@stripe/react-stripe-js': 2.5.0(@stripe/stripe-js@2.4.0)(react-dom@18.2.0)(react@18.2.0)
       '@stripe/stripe-js': 2.4.0
-      '@tanstack/react-table': 8.11.8(react-dom@18.2.0)(react@18.2.0)
+      '@tanstack/react-table': 8.12.0(react-dom@18.2.0)(react@18.2.0)
       '@types/iframe-resizer': 3.5.13
       axios: 1.6.7
       braintree-web: 3.100.0
@@ -1984,10 +1984,10 @@ packages:
     engines: {node: '>=14.16'}
     dev: true
 
-  /@stripe/react-stripe-js@2.4.0(@stripe/stripe-js@2.4.0)(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-1jVQEL3OuhuzNlf4OdfqovHt+MkWh8Uh8xpLxx/xUFUDdF+7/kDOrGKy+xJO3WLCfZUL7NAy+/ypwXbbYZi0tg==}
+  /@stripe/react-stripe-js@2.5.0(@stripe/stripe-js@2.4.0)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-ys5bnrufNoBlUPRblWkiN7dUCX3s2noBZS0Lf5GkHYO9x3SXJMZccif53IdP4X6tZyNLn7aSMgZBUZqsdzrvhg==}
     peerDependencies:
-      '@stripe/stripe-js': ^1.44.1 || ^2.0.0
+      '@stripe/stripe-js': ^1.44.1 || ^2.0.0 || ^3.0.0
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
     dependencies:
@@ -2025,14 +2025,14 @@ packages:
       tailwindcss: 3.4.1
     dev: false
 
-  /@tanstack/react-table@8.11.8(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-NEwvIq4iSiDQozEyvbdiSdCOiLa+g5xHmdEnvwDb98FObcK6YkBOkRrs/CNqrKdDy+/lqoIllIWHk+M80GW6+g==}
+  /@tanstack/react-table@8.12.0(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-LlEQ1Gpz4bfpiET+qmle4BhKDgKN3Y/sssc+O/wLqX8HRtjV+nhusYbllZlutZfMR8oeef83whKTj/VhaV8EeA==}
     engines: {node: '>=12'}
     peerDependencies:
       react: '>=16'
       react-dom: '>=16'
     dependencies:
-      '@tanstack/table-core': 8.11.8
+      '@tanstack/table-core': 8.12.0
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
     dev: false
@@ -2048,8 +2048,8 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: false
 
-  /@tanstack/table-core@8.11.8:
-    resolution: {integrity: sha512-DECHvtq4YW4U/gqg6etup7ydt/RB1Bi1pJaMpHUXl65ooW1d71Nv7BzD66rUdHrBSNdyiW3PLTPUQlpXjAgDeA==}
+  /@tanstack/table-core@8.12.0:
+    resolution: {integrity: sha512-cq/ylWVrOwixmwNXQjgZaQw1Izf7+nPxjczum7paAnMtwPg1S2qRAJU+Jb8rEBUWm69voC/zcChmePlk2hc6ug==}
     engines: {node: '>=12'}
     dev: false
 
@@ -2130,8 +2130,8 @@ packages:
     resolution: {integrity: sha512-/kYRxGDLWzHOB7q+wtSUQlFrtcdUccpfy+X+9iMBpHK8QLLhx2wIPYuS5DYtR9Wa/YlZAbIovy7qVdB1Aq6Lyw==}
     dev: false
 
-  /@types/googlepay@0.7.3:
-    resolution: {integrity: sha512-X8r8QhVklu/7gJqXgzpOLe7BWFTC/l7fzTHtdi/bw5OBDo3Blk/qPTivq9n0K4AV12pMP5m6yTgOlihsh+KFrQ==}
+  /@types/googlepay@0.7.5:
+    resolution: {integrity: sha512-158egcRaqkMSpW6unyGV4uG4FpoCklRf3J5emCzOXSRVAohMfIuZ481JNvp4X6+KxoNjxWiGtMx5vb1YfQADPw==}
     dev: false
 
   /@types/gravatar@1.8.6:
@@ -3322,8 +3322,8 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /classnames@2.3.2:
-    resolution: {integrity: sha512-CSbhY4cFEJRe6/GQzIk5qXZ4Jeg5pcsP7b5peFSDpffpe1cqjASH/n9UTjBwOp6XpMSTwQ8Za2K5V02ueA7Tmw==}
+  /classnames@2.5.1:
+    resolution: {integrity: sha512-saHYOzhIQs6wy2sVxTM6bUDsQO4F50V9RQ22qBpEdCW+I+/Wmke2HOl6lS6dTpdxVhb88/I6+Hs+438c3lfUow==}
     dev: false
 
   /clean-set@1.1.2:
@@ -3681,8 +3681,8 @@ packages:
     resolution: {integrity: sha512-Kvp459HrV2FEJ1CAsi1Ku+MY3kasH19TFykTz2xWmMeq6bk2NU3XXvfJ+Q61m0xktWwt+1HSYf3JZsTms3aRJg==}
     dev: false
 
-  /core-js-pure@3.26.1:
-    resolution: {integrity: sha512-VVXcDpp/xJ21KdULRq/lXdLzQAtX7+37LzpyfFM973il0tWSsDEoyzG38G14AjTpK9VTfiNM9jnFauq/CpaWGQ==}
+  /core-js-pure@3.36.0:
+    resolution: {integrity: sha512-cN28qmhRNgbMZZMc/RFu5w8pK9VJzpb2rJVR/lHuZJKwmXnoWOpXmMkxqBB514igkp1Hu8WGROsiOAzUcKdHOQ==}
     requiresBuild: true
     dev: false
 
@@ -5149,7 +5149,7 @@ packages:
     peerDependencies:
       react: '>=16.8'
     dependencies:
-      classnames: 2.3.2
+      classnames: 2.5.1
       react: 18.2.0
     dev: false
 
@@ -6546,10 +6546,6 @@ packages:
       array-includes: 3.1.6
       object.assign: 4.1.4
     dev: true
-
-  /jwt-decode@3.1.2:
-    resolution: {integrity: sha512-UfpWE/VZn0iP50d8cz9NrZLM9lSWhcJ+0Gt/nm4by88UL+J1SiKN8/5dkjMmbEzwL2CAe+67GsegCbIKtbp75A==}
-    dev: false
 
   /jwt-decode@4.0.0:
     resolution: {integrity: sha512-+KJGIyHgkGuIq3IEBNftfhW/LfWhXUIY6OmyVWjliu5KH1y0fw7VQ8YndE2O4qZdMSd9SqbnC8GOcZEy0Om7sA==}
