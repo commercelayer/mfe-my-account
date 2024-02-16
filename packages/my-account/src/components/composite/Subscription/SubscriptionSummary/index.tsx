@@ -1,4 +1,4 @@
-import { OrderSubscription, Sku } from "@commercelayer/sdk"
+import { Bundle, OrderSubscription, Sku } from "@commercelayer/sdk"
 import { useTranslation } from "react-i18next"
 
 import {
@@ -20,7 +20,7 @@ function SubscriptionSummary({ orderSubscription }: Props): JSX.Element {
     <div className="flex flex-col gap-6">
       {orderSubscription.order_subscription_items?.map(
         (subcriptionItem, idx) => {
-          const lineItem = subcriptionItem.item as Sku
+          const lineItem = subcriptionItem.item as Sku | Bundle
           return (
             <div key={idx}>
               <LineItemWrapper>
