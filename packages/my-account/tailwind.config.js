@@ -1,11 +1,10 @@
 const config = require("@commercelayer/react-utils/configs/tailwind")
-
 const pluginsForms = require("@tailwindcss/forms")({
   strategy: "class",
 })
-config.plugins !== undefined ?
-  config.plugins.push(pluginsForms) :
-  config.plugins = [ pluginsForms ]
+config.plugins !== undefined
+  ? config.plugins.push(pluginsForms)
+  : (config.plugins = [pluginsForms])
 
 module.exports = {
   ...config,
@@ -22,7 +21,10 @@ module.exports = {
           400: "#FFAB2E",
           500: "#F59511",
         },
-        inherit: "inherit"
+        orange: {
+          700: "rgba(221, 92, 2, 1)",
+        },
+        inherit: "inherit",
       },
       fontSize: {
         xxl: "1.625rem",
@@ -62,7 +64,7 @@ module.exports = {
         bottom: "0 2px 0 0 rgba(0, 0, 0, 0.05)",
         inner: "0 0 0 1000px rgba(255, 255, 255, 1) inset",
         "sm-primary": "0 1px 2px 0 var(--primary-light)",
-        top: '0px -4px 1px 0px rgb(0, 0, 0, 0.025)',
+        top: "0px -4px 1px 0px rgb(0, 0, 0, 0.025)",
       },
       gridTemplateRows: {
         10: "repeat(10, minmax(0, 1fr))",
@@ -75,11 +77,11 @@ module.exports = {
         10: "10",
       },
       rotate: {
-        '135': '135deg',
+        135: "135deg",
       },
       spacing: {
-        '15': '3.75rem',
-      }
-    }
-  }
+        15: "3.75rem",
+      },
+    },
+  },
 }

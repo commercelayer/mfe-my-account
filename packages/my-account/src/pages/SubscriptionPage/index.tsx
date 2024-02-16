@@ -15,6 +15,7 @@ import {
 import { SkeletonMainOrder } from "#components/composite/Skeleton/Main"
 import SubscriptionNextRunProgress from "#components/composite/Subscription/SubscriptionNextRunProgress"
 import SubscriptionOrders from "#components/composite/Subscription/SubscriptionOrders"
+import SubscriptionPaymentAlert from "#components/composite/Subscription/SubscriptionPaymentAlert"
 import SubscriptionStack from "#components/composite/Subscription/SubscriptionStack"
 import SubscriptionStatusChip from "#components/composite/Subscription/SubscriptionStatusChip"
 import {
@@ -65,6 +66,9 @@ function SubscriptionPage({
                 <SkeletonMainOrder visible={isLoading} />
                 {!isLoading && orderSubscription != null && (
                   <OrderWrapper hidden={isLoading}>
+                    <SubscriptionPaymentAlert
+                      orderSubscriptionLastOrder={orderSubscriptionLastOrder}
+                    />
                     <OrderSubscriptionHeader>
                       <OrderSubscriptionHeaderMain>
                         <PageTitle>
