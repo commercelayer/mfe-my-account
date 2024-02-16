@@ -13,6 +13,7 @@ import OrderStatusChip from "#components/composite/Order/OrderStatusChip"
 import { SkeletonMainSubscriptionsOrdersTable } from "#components/composite/Skeleton/Main/SubscriptionsOrdersTable"
 import { AppContext } from "#providers/AppProvider"
 import { formatDate, shortDate } from "#utils/dateTimeFormats"
+import { getOrderLastAuthorization } from "#utils/getOrderLastAuthrization"
 
 interface Props {
   orderSubscription: OrderSubscription
@@ -133,14 +134,11 @@ function SubscriptionOrders({ orderSubscription }: Props) {
         <OrderListRow field="authorizations">
           {({ row }) => {
             const order = row?.original as Order
-            const paymenthAuthorization =
-              order.authorizations != null && order.authorizations?.length > 0
-                ? order.authorizations[order.authorizations.length - 1]
-                : undefined
-            if (paymenthAuthorization != null) {
+            const paymentAuthorization = getOrderLastAuthorization(order)
+            if (paymentAuthorization != null) {
               return (
                 <div className="order-4 px-4 text-sm text-gray-400">
-                  {paymenthAuthorization.succeeded ? (
+                  {paymentAuthorization.succeeded ? (
                     "Authorized"
                   ) : (
                     <div className="flex items-center gap-1 ">
