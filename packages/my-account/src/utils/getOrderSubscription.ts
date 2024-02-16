@@ -20,12 +20,17 @@ interface GetOrderSubscriptionConfig {
  *
  * @returns an object containing the resolved `OrderSubscription` and the status of async operation.
  */
-export const getOrderSubscription = async (config: GetOrderSubscriptionConfig) => {
+export const getOrderSubscription = async (
+  config: GetOrderSubscriptionConfig
+) => {
   const { client, orderSubscriptionId } = config
-  return retryCall(() => getAsyncOrder(client, orderSubscriptionId))
+  return retryCall(() => getAsyncOrderSubscription(client, orderSubscriptionId))
 }
 
-const getAsyncOrder = async (client: CommerceLayerClient, orderSubscriptionId: string) => {
+const getAsyncOrderSubscription = async (
+  client: CommerceLayerClient,
+  orderSubscriptionId: string
+) => {
   return await client.order_subscriptions.retrieve(orderSubscriptionId, {
     fields: {
       order_subscriptions: [
@@ -35,9 +40,9 @@ const getAsyncOrder = async (client: CommerceLayerClient, orderSubscriptionId: s
         "frequency",
         "starts_at",
         "next_run_at",
-        "expires_at"
+        "expires_at",
       ],
-    }
+    },
     // },
     // include: ["shipping_address", "billing_address", "shipments"],
   })
