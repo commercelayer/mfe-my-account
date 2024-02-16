@@ -13,7 +13,7 @@ import {
   LineItemDescription,
   LineItemSku,
   LineItemQty,
-} from "./styled"
+} from "#components/ui/LineItem/styled"
 
 interface Props {
   type: TLineItem
