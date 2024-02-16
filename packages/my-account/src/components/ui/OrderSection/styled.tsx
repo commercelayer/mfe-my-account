@@ -10,7 +10,7 @@ export const Wrapper = styled.div<WrapperProps>`
   ${({ noBorder }) => (noBorder === true ? tw`md:border-none` : "md:border-t")}
 `
 export const OrderSectionTab = styled.div`
-  ${tw`outline-none bg-white shadow-bottom px-5 md:px-0 mb-6 md:mb-0 md:shadow-none md:border-b last:border-none`}
+  ${tw`outline-none bg-white shadow-bottom px-5 md:px-0 mb-6 md:mb-0 md:shadow-none md:border-b last-of-type:border-none`}
 `
 export const OrderSectionTabHeader = styled.div`
   ${tw`text-black relative flex items-center justify-between transition ease duration-500 focus:bg-gray-400`}

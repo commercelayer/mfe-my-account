@@ -19,7 +19,6 @@ function SubscriptionStack({
   orderSubscription,
   orderSubscriptionLastOrder,
 }: Props): JSX.Element {
-  console.log(orderSubscriptionLastOrder)
   const address =
     orderSubscriptionLastOrder?.shipping_address ??
     orderSubscriptionLastOrder?.billing_address ??
