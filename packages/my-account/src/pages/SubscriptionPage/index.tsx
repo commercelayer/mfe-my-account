@@ -9,15 +9,13 @@ import {
   OrderSubscriptionHeaderMain,
   OrderSubscriptionNextRunProgressWrapper,
   OrderSubscriptionNextRunWrapper,
-  OrderSubscriptionStackItemValue,
-  OrderSubscriptionStackItemWrapper,
-  OrderSubscriptionStackWrapper,
   OrderWrapper,
 } from "./styled"
 
 import { SkeletonMainOrder } from "#components/composite/Skeleton/Main"
 import SubscriptionNextRunProgress from "#components/composite/Subscription/SubscriptionNextRunProgress"
 import SubscriptionOrders from "#components/composite/Subscription/SubscriptionOrders"
+import SubscriptionStack from "#components/composite/Subscription/SubscriptionStack"
 import SubscriptionStatusChip from "#components/composite/Subscription/SubscriptionStatusChip"
 import {
   DateWrapper,
@@ -27,7 +25,6 @@ import {
 } from "#components/ui/Common/styled"
 import FormattedDate from "#components/ui/FormattedDate"
 import { OrderSection, OrderSectionItem } from "#components/ui/OrderSection"
-import { Stack } from "#components/ui/Stack"
 import { AppContext } from "#providers/AppProvider"
 import { OrderSubscriptionProvider } from "#providers/OrderSubscriptionProvider"
 
@@ -52,33 +49,36 @@ function SubscriptionPage({
       accessToken={accessToken as string}
       domain={ctx?.domain as string}
     >
-      {({ isInvalid, isLoading, orderSubscription }) => {
+      {({
+        isInvalid,
+        isLoading,
+        orderSubscription,
+        orderSubscriptionLastOrder,
+      }) => {
         return (
           <>
             {isInvalid ? (
               <Redirect to={`/subscriptions?accessToken=${accessToken}`} />
             ) : (
               <>
+                {/*  TODO: Create a new skeleton for the subscription */}
                 <SkeletonMainOrder visible={isLoading} />
-                {/*  TODO */}
-                {!isLoading && (
+                {!isLoading && orderSubscription != null && (
                   <OrderWrapper hidden={isLoading}>
                     <OrderSubscriptionHeader>
                       <OrderSubscriptionHeaderMain>
                         <PageTitle>
                           <Trans i18nKey="subscription.title">
-                            {orderSubscription?.number}
+                            {orderSubscription.number}
                           </Trans>
                         </PageTitle>
                         <DateWrapper>
                           <Trans i18nKey="subscription.starts_at">
-                            <FormattedDate
-                              date={orderSubscription?.starts_at}
-                            />
+                            <FormattedDate date={orderSubscription.starts_at} />
                           </Trans>
                         </DateWrapper>
                         <SubscriptionStatusChip
-                          status={orderSubscription?.status}
+                          status={orderSubscription.status}
                         />
                       </OrderSubscriptionHeaderMain>
                     </OrderSubscriptionHeader>
@@ -109,42 +109,22 @@ function SubscriptionPage({
                         </OrderSubscriptionNextRunProgressWrapper>
                       </OrderSubscriptionNextRunWrapper>
                     )}
-                    <OrderSubscriptionStackWrapper>
-                      <Stack>
-                        <OrderSubscriptionStackItemWrapper>
-                          <PageSecondaryTitle>Frequency</PageSecondaryTitle>
-                          <OrderSubscriptionStackItemValue capitalize>
-                            {orderSubscription?.frequency}
-                          </OrderSubscriptionStackItemValue>
-                        </OrderSubscriptionStackItemWrapper>
-                        <OrderSubscriptionStackItemWrapper>
-                          <PageSecondaryTitle>Next run date</PageSecondaryTitle>
-                          <OrderSubscriptionStackItemValue>
-                            {orderSubscription?.status === "active" ? (
-                              <FormattedDate
-                                date={orderSubscription?.next_run_at}
-                              />
-                            ) : (
-                              <>&#8212;</>
-                            )}
-                          </OrderSubscriptionStackItemValue>
-                        </OrderSubscriptionStackItemWrapper>
-                      </Stack>
-                    </OrderSubscriptionStackWrapper>
+                    <SubscriptionStack
+                      orderSubscription={orderSubscription}
+                      orderSubscriptionLastOrder={orderSubscriptionLastOrder}
+                    />
                     <OrderAccordionWrapper>
                       <OrderSection noBorder>
-                        {orderSubscription != null && (
-                          <OrderSectionItem
-                            index={1}
-                            header={
-                              <span>{t("subscription.order_history")}</span>
-                            }
-                          >
-                            <SubscriptionOrders
-                              orderSubscription={orderSubscription}
-                            />
-                          </OrderSectionItem>
-                        )}
+                        <OrderSectionItem
+                          index={1}
+                          header={
+                            <span>{t("subscription.order_history")}</span>
+                          }
+                        >
+                          <SubscriptionOrders
+                            orderSubscription={orderSubscription}
+                          />
+                        </OrderSectionItem>
                       </OrderSection>
                     </OrderAccordionWrapper>
                   </OrderWrapper>
