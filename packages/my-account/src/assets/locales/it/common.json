@@ -106,7 +106,8 @@
     "starts_at": "iniziata il <0/>",
     "next_run": "Rinnovo",
     "expires_at": "scade il <0/>",
-    "order_history": "Lista degli ordini"
+    "summary": "Riepilogo",
+    "order_history": "Storico Ordini"
   },
   "subscriptionFrequency": {
     "hourly": "oraria",

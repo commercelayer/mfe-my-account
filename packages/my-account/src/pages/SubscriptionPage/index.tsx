@@ -28,6 +28,7 @@ import FormattedDate from "#components/ui/FormattedDate"
 import { OrderSection, OrderSectionItem } from "#components/ui/OrderSection"
 import { AppContext } from "#providers/AppProvider"
 import { OrderSubscriptionProvider } from "#providers/OrderSubscriptionProvider"
+import SubscriptionSummary from "#components/composite/Subscription/SubscriptionSummary"
 
 interface SubscriptionPageProps {
   subscriptionId?: string
@@ -68,7 +69,7 @@ function SubscriptionPage({
                   <OrderWrapper hidden={isLoading}>
                     <SubscriptionPaymentAlert
                       orderSubscriptionLastOrder={orderSubscriptionLastOrder}
-                    />
+                    />  
                     <OrderSubscriptionHeader>
                       <OrderSubscriptionHeaderMain>
                         <PageTitle>
@@ -121,6 +122,16 @@ function SubscriptionPage({
                       <OrderSection noBorder>
                         <OrderSectionItem
                           index={1}
+                          header={
+                            <span>{t("subscription.summary")}</span>
+                          }
+                        >
+                          <SubscriptionSummary
+                            orderSubscription={orderSubscription}
+                          />
+                        </OrderSectionItem>
+                        <OrderSectionItem
+                          index={2}
                           header={
                             <span>{t("subscription.order_history")}</span>
                           }

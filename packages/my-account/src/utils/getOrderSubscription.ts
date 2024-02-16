@@ -41,9 +41,9 @@ const getAsyncOrderSubscription = async (
         "starts_at",
         "next_run_at",
         "expires_at",
+        "order_subscription_items",
       ],
     },
-    // },
-    // include: ["shipping_address", "billing_address", "shipments"],
+    include: ["order_subscription_items", "order_subscription_items.item"],
   })
 }
