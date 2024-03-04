@@ -24,8 +24,8 @@ importers:
   packages/my-account:
     dependencies:
       '@commercelayer/react-components':
-        specifier: 4.10.0
-        version: 4.10.0(react-dom@18.2.0)(react@18.2.0)
+        specifier: 4.10.1
+        version: 4.10.1(react-dom@18.2.0)(react@18.2.0)
       '@commercelayer/react-utils':
         specifier: 1.0.0-beta.3
         version: 1.0.0-beta.3(@babel/core@7.23.9)(@semantic-release/changelog@6.0.2)(@semantic-release/commit-analyzer@9.0.2)(@semantic-release/git@10.0.1)(@semantic-release/github@8.0.7)(@semantic-release/npm@9.0.1)(@semantic-release/release-notes-generator@10.0.3)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(semantic-release@19.0.5)(tailwindcss@3.4.1)
@@ -681,8 +681,8 @@ packages:
       tslib: 2.4.1
     dev: true
 
-  /@commercelayer/react-components@4.10.0(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-19UU/BTTI9yBzUiHchvdLaDt7TfuyM7Gx0P9uqq41/UCJzX0Cq/mQA50+RG95ed9A0LsT3R9E61ZyIjV8XmI9g==}
+  /@commercelayer/react-components@4.10.1(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-zrizOBEpnYN33Xp6u+poQKVe0imesS7vVEhzlJCbeRKDDa89AJypFlxz62OaoXwr+uqxFldbwthXqmjHXxOMeQ==}
     peerDependencies:
       react: '>=18.0.0'
     dependencies:

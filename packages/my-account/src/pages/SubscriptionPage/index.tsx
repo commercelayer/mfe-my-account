@@ -16,8 +16,10 @@ import { SkeletonMainOrder } from "#components/composite/Skeleton/Main"
 import SubscriptionNextRunProgress from "#components/composite/Subscription/SubscriptionNextRunProgress"
 import SubscriptionOrders from "#components/composite/Subscription/SubscriptionOrders"
 import SubscriptionPaymentAlert from "#components/composite/Subscription/SubscriptionPaymentAlert"
+import SubscriptionPayments from "#components/composite/Subscription/SubscriptionPayments"
 import SubscriptionStack from "#components/composite/Subscription/SubscriptionStack"
 import SubscriptionStatusChip from "#components/composite/Subscription/SubscriptionStatusChip"
+import SubscriptionSummary from "#components/composite/Subscription/SubscriptionSummary"
 import {
   DateWrapper,
   LittleDateWrapper,
@@ -26,10 +28,9 @@ import {
 } from "#components/ui/Common/styled"
 import FormattedDate from "#components/ui/FormattedDate"
 import { OrderSection, OrderSectionItem } from "#components/ui/OrderSection"
+import { ScrollToTop } from "#components/ui/ScrollToTop"
 import { AppContext } from "#providers/AppProvider"
 import { OrderSubscriptionProvider } from "#providers/OrderSubscriptionProvider"
-import SubscriptionSummary from "#components/composite/Subscription/SubscriptionSummary"
-import { ScrollToTop } from "#components/ui/ScrollToTop"
 
 interface SubscriptionPageProps {
   subscriptionId?: string
@@ -69,8 +70,9 @@ function SubscriptionPage({
                 {!isLoading && orderSubscription != null && (
                   <OrderWrapper hidden={isLoading}>
                     <SubscriptionPaymentAlert
+                      orderSubscription={orderSubscription}
                       orderSubscriptionLastOrder={orderSubscriptionLastOrder}
-                    />  
+                    />
                     <OrderSubscriptionHeader>
                       <OrderSubscriptionHeaderMain>
                         <PageTitle>
@@ -123,9 +125,7 @@ function SubscriptionPage({
                       <OrderSection noBorder>
                         <OrderSectionItem
                           index={1}
-                          header={
-                            <span>{t("subscription.summary")}</span>
-                          }
+                          header={<span>{t("subscription.summary")}</span>}
                         >
                           <SubscriptionSummary
                             orderSubscription={orderSubscription}
@@ -133,6 +133,14 @@ function SubscriptionPage({
                         </OrderSectionItem>
                         <OrderSectionItem
                           index={2}
+                          header={<span>{t("subscription.payments")}</span>}
+                        >
+                          <SubscriptionPayments
+                            orderSubscription={orderSubscription}
+                          />
+                        </OrderSectionItem>
+                        <OrderSectionItem
+                          index={3}
                           header={
                             <span>{t("subscription.order_history")}</span>
                           }

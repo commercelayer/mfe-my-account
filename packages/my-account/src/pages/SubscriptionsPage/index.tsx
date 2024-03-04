@@ -19,7 +19,6 @@ import Empty from "#components/composite/Empty"
 import { SkeletonMainSubscriptionsTable } from "#components/composite/Skeleton/Main/SubscriptionsTable"
 import SubscriptionNextRunProgress from "#components/composite/Subscription/SubscriptionNextRunProgress"
 import SubscriptionStatusChip from "#components/composite/Subscription/SubscriptionStatusChip"
-import FormattedDate from "#components/ui/FormattedDate"
 import Title from "#components/ui/Title"
 import { AppContext } from "#providers/AppProvider"
 import { formatDate, shortDate } from "#utils/dateTimeFormats"
@@ -75,7 +74,7 @@ function SubscriptionsPage(): JSX.Element {
           }
           actionsContainerClassName="absolute right-1 order-5 align-top hidden md:relative md:align-middle py-5 text-center"
           theadClassName="hidden md:table-row-group"
-          rowTrClassName="flex justify-between items-center relative md:content-center bg-white shadow-bottom mb-4 pb-12 md:pb-0 px-5 md:p-0 md:border-b md:border-gray-300 md:table-row md:shadow-none h-[107px] md:h-[96px]"
+          rowTrClassName="flex justify-between items-center relative md:content-center bg-white shadow-bottom mb-4 pb-12 md:pb-0 px-5 md:p-0 md:border-b md:border-gray-300 md:table-row md:shadow-none h-[130px] md:h-[96px]"
           showPagination
           pageSize={15}
           paginationContainerClassName="flex justify-between items-center"
@@ -85,7 +84,7 @@ function SubscriptionsPage(): JSX.Element {
           </OrderListEmpty>
           <OrderListRow
             field="number"
-            className="order-1 pt-6 pb-2.5 md:p-0  md:align-middle"
+            className="order-1 pt-1 pb-2.5 md:p-0  md:align-middle"
           >
             {({ cell, row, ...p }) => {
               const order = row?.original
@@ -120,7 +119,7 @@ function SubscriptionsPage(): JSX.Element {
           </OrderListRow>
           <OrderListRow
             field="status"
-            className="absolute order-3 bottom-4 md:bottom-auto md:relative"
+            className="absolute order-3 top-4 md:top-auto md:relative"
           >
             {({ cell, row, ...p }) => {
               const order = row?.original
@@ -137,7 +136,7 @@ function SubscriptionsPage(): JSX.Element {
           </OrderListRow>
           <OrderListRow
             field="frequency"
-            className="absolute order-2 text-right bottom-4 right-5 md:bottom-auto md:relative md:right-auto md:text-left"
+            className="absolute order-2 text-right top-4 right-5 md:top-auto md:relative md:right-auto md:text-left"
           >
             {({ cell, row, ...p }) => {
               const order = row?.original
@@ -158,24 +157,23 @@ function SubscriptionsPage(): JSX.Element {
 
           <OrderListRow
             field="next_run_at"
-            className="order-4 font-bold text-right md:text-left md:text-lg"
+            className="order-4  font-bold text-right  md:text-left md:text-lg"
           >
             {({ row }) => {
               const order = row?.original
-              if (!order || order.type !== "order_subscriptions") return <></>
-              if (order.last_run_at != null) {
+              if (
+                order.type === "order_subscriptions" &&
+                order.last_run_at != null
+              ) {
                 return (
-                  <SubscriptionNextRunProgress
-                    variant="list"
-                    subscription={order}
-                  />
-                )
-              }
-              if (order.status === "active" && order.next_run_at != null) {
-                return (
-                  <SubscriptionNextRunAt>
-                    {FormattedDate({ date: order.next_run_at })}
-                  </SubscriptionNextRunAt>
+                  <div className="absolute bottom-0 left-0 w-full mb-0 md:relative md:bottom-auto md:left-auto md:mb-5">
+                    <div className="flex flex-col pt-2 pb-4 mx-5 border-t gap-1 md:border-none md:pt-0 md:pb-0 md:mx-0">
+                      <SubscriptionNextRunProgress
+                        variant="list"
+                        subscription={order}
+                      />
+                    </div>
+                  </div>
                 )
               }
               return <SubscriptionNextRunAt>&#8212;</SubscriptionNextRunAt>

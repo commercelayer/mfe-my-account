@@ -2,7 +2,7 @@ import { OrderList, OrderListRow } from "@commercelayer/react-components"
 import OrderListPaginationButtons from "@commercelayer/react-components/orders/OrderListPaginationButtons"
 import OrderListPaginationInfo from "@commercelayer/react-components/orders/OrderListPaginationInfo"
 import { Order, OrderSubscription } from "@commercelayer/sdk"
-import { Warning } from "phosphor-react"
+import capitalize from "lodash/capitalize"
 import { useContext } from "react"
 import { useTranslation } from "react-i18next"
 import { Link } from "wouter"
@@ -13,7 +13,6 @@ import OrderStatusChip from "#components/composite/Order/OrderStatusChip"
 import { SkeletonMainSubscriptionsOrdersTable } from "#components/composite/Skeleton/Main/SubscriptionsOrdersTable"
 import { AppContext } from "#providers/AppProvider"
 import { formatDate, shortDate } from "#utils/dateTimeFormats"
-import { getOrderLastAuthorization } from "#utils/getOrderLastAuthrization"
 
 interface Props {
   orderSubscription: OrderSubscription
@@ -134,26 +133,14 @@ function SubscriptionOrders({ orderSubscription }: Props) {
         <OrderListRow field="authorizations">
           {({ row }) => {
             const order = row?.original as Order
-            const paymentAuthorization = getOrderLastAuthorization(order)
-            if (paymentAuthorization != null) {
-              return (
-                <div className="order-4 px-4 text-sm text-gray-400">
-                  {paymentAuthorization.succeeded ? (
-                    "Authorized"
-                  ) : (
-                    <div className="flex items-center gap-1 ">
-                      <Warning
-                        size={15}
-                        weight="bold"
-                        className="text-yellow-400"
-                      />{" "}
-                      Failed
-                    </div>
-                  )}
-                </div>
-              )
-            }
-            return <></>
+            const paymentStatus = capitalize(
+              order?.payment_status.replace(/_|-/gm, " ")
+            )
+            return (
+              <div className="order-4 px-4 text-sm text-gray-400">
+                {paymentStatus}
+              </div>
+            )
           }}
         </OrderListRow>
         <OrderListRow

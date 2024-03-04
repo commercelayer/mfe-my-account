@@ -107,6 +107,7 @@
     "next_run": "Rinnovo",
     "expires_at": "scade il <0/>",
     "summary": "Riepilogo",
+    "payments": "Pagamenti",
     "order_history": "Storico Ordini"
   },
   "subscriptionFrequency": {

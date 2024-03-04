@@ -18,13 +18,13 @@ export const OrderItemsCount = styled.p`
 `
 
 export const OrderDate = styled.p`
-  ${tw`inline-block text-sm font-extralight text-gray-400 bg-gray-200 px-3 rounded-full h-5 md:(bg-contrast px-0)`}
+  ${tw`inline-block text-sm font-extralight text-gray-400 h-2 md:px-3 md:h-5 md:(bg-contrast px-0)`}
 `
 
 export const SubscriptionFrequency = styled.p`
-  ${tw`capitalize inline-block text-sm font-extralight text-gray-400 bg-gray-200 px-3 rounded-full h-5 md:(bg-contrast px-0)`}
+  ${tw`capitalize inline-block text-sm font-extralight text-gray-400 px-3 h-5 md:(bg-contrast px-0)`}
 `
 
 export const SubscriptionNextRunAt = styled.p`
-  ${tw`inline-block text-sm font-extralight text-gray-400 bg-gray-200 px-3 rounded-full h-5 md:(bg-contrast px-0)`}
+  ${tw`hidden md:inline-block text-sm font-extralight text-gray-400 px-3 h-5 md:(bg-contrast px-0)`}
 `

@@ -40,7 +40,14 @@ const getAsyncOrderSubscriptionLastOrder = async (
 ) => {
   const customerOrders = await client.customers.orders(customerId, {
     filters: { order_subscription_id_eq: orderSubscriptionId },
-    include: ["authorizations", "shipping_address", "billing_address"],
+    include: [
+      "authorizations",
+      "shipping_address",
+      "billing_address",
+      "payment_method",
+      "payment_source",
+    ],
+    sort: { created_at: "desc" },
     pageSize: 1,
     pageNumber: 1,
   })

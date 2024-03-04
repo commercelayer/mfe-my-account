@@ -1,24 +1,24 @@
-import { Order } from "@commercelayer/sdk"
+import { Order, OrderSubscription } from "@commercelayer/sdk"
 import { Warning } from "phosphor-react"
 import { useContext } from "react"
 
 import { AppContext } from "#providers/AppProvider"
-import { getOrderLastAuthorization } from "#utils/getOrderLastAuthrization"
 
 interface Props {
+  orderSubscription?: OrderSubscription
   orderSubscriptionLastOrder?: Order
 }
 
 function SubscriptionPaymentAlert({
+  orderSubscription,
   orderSubscriptionLastOrder,
 }: Props): JSX.Element {
-  if (orderSubscriptionLastOrder != null) {
-    const paymentAuthorization = getOrderLastAuthorization(
-      orderSubscriptionLastOrder
-    )
+  if (orderSubscription != null && orderSubscriptionLastOrder != null) {
+    const isActive = orderSubscription.status === "active"
     if (
-      paymentAuthorization != null &&
-      paymentAuthorization.succeeded === false
+      isActive &&
+      orderSubscriptionLastOrder != null &&
+      orderSubscriptionLastOrder?.payment_status === "unpaid"
     ) {
       const ctx = useContext(AppContext)
       const { domain, slug } = getDomain(ctx?.endpoint ?? "")

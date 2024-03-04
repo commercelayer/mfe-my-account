@@ -39,11 +39,19 @@ const getAsyncOrderSubscription = async (
         "status",
         "frequency",
         "starts_at",
+        "last_run_at",
         "next_run_at",
         "expires_at",
         "order_subscription_items",
+        "customer_payment_source",
       ],
     },
-    include: ["order_subscription_items", "order_subscription_items.item"],
+    include: [
+      "order_subscription_items",
+      "order_subscription_items.item",
+      "customer_payment_source",
+      "customer_payment_source.payment_method",
+      "customer_payment_source.payment_source",
+    ],
   })
 }

@@ -27,7 +27,7 @@ export const OrderSubscriptionNextRunWrapper = styled.div`
 `
 
 export const OrderSubscriptionNextRunProgressWrapper = styled.div`
-  ${tw`relative pt-8 text-xs`}
+  ${tw`relative pt-4 text-xs`}
 `
 
 export const OrderAccordionWrapper = styled.div`

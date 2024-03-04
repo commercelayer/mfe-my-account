@@ -107,6 +107,7 @@
     "next_run": "Next run",
     "expires_at": "expires on <0/>",
     "summary": "Summary",
+    "payments": "Payments",
     "order_history": "Order History"
   },
   "subscriptionFrequency": {

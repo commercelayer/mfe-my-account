@@ -81,10 +81,12 @@ function App(): JSX.Element {
                         <LazySubscriptionsPage />
                       </Suspense>
                     </Route>
-                    <Route path={appRoutes.subscription.path}>
+                    <Route path={"/subscriptions/:subscriptionId"}>
                       {(params) => (
                         <Suspense fallback={<></>}>
-                          <LazySubscriptionPage subscriptionId={params.subscriptionId} />
+                          <LazySubscriptionPage
+                            subscriptionId={params.subscriptionId}
+                          />
                         </Suspense>
                       )}
                     </Route>
