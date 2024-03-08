@@ -10,7 +10,7 @@ export const OrderListWrapper = styled.div`
 `
 
 export const OrderNumber = styled.p`
-  ${tw`text-sm font-semibold hover:(cursor-pointer)`}
+  ${tw`text-sm font-semibold`}
 `
 
 export const OrderItemsCount = styled.p`

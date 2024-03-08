@@ -28,28 +28,28 @@ function OrdersPage(): JSX.Element {
 
   const colClassName =
     "text-left text-xs font-thin border-b border-gray-200 md:border-none text-gray-300 md:font-semibold md:uppercase md:relative"
-  const titleClassName = "flex gap-2"
+  const titleClassName = "flex gap-2 items-center"
   const columns = [
     {
-      header: "Order",
+      header: t("orders.columns.order"),
       accessorKey: "number",
       className: colClassName,
       titleClassName,
     },
     {
-      header: "Date",
+      header: t("orders.columns.date"),
       accessorKey: "placed_at",
       className: colClassName,
       titleClassName,
     },
     {
-      header: "Status",
+      header: t("orders.columns.status"),
       accessorKey: "status",
       className: colClassName,
       titleClassName,
     },
     {
-      header: "Amount",
+      header: t("orders.columns.amount"),
       accessorKey: "formatted_total_amount_with_taxes",
       className: colClassName,
       titleClassName,

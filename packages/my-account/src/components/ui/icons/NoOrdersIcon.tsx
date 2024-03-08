@@ -1,8 +1,7 @@
-const NoOrdersIcon = () => {
+const NoOrdersIcon = ({ width = 216 }: { width?: number }) => {
   return (
     <svg
-      width="216"
-      height="126"
+      width={width}
       viewBox="0 0 216 126"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

@@ -5,6 +5,14 @@ export type AppRoute = keyof typeof appRoutes
 // a `path` property to be used as patter matching in <Route path> component
 // and `makePath` method to be used to generate the path used in navigation and links
 export const appRoutes = {
+  subscriptions: {
+    path: "/subscriptions",
+    makePath: () => "/subscriptions",
+  },
+  subscription: {
+    path: "/subscriptions/:subscriptionId",
+    makePath: () => "/subscriptions/:subscriptionId",
+  },
   addresses: {
     path: "/addresses",
     makePath: () => "/addresses",

@@ -10,7 +10,7 @@ import CommerceLayer, {
 } from "@commercelayer/sdk"
 import { test as base } from "@playwright/test"
 import { config } from "dotenv"
-import jwt_decode from "jwt-decode"
+import { jwtDecode } from "jwt-decode"
 
 import path from "path"
 
@@ -128,7 +128,7 @@ const createCustomerAddresses = async (
     const customerCl = await getClient(token)
     const {
       owner: { id },
-    } = jwt_decode(token) as JWTProps
+    } = jwtDecode(token) as JWTProps
 
     const promises = params.customerAddresses.map(async (address) => {
       const a = await customerCl.addresses.create({

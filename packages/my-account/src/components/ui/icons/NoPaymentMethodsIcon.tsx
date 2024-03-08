@@ -1,8 +1,7 @@
-const NoPaymentMethodsIcon = () => {
+const NoPaymentMethodsIcon = ({ width = 168 }: { width?: number }) => {
   return (
     <svg
-      width="168"
-      height="80"
+      width={width}
       viewBox="0 0 168 80"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

@@ -23,6 +23,7 @@ import {
 
 import OrderParcelHistory from "#components/composite/OrderParcel/OrderParcelHistory"
 import { SkeletonMainParcel } from "#components/composite/Skeleton/Main"
+import { ScrollToTop } from "#components/ui/ScrollToTop"
 import { AppContext } from "#providers/AppProvider"
 import { OrderProvider } from "#providers/OrderProvider"
 
@@ -88,6 +89,7 @@ function ParcelPage({ orderId, parcelId }: Props): JSX.Element {
                   </Parcels>
                 </Shipment>
               </ShipmentsContainer>
+              <ScrollToTop />
             </OrderContainer>
           )}
         </>

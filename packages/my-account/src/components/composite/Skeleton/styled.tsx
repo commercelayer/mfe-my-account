@@ -103,6 +103,7 @@ export const SkeletonSpan = styled(SkeletonBox)<SkeletonSpanProps>`
     if (size === "medium-higher") return tw`w-24 h-4`
     if (size === "long") return tw`w-32 h-3`
     if (size === "long-higher") return tw`w-32 h-4`
+    if (size === "full") return tw`w-full h-3`
     return tw`w-36 h-3`
   }}
 `
