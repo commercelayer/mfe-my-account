@@ -162,8 +162,8 @@ function SubscriptionsPage(): JSX.Element {
             {({ row }) => {
               const order = row?.original
               if (
-                order.type === "order_subscriptions" &&
-                order.last_run_at != null
+                order?.type === "order_subscriptions" &&
+                order?.last_run_at != null
               ) {
                 return (
                   <div className="absolute bottom-0 left-0 w-full mb-0 md:relative md:bottom-auto md:left-auto md:mb-5">
@@ -176,7 +176,19 @@ function SubscriptionsPage(): JSX.Element {
                   </div>
                 )
               }
-              return <SubscriptionNextRunAt>&#8212;</SubscriptionNextRunAt>
+              if (
+                order?.type === "order_subscriptions" &&
+                order?.status === "active" &&
+                order?.next_run_at != null
+              ) {
+                return (
+                  <SubscriptionFrequency>
+                    {formatDate(order.next_run_at as string, shortDate)}
+                  </SubscriptionFrequency>
+                )
+              } else {
+                return <SubscriptionNextRunAt>&#8212;</SubscriptionNextRunAt>
+              }
             }}
           </OrderListRow>
           <OrderListPaginationInfo className="text-sm text-gray-500" />
