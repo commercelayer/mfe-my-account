@@ -2,6 +2,7 @@ import { OrderSubscription } from "@commercelayer/sdk"
 import capitalize from "lodash/capitalize"
 import { Trans } from "react-i18next"
 
+import Empty from "#components/composite/Empty"
 import {
   PaymentSourceBrandNameWrapper,
   PaymentSourceWrapper,
@@ -72,7 +73,7 @@ function SubscriptionPayments({ orderSubscription }: Props): JSX.Element {
       <PaymentSourceWrapper>{name}</PaymentSourceWrapper>
     )
   }
-  return <>No valid customer payment source found in order subscription</>
+  return <Empty type="SubscriptionPayments" />
 }
 
 export default SubscriptionPayments

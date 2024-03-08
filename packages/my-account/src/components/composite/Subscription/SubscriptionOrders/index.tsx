@@ -1,4 +1,8 @@
-import { OrderList, OrderListRow } from "@commercelayer/react-components"
+import {
+  OrderList,
+  OrderListEmpty,
+  OrderListRow,
+} from "@commercelayer/react-components"
 import OrderListPaginationButtons from "@commercelayer/react-components/orders/OrderListPaginationButtons"
 import OrderListPaginationInfo from "@commercelayer/react-components/orders/OrderListPaginationInfo"
 import { Order, OrderSubscription } from "@commercelayer/sdk"
@@ -9,6 +13,7 @@ import { Link } from "wouter"
 
 import { OrderDate, OrderNumber } from "./styled"
 
+import Empty from "#components/composite/Empty"
 import OrderStatusChip from "#components/composite/Order/OrderStatusChip"
 import { SkeletonMainSubscriptionsOrdersTable } from "#components/composite/Skeleton/Main/SubscriptionsOrdersTable"
 import { AppContext } from "#providers/AppProvider"
@@ -78,6 +83,17 @@ function SubscriptionOrders({ orderSubscription }: Props) {
         pageSize={15}
         paginationContainerClassName="flex justify-between items-center"
       >
+        <OrderListEmpty>
+          {() => (
+            <Empty
+              type="SubscriptionOrders"
+              descriptionDetail={formatDate(
+                orderSubscription.next_run_at as string,
+                shortDate
+              )}
+            />
+          )}
+        </OrderListEmpty>
         <OrderListRow field="number" className="order-1 p-4">
           {({ cell, row, ...p }) => {
             const order = row?.original

@@ -110,6 +110,14 @@
     "payments": "Payments",
     "order_history": "Order History"
   },
+  "noSubscriptionPayments": {
+    "title": "No valid payment method found in subscription",
+    "description": "Looks like you haven’t saved a valid payment method for this subscription"
+  },
+  "noSubscriptionOrders": {
+    "title": "No orders yet for this subscription",
+    "description": "Next run: "
+  },
   "subscriptionFrequency": {
     "hourly": "hourly",
     "daily": "daily",

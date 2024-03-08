@@ -110,6 +110,14 @@
     "payments": "Pagamenti",
     "order_history": "Storico Ordini"
   },
+  "noSubscriptionPayments": {
+    "title": "Nell'abbonamento non è stato trovato nessun metodo di pagamento valido",
+    "description": "Sembra che tu non abbia salvato un metodo di pagamento valido per questo abbonamento"
+  },
+  "noSubscriptionOrders": {
+    "title": "Nessun ordine presente per questo abbonamento",
+    "description": "Rinnovo: "
+  },
   "subscriptionFrequency": {
     "hourly": "oraria",
     "daily": "giornaliera",
