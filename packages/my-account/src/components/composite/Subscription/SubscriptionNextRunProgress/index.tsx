@@ -12,7 +12,7 @@ interface Props {
 function getProgressMax(subscription: OrderSubscription) {
   const distance = formatDistanceStrict(
     new Date(subscription.next_run_at as string),
-    new Date(subscription.starts_at as string),
+    new Date(subscription.last_run_at as string),
     { unit: "minute" }
   )
   return parseInt(distance.split(" ")[0]) ?? 0
