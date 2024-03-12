@@ -122,8 +122,8 @@ By clicking on one of the subscription numbers in the history list you can enter
   
 IMAGE
 
-It could happen that for any kind of reason the subscription is no longer able to be renewed, for example because of the expiry of the associated payment method.
-In this case, an alert is shown at the top of detail page to highlight the issue and provide the customer with a valid checkout link to place the order with a valid payment method and let the subscription payment method be updated for future runs.
+If the subscription cannot be renewed (for example due to an expired payment method), an alert will appear at the top of the detail page. 
+This alert highlights the issue and provides a checkout link for the customer to place the order with a valid payment method, thereby updating the payment information for future transactions.
 
 IMAGE
 
