@@ -50,7 +50,7 @@ You can use the hosted version of the My Account application with the following 
 
 ## Features
 
-The My Account application's main features are currently focused on the management of customer [orders](#orders), [addresses](#addresses) and [subscriptions](#subscriptions), along with the overview of the customer [wallet](#wallet).
+The My Account application's main features are currently focused on the management of customer [orders](#orders), [addresses](#addresses), and [subscriptions](#subscriptions), along with the overview of the customer [wallet](#wallet).
 
 > Lots of other major and minor features (e.g. returns and more) are already included in the development roadmap – check the Commerce Layer [changelog](https://docs.commercelayer.io/changelog/) to be regularly updated about all the new releases.
 
@@ -62,7 +62,7 @@ As soon as you land on the application (or click on the _Orders_ menu item) you 
 
 ![my-account-orders](https://github.com/commercelayer/mfe-my-account/assets/105653649/6f93c442-bf27-460e-9602-c82044645ab9)
 
-This works as the My Account app's welcome page, showing a list of the customer's orders. The list is paginated and can be sorted based on each column piece of information:
+This works as the My Account app's welcome page, showing a list of the customer's orders. The list is paginated and can be sorted based on each column piece of information by clicking on the related column label:
 
 - order number (default)
 - date of placement
@@ -77,7 +77,7 @@ By clicking on one of the order numbers in the history list you can enter the se
 - The billing and shipping address details.
 - The shipments associated with the order (including the related parcels overview and tracking code).
 - The payment method used for the order.
-  
+
 ![my-account-order-details](https://github.com/commercelayer/mfe-my-account/assets/105653649/4d9869d0-7ae8-4e0a-ae72-a81b9f4aca7f)
 
 #### Parcel tracking details
@@ -88,7 +88,7 @@ By clicking a parcel's tracking link you can enter the selected parcel's detail 
 
 ### Addresses
 
-#### Addresses Management
+#### Addresses management
 
 By clicking on the _Addresses_ menu item you can see the list of your saved addresses (if any). Each address can be edited or deleted. New addresses can be directly created from the app and added to the list.
 
@@ -104,7 +104,7 @@ By clicking on the _Subscriptions_ menu item you can see the history of your sub
 
 IMAGE
 
-The list is paginated and can be sorted based on each column piece of information:
+The list is paginated and can be sorted based on each column piece of information by clicking on the related column label:
 
 - subscription number (default)
 - subscription status
@@ -115,19 +115,19 @@ The list is paginated and can be sorted based on each column piece of informatio
 
 By clicking on one of the subscription numbers in the history list you can enter the selected subscription's details page where you can see:
 
-- An introductory recap about subscription settings (like start date, frequency, next run date and address)
+- An introductory recap about the subscription settings (e.g. start date, frequency, next run date, and address)
 - The subscription summary information with the list of subscription line items.
 - The payment method used for the subscription renewal.
-- The history of subscription's related orders.
-  
-IMAGE
-
-If the subscription cannot be renewed (for example due to an expired payment method), an alert will appear at the top of the detail page. 
-This alert highlights the issue and provides a checkout link for the customer to place the order with a valid payment method, thereby updating the payment information for future transactions.
+- The history of the recurring orders associated with the subscription.
 
 IMAGE
 
-Note: It is possible to track subscriptions' renewal failures by activating a `webhook` listening for the `order_subscriptions.last_run_failed` event. The `order_subscriptions.last_run_succeeded` event is available as well.
+If the subscription cannot be renewed (e.g. due to an expired payment method), an alert will appear at the top of the detail page. This alert highlights the issue and provides a [Checkout](https://github.com/commercelayer/mfe-checkout) link for the customer to place the order with a valid payment method, thereby updating the payment information for future transactions.
+
+IMAGE
+
+> [!TIP]  
+> You can track subscriptions' renewal failures by activating a [webhook](https://docs.commercelayer.io/core/real-time-webhooks) listening for the `order_subscriptions.last_run_failed` event. The `order_subscriptions.last_run_succeeded` event is available as well.
 
 ### Wallet
 
