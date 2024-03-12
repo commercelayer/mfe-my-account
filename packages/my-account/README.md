@@ -50,7 +50,7 @@ You can use the hosted version of the My Account application with the following 
 
 ## Features
 
-The My Account application's main features are currently focused on the management of customer [orders](#orders) and [addresses](#addresses), along with the overview of the customer [wallet](#wallet).
+The My Account application's main features are currently focused on the management of customer [orders](#orders), [addresses](#addresses) and [subscriptions](#subscriptions), along with the overview of the customer [wallet](#wallet).
 
 > Lots of other major and minor features (e.g. returns and more) are already included in the development roadmap – check the Commerce Layer [changelog](https://docs.commercelayer.io/changelog/) to be regularly updated about all the new releases.
 
@@ -71,7 +71,7 @@ This works as the My Account app's welcome page, showing a list of the customer'
 
 #### Order details
 
-By clicking on one of the order numbers of the history list you can enter the selected order's details page where you can see:
+By clicking on one of the order numbers in the history list you can enter the selected order's details page where you can see:
 
 - The order summary information with the single line items and total amounts.
 - The billing and shipping address details.
@@ -95,6 +95,39 @@ By clicking on the _Addresses_ menu item you can see the list of your saved addr
 ![my-account-select-address](https://github.com/commercelayer/mfe-my-account/assets/55532244/4d244e31-9a81-4e15-a10e-0984da672d53)
 
 ![my-account-edit-address](https://github.com/commercelayer/mfe-my-account/assets/55532244/9f96616c-97f8-4936-96b0-2ed90ab45d64)
+
+### Subscriptions
+
+#### Subscriptions history
+
+By clicking on the _Subscriptions_ menu item you can see the history of your subscriptions (if any).
+
+IMAGE
+
+The list is paginated and can be sorted based on each column piece of information:
+
+- subscription number (default)
+- subscription status
+- subscription frequency
+- subscription next run date
+
+#### Subscription details
+
+By clicking on one of the subscription numbers in the history list you can enter the selected subscription's details page where you can see:
+
+- An introductory recap about subscription settings (like start date, frequency, next run date and address)
+- The subscription summary information with the list of subscription line items.
+- The payment method used for the subscription renewal.
+- The history of subscription's related orders.
+  
+IMAGE
+
+It could happen that for any kind of reason the subscription is no longer able to be renewed, for example because of the expiry of the associated payment method.
+In this case, an alert is shown at the top of detail page to highlight the issue and provide the customer with a valid checkout link to place the order with a valid payment method and let the subscription payment method be updated for future runs.
+
+IMAGE
+
+Note: It is possible to track subscriptions' renewal failures by activating a `webhook` listening for the `order_subscriptions.last_run_failed` event. The `order_subscriptions.last_run_succeeded` event is available as well.
 
 ### Wallet
 
