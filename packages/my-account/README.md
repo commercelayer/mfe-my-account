@@ -124,7 +124,7 @@ By clicking on one of the subscription numbers in the history list you can enter
 
 If the subscription cannot be renewed (e.g. due to an expired payment method), an alert will appear at the top of the detail page. This alert highlights the issue and provides a [Checkout](https://github.com/commercelayer/mfe-checkout) link for the customer to place the order with a valid payment method, thereby updating the payment information for future transactions.
 
-![my-account-failed-subscription-alert](https://github.com/commercelayer/mfe-my-account/assets/55532244/48854c49-0d83-47d5-9e03-4106163046cb)
+![my-account-failed-subscription-alert](https://github.com/commercelayer/mfe-my-account/assets/55532244/792cebe9-0b1a-4059-9dc0-da7c2c7bdde1)
 
 > [!TIP]  
 > You can track subscriptions' renewal failures by activating a [webhook](https://docs.commercelayer.io/core/real-time-webhooks) listening for the `order_subscriptions.last_run_failed` event. The `order_subscriptions.last_run_succeeded` event is available as well.
