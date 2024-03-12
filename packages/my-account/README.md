@@ -102,7 +102,7 @@ By clicking on the _Addresses_ menu item you can see the list of your saved addr
 
 By clicking on the _Subscriptions_ menu item you can see the history of your subscriptions (if any).
 
-IMAGE
+![my-account-subscriptions](https://github.com/commercelayer/mfe-my-account/assets/55532244/f4699377-adcc-4752-8720-4ba7aec6766e)
 
 The list is paginated and can be sorted based on each column piece of information by clicking on the related column label:
 
@@ -120,11 +120,11 @@ By clicking on one of the subscription numbers in the history list you can enter
 - The payment method used for the subscription renewal.
 - The history of the recurring orders associated with the subscription.
 
-IMAGE
+![my-account-subscription-details](https://github.com/commercelayer/mfe-my-account/assets/55532244/40f31208-a10b-4b80-ac8e-1b3b7ba2a3ec)
 
 If the subscription cannot be renewed (e.g. due to an expired payment method), an alert will appear at the top of the detail page. This alert highlights the issue and provides a [Checkout](https://github.com/commercelayer/mfe-checkout) link for the customer to place the order with a valid payment method, thereby updating the payment information for future transactions.
 
-IMAGE
+![my-account-failed-subscription-alert](https://github.com/commercelayer/mfe-my-account/assets/55532244/48854c49-0d83-47d5-9e03-4106163046cb)
 
 > [!TIP]  
 > You can track subscriptions' renewal failures by activating a [webhook](https://docs.commercelayer.io/core/real-time-webhooks) listening for the `order_subscriptions.last_run_failed` event. The `order_subscriptions.last_run_succeeded` event is available as well.
