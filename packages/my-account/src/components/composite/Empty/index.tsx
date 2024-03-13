@@ -61,7 +61,7 @@ function Empty({ type, descriptionDetail, buttonClick }: Props): JSX.Element {
     <Wrapper>
       {icon}
       <Title>{t(`no${type}.title`)}</Title>
-      <Description>{`${t(`no${type}.description`)}${descriptionDetail}`}</Description>
+      <Description>{`${t(`no${type}.description`)}${descriptionDetail ?? ""}`}</Description>
       {buttonClick && (
         <NoItemsButton
           label={t(`no${type}.buttonLabel`) as string}

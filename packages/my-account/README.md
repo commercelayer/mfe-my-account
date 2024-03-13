@@ -2,7 +2,7 @@
 
 The Commerce Layer My Account application (React) provides a production-ready reserved user area with order history and address management features, powered by Commerce Layer APIs. You can fork this repository and deploy it to any hosting service or use it as a reference application to build your own. A hosted version is also available.
 
-![my-account-low-res](https://github.com/commercelayer/mfe-my-account/assets/55532244/050b24f0-a18f-4244-b347-08b6407b9e89)
+![my-account-gif](https://github.com/commercelayer/mfe-my-account/assets/55532244/1d18a1d6-4372-4af5-abc3-4d11ead8db99)
 
 ## What is Commerce Layer?
 
@@ -50,7 +50,7 @@ You can use the hosted version of the My Account application with the following 
 
 ## Features
 
-The My Account application's main features are currently focused on the management of customer [orders](#orders) and [addresses](#addresses), along with the overview of the customer [wallet](#wallet).
+The My Account application's main features are currently focused on the management of customer [orders](#orders), [addresses](#addresses), and [subscriptions](#subscriptions), along with the overview of the customer [wallet](#wallet).
 
 > Lots of other major and minor features (e.g. returns and more) are already included in the development roadmap – check the Commerce Layer [changelog](https://docs.commercelayer.io/changelog/) to be regularly updated about all the new releases.
 
@@ -60,9 +60,9 @@ The My Account application's main features are currently focused on the manageme
 
 As soon as you land on the application (or click on the _Orders_ menu item) you will be shown the order history screen.
 
-![my-account-orders](https://github.com/commercelayer/mfe-my-account/assets/55532244/8c9b6182-baf1-4636-80ab-b4dbcb553d74)
+![my-account-orders](https://github.com/commercelayer/mfe-my-account/assets/105653649/6f93c442-bf27-460e-9602-c82044645ab9)
 
-This works as the My Account app's welcome page, showing a list of the customer's orders. The list is paginated and can be sorted based on each column piece of information:
+This works as the My Account app's welcome page, showing a list of the customer's orders. The list is paginated and can be sorted based on each column piece of information by clicking on the related column label:
 
 - order number (default)
 - date of placement
@@ -71,30 +71,63 @@ This works as the My Account app's welcome page, showing a list of the customer'
 
 #### Order details
 
-By clicking on one of the order numbers of the history list you can enter the selected order's details page where you can see:
+By clicking on one of the order numbers in the history list you can enter the selected order's details page where you can see:
 
 - The order summary information with the single line items and total amounts.
 - The billing and shipping address details.
 - The shipments associated with the order (including the related parcels overview and tracking code).
 - The payment method used for the order.
-  
-![my-account-order-details](https://github.com/commercelayer/mfe-my-account/assets/55532244/397ca3b1-642b-4efd-910a-47680dfe85a6)
+
+![my-account-order-details](https://github.com/commercelayer/mfe-my-account/assets/105653649/4d9869d0-7ae8-4e0a-ae72-a81b9f4aca7f)
 
 #### Parcel tracking details
 
 By clicking a parcel's tracking link you can enter the selected parcel's detail page showing the full timeline of the parcel's movements and updates.
 
-![my-account-parcel-tracking](https://github.com/commercelayer/mfe-my-account/assets/55532244/bc26e5d5-5836-4946-920d-e71d7501b096)
+![my-account-parcel-tracking](https://github.com/commercelayer/mfe-my-account/assets/105653649/fdab7860-5605-47ad-9011-3a66c8f23050)
 
 ### Addresses
 
-#### Addresses Management
+#### Addresses management
 
 By clicking on the _Addresses_ menu item you can see the list of your saved addresses (if any). Each address can be edited or deleted. New addresses can be directly created from the app and added to the list.
 
-![my-account-select-address](https://github.com/commercelayer/mfe-my-account/assets/55532244/4d244e31-9a81-4e15-a10e-0984da672d53)
+![my-account-select-address](https://github.com/commercelayer/mfe-my-account/assets/105653649/7f32c95a-1292-4451-942d-8affdc909b02)
 
-![my-account-edit-address](https://github.com/commercelayer/mfe-my-account/assets/55532244/9f96616c-97f8-4936-96b0-2ed90ab45d64)
+![my-account-edit-address](https://github.com/commercelayer/mfe-my-account/assets/105653649/9500665a-cc71-4012-af83-8082fdccbd8c)
+
+### Subscriptions
+
+#### Subscriptions history
+
+By clicking on the _Subscriptions_ menu item you can see the history of your subscriptions (if any).
+
+![my-account-subscriptions](https://github.com/commercelayer/mfe-my-account/assets/55532244/f4699377-adcc-4752-8720-4ba7aec6766e)
+
+The list is paginated and can be sorted based on each column piece of information by clicking on the related column label:
+
+- subscription number (default)
+- subscription status
+- subscription frequency
+- subscription next run date
+
+#### Subscription details
+
+By clicking on one of the subscription numbers in the history list you can enter the selected subscription's details page where you can see:
+
+- An introductory recap about the subscription settings (e.g. start date, frequency, next run date, and address)
+- The subscription summary information with the list of subscription line items.
+- The payment method used for the subscription renewal.
+- The history of the recurring orders associated with the subscription.
+
+![my-account-subscription-details](https://github.com/commercelayer/mfe-my-account/assets/55532244/40f31208-a10b-4b80-ac8e-1b3b7ba2a3ec)
+
+If the subscription cannot be renewed (e.g. due to an expired payment method), an alert will appear at the top of the detail page. This alert highlights the issue and provides a [Checkout](https://github.com/commercelayer/mfe-checkout) link for the customer to place the order with a valid payment method, thereby updating the payment information for future transactions.
+
+![my-account-failed-subscription-alert](https://github.com/commercelayer/mfe-my-account/assets/55532244/792cebe9-0b1a-4059-9dc0-da7c2c7bdde1)
+
+> [!TIP]  
+> You can track subscriptions' renewal failures by activating a [webhook](https://docs.commercelayer.io/core/real-time-webhooks) listening for the `order_subscriptions.last_run_failed` event. The `order_subscriptions.last_run_succeeded` event is available as well.
 
 ### Wallet
 
@@ -102,7 +135,7 @@ By clicking on the _Addresses_ menu item you can see the list of your saved addr
 
 By clicking on the _Wallet_ menu item you can see the list of your saved credit cards (if any).
 
-![my-account-wallet](https://github.com/commercelayer/mfe-my-account/assets/55532244/ebce7758-1ae0-46f1-9061-bc2d251fe80a)
+![my-account-wallet](https://github.com/commercelayer/mfe-my-account/assets/105653649/23fb4719-37ae-47b8-965d-4b472d4a58bf)
 
 ## Using the CLI to get a valid customer token
 
