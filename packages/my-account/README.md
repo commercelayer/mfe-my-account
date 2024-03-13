@@ -2,7 +2,7 @@
 
 The Commerce Layer My Account application (React) provides a production-ready reserved user area with order history and address management features, powered by Commerce Layer APIs. You can fork this repository and deploy it to any hosting service or use it as a reference application to build your own. A hosted version is also available.
 
-![my-account-low-res](https://github.com/commercelayer/mfe-my-account/assets/55532244/050b24f0-a18f-4244-b347-08b6407b9e89)
+![my-account-gif](https://github.com/commercelayer/mfe-my-account/assets/55532244/1d18a1d6-4372-4af5-abc3-4d11ead8db99)
 
 ## What is Commerce Layer?
 
