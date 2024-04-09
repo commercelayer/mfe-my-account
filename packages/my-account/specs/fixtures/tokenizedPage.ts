@@ -1,7 +1,5 @@
 import {
-  getIntegrationToken,
-  getCustomerToken,
-  getSalesChannelToken,
+  authenticate
 } from "@commercelayer/js-auth"
 import CommerceLayer, {
   Address,
@@ -42,16 +40,16 @@ type FixtureType = {
 }
 
 const getToken = async (market?: string) => {
+  const domain = process.env.E2E_DOMAIN as string
   const clientId = process.env.E2E_CLIENT_ID as string
-  const endpoint = process.env.E2E_ENDPOINT as string
   const scope = market || (process.env.E2E_SCOPE as string)
 
-  const data = await getSalesChannelToken({
+  const data = await authenticate('client_credentials', {
+    domain,
     clientId,
-    endpoint,
     scope,
   })
-  return data?.accessToken as string
+  return data.accessToken
 }
 
 const getClient = async (token: string) => {
@@ -80,36 +78,34 @@ const getCustomerUserToken = async ({
   if (existingUser.length === 0) {
     await cl.customers.create({ email, password })
   }
+
+  const domain = process.env.E2E_DOMAIN as string
   const clientId = process.env.E2E_CLIENT_ID as string
-  const endpoint = process.env.E2E_ENDPOINT as string
   const scope = process.env.E2E_SCOPE as string
 
-  const data = await getCustomerToken(
-    {
+  const auth = await authenticate('password', {
+      domain,
       clientId,
-      endpoint,
       scope,
-    },
-    {
       username: email,
       password,
     }
   )
-  return data?.accessToken as string
+  return auth.accessToken
 }
 
 const getSuperToken = async () => {
+  const domain = process.env.E2E_DOMAIN as string
   const clientId = process.env.E2E_INTEGRATION_CLIENT_ID as string
   const clientSecret = process.env.E2E_INTEGRATION_CLIENT_SECRET as string
-  const endpoint = process.env.E2E_ENDPOINT as string
   const scope = process.env.E2E_SCOPE as string
-  const data = await getIntegrationToken({
+  const data = await authenticate('client_credentials', {
+    domain,
     clientId,
     clientSecret,
-    endpoint,
     scope,
   })
-  return data?.accessToken as string
+  return data.accessToken
 }
 
 const createCustomerAddresses = async (
