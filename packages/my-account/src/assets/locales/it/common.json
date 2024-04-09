@@ -61,7 +61,20 @@
       "giftcard_amount": "Gift card",
       "total_amount": "Totale",
       "quantity": "Quantità: {{count}}",
-      "quantity_plural": "Quantità: {{count}}"
+      "quantity_plural": "Quantità: {{count}}",
+      "frequency.hourly": "Orario",
+      "frequency.daily": "Giornaliero",
+      "frequency.weekly": "Settimanale",
+      "frequency.monthly": "Mensile",
+      "frequency.two-months": "Ogni due mesi",
+      "frequency.two-month": "Ogni due mesi",
+      "frequency.three-months": "Ogni tre mesi",
+      "frequency.three-month": "Ogni tre mesi",
+      "frequency.four-months": "Ogni quattro mesi",
+      "frequency.four-month": "Ogni quattro mesi",
+      "frequency.six-months": "Ogni sei mesi",
+      "frequency.six-month": "Ogni sei mesi",
+      "frequency.yearly": "Annuale"
     },
     "addresses": {
       "title": "Indirizzi",
