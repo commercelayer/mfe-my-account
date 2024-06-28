@@ -45,17 +45,14 @@
     "packages/*"
   ],
   "devDependencies": {
-    "lerna": "^8.1.2",
-    "npm-check-updates": "^16.14.18"
+    "lerna": "^8.1.5",
+    "npm-check-updates": "^16.14.20"
   },
   "resolutions": {
-    "@types/react": ">=18.0.0",
-    "@types/react-dom": ">=18.0.0",
-    "@babel/traverse": "^7.23.2",
+    "braces": "^3.0.3",
     "dset": "^3.1.2",
-    "follow-redirects": "^1.15.6",
-    "semver": "^6.3.1",
-    "socks": "^2.7.3",
-    "word-wrap": "^1.2.4"
+    "ejs": "^3.1.10",
+    "tar": "^6.2.1",
+    "ws": "^8.17.1"
   }
 }
