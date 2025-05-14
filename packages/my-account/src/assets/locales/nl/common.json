@@ -1,0 +1,249 @@
+{
+    "general": {
+      "title": "{{companyName}} - Mijn Account",
+      "retry_error_code": "Verbindingsproblemen",
+      "retry_error_description": "Probeer de pagina opnieuw te laden",
+      "invalid": "Deze URL is niet toegankelijk.",
+      "privacy_link": "Privacy",
+      "terms_link": "Voorwaarden"
+    },
+    "input": {
+      "cantBlank": "Mag niet leeg zijn",
+      "mustBeValidFormat": "Moet een geldig formaat hebben"
+    },
+    "menu": {
+      "orders": "Bestellingen",
+      "ordersDescription": "Bekijk je geplaatste bestellingen",
+      "addresses": "Adressen",
+      "addressesDescription": "Beheer je adressen",
+      "subscriptions": "Abonnementen",
+      "subscriptionsDescription": "Beheer je abonnementen",
+      "wallet": "Portemonnee",
+      "walletDescription": "Beheer je betaalmethoden",
+      "returns": "Retourzendingen",
+      "returnsDescription": "Een product retourneren",
+      "customerService": "Klantenservice",
+      "customerServiceDescription": "Krijg hulp van de verkoper",
+      "logout": "Uitloggen",
+      "logoutDescription": "Uitloggen van dit account",
+      "loggedInAs": "Ingelogd als:"
+    },
+    "header": {
+      "title": "Mijn account"
+    },
+    "orders": {
+      "title": "Mijn bestellingen",
+      "orderContains": "bevat {{count}} artikel",
+      "orderContains_other": "bevat {{count}} artikelen",
+      "columns": {
+        "order": "Bestelling",
+        "status": "Status",
+        "date": "Datum",
+        "payment": "Betaling",
+        "amount": "Bedrag"
+      }
+    },
+    "noOrders": {
+      "title": "Nog geen bestellingen",
+      "description": "Het lijkt erop dat je nog geen bestellingen hebt geplaatst",
+      "buttonLabel": "Naar de winkel"
+    },
+    "order": {
+      "title": "Bestelling #<0/>",
+      "placed_at": "Geplaatst op <0/>",
+      "summary": {
+        "title": "Samenvatting",
+        "subtotal_amount": "Subtotaal",
+        "discount_amount": "Korting",
+        "shipping_amount": "Verzending",
+        "payment_method_amount": "Betaalmethode",
+        "tax_amount": "BTW",
+        "giftcard_amount": "Cadeaubon",
+        "total_amount": "Totaal",
+        "quantity": "Aantal: {{count}}",
+        "quantity_plural": "Aantal: {{count}}",
+        "frequency.hourly": "Per uur",
+        "frequency.daily": "Dagelijks",
+        "frequency.weekly": "Wekelijks",
+        "frequency.monthly": "Maandelijks",
+        "frequency.two-months": "Elke twee maanden",
+        "frequency.two-month": "Elke twee maanden",
+        "frequency.three-months": "Elke drie maanden",
+        "frequency.three-month": "Elke drie maanden",
+        "frequency.four-months": "Elke vier maanden",
+        "frequency.four-month": "Elke vier maanden",
+        "frequency.six-months": "Elke zes maanden",
+        "frequency.six-month": "Elke zes maanden",
+        "frequency.yearly": "Jaarlijks"
+      },
+      "addresses": {
+        "title": "Adressen",
+        "billedTo": "Gefactureerd aan",
+        "shippedTo": "Verzonden naar"
+      },
+      "shipments": {
+        "title": "Verzendingen",
+        "shipment": "Verzending #<0/>",
+        "shipmentStatus": "Status: <0/>",
+        "parcel": "Pakket <0/>",
+        "trackingCode": "Trackingcode",
+        "trackParcel": "Volg pakket",
+        "parcelLineItemQuantity": "Aantal: <0/>",
+        "parcelDetail": {
+          "title": "Volg Pakket",
+          "trackingCode": "Trackingcode"
+        }
+      },
+      "payments": {
+        "title": "Betalingen"
+      }
+    },
+    "subscriptions": {
+      "title": "Mijn abonnementen",
+      "subscriptionContains": "bevat {{count}} artikel",
+      "subscriptionContains_other": "bevat {{count}} artikelen",
+      "columns": {
+        "subscription": "Abonnement",
+        "status": "Status",
+        "frequency": "Frequentie",
+        "next_run_at": "Volgende levering"
+      }
+    },
+    "noSubscriptions": {
+      "title": "Nog geen abonnementen",
+      "description": "Het lijkt erop dat je nog geen abonnementen hebt",
+      "buttonLabel": "Naar de winkel"
+    },
+    "subscription": {
+      "title": "Abonnement #<0/>",
+      "starts_at": "gestart op <0/>",
+      "next_run": "Volgende levering",
+      "expires_at": "verloopt op <0/>",
+      "summary": "Samenvatting",
+      "payments": "Betalingen",
+      "order_history": "Bestelgeschiedenis"
+    },
+    "noSubscriptionPayments": {
+      "title": "Geen geldige betaalmethode gevonden voor dit abonnement",
+      "description": "Het lijkt erop dat je geen geldige betaalmethode hebt opgeslagen voor dit abonnement"
+    },
+    "noSubscriptionOrders": {
+      "title": "Nog geen bestellingen voor dit abonnement",
+      "description": "Volgende levering: "
+    },
+    "subscriptionFrequency": {
+      "hourly": "per uur",
+      "daily": "dagelijks",
+      "weekly": "wekelijks",
+      "monthly": "maandelijks",
+      "two-month": "elke twee maanden",
+      "three-month": "elke drie maanden",
+      "six-month": "elke zes maanden",
+      "yearly": "jaarlijks"
+    },
+    "subscriptionProgress": {
+      "prefix": "Over",
+      "notRunning": "Niet actief"
+    },
+    "addresses": {
+      "title": "Mijn adressen",
+      "edit": "Bewerken",
+      "delete": "Verwijderen",
+      "addNewAddress": "Nieuw adres toevoegen",
+      "deleteConfirmation": "Je adres verwijderen?",
+      "yes": "Ja",
+      "no": "Nee",
+      "addressForm": {
+        "new_address_title": "Voeg een nieuw adres toe",
+        "edit_address_title": "Bewerk mijn adres",
+        "billing_address_country_code_placeholder": "Selecteer een land",
+        "discard_changes": "Wijzigingen annuleren",
+        "save": "Opslaan",
+        "fields": {
+          "billing_address_first_name": "Voornaam",
+          "billing_address_last_name": "Achternaam",
+          "billing_address_line_1": "Adresregel 1",
+          "billing_address_line_2": "Adresregel 2",
+          "billing_address_city": "Plaats",
+          "billing_address_country_code_placeholder": "Selecteer een land/regio",
+          "billing_address_country_code": "Land/Regio",
+          "billing_address_state_code": "Provincie/Staat",
+          "billing_address_state_code_placeholder": "Selecteer een provincie/staat",
+          "billing_address_zip_code": "Postcode",
+          "billing_address_phone": "Telefoon",
+          "billing_address_billing_info": "Factuurgegevens"
+        }
+      }
+    },
+    "noAddresses": {
+      "title": "Nog geen adressen",
+      "description": "Het lijkt erop dat je nog geen adressen hebt opgeslagen",
+      "buttonLabel": "Adres toevoegen"
+    },
+    "wallet": {
+      "title": "Mijn Portemonnee"
+    },
+    "noPaymentMethods": {
+      "title": "Nog geen betaalmethode",
+      "description": "Het lijkt erop dat je nog geen betaalmethode hebt opgeslagen",
+      "buttonLabel": "Betaalmethode toevoegen"
+    },
+    "paymentSource": {
+      "creditCard": "Creditcard",
+      "endingIn": "eindigend op <0/>",
+      "expires": "verloopt ",
+      "wireTransfer": "Bankoverschrijving",
+      "wireTransferDescription": "Na orderbevestiging ontvang je instructies om de betaling te voltooien",
+      "paypalDescription": "Na het plaatsen van de bestelling word je doorgestuurd naar de PayPal-website om in te loggen en de betaling te autoriseren"
+    },
+    "returns": {
+      "title": "Mijn retourzendingen"
+    },
+    "noReturns": {
+      "title": "Nog geen retourzendingen",
+      "description": "Het lijkt erop dat je nog geen retourzendingen hebt gemaakt",
+      "buttonLabel": "Maak een retourzending aan"
+    },
+    "orderStatus": {
+      "draft": "concept",
+      "pending": "in behandeling",
+      "placed": "geplaatst",
+      "approved": "goedgekeurd",
+      "cancelled": "geannuleerd",
+      "editing": "wordt bewerkt"
+    },
+    "subscriptionStatus": {
+      "draft": "concept",
+      "inactive": "inactief",
+      "active": "actief",
+      "cancelled": "geannuleerd"
+    },
+    "shipmentStatus": {
+      "upcoming": "aankomend",
+      "in_progress": "in behandeling",
+      "cancelled": "geannuleerd",
+      "shipped": "verzonden"
+    },
+    "parcelStatus": {
+      "delivered": "Afgeleverd",
+      "out_for_delivery": "Uit voor bezorging",
+      "in_transit": "Onderweg",
+      "pre_transit": "Voorbereid voor verzending"
+    },
+    "returnStatus": {
+      "draft": "concept",
+      "requested": "aangevraagd",
+      "approved": "goedgekeurd",
+      "cancelled": "geannuleerd",
+      "shipped": "verzonden",
+      "rejected": "afgewezen",
+      "received": "ontvangen"
+    },
+    "actionsMenu": {
+      "mainLabel": "Menu openen"
+    },
+    "showHideMenu": {
+      "mainLabel": "toon 1 item",
+      "mainLabel_plural": "toon <0/> items"
+    }
+  }
