@@ -20,11 +20,14 @@ import { SkeletonMainOrdersTable } from "#components/composite/Skeleton/Main/Ord
 import Title from "#components/ui/Title"
 import { AppContext } from "#providers/AppProvider"
 import { formatDate, shortDate } from "#utils/dateTimeFormats"
+import { appRoutes } from "#data/routes"
+import { useSettings } from "#providers/SettingsProvider"
 
 function OrdersPage(): JSX.Element {
   const { t } = useTranslation()
   const ctx = useContext(AppContext)
   const accessToken = ctx?.accessToken
+  const { settings } = useSettings()
 
   const colClassName =
     "text-left text-xs font-thin border-b border-gray-200 md:border-none text-gray-300 md:font-semibold md:uppercase md:relative"
@@ -90,7 +93,11 @@ function OrdersPage(): JSX.Element {
                     return (
                       <div key={order.number} {...p}>
                         <Link
-                          href={`/orders/${order.id}?accessToken=${accessToken}`}
+                          href={appRoutes.order.makePath({
+                            orderId: order.id ?? "",
+                            accessToken: accessToken ?? '',
+                            lang: settings.language
+                          })}
                         >
                           <OrderNumber># {order.number}</OrderNumber>
                         </Link>

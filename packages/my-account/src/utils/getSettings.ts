@@ -82,6 +82,8 @@ export const getSettings = async ({
     return makeInvalidSettings(!organizationResponse?.bailed)
   }
 
+  const lang = new URLSearchParams(window.location.search).get('lang')
+
   return {
     accessToken,
     endpoint: `https://${slug}.${domain}`,
@@ -89,7 +91,7 @@ export const getSettings = async ({
     customerId: customerId as string,
     isValid: true,
     companyName: organization?.name || defaultSettings.companyName,
-    language: defaultSettings.language,
+    language: lang ?? defaultSettings.language,
     primaryColor:
       (organization?.primary_color as string) || defaultSettings.primaryColor,
     logoUrl: organization?.logo_url || "",

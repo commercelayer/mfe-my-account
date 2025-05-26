@@ -30,7 +30,9 @@ import FormattedDate from "#components/ui/FormattedDate"
 import { OrderSection, OrderSectionItem } from "#components/ui/OrderSection"
 import { ScrollToTop } from "#components/ui/ScrollToTop"
 import { AppContext } from "#providers/AppProvider"
+import { useSettings } from "#providers/SettingsProvider"
 import { OrderSubscriptionProvider } from "#providers/OrderSubscriptionProvider"
+import { appRoutes } from "#data/routes"
 
 interface SubscriptionPageProps {
   subscriptionId?: string
@@ -40,11 +42,15 @@ function SubscriptionPage({
   subscriptionId,
 }: SubscriptionPageProps): JSX.Element {
   const ctx = useContext(AppContext)
+  const { settings } = useSettings()
   const accessToken = ctx?.accessToken
   const { t } = useTranslation()
 
   if (subscriptionId == null) {
-    return <Redirect to={`/subscriptions?accessToken=${accessToken}`} />
+    return <Redirect to={appRoutes.subscriptions.makePath({
+      accessToken: accessToken ?? '',
+      lang: settings.language
+    })} />
   }
 
   return (
@@ -62,7 +68,10 @@ function SubscriptionPage({
         return (
           <>
             {isInvalid ? (
-              <Redirect to={`/subscriptions?accessToken=${accessToken}`} />
+              <Redirect to={appRoutes.subscriptions.makePath({
+                accessToken: accessToken ?? '',
+                lang: settings.language
+              })} />
             ) : (
               <>
                 {/*  TODO: Create a new skeleton for the subscription */}

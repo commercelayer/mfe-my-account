@@ -11,11 +11,13 @@ import { GridContainer } from "#components/ui/GridContainer"
 import Title from "#components/ui/Title"
 import { appRoutes } from "#data/routes"
 import { AppContext } from "#providers/AppProvider"
+import { useSettings } from "#providers/SettingsProvider"
 
 function AddressesPage(): JSX.Element {
   const { t } = useTranslation()
   const [, setLocation] = useLocation()
   const appCtx = useContext(AppContext)
+  const { settings } = useSettings()
 
   return (
     <AddressesContainer>
@@ -27,9 +29,10 @@ function AddressesPage(): JSX.Element {
       <AddButton
         action={() => {
           setLocation(
-            `${appRoutes.newAddress.makePath()}?accessToken=${
-              appCtx?.accessToken
-            }`
+            `${appRoutes.newAddress.makePath({
+              accessToken: appCtx?.accessToken ?? '',
+              lang: settings.language,
+            })}`
           )
         }}
         testId="show-new-address"

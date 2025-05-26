@@ -5,6 +5,7 @@ import { useRouter, useLocation, Link } from "wouter"
 import { Wrapper, Icon, TitleWrapper, Title, ComingSoon } from "./styled"
 
 import { AppContext } from "#providers/AppProvider"
+import { useSettings } from "#providers/SettingsProvider"
 
 type Props = Pick<Settings, "accessToken"> & {
   id: string
@@ -46,7 +47,7 @@ function NavLinkButton(props: Props): JSX.Element {
 }
 
 function NavLink(props: Props): JSX.Element {
-  const { href, accessToken, comingSoon } = props
+  const { href, comingSoon } = props
 
   const ctx = useContext(AppContext)
 
@@ -54,7 +55,7 @@ function NavLink(props: Props): JSX.Element {
 
   return (
     <Link
-      href={`${href}?accessToken=${accessToken}`}
+      href={href}
       onClick={() => ctx?.closeMobileMenu()}
     >
       <NavLinkButton {...props} />

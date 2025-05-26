@@ -7,6 +7,7 @@ export type SubscriptionStatus =
   | "inactive"
   | "active"
   | "cancelled"
+  | "running"
 
 interface Props {
   status?: SubscriptionStatus

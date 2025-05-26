@@ -23,6 +23,7 @@ import {
 import { GridCard } from "#components/ui/GridCard"
 import { appRoutes } from "#data/routes"
 import { AppContext } from "#providers/AppProvider"
+import { useSettings } from "#providers/SettingsProvider"
 
 interface Props {
   address?: CLayerAddress
@@ -44,6 +45,7 @@ export function AddressCard({
   const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false)
   const [, setLocation] = useLocation()
   const appCtx = useContext(AppContext)
+  const { settings } = useSettings()
 
   if (!address) return <></>
   const {
@@ -101,9 +103,11 @@ export function AddressCard({
                 className="address-edit-button"
                 onClick={(address) => {
                   setLocation(
-                    `${appRoutes.editAddress.makePath(
-                      address?.id
-                    )}?accessToken=${appCtx?.accessToken}`
+                    appRoutes.editAddress.makePath({
+                      addressId: address?.id || "",
+                      accessToken: appCtx?.accessToken ?? '',
+                      lang: settings.language,
+                    })
                   )
                 }}
               />

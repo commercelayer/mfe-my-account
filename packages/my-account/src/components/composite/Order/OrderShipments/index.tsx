@@ -41,6 +41,8 @@ import Button from "#components/ui/Button"
 import ShowHideMenu from "#components/ui/ShowHideMenu"
 import { AppContext } from "#providers/AppProvider"
 import { OrderContext } from "#providers/OrderProvider"
+import { appRoutes } from "#data/routes"
+import { useSettings } from "#providers/SettingsProvider"
 
 function ParcelTrackingNumber(): JSX.Element {
   return (
@@ -59,6 +61,7 @@ function ParcelLink(): JSX.Element {
   const [, setLocation] = useLocation()
   const { t } = useTranslation()
   const ctx = useContext(AppContext)
+  const { settings } = useSettings()
   const accessToken = ctx?.accessToken
   const orderCtx = useContext(OrderContext)
   const orderId = orderCtx?.order?.id
@@ -71,9 +74,12 @@ function ParcelLink(): JSX.Element {
             label={t("order.shipments.trackParcel") as string}
             buttonSize="small"
             onClick={() =>
-              setLocation(
-                `/orders/${orderId}/parcels/${props?.attributeValue}?accessToken=${accessToken}`
-              )
+              setLocation(appRoutes.parcel.makePath({
+                orderId: orderId ?? '',
+                parcelId: props?.attributeValue ?? '',
+                accessToken: accessToken ?? '',
+                lang: settings.language
+              }))
             }
           />
         )

@@ -53,7 +53,7 @@ export function SettingsProvider({
   )
   const [isLoading, setIsLoading] = useState(true)
   const accessToken = getAccessTokenFromUrl()
-
+  
   useEffect(() => {
     setIsLoading(!!accessToken)
 

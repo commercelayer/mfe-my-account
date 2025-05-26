@@ -12,6 +12,7 @@ export type OrderStatus =
   | "inactive"
   | "active"
   | "placing"
+  | "running"
 
 interface Props {
   status?: OrderStatus

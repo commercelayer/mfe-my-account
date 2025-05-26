@@ -26,6 +26,8 @@ import { SkeletonMainParcel } from "#components/composite/Skeleton/Main"
 import { ScrollToTop } from "#components/ui/ScrollToTop"
 import { AppContext } from "#providers/AppProvider"
 import { OrderProvider } from "#providers/OrderProvider"
+import { appRoutes } from "#data/routes"
+import { useSettings } from "#providers/SettingsProvider"
 
 interface Props {
   orderId: string
@@ -35,6 +37,7 @@ interface Props {
 function ParcelPage({ orderId, parcelId }: Props): JSX.Element {
   const ctx = useContext(AppContext)
   const accessToken = ctx?.accessToken
+  const { settings } = useSettings()
 
   const { t } = useTranslation()
 
@@ -47,7 +50,10 @@ function ParcelPage({ orderId, parcelId }: Props): JSX.Element {
       {({ isInvalid }) => (
         <>
           {isInvalid ? (
-            <Redirect to={`/orders?accessToken=${accessToken}`} />
+            <Redirect to={appRoutes.orders.makePath({
+              accessToken: accessToken ?? '',
+              lang: settings.language
+            })} />
           ) : (
             <OrderContainer orderId={orderId}>
               <ShipmentsContainer>
@@ -57,7 +63,11 @@ function ParcelPage({ orderId, parcelId }: Props): JSX.Element {
                       <ParcelHeader>
                         <ParcelHeaderTop>
                           <Link
-                            href={`/orders/${orderId}?accessToken=${accessToken}`}
+                            href={appRoutes.subscription.makePath({
+                              subscriptionId: orderId ?? "",
+                              accessToken: accessToken ?? '',
+                              lang: settings.language
+                            })}
                           >
                             <BackToOrder>
                               <CaretLeft weight="regular" className="w-7 h-7" />

@@ -11,7 +11,7 @@ describe("Read JWT from URL", () => {
     }
   })
   afterAll(function resetLocation() {
-    window.location = location
+    (window as any).location = location
   })
 
   test("accessToken is in URL query string", () => {

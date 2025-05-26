@@ -22,10 +22,13 @@ import SubscriptionStatusChip from "#components/composite/Subscription/Subscript
 import Title from "#components/ui/Title"
 import { AppContext } from "#providers/AppProvider"
 import { formatDate, shortDate } from "#utils/dateTimeFormats"
+import { appRoutes } from "#data/routes"
+import { useSettings } from "#providers/SettingsProvider"
 
 function SubscriptionsPage(): JSX.Element {
   const { t } = useTranslation()
   const ctx = useContext(AppContext)
+  const { settings } = useSettings()
   const accessToken = ctx?.accessToken
 
   const colClassName =
@@ -95,7 +98,11 @@ function SubscriptionsPage(): JSX.Element {
                     return (
                       <div key={order.number} {...p}>
                         <Link
-                          href={`/subscriptions/${order.id}?accessToken=${accessToken}`}
+                          href={appRoutes.subscription.makePath({
+                            subscriptionId: order.id ?? "",
+                            accessToken: accessToken ?? '',
+                            lang: settings.language
+                          })}
                         >
                           <OrderNumber># {order.number}</OrderNumber>
                         </Link>

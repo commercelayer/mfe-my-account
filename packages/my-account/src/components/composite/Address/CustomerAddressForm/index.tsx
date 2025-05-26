@@ -17,10 +17,12 @@ import Title from "#components/ui/Title"
 import { appRoutes } from "#data/routes"
 import { AppContext } from "#providers/AppProvider"
 import { CustomerAddressContext } from "#providers/CustomerAddressProvider"
+import { useSettings } from "#providers/SettingsProvider"
 
 function CustomerAddressForm(): JSX.Element | null {
   const appCtx = useContext(AppContext)
   const ctx = useContext(CustomerAddressContext)
+  const { settings } = useSettings()
   const { t } = useTranslation()
   const [, setLocation] = useLocation()
   const address = ctx?.address
@@ -106,9 +108,10 @@ function CustomerAddressForm(): JSX.Element | null {
         <DiscardChanges
           onClick={() => {
             setLocation(
-              `${appRoutes.addresses.makePath()}?accessToken=${
-                appCtx?.accessToken
-              }`
+              `${appRoutes.addresses.makePath({
+                accessToken: appCtx?.accessToken ?? '',
+                lang: settings.language,
+              })}`
             )
           }}
         >
@@ -120,9 +123,10 @@ function CustomerAddressForm(): JSX.Element | null {
           label={t("addresses.addressForm.save")}
           onClick={() => {
             setLocation(
-              `${appRoutes.addresses.makePath()}?accessToken=${
-                appCtx?.accessToken
-              }`
+              `${appRoutes.addresses.makePath({
+                accessToken: appCtx?.accessToken ?? '',
+                lang: settings.language,
+              })}`
             )
           }}
           addressId={address?.id}
