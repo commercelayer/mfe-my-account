@@ -44,7 +44,10 @@ function App(): JSX.Element {
                     </Route>
                     <Route path={"/"}>
                       <Redirect
-                        to={`/orders?accessToken=${settings.accessToken}`}
+                        to={appRoutes.orders.makePath({
+                          accessToken: settings.accessToken ?? '',
+                          lang: settings.language
+                        })}
                       />
                     </Route>
                     <Route path={"/orders"}>
@@ -62,7 +65,10 @@ function App(): JSX.Element {
                     <Route path={"/orders/:orderId/parcels"}>
                       {(params) => (
                         <Redirect
-                          to={`/orders/${params.orderId}?accessToken=${settings.accessToken}`}
+                          to={appRoutes.orders.makePath({
+                            accessToken: settings.accessToken ?? '',
+                            lang: settings.language
+                          })}
                         />
                       )}
                     </Route>

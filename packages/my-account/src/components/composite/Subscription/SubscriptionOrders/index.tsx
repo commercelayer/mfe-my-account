@@ -18,6 +18,8 @@ import OrderStatusChip from "#components/composite/Order/OrderStatusChip"
 import { SkeletonMainSubscriptionsOrdersTable } from "#components/composite/Skeleton/Main/SubscriptionsOrdersTable"
 import { AppContext } from "#providers/AppProvider"
 import { formatDate, shortDate } from "#utils/dateTimeFormats"
+import { appRoutes } from "#data/routes"
+import { useSettings } from "#providers/SettingsProvider"
 
 interface Props {
   orderSubscription: OrderSubscription
@@ -27,6 +29,7 @@ function SubscriptionOrders({ orderSubscription }: Props) {
   const { t } = useTranslation()
   const ctx = useContext(AppContext)
   const accessToken = ctx?.accessToken
+  const { settings } = useSettings()
 
   const colClassName =
     "px-4 text-left text-xs font-thin border-b border-gray-200 md:border-none text-gray-400 md:font-semibold md:uppercase md:relative"
@@ -104,7 +107,11 @@ function SubscriptionOrders({ orderSubscription }: Props) {
                   return (
                     <div key={order.number} {...p}>
                       <Link
-                        href={`/orders/${order.id}?accessToken=${accessToken}`}
+                        href={appRoutes.order.makePath({
+                          orderId: order.id ?? "",
+                          accessToken: accessToken ?? '',
+                          lang: settings.language
+                        })}
                       >
                         <OrderNumber>#{order.number}</OrderNumber>
                       </Link>

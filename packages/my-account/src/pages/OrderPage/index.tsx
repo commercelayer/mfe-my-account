@@ -20,6 +20,8 @@ import { SkeletonMainOrder } from "#components/composite/Skeleton/Main"
 import { ScrollToTop } from "#components/ui/ScrollToTop"
 import { AppContext } from "#providers/AppProvider"
 import { OrderProvider } from "#providers/OrderProvider"
+import { appRoutes } from "#data/routes"
+import { useSettings } from "#providers/SettingsProvider"
 
 interface OrderPageProps {
   orderId: string
@@ -27,6 +29,7 @@ interface OrderPageProps {
 
 function OrderPage({ orderId }: OrderPageProps): JSX.Element {
   const ctx = useContext(AppContext)
+  const { settings } = useSettings()
   const accessToken = ctx?.accessToken
 
   return (
@@ -38,7 +41,10 @@ function OrderPage({ orderId }: OrderPageProps): JSX.Element {
       {({ isInvalid, isLoading, order }) => (
         <>
           {isInvalid ? (
-            <Redirect to={`/orders?accessToken=${accessToken}`} />
+            <Redirect to={appRoutes.orders.makePath({
+              accessToken: accessToken ?? '',
+              lang: settings.language
+            })} />
           ) : (
             <OrderContainer orderId={orderId}>
               <SkeletonMainOrder visible={isLoading} />

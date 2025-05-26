@@ -10,11 +10,12 @@ describe("Check if current accessToken is not related to a customer", () => {
     window.location = {
       ...location,
       href: "http://domain.com",
+      // @ts-expect-error window.location.search broken type https://github.com/microsoft/TypeScript/issues/61335
       search: "",
     }
   })
   afterAll(function resetLocation() {
-    window.location = location
+    (window as any).location = location
   })
 
   test("accessToken is in URL query string", () => {

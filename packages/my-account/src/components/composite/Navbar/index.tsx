@@ -25,6 +25,7 @@ import NavLink from "#components/composite/NavLink"
 // import ShoppingCartIcon from "#components/ui/icons/ShoppingCartIcon"
 import Footer from "#components/ui/Footer"
 import Logo from "#components/ui/Logo"
+import { appRoutes } from "#data/routes"
 
 interface Props {
   settings: Settings
@@ -33,12 +34,15 @@ interface Props {
 
 function Navbar({ settings, onClick }: Props): JSX.Element {
   const { t } = useTranslation()
-  const { accessToken, logoUrl, companyName } = settings
+  const { accessToken, logoUrl, companyName, language } = settings
 
   const menu = {
     orders: {
       title: t("menu.orders"),
-      href: "/orders",
+      href: appRoutes.orders.makePath({
+        accessToken: accessToken ?? "",
+        lang: language,
+      }),
       // icon: <ShoppingCartIcon />,
       icon: <ShoppingCart className="w-4" />,
       comingSoon: false,
@@ -47,7 +51,10 @@ function Navbar({ settings, onClick }: Props): JSX.Element {
     },
     addresses: {
       title: t("menu.addresses"),
-      href: "/addresses",
+      href: appRoutes.addresses.makePath({
+        accessToken: accessToken ?? "",
+        lang: language,
+      }),
       icon: <MapPin className="w-4" />,
       comingSoon: false,
       accessToken,
@@ -55,7 +62,10 @@ function Navbar({ settings, onClick }: Props): JSX.Element {
     },
     subscriptions: {
       title: t("menu.subscriptions"),
-      href: "/subscriptions",
+      href: appRoutes.subscriptions.makePath({
+        accessToken: accessToken ?? "",
+        lang: language,
+      }),
       icon: <CalendarCheck className="w-4" />,
       comingSoon: false,
       accessToken,
@@ -63,7 +73,10 @@ function Navbar({ settings, onClick }: Props): JSX.Element {
     },
     wallet: {
       title: t("menu.wallet"),
-      href: "/wallet",
+      href: appRoutes.wallet.makePath({
+        accessToken: accessToken ?? "",
+        lang: language,
+      }),
       icon: <CreditCard className="w-4" />,
       comingSoon: false,
       accessToken,
