@@ -30,7 +30,7 @@ The Commerce Layer My Account application (React) provides a production-ready re
 
 4. Build your sales channel with your favorite technologies and frameworks by leveraging our [developer resources](https://commercelayer.io/developers) and [documentation](https://docs.commercelayer.io).
 
-5. Get a [customer access token](https://docs.commercelayer.io/core/authentication/password) for your application. You should generate this in your sales channel (see how to do it [using the Commerce Layer CLI](#using-the-cli-to-get-a-valid-customer-token)) or use our Javascript [authentication library](https://github.com/commercelayer/commercelayer-js-auth).
+5. Get a [customer access token](https://docs.commercelayer.io/core/authentication/password) for your application. You should generate this in your sales channel (see how to do it [using the Commerce Layer CLI](#using-the-cli-to-get-a-valid-customer-token)) or use our Javascript [authentication library](https://github.com/commercelayer/commercelayer-js-auth). 
 
 6. View the customer's account page using the URL format: `<your-deployed-my-account-url>/<my-account-base-path>?accessToken=<your-access-token>`.
 
@@ -47,6 +47,15 @@ You can use the hosted version of the My Account application with the following 
 ### Example
 
 `https://yourbrand.commercelayer.app/my-account?accessToken=eyJhbGciOiJIUzUxMiJ9`
+
+## Localization
+
+The application is actually localized in `en`, `it` and `nl` locales.
+You could optionally provide an optional `lang` URL parameter to define the locale used to localize the app: `https://<your-organization-subdomain>.commercelayer.app/my-account/?accessToken=<your-access-token>&lang=<short-lang-code>`
+
+### Example
+
+`https://yourbrand.commercelayer.app/my-account?accessToken=eyJhbGciOiJIUzUxMiJ9&lang=en`
 
 ## Features
 
