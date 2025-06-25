@@ -1,11 +1,11 @@
 import { CommerceLayer } from "@commercelayer/react-components/auth/CommerceLayer"
-import { GlobalStylesProvider } from "@commercelayer/react-utils"
 import type { Settings } from "HostedApp"
 import { IconContext } from "phosphor-react"
 import { GlobalStyles as BaseStyles } from "twin.macro"
 
 import CustomerHeader from "#components/composite/Header/Customer"
 import GuestHeader from "#components/composite/Header/Guest"
+import { InjectCssCustomProperties } from "#components/composite/InjectCssCustomProperties"
 import Navbar from "#components/composite/Navbar"
 import { PageHead } from "#components/composite/PageHead"
 import { LayoutDefault } from "#components/layouts/LayoutDefault"
@@ -36,51 +36,50 @@ function MyAccountContainer({
         accessToken={settings.accessToken}
         endpoint={settings.endpoint}
       >
-        <GlobalStylesProvider primaryColor={settings.primaryColor}>
-          <IconContext.Provider
-            value={{
-              size: 32,
-              weight: "fill",
-              mirrored: false,
-            }}
+        <InjectCssCustomProperties primaryColor={settings.primaryColor} />        
+        <IconContext.Provider
+          value={{
+            size: 32,
+            weight: "fill",
+            mirrored: false,
+          }}
+        >
+          <BaseStyles />
+          <AppProvider
+            customerId={settings.customerId}
+            accessToken={settings.accessToken}
+            endpoint={settings.endpoint}
+            domain={config.domain}
           >
-            <BaseStyles />
-            <AppProvider
-              customerId={settings.customerId}
-              accessToken={settings.accessToken}
-              endpoint={settings.endpoint}
-              domain={config.domain}
-            >
-              <CustomerContainerProvider isGuest={settings.isGuest}>
-                <LayoutDefault
-                  isGuest={settings.isGuest}
-                  main={
-                    <>
-                      {settings.isGuest ? (
-                        <GuestHeader
-                          logoUrl={settings.logoUrl}
-                          companyName={settings.companyName}
-                        />
-                      ) : (
-                        <CustomerHeader
-                          logoUrl={settings.logoUrl}
-                          companyName={settings.companyName}
-                        />
-                      )}
-                      <PageMain>{children}</PageMain>
-                      <FooterWrapper>
-                        <Footer />
-                      </FooterWrapper>
-                    </>
-                  }
-                  aside={
-                    settings.isGuest ? null : <Navbar settings={settings} />
-                  }
-                />
-              </CustomerContainerProvider>
-            </AppProvider>
-          </IconContext.Provider>
-        </GlobalStylesProvider>
+            <CustomerContainerProvider isGuest={settings.isGuest}>
+              <LayoutDefault
+                isGuest={settings.isGuest}
+                main={
+                  <>
+                    {settings.isGuest ? (
+                      <GuestHeader
+                        logoUrl={settings.logoUrl}
+                        companyName={settings.companyName}
+                      />
+                    ) : (
+                      <CustomerHeader
+                        logoUrl={settings.logoUrl}
+                        companyName={settings.companyName}
+                      />
+                    )}
+                    <PageMain>{children}</PageMain>
+                    <FooterWrapper>
+                      <Footer />
+                    </FooterWrapper>
+                  </>
+                }
+                aside={
+                  settings.isGuest ? null : <Navbar settings={settings} />
+                }
+              />
+            </CustomerContainerProvider>
+          </AppProvider>
+        </IconContext.Provider>
       </CommerceLayer>
     </>
   )
