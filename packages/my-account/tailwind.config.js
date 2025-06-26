@@ -1,30 +1,59 @@
-const config = require("@commercelayer/react-utils/configs/tailwind")
-const pluginsForms = require("@tailwindcss/forms")({
-  strategy: "class",
-})
-config.plugins !== undefined
-  ? config.plugins.push(pluginsForms)
-  : (config.plugins = [pluginsForms])
-
 module.exports = {
-  ...config,
   content: [
     "./src/components/**/*.{js,ts,jsx,tsx}",
     "./src/pages/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    ...config.theme,
+    container: {
+      screens: {
+        sm: "100%",
+        md: "100%",
+        lg: "100%",
+      },
+    },
     extend: {
-      ...config.theme.extend,
       colors: {
+        primary: {
+          light: "var(--primary-light)",
+          DEFAULT: "var(--primary)",
+          dark: "var(--primary-dark)",
+        },
+        contrast: "var(--contrast)",
+        transparent: "transparent",
+        black: "#101111",
+        white: "#fff",
+        gray: {
+          50: "#f8f8f8",
+          100: "#EDEEEE",
+          200: "#E6E7E7",
+          300: "#DBDCDC",
+          400: "#878888",
+          500: "#686E6E",
+          600: "#404141",
+          700: "#343535",
+          800: "#282929",
+          900: "#1D1E1E",
+        },
         yellow: {
           400: "#FFAB2E",
           500: "#F59511",
         },
+        green: {
+          400: "#1FDA8A",
+        },
         orange: {
+          400: "#FFAB2E",
           700: "rgba(221, 92, 2, 1)",
         },
+        red: {
+          50: "#ffe0e1",
+          400: "#FF656B",
+          500: "#cc5156",
+        },
         inherit: "inherit",
+      },
+      fontFamily: {
+        sans: ["Manrope", "ui-sans-serif", "sans-serif"],
       },
       fontSize: {
         xxl: "1.625rem",
@@ -33,9 +62,8 @@ module.exports = {
         xxs: "0.75rem",
         "3xs": "0.6875rem",
       },
-      inset: {
-        19: "4.7rem",
-        38: "38rem",
+      backgroundSize: {
+        16: "1rem",
       },
       width: {
         22: "5.75rem",
@@ -56,15 +84,26 @@ module.exports = {
       minHeight: {
         inherit: "inherit",
       },
+      inset: {
+        19: "4.7rem",
+        38: "38rem",
+      },
       flex: {
         75: "0 0 75px",
         85: "0 0 85px",
+      },
+      margin: {
+        30: "7.5rem",
       },
       boxShadow: {
         bottom: "0 2px 0 0 rgba(0, 0, 0, 0.05)",
         inner: "0 0 0 1000px rgba(255, 255, 255, 1) inset",
         "sm-primary": "0 1px 2px 0 var(--primary-light)",
         top: "0px -4px 1px 0px rgb(0, 0, 0, 0.025)",
+        alert: "2px 2px 10px #EDEEEE",
+      },
+      transitionProperty: {
+        bg: "background",
       },
       gridTemplateRows: {
         10: "repeat(10, minmax(0, 1fr))",
@@ -84,4 +123,5 @@ module.exports = {
       },
     },
   },
+  plugins: [require("@tailwindcss/forms")],
 }
