@@ -49,7 +49,8 @@ function SubscriptionPage({
   if (subscriptionId == null) {
     return <Redirect to={appRoutes.subscriptions.makePath({
       accessToken: accessToken ?? '',
-      lang: settings.language
+      lang: settings.language,
+      returnUrl: settings.returnUrl
     })} />
   }
 
@@ -70,7 +71,8 @@ function SubscriptionPage({
             {isInvalid ? (
               <Redirect to={appRoutes.subscriptions.makePath({
                 accessToken: accessToken ?? '',
-                lang: settings.language
+                lang: settings.language,
+                returnUrl: settings.returnUrl
               })} />
             ) : (
               <>

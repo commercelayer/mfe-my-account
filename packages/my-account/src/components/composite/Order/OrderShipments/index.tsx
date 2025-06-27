@@ -78,7 +78,8 @@ function ParcelLink(): JSX.Element {
                 orderId: orderId ?? '',
                 parcelId: props?.attributeValue ?? '',
                 accessToken: accessToken ?? '',
-                lang: settings.language
+                lang: settings.language,
+                returnUrl: settings.returnUrl
               }))
             }
           />

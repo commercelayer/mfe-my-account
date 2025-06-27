@@ -50,6 +50,10 @@ declare module "HostedApp" {
      */
     language: string
     /**
+     * The optional return URL to be used when the user is redirected back to the shop.
+     */
+    returnUrl?: string
+    /**
      * Customer Id information picked by owner?.id property inside parsed accessToken.
      * Read more at {@link https://docs.commercelayer.io/core/authentication/password}
      */
@@ -68,7 +72,7 @@ declare module "HostedApp" {
 
   type InvalidSettings = Pick<
     Settings,
-    "primaryColor" | "language" | "companyName" | "logoUrl" | "faviconUrl"
+    "primaryColor" | "language" | "returnUrl" | "companyName" | "logoUrl" | "faviconUrl"
   > & {
     /**
      * This flag allows TypeScript to discriminate between `Settings` and `InvalidSettings` union type.

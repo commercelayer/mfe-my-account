@@ -43,7 +43,8 @@ function OrderPage({ orderId }: OrderPageProps): JSX.Element {
           {isInvalid ? (
             <Redirect to={appRoutes.orders.makePath({
               accessToken: accessToken ?? '',
-              lang: settings.language
+              lang: settings.language,
+              returnUrl: settings.returnUrl
             })} />
           ) : (
             <OrderContainer orderId={orderId}>

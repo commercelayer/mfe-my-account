@@ -5,9 +5,8 @@ import { useRouter, useLocation, Link } from "wouter"
 import { Wrapper, Icon, TitleWrapper, Title, ComingSoon } from "./styled"
 
 import { AppContext } from "#providers/AppProvider"
-import { useSettings } from "#providers/SettingsProvider"
 
-type Props = Pick<Settings, "accessToken"> & {
+type Props = Partial<Pick<Settings, "accessToken">> & {
   id: string
   title: string
   href: string
@@ -48,18 +47,20 @@ function NavLinkButton(props: Props): JSX.Element {
 
 function NavLink(props: Props): JSX.Element {
   const { href, comingSoon } = props
-
   const ctx = useContext(AppContext)
+  
+  const LinkComponent = href.includes("://") ? "a" : Link;
 
   if (comingSoon) return <NavLinkButton {...props} />
 
+
   return (
-    <Link
+    <LinkComponent
       href={href}
       onClick={() => ctx?.closeMobileMenu()}
     >
       <NavLinkButton {...props} />
-    </Link>
+    </LinkComponent>
   )
 }
 

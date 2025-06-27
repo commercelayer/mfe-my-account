@@ -107,6 +107,7 @@ export function AddressCard({
                       addressId: address?.id || "",
                       accessToken: appCtx?.accessToken ?? '',
                       lang: settings.language,
+                      returnUrl: settings.returnUrl
                     })
                   )
                 }}

@@ -32,6 +32,7 @@ function AddressesPage(): JSX.Element {
             `${appRoutes.newAddress.makePath({
               accessToken: appCtx?.accessToken ?? '',
               lang: settings.language,
+              returnUrl: settings.returnUrl
             })}`
           )
         }}
