@@ -154,6 +154,9 @@ You could optionally provide a `returnURL` URL parameter to enable a *Back to sh
 
 `https://yourbrand.commercelayer.app/my-account?accessToken=eyJhbGciOiJIUzUxMiJ9&lang=en&returnUrl=https://yourbrand.com`
 
+![my-account-orders-back-to-shop](https://github.com/user-attachments/assets/f6481d5a-7377-4715-bddf-bf867d5ecdcc)
+
+
 ## Using the CLI to get a valid customer token
 
 If you are using the [Commerce Layer CLI](https://github.com/commercelayer/commercelayer-cli) you can easily obtain a valid access token suitable for the generation of a My Account application working URL.
