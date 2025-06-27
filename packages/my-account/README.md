@@ -12,8 +12,8 @@ The Commerce Layer My Account application (React) provides a production-ready re
 
 - [Getting started](#getting-started)
 - [Hosted version](#hosted-version)
-- [Localization](#localization)
 - [Features](#features)
+- [Localization](#localization)
 - [Using the CLI to get a valid customer token](#using-the-cli-to-get-a-valid-customer-token)
 - [Contributors guide](#contributors-guide)
 - [Help and support](#need-help)
@@ -48,15 +48,6 @@ You can use the hosted version of the My Account application with the following 
 ### Example
 
 `https://yourbrand.commercelayer.app/my-account?accessToken=eyJhbGciOiJIUzUxMiJ9`
-
-## Localization
-
-The application is actually localized in `en`, `it` and `nl` locales.
-You could optionally provide a `lang` URL parameter to define the locale used to localize the app: `https://<your-organization-subdomain>.commercelayer.app/my-account/?accessToken=<your-access-token>&lang=<short-lang-code>`
-
-### Example
-
-`https://yourbrand.commercelayer.app/my-account?accessToken=eyJhbGciOiJIUzUxMiJ9&lang=en`
 
 ## Features
 
@@ -156,6 +147,14 @@ You could optionally provide a `returnURL` URL parameter to enable a *Back to sh
 
 ![my-account-orders-back-to-shop](https://github.com/user-attachments/assets/f6481d5a-7377-4715-bddf-bf867d5ecdcc)
 
+## Localization
+
+The application is actually localized in `en`, `it` and `nl` locales.
+You could optionally provide a `lang` URL parameter to define the locale used to localize the app: `https://<your-organization-subdomain>.commercelayer.app/my-account/?accessToken=<your-access-token>&lang=<short-lang-code>`
+
+### Example
+
+`https://yourbrand.commercelayer.app/my-account?accessToken=eyJhbGciOiJIUzUxMiJ9&lang=en`
 
 ## Using the CLI to get a valid customer token
 
