@@ -52,7 +52,8 @@ function ParcelPage({ orderId, parcelId }: Props): JSX.Element {
           {isInvalid ? (
             <Redirect to={appRoutes.orders.makePath({
               accessToken: accessToken ?? '',
-              lang: settings.language
+              lang: settings.language,
+              returnUrl: settings.returnUrl
             })} />
           ) : (
             <OrderContainer orderId={orderId}>
@@ -66,7 +67,8 @@ function ParcelPage({ orderId, parcelId }: Props): JSX.Element {
                             href={appRoutes.subscription.makePath({
                               subscriptionId: orderId ?? "",
                               accessToken: accessToken ?? '',
-                              lang: settings.language
+                              lang: settings.language,
+                              returnUrl: settings.returnUrl
                             })}
                           >
                             <BackToOrder>

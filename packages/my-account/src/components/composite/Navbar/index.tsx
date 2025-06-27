@@ -6,7 +6,8 @@ import {
   Lifebuoy,
   MapPin,
   ShoppingCart,
-  CalendarCheck
+  CalendarCheck,
+  ArrowUUpLeft
 } from "phosphor-react"
 import { useTranslation } from "react-i18next"
 
@@ -34,7 +35,7 @@ interface Props {
 
 function Navbar({ settings, onClick }: Props): JSX.Element {
   const { t } = useTranslation()
-  const { accessToken, logoUrl, companyName, language } = settings
+  const { accessToken, logoUrl, companyName, language, returnUrl } = settings
 
   const menu = {
     orders: {
@@ -42,6 +43,7 @@ function Navbar({ settings, onClick }: Props): JSX.Element {
       href: appRoutes.orders.makePath({
         accessToken: accessToken ?? "",
         lang: language,
+        returnUrl,
       }),
       // icon: <ShoppingCartIcon />,
       icon: <ShoppingCart className="w-4" />,
@@ -54,6 +56,7 @@ function Navbar({ settings, onClick }: Props): JSX.Element {
       href: appRoutes.addresses.makePath({
         accessToken: accessToken ?? "",
         lang: language,
+        returnUrl
       }),
       icon: <MapPin className="w-4" />,
       comingSoon: false,
@@ -65,6 +68,7 @@ function Navbar({ settings, onClick }: Props): JSX.Element {
       href: appRoutes.subscriptions.makePath({
         accessToken: accessToken ?? "",
         lang: language,
+        returnUrl
       }),
       icon: <CalendarCheck className="w-4" />,
       comingSoon: false,
@@ -76,6 +80,7 @@ function Navbar({ settings, onClick }: Props): JSX.Element {
       href: appRoutes.wallet.makePath({
         accessToken: accessToken ?? "",
         lang: language,
+        returnUrl
       }),
       icon: <CreditCard className="w-4" />,
       comingSoon: false,
@@ -91,13 +96,18 @@ function Navbar({ settings, onClick }: Props): JSX.Element {
       accessToken,
       onClick,
     },
+    backToShop: {
+      title: t("menu.backToShop"),
+      href: returnUrl ?? '#',
+      icon: <ArrowUUpLeft className="w-4" />,
+    },
     customerService: {
       title: t("menu.customerService"),
       href: "/customer_service",
       icon: <Lifebuoy className="w-4" />,
       accessToken,
       onClick,
-    },
+    }
   }
 
   return (
@@ -118,7 +128,11 @@ function Navbar({ settings, onClick }: Props): JSX.Element {
             <NavLink id="wallet" {...menu.wallet} />
             <NavLink id="returns" {...menu.returns} />
           </Nav>
-          {/* <NavLink id="customerService" {...menu.customerService} /> */}
+          <Nav>
+            {returnUrl != null && (
+              <NavLink id="backToShop" {...menu.backToShop} />
+            )}
+          </Nav>
           <EmailWrapper>
             {t("menu.loggedInAs")}
             <Email>

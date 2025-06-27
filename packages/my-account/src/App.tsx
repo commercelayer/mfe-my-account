@@ -46,7 +46,8 @@ function App(): JSX.Element {
                       <Redirect
                         to={appRoutes.orders.makePath({
                           accessToken: settings.accessToken ?? '',
-                          lang: settings.language
+                          lang: settings.language,
+                          returnUrl: settings.returnUrl
                         })}
                       />
                     </Route>
@@ -67,7 +68,8 @@ function App(): JSX.Element {
                         <Redirect
                           to={appRoutes.orders.makePath({
                             accessToken: settings.accessToken ?? '',
-                            lang: settings.language
+                            lang: settings.language,
+                            returnUrl: settings.returnUrl
                           })}
                         />
                       )}
