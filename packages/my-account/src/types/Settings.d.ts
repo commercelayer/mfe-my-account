@@ -5,6 +5,7 @@ declare module "HostedApp" {
    * for the my account to work, picking them from the order and the
    * organization resources. (Organization: https://docs.commercelayer.io/core/v/api-reference/organization/object)
    */
+  import type { DefaultConfig } from "@commercelayer/organization-config"
 
   export interface Settings {
     /**
@@ -68,6 +69,10 @@ declare module "HostedApp" {
      * This flag allows TypeScript to discriminate between `Settings` and `InvalidSettings` union type.
      */
     isValid: true
+    /**
+     * The organization configuration object that overrides the default settings by market and language.
+     */
+    organizationConfig?: DefaultConfig
   }
 
   type InvalidSettings = Pick<

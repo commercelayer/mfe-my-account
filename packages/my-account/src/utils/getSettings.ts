@@ -1,3 +1,4 @@
+import { getMfeConfig } from "@commercelayer/organization-config"
 import CommerceLayer from "@commercelayer/sdk"
 import type { Settings, InvalidSettings } from "HostedApp"
 
@@ -86,6 +87,15 @@ export const getSettings = async ({
   const lang = new URLSearchParams(window.location.search).get('lang')
   const returnUrl = new URLSearchParams(window.location.search).get('returnUrl')
 
+  const organizationConfig = getMfeConfig({
+    jsonConfig: organization.config ?? {},
+    market: undefined,
+    params: {
+      lang: lang ?? defaultSettings.language,
+      accessToken,
+    },
+  })
+
   return {
     accessToken,
     endpoint: `https://${slug}.${domain}`,
@@ -102,5 +112,6 @@ export const getSettings = async ({
     gtmId: isTest
       ? organization?.gtm_id_test ?? ""
       : organization?.gtm_id ?? "",
+    organizationConfig
   }
 }

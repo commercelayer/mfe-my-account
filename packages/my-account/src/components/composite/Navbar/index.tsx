@@ -7,6 +7,7 @@ import {
   MapPin,
   ShoppingCart,
   CalendarCheck,
+  SignOut,
   ArrowUUpLeft
 } from "phosphor-react"
 import { useTranslation } from "react-i18next"
@@ -27,6 +28,7 @@ import NavLink from "#components/composite/NavLink"
 import Footer from "#components/ui/Footer"
 import Logo from "#components/ui/Logo"
 import { appRoutes } from "#data/routes"
+import { revokeCustomerToken } from "#utils/revokeCustomerToken"
 
 interface Props {
   settings: Settings
@@ -35,8 +37,11 @@ interface Props {
 
 function Navbar({ settings, onClick }: Props): JSX.Element {
   const { t } = useTranslation()
-  const { accessToken, logoUrl, companyName, language, returnUrl } = settings
-
+  const { accessToken, logoUrl, companyName, language, returnUrl, organizationConfig } = settings
+  const hasIdentity = organizationConfig.links.identity != null
+  const hasReturnUrl = returnUrl != null
+  const showLogout = hasIdentity || hasReturnUrl
+  
   const menu = {
     orders: {
       title: t("menu.orders"),
@@ -107,6 +112,17 @@ function Navbar({ settings, onClick }: Props): JSX.Element {
       icon: <Lifebuoy className="w-4" />,
       accessToken,
       onClick,
+    },
+    logout: {
+      title: t("menu.logout"),
+      href: '#',
+      icon: <SignOut className="w-4" />,
+      onClick: () => {
+        revokeCustomerToken(accessToken ?? "").then(() => {
+          const logoutRedirectUrl = showLogout ? organizationConfig?.links?.identity ?? returnUrl : undefined
+          window.location.replace(logoutRedirectUrl)
+        })
+      }
     }
   }
 
@@ -131,6 +147,9 @@ function Navbar({ settings, onClick }: Props): JSX.Element {
           <Nav>
             {returnUrl != null && (
               <NavLink id="backToShop" {...menu.backToShop} />
+            )}
+            {showLogout && (
+              <NavLink id="logout" {...menu.logout} />
             )}
           </Nav>
           <EmailWrapper>
