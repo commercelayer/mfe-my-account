@@ -1,8 +1,10 @@
-import path from "path"
-
 export type AppRoute = keyof typeof appRoutes
-type RouteParams = { accessToken: string, lang: string }
+type RouteParams = { accessToken: string, lang: string, returnUrl?: string }
 
+export const makeUrlParams = ({ accessToken, lang, returnUrl }: RouteParams): string => {
+  const urlParams = `accessToken=${accessToken}&lang=${lang}`
+  return urlParams + (returnUrl ? `&returnUrl=${encodeURIComponent(returnUrl)}` : "")
+} 
 
 // Object to be used as source of truth to handel application routes
 // each page should correspond to a key and each key should have
@@ -11,38 +13,38 @@ type RouteParams = { accessToken: string, lang: string }
 export const appRoutes = {
   orders: {
     path: "/orders",
-    makePath: ({ accessToken, lang }: RouteParams) => `/orders?accessToken=${accessToken}&lang=${lang}`,
+    makePath: ({ accessToken, lang, returnUrl }: RouteParams) => `/orders?${makeUrlParams({ accessToken, lang, returnUrl })}`,
   },
   order: {
     path: "/orders/:orderId",
-    makePath: ({ orderId, accessToken, lang }: RouteParams & { orderId: string }) => `/orders/${orderId}?accessToken=${accessToken}&lang=${lang}`,
+    makePath: ({ orderId, accessToken, lang, returnUrl }: RouteParams & { orderId: string }) => `/orders/${orderId}?${makeUrlParams({ accessToken, lang, returnUrl })}`,
   },
   parcel: {
     path: "/orders/:orderId/parcels/:parcelId",
-    makePath: ({ orderId, parcelId, accessToken, lang }: RouteParams & { orderId: string, parcelId: string }) => `/orders/${orderId}/parcels/${parcelId}?accessToken=${accessToken}&lang=${lang}`,
+    makePath: ({ orderId, parcelId, accessToken, lang, returnUrl }: RouteParams & { orderId: string, parcelId: string }) => `/orders/${orderId}/parcels/${parcelId}?${makeUrlParams({ accessToken, lang, returnUrl })}`,
   },
   subscriptions: {
     path: "/subscriptions",
-    makePath: ({ accessToken, lang }: RouteParams) => `/subscriptions?accessToken=${accessToken}&lang=${lang}`,
+    makePath: ({ accessToken, lang, returnUrl }: RouteParams) => `/subscriptions?${makeUrlParams({ accessToken, lang, returnUrl })}`,
   },
   subscription: {
     path: "/subscriptions/:subscriptionId",
-    makePath: ({ subscriptionId, accessToken, lang }: RouteParams & { subscriptionId: string }) => `/subscriptions/${subscriptionId}?accessToken=${accessToken}&lang=${lang}`,
+    makePath: ({ subscriptionId, accessToken, lang, returnUrl }: RouteParams & { subscriptionId: string }) => `/subscriptions/${subscriptionId}?${makeUrlParams({ accessToken, lang, returnUrl })}`,
   },
   addresses: {
     path: "/addresses",
-    makePath: ({ accessToken, lang }: RouteParams) => `/addresses?accessToken=${accessToken}&lang=${lang}`,
+    makePath: ({ accessToken, lang, returnUrl }: RouteParams) => `/addresses?${makeUrlParams({ accessToken, lang, returnUrl })}`,
   },
   newAddress: {
     path: "/addresses/new",
-    makePath: ({ accessToken, lang }: RouteParams) => `/addresses/new?accessToken=${accessToken}&lang=${lang}`,
+    makePath: ({ accessToken, lang, returnUrl }: RouteParams) => `/addresses/new?${makeUrlParams({ accessToken, lang, returnUrl })}`,
   },
   editAddress: {
     path: "/addresses/:addressId/edit",
-    makePath: ({ addressId, accessToken, lang }: RouteParams & { addressId: string }) => `/addresses/${addressId}/edit?accessToken=${accessToken}&lang=${lang}`,
+    makePath: ({ addressId, accessToken, lang, returnUrl }: RouteParams & { addressId: string }) => `/addresses/${addressId}/edit?${makeUrlParams({ accessToken, lang, returnUrl })}`,
   },
   wallet: {
     path: "/wallet",
-    makePath: ({ accessToken, lang }: RouteParams) => `/wallet?accessToken=${accessToken}&lang=${lang}`,
+    makePath: ({ accessToken, lang, returnUrl }: RouteParams) => `/wallet?${makeUrlParams({ accessToken, lang, returnUrl })}`,
   },
 }

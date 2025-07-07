@@ -111,6 +111,7 @@ function CustomerAddressForm(): JSX.Element | null {
               `${appRoutes.addresses.makePath({
                 accessToken: appCtx?.accessToken ?? '',
                 lang: settings.language,
+                returnUrl: settings.returnUrl
               })}`
             )
           }}
@@ -126,6 +127,7 @@ function CustomerAddressForm(): JSX.Element | null {
               `${appRoutes.addresses.makePath({
                 accessToken: appCtx?.accessToken ?? '',
                 lang: settings.language,
+                returnUrl: settings.returnUrl
               })}`
             )
           }}

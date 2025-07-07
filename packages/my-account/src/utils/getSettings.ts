@@ -11,6 +11,7 @@ export const defaultSettings: InvalidSettings = {
   isValid: false,
   primaryColor: "#000000",
   language: "en",
+  returnUrl: undefined,
   faviconUrl:
     "https://data.commercelayer.app/assets/images/favicons/favicon-32x32.png",
   companyName: "Commerce Layer",
@@ -83,6 +84,7 @@ export const getSettings = async ({
   }
 
   const lang = new URLSearchParams(window.location.search).get('lang')
+  const returnUrl = new URLSearchParams(window.location.search).get('returnUrl')
 
   return {
     accessToken,
@@ -92,6 +94,7 @@ export const getSettings = async ({
     isValid: true,
     companyName: organization?.name || defaultSettings.companyName,
     language: lang ?? defaultSettings.language,
+    returnUrl: returnUrl ?? defaultSettings.returnUrl,
     primaryColor:
       (organization?.primary_color as string) || defaultSettings.primaryColor,
     logoUrl: organization?.logo_url || "",

@@ -96,7 +96,8 @@ function OrdersPage(): JSX.Element {
                           href={appRoutes.order.makePath({
                             orderId: order.id ?? "",
                             accessToken: accessToken ?? '',
-                            lang: settings.language
+                            lang: settings.language,
+                            returnUrl: settings.returnUrl
                           })}
                         >
                           <OrderNumber># {order.number}</OrderNumber>

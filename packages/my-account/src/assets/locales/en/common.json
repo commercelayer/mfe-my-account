@@ -22,6 +22,7 @@
     "walletDescription": "Manage your payment methods",
     "returns": "Returns",
     "returnsDescription": "Return a product",
+    "backToShop": "Back to shop",
     "customerService": "Customer Service",
     "customerServiceDescription": "Get help from the seller",
     "logout": "Logout",

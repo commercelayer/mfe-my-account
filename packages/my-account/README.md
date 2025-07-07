@@ -13,6 +13,7 @@ The Commerce Layer My Account application (React) provides a production-ready re
 - [Getting started](#getting-started)
 - [Hosted version](#hosted-version)
 - [Features](#features)
+- [Localization](#localization)
 - [Using the CLI to get a valid customer token](#using-the-cli-to-get-a-valid-customer-token)
 - [Contributors guide](#contributors-guide)
 - [Help and support](#need-help)
@@ -47,15 +48,6 @@ You can use the hosted version of the My Account application with the following 
 ### Example
 
 `https://yourbrand.commercelayer.app/my-account?accessToken=eyJhbGciOiJIUzUxMiJ9`
-
-## Localization
-
-The application is actually localized in `en`, `it` and `nl` locales.
-You could optionally provide an optional `lang` URL parameter to define the locale used to localize the app: `https://<your-organization-subdomain>.commercelayer.app/my-account/?accessToken=<your-access-token>&lang=<short-lang-code>`
-
-### Example
-
-`https://yourbrand.commercelayer.app/my-account?accessToken=eyJhbGciOiJIUzUxMiJ9&lang=en`
 
 ## Features
 
@@ -145,6 +137,24 @@ If the subscription cannot be renewed (e.g. due to an expired payment method), a
 By clicking on the _Wallet_ menu item you can see the list of your saved credit cards (if any).
 
 ![my-account-wallet](https://github.com/commercelayer/mfe-my-account/assets/105653649/23fb4719-37ae-47b8-965d-4b472d4a58bf)
+
+
+### Back to shop
+
+You could optionally provide a `returnURL` URL parameter to enable a *Back to shop* navigation link.
+
+`https://yourbrand.commercelayer.app/my-account?accessToken=eyJhbGciOiJIUzUxMiJ9&lang=en&returnUrl=https://yourbrand.com`
+
+![my-account-orders-back-to-shop](https://github.com/user-attachments/assets/f6481d5a-7377-4715-bddf-bf867d5ecdcc)
+
+## Localization
+
+The application is actually localized in `en`, `it` and `nl` locales.
+You could optionally provide a `lang` URL parameter to define the locale used to localize the app: `https://<your-organization-subdomain>.commercelayer.app/my-account/?accessToken=<your-access-token>&lang=<short-lang-code>`
+
+### Example
+
+`https://yourbrand.commercelayer.app/my-account?accessToken=eyJhbGciOiJIUzUxMiJ9&lang=en`
 
 ## Using the CLI to get a valid customer token
 
