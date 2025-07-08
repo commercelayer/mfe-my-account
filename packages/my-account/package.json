@@ -41,6 +41,7 @@
     "prepare": "touch ./public/config.local.js"
   },
   "dependencies": {
+    "@commercelayer/js-auth": "^6.7.2",
     "@commercelayer/react-components": "4.25.0",
     "@commercelayer/sdk": "^6.44.0",
     "@esbuild-plugins/node-globals-polyfill": "^0.2.3",
