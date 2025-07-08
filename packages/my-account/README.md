@@ -139,13 +139,14 @@ By clicking on the _Wallet_ menu item you can see the list of your saved credit 
 ![my-account-wallet](https://github.com/commercelayer/mfe-my-account/assets/105653649/23fb4719-37ae-47b8-965d-4b472d4a58bf)
 
 
-### Back to shop
+### Back to shop and Logout
 
 You could optionally provide a `returnURL` URL parameter to enable *Back to shop* and *Logout* navigation links.
 
 `https://yourbrand.commercelayer.app/my-account?accessToken=eyJhbGciOiJIUzUxMiJ9&lang=en&returnUrl=https://yourbrand.com`
 
-![my-account-orders-back-to-shop](https://github.com/user-attachments/assets/f6481d5a-7377-4715-bddf-bf867d5ecdcc)
+![my-account-orders-back-to-shop-logout](https://github.com/user-attachments/assets/668d0383-34fb-42ff-8fbf-bc2287862603)
+
 
 ## Localization
 
