@@ -141,7 +141,7 @@ By clicking on the _Wallet_ menu item you can see the list of your saved credit 
 
 ### Back to shop
 
-You could optionally provide a `returnURL` URL parameter to enable a *Back to shop* navigation link.
+You could optionally provide a `returnURL` URL parameter to enable *Back to shop* and *Logout* navigation links.
 
 `https://yourbrand.commercelayer.app/my-account?accessToken=eyJhbGciOiJIUzUxMiJ9&lang=en&returnUrl=https://yourbrand.com`
 
