@@ -32,6 +32,7 @@ interface Props {
 export function LineItemTypes({ type }: Props): JSX.Element {
   const { t } = useTranslation()
   const ctx = useContext(SettingsContext)
+  const hideItemCodes = ctx.settings.config?.my_account?.hide_item_codes ?? false
 
   return (
     <LineItem type={type}>
@@ -40,9 +41,9 @@ export function LineItemTypes({ type }: Props): JSX.Element {
         <LineItemContent>
           <LineItemDescription>
             <div>
-              <LineItemSku>
+              {!hideItemCodes && (<LineItemSku>
                 SKU <LineItemCode className="text-xs text-gray-600" />
-              </LineItemSku>
+              </LineItemSku>)}
               <LineItemName className="block mb-1 font-bold" />
             </div>
             <LineItemQty>
