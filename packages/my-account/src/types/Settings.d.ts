@@ -68,11 +68,15 @@ declare module "HostedApp" {
      * This flag allows TypeScript to discriminate between `Settings` and `InvalidSettings` union type.
      */
     isValid: true
+    /**
+     * If available, it contains the organization configuration object.
+     */
+    config: Organization.DefaultConfig | null
   }
 
   type InvalidSettings = Pick<
     Settings,
-    "primaryColor" | "language" | "returnUrl" | "companyName" | "logoUrl" | "faviconUrl"
+    "primaryColor" | "language" | "returnUrl" | "companyName" | "logoUrl" | "faviconUrl" | "config"
   > & {
     /**
      * This flag allows TypeScript to discriminate between `Settings` and `InvalidSettings` union type.

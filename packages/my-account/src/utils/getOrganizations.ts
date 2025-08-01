@@ -32,6 +32,7 @@ const getAsyncOrganization = async (client: CommerceLayerClient) => {
         "gtm_id_test",
         "support_email",
         "support_phone",
+        "config"
       ],
     },
   })

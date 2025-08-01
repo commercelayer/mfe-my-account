@@ -8,6 +8,8 @@ import {
   LineItemSku,
   LineItemQty,
 } from "#components/ui/LineItem/styled"
+import { SettingsContext } from "#providers/SettingsProvider"
+import { useContext } from "react"
 
 interface Props {
   orderSubscription: OrderSubscription
@@ -15,6 +17,8 @@ interface Props {
 
 function SubscriptionSummary({ orderSubscription }: Props): JSX.Element {
   const { t } = useTranslation()
+  const ctx = useContext(SettingsContext)
+  const hideItemCodes = ctx.settings.config?.my_account?.hide_item_codes ?? false
 
   return (
     <div className="flex flex-col gap-6">
@@ -30,12 +34,12 @@ function SubscriptionSummary({ orderSubscription }: Props): JSX.Element {
                 />
                 <LineItemContent>
                   <LineItemDescription>
-                    <LineItemSku>
+                    {!hideItemCodes && (<LineItemSku>
                       SKU{" "}
                       <span className="text-xs text-gray-600">
                         {lineItem.code}
                       </span>
-                    </LineItemSku>
+                    </LineItemSku>)}
                     <span className="block mb-1 font-bold">
                       {lineItem.name}
                     </span>

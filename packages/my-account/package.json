@@ -42,6 +42,7 @@
   },
   "dependencies": {
     "@commercelayer/js-auth": "^6.7.2",
+    "@commercelayer/organization-config": "^2.4.0",
     "@commercelayer/react-components": "4.25.0",
     "@commercelayer/sdk": "^6.44.0",
     "@esbuild-plugins/node-globals-polyfill": "^0.2.3",

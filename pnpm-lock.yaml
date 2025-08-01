@@ -35,6 +35,9 @@ importers:
       '@commercelayer/js-auth':
         specifier: ^6.7.2
         version: 6.7.2
+      '@commercelayer/organization-config':
+        specifier: ^2.4.0
+        version: 2.4.0
       '@commercelayer/react-components':
         specifier: 4.25.0
         version: 4.25.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@4.41.1)(typescript@5.8.3)
@@ -445,8 +448,8 @@ packages:
     resolution: {integrity: sha512-kk4VqN2iEOreXFq76YqTP83KhBs09Z5Ez9nZNlikXWf5DXzkrOfShqqEwq8ezHjSOlqs4xVyxgQzsEdPP35CeQ==}
     engines: {node: '>=18.0.0'}
 
-  '@commercelayer/organization-config@2.3.0':
-    resolution: {integrity: sha512-VVmp+HDBNYL0auAdxsMFWA2+ol9yX/QKPLKDK5VPiVF2CgdB6AK5m1ktHkeb1ztL+724zyK+LEg+bfmvTKn/WQ==}
+  '@commercelayer/organization-config@2.4.0':
+    resolution: {integrity: sha512-65r3YS3GssircqSyScQhKNXWm4iN5eegA7u/FUhD+5Ny+X1kq/CylzysQmZ+HR3UciMhDFIV0BvATaAZuJVPEw==}
     engines: {node: '>=18', pnpm: '>=7'}
 
   '@commercelayer/react-components@4.25.0':
@@ -6210,14 +6213,14 @@ snapshots:
 
   '@commercelayer/js-auth@6.7.2': {}
 
-  '@commercelayer/organization-config@2.3.0':
+  '@commercelayer/organization-config@2.4.0':
     dependencies:
       merge-anything: 5.1.7
 
   '@commercelayer/react-components@4.25.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@4.41.1)(typescript@5.8.3)':
     dependencies:
       '@adyen/adyen-web': 6.18.0
-      '@commercelayer/organization-config': 2.3.0
+      '@commercelayer/organization-config': 2.4.0
       '@commercelayer/sdk': 6.44.0
       '@stripe/react-stripe-js': 3.7.0(@stripe/stripe-js@7.4.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@stripe/stripe-js': 7.4.0
