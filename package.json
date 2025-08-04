@@ -44,8 +44,8 @@
     "packages/*"
   ],
   "devDependencies": {
-    "lerna": "^8.2.2",
-    "npm-check-updates": "^18.0.1"
+    "lerna": "^8.2.4",
+    "npm-check-updates": "^18.0.2"
   },
   "resolutions": {
     "axios": "^1.8.2",
@@ -53,6 +53,7 @@
     "brace-expansion": "^2.0.2",
     "dset": "^3.1.2",
     "ejs": "^3.1.10",
+    "form-data": "^4.0.4",
     "tar": "^6.2.1",
     "ws": "^8.17.1",
     "vite": "^6.3.5",
