@@ -7,14 +7,6 @@ import { useContext } from "react"
 import { Trans, useTranslation } from "react-i18next"
 import { Link } from "wouter"
 
-import {
-  OrderDate,
-  OrderListWrapper,
-  OrderNumber,
-  SubscriptionFrequency,
-  SubscriptionNextRunAt,
-} from "./styled"
-
 import Empty from "#components/composite/Empty"
 import { SkeletonMainSubscriptionsTable } from "#components/composite/Skeleton/Main/SubscriptionsTable"
 import SubscriptionNextRunProgress from "#components/composite/Subscription/SubscriptionNextRunProgress"
@@ -64,7 +56,7 @@ function SubscriptionsPage(): JSX.Element {
   return (
     <>
       <Title>{t("subscriptions.title")}</Title>
-      <OrderListWrapper>
+      <div className="-mx-5 md:mx-auto">
         <OrderList
           type="subscriptions"
           className="w-full mb-8 table-fixed md:-mx-0"
@@ -105,18 +97,18 @@ function SubscriptionsPage(): JSX.Element {
                             returnUrl: settings.returnUrl
                           })}
                         >
-                          <OrderNumber># {order.number}</OrderNumber>
+                          <p className="text-sm font-semibold"># {order.number}</p>
                         </Link>
                         {order.type === "order_subscriptions" &&
                           order.starts_at != null && (
-                            <OrderDate>
+                            <p className="inline-block text-sm font-extralight text-gray-400 h-2 md:px-3 md:h-5 md:(bg-contrast px-0)">
                               <Trans i18nKey="subscription.starts_at">
                                 {formatDate(
                                   order.starts_at as string,
                                   shortDate
                                 )}
                               </Trans>
-                            </OrderDate>
+                            </p>
                           )}
                       </div>
                     )
@@ -195,7 +187,7 @@ function SubscriptionsPage(): JSX.Element {
                   </SubscriptionFrequency>
                 )
               } else {
-                return <SubscriptionNextRunAt>&#8212;</SubscriptionNextRunAt>
+                return <p className="hidden md:inline-block text-sm font-extralight text-gray-400 px-3 h-5 md:(bg-contrast px-0)">&#8212;</p>
               }
             }}
           </OrderListRow>
@@ -222,9 +214,15 @@ function SubscriptionsPage(): JSX.Element {
             className="p-2"
           />
         </OrderList>
-      </OrderListWrapper>
+      </div>
     </>
   )
 }
 
 export default SubscriptionsPage
+
+function SubscriptionFrequency({ children }: { children: React.ReactNode }): JSX.Element {
+  return <p className="capitalize inline-block text-sm font-extralight text-gray-400 px-3 h-5 md:(bg-contrast px-0)">
+    {children}
+  </p>
+}

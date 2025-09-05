@@ -3,15 +3,6 @@ import { useContext } from "react"
 import { Trans, useTranslation } from "react-i18next"
 import { Redirect } from "wouter"
 
-import {
-  OrderAccordionWrapper,
-  OrderSubscriptionHeader,
-  OrderSubscriptionHeaderMain,
-  OrderSubscriptionNextRunProgressWrapper,
-  OrderSubscriptionNextRunWrapper,
-  OrderWrapper,
-} from "./styled"
-
 import { SkeletonMainOrder } from "#components/composite/Skeleton/Main"
 import SubscriptionNextRunProgress from "#components/composite/Subscription/SubscriptionNextRunProgress"
 import SubscriptionOrders from "#components/composite/Subscription/SubscriptionOrders"
@@ -79,35 +70,33 @@ function SubscriptionPage({
                 {/*  TODO: Create a new skeleton for the subscription */}
                 <SkeletonMainOrder visible={isLoading} />
                 {!isLoading && orderSubscription != null && (
-                  <OrderWrapper hidden={isLoading}>
+                  <div>
                     <SubscriptionPaymentAlert
                       orderSubscription={orderSubscription}
                       orderSubscriptionLastOrder={orderSubscriptionLastOrder}
                     />
-                    <OrderSubscriptionHeader>
-                      <OrderSubscriptionHeaderMain>
-                        <PageTitle>
-                          <Trans i18nKey="subscription.title">
-                            {orderSubscription.number}
-                          </Trans>
-                        </PageTitle>
-                        <DateWrapper>
-                          <Trans i18nKey="subscription.starts_at">
-                            <FormattedDate date={orderSubscription.starts_at} />
-                          </Trans>
-                        </DateWrapper>
-                        <SubscriptionStatusChip
-                          status={orderSubscription.status}
-                        />
-                      </OrderSubscriptionHeaderMain>
-                    </OrderSubscriptionHeader>
+                    <div className="flex justify-between mt-3">
+                      <PageTitle>
+                        <Trans i18nKey="subscription.title">
+                          {orderSubscription.number}
+                        </Trans>
+                      </PageTitle>
+                      <DateWrapper>
+                        <Trans i18nKey="subscription.starts_at">
+                          <FormattedDate date={orderSubscription.starts_at} />
+                        </Trans>
+                      </DateWrapper>
+                      <SubscriptionStatusChip
+                        status={orderSubscription.status}
+                      />
+                    </div>
                     {(orderSubscription?.last_run_at != null ||
                       orderSubscription?.expires_at != null) && (
-                      <OrderSubscriptionNextRunWrapper>
+                      <div className="relative mt-8 pt-8 border-t">
                         <PageSecondaryTitle>
                           <Trans i18nKey="subscription.next_run" />
                         </PageSecondaryTitle>
-                        <OrderSubscriptionNextRunProgressWrapper>
+                        <div className="relative pt-4 text-xs">
                           {orderSubscription?.last_run_at != null && (
                             <SubscriptionNextRunProgress
                               subscription={
@@ -125,14 +114,14 @@ function SubscriptionPage({
                               </Trans>
                             </LittleDateWrapper>
                           )}
-                        </OrderSubscriptionNextRunProgressWrapper>
-                      </OrderSubscriptionNextRunWrapper>
+                        </div>
+                      </div>
                     )}
                     <SubscriptionStack
                       orderSubscription={orderSubscription}
                       orderSubscriptionLastOrder={orderSubscriptionLastOrder}
                     />
-                    <OrderAccordionWrapper>
+                    <div className="px-5 w-full md:(px-0)">
                       <OrderSection noBorder>
                         <OrderSectionItem
                           index={1}
@@ -161,9 +150,9 @@ function SubscriptionPage({
                           />
                         </OrderSectionItem>
                       </OrderSection>
-                    </OrderAccordionWrapper>
+                    </div>
                     <ScrollToTop />
-                  </OrderWrapper>
+                  </div>
                 )}
               </>
             )}

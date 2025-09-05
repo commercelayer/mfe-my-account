@@ -7,13 +7,6 @@ import { useContext } from "react"
 import { useTranslation } from "react-i18next"
 import { Link } from "wouter"
 
-import {
-  OrderListWrapper,
-  OrderNumber,
-  OrderItemsCount,
-  OrderDate,
-} from "./styled"
-
 import Empty from "#components/composite/Empty"
 import OrderStatusChip from "#components/composite/Order/OrderStatusChip"
 import { SkeletonMainOrdersTable } from "#components/composite/Skeleton/Main/OrdersTable"
@@ -63,7 +56,7 @@ function OrdersPage(): JSX.Element {
   return (
     <>
       <Title>{t("orders.title")}</Title>
-      <OrderListWrapper>
+      <div className="-mx-5 md:mx-auto">
         <OrderList
           className="w-full mb-8 table-fixed md:-mx-0"
           columns={columns}
@@ -102,14 +95,14 @@ function OrdersPage(): JSX.Element {
                             returnUrl: settings.returnUrl
                           })}
                         >
-                          <OrderNumber># {order.number}</OrderNumber>
+                          <p className="text-sm font-semibold"># {order.number}</p>
                         </Link>
                         {order.type === "orders" && (
-                          <OrderItemsCount>
+                          <p className="text-sm font-light text-gray-400">
                             {t("orders.orderContains", {
                               count: order.skus_count as number,
                             })}
-                          </OrderItemsCount>
+                          </p>
                         )}
                       </div>
                     )
@@ -128,10 +121,10 @@ function OrdersPage(): JSX.Element {
               const cols = cell?.map((cell) => {
                 return (
                   <div key={order.number} {...p}>
-                    <OrderDate>
+                    <p className="inline-block text-sm font-extralight text-gray-400 bg-gray-200 px-3 rounded-full h-5 md:(bg-contrast px-0 w-min)">
                       {cell.getValue() != null &&
                         formatDate(cell.getValue() as string, shortDate)}
-                    </OrderDate>
+                    </p>
                   </div>
                 )
               })
@@ -182,7 +175,7 @@ function OrdersPage(): JSX.Element {
             className="p-2"
           />
         </OrderList>
-      </OrderListWrapper>
+      </div>
     </>
   )
 }
