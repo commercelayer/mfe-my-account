@@ -37,7 +37,8 @@ interface Props {
 
 function Navbar({ settings, onClick }: Props): JSX.Element {
   const { t } = useTranslation()
-  const { accessToken, logoUrl, companyName, language, returnUrl } = settings
+  const { accessToken, logoUrl, companyName, language, returnUrl, config } = settings
+  const hideSubscriptions = config?.my_account?.hide_subscriptions ?? false
 
   const menu = {
     orders: {
@@ -138,7 +139,9 @@ function Navbar({ settings, onClick }: Props): JSX.Element {
           <Nav>
             <NavLink id="orders" {...menu.orders} />
             <NavLink id="addresses" {...menu.addresses} />
-            <NavLink id="subscriptions" {...menu.subscriptions} />
+            {!hideSubscriptions && (
+              <NavLink id="subscriptions" {...menu.subscriptions} />
+            )}
             <NavLink id="wallet" {...menu.wallet} />
             <NavLink id="returns" {...menu.returns} />
           </Nav>

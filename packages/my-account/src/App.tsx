@@ -28,6 +28,7 @@ function App(): JSX.Element {
       <Router base={basePath}>
         <SettingsProvider config={window.clAppConfig}>
           {({ settings, isLoading }) => {
+            const hideSubscriptions = settings?.config?.my_account?.hide_subscriptions ?? false
             return isLoading ? (
               <Skeleton />
             ) : !settings.isValid ? (
@@ -84,20 +85,24 @@ function App(): JSX.Element {
                         </Suspense>
                       )}
                     </Route>
-                    <Route path={appRoutes.subscriptions.path}>
-                      <Suspense fallback={<></>}>
-                        <LazySubscriptionsPage />
-                      </Suspense>
-                    </Route>
-                    <Route path={"/subscriptions/:subscriptionId"}>
-                      {(params) => (
-                        <Suspense fallback={<></>}>
-                          <LazySubscriptionPage
-                            subscriptionId={params.subscriptionId}
-                          />
-                        </Suspense>
-                      )}
-                    </Route>
+                    {!hideSubscriptions && (
+                      <>
+                        <Route path={appRoutes.subscriptions.path}>
+                          <Suspense fallback={<></>}>
+                            <LazySubscriptionsPage />
+                          </Suspense>
+                        </Route>
+                        <Route path={"/subscriptions/:subscriptionId"}>
+                          {(params) => (
+                            <Suspense fallback={<></>}>
+                              <LazySubscriptionPage
+                                subscriptionId={params.subscriptionId}
+                              />
+                            </Suspense>
+                          )}
+                        </Route>
+                      </>
+                    )}
                     <Route path={appRoutes.newAddress.path}>
                       <Suspense fallback={<></>}>
                         <LazyAddressFormPage />
