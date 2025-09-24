@@ -54,6 +54,7 @@ function OrdersPage(): JSX.Element {
     {
       header: t("orders.columns.amount"),
       accessorKey: "formatted_total_amount_with_taxes",
+      id: "total_amount_cents",
       className: colClassName,
       titleClassName,
     },
@@ -78,6 +79,7 @@ function OrdersPage(): JSX.Element {
           showPagination
           pageSize={15}
           paginationContainerClassName="flex justify-between items-center"
+          sortBy={[{ id: "placed_at", desc: true }]}
         >
           <OrderListEmpty>{() => <Empty type="Orders" />}</OrderListEmpty>
           <OrderListRow
@@ -154,7 +156,7 @@ function OrdersPage(): JSX.Element {
             }}
           </OrderListRow>
           <OrderListRow
-            field="formatted_total_amount_with_taxes"
+            field="total_amount_cents"
             className="order-4 font-bold text-right md:text-left md:text-lg"
           />
           <OrderListPaginationInfo className="text-sm text-gray-500" />
