@@ -41,8 +41,8 @@ importers:
         specifier: ^2.4.0
         version: 2.4.0
       '@commercelayer/react-components':
-        specifier: 4.26.0
-        version: 4.26.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@4.41.1)(typescript@5.9.2)
+        specifier: 4.27.0-beta.0
+        version: 4.27.0-beta.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@4.41.1)(typescript@5.9.2)
       '@commercelayer/sdk':
         specifier: ^6.46.0
         version: 6.46.0
@@ -454,8 +454,8 @@ packages:
     resolution: {integrity: sha512-65r3YS3GssircqSyScQhKNXWm4iN5eegA7u/FUhD+5Ny+X1kq/CylzysQmZ+HR3UciMhDFIV0BvATaAZuJVPEw==}
     engines: {node: '>=18', pnpm: '>=7'}
 
-  '@commercelayer/react-components@4.26.0':
-    resolution: {integrity: sha512-SbBukP5FdaQiGJR6J2nMkO8DvS86x4HjMWBSrJgoXulVWHqpakE1gePIl0xok8UJq2ehkjqo/q4VvQ6rif2S7Q==}
+  '@commercelayer/react-components@4.27.0-beta.0':
+    resolution: {integrity: sha512-bu4MT9XDK5IQ8nm9wPFEZJiZ3S0CBKrwaBqerS+INL6HsBdkXYtdIKVynYowHJvpqeJC3wnnm1S2VEb3Vo2v3A==}
     peerDependencies:
       react: '>=18.0.0'
 
@@ -2186,6 +2186,7 @@ packages:
 
   cronstrue@2.61.0:
     resolution: {integrity: sha512-ootN5bvXbIQI9rW94+QsXN5eROtXWwew6NkdGxIRpS/UFWRggL0G5Al7a9GTBFEsuvVhJ2K3CntIIVt7L2ILhA==}
+    deprecated: Non-backwards compatible Breaking changes
     hasBin: true
 
   cross-spawn@6.0.6:
@@ -3820,6 +3821,7 @@ packages:
 
   lodash.get@4.4.2:
     resolution: {integrity: sha512-z+Uw/vLuy6gQe8cfaFWD7p0wVv8fJl3mbzXh33RS+0oW2wvUqiRXiQ69gLWSLpgB5/6sU+r6BlQR0MBILadqTQ==}
+    deprecated: This package is deprecated. Use the optional chaining (?.) operator instead.
 
   lodash.ismatch@4.4.0:
     resolution: {integrity: sha512-fPMfXjGQEV9Xsq/8MTSgUf255gawYRbjwMyDbcvDhXgV7enSZA0hynz6vMPnpAb5iONEzBHBPsT+0zes5Z301g==}
@@ -6181,7 +6183,7 @@ snapshots:
     dependencies:
       merge-anything: 5.1.7
 
-  '@commercelayer/react-components@4.26.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@4.41.1)(typescript@5.9.2)':
+  '@commercelayer/react-components@4.27.0-beta.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@4.41.1)(typescript@5.9.2)':
     dependencies:
       '@adyen/adyen-web': 6.22.0
       '@commercelayer/organization-config': 2.4.0
