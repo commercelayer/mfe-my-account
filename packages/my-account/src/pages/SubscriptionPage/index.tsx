@@ -3,23 +3,17 @@ import { useContext } from "react"
 import { Trans, useTranslation } from "react-i18next"
 import { Redirect } from "wouter"
 
-import { SkeletonMainOrder } from "#components/composite/Skeleton/Main"
-import SubscriptionNextRunProgress from "#components/composite/Subscription/SubscriptionNextRunProgress"
-import SubscriptionOrders from "#components/composite/Subscription/SubscriptionOrders"
-import SubscriptionPaymentAlert from "#components/composite/Subscription/SubscriptionPaymentAlert"
-import SubscriptionPayments from "#components/composite/Subscription/SubscriptionPayments"
-import SubscriptionStack from "#components/composite/Subscription/SubscriptionStack"
-import SubscriptionStatusChip from "#components/composite/Subscription/SubscriptionStatusChip"
-import SubscriptionSummary from "#components/composite/Subscription/SubscriptionSummary"
-import {
-  DateWrapper,
-  LittleDateWrapper,
-  PageSecondaryTitle,
-  PageTitle,
-} from "#components/ui/Common/styled"
+import SubscriptionNextRunProgress from "#components/composite/subscription/SubscriptionNextRunProgress"
+import SubscriptionOrders from "#components/composite/subscription/SubscriptionOrders"
+import SubscriptionPaymentAlert from "#components/composite/subscription/SubscriptionPaymentAlert"
+import SubscriptionPayments from "#components/composite/subscription/SubscriptionPayments"
+import SubscriptionStack from "#components/composite/subscription/SubscriptionStack"
+import SubscriptionStatusChip from "#components/composite/subscription/SubscriptionStatusChip"
+import SubscriptionSummary from "#components/composite/subscription/SubscriptionSummary"
 import FormattedDate from "#components/ui/FormattedDate"
 import { OrderSection, OrderSectionItem } from "#components/ui/OrderSection"
 import { ScrollToTop } from "#components/ui/ScrollToTop"
+import { SkeletonMainOrder } from "#components/ui/Skeleton/Main"
 import { AppContext } from "#providers/AppProvider"
 import { useSettings } from "#providers/SettingsProvider"
 import { OrderSubscriptionProvider } from "#providers/OrderSubscriptionProvider"
@@ -75,17 +69,17 @@ function SubscriptionPage({
                       orderSubscription={orderSubscription}
                       orderSubscriptionLastOrder={orderSubscriptionLastOrder}
                     />
-                    <div className="flex justify-between mt-3">
-                      <PageTitle>
+                    <div className="">
+                      <h2 className="block text-lg font-medium">
                         <Trans i18nKey="subscription.title">
                           {orderSubscription.number}
                         </Trans>
-                      </PageTitle>
-                      <DateWrapper>
+                      </h2>
+                      <p className="block text-sm text-gray-500 mb-2">
                         <Trans i18nKey="subscription.starts_at">
                           <FormattedDate date={orderSubscription.starts_at} />
                         </Trans>
-                      </DateWrapper>
+                      </p>
                       <SubscriptionStatusChip
                         status={orderSubscription.status}
                       />
@@ -93,26 +87,25 @@ function SubscriptionPage({
                     {(orderSubscription?.last_run_at != null ||
                       orderSubscription?.expires_at != null) && (
                       <div className="relative mt-8 pt-8 border-t">
-                        <PageSecondaryTitle>
+                        <h4 className="block text-sm font-medium text-gray-500">
                           <Trans i18nKey="subscription.next_run" />
-                        </PageSecondaryTitle>
+                        </h4>
                         <div className="relative pt-4 text-xs">
                           {orderSubscription?.last_run_at != null && (
                             <SubscriptionNextRunProgress
                               subscription={
                                 orderSubscription as OrderSubscription
                               }
-                              variant="detail"
                             />
                           )}
                           {orderSubscription?.expires_at != null && (
-                            <LittleDateWrapper>
+                            <p className="block text-xs text-gray-500 mb-2">
                               <Trans i18nKey="subscription.expires_at">
                                 <FormattedDate
                                   date={orderSubscription?.expires_at}
                                 />
                               </Trans>
-                            </LittleDateWrapper>
+                            </p>
                           )}
                         </div>
                       </div>
@@ -121,7 +114,7 @@ function SubscriptionPage({
                       orderSubscription={orderSubscription}
                       orderSubscriptionLastOrder={orderSubscriptionLastOrder}
                     />
-                    <div className="px-5 w-full md:(px-0)">
+                    <div className="px-5 w-full md:px-0">
                       <OrderSection noBorder>
                         <OrderSectionItem
                           index={1}

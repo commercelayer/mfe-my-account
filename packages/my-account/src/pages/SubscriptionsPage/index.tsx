@@ -8,9 +8,9 @@ import { Trans, useTranslation } from "react-i18next"
 import { Link } from "wouter"
 
 import Empty from "#components/composite/Empty"
-import { SkeletonMainSubscriptionsTable } from "#components/composite/Skeleton/Main/SubscriptionsTable"
-import SubscriptionNextRunProgress from "#components/composite/Subscription/SubscriptionNextRunProgress"
-import SubscriptionStatusChip from "#components/composite/Subscription/SubscriptionStatusChip"
+import { SkeletonMainSubscriptionsTable } from "#components/ui/Skeleton/Main/SubscriptionsTable"
+import SubscriptionNextRunProgress from "#components/composite/subscription/SubscriptionNextRunProgress"
+import SubscriptionStatusChip from "#components/composite/subscription/SubscriptionStatusChip"
 import Title from "#components/ui/Title"
 import { AppContext } from "#providers/AppProvider"
 import { formatDate, shortDate } from "#utils/dateTimeFormats"
@@ -101,7 +101,7 @@ function SubscriptionsPage(): JSX.Element {
                         </Link>
                         {order.type === "order_subscriptions" &&
                           order.starts_at != null && (
-                            <p className="inline-block text-sm font-extralight text-gray-400 h-2 md:px-3 md:h-5 md:(bg-contrast px-0)">
+                            <p className="inline-block text-sm font-extralight text-gray-400 h-2 md:h-5 md:bg-transparent">
                               <Trans i18nKey="subscription.starts_at">
                                 {formatDate(
                                   order.starts_at as string,
@@ -119,7 +119,7 @@ function SubscriptionsPage(): JSX.Element {
           </OrderListRow>
           <OrderListRow
             field="status"
-            className="absolute order-3 top-4 md:top-auto md:relative"
+            className="absolute order-3 right-5 top-10 md:top-auto md:relative md:right-auto"
           >
             {({ cell, row, ...p }) => {
               const order = row?.original
@@ -169,7 +169,6 @@ function SubscriptionsPage(): JSX.Element {
                   <div className="absolute bottom-0 left-0 w-full mb-0 md:relative md:bottom-auto md:left-auto md:mb-5">
                     <div className="flex flex-col pt-2 pb-4 mx-5 border-t gap-1 md:border-none md:pt-0 md:pb-0 md:mx-0">
                       <SubscriptionNextRunProgress
-                        variant="list"
                         subscription={order}
                       />
                     </div>
@@ -187,7 +186,7 @@ function SubscriptionsPage(): JSX.Element {
                   </SubscriptionFrequency>
                 )
               } else {
-                return <p className="hidden md:inline-block text-sm font-extralight text-gray-400 px-3 h-5 md:(bg-contrast px-0)">&#8212;</p>
+                return <p className="hidden md:inline-block text-sm font-extralight text-gray-400 px-3 h-5 md:bg-transparent md:px-0">&#8212;</p>
               }
             }}
           </OrderListRow>
@@ -222,7 +221,7 @@ function SubscriptionsPage(): JSX.Element {
 export default SubscriptionsPage
 
 function SubscriptionFrequency({ children }: { children: React.ReactNode }): JSX.Element {
-  return <p className="capitalize inline-block text-sm font-extralight text-gray-400 px-3 h-5 md:(bg-contrast px-0)">
+  return <p className="capitalize inline-block text-sm font-extralight text-gray-400 h-5 md:bg-transparent">
     {children}
   </p>
 }

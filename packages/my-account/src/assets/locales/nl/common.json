@@ -117,7 +117,7 @@
     },
     "subscription": {
       "title": "Abonnement #<0/>",
-      "starts_at": "gestart op <0/>",
+      "starts_at": "Gestart op <0/>",
       "next_run": "Volgende levering",
       "expires_at": "verloopt op <0/>",
       "summary": "Samenvatting",

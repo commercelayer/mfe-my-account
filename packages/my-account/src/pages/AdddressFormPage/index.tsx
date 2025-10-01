@@ -2,7 +2,7 @@ import { AddressesContainer } from "@commercelayer/react-components/addresses/Ad
 import { useContext } from "react"
 import { useRoute } from "wouter"
 
-import CustomerAddressForm from "#components/composite/Address/CustomerAddressForm"
+import CustomerAddressForm from "#components/composite/CustomerAddressForm"
 import { appRoutes } from "#data/routes"
 import { AppContext } from "#providers/AppProvider"
 import { CustomerAddressProvider } from "#providers/CustomerAddressProvider"

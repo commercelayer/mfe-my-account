@@ -117,7 +117,7 @@
   },
   "subscription": {
     "title": "Abbonamento #<0/>",
-    "starts_at": "iniziata il <0/>",
+    "starts_at": "Iniziata il <0/>",
     "next_run": "Rinnovo",
     "expires_at": "scade il <0/>",
     "summary": "Riepilogo",
