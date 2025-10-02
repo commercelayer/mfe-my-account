@@ -11,16 +11,12 @@ interface Props {
 }
 
 function SubscriptionPayments({ orderSubscription }: Props): JSX.Element {
-  if (
-    orderSubscription != null &&
-    orderSubscription.customer_payment_source != null &&
-    orderSubscription.customer_payment_source.payment_method != null &&
-    orderSubscription.customer_payment_source.payment_source != null
-  ) {
-    const paymentMethod =
-      orderSubscription.customer_payment_source.payment_method
-    const paymentSource =
-      orderSubscription.customer_payment_source.payment_source
+  const paymentMethod =
+    orderSubscription?.customer_payment_source?.payment_method
+  const paymentSource =
+    orderSubscription?.customer_payment_source?.payment_source
+
+  if (paymentMethod != null && paymentSource != null) {
 
     const details = getCardDetails({
       paymentType: paymentMethod.payment_source_type,
