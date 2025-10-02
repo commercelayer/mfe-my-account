@@ -1,4 +1,5 @@
 import { ParcelField } from "@commercelayer/react-components/parcels/ParcelField"
+import cn from "classnames"
 import { Trans } from "react-i18next"
 
 import ShipmentHistoryStep from "#components/ui/icons/ShipmentHistoryStep"
@@ -41,7 +42,10 @@ function OrderParcelHistoryTime({
     time.status as string
   }` as ParcelStatus
   return (
-    <div className={`relative flex items-start pb-4 mt-4 ml-5 text-left ${timeIsFirstOfDate ? 'mt-8' : ''}`} key={timeIndex}>
+    <div className={cn(
+      'relative flex items-start pb-4 mt-4 ml-5 text-left', 
+      { 'mt-8': timeIsFirstOfDate }
+    )} key={timeIndex}>
       <div className="mt-1 font-bold w-28 text-xxs">
         {timeFormatted}
       </div>
@@ -75,13 +79,10 @@ interface ShipmentTimeBorderProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 function ShipmentTimeBorder({ children, dateTimeIsLast }: ShipmentTimeBorderProps) {
-  const classNames = `absolute z-10 h-full border-r border-gray-300 left-20 top-2 
-    ${dateTimeIsLast ? 'border-dashed' : ''}
-    ${dateTimeIsLast
-      ? 'before:border-[#e6e7e7] before:border-t-0 before:border-r-0 before:border-b-[1px] before:border-l-[1px] before:content-[""] before:h-[8px] before:w-[8px] before:absolute before:top-[25px] before:left-[-3.5px] before:rotate-135'
-      : ''}
-  `
-  return <div className={classNames}>{children}</div>
+  return <div className={cn('absolute z-10 h-full border-r border-gray-300 left-20 top-2', {
+    'border-dashed': dateTimeIsLast,
+    'before:border-[#e6e7e7] before:border-t-0 before:border-r-0 before:border-b-[1px] before:border-l-[1px] before:content-[""] before:h-[8px] before:w-[8px] before:absolute before:top-[25px] before:left-[-3.5px] before:rotate-135': dateTimeIsLast,
+  })}>{children}</div>
 }
 
 function OrderParcelHistoryDate({

@@ -1,4 +1,5 @@
 import { Transition } from "@headlessui/react"
+import cn from "classnames"
 import { CaretDown } from "phosphor-react"
 import { useState } from "react"
 import { Trans } from "react-i18next"
@@ -44,7 +45,7 @@ function ShowHideMenu({ children, itemsCounter }: Props): JSX.Element {
               {itemsCounterToString}
             </Trans>
           </span>
-          <div className={`ml-1 transition duration-300 ${showHideMenu ? "rotate-180" : ""}`}>
+          <div className={cn('ml-1 transition duration-300', { 'rotate-180': showHideMenu })}>
             <CaretDown weight="light" className="w-3 h-3" />
           </div>
         </button>

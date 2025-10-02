@@ -1,3 +1,5 @@
+import cn from "classnames"
+
 interface Props {
   children: React.ReactNode
   className?: string
@@ -13,16 +15,17 @@ export function Card({
   fullHeight,
   centered,
 }: Props): JSX.Element {
-  const classNames = `px-5 lg:p-15 xl:pr-48 2xl:pr-15 md:bg-white shadow-sm
-    ${rounded ? `rounded-md` : null}
-    ${fullHeight ? `relative min-h-full ` : null}
-    ${centered ? null : ` lg:pr-20 xl:pr-48 `}
-    ${className ?? ''}
-  `
-
   return (
     <div
-      className={classNames}
+      className={cn(
+        'px-5 lg:p-15 xl:pr-48 2xl:pr-15 md:bg-white shadow-sm',
+        {
+          'rounded-md': rounded,
+          'relative min-h-full': fullHeight,
+          'lg:pr-20 xl:pr-48': !centered,
+        },
+        className
+      )}
     >
       {children}
     </div>

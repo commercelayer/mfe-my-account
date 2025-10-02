@@ -1,3 +1,5 @@
+import cn from "classnames"
+
 import type { OrderStatus } from "#components/composite/order/OrderStatusChip"
 import type { ShipmentStatus } from "#components/composite/order/ShipmentStatusChip"
 
@@ -21,6 +23,11 @@ const handlerStatusColor = (status: string) => {
 }
 
 export function StatusChip({ children, className, status }: StatusChipProps) {
-  const classNames = `inline text-center text-3xs md:w-auto uppercase font-bold py-[2px] px-[8px] rounded-xl align-middle ${handlerStatusColor(status)} ${className ?? ''}`
-  return <p className={classNames}>{children}</p>
+  return <p 
+    className={cn(
+      'inline text-center text-3xs md:w-auto uppercase font-bold py-[2px] px-[8px] rounded-xl align-middle', 
+      handlerStatusColor(status),
+      className
+    )}
+  >{children}</p>
 }

@@ -1,5 +1,6 @@
 import { Address } from "@commercelayer/react-components/addresses/Address"
 import { AddressField } from "@commercelayer/react-components/addresses/AddressField"
+import cn from "classnames"
 
 import { AddressCard } from "#components/composite/AddressCard"
 
@@ -12,7 +13,7 @@ function CustomerAddressCard({ readonly }: Props): JSX.Element {
 
   return (
     <Address
-      className={` ${actionsNeeded ? "group" : ""} `}
+      className={cn({ 'group': actionsNeeded })}
       disabledClassName="opacity-50 cursor-not-allowed"
     >
       {

@@ -1,11 +1,12 @@
 import { Order, OrderSubscription } from "@commercelayer/sdk"
 
+import cn from "classnames"
 import FormattedDate from "#components/ui/FormattedDate"
 import { Stack } from "#components/ui/Stack"
 
 function OrderSubscriptionStackItemValue({ capitalize, children }: { capitalize?: boolean; children: React.ReactNode }) {
   return (
-    <h4 className={`block text-base font-medium ${capitalize ? "capitalize" : ""}`}>
+    <h4 className={cn('block text-base font-medium', { 'capitalize': capitalize })}>
       {children}
     </h4>
   )

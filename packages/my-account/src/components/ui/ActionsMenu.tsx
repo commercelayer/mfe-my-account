@@ -1,4 +1,5 @@
 import { Transition } from "@headlessui/react"
+import cn from "classnames"
 import { DotsThreeVertical } from "phosphor-react"
 import { useState } from "react"
 import { useTranslation } from "react-i18next"
@@ -32,11 +33,13 @@ function ActionsMenu({ children, className }: Props): JSX.Element {
         setShowActionsMenu(false)
       }}
     >
-      <div className={`relative flex justify-end ${showActionsMenu ? 'z-10' : ''} ${className ?? ''}`}>
+      <div className={cn("relative flex justify-end", { "z-10": showActionsMenu }, className)}>
         <button
           type="button"
           onClick={handleClick}
-          className={`flex items-center opacity-70 rounded-full hover:text-gray-600 hover:opacity-100 p-1 ${showActionsMenu ? 'bg-gray-300 text-gray-600 opacity-100' : ''}`}
+          className={cn("flex items-center opacity-70 rounded-full hover:text-gray-600 hover:opacity-100 p-1", {
+            "bg-gray-300 text-gray-600 opacity-100": showActionsMenu,
+          })}
         >
           <span className="sr-only">{t("actionsMenu.mainLabel")}</span>
           <DotsThreeVertical weight="bold" className="w-5 h-5" />

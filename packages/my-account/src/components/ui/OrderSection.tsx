@@ -1,3 +1,5 @@
+import cn from "classnames"
+
 interface Props {
   children: React.ReactNode
   index: number
@@ -11,8 +13,10 @@ export function OrderSection({
   children: React.ReactNode
   noBorder?: boolean
 }): JSX.Element {
-  const classNames = `-mx-10 md:-mx-0 md:border-t overflow-hidden ${noBorder ? "md:border-none" : "md:border-t"}`
-  return <div className={classNames}>{children}</div>
+  return <div className={cn('-mx-10 md:-mx-0 md:border-t overflow-hidden', {
+    "md:border-none": noBorder,
+    "md:border-t": !noBorder
+  })}>{children}</div>
 }
 
 export function OrderSectionItem({

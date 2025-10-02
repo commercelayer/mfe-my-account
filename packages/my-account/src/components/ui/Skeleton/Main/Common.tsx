@@ -1,3 +1,5 @@
+import cn from "classnames"
+
 import {
   SkeletonBox,
   SkeletonCircle,
@@ -52,10 +54,8 @@ export function SkeletonMainPageTitle({
   additionalContent,
   className,
 }: SkeletonMainPageTitleProps): JSX.Element {
-  const classNames = `mb-8 ${className ?? ''}`
-
   return (
-    <SkeletonCol noGap className={classNames}>
+    <SkeletonCol noGap className={cn('mb-8', className)}>
       <SkeletonRow centered className="h-[32px]">
         <SkeletonSubtitle size="small" />
       </SkeletonRow>

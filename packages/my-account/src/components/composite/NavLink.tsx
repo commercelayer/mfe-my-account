@@ -1,4 +1,5 @@
 import type { Settings } from "HostedApp"
+import cn from "classnames"
 import { useContext } from "react"
 import { useRouter, useLocation, Link } from "wouter"
 
@@ -26,14 +27,15 @@ interface WrapperProps extends Pick<Props, 'onClick' | 'hidden' | 'comingSoon'> 
 
 function Wrapper(props: WrapperProps): JSX.Element {
   const { isCurrentPage, comingSoon, hidden, ariaLabel, children, onClick } = props
-  const classNames = `flex h-8 items-center select-none
-    ${ hidden ? 'hidden' : '' }
-    ${ comingSoon ? 'text-gray-400' : 'text-gray-500 hover:cursor-pointer hover:text-gray-600' }
-    ${ isCurrentPage ? 'text-black' : '' }
-  `
+
   return (
     <button
-      className={classNames} 
+      className={cn('flex h-8 items-center select-none', {
+        'hidden': hidden,
+        'text-black': isCurrentPage,
+        'text-gray-400': comingSoon,
+        'text-gray-500 hover:cursor-pointer hover:text-gray-600': !comingSoon && !isCurrentPage,
+      })} 
       disabled={comingSoon}
       onClick={onClick}
       aria-label={ariaLabel}
@@ -58,7 +60,7 @@ function NavLinkButton(props: Props): JSX.Element {
       hidden={hidden}
       onClick={onClick}
     >
-      <div className={`mr-2 ${comingSoon ? "text-gray-300" : ""}`}>{icon}</div>
+      <div className={cn('mr-2', { 'text-gray-300': comingSoon })}>{icon}</div>
       <div className="flex items-center pr-3">
         <p className="text-sm md:text-base font-semibold">{title}</p>
         {comingSoon && <ComingSoonBadge />}

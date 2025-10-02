@@ -1,9 +1,11 @@
+import cn from "classnames"
+
 export function SkeletonBox({ children, className }: React.HTMLAttributes<HTMLDivElement>) {
-  return <div className={`bg-gray-300 rounded-xl ${className ?? ''}`}>{children}</div>
+  return <div className={cn('bg-gray-300 rounded-xl', className)}>{children}</div>
 }
 
 export function SkeletonCircle({ children, className }: React.HTMLAttributes<HTMLDivElement>) {
-  return <SkeletonBox className={`rounded-full ${className ?? ''}`}>{children}</SkeletonBox>
+  return <SkeletonBox className={cn('rounded-full', className)}>{children}</SkeletonBox>
 }
 
 interface SkeletonWrapperProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -12,7 +14,7 @@ interface SkeletonWrapperProps extends React.HTMLAttributes<HTMLDivElement> {
 
 export function SkeletonWrapper({ children, className, visible }: SkeletonWrapperProps) {
   return (
-    <div className={`animate-pulse flex-shrink flex-grow ${!visible ? 'hidden' : ''} ${className ?? ''}`}>
+    <div className={cn('animate-pulse flex-shrink flex-grow', !visible && 'hidden', className)}>
       {children}
     </div>
   )
@@ -24,7 +26,7 @@ interface SkeletonColProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 export function SkeletonCol({ children, className, padded, noGap }: SkeletonColProps) {
-  return <div className={`flex flex-col ${padded ? 'lg:pl-12' : ''} ${!noGap ? 'gap-3' : ''} ${className ?? ''}`}>
+  return <div className={cn('flex flex-col', padded && 'lg:pl-12', !noGap && 'gap-3', className)}>
     {children}
   </div>
 }
@@ -34,13 +36,13 @@ interface SkeletonRowProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 export function SkeletonRow({ children, className, centered }: SkeletonRowProps) {
-  return <div className={`flex flex-row gap-4 ${centered ? 'items-center' : ''} ${className ?? ''}`}>
+  return <div className={cn('flex flex-row gap-4', centered && 'items-center', className)}>
     {children}
   </div>
 }
 
 export function SkeletonHeader({ children, className }: React.HTMLAttributes<HTMLDivElement>) {
-  return <SkeletonRow className={`items-center justify-between ${className ?? ''}`}>{children}</SkeletonRow>
+  return <SkeletonRow className={cn('items-center justify-between', className)}>{children}</SkeletonRow>
 }
 
 interface SkeletonSubtitleProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -48,7 +50,7 @@ interface SkeletonSubtitleProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 export function SkeletonSubtitle({ className, size }: SkeletonSubtitleProps) {
-  return <SkeletonBox className={`h-5 ${size === "small" ? "w-20" : size === "medium" ? "w-40" : "w-60"} ${className ?? ''}`} />
+  return <SkeletonBox className={cn(`h-5 ${size === "small" ? "w-20" : size === "medium" ? "w-40" : "w-60"}`, className)} />
 }
 
 export function SkeletonSpacer() {
@@ -60,11 +62,11 @@ interface SkeletonTableRowProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 export function SkeletonTableRow({ children, className, align }: SkeletonTableRowProps) {
-  return <div className={`flex ${align === "start" ? 'justify-items-start' : 'justify-between'} ${className ?? ''}`}>{children}</div>
+  return <div className={cn('flex', align === "start" ? 'justify-items-start' : 'justify-between', className)}>{children}</div>
 }
 
 export function SkeletonTableTHead({ children, className, align }: SkeletonTableRowProps) {
-  return <SkeletonTableRow align={align} className={`hidden md:flex ${className ?? ''}`}>{children}</SkeletonTableRow>
+  return <SkeletonTableRow align={align} className={cn('hidden md:flex', className)}>{children}</SkeletonTableRow>
 }
 
 interface SkeletonSpanProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -99,5 +101,5 @@ export function SkeletonSpan({ className, size }: SkeletonSpanProps) {
       sizeCss = "w-36 h-3"
   }
 
-  return <SkeletonBox className={`bg-gray-300 rounded ${className ?? ''} ${sizeCss}`} />
+  return <SkeletonBox className={cn('bg-gray-300 rounded', sizeCss, className)} />
 }

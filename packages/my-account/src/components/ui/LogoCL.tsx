@@ -1,3 +1,5 @@
+import cn from "classnames"
+
 interface Props {
   width?: string
   height?: string
@@ -8,7 +10,7 @@ export function LogoCL({ width, height, className }: Props): JSX.Element {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      className={`text-gray-600 ${className ?? ''}`}
+      className={cn('text-gray-600', className)}
       width={width}
       height={height}
       viewBox="0 0 114 19"

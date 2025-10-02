@@ -1,3 +1,5 @@
+import cn from "classnames"
+
 interface LabelProps {
   icon: React.ReactNode | null | undefined
   variant?: string
@@ -27,7 +29,7 @@ function ActionsMenuItem(props: Props): JSX.Element {
   return (
     <div className="flex items-center px-2 py-4 bg-white hover:bg-gray-200 cursor-default" onClick={handleClick}>
       {icon && <div className="flex items-center px-2">{icon}</div>}
-      <p className={`text-[12px] select-none ${variant === 'warning' ? 'text-red-400' : ''} ${icon == null ? 'ml-7' : ''}`}>
+      <p className={cn('text-[12px] select-none', { 'text-red-400': variant === 'warning', 'ml-7': icon == null })}>
         {label}
       </p>
     </div>
