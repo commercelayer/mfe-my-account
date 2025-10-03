@@ -4,19 +4,11 @@ import { useContext } from "react"
 import { Trans } from "react-i18next"
 import { Redirect } from "wouter"
 
-import {
-  OrderWrapper,
-  OrderHeader,
-  OrderHeaderMain,
-  OrderTitle,
-  OrderAccordionWrapper,
-} from "./styled"
-
-import OrderAccordion from "#components/composite/Order/OrderAccordion"
-import OrderDate from "#components/composite/Order/OrderDate"
-import type { OrderStatus } from "#components/composite/Order/OrderStatusChip"
-import OrderStatusChip from "#components/composite/Order/OrderStatusChip"
-import { SkeletonMainOrder } from "#components/composite/Skeleton/Main"
+import OrderAccordion from "#components/composite/order/OrderAccordion"
+import OrderDate from "#components/composite/order/OrderDate"
+import type { OrderStatus } from "#components/composite/order/OrderStatusChip"
+import OrderStatusChip from "#components/composite/order/OrderStatusChip"
+import { SkeletonMainOrder } from "#components/ui/Skeleton/Main"
 import { ScrollToTop } from "#components/ui/ScrollToTop"
 import { AppContext } from "#providers/AppProvider"
 import { OrderProvider } from "#providers/OrderProvider"
@@ -49,22 +41,22 @@ function OrderPage({ orderId }: OrderPageProps): JSX.Element {
           ) : (
             <OrderContainer orderId={orderId}>
               <SkeletonMainOrder visible={isLoading} />
-              <OrderWrapper hidden={isLoading}>
-                <OrderHeader>
-                  <OrderHeaderMain>
-                    <OrderTitle>
-                      <Trans i18nKey="order.title">
-                        <OrderNumber />
-                      </Trans>
-                    </OrderTitle>
+              <div className={isLoading ? "hidden" : ""}>
+                <div className="">
+                  <h2 className="block text-lg font-medium">
+                    <Trans i18nKey="order.title">
+                      <OrderNumber />
+                    </Trans>
+                  </h2>
+                  <div className="mb-2">
                     <OrderDate placed_at={order?.placed_at} />
-                    <OrderStatusChip status={order?.status as OrderStatus} />
-                  </OrderHeaderMain>
-                </OrderHeader>
-                <OrderAccordionWrapper>
+                  </div>
+                  <OrderStatusChip status={order?.status as OrderStatus} />
+                </div>
+                <div className="px-5 w-full md:px-0">
                   <OrderAccordion />
-                </OrderAccordionWrapper>
-              </OrderWrapper>
+                </div>
+              </div>
               <ScrollToTop />
             </OrderContainer>
           )}

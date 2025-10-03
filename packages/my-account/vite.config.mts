@@ -75,14 +75,8 @@ export default defineConfig(({ mode }) => {
 
 function preparePlugins({ analyzeBundle }: { analyzeBundle: boolean }) {
   const plugins: PluginOption[] = [
-    react({
-      babel: {
-        plugins: ["babel-plugin-macros", "babel-plugin-styled-components"],
-      },
-    }),
+    react(),
     tsconfigPaths(),
-    // babel(),
-    // macrosPlugin(),
     analyzeBundle &&
       visualizer({
         filename: resolve(__dirname, "./build/stats.html"),

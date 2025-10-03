@@ -1,9 +1,9 @@
 import { lazy, Suspense } from "react"
 import { Router, Route, Switch, Redirect } from "wouter"
 
-import Invalid from "#components/composite/Invalid"
 import MyAccountContainer from "#components/composite/MyAccountContainer"
-import Skeleton from "#components/composite/Skeleton"
+import { Skeleton } from "#components/composite/Skeleton"
+import Invalid from "#components/ui/Invalid"
 import { appRoutes } from "#data/routes"
 import { GTMProvider } from "#providers/GTMProvider"
 import { SettingsProvider } from "#providers/SettingsProvider"

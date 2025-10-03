@@ -117,7 +117,7 @@
   },
   "subscription": {
     "title": "Subscription #<0/>",
-    "starts_at": "started on <0/>",
+    "starts_at": "Started on <0/>",
     "next_run": "Next run",
     "expires_at": "expires on <0/>",
     "summary": "Summary",

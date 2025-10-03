@@ -8,21 +8,8 @@ import { useContext } from "react"
 import { useTranslation } from "react-i18next"
 import { Link, Redirect } from "wouter"
 
-import {
-  ParcelContainer,
-  ParcelHeader,
-  ParcelHeaderTop,
-  BackToOrder,
-  Title,
-  ParcelHeaderMain,
-  ParcelHeaderCol,
-  ParcelHeaderLabel,
-  ParcelHeaderValue,
-  TabsWrapper,
-} from "./styled"
-
-import OrderParcelHistory from "#components/composite/OrderParcel/OrderParcelHistory"
-import { SkeletonMainParcel } from "#components/composite/Skeleton/Main"
+import OrderParcelHistory from "#components/composite/OrderParcelHistory"
+import { SkeletonMainParcel } from "#components/ui/Skeleton/Main"
 import { ScrollToTop } from "#components/ui/ScrollToTop"
 import { AppContext } from "#providers/AppProvider"
 import { OrderProvider } from "#providers/OrderProvider"
@@ -60,9 +47,9 @@ function ParcelPage({ orderId, parcelId }: Props): JSX.Element {
               <ShipmentsContainer>
                 <Shipment loader={<SkeletonMainParcel />}>
                   <Parcels filterBy={[parcelId]}>
-                    <ParcelContainer>
-                      <ParcelHeader>
-                        <ParcelHeaderTop>
+                    <div>
+                      <div className="mt-3">
+                        <div className="flex items-start content-start">
                           <Link
                             href={appRoutes.subscription.makePath({
                               subscriptionId: orderId ?? "",
@@ -71,33 +58,33 @@ function ParcelPage({ orderId, parcelId }: Props): JSX.Element {
                               returnUrl: settings.returnUrl
                             })}
                           >
-                            <BackToOrder>
+                            <div className="flex-none rounded-full border border-gray-300 p-1 hover:bg-gray-300 cursor-pointer">
                               <CaretLeft weight="regular" className="w-7 h-7" />
-                            </BackToOrder>
+                            </div>
                           </Link>
-                          <Title>
+                          <h2 className="ml-4 p-1 text-lg font-medium">
                             {t("order.shipments.parcelDetail.title")}{" "}
                             <ParcelField attribute="number" tagElement="span" />
-                          </Title>
-                        </ParcelHeaderTop>
-                        <ParcelHeaderMain className="mt-10">
-                          <ParcelHeaderCol>
-                            <ParcelHeaderLabel>
+                          </h2>
+                        </div>
+                        <div className="flex flex-auto justify-between gap-4 md:pl-12 mt-10">
+                          <div>
+                            <label className="block uppercase text-xs text-gray-300 font-bold">
                               {t("order.shipments.parcelDetail.trackingCode")}
-                            </ParcelHeaderLabel>
-                            <ParcelHeaderValue>
+                            </label>
+                            <span className="block text-sm font-bold">
                               <ParcelField
                                 attribute="tracking_number"
                                 tagElement="span"
                               />
-                            </ParcelHeaderValue>
-                          </ParcelHeaderCol>
-                        </ParcelHeaderMain>
-                      </ParcelHeader>
-                      <TabsWrapper>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="mt-12 md:pl-12">
                         <OrderParcelHistory />
-                      </TabsWrapper>
-                    </ParcelContainer>
+                      </div>
+                    </div>
                   </Parcels>
                 </Shipment>
               </ShipmentsContainer>

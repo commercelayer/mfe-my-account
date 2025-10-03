@@ -3,32 +3,17 @@ import { useContext } from "react"
 import { Trans, useTranslation } from "react-i18next"
 import { Redirect } from "wouter"
 
-import {
-  OrderAccordionWrapper,
-  OrderSubscriptionHeader,
-  OrderSubscriptionHeaderMain,
-  OrderSubscriptionNextRunProgressWrapper,
-  OrderSubscriptionNextRunWrapper,
-  OrderWrapper,
-} from "./styled"
-
-import { SkeletonMainOrder } from "#components/composite/Skeleton/Main"
-import SubscriptionNextRunProgress from "#components/composite/Subscription/SubscriptionNextRunProgress"
-import SubscriptionOrders from "#components/composite/Subscription/SubscriptionOrders"
-import SubscriptionPaymentAlert from "#components/composite/Subscription/SubscriptionPaymentAlert"
-import SubscriptionPayments from "#components/composite/Subscription/SubscriptionPayments"
-import SubscriptionStack from "#components/composite/Subscription/SubscriptionStack"
-import SubscriptionStatusChip from "#components/composite/Subscription/SubscriptionStatusChip"
-import SubscriptionSummary from "#components/composite/Subscription/SubscriptionSummary"
-import {
-  DateWrapper,
-  LittleDateWrapper,
-  PageSecondaryTitle,
-  PageTitle,
-} from "#components/ui/Common/styled"
+import SubscriptionNextRunProgress from "#components/composite/subscription/SubscriptionNextRunProgress"
+import SubscriptionOrders from "#components/composite/subscription/SubscriptionOrders"
+import SubscriptionPaymentAlert from "#components/composite/subscription/SubscriptionPaymentAlert"
+import SubscriptionPayments from "#components/composite/subscription/SubscriptionPayments"
+import SubscriptionStack from "#components/composite/subscription/SubscriptionStack"
+import SubscriptionStatusChip from "#components/composite/subscription/SubscriptionStatusChip"
+import SubscriptionSummary from "#components/composite/subscription/SubscriptionSummary"
 import FormattedDate from "#components/ui/FormattedDate"
 import { OrderSection, OrderSectionItem } from "#components/ui/OrderSection"
 import { ScrollToTop } from "#components/ui/ScrollToTop"
+import { SkeletonMainOrder } from "#components/ui/Skeleton/Main"
 import { AppContext } from "#providers/AppProvider"
 import { useSettings } from "#providers/SettingsProvider"
 import { OrderSubscriptionProvider } from "#providers/OrderSubscriptionProvider"
@@ -79,60 +64,57 @@ function SubscriptionPage({
                 {/*  TODO: Create a new skeleton for the subscription */}
                 <SkeletonMainOrder visible={isLoading} />
                 {!isLoading && orderSubscription != null && (
-                  <OrderWrapper hidden={isLoading}>
+                  <div>
                     <SubscriptionPaymentAlert
                       orderSubscription={orderSubscription}
                       orderSubscriptionLastOrder={orderSubscriptionLastOrder}
                     />
-                    <OrderSubscriptionHeader>
-                      <OrderSubscriptionHeaderMain>
-                        <PageTitle>
-                          <Trans i18nKey="subscription.title">
-                            {orderSubscription.number}
-                          </Trans>
-                        </PageTitle>
-                        <DateWrapper>
-                          <Trans i18nKey="subscription.starts_at">
-                            <FormattedDate date={orderSubscription.starts_at} />
-                          </Trans>
-                        </DateWrapper>
-                        <SubscriptionStatusChip
-                          status={orderSubscription.status}
-                        />
-                      </OrderSubscriptionHeaderMain>
-                    </OrderSubscriptionHeader>
+                    <div className="">
+                      <h2 className="block text-lg font-medium">
+                        <Trans i18nKey="subscription.title">
+                          {orderSubscription.number}
+                        </Trans>
+                      </h2>
+                      <p className="block text-sm text-gray-500 mb-2">
+                        <Trans i18nKey="subscription.starts_at">
+                          <FormattedDate date={orderSubscription.starts_at} />
+                        </Trans>
+                      </p>
+                      <SubscriptionStatusChip
+                        status={orderSubscription.status}
+                      />
+                    </div>
                     {(orderSubscription?.last_run_at != null ||
                       orderSubscription?.expires_at != null) && (
-                      <OrderSubscriptionNextRunWrapper>
-                        <PageSecondaryTitle>
+                      <div className="relative mt-8 pt-8 border-t">
+                        <h4 className="block text-sm font-medium text-gray-500">
                           <Trans i18nKey="subscription.next_run" />
-                        </PageSecondaryTitle>
-                        <OrderSubscriptionNextRunProgressWrapper>
+                        </h4>
+                        <div className="relative pt-4 text-xs">
                           {orderSubscription?.last_run_at != null && (
                             <SubscriptionNextRunProgress
                               subscription={
                                 orderSubscription as OrderSubscription
                               }
-                              variant="detail"
                             />
                           )}
                           {orderSubscription?.expires_at != null && (
-                            <LittleDateWrapper>
+                            <p className="block text-xs text-gray-500 mb-2">
                               <Trans i18nKey="subscription.expires_at">
                                 <FormattedDate
                                   date={orderSubscription?.expires_at}
                                 />
                               </Trans>
-                            </LittleDateWrapper>
+                            </p>
                           )}
-                        </OrderSubscriptionNextRunProgressWrapper>
-                      </OrderSubscriptionNextRunWrapper>
+                        </div>
+                      </div>
                     )}
                     <SubscriptionStack
                       orderSubscription={orderSubscription}
                       orderSubscriptionLastOrder={orderSubscriptionLastOrder}
                     />
-                    <OrderAccordionWrapper>
+                    <div className="px-5 w-full md:px-0">
                       <OrderSection noBorder>
                         <OrderSectionItem
                           index={1}
@@ -161,9 +143,9 @@ function SubscriptionPage({
                           />
                         </OrderSectionItem>
                       </OrderSection>
-                    </OrderAccordionWrapper>
+                    </div>
                     <ScrollToTop />
-                  </OrderWrapper>
+                  </div>
                 )}
               </>
             )}
