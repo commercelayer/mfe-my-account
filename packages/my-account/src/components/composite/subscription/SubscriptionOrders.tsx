@@ -30,7 +30,7 @@ function SubscriptionOrders({ orderSubscription }: Props) {
   const { settings } = useSettings()
 
   const colClassName =
-    "px-4 text-left text-xs font-thin border-b border-gray-200 md:border-none text-gray-400 md:font-semibold md:uppercase md:relative"
+    "px-4 text-left text-xs font-thin border-b border-gray-200 md:border-none text-gray-400 md:font-semibold md:uppercase md:relative select-none"
   const titleClassName = "flex gap-2 items-center"
   const columns = [
     {
@@ -38,10 +38,11 @@ function SubscriptionOrders({ orderSubscription }: Props) {
       accessorKey: "number",
       className: colClassName,
       titleClassName,
+      enableSorting: false,
     },
     {
       header: t("orders.columns.date"),
-      accessorKey: "placed_at",
+      accessorKey: "updated_at",
       className: colClassName,
       titleClassName,
     },
@@ -83,6 +84,7 @@ function SubscriptionOrders({ orderSubscription }: Props) {
         showPagination
         pageSize={15}
         paginationContainerClassName="flex justify-between items-center"
+        sortBy={[{ id: "updated_at", desc: true }]}
       >
         <OrderListEmpty>
           {() => (
@@ -121,7 +123,7 @@ function SubscriptionOrders({ orderSubscription }: Props) {
             )
           }}
         </OrderListRow>
-        <OrderListRow field="placed_at" className="order-2 px-4 ">
+        <OrderListRow field="updated_at" className="order-2 px-4 ">
           {({ cell, row, ...p }) => {
             const order = row?.original
             if (!order) return <></>

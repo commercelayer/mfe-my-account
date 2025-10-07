@@ -23,7 +23,7 @@ function OrdersPage(): JSX.Element {
   const { settings } = useSettings()
 
   const colClassName =
-    "text-left text-xs font-thin border-b border-gray-200 md:border-none text-gray-300 md:font-semibold md:uppercase md:relative"
+    "text-left text-xs font-thin border-b border-gray-200 md:border-none text-gray-300 md:font-semibold md:uppercase md:relative select-none"
   const titleClassName = "flex gap-2 items-center"
   const columns = [
     {
@@ -31,6 +31,7 @@ function OrdersPage(): JSX.Element {
       accessorKey: "number",
       className: colClassName,
       titleClassName,
+      enableSorting: false,
     },
     {
       header: t("orders.columns.date"),
