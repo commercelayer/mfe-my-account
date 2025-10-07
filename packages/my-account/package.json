@@ -43,7 +43,7 @@
   "dependencies": {
     "@commercelayer/js-auth": "^6.7.2",
     "@commercelayer/organization-config": "^2.4.0",
-    "@commercelayer/react-components": "4.26.0",
+    "@commercelayer/react-components": "4.28.0",
     "@commercelayer/sdk": "^6.46.0",
     "@esbuild-plugins/node-globals-polyfill": "^0.2.3",
     "@headlessui/react": "1.7.18",
