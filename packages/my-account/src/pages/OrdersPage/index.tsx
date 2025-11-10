@@ -134,7 +134,7 @@ function OrdersPage(): JSX.Element {
           </OrderListRow>
           <OrderListRow
             field="status"
-            className="absolute order-3 left-5 bottom-4 md:bottom-auto md:relative"
+            className="absolute order-3 left-5 bottom-4 md:left-auto md:bottom-auto md:relative"
           >
             {({ cell, row, ...p }) => {
               const order = row?.original
