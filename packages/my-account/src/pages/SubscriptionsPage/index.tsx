@@ -29,7 +29,7 @@ function SubscriptionsPage(): JSX.Element {
   const columns = [
     {
       header: t("subscriptions.columns.subscription"),
-      accessorKey: "number",
+      accessorKey: "starts_at",
       className: colClassName,
       titleClassName,
     },
@@ -73,12 +73,13 @@ function SubscriptionsPage(): JSX.Element {
           showPagination
           pageSize={15}
           paginationContainerClassName="flex justify-between items-center"
+          sortBy={[{ id: "starts_at", desc: true }]}
         >
           <OrderListEmpty>
             {() => <Empty type="Subscriptions" />}
           </OrderListEmpty>
           <OrderListRow
-            field="number"
+            field="starts_at"
             className="order-1 pt-1 pb-2.5 md:p-0  md:align-middle"
           >
             {({ cell, row, ...p }) => {
