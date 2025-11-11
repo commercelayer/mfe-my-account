@@ -28,6 +28,8 @@ function Navbar({ settings, onClick }: Props): JSX.Element {
   const { t } = useTranslation()
   const { accessToken, logoUrl, companyName, language, returnUrl, config } = settings
   const hideSubscriptions = config?.my_account?.hide_subscriptions ?? false
+  const hideWallet = settings?.config?.my_account?.hide_wallet ?? false
+  const hideLogout = settings?.config?.my_account?.hide_logout ?? false
 
   const menu = {
     orders: {
@@ -131,14 +133,16 @@ function Navbar({ settings, onClick }: Props): JSX.Element {
             {!hideSubscriptions && (
               <NavLink id="subscriptions" {...menu.subscriptions} />
             )}
-            <NavLink id="wallet" {...menu.wallet} />
+            {!hideWallet && (
+              <NavLink id="wallet" {...menu.wallet} />
+            )}
             <NavLink id="returns" {...menu.returns} />
           </nav>
           <nav className="md:my-8 lg:my-16 flex flex-col gap-[18px]">
             {returnUrl != null && (
               <NavLink id="backToShop" {...menu.backToShop} />
             )}
-            {returnUrl != null && (
+            {returnUrl != null && !hideLogout && (
               <NavLink id="logout" {...menu.logout} />
             )}
           </nav>
