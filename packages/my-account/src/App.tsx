@@ -29,6 +29,7 @@ function App(): JSX.Element {
         <SettingsProvider config={window.clAppConfig}>
           {({ settings, isLoading }) => {
             const hideSubscriptions = settings?.config?.my_account?.hide_subscriptions ?? false
+            const hideWallet = settings?.config?.my_account?.hide_wallet ?? false
             return isLoading ? (
               <Skeleton />
             ) : !settings.isValid ? (
@@ -118,11 +119,13 @@ function App(): JSX.Element {
                         <LazyAddressesPage />
                       </Suspense>
                     </Route>
-                    <Route path={appRoutes.wallet.path}>
-                      <Suspense fallback={<></>}>
-                        <LazyWalletPage />
-                      </Suspense>
-                    </Route>
+                    {!hideWallet && (
+                      <Route path={appRoutes.wallet.path}>
+                        <Suspense fallback={<></>}>
+                          <LazyWalletPage />
+                        </Suspense>
+                      </Route>
+                    )}
                     <Route>
                       <Invalid />
                     </Route>
