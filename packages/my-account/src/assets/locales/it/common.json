@@ -183,7 +183,8 @@
     "buttonLabel": "Aggiungi un indirizzo"
   },
   "wallet": {
-    "title": "Il mio Wallet"
+    "title": "Il mio Wallet",
+    "deleteConfirmation": "Cancelli il tuo metodo di pagamento?"
   },
   "noPaymentMethods": {
     "title": "Nessun metodo di pagamento",
@@ -196,7 +197,8 @@
     "expires": "scade ",
     "wireTransfer": "Bonifico bancario",
     "wireTransferDescription": "Dopo la conferma dell'ordine riceverai le istruzioni per completare il pagamento",
-    "paypalDescription": "Dopo aver effettuato l'ordine, sarai reindirizzato verso il sito PayPal per accedere e autorizzare il pagamento"
+    "paypalDescription": "Dopo aver effettuato l'ordine, sarai reindirizzato verso il sito PayPal per accedere e autorizzare il pagamento",
+    "delete": "Cancella"
   },
   "returns": {
     "title": "I miei resi"
