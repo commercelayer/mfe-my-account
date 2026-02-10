@@ -182,7 +182,8 @@
     "buttonLabel": "Add an address"
   },
   "wallet": {
-    "title": "My Wallet"
+    "title": "My Wallet",
+    "deleteConfirmation": "Delete your payment method?"
   },
   "noPaymentMethods": {
     "title": "No payment method yet",
@@ -195,7 +196,8 @@
     "expires": "expires ",
     "wireTransfer": "Wire transfer",
     "wireTransferDescription": "Upon order confirmation, you'll receive wiring instructions to complete payment",
-    "paypalDescription": "After placing the order, you will be redirected to the PayPal website to sign in and authorize the payment"
+    "paypalDescription": "After placing the order, you will be redirected to the PayPal website to sign in and authorize the payment",
+    "delete": "Delete"
   },
   "returns": {
     "title": "My returns"
