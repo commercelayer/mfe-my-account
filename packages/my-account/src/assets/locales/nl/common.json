@@ -182,7 +182,8 @@
       "buttonLabel": "Adres toevoegen"
     },
     "wallet": {
-      "title": "Mijn Portemonnee"
+      "title": "Mijn Portemonnee",
+      "deleteConfirmation": "Je betaalmethode verwijderen?"
     },
     "noPaymentMethods": {
       "title": "Nog geen betaalmethode",
@@ -195,7 +196,8 @@
       "expires": "verloopt ",
       "wireTransfer": "Bankoverschrijving",
       "wireTransferDescription": "Na orderbevestiging ontvang je instructies om de betaling te voltooien",
-      "paypalDescription": "Na het plaatsen van de bestelling word je doorgestuurd naar de PayPal-website om in te loggen en de betaling te autoriseren"
+      "paypalDescription": "Na het plaatsen van de bestelling word je doorgestuurd naar de PayPal-website om in te loggen en de betaling te autoriseren",
+      "delete": "Verwijderen"
     },
     "returns": {
       "title": "Mijn retourzendingen"

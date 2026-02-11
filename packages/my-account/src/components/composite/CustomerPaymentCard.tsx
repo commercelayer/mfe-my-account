@@ -2,14 +2,11 @@ import { CustomerPaymentSource } from "@commercelayer/react-components/customers
 
 import { PaymentSourceCard } from "#components/composite/PaymentSourceCard"
 import { SkeletonMainWalletCard } from "#components/ui/Skeleton/Main/Common"
-import { GridCard } from "#components/ui/GridCard"
 
 function CustomerPaymentCard(): JSX.Element {
   return (
     <CustomerPaymentSource loader={<SkeletonMainWalletCard noGap />}>
-      <GridCard hover="none">
-        <PaymentSourceCard />
-      </GridCard>
+      <PaymentSourceCard />
     </CustomerPaymentSource>
   )
 }
