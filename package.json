@@ -38,6 +38,7 @@
     "test:e2e": "pnpm --filter '*' test:e2e",
     "dep:major": "pnpm dlx npm-check-updates --packageFile '**/package.json' -u",
     "dep:minor": "pnpm dep:major -t minor",
+    "dep:minor:audit": "node ./scripts/dep-minor-audit.mjs",
     "clean": "pnpx rimraf --glob **/node_modules **/pnpm-lock.yaml"
   },
   "workspaces": [
