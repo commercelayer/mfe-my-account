@@ -8,14 +8,14 @@ import { Trans, useTranslation } from "react-i18next"
 import { Link } from "wouter"
 
 import Empty from "#components/composite/Empty"
-import { SkeletonMainSubscriptionsTable } from "#components/ui/Skeleton/Main/SubscriptionsTable"
 import SubscriptionNextRunProgress from "#components/composite/subscription/SubscriptionNextRunProgress"
 import SubscriptionStatusChip from "#components/composite/subscription/SubscriptionStatusChip"
+import { SkeletonMainSubscriptionsTable } from "#components/ui/Skeleton/Main/SubscriptionsTable"
 import Title from "#components/ui/Title"
-import { AppContext } from "#providers/AppProvider"
-import { formatDate, shortDate } from "#utils/dateTimeFormats"
 import { appRoutes } from "#data/routes"
+import { AppContext } from "#providers/AppProvider"
 import { useSettings } from "#providers/SettingsProvider"
+import { formatDate, shortDate } from "#utils/dateTimeFormats"
 
 function SubscriptionsPage(): JSX.Element {
   const { t } = useTranslation()
@@ -93,12 +93,14 @@ function SubscriptionsPage(): JSX.Element {
                         <Link
                           href={appRoutes.subscription.makePath({
                             subscriptionId: order.id ?? "",
-                            accessToken: accessToken ?? '',
+                            accessToken: accessToken ?? "",
                             lang: settings.language,
-                            returnUrl: settings.returnUrl
+                            returnUrl: settings.returnUrl,
                           })}
                         >
-                          <p className="text-sm font-semibold"># {order.number}</p>
+                          <p className="text-sm font-semibold">
+                            # {order.number}
+                          </p>
                         </Link>
                         {order.type === "order_subscriptions" &&
                           order.starts_at != null && (
@@ -106,7 +108,7 @@ function SubscriptionsPage(): JSX.Element {
                               <Trans i18nKey="subscription.starts_at">
                                 {formatDate(
                                   order.starts_at as string,
-                                  shortDate
+                                  shortDate,
                                 )}
                               </Trans>
                             </p>
@@ -169,9 +171,7 @@ function SubscriptionsPage(): JSX.Element {
                 return (
                   <div className="absolute bottom-0 left-0 w-full mb-0 md:relative md:bottom-auto md:left-auto md:mb-5">
                     <div className="flex flex-col pt-2 pb-4 mx-5 border-t gap-1 md:border-none md:pt-0 md:pb-0 md:mx-0">
-                      <SubscriptionNextRunProgress
-                        subscription={order}
-                      />
+                      <SubscriptionNextRunProgress subscription={order} />
                     </div>
                   </div>
                 )
@@ -186,9 +186,12 @@ function SubscriptionsPage(): JSX.Element {
                     {formatDate(order.next_run_at as string, shortDate)}
                   </SubscriptionFrequency>
                 )
-              } else {
-                return <p className="hidden md:inline-block text-sm font-extralight text-gray-400 px-3 h-5 md:bg-transparent md:px-0">&#8212;</p>
               }
+              return (
+                <p className="hidden md:inline-block text-sm font-extralight text-gray-400 px-3 h-5 md:bg-transparent md:px-0">
+                  &#8212;
+                </p>
+              )
             }}
           </OrderListRow>
           <OrderListPaginationInfo className="text-sm text-gray-500" />
@@ -221,8 +224,12 @@ function SubscriptionsPage(): JSX.Element {
 
 export default SubscriptionsPage
 
-function SubscriptionFrequency({ children }: { children: React.ReactNode }): JSX.Element {
-  return <p className="capitalize inline-block text-sm font-extralight text-gray-400 h-5 md:bg-transparent">
-    {children}
-  </p>
+function SubscriptionFrequency({
+  children,
+}: { children: React.ReactNode }): JSX.Element {
+  return (
+    <p className="capitalize inline-block text-sm font-extralight text-gray-400 h-5 md:bg-transparent">
+      {children}
+    </p>
+  )
 }

@@ -76,7 +76,13 @@ declare module "HostedApp" {
 
   type InvalidSettings = Pick<
     Settings,
-    "primaryColor" | "language" | "returnUrl" | "companyName" | "logoUrl" | "faviconUrl" | "config"
+    | "primaryColor"
+    | "language"
+    | "returnUrl"
+    | "companyName"
+    | "logoUrl"
+    | "faviconUrl"
+    | "config"
   > & {
     /**
      * This flag allows TypeScript to discriminate between `Settings` and `InvalidSettings` union type.

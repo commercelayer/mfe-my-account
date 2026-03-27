@@ -9,7 +9,7 @@ function MenuButton(): JSX.Element {
   const handlerOnClick = () => ctx?.toggleMobileMenu()
 
   return (
-    <button className="w-6 lg:hidden" onClick={handlerOnClick}>
+    <button type="button" className="w-6 lg:hidden" onClick={handlerOnClick}>
       {ctx?.showMobileMenu ? (
         <X weight="regular" className="w-5" />
       ) : (

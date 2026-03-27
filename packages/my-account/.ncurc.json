@@ -1,3 +1,12 @@
 {
-  "reject": ["@types/async-retry", "react", "react-dom", "@types/react", "@types/react-dom", "@headlessui/react", "tailwindcss", "vitest"]
+  "reject": [
+    "@types/async-retry",
+    "react",
+    "react-dom",
+    "@types/react",
+    "@types/react-dom",
+    "@headlessui/react",
+    "tailwindcss",
+    "vitest"
+  ]
 }

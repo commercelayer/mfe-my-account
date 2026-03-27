@@ -1,4 +1,4 @@
-import type { Settings, InvalidSettings } from "HostedApp"
+import type { InvalidSettings, Settings } from "HostedApp"
 import { changeLanguage } from "i18next"
 import { createContext, useContext, useEffect, useState } from "react"
 
@@ -49,11 +49,11 @@ export function SettingsProvider({
   children,
 }: SettingsProviderProps): JSX.Element {
   const [settings, setSettings] = useState<Settings | InvalidSettings>(
-    defaultSettings
+    defaultSettings,
   )
   const [isLoading, setIsLoading] = useState(true)
   const accessToken = getAccessTokenFromUrl()
-  
+
   useEffect(() => {
     setIsLoading(!!accessToken)
 

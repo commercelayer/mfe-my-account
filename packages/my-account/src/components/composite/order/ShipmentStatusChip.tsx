@@ -21,9 +21,7 @@ function ShipmentStatusChip({ status }: Props): JSX.Element {
   const { t } = useTranslation()
   if (status === undefined) return <></>
   return (
-    <StatusChip status={status}>
-      {getStatusTranslations(status, t)}
-    </StatusChip>
+    <StatusChip status={status}>{getStatusTranslations(status, t)}</StatusChip>
   )
 }
 

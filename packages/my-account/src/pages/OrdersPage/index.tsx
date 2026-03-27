@@ -11,10 +11,10 @@ import Empty from "#components/composite/Empty"
 import OrderStatusChip from "#components/composite/order/OrderStatusChip"
 import { SkeletonMainOrdersTable } from "#components/ui/Skeleton/Main/OrdersTable"
 import Title from "#components/ui/Title"
-import { AppContext } from "#providers/AppProvider"
-import { formatDate, shortDate } from "#utils/dateTimeFormats"
 import { appRoutes } from "#data/routes"
+import { AppContext } from "#providers/AppProvider"
 import { useSettings } from "#providers/SettingsProvider"
+import { formatDate, shortDate } from "#utils/dateTimeFormats"
 
 function OrdersPage(): JSX.Element {
   const { t } = useTranslation()
@@ -91,12 +91,14 @@ function OrdersPage(): JSX.Element {
                         <Link
                           href={appRoutes.order.makePath({
                             orderId: order.id ?? "",
-                            accessToken: accessToken ?? '',
+                            accessToken: accessToken ?? "",
                             lang: settings.language,
-                            returnUrl: settings.returnUrl
+                            returnUrl: settings.returnUrl,
                           })}
                         >
-                          <p className="text-sm font-semibold"># {order.number}</p>
+                          <p className="text-sm font-semibold">
+                            # {order.number}
+                          </p>
                         </Link>
                         {order.type === "orders" && (
                           <p className="text-sm font-light text-gray-400">

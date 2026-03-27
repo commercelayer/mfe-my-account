@@ -1,6 +1,8 @@
 const ShipmentHistoryStep = () => {
   return (
     <svg
+      role="img"
+      aria-label="Shipment history step"
       width="24"
       height="24"
       viewBox="0 0 24 24"

@@ -5,7 +5,7 @@ import TagManager, { type DataLayerArgs } from "react-gtm-module"
 interface GTMProviderValue {
   push: (
     data: DataLayerArgs["dataLayer"],
-    customDataLayerName?: DataLayerArgs["dataLayerName"]
+    customDataLayerName?: DataLayerArgs["dataLayerName"],
   ) => void
 }
 
@@ -49,7 +49,7 @@ export const GTMProvider: React.FC<GTMProviderProps> = ({
         dataLayerName: customDataLayerName,
       })
     },
-    []
+    [],
   )
 
   if (gtmId == null || isEmpty(gtmId)) {

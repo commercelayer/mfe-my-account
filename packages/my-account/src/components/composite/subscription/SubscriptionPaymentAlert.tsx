@@ -1,4 +1,4 @@
-import { Order, OrderSubscription } from "@commercelayer/sdk"
+import type { Order, OrderSubscription } from "@commercelayer/sdk"
 import { Warning } from "phosphor-react"
 import { useContext } from "react"
 
@@ -80,7 +80,7 @@ function getCheckoutLink({
 }: GetCheckoutLinkConfig): string {
   const env = domain === "commercelayer.io" ? "" : "stg."
   const domainName = customDomain ?? `${slug}.${env}commercelayer.app`
-  const application = customDomain ? "" : `/checkout`
+  const application = customDomain ? "" : "/checkout"
   return `https://${domainName}${application}/${
     orderId ?? ""
   }?accessToken=${accessToken}`

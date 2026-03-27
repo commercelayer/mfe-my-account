@@ -3,7 +3,6 @@
     "target": "ESNext",
     "lib": ["dom", "dom.iterable", "esnext"],
     "types": ["vitest/globals"],
-    //   "typeRoots": ["./node_modules/@types", "./src/types"],
     "downlevelIteration": true,
     "allowJs": true,
     "skipLibCheck": true,
@@ -37,8 +36,7 @@
     "**/*.d.ts",
     "**/*.tsx",
     "public/config*.js",
-    "*.config.js",
-    ".eslintrc.cjs"
+    "*.config.js"
   ],
   "exclude": ["node_modules", "playwright.config.*"]
 }

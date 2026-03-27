@@ -9,8 +9,10 @@ interface Props {
 export function LogoCL({ width, height, className }: Props): JSX.Element {
   return (
     <svg
+      role="img"
+      aria-label="Commerce Layer"
       xmlns="http://www.w3.org/2000/svg"
-      className={cn('text-gray-600', className)}
+      className={cn("text-gray-600", className)}
       width={width}
       height={height}
       viewBox="0 0 114 19"

@@ -21,7 +21,7 @@ export const getCustomerDetails = async (config: GetCustomerDetailsConfig) => {
 
 const getAsyncCustomer = async (
   client: CommerceLayerClient,
-  customerId: string
+  customerId: string,
 ) => {
   return await client.customers.retrieve(customerId, {
     fields: {

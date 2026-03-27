@@ -121,7 +121,9 @@ export function PaymentSourceCreditCardExpires({
   )
 
   return variant === "card" ? (
-    <span className="antialiased text-[13px] leading-[20px] text-gray-400 mt-[4px]">{label}</span>
+    <span className="antialiased text-[13px] leading-[20px] text-gray-400 mt-[4px]">
+      {label}
+    </span>
   ) : (
     <div className="font-light text-gray-500">{label}</div>
   )

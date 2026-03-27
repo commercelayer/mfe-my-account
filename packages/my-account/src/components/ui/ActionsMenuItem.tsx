@@ -27,12 +27,21 @@ function ActionsMenuItem(props: Props): JSX.Element {
   }
 
   return (
-    <div className="flex items-center px-2 py-4 bg-white hover:bg-gray-200 cursor-default" onClick={handleClick}>
+    <button
+      type="button"
+      className="flex items-center px-2 py-4 bg-white hover:bg-gray-200 cursor-default"
+      onClick={handleClick}
+    >
       {icon && <div className="flex items-center px-2">{icon}</div>}
-      <p className={cn('text-[12px] select-none', { 'text-red-400': variant === 'warning', 'ml-7': icon == null })}>
+      <p
+        className={cn("text-[12px] select-none", {
+          "text-red-400": variant === "warning",
+          "ml-7": icon == null,
+        })}
+      >
         {label}
       </p>
-    </div>
+    </button>
   )
 }
 

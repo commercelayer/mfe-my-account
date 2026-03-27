@@ -23,9 +23,7 @@ function OrderSummary(): JSX.Element {
               if (props.priceCents === 0) return <></>
               return (
                 <>
-                  <p>
-                    {t("order.summary.discount_amount")}
-                  </p>
+                  <p>{t("order.summary.discount_amount")}</p>
                   <div>{props.price}</div>
                 </>
               )
@@ -42,9 +40,7 @@ function OrderSummary(): JSX.Element {
               if (props.priceCents === 0) return <></>
               return (
                 <>
-                  <p>
-                    {t("order.summary.payment_method_amount")}
-                  </p>
+                  <p>{t("order.summary.payment_method_amount")}</p>
                   {props.price}
                 </>
               )
@@ -61,9 +57,7 @@ function OrderSummary(): JSX.Element {
               if (props.priceCents === 0) return <></>
               return (
                 <>
-                  <p>
-                    {t("order.summary.giftcard_amount")}
-                  </p>
+                  <p>{t("order.summary.giftcard_amount")}</p>
                   <div>{props.price}</div>
                 </>
               )

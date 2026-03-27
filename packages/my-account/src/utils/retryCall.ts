@@ -24,7 +24,7 @@ const RETRIES = 3
  * @returns the `FetchResource<T>` object containing the resolved data and the status of requests.
  */
 export const retryCall = async <T>(
-  f: () => Promise<T>
+  f: () => Promise<T>,
 ): Promise<FetchResource<T> | undefined> => {
   return await retry(
     async (_, attempt) => {
@@ -58,6 +58,6 @@ export const retryCall = async <T>(
     },
     {
       retries: RETRIES,
-    }
+    },
   )
 }

@@ -1,5 +1,5 @@
-import CommerceLayer, { Address } from "@commercelayer/sdk"
-import { createContext, useState, useEffect } from "react"
+import CommerceLayer, { type Address } from "@commercelayer/sdk"
+import { createContext, useEffect, useState } from "react"
 
 import type { AddressFormFields } from "#types/addresses"
 import { getInfoFromJwt } from "#utils/getInfoFromJwt"

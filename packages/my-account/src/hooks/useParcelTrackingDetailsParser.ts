@@ -1,5 +1,5 @@
 import type { RawDataParcelDetails } from "#types/parcelDetailsJson"
-import { formatDate, dbDate } from "#utils/dateTimeFormats"
+import { dbDate, formatDate } from "#utils/dateTimeFormats"
 
 export type ParcelTrackingDetailsParsedTimeType = {
   datetime?: string
@@ -14,7 +14,7 @@ export type ParcelTrackingDetailsParsedDateType = Record<
 >
 
 const useParcelTrackingDetailsParser = (
-  trackingDetails: RawDataParcelDetails
+  trackingDetails: RawDataParcelDetails,
 ): ParcelTrackingDetailsParsedDateType => {
   const trackingDetailsReversed = trackingDetails.reverse()
 
@@ -37,7 +37,7 @@ const useParcelTrackingDetailsParser = (
       }
       return acc
     },
-    {}
+    {},
   )
 }
 

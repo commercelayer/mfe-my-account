@@ -1,17 +1,15 @@
-import { useEffect, useState, lazy, Suspense } from "react"
+import { Suspense, lazy, useEffect, useState } from "react"
 
 import { isGuest } from "#utils/isGuest"
 
 const LazySkeletonCustomer = lazy(
-  () => import("#components/ui/Skeleton/Customer")
+  () => import("#components/ui/Skeleton/Customer"),
 )
-const LazySkeletonGuest = lazy(
-  () => import("#components/ui/Skeleton/Guest")
-)
+const LazySkeletonGuest = lazy(() => import("#components/ui/Skeleton/Guest"))
 
 export function Skeleton(): JSX.Element {
   const [showSkeletonGuest, setShowSkeletonGuest] = useState<null | boolean>(
-    null
+    null,
   )
 
   useEffect(() => {
@@ -31,11 +29,11 @@ export function Skeleton(): JSX.Element {
   }
 
   return showSkeletonGuest === true ? (
-    <Suspense fallback={<></>}>
+    <Suspense fallback={null}>
       <LazySkeletonGuest />
     </Suspense>
   ) : (
-    <Suspense fallback={<></>}>
+    <Suspense fallback={null}>
       <LazySkeletonCustomer />
     </Suspense>
   )

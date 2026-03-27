@@ -39,13 +39,21 @@ function ShowHideMenu({ children, itemsCounter }: Props): JSX.Element {
       }}
     >
       <div>
-        <button className="text-xs text-primary flex items-center mb-4" type="button" onClick={handleClick}>
+        <button
+          className="text-xs text-primary flex items-center mb-4"
+          type="button"
+          onClick={handleClick}
+        >
           <span className="font-semibold border-b border-primary">
             <Trans i18nKey={showHideMenuButtonTextLabel}>
               {itemsCounterToString}
             </Trans>
           </span>
-          <div className={cn('ml-1 transition duration-300', { 'rotate-180': showHideMenu })}>
+          <div
+            className={cn("ml-1 transition duration-300", {
+              "rotate-180": showHideMenu,
+            })}
+          >
             <CaretDown weight="light" className="w-3 h-3" />
           </div>
         </button>

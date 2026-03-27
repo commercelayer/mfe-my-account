@@ -1,6 +1,6 @@
-import CommerceLayer from "@commercelayer/sdk"
 import { getMfeConfig } from "@commercelayer/organization-config"
-import type { Settings, InvalidSettings } from "HostedApp"
+import CommerceLayer from "@commercelayer/sdk"
+import type { InvalidSettings, Settings } from "HostedApp"
 
 import { getInfoFromJwt } from "#utils/getInfoFromJwt"
 import { getOrganizations } from "#utils/getOrganizations"
@@ -17,7 +17,7 @@ export const defaultSettings: InvalidSettings = {
     "https://data.commercelayer.app/assets/images/favicons/favicon-32x32.png",
   companyName: "Commerce Layer",
   retryable: false,
-  config: null
+  config: null,
 }
 
 const makeInvalidSettings = (retryable?: boolean): InvalidSettings => ({
@@ -85,10 +85,10 @@ export const getSettings = async ({
     return makeInvalidSettings(!organizationResponse?.bailed)
   }
 
-  const urlLang = new URLSearchParams(window.location.search).get('lang')
+  const urlLang = new URLSearchParams(window.location.search).get("lang")
   const lang = urlLang ?? defaultSettings.language
-  const returnUrl = new URLSearchParams(window.location.search).get('returnUrl')
-  
+  const returnUrl = new URLSearchParams(window.location.search).get("returnUrl")
+
   const organizationConfig = getMfeConfig({
     jsonConfig: organization.config ?? {},
     params: {
@@ -112,8 +112,8 @@ export const getSettings = async ({
     logoUrl: organization?.logo_url || "",
     faviconUrl: organization?.favicon_url || defaultSettings.faviconUrl,
     gtmId: isTest
-      ? organization?.gtm_id_test ?? ""
-      : organization?.gtm_id ?? "",
-    config: organizationConfig
+      ? (organization?.gtm_id_test ?? "")
+      : (organization?.gtm_id ?? ""),
+    config: organizationConfig,
   }
 }

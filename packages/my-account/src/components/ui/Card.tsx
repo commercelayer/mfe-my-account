@@ -18,13 +18,13 @@ export function Card({
   return (
     <div
       className={cn(
-        'px-5 lg:p-15 xl:pr-48 2xl:pr-15 md:bg-white shadow-sm',
+        "px-5 lg:p-15 xl:pr-48 2xl:pr-15 md:bg-white shadow-sm",
         {
-          'rounded-md': rounded,
-          'relative min-h-full': fullHeight,
-          'lg:pr-20 xl:pr-48': !centered,
+          "rounded-md": rounded,
+          "relative min-h-full": fullHeight,
+          "lg:pr-20 xl:pr-48": !centered,
         },
-        className
+        className,
       )}
     >
       {children}

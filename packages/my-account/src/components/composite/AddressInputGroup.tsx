@@ -1,9 +1,9 @@
 import type {
-  TResourceError,
   TErrorComponent,
+  TResourceError,
 } from "@commercelayer/react-components"
-import { AddressInput } from "@commercelayer/react-components/addresses/AddressInput"
 import { AddressCountrySelector } from "@commercelayer/react-components/addresses/AddressCountrySelector"
+import { AddressInput } from "@commercelayer/react-components/addresses/AddressInput"
 import { AddressStateSelector } from "@commercelayer/react-components/addresses/AddressStateSelector"
 import { Errors } from "@commercelayer/react-components/errors/Errors"
 import type { Address } from "@commercelayer/sdk"
@@ -64,11 +64,11 @@ export function AddressInputGroup({
         <>
           <AddressCountrySelector
             className="form-select"
-            data-cy={`input_billing_address_country_code`}
+            data-cy={"input_billing_address_country_code"}
             name={fieldName}
             placeholder={{
               label: t(
-                "addresses.addressForm.billing_address_country_code_placeholder"
+                "addresses.addressForm.billing_address_country_code_placeholder",
               ),
               value: "",
             }}
@@ -80,13 +80,16 @@ export function AddressInputGroup({
             }
             disabled={Boolean(
               shippingCountryCodeLock &&
-                fieldName === "billing_address_country_code"
+                fieldName === "billing_address_country_code",
             )}
           />
-          <label className="form-label" htmlFor={fieldName}>{label}</label>
+          <label className="form-label" htmlFor={fieldName}>
+            {label}
+          </label>
         </>
       )
-    } else if (isState) {
+    }
+    if (isState) {
       return (
         <>
           <AddressStateSelector
@@ -97,25 +100,28 @@ export function AddressInputGroup({
             name={fieldName}
             value={value?.toUpperCase()}
           />
-          <label className="form-label" htmlFor={fieldName}>{label}</label>
-        </>
-      )
-    } else {
-      return (
-        <>
-          <AddressInput
-            id={fieldName}
-            data-cy={`input_${fieldName}`}
-            name={fieldName}
-            type={type}
-            value={valueStatus}
-            required={required}
-            className="form-input"
-          />
-          <label className="form-label" htmlFor={fieldName}>{label}</label>
+          <label className="form-label" htmlFor={fieldName}>
+            {label}
+          </label>
         </>
       )
     }
+    return (
+      <>
+        <AddressInput
+          id={fieldName}
+          data-cy={`input_${fieldName}`}
+          name={fieldName}
+          type={type}
+          value={valueStatus}
+          required={required}
+          className="form-input"
+        />
+        <label className="form-label" htmlFor={fieldName}>
+          {label}
+        </label>
+      </>
+    )
   }
 
   return (

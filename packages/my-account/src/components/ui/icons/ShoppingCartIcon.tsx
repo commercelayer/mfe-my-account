@@ -1,6 +1,8 @@
 const ShoppingCartIcon = () => {
   return (
     <svg
+      role="img"
+      aria-label="Shopping cart"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 256 256"
       className="w-4 md:w-5"

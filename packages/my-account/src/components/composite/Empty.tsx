@@ -59,7 +59,9 @@ function Empty({ type, descriptionDetail, buttonClick }: Props): JSX.Element {
   return (
     <div className="flex flex-col items-center content-center">
       {icon}
-      <p className="text-sm md:text-lg font-semibold mt-8">{t(`no${type}.title`)}</p>
+      <p className="text-sm md:text-lg font-semibold mt-8">
+        {t(`no${type}.title`)}
+      </p>
       <p className="text-ss text-gray-500 mt-1">{`${t(`no${type}.description`)}${descriptionDetail ?? ""}`}</p>
       {buttonClick && (
         <Button

@@ -5,9 +5,9 @@ import {
   SkeletonCircle,
   SkeletonCol,
   SkeletonHeader,
+  SkeletonRow,
   SkeletonSpan,
   SkeletonSubtitle,
-  SkeletonRow
 } from "#components/ui/Skeleton"
 
 export function SkeletonMainHeaderDesktop(): JSX.Element {
@@ -55,7 +55,7 @@ export function SkeletonMainPageTitle({
   className,
 }: SkeletonMainPageTitleProps): JSX.Element {
   return (
-    <SkeletonCol noGap className={cn('mb-8', className)}>
+    <SkeletonCol noGap className={cn("mb-8", className)}>
       <SkeletonRow centered className="h-[32px]">
         <SkeletonSubtitle size="small" />
       </SkeletonRow>

@@ -55,7 +55,9 @@ export function AddressCard({
             className="absolute w-5 h-5 text-gray-300 cursor-pointer right-2 top-2"
             onClick={() => setShowDeleteConfirmation(false)}
           />
-          <p className="text-sm font-bold">{t("addresses.deleteConfirmation")}</p>
+          <p className="text-sm font-bold">
+            {t("addresses.deleteConfirmation")}
+          </p>
           <div className="flex justify-center w-full mt-3 px-5">
             <AddressField
               type="delete"
@@ -72,7 +74,10 @@ export function AddressCard({
         <p className="font-bold text-md" data-cy={`fullname_${addressType}`}>
           {first_name} {last_name}
         </p>
-        <p className="text-[13px] text-gray-400 antialiased" data-cy={`full_address_${addressType}`}>
+        <p
+          className="text-[13px] text-gray-400 antialiased"
+          data-cy={`full_address_${addressType}`}
+        >
           {line_2 != null ? [line_1, line_2].join(", ") : line_1}
           <br />
           {zip_code} {city} ({state_code}) - {country_code}
@@ -91,24 +96,23 @@ export function AddressCard({
                   setLocation(
                     appRoutes.editAddress.makePath({
                       addressId: address?.id || "",
-                      accessToken: appCtx?.accessToken ?? '',
+                      accessToken: appCtx?.accessToken ?? "",
                       lang: settings.language,
-                      returnUrl: settings.returnUrl
-                    })
+                      returnUrl: settings.returnUrl,
+                    }),
                   )
                 }}
               />
-              <div
+              <button
+                type="button"
                 onClick={() => setShowDeleteConfirmation(true)}
                 className="address-delete-button flex items-center gap-1 text-gray-400 group-hover:text-red-400"
               >
                 <Trash className="w-3.5 h-3.5" />
-                <LinkButton
-                  className="form-button group-hover:text-red-400 bg-white"
-                  label={deleteButton || t("addresses.delete")}
-                  variant="warning"
-                />
-              </div>
+                <span className="form-button group-hover:text-red-400 bg-white">
+                  {deleteButton || t("addresses.delete")}
+                </span>
+              </button>
             </div>
           </div>
         )}

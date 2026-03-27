@@ -6,6 +6,7 @@ const jwtSalesChannelOrgAcme =
 describe("Check if current accessToken is not related to a customer", () => {
   const { location } = window
   beforeAll(function clearLocation() {
+    // biome-ignore lint/performance/noDelete: to allow overriding window.location for testing purposes
     delete (window as any).location
     window.location = {
       ...location,
@@ -15,7 +16,7 @@ describe("Check if current accessToken is not related to a customer", () => {
     }
   })
   afterAll(function resetLocation() {
-    (window as any).location = location
+    ;(window as any).location = location
   })
 
   test("accessToken is in URL query string", () => {

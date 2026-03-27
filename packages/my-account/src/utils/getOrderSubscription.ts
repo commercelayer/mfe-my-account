@@ -21,7 +21,7 @@ interface GetOrderSubscriptionConfig {
  * @returns an object containing the resolved `OrderSubscription` and the status of async operation.
  */
 export const getOrderSubscription = async (
-  config: GetOrderSubscriptionConfig
+  config: GetOrderSubscriptionConfig,
 ) => {
   const { client, orderSubscriptionId } = config
   return retryCall(() => getAsyncOrderSubscription(client, orderSubscriptionId))
@@ -29,7 +29,7 @@ export const getOrderSubscription = async (
 
 const getAsyncOrderSubscription = async (
   client: CommerceLayerClient,
-  orderSubscriptionId: string
+  orderSubscriptionId: string,
 ) => {
   return await client.order_subscriptions.retrieve(orderSubscriptionId, {
     fields: {

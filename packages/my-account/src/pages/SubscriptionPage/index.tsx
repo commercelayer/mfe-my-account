@@ -1,4 +1,4 @@
-import { OrderSubscription } from "@commercelayer/sdk"
+import type { OrderSubscription } from "@commercelayer/sdk"
 import { useContext } from "react"
 import { Trans, useTranslation } from "react-i18next"
 import { Redirect } from "wouter"
@@ -14,10 +14,10 @@ import FormattedDate from "#components/ui/FormattedDate"
 import { OrderSection, OrderSectionItem } from "#components/ui/OrderSection"
 import { ScrollToTop } from "#components/ui/ScrollToTop"
 import { SkeletonMainOrder } from "#components/ui/Skeleton/Main"
-import { AppContext } from "#providers/AppProvider"
-import { useSettings } from "#providers/SettingsProvider"
-import { OrderSubscriptionProvider } from "#providers/OrderSubscriptionProvider"
 import { appRoutes } from "#data/routes"
+import { AppContext } from "#providers/AppProvider"
+import { OrderSubscriptionProvider } from "#providers/OrderSubscriptionProvider"
+import { useSettings } from "#providers/SettingsProvider"
 
 interface SubscriptionPageProps {
   subscriptionId?: string
@@ -32,11 +32,15 @@ function SubscriptionPage({
   const { t } = useTranslation()
 
   if (subscriptionId == null) {
-    return <Redirect to={appRoutes.subscriptions.makePath({
-      accessToken: accessToken ?? '',
-      lang: settings.language,
-      returnUrl: settings.returnUrl
-    })} />
+    return (
+      <Redirect
+        to={appRoutes.subscriptions.makePath({
+          accessToken: accessToken ?? "",
+          lang: settings.language,
+          returnUrl: settings.returnUrl,
+        })}
+      />
+    )
   }
 
   return (
@@ -54,11 +58,13 @@ function SubscriptionPage({
         return (
           <>
             {isInvalid ? (
-              <Redirect to={appRoutes.subscriptions.makePath({
-                accessToken: accessToken ?? '',
-                lang: settings.language,
-                returnUrl: settings.returnUrl
-              })} />
+              <Redirect
+                to={appRoutes.subscriptions.makePath({
+                  accessToken: accessToken ?? "",
+                  lang: settings.language,
+                  returnUrl: settings.returnUrl,
+                })}
+              />
             ) : (
               <>
                 {/*  TODO: Create a new skeleton for the subscription */}

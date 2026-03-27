@@ -1,5 +1,5 @@
-import CommerceLayer, { Order } from "@commercelayer/sdk"
-import { createContext, useState, useEffect } from "react"
+import CommerceLayer, { type Order } from "@commercelayer/sdk"
+import { createContext, useEffect, useState } from "react"
 
 import { getInfoFromJwt } from "#utils/getInfoFromJwt"
 import { getOrder } from "#utils/getOrder"

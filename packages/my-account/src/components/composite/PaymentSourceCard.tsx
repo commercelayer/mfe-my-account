@@ -1,17 +1,16 @@
 import { PaymentSourceBrandIcon } from "@commercelayer/react-components/payment_source/PaymentSourceBrandIcon"
 import { PaymentSourceDetail } from "@commercelayer/react-components/payment_source/PaymentSourceDetail"
+import { Trash, X } from "phosphor-react"
 import { useState } from "react"
 import { useTranslation } from "react-i18next"
-import { Trash, X } from "phosphor-react"
-import { LinkButton } from "#components/ui/LinkButton"
 
+import { PaymentSourceDeleteButton } from "@commercelayer/react-components"
 import {
-  PaymentSourceName,
-  PaymentSourceCreditCardNumber,
   PaymentSourceCreditCardExpires,
+  PaymentSourceCreditCardNumber,
+  PaymentSourceName,
 } from "#components/composite/PaymentSource"
 import { GridCard } from "#components/ui/GridCard"
-import { PaymentSourceDeleteButton } from "@commercelayer/react-components"
 
 export function PaymentSourceCard(): JSX.Element {
   const { t } = useTranslation()
@@ -30,7 +29,7 @@ export function PaymentSourceCard(): JSX.Element {
           <div className="flex justify-center w-full mt-3 px-5">
             <PaymentSourceDeleteButton
               label={t("paymentSource.delete")}
-              className="address-confirm-delete-button form-button px-5 h-6 text-3xs rounded-md bg-red-400 text-white flex items-center justify-center mx-0.5"  
+              className="address-confirm-delete-button form-button px-5 h-6 text-3xs rounded-md bg-red-400 text-white flex items-center justify-center mx-0.5"
             />
           </div>
         </div>
@@ -61,17 +60,16 @@ export function PaymentSourceCard(): JSX.Element {
             </PaymentSourceDetail>
             <div className="flex flex-col justify-end pt-2">
               <div className="flex justify-between self-end tracking-wide">
-                <div
+                <button
+                  type="button"
                   onClick={() => setShowDeleteConfirmation(true)}
                   className="address-delete-button flex items-center gap-1 text-gray-400 group-hover:text-red-400"
                 >
                   <Trash className="w-3.5 h-3.5" />
-                  <LinkButton
-                    className="form-button group-hover:text-red-400 bg-white"
-                    label={t("paymentSource.delete")}
-                    variant="warning"
-                  />
-                </div>
+                  <span className="form-button group-hover:text-red-400 bg-white">
+                    {t("paymentSource.delete")}
+                  </span>
+                </button>
               </div>
             </div>
           </div>

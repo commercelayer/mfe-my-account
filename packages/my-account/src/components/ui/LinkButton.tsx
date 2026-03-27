@@ -16,15 +16,17 @@ export function LinkButton({
   className,
 }: LinkButtonProps): JSX.Element {
   return (
-    <button 
+    <button
+      type="button"
       className={cn(
-        'text-ss font-semibold h-5 cursor-pointer border-b',
+        "text-ss font-semibold h-5 cursor-pointer border-b",
         {
-          'group-hover:text-primary': variant === "default",
-          'group-hover:text-red-400 group-hover:border-red-400 group-hover:border-opacity-10': variant !== "default",
+          "group-hover:text-primary": variant === "default",
+          "group-hover:text-red-400 group-hover:border-red-400 group-hover:border-opacity-10":
+            variant !== "default",
         },
-        className
-      )} 
+        className,
+      )}
       onClick={onClick}
     >
       {label}

@@ -8,11 +8,11 @@ import OrderAccordion from "#components/composite/order/OrderAccordion"
 import OrderDate from "#components/composite/order/OrderDate"
 import type { OrderStatus } from "#components/composite/order/OrderStatusChip"
 import OrderStatusChip from "#components/composite/order/OrderStatusChip"
-import { SkeletonMainOrder } from "#components/ui/Skeleton/Main"
 import { ScrollToTop } from "#components/ui/ScrollToTop"
+import { SkeletonMainOrder } from "#components/ui/Skeleton/Main"
+import { appRoutes } from "#data/routes"
 import { AppContext } from "#providers/AppProvider"
 import { OrderProvider } from "#providers/OrderProvider"
-import { appRoutes } from "#data/routes"
 import { useSettings } from "#providers/SettingsProvider"
 
 interface OrderPageProps {
@@ -33,11 +33,13 @@ function OrderPage({ orderId }: OrderPageProps): JSX.Element {
       {({ isInvalid, isLoading, order }) => (
         <>
           {isInvalid ? (
-            <Redirect to={appRoutes.orders.makePath({
-              accessToken: accessToken ?? '',
-              lang: settings.language,
-              returnUrl: settings.returnUrl
-            })} />
+            <Redirect
+              to={appRoutes.orders.makePath({
+                accessToken: accessToken ?? "",
+                lang: settings.language,
+                returnUrl: settings.returnUrl,
+              })}
+            />
           ) : (
             <OrderContainer orderId={orderId}>
               <SkeletonMainOrder visible={isLoading} />

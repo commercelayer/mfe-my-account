@@ -25,18 +25,18 @@ interface GetOrderSubscriptionConfig {
  * @returns an object containing the resolved `OrderSubscription` and the status of async operation.
  */
 export const getOrderSubscriptionLastOrder = async (
-  config: GetOrderSubscriptionConfig
+  config: GetOrderSubscriptionConfig,
 ) => {
   const { client, customerId, orderSubscriptionId } = config
   return retryCall(() =>
-    getAsyncOrderSubscriptionLastOrder(client, customerId, orderSubscriptionId)
+    getAsyncOrderSubscriptionLastOrder(client, customerId, orderSubscriptionId),
   )
 }
 
 const getAsyncOrderSubscriptionLastOrder = async (
   client: GetOrderSubscriptionConfig["client"],
   customerId: GetOrderSubscriptionConfig["customerId"],
-  orderSubscriptionId: GetOrderSubscriptionConfig["orderSubscriptionId"]
+  orderSubscriptionId: GetOrderSubscriptionConfig["orderSubscriptionId"],
 ) => {
   const customerOrders = await client.customers.orders(customerId, {
     filters: { order_subscription_id_eq: orderSubscriptionId },

@@ -1,6 +1,8 @@
 const NoReturnsIcon = () => {
   return (
     <svg
+      role="img"
+      aria-label="No returns"
       width="168"
       height="103"
       viewBox="0 0 168 103"

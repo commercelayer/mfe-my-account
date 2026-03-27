@@ -1,16 +1,14 @@
-import {
-  authenticate
-} from "@commercelayer/js-auth"
+import { authenticate } from "@commercelayer/js-auth"
 import CommerceLayer, {
-  Address,
-  AddressCreate,
-  CommerceLayerClient,
+  type Address,
+  type AddressCreate,
+  type CommerceLayerClient,
 } from "@commercelayer/sdk"
 import { test as base } from "@playwright/test"
 import { config } from "dotenv"
 import { jwtDecode } from "jwt-decode"
 
-import path from "path"
+import path from "node:path"
 
 import { AddressesPage } from "#specs/fixtures/AddressesPage"
 import { OrdersPage } from "#specs/fixtures/OrdersPage"
@@ -44,7 +42,7 @@ const getToken = async (market?: string) => {
   const clientId = process.env.E2E_CLIENT_ID as string
   const scope = market || (process.env.E2E_SCOPE as string)
 
-  const data = await authenticate('client_credentials', {
+  const data = await authenticate("client_credentials", {
     domain,
     clientId,
     scope,
@@ -83,14 +81,13 @@ const getCustomerUserToken = async ({
   const clientId = process.env.E2E_CLIENT_ID as string
   const scope = process.env.E2E_SCOPE as string
 
-  const auth = await authenticate('password', {
-      domain,
-      clientId,
-      scope,
-      username: email,
-      password,
-    }
-  )
+  const auth = await authenticate("password", {
+    domain,
+    clientId,
+    scope,
+    username: email,
+    password,
+  })
   return auth.accessToken
 }
 
@@ -99,7 +96,7 @@ const getSuperToken = async () => {
   const clientId = process.env.E2E_INTEGRATION_CLIENT_ID as string
   const clientSecret = process.env.E2E_INTEGRATION_CLIENT_SECRET as string
   const scope = process.env.E2E_SCOPE as string
-  const data = await authenticate('client_credentials', {
+  const data = await authenticate("client_credentials", {
     domain,
     clientId,
     clientSecret,
@@ -110,7 +107,7 @@ const getSuperToken = async () => {
 
 const createCustomerAddresses = async (
   cl: CommerceLayerClient,
-  params: DefaultParamsProps
+  params: DefaultParamsProps,
 ) => {
   if (
     params.customer &&

@@ -1,6 +1,8 @@
 const NoAddressesIcon = () => {
   return (
     <svg
+      role="img"
+      aria-label="No addresses"
       width="168"
       height="127"
       viewBox="0 0 168 127"

@@ -1,5 +1,5 @@
 {
-  "typescript.tsdk": "packages/my-account/node_modules/typescript/lib",
+  "js/ts.tsdk.path": "packages/my-account/node_modules/typescript/lib",
   "editor.formatOnSave": true,
   "[javascript]": {
     "editor.formatOnSave": false
@@ -13,21 +13,11 @@
   "[typescriptreact]": {
     "editor.formatOnSave": false
   },
-  "javascript.format.enable": true,
-  "eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact"
-  ],
   "css.validate": false,
   "less.validate": false,
   "scss.validate": false,
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit",
     "source.fixAll": "explicit"
   },
-  "cSpell.words": [
-    "extralight"
-  ]
+  "cSpell.words": ["extralight"]
 }

@@ -33,13 +33,22 @@ function ActionsMenu({ children, className }: Props): JSX.Element {
         setShowActionsMenu(false)
       }}
     >
-      <div className={cn("relative flex justify-end", { "z-10": showActionsMenu }, className)}>
+      <div
+        className={cn(
+          "relative flex justify-end",
+          { "z-10": showActionsMenu },
+          className,
+        )}
+      >
         <button
           type="button"
           onClick={handleClick}
-          className={cn("flex items-center opacity-70 rounded-full hover:text-gray-600 hover:opacity-100 p-1", {
-            "bg-gray-300 text-gray-600 opacity-100": showActionsMenu,
-          })}
+          className={cn(
+            "flex items-center opacity-70 rounded-full hover:text-gray-600 hover:opacity-100 p-1",
+            {
+              "bg-gray-300 text-gray-600 opacity-100": showActionsMenu,
+            },
+          )}
         >
           <span className="sr-only">{t("actionsMenu.mainLabel")}</span>
           <DotsThreeVertical weight="bold" className="w-5 h-5" />

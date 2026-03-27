@@ -14,20 +14,24 @@ const handlerStatusColor = (status: string) => {
     case "approved": // Orders
     case "shipped": // Shipments
     case "received": // Returns
-      return 'text-green-400 bg-green-400 bg-opacity-10'
+      return "text-green-400 bg-green-400 bg-opacity-10"
     case "cancelled":
-      return 'text-red-400 bg-red-400 bg-opacity-10'
+      return "text-red-400 bg-red-400 bg-opacity-10"
     default:
-      return 'text-yellow-400 bg-yellow-400 bg-opacity-10'
+      return "text-yellow-400 bg-yellow-400 bg-opacity-10"
   }
 }
 
 export function StatusChip({ children, className, status }: StatusChipProps) {
-  return <p 
-    className={cn(
-      'inline text-center text-3xs md:w-auto uppercase font-bold py-[2px] px-[8px] rounded-xl align-middle', 
-      handlerStatusColor(status),
-      className
-    )}
-  >{children}</p>
+  return (
+    <p
+      className={cn(
+        "inline text-center text-3xs md:w-auto uppercase font-bold py-[2px] px-[8px] rounded-xl align-middle",
+        handlerStatusColor(status),
+        className,
+      )}
+    >
+      {children}
+    </p>
+  )
 }

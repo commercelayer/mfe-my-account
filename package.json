@@ -38,19 +38,23 @@
     "test:e2e": "pnpm --filter '*' test:e2e",
     "dep:major": "pnpm dlx npm-check-updates --packageFile '**/package.json' -u",
     "dep:minor": "pnpm dep:major -t minor",
+    "prepare": "husky",
     "clean": "pnpx rimraf --glob **/node_modules **/pnpm-lock.yaml"
   },
   "workspaces": [
     "packages/*"
   ],
   "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "husky": "^9.1.7",
     "lerna": "^9.0.7",
+    "lint-staged": "^16.4.0",
     "npm-check-updates": "^18.3.1"
   },
   "resolutions": {
-    "@typescript-eslint/typescript-estree>minimatch": "^9.0.9",
     "flatted": "^3.4.2",
     "tmp": "^0.2.4",
-    "ajv": "^6.14.0"
+    "ajv": "^6.14.0",
+    "picomatch": "^4.0.4"
   }
 }

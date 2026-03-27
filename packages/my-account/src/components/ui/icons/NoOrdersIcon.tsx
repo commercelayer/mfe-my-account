@@ -1,6 +1,8 @@
 const NoOrdersIcon = ({ width = 216 }: { width?: number }) => {
   return (
     <svg
+      role="img"
+      aria-label="No orders"
       width={width}
       viewBox="0 0 216 126"
       fill="none"
