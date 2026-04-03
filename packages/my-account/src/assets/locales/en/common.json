@@ -8,8 +8,8 @@
     "terms_link": "Terms"
   },
   "input": {
-    "cantBlank" : "Can't be blank",
-    "mustBeValidFormat" : "Must be valid format"
+    "cantBlank": "Can't be blank",
+    "mustBeValidFormat": "Must be valid format"
   },
   "menu": {
     "orders": "Orders",
@@ -150,7 +150,7 @@
     "title": "My addresses",
     "edit": "Edit",
     "delete": "Delete",
-    "addNewAddress":"Add new address",
+    "addNewAddress": "Add new address",
     "deleteConfirmation": "Delete your address?",
     "yes": "Yes",
     "no": "No",

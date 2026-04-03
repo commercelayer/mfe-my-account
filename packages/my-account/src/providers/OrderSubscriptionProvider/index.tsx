@@ -1,4 +1,7 @@
-import CommerceLayer, { Order, OrderSubscription } from "@commercelayer/sdk"
+import CommerceLayer, {
+  type Order,
+  type OrderSubscription,
+} from "@commercelayer/sdk"
 import { createContext, useEffect, useState } from "react"
 
 import { getInfoFromJwt } from "#utils/getInfoFromJwt"
@@ -48,7 +51,7 @@ export function OrderSubscriptionProvider({
 
   const fetchInitialOrderSubscription = async (
     orderSubscriptionId?: string,
-    accessToken?: string
+    accessToken?: string,
   ) => {
     if (!orderSubscriptionId || !accessToken) {
       return

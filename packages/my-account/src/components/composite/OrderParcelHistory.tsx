@@ -5,12 +5,15 @@ import { Trans } from "react-i18next"
 import ShipmentHistoryStep from "#components/ui/icons/ShipmentHistoryStep"
 import ShipmentHistoryStepLast from "#components/ui/icons/ShipmentHistoryStepLast"
 import type {
-  ParcelTrackingDetailsParsedTimeType,
   ParcelTrackingDetailsParsedDateType,
+  ParcelTrackingDetailsParsedTimeType,
 } from "#hooks/useParcelTrackingDetailsParser"
 import useParcelTrackingDetailsParser from "#hooks/useParcelTrackingDetailsParser"
-import { rawDataParcelDetailsSchema } from "#types/parcelDetailsJson"
-import { formatDate, longDate, amPmTime } from "#utils/dateTimeFormats"
+import {
+  type RawDataParcelDetails,
+  rawDataParcelDetailsSchema,
+} from "#types/parcelDetailsJson"
+import { amPmTime, formatDate, longDate } from "#utils/dateTimeFormats"
 
 interface OrderParcelHistoryDateProps {
   dateKey: string
@@ -42,13 +45,12 @@ function OrderParcelHistoryTime({
     time.status as string
   }` as ParcelStatus
   return (
-    <div className={cn(
-      'relative flex items-start pb-4 mt-4 ml-5 text-left', 
-      { 'mt-8': timeIsFirstOfDate }
-    )} key={timeIndex}>
-      <div className="mt-1 font-bold w-28 text-xxs">
-        {timeFormatted}
-      </div>
+    <div
+      className={cn("relative flex items-start pb-4 mt-4 ml-5 text-left", {
+        "mt-8": timeIsFirstOfDate,
+      })}
+    >
+      <div className="mt-1 font-bold w-28 text-xxs">{timeFormatted}</div>
       <ShipmentTimeBorder dateTimeIsLast={dateTimeIsLast}>
         <div className="absolute -ml-3 bg-gray-50 md:bg-white -top-2 pb-2">
           {dateTimeIsLast ? (
@@ -66,9 +68,7 @@ function OrderParcelHistoryTime({
         <div className="w-40 text-sm text-gray-400 md:w-auto">
           {time.message}
         </div>
-        <div className="text-sm font-bold">
-          {time.trackingLocation}
-        </div>
+        <div className="text-sm font-bold">{time.trackingLocation}</div>
       </div>
     </div>
   )
@@ -78,11 +78,24 @@ interface ShipmentTimeBorderProps extends React.HTMLAttributes<HTMLDivElement> {
   dateTimeIsLast: boolean
 }
 
-function ShipmentTimeBorder({ children, dateTimeIsLast }: ShipmentTimeBorderProps) {
-  return <div className={cn('absolute z-10 h-full border-r border-gray-300 left-20 top-2', {
-    'border-dashed': dateTimeIsLast,
-    'before:border-[#e6e7e7] before:border-t-0 before:border-r-0 before:border-b-[1px] before:border-l-[1px] before:content-[""] before:h-[8px] before:w-[8px] before:absolute before:top-[25px] before:left-[-3.5px] before:rotate-135': dateTimeIsLast,
-  })}>{children}</div>
+function ShipmentTimeBorder({
+  children,
+  dateTimeIsLast,
+}: ShipmentTimeBorderProps) {
+  return (
+    <div
+      className={cn(
+        "absolute z-10 h-full border-r border-gray-300 left-20 top-2",
+        {
+          "border-dashed": dateTimeIsLast,
+          'before:border-[#e6e7e7] before:border-t-0 before:border-r-0 before:border-b-[1px] before:border-l-[1px] before:content-[""] before:h-[8px] before:w-[8px] before:absolute before:top-[25px] before:left-[-3.5px] before:rotate-135':
+            dateTimeIsLast,
+        },
+      )}
+    >
+      {children}
+    </div>
+  )
 }
 
 function OrderParcelHistoryDate({
@@ -106,10 +119,10 @@ function OrderParcelHistoryDate({
               dateIndex={dateIndex}
               timeIndex={timeIndex}
               time={time}
-              key={timeIndex}
+              key={time.datetime}
             />
           )
-        }
+        },
       )}
     </div>
   )
@@ -124,31 +137,39 @@ function OrderParcelHistory(): JSX.Element {
           rawDataParcelDetailsSchema.safeParse(props?.attributeValue)
             .success === false
         )
-          return <span></span>
+          return <span />
 
         const parsedDetails = rawDataParcelDetailsSchema.parse(
-          props?.attributeValue
+          props?.attributeValue,
         )
-
-        const OrderParcelHistoryParsed =
-          useParcelTrackingDetailsParser(parsedDetails)
-
-        return (
-          <div className="mt-12 -mx-5 px-5 pb-10">
-            {Object.keys(OrderParcelHistoryParsed).map(
-              (dateKey: string, dateIndex: number) => (
-                <OrderParcelHistoryDate
-                  dateKey={dateKey}
-                  dateIndex={dateIndex}
-                  parsedData={OrderParcelHistoryParsed}
-                  key={dateIndex}
-                />
-              )
-            )}
-          </div>
-        )
+        return <ParcelHistoryDetail parsedDetails={parsedDetails} />
       }}
     </ParcelField>
+  )
+}
+
+function ParcelHistoryDetail({
+  parsedDetails,
+}: {
+  parsedDetails: RawDataParcelDetails
+}): JSX.Element {
+  const OrderParcelHistoryParsed = useParcelTrackingDetailsParser(parsedDetails)
+
+  return (
+    <div className="mt-12 -mx-5 px-5 pb-10">
+      {Object.keys(OrderParcelHistoryParsed).map(
+        (dateKey: string, dateIndex: number) => {
+          return (
+            <OrderParcelHistoryDate
+              dateKey={dateKey}
+              dateIndex={dateIndex}
+              parsedData={OrderParcelHistoryParsed}
+              key={dateKey}
+            />
+          )
+        },
+      )}
+    </div>
   )
 }
 

@@ -16,7 +16,9 @@ export function ErrorContainer({
             <LogoCL className="self-center text-black md:pl-4 md:self-auto" />
           </div>
           <div className="flex flex-col flex-1 justify-center items-center text-center">
-            <div className="flex flex-col items-center md:flex-row">{children}</div>
+            <div className="flex flex-col items-center md:flex-row">
+              {children}
+            </div>
           </div>
           <div className="absolute bottom-0 block lg:hidden pb-2">
             <Footer />

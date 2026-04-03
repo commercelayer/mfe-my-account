@@ -13,9 +13,9 @@ interface Props {
   status?: SubscriptionStatus
 }
 
-function SubscriptionStatusChip({ status }: Props): JSX.Element {
+function SubscriptionStatusChip({ status }: Props): JSX.Element | null {
   const { t } = useTranslation()
-  if (status === undefined) return <></>
+  if (status === undefined) return null
   return (
     <StatusChip status={status}>
       {t(`subscriptionStatus.${status}`) as string}

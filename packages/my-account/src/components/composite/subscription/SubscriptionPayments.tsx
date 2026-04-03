@@ -1,4 +1,4 @@
-import { OrderSubscription } from "@commercelayer/sdk"
+import type { OrderSubscription } from "@commercelayer/sdk"
 import capitalize from "lodash/capitalize"
 import { Trans } from "react-i18next"
 
@@ -17,21 +17,18 @@ function SubscriptionPayments({ orderSubscription }: Props): JSX.Element {
     orderSubscription?.customer_payment_source?.payment_source
 
   if (paymentMethod != null && paymentSource != null) {
-
     const details = getCardDetails({
       paymentType: paymentMethod.payment_source_type,
       paymentSource,
     })
     const icon = getCardIconFromDetails(details)
     const name = capitalize(
-      (details.brand ?? details.issuer_type).replace(/_|-/gm, " ")
+      (details.brand ?? details.issuer_type).replace(/_|-/gm, " "),
     )
     return (
       <div className="rounded flex bg-gray-50 items-center px-4 h-[57px] gap-6">
-        { 
-          details.issuer_type != null
-          ? (
-            <>
+        {details.issuer_type != null ? (
+          <>
             <div>
               <img src={icon} alt={paymentMethod?.name ?? ""} width={36} />
             </div>
@@ -59,10 +56,10 @@ function SubscriptionPayments({ orderSubscription }: Props): JSX.Element {
                 name
               )}
             </div>
-            </>
-          )
-          : (name)
-        }
+          </>
+        ) : (
+          name
+        )}
       </div>
     )
   }

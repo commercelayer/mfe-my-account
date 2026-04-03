@@ -13,7 +13,7 @@ function CustomerAddressCard({ readonly }: Props): JSX.Element {
 
   return (
     <Address
-      className={cn({ 'group': actionsNeeded })}
+      className={cn({ group: actionsNeeded })}
       disabledClassName="opacity-50 cursor-not-allowed"
     >
       {

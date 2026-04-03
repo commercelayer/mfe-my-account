@@ -18,9 +18,9 @@ interface Props {
   status?: OrderStatus
 }
 
-function OrderStatusChip({ status }: Props): JSX.Element {
+function OrderStatusChip({ status }: Props): JSX.Element | null {
   const { t } = useTranslation()
-  if (status === undefined) return <></>
+  if (status === undefined) return null
   return (
     <StatusChip status={status}>
       {t(`orderStatus.${status}`) as string}

@@ -1,6 +1,6 @@
-import CommerceLayer from "@commercelayer/sdk"
 import type { Settings } from "HostedApp"
-import { createContext, useState, useEffect } from "react"
+import CommerceLayer from "@commercelayer/sdk"
+import { createContext, useEffect, useState } from "react"
 
 import { getCustomerDetails } from "#utils/getCustomerDetails"
 import { getInfoFromJwt } from "#utils/getInfoFromJwt"
@@ -57,7 +57,7 @@ export function AppProvider({
 
   const fetchCustomerHandle = async (
     customerId?: string,
-    accessToken?: string
+    accessToken?: string,
   ) => {
     if (!customerId || !accessToken) {
       return

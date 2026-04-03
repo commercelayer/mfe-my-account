@@ -1,11 +1,11 @@
-import {
+import type {
   AdyenPayment,
   AxervePayment,
   BraintreePayment,
   CheckoutComPayment,
-  Order,
   ExternalPayment,
   KlarnaPayment,
+  Order,
   PaypalPayment,
   SatispayPayment,
   StripePayment,
@@ -100,7 +100,7 @@ export function getCardDetails({
 }
 
 export function getCardIconFromDetails(
-  cardDetails: CardDetails
+  cardDetails: CardDetails,
 ): string | undefined {
   let iconName = cardDetails.brand ?? cardDetails.issuer_type
   if (iconName === "wire_transfer") {

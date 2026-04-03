@@ -1,8 +1,6 @@
+import { SkeletonWrapper } from "#components/ui/Skeleton"
 import { SkeletonMainPageTitle } from "#components/ui/Skeleton/Main/Common"
 import { SkeletonMainOrdersTable } from "#components/ui/Skeleton/Main/OrdersTable"
-import {
-  SkeletonWrapper,
-} from "#components/ui/Skeleton"
 
 interface Props {
   visible?: boolean

@@ -2,9 +2,9 @@ import { PaymentSourceBrandIcon } from "@commercelayer/react-components/payment_
 import { PaymentSourceDetail } from "@commercelayer/react-components/payment_source/PaymentSourceDetail"
 
 import {
-  PaymentSourceName,
   PaymentSourceCreditCardEndingIn,
   PaymentSourceCreditCardExpires,
+  PaymentSourceName,
 } from "#components/composite/PaymentSource"
 
 export function PaymentSourceRow(): JSX.Element {

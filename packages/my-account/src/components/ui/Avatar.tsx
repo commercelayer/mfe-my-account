@@ -8,7 +8,13 @@ interface Props {
 
 function Avatar({ email, className }: Props): JSX.Element {
   const src = url(email, { s: "32", r: "g", d: "mp" }, true)
-  return <img src={src} className={cn("rounded-full", className)} />
+  return (
+    <img
+      alt="Customer avatar"
+      src={src}
+      className={cn("rounded-full", className)}
+    />
+  )
 }
 
 export default Avatar

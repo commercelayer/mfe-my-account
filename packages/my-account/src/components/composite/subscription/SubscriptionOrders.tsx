@@ -5,7 +5,7 @@ import {
 } from "@commercelayer/react-components"
 import OrderListPaginationButtons from "@commercelayer/react-components/orders/OrderListPaginationButtons"
 import OrderListPaginationInfo from "@commercelayer/react-components/orders/OrderListPaginationInfo"
-import { Order, OrderSubscription } from "@commercelayer/sdk"
+import type { Order, OrderSubscription } from "@commercelayer/sdk"
 import capitalize from "lodash/capitalize"
 import { useContext } from "react"
 import { useTranslation } from "react-i18next"
@@ -14,10 +14,10 @@ import { Link } from "wouter"
 import Empty from "#components/composite/Empty"
 import OrderStatusChip from "#components/composite/order/OrderStatusChip"
 import { SkeletonMainSubscriptionsOrdersTable } from "#components/ui/Skeleton/Main/SubscriptionsOrdersTable"
-import { AppContext } from "#providers/AppProvider"
-import { formatDate, shortDate } from "#utils/dateTimeFormats"
 import { appRoutes } from "#data/routes"
+import { AppContext } from "#providers/AppProvider"
 import { useSettings } from "#providers/SettingsProvider"
+import { formatDate, shortDate } from "#utils/dateTimeFormats"
 
 interface Props {
   orderSubscription: OrderSubscription
@@ -92,7 +92,7 @@ function SubscriptionOrders({ orderSubscription }: Props) {
               type="SubscriptionOrders"
               descriptionDetail={formatDate(
                 orderSubscription.next_run_at as string,
-                shortDate
+                shortDate,
               )}
             />
           )}
@@ -100,6 +100,7 @@ function SubscriptionOrders({ orderSubscription }: Props) {
         <OrderListRow field="number" className="order-1 p-4">
           {({ cell, row, ...p }) => {
             const order = row?.original
+            // biome-ignore lint/complexity/noUselessFragments: in react-components
             if (!order) return <></>
             return (
               <>
@@ -109,9 +110,9 @@ function SubscriptionOrders({ orderSubscription }: Props) {
                       <Link
                         href={appRoutes.order.makePath({
                           orderId: order.id ?? "",
-                          accessToken: accessToken ?? '',
+                          accessToken: accessToken ?? "",
                           lang: settings.language,
-                          returnUrl: settings.returnUrl
+                          returnUrl: settings.returnUrl,
                         })}
                       >
                         <p className="text-sm text-gray-400">#{order.number}</p>
@@ -126,6 +127,7 @@ function SubscriptionOrders({ orderSubscription }: Props) {
         <OrderListRow field="updated_at" className="order-2 px-4 ">
           {({ cell, row, ...p }) => {
             const order = row?.original
+            // biome-ignore lint/complexity/noUselessFragments: in react-components
             if (!order) return <></>
             const cols = cell?.map((cell) => {
               return (
@@ -143,6 +145,7 @@ function SubscriptionOrders({ orderSubscription }: Props) {
         <OrderListRow field="status" className="order-3 px-4">
           {({ cell, row, ...p }) => {
             const order = row?.original
+            // biome-ignore lint/complexity/noUselessFragments: in react-components
             if (!order) return <></>
             const cols = cell?.map(() => {
               return (
@@ -158,7 +161,7 @@ function SubscriptionOrders({ orderSubscription }: Props) {
           {({ row }) => {
             const order = row?.original as Order
             const paymentStatus = capitalize(
-              order?.payment_status.replace(/_|-/gm, " ")
+              order?.payment_status.replace(/_|-/gm, " "),
             )
             return (
               <div className="order-4 px-4 text-sm text-gray-400">

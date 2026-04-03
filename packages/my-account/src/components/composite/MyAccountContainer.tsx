@@ -1,5 +1,5 @@
-import { CommerceLayer } from "@commercelayer/react-components/auth/CommerceLayer"
 import type { Settings } from "HostedApp"
+import { CommerceLayer } from "@commercelayer/react-components/auth/CommerceLayer"
 import { IconContext } from "phosphor-react"
 
 import { InjectCssCustomProperties } from "#components/composite/InjectCssCustomProperties"
@@ -34,7 +34,7 @@ function MyAccountContainer({
         accessToken={settings.accessToken}
         endpoint={settings.endpoint}
       >
-        <InjectCssCustomProperties primaryColor={settings.primaryColor} />        
+        <InjectCssCustomProperties primaryColor={settings.primaryColor} />
         <IconContext.Provider
           value={{
             size: 32,
@@ -70,9 +70,7 @@ function MyAccountContainer({
                     </div>
                   </>
                 }
-                aside={
-                  settings.isGuest ? null : <Navbar settings={settings} />
-                }
+                aside={settings.isGuest ? null : <Navbar settings={settings} />}
               />
             </CustomerContainerProvider>
           </AppProvider>

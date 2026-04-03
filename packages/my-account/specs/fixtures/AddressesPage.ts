@@ -29,11 +29,11 @@ export class AddressesPage extends MyAccountPage {
 
     await this.page.selectOption(
       "select[name=billing_address_country_code]",
-      address.country_code as string
+      address.country_code as string,
     )
 
     const inputStateCode = this.page.locator(
-      "input[name=billing_address_state_code]"
+      "input[name=billing_address_state_code]",
     )
     if ((await inputStateCode.count()) > 0) {
       await inputStateCode.fill(address.state_code as string)
@@ -46,7 +46,7 @@ export class AddressesPage extends MyAccountPage {
     ) {
       await this.page.selectOption(
         "select[name=billing_address_state_code]",
-        address.state_code as string
+        address.state_code as string,
       )
     }
 

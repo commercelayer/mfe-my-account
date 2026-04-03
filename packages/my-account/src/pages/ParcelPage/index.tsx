@@ -9,11 +9,11 @@ import { useTranslation } from "react-i18next"
 import { Link, Redirect } from "wouter"
 
 import OrderParcelHistory from "#components/composite/OrderParcelHistory"
-import { SkeletonMainParcel } from "#components/ui/Skeleton/Main"
 import { ScrollToTop } from "#components/ui/ScrollToTop"
+import { SkeletonMainParcel } from "#components/ui/Skeleton/Main"
+import { appRoutes } from "#data/routes"
 import { AppContext } from "#providers/AppProvider"
 import { OrderProvider } from "#providers/OrderProvider"
-import { appRoutes } from "#data/routes"
 import { useSettings } from "#providers/SettingsProvider"
 
 interface Props {
@@ -37,11 +37,13 @@ function ParcelPage({ orderId, parcelId }: Props): JSX.Element {
       {({ isInvalid }) => (
         <>
           {isInvalid ? (
-            <Redirect to={appRoutes.orders.makePath({
-              accessToken: accessToken ?? '',
-              lang: settings.language,
-              returnUrl: settings.returnUrl
-            })} />
+            <Redirect
+              to={appRoutes.orders.makePath({
+                accessToken: accessToken ?? "",
+                lang: settings.language,
+                returnUrl: settings.returnUrl,
+              })}
+            />
           ) : (
             <OrderContainer orderId={orderId}>
               <ShipmentsContainer>
@@ -53,9 +55,9 @@ function ParcelPage({ orderId, parcelId }: Props): JSX.Element {
                           <Link
                             href={appRoutes.subscription.makePath({
                               subscriptionId: orderId ?? "",
-                              accessToken: accessToken ?? '',
+                              accessToken: accessToken ?? "",
                               lang: settings.language,
-                              returnUrl: settings.returnUrl
+                              returnUrl: settings.returnUrl,
                             })}
                           >
                             <div className="flex-none rounded-full border border-gray-300 p-1 hover:bg-gray-300 cursor-pointer">
@@ -69,11 +71,12 @@ function ParcelPage({ orderId, parcelId }: Props): JSX.Element {
                         </div>
                         <div className="flex flex-auto justify-between gap-4 md:pl-12 mt-10">
                           <div>
-                            <label className="block uppercase text-xs text-gray-300 font-bold">
+                            <span className="block uppercase text-xs text-gray-300 font-bold">
                               {t("order.shipments.parcelDetail.trackingCode")}
-                            </label>
+                            </span>
                             <span className="block text-sm font-bold">
                               <ParcelField
+                                name="tracking_number"
                                 attribute="tracking_number"
                                 tagElement="span"
                               />

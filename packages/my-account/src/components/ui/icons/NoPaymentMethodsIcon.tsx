@@ -1,6 +1,8 @@
 const NoPaymentMethodsIcon = ({ width = 168 }: { width?: number }) => {
   return (
     <svg
+      role="img"
+      aria-label="No payment methods"
       width={width}
       viewBox="0 0 168 80"
       fill="none"

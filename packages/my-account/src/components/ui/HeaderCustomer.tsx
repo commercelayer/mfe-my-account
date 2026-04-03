@@ -23,9 +23,13 @@ function HeaderCustomer({ logoUrl, companyName }: Props): JSX.Element {
           companyName={companyName}
           className="self-center lg:hidden"
         />
-        <h1 className="hidden text-xxl font-medium lg:inline">{t("header.title")}</h1>
+        <h1 className="hidden text-xxl font-medium lg:inline">
+          {t("header.title")}
+        </h1>
         <div className="flex items-center">
-          <p className="hidden text-sm text-gray-500 mr-3 font-medium lg:inline">{email}</p>
+          <p className="hidden text-sm text-gray-500 mr-3 font-medium lg:inline">
+            {email}
+          </p>
           <Avatar email={email} />
         </div>
       </div>

@@ -10,14 +10,13 @@ import { ShipmentsCount } from "@commercelayer/react-components/shipments/Shipme
 import { useContext } from "react"
 import { Trans, useTranslation } from "react-i18next"
 import { useLocation } from "wouter"
-
-import ShipmentStatusChip from "#components/composite/order/ShipmentStatusChip"
 import type { ShipmentStatus } from "#components/composite/order/ShipmentStatusChip"
+import ShipmentStatusChip from "#components/composite/order/ShipmentStatusChip"
 import Button from "#components/ui/Button"
 import ShowHideMenu from "#components/ui/ShowHideMenu"
+import { appRoutes } from "#data/routes"
 import { AppContext } from "#providers/AppProvider"
 import { OrderContext } from "#providers/OrderProvider"
-import { appRoutes } from "#data/routes"
 import { useSettings } from "#providers/SettingsProvider"
 
 function ParcelTrackingNumber(): JSX.Element {
@@ -50,13 +49,15 @@ function ParcelLink(): JSX.Element {
             label={t("order.shipments.trackParcel") as string}
             buttonSize="small"
             onClick={() =>
-              setLocation(appRoutes.parcel.makePath({
-                orderId: orderId ?? '',
-                parcelId: props?.attributeValue ?? '',
-                accessToken: accessToken ?? '',
-                lang: settings.language,
-                returnUrl: settings.returnUrl
-              }))
+              setLocation(
+                appRoutes.parcel.makePath({
+                  orderId: orderId ?? "",
+                  parcelId: props?.attributeValue ?? "",
+                  accessToken: accessToken ?? "",
+                  lang: settings.language,
+                  returnUrl: settings.returnUrl,
+                }),
+              )
             }
           />
         )
@@ -74,7 +75,7 @@ function Parcel(): JSX.Element {
             <ParcelField attribute="number" tagElement="span" />
           </Trans>
         </span>
-        <div className='flex'>
+        <div className="flex">
           <ParcelTrackingNumber />
           <ParcelLink />
         </div>
@@ -125,11 +126,13 @@ function ShipmentTop(): JSX.Element {
       <span className="font-bold text-gray-500 bg-gray-300 rounded-full py-0.5 px-1.5 text-[12px]">
         <ShipmentField name="key_number">
           {(shipment) => {
-            const key_number = parseInt(
-              shipment.shipment.number?.split("/")[
-                shipment.shipment.number?.split("/").length - 1
-              ] ?? ""
-            )
+            const key_number =
+              Number.parseInt(
+                shipment.shipment.number?.split("/")[
+                  shipment.shipment.number?.split("/").length - 1
+                ] ?? "",
+                10,
+              ) || 0
             return <>{key_number}</>
           }}
         </ShipmentField>

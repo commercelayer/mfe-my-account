@@ -13,7 +13,7 @@ interface MenuItemProps {
 
 function MenuItem({ className }: MenuItemProps): JSX.Element {
   return (
-    <div className={cn('flex items-center h-[32px] mb-[18px]', className)}>
+    <div className={cn("flex items-center h-[32px] mb-[18px]", className)}>
       <SkeletonCircle className="w-4 h-4 mr-2" />
       <SkeletonBox className="w-1/3 h-4" />
     </div>

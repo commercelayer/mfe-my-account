@@ -1,5 +1,5 @@
-import type { CommerceLayerClient } from "@commercelayer/sdk"
 import type { Settings } from "HostedApp"
+import type { CommerceLayerClient } from "@commercelayer/sdk"
 
 import { retryCall } from "#utils/retryCall"
 
@@ -21,7 +21,7 @@ export const getCustomerDetails = async (config: GetCustomerDetailsConfig) => {
 
 const getAsyncCustomer = async (
   client: CommerceLayerClient,
-  customerId: string
+  customerId: string,
 ) => {
   return await client.customers.retrieve(customerId, {
     fields: {

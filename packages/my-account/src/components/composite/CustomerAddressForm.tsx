@@ -6,8 +6,8 @@ import { useTranslation } from "react-i18next"
 import { useLocation, useRoute } from "wouter"
 
 import { AddressInputGroup } from "#components/composite/AddressInputGroup"
-import Title from "#components/ui/Title"
 import Text from "#components/ui/Text"
+import Title from "#components/ui/Title"
 import { appRoutes } from "#data/routes"
 import { AppContext } from "#providers/AppProvider"
 import { CustomerAddressContext } from "#providers/CustomerAddressProvider"
@@ -99,20 +99,22 @@ function CustomerAddressForm(): JSX.Element | null {
         value={address?.billing_info || ""}
       />
       <div className="flex justify-between items-center pb-10">
-        <div className="flex content-center items-center text-ss text-primary underline border-red-400 font-bold hover:cursor-pointer"
+        <button
+          type="button"
+          className="flex content-center items-center text-ss text-primary underline border-red-400 font-bold hover:cursor-pointer"
           onClick={() => {
             setLocation(
               `${appRoutes.addresses.makePath({
-                accessToken: appCtx?.accessToken ?? '',
+                accessToken: appCtx?.accessToken ?? "",
                 lang: settings.language,
-                returnUrl: settings.returnUrl
-              })}`
+                returnUrl: settings.returnUrl,
+              })}`,
             )
           }}
         >
           <XCircle className="w-4 h-4" />
           <Text>{t("addresses.addressForm.discard_changes")}</Text>
-        </div>
+        </button>
         <SaveAddressesButton
           className="text-ss font-bold text-white bg-primary text-center px-16 lg:px-20 h-11 rounded-md shadow-sm disabled:opacity-50 max-w-1/2"
           data-test-id="save-address"
@@ -120,10 +122,10 @@ function CustomerAddressForm(): JSX.Element | null {
           onClick={() => {
             setLocation(
               `${appRoutes.addresses.makePath({
-                accessToken: appCtx?.accessToken ?? '',
+                accessToken: appCtx?.accessToken ?? "",
                 lang: settings.language,
-                returnUrl: settings.returnUrl
-              })}`
+                returnUrl: settings.returnUrl,
+              })}`,
             )
           }}
           addressId={address?.id}

@@ -1,14 +1,14 @@
-import { CustomerField } from "@commercelayer/react-components/customers/CustomerField"
 import type { Settings } from "HostedApp"
+import { CustomerField } from "@commercelayer/react-components/customers/CustomerField"
 import {
-  Package,
+  ArrowUUpLeft,
+  CalendarCheck,
   CreditCard,
   Lifebuoy,
   MapPin,
+  Package,
   ShoppingCart,
-  CalendarCheck,
   SignOut,
-  ArrowUUpLeft
 } from "phosphor-react"
 import { useTranslation } from "react-i18next"
 
@@ -21,12 +21,12 @@ import { revokeCustomerToken } from "#utils/revokeCustomerToken"
 
 interface Props {
   settings: Settings
-  onClick?: () => void
 }
 
-function Navbar({ settings, onClick }: Props): JSX.Element {
+function Navbar({ settings }: Props): JSX.Element {
   const { t } = useTranslation()
-  const { accessToken, logoUrl, companyName, language, returnUrl, config } = settings
+  const { accessToken, logoUrl, companyName, language, returnUrl, config } =
+    settings
   const hideSubscriptions = config?.my_account?.hide_subscriptions ?? false
   const hideWallet = settings?.config?.my_account?.hide_wallet ?? false
   const hideLogout = settings?.config?.my_account?.hide_logout ?? false
@@ -43,43 +43,39 @@ function Navbar({ settings, onClick }: Props): JSX.Element {
       icon: <ShoppingCart className="w-4" />,
       comingSoon: false,
       accessToken,
-      onClick,
     },
     addresses: {
       title: t("menu.addresses"),
       href: appRoutes.addresses.makePath({
         accessToken: accessToken ?? "",
         lang: language,
-        returnUrl
+        returnUrl,
       }),
       icon: <MapPin className="w-4" />,
       comingSoon: false,
       accessToken,
-      onClick,
     },
     subscriptions: {
       title: t("menu.subscriptions"),
       href: appRoutes.subscriptions.makePath({
         accessToken: accessToken ?? "",
         lang: language,
-        returnUrl
+        returnUrl,
       }),
       icon: <CalendarCheck className="w-4" />,
       comingSoon: false,
       accessToken,
-      onClick,
     },
     wallet: {
       title: t("menu.wallet"),
       href: appRoutes.wallet.makePath({
         accessToken: accessToken ?? "",
         lang: language,
-        returnUrl
+        returnUrl,
       }),
       icon: <CreditCard className="w-4" />,
       comingSoon: false,
       accessToken,
-      onClick,
     },
     returns: {
       title: t("menu.returns"),
@@ -88,11 +84,10 @@ function Navbar({ settings, onClick }: Props): JSX.Element {
       comingSoon: true,
       hidden: true,
       accessToken,
-      onClick,
     },
     backToShop: {
       title: t("menu.backToShop"),
-      href: returnUrl ?? '#',
+      href: returnUrl ?? "#",
       icon: <ArrowUUpLeft className="w-4" />,
     },
     customerService: {
@@ -100,11 +95,10 @@ function Navbar({ settings, onClick }: Props): JSX.Element {
       href: "/customer_service",
       icon: <Lifebuoy className="w-4" />,
       accessToken,
-      onClick,
     },
     logout: {
       title: t("menu.logout"),
-      href: '#',
+      href: "#",
       icon: <SignOut className="w-4" />,
       onClick: () => {
         revokeCustomerToken(accessToken ?? "").then(() => {
@@ -112,12 +106,15 @@ function Navbar({ settings, onClick }: Props): JSX.Element {
             window.location.replace(returnUrl)
           }
         })
-      }
-    }
+      },
+    },
   }
 
   return (
-    <div className="flex flex-col min-h-full p-5 lg:p-15 sticky lg:top-8 xl:pl-48" data-cy="navbar">
+    <div
+      className="flex flex-col min-h-full p-5 lg:p-15 sticky lg:top-8 xl:pl-48"
+      data-cy="navbar"
+    >
       <div className="lg:sticky lg:top-8">
         <div className="w-full h-auto lg:h-[50px] lg:flex lg:items-center">
           <Logo
@@ -133,9 +130,7 @@ function Navbar({ settings, onClick }: Props): JSX.Element {
             {!hideSubscriptions && (
               <NavLink id="subscriptions" {...menu.subscriptions} />
             )}
-            {!hideWallet && (
-              <NavLink id="wallet" {...menu.wallet} />
-            )}
+            {!hideWallet && <NavLink id="wallet" {...menu.wallet} />}
             <NavLink id="returns" {...menu.returns} />
           </nav>
           <nav className="md:my-8 lg:my-16 flex flex-col gap-[18px]">

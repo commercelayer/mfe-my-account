@@ -1,8 +1,8 @@
+import { SkeletonWrapper } from "#components/ui/Skeleton"
 import {
   SkeletonMainPageTitle,
   SkeletonMainWalletCard,
 } from "#components/ui/Skeleton/Main/Common"
-import { SkeletonWrapper } from "#components/ui/Skeleton"
 
 interface Props {
   visible?: boolean

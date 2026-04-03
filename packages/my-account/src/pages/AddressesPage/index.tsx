@@ -30,10 +30,10 @@ function AddressesPage(): JSX.Element {
         action={() => {
           setLocation(
             `${appRoutes.newAddress.makePath({
-              accessToken: appCtx?.accessToken ?? '',
+              accessToken: appCtx?.accessToken ?? "",
               lang: settings.language,
-              returnUrl: settings.returnUrl
-            })}`
+              returnUrl: settings.returnUrl,
+            })}`,
           )
         }}
         testId="show-new-address"

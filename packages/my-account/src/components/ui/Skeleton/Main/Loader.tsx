@@ -2,10 +2,10 @@ import { useLocation } from "wouter"
 
 import {
   SkeletonMainAddresses,
-  SkeletonMainWallet,
-  SkeletonMainOrders,
   SkeletonMainOrder,
+  SkeletonMainOrders,
   SkeletonMainParcel,
+  SkeletonMainWallet,
 } from "#components/ui/Skeleton/Main"
 
 export function SkeletonMainLoader(): JSX.Element {

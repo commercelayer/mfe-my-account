@@ -4,14 +4,13 @@ import { useTranslation } from "react-i18next"
 import { AddressCard } from "#components/composite/AddressCard"
 import { OrderContext } from "#providers/OrderProvider"
 
-function AddressesSummary(): JSX.Element {
+function AddressesSummary(): JSX.Element | null {
   const { t } = useTranslation()
 
   const ctx = useContext(OrderContext)
   const order = ctx?.order
 
-  if (!order || !order?.billing_address || !order?.shipping_address)
-    return <></>
+  if (!order?.billing_address || !order?.shipping_address) return null
 
   return (
     <div className="flex flex-col md:flex-row justify-between gap-8">

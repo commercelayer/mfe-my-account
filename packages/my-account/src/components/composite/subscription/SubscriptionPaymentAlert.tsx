@@ -1,4 +1,4 @@
-import { Order, OrderSubscription } from "@commercelayer/sdk"
+import type { Order, OrderSubscription } from "@commercelayer/sdk"
 import { Warning } from "phosphor-react"
 import { useContext } from "react"
 
@@ -12,7 +12,8 @@ interface Props {
 function SubscriptionPaymentAlert({
   orderSubscription,
   orderSubscriptionLastOrder,
-}: Props): JSX.Element {
+}: Props): JSX.Element | null {
+  const ctx = useContext(AppContext)
   if (orderSubscription != null && orderSubscriptionLastOrder != null) {
     const isActive = orderSubscription.status === "active"
     if (
@@ -20,7 +21,6 @@ function SubscriptionPaymentAlert({
       orderSubscriptionLastOrder != null &&
       orderSubscriptionLastOrder?.payment_status === "unpaid"
     ) {
-      const ctx = useContext(AppContext)
       const { domain, slug } = getDomain(ctx?.endpoint ?? "")
       const href = getCheckoutLink({
         slug,
@@ -50,7 +50,7 @@ function SubscriptionPaymentAlert({
       )
     }
   }
-  return <></>
+  return null
 }
 
 function getDomain(endpoint: string): { slug: string; domain: string } {
@@ -80,7 +80,7 @@ function getCheckoutLink({
 }: GetCheckoutLinkConfig): string {
   const env = domain === "commercelayer.io" ? "" : "stg."
   const domainName = customDomain ?? `${slug}.${env}commercelayer.app`
-  const application = customDomain ? "" : `/checkout`
+  const application = customDomain ? "" : "/checkout"
   return `https://${domainName}${application}/${
     orderId ?? ""
   }?accessToken=${accessToken}`

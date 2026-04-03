@@ -1,16 +1,12 @@
-import {
-  authenticate
-} from "@commercelayer/js-auth"
+import path from "node:path"
+import { authenticate } from "@commercelayer/js-auth"
 import CommerceLayer, {
-  Address,
-  AddressCreate,
-  CommerceLayerClient,
+  type Address,
+  type AddressCreate,
 } from "@commercelayer/sdk"
 import { test as base } from "@playwright/test"
 import { config } from "dotenv"
 import { jwtDecode } from "jwt-decode"
-
-import path from "path"
 
 import { AddressesPage } from "#specs/fixtures/AddressesPage"
 import { OrdersPage } from "#specs/fixtures/OrdersPage"
@@ -44,7 +40,7 @@ const getToken = async (market?: string) => {
   const clientId = process.env.E2E_CLIENT_ID as string
   const scope = market || (process.env.E2E_SCOPE as string)
 
-  const data = await authenticate('client_credentials', {
+  const data = await authenticate("client_credentials", {
     domain,
     clientId,
     scope,
@@ -83,14 +79,13 @@ const getCustomerUserToken = async ({
   const clientId = process.env.E2E_CLIENT_ID as string
   const scope = process.env.E2E_SCOPE as string
 
-  const auth = await authenticate('password', {
-      domain,
-      clientId,
-      scope,
-      username: email,
-      password,
-    }
-  )
+  const auth = await authenticate("password", {
+    domain,
+    clientId,
+    scope,
+    username: email,
+    password,
+  })
   return auth.accessToken
 }
 
@@ -99,7 +94,7 @@ const getSuperToken = async () => {
   const clientId = process.env.E2E_INTEGRATION_CLIENT_ID as string
   const clientSecret = process.env.E2E_INTEGRATION_CLIENT_SECRET as string
   const scope = process.env.E2E_SCOPE as string
-  const data = await authenticate('client_credentials', {
+  const data = await authenticate("client_credentials", {
     domain,
     clientId,
     clientSecret,
@@ -108,10 +103,7 @@ const getSuperToken = async () => {
   return data.accessToken
 }
 
-const createCustomerAddresses = async (
-  cl: CommerceLayerClient,
-  params: DefaultParamsProps
-) => {
+const createCustomerAddresses = async (params: DefaultParamsProps) => {
   if (
     params.customer &&
     params.customerAddresses &&
@@ -170,8 +162,7 @@ export const test = base.extend<FixtureType>({
       ? getCustomerUserToken(defaultParams.customer)
       : getToken(defaultParams.market))
 
-    const cl = await getClient(token)
-    await createCustomerAddresses(cl, defaultParams)
+    await createCustomerAddresses(defaultParams)
 
     const accessToken =
       defaultParams.token === undefined ? token : defaultParams.token

@@ -15,7 +15,7 @@ describe("Check if current accessToken is not related to a customer", () => {
     }
   })
   afterAll(function resetLocation() {
-    (window as any).location = location
+    ;(window as any).location = location
   })
 
   test("accessToken is in URL query string", () => {

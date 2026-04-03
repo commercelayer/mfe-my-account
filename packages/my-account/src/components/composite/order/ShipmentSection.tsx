@@ -1,7 +1,7 @@
 import { Shipment } from "@commercelayer/react-components/shipments/Shipment"
 import { ShipmentField } from "@commercelayer/react-components/shipments/ShipmentField"
 import { ShipmentsContainer } from "@commercelayer/react-components/shipments/ShipmentsContainer"
-import { useTranslation, Trans } from "react-i18next"
+import { Trans, useTranslation } from "react-i18next"
 
 function ShipmentSection(): JSX.Element {
   const { t } = useTranslation()

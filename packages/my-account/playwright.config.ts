@@ -1,7 +1,6 @@
-import { PlaywrightTestConfig, devices } from "@playwright/test"
+import path from "node:path"
+import type { PlaywrightTestConfig } from "@playwright/test"
 import dotenv from "dotenv"
-
-import path from "path"
 
 dotenv.config({ path: path.resolve(__dirname, "../../.env.local") })
 

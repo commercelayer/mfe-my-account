@@ -1,5 +1,5 @@
-import { CustomerContainer } from "@commercelayer/react-components/customers/CustomerContainer"
 import type { Settings } from "HostedApp"
+import { CustomerContainer } from "@commercelayer/react-components/customers/CustomerContainer"
 
 type CustomerContainerProviderProps = Pick<Settings, "isGuest"> & {
   children: JSX.Element | JSX.Element[] | null
@@ -8,10 +8,6 @@ type CustomerContainerProviderProps = Pick<Settings, "isGuest"> & {
 export function CustomerContainerProvider({
   children,
   isGuest,
-}: CustomerContainerProviderProps): JSX.Element {
-  return isGuest ? (
-    <>{children}</>
-  ) : (
-    <CustomerContainer>{children}</CustomerContainer>
-  )
+}: CustomerContainerProviderProps): JSX.Element | JSX.Element[] | null {
+  return isGuest ? children : <CustomerContainer>{children}</CustomerContainer>
 }

@@ -1,4 +1,4 @@
-import { jwtDecode, revoke, type RevokeReturn } from "@commercelayer/js-auth"
+import { jwtDecode, type RevokeReturn, revoke } from "@commercelayer/js-auth"
 
 /**
  * Revoke the customer access token.

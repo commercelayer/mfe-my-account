@@ -16,12 +16,12 @@ import { useTranslation } from "react-i18next"
 import { RepeatIcon } from "#components/ui/icons/RepeatIcon"
 
 import {
-  LineItemWrapper,
   LineItemContent,
   LineItemDescription,
   LineItemFrequency,
-  LineItemSku,
   LineItemQty,
+  LineItemSku,
+  LineItemWrapper,
 } from "#components/ui/LineItem"
 import { SettingsContext } from "#providers/SettingsProvider"
 
@@ -32,7 +32,8 @@ interface Props {
 export function LineItemTypes({ type }: Props): JSX.Element {
   const { t } = useTranslation()
   const ctx = useContext(SettingsContext)
-  const hideItemCodes = ctx.settings.config?.my_account?.hide_item_codes ?? false
+  const hideItemCodes =
+    ctx.settings.config?.my_account?.hide_item_codes ?? false
 
   return (
     <LineItem type={type}>
@@ -41,9 +42,11 @@ export function LineItemTypes({ type }: Props): JSX.Element {
         <LineItemContent>
           <LineItemDescription>
             <div>
-              {!hideItemCodes && (<LineItemSku>
-                SKU <LineItemCode className="text-xs text-gray-600" />
-              </LineItemSku>)}
+              {!hideItemCodes && (
+                <LineItemSku>
+                  SKU <LineItemCode className="text-xs text-gray-600" />
+                </LineItemSku>
+              )}
               <LineItemName className="block mb-1 font-bold" />
             </div>
             <LineItemQty>
@@ -68,14 +71,12 @@ export function LineItemTypes({ type }: Props): JSX.Element {
               }
               let isCronValid = true
               try {
-                // eslint-disable-next-line import/no-named-as-default-member
                 parseExpression(attributeValue as string)
-              } catch (e) {
+              } catch (_e) {
                 isCronValid = false
               }
               const frequency = isCronValid
-                ? // eslint-disable-next-line import/no-named-as-default-member
-                  cronstrue.toString(attributeValue as string, {
+                ? cronstrue.toString(attributeValue as string, {
                     locale: ctx.settings.language,
                   })
                 : t(`order.summary.frequency.${attributeValue}`)

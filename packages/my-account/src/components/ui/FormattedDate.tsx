@@ -1,4 +1,3 @@
-
 import { formatDate, shortDate } from "#utils/dateTimeFormats"
 
 interface Props {
@@ -7,8 +6,7 @@ interface Props {
 
 function FormattedDate({ date }: Props): string | null {
   if (date == null) return null
-  const formattedDate =
-    (date != null && formatDate(date, shortDate)) || ""
+  const formattedDate = (date != null && formatDate(date, shortDate)) || ""
 
   return formattedDate
 }
