@@ -32,8 +32,8 @@
     "dev": "pnpm --filter '*' dev",
     "build": "pnpm --filter '*' build",
     "start": "pnpm --filter '*' start",
-    "lint": "pnpm -r lint",
-    "lint:fix": "pnpm -r lint:fix",
+    "check": "pnpm -r check",
+    "check:fix": "pnpm -r check:fix",
     "test": "pnpm --filter '*' test",
     "test:e2e": "pnpm --filter '*' test:e2e",
     "dep:major": "pnpm dlx npm-check-updates --packageFile '**/package.json' -u",
@@ -41,9 +41,7 @@
     "prepare": "husky",
     "clean": "pnpx rimraf --glob **/node_modules **/pnpm-lock.yaml"
   },
-  "workspaces": [
-    "packages/*"
-  ],
+  "workspaces": ["packages/*"],
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
     "husky": "^9.1.7",
