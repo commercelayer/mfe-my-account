@@ -1,4 +1,4 @@
-import { Suspense, lazy } from "react"
+import { lazy, Suspense } from "react"
 import { Redirect, Route, Router, Switch } from "wouter"
 
 import MyAccountContainer from "#components/composite/MyAccountContainer"
@@ -24,29 +24,46 @@ const basePath =
 
 function App(): JSX.Element {
   return (
-    <>
-      <Router base={basePath}>
-        <SettingsProvider config={window.clAppConfig}>
-          {({ settings, isLoading }) => {
-            const hideSubscriptions =
-              settings?.config?.my_account?.hide_subscriptions ?? false
-            const hideWallet =
-              settings?.config?.my_account?.hide_wallet ?? false
-            return isLoading ? (
-              <Skeleton />
-            ) : !settings.isValid ? (
-              <Invalid />
-            ) : (
-              <MyAccountContainer
-                settings={settings}
-                config={window.clAppConfig}
-              >
-                <GTMProvider gtmId={settings.gtmId}>
-                  <Switch>
-                    <Route path={"/404"}>
-                      <Invalid />
-                    </Route>
-                    <Route path={"/"}>
+    <Router base={basePath}>
+      <SettingsProvider config={window.clAppConfig}>
+        {({ settings, isLoading }) => {
+          const hideSubscriptions =
+            settings?.config?.my_account?.hide_subscriptions ?? false
+          const hideWallet = settings?.config?.my_account?.hide_wallet ?? false
+          return isLoading ? (
+            <Skeleton />
+          ) : !settings.isValid ? (
+            <Invalid />
+          ) : (
+            <MyAccountContainer settings={settings} config={window.clAppConfig}>
+              <GTMProvider gtmId={settings.gtmId}>
+                <Switch>
+                  <Route path={"/404"}>
+                    <Invalid />
+                  </Route>
+                  <Route path={"/"}>
+                    <Redirect
+                      to={appRoutes.orders.makePath({
+                        accessToken: settings.accessToken ?? "",
+                        lang: settings.language,
+                        returnUrl: settings.returnUrl,
+                      })}
+                    />
+                  </Route>
+                  <Route path={"/orders"}>
+                    <Suspense fallback={null}>
+                      <LazyOrdersPage />
+                    </Suspense>
+                  </Route>
+                  <Route path={"/orders/:orderId"}>
+                    {(params) => (
+                      <Suspense fallback={null}>
+                        <LazyOrderPage orderId={params.orderId} />
+                      </Suspense>
+                    )}
+                  </Route>
+                  <Route path={"/orders/:orderId/parcels"}>
+                    {(_params) => (
                       <Redirect
                         to={appRoutes.orders.makePath({
                           accessToken: settings.accessToken ?? "",
@@ -54,91 +71,68 @@ function App(): JSX.Element {
                           returnUrl: settings.returnUrl,
                         })}
                       />
-                    </Route>
-                    <Route path={"/orders"}>
-                      <Suspense fallback={null}>
-                        <LazyOrdersPage />
-                      </Suspense>
-                    </Route>
-                    <Route path={"/orders/:orderId"}>
-                      {(params) => (
-                        <Suspense fallback={null}>
-                          <LazyOrderPage orderId={params.orderId} />
-                        </Suspense>
-                      )}
-                    </Route>
-                    <Route path={"/orders/:orderId/parcels"}>
-                      {(params) => (
-                        <Redirect
-                          to={appRoutes.orders.makePath({
-                            accessToken: settings.accessToken ?? "",
-                            lang: settings.language,
-                            returnUrl: settings.returnUrl,
-                          })}
-                        />
-                      )}
-                    </Route>
-                    <Route path={"/orders/:orderId/parcels/:parcelId"}>
-                      {(params) => (
-                        <Suspense fallback={null}>
-                          <LazyParcelPage
-                            orderId={params.orderId}
-                            parcelId={params.parcelId}
-                          />
-                        </Suspense>
-                      )}
-                    </Route>
-                    {!hideSubscriptions && (
-                      <>
-                        <Route path={appRoutes.subscriptions.path}>
-                          <Suspense fallback={null}>
-                            <LazySubscriptionsPage />
-                          </Suspense>
-                        </Route>
-                        <Route path={"/subscriptions/:subscriptionId"}>
-                          {(params) => (
-                            <Suspense fallback={null}>
-                              <LazySubscriptionPage
-                                subscriptionId={params.subscriptionId}
-                              />
-                            </Suspense>
-                          )}
-                        </Route>
-                      </>
                     )}
-                    <Route path={appRoutes.newAddress.path}>
+                  </Route>
+                  <Route path={"/orders/:orderId/parcels/:parcelId"}>
+                    {(params) => (
                       <Suspense fallback={null}>
-                        <LazyAddressFormPage />
+                        <LazyParcelPage
+                          orderId={params.orderId}
+                          parcelId={params.parcelId}
+                        />
                       </Suspense>
-                    </Route>
-                    <Route path={appRoutes.editAddress.path}>
-                      <Suspense fallback={null}>
-                        <LazyAddressFormPage />
-                      </Suspense>
-                    </Route>
-                    <Route path={appRoutes.addresses.path}>
-                      <Suspense fallback={null}>
-                        <LazyAddressesPage />
-                      </Suspense>
-                    </Route>
-                    {!hideWallet && (
-                      <Route path={appRoutes.wallet.path}>
+                    )}
+                  </Route>
+                  {!hideSubscriptions && (
+                    <>
+                      <Route path={appRoutes.subscriptions.path}>
                         <Suspense fallback={null}>
-                          <LazyWalletPage />
+                          <LazySubscriptionsPage />
                         </Suspense>
                       </Route>
-                    )}
-                    <Route>
-                      <Invalid />
+                      <Route path={"/subscriptions/:subscriptionId"}>
+                        {(params) => (
+                          <Suspense fallback={null}>
+                            <LazySubscriptionPage
+                              subscriptionId={params.subscriptionId}
+                            />
+                          </Suspense>
+                        )}
+                      </Route>
+                    </>
+                  )}
+                  <Route path={appRoutes.newAddress.path}>
+                    <Suspense fallback={null}>
+                      <LazyAddressFormPage />
+                    </Suspense>
+                  </Route>
+                  <Route path={appRoutes.editAddress.path}>
+                    <Suspense fallback={null}>
+                      <LazyAddressFormPage />
+                    </Suspense>
+                  </Route>
+                  <Route path={appRoutes.addresses.path}>
+                    <Suspense fallback={null}>
+                      <LazyAddressesPage />
+                    </Suspense>
+                  </Route>
+                  {!hideWallet && (
+                    <Route path={appRoutes.wallet.path}>
+                      <Suspense fallback={null}>
+                        <LazyWalletPage />
+                      </Suspense>
                     </Route>
-                  </Switch>
-                </GTMProvider>
-              </MyAccountContainer>
-            )
-          }}
-        </SettingsProvider>
-      </Router>
-    </>
+                  )}
+                  <Route>
+                    <Invalid />
+                  </Route>
+                </Switch>
+              </GTMProvider>
+            </MyAccountContainer>
+          )
+        }}
+      </SettingsProvider>
+    </Router>
   )
 }
 

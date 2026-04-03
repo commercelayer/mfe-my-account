@@ -1,14 +1,12 @@
+import path from "node:path"
 import { authenticate } from "@commercelayer/js-auth"
 import CommerceLayer, {
   type Address,
   type AddressCreate,
-  type CommerceLayerClient,
 } from "@commercelayer/sdk"
 import { test as base } from "@playwright/test"
 import { config } from "dotenv"
 import { jwtDecode } from "jwt-decode"
-
-import path from "node:path"
 
 import { AddressesPage } from "#specs/fixtures/AddressesPage"
 import { OrdersPage } from "#specs/fixtures/OrdersPage"
@@ -105,10 +103,7 @@ const getSuperToken = async () => {
   return data.accessToken
 }
 
-const createCustomerAddresses = async (
-  cl: CommerceLayerClient,
-  params: DefaultParamsProps,
-) => {
+const createCustomerAddresses = async (params: DefaultParamsProps) => {
   if (
     params.customer &&
     params.customerAddresses &&
@@ -167,8 +162,7 @@ export const test = base.extend<FixtureType>({
       ? getCustomerUserToken(defaultParams.customer)
       : getToken(defaultParams.market))
 
-    const cl = await getClient(token)
-    await createCustomerAddresses(cl, defaultParams)
+    await createCustomerAddresses(defaultParams)
 
     const accessToken =
       defaultParams.token === undefined ? token : defaultParams.token

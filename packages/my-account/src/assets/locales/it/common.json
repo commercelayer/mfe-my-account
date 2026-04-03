@@ -8,8 +8,8 @@
     "terms_link": "Termini"
   },
   "input": {
-    "cantBlank" : "Non può essere vuoto",
-    "mustBeValidFormat" : "Deve essere in un formato valido"
+    "cantBlank": "Non può essere vuoto",
+    "mustBeValidFormat": "Deve essere in un formato valido"
   },
   "menu": {
     "orders": "Ordini",
@@ -151,7 +151,7 @@
     "title": "I miei indirizzi",
     "edit": "Modifica",
     "delete": "Cancella",
-    "addNewAddress":"Aggiungi un nuovo indirizzo",
+    "addNewAddress": "Aggiungi un nuovo indirizzo",
     "deleteConfirmation": "Cancelli il tuo indirizzo?",
     "yes": "Si",
     "no": "No",

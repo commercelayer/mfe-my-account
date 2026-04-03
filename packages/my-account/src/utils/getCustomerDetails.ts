@@ -1,5 +1,5 @@
-import type { CommerceLayerClient } from "@commercelayer/sdk"
 import type { Settings } from "HostedApp"
+import type { CommerceLayerClient } from "@commercelayer/sdk"
 
 import { retryCall } from "#utils/retryCall"
 

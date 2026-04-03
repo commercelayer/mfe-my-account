@@ -72,7 +72,7 @@ export function LineItemTypes({ type }: Props): JSX.Element {
               let isCronValid = true
               try {
                 parseExpression(attributeValue as string)
-              } catch (e) {
+              } catch (_e) {
                 isCronValid = false
               }
               const frequency = isCronValid

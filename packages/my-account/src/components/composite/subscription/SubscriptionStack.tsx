@@ -7,7 +7,10 @@ import { Stack } from "#components/ui/Stack"
 function OrderSubscriptionStackItemValue({
   capitalize,
   children,
-}: { capitalize?: boolean; children: React.ReactNode }) {
+}: {
+  capitalize?: boolean
+  children: React.ReactNode
+}) {
   return (
     <h4
       className={cn("block text-base font-medium", { capitalize: capitalize })}

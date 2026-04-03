@@ -1,5 +1,5 @@
-import { CommerceLayer } from "@commercelayer/react-components/auth/CommerceLayer"
 import type { Settings } from "HostedApp"
+import { CommerceLayer } from "@commercelayer/react-components/auth/CommerceLayer"
 import { IconContext } from "phosphor-react"
 
 import { InjectCssCustomProperties } from "#components/composite/InjectCssCustomProperties"

@@ -84,6 +84,7 @@ function SubscriptionsPage(): JSX.Element {
           >
             {({ cell, row, ...p }) => {
               const order = row?.original
+              // biome-ignore lint/complexity/noUselessFragments: in react-components
               if (!order) return <></>
               return (
                 <>
@@ -126,6 +127,7 @@ function SubscriptionsPage(): JSX.Element {
           >
             {({ cell, row, ...p }) => {
               const order = row?.original
+              // biome-ignore lint/complexity/noUselessFragments: in react-components
               if (!order || order.type !== "order_subscriptions") return <></>
               const cols = cell?.map(() => {
                 return (
@@ -143,6 +145,7 @@ function SubscriptionsPage(): JSX.Element {
           >
             {({ cell, row, ...p }) => {
               const order = row?.original
+              // biome-ignore lint/complexity/noUselessFragments: in react-components
               if (!order || order.type !== "order_subscriptions") return <></>
               const cols = cell?.map((cell) => {
                 return (
@@ -226,7 +229,9 @@ export default SubscriptionsPage
 
 function SubscriptionFrequency({
   children,
-}: { children: React.ReactNode }): JSX.Element {
+}: {
+  children: React.ReactNode
+}): JSX.Element {
   return (
     <p className="capitalize inline-block text-sm font-extralight text-gray-400 h-5 md:bg-transparent">
       {children}

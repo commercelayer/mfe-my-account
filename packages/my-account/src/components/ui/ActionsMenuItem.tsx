@@ -1,10 +1,5 @@
 import cn from "classnames"
 
-interface LabelProps {
-  icon: React.ReactNode | null | undefined
-  variant?: string
-}
-
 interface Props {
   label?: string
   icon?: React.ReactNode

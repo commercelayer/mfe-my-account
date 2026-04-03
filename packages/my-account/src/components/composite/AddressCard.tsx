@@ -6,7 +6,6 @@ import { useTranslation } from "react-i18next"
 import { useLocation } from "wouter"
 
 import { GridCard } from "#components/ui/GridCard"
-import { LinkButton } from "#components/ui/LinkButton"
 import { appRoutes } from "#data/routes"
 import { AppContext } from "#providers/AppProvider"
 import { useSettings } from "#providers/SettingsProvider"
@@ -25,7 +24,7 @@ export function AddressCard({
   readonly,
   editButton,
   deleteButton,
-}: Props): JSX.Element {
+}: Props): JSX.Element | null {
   const { t } = useTranslation()
 
   const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false)
@@ -33,7 +32,7 @@ export function AddressCard({
   const appCtx = useContext(AppContext)
   const { settings } = useSettings()
 
-  if (!address) return <></>
+  if (!address) return null
   const {
     first_name,
     last_name,

@@ -1,6 +1,6 @@
+import type { InvalidSettings, Settings } from "HostedApp"
 import { getMfeConfig } from "@commercelayer/organization-config"
 import CommerceLayer from "@commercelayer/sdk"
-import type { InvalidSettings, Settings } from "HostedApp"
 
 import { getInfoFromJwt } from "#utils/getInfoFromJwt"
 import { getOrganizations } from "#utils/getOrganizations"

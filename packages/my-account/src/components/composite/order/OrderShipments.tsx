@@ -10,9 +10,8 @@ import { ShipmentsCount } from "@commercelayer/react-components/shipments/Shipme
 import { useContext } from "react"
 import { Trans, useTranslation } from "react-i18next"
 import { useLocation } from "wouter"
-
-import ShipmentStatusChip from "#components/composite/order/ShipmentStatusChip"
 import type { ShipmentStatus } from "#components/composite/order/ShipmentStatusChip"
+import ShipmentStatusChip from "#components/composite/order/ShipmentStatusChip"
 import Button from "#components/ui/Button"
 import ShowHideMenu from "#components/ui/ShowHideMenu"
 import { appRoutes } from "#data/routes"
@@ -132,6 +131,7 @@ function ShipmentTop(): JSX.Element {
                 shipment.shipment.number?.split("/")[
                   shipment.shipment.number?.split("/").length - 1
                 ] ?? "",
+                10,
               ) || 0
             return <>{key_number}</>
           }}

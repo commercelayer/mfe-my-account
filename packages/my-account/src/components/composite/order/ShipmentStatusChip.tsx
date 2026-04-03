@@ -17,9 +17,9 @@ interface Props {
   status?: ShipmentStatus
 }
 
-function ShipmentStatusChip({ status }: Props): JSX.Element {
+function ShipmentStatusChip({ status }: Props): JSX.Element | null {
   const { t } = useTranslation()
-  if (status === undefined) return <></>
+  if (status === undefined) return null
   return (
     <StatusChip status={status}>{getStatusTranslations(status, t)}</StatusChip>
   )

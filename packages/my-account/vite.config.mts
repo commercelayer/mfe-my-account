@@ -1,11 +1,10 @@
+import { resolve } from "node:path"
 import { NodeGlobalsPolyfillPlugin } from "@esbuild-plugins/node-globals-polyfill"
 import react from "@vitejs/plugin-react"
 import { visualizer } from "rollup-plugin-visualizer"
-import { type PluginOption, loadEnv } from "vite"
+import { loadEnv, type PluginOption } from "vite"
 import tsconfigPaths from "vite-tsconfig-paths"
 import { defineConfig } from "vitest/config"
-
-import { resolve } from "node:path"
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {

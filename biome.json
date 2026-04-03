@@ -1,22 +1,9 @@
 {
   "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
   "vcs": {
-    "enabled": false,
+    "enabled": true,
     "clientKind": "git",
-    "useIgnoreFile": false
-  },
-  "files": {
-    "ignoreUnknown": false,
-    "include": [
-      "**"
-    ],
-    "ignore": [
-      "node_modules",
-      "packages/my-account/build",
-      "packages/my-account/src/assets",
-      "**/*.css"
-    ],
-    "maxSize": 1572864
+    "useIgnoreFile": true
   },
   "formatter": {
     "enabled": true,
@@ -24,6 +11,7 @@
     "indentWidth": 2,
     "formatWithErrors": true
   },
+  "assist": { "actions": { "source": { "organizeImports": "on" } } },
   "linter": {
     "enabled": true,
     "rules": {
@@ -35,8 +23,19 @@
         "noAccumulatingSpread": "off"
       },
       "suspicious": {
-        "noExplicitAny": "off"
+        "noExplicitAny": "off",
+        "noUnknownAtRules": {
+          "level": "warn",
+          "options": {
+            "ignore": ["tailwind"]
+          }
+        }
       }
+    }
+  },
+  "css": {
+    "parser": {
+      "tailwindDirectives": true
     }
   },
   "javascript": {

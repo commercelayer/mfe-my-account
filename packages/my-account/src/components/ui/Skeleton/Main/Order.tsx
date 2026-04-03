@@ -1,5 +1,3 @@
-import { SkeletonMainPageTitle } from "#components/ui/Skeleton/Main/Common"
-
 import {
   SkeletonBox,
   SkeletonCol,
@@ -10,6 +8,7 @@ import {
   SkeletonTableRow,
   SkeletonWrapper,
 } from "#components/ui/Skeleton"
+import { SkeletonMainPageTitle } from "#components/ui/Skeleton/Main/Common"
 
 interface Props {
   visible?: boolean

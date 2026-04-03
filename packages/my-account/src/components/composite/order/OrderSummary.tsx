@@ -20,7 +20,7 @@ function OrderSummary(): JSX.Element {
         <div className="flex flex-row justify-between empty:hidden">
           <DiscountAmount>
             {(props) => {
-              if (props.priceCents === 0) return <></>
+              if (props.priceCents === 0) return null
               return (
                 <>
                   <p>{t("order.summary.discount_amount")}</p>
@@ -37,7 +37,7 @@ function OrderSummary(): JSX.Element {
         <div className="flex flex-row justify-between empty:hidden">
           <PaymentMethodAmount>
             {(props) => {
-              if (props.priceCents === 0) return <></>
+              if (props.priceCents === 0) return null
               return (
                 <>
                   <p>{t("order.summary.payment_method_amount")}</p>
@@ -54,7 +54,7 @@ function OrderSummary(): JSX.Element {
         <div className="flex flex-row justify-between empty:hidden">
           <GiftCardAmount>
             {(props) => {
-              if (props.priceCents === 0) return <></>
+              if (props.priceCents === 0) return null
               return (
                 <>
                   <p>{t("order.summary.giftcard_amount")}</p>

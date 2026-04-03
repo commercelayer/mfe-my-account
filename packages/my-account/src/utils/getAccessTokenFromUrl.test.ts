@@ -3,7 +3,6 @@ import { getAccessTokenFromUrl } from "#utils/getAccessTokenFromUrl"
 describe("Read JWT from URL", () => {
   const { location } = window
   beforeAll(function clearLocation() {
-    // biome-ignore lint/performance/noDelete: to allow overriding window.location for testing purposes
     delete (window as any).location
     ;(window as any).location = {
       ...location,

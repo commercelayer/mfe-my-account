@@ -1,5 +1,5 @@
-import { CustomerField } from "@commercelayer/react-components/customers/CustomerField"
 import type { Settings } from "HostedApp"
+import { CustomerField } from "@commercelayer/react-components/customers/CustomerField"
 import {
   ArrowUUpLeft,
   CalendarCheck,

@@ -44,7 +44,7 @@ export const getInfoFromJwt = (accessToken: string) => {
       test,
     } = jwtDecode(accessToken) as JWTProps
     return { slug, kind, customerId: owner?.id, isTest: test }
-  } catch (e) {
+  } catch (_e) {
     return {}
   }
 }

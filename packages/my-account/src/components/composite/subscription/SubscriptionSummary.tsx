@@ -1,7 +1,6 @@
 import type { Bundle, OrderSubscription, Sku } from "@commercelayer/sdk"
-import { useTranslation } from "react-i18next"
-
 import { useContext } from "react"
+import { useTranslation } from "react-i18next"
 import {
   LineItemContent,
   LineItemDescription,

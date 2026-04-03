@@ -12,7 +12,8 @@ interface Props {
 function SubscriptionPaymentAlert({
   orderSubscription,
   orderSubscriptionLastOrder,
-}: Props): JSX.Element {
+}: Props): JSX.Element | null {
+  const ctx = useContext(AppContext)
   if (orderSubscription != null && orderSubscriptionLastOrder != null) {
     const isActive = orderSubscription.status === "active"
     if (
@@ -20,7 +21,6 @@ function SubscriptionPaymentAlert({
       orderSubscriptionLastOrder != null &&
       orderSubscriptionLastOrder?.payment_status === "unpaid"
     ) {
-      const ctx = useContext(AppContext)
       const { domain, slug } = getDomain(ctx?.endpoint ?? "")
       const href = getCheckoutLink({
         slug,
@@ -50,7 +50,7 @@ function SubscriptionPaymentAlert({
       )
     }
   }
-  return <></>
+  return null
 }
 
 function getDomain(endpoint: string): { slug: string; domain: string } {

@@ -82,6 +82,7 @@ function OrdersPage(): JSX.Element {
           >
             {({ cell, row, ...p }) => {
               const order = row?.original
+              // biome-ignore lint/complexity/noUselessFragments: in react-components
               if (!order) return <></>
               return (
                 <>
@@ -120,6 +121,7 @@ function OrdersPage(): JSX.Element {
           >
             {({ cell, row, ...p }) => {
               const order = row?.original
+              // biome-ignore lint/complexity/noUselessFragments: in react-components
               if (!order) return <></>
               const cols = cell?.map((cell) => {
                 return (
@@ -140,6 +142,7 @@ function OrdersPage(): JSX.Element {
           >
             {({ cell, row, ...p }) => {
               const order = row?.original
+              // biome-ignore lint/complexity/noUselessFragments: in react-components
               if (!order) return <></>
               const cols = cell?.map(() => {
                 return (

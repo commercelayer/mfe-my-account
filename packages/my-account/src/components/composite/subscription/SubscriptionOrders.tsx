@@ -100,6 +100,7 @@ function SubscriptionOrders({ orderSubscription }: Props) {
         <OrderListRow field="number" className="order-1 p-4">
           {({ cell, row, ...p }) => {
             const order = row?.original
+            // biome-ignore lint/complexity/noUselessFragments: in react-components
             if (!order) return <></>
             return (
               <>
@@ -126,6 +127,7 @@ function SubscriptionOrders({ orderSubscription }: Props) {
         <OrderListRow field="updated_at" className="order-2 px-4 ">
           {({ cell, row, ...p }) => {
             const order = row?.original
+            // biome-ignore lint/complexity/noUselessFragments: in react-components
             if (!order) return <></>
             const cols = cell?.map((cell) => {
               return (
@@ -143,6 +145,7 @@ function SubscriptionOrders({ orderSubscription }: Props) {
         <OrderListRow field="status" className="order-3 px-4">
           {({ cell, row, ...p }) => {
             const order = row?.original
+            // biome-ignore lint/complexity/noUselessFragments: in react-components
             if (!order) return <></>
             const cols = cell?.map(() => {
               return (

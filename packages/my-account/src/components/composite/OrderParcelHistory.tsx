@@ -9,7 +9,10 @@ import type {
   ParcelTrackingDetailsParsedTimeType,
 } from "#hooks/useParcelTrackingDetailsParser"
 import useParcelTrackingDetailsParser from "#hooks/useParcelTrackingDetailsParser"
-import { rawDataParcelDetailsSchema } from "#types/parcelDetailsJson"
+import {
+  type RawDataParcelDetails,
+  rawDataParcelDetailsSchema,
+} from "#types/parcelDetailsJson"
 import { amPmTime, formatDate, longDate } from "#utils/dateTimeFormats"
 
 interface OrderParcelHistoryDateProps {
@@ -139,28 +142,34 @@ function OrderParcelHistory(): JSX.Element {
         const parsedDetails = rawDataParcelDetailsSchema.parse(
           props?.attributeValue,
         )
-
-        const OrderParcelHistoryParsed =
-          useParcelTrackingDetailsParser(parsedDetails)
-
-        return (
-          <div className="mt-12 -mx-5 px-5 pb-10">
-            {Object.keys(OrderParcelHistoryParsed).map(
-              (dateKey: string, dateIndex: number) => {
-                return (
-                  <OrderParcelHistoryDate
-                    dateKey={dateKey}
-                    dateIndex={dateIndex}
-                    parsedData={OrderParcelHistoryParsed}
-                    key={dateKey}
-                  />
-                )
-              },
-            )}
-          </div>
-        )
+        return <ParcelHistoryDetail parsedDetails={parsedDetails} />
       }}
     </ParcelField>
+  )
+}
+
+function ParcelHistoryDetail({
+  parsedDetails,
+}: {
+  parsedDetails: RawDataParcelDetails
+}): JSX.Element {
+  const OrderParcelHistoryParsed = useParcelTrackingDetailsParser(parsedDetails)
+
+  return (
+    <div className="mt-12 -mx-5 px-5 pb-10">
+      {Object.keys(OrderParcelHistoryParsed).map(
+        (dateKey: string, dateIndex: number) => {
+          return (
+            <OrderParcelHistoryDate
+              dateKey={dateKey}
+              dateIndex={dateIndex}
+              parsedData={OrderParcelHistoryParsed}
+              key={dateKey}
+            />
+          )
+        },
+      )}
+    </div>
   )
 }
 
