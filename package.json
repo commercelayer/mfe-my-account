@@ -2,8 +2,8 @@
   "name": "mfe-my-account",
   "private": true,
   "engines": {
-    "node": ">=20.19.0",
-    "pnpm": ">=9"
+    "node": ">=20",
+    "pnpm": ">=10"
   },
   "repository": {
     "type": "git",
@@ -41,7 +41,9 @@
     "prepare": "husky",
     "clean": "pnpx rimraf --glob **/node_modules **/pnpm-lock.yaml"
   },
-  "workspaces": ["packages/*"],
+  "workspaces": [
+    "packages/*"
+  ],
   "devDependencies": {
     "@biomejs/biome": "^2.4.10",
     "husky": "^9.1.7",
