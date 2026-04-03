@@ -37,7 +37,7 @@
     "test": "pnpm --filter '*' test",
     "test:e2e": "pnpm --filter '*' test:e2e",
     "dep:major": "pnpm dlx npm-check-updates --packageFile '**/package.json' -u",
-    "dep:minor": "pnpm dep:major -t minor",
+    "dep:minor": "pnpm dlx npm-check-updates -t semver --packageFile '**/package.json' -u",
     "prepare": "husky",
     "clean": "pnpx rimraf --glob **/node_modules **/pnpm-lock.yaml"
   },
