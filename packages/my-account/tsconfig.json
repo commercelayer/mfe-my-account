@@ -15,18 +15,17 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "react-jsx",
-    "baseUrl": "./",
     "paths": {
-      "#data/*": ["src/data/*"],
-      "#styles/*": ["src/styles/*"],
-      "#pages/*": ["src/pages/*"],
-      "#components/*": ["src/components/*"],
-      "#hooks/*": ["src/hooks/*"],
-      "#providers/*": ["src/providers/*"],
-      "#assets/*": ["src/assets/*"],
-      "#utils/*": ["src/utils/*"],
-      "#types/*": ["src/types/*"],
-      "#specs/*": ["specs/*"]
+      "#data/*": ["./src/data/*"],
+      "#styles/*": ["./src/styles/*"],
+      "#pages/*": ["./src/pages/*"],
+      "#components/*": ["./src/components/*"],
+      "#hooks/*": ["./src/hooks/*"],
+      "#providers/*": ["./src/providers/*"],
+      "#assets/*": ["./src/assets/*"],
+      "#utils/*": ["./src/utils/*"],
+      "#types/*": ["./src/types/*"],
+      "#specs/*": ["./specs/*"]
     },
     "incremental": true
   },
