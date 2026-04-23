@@ -45,10 +45,10 @@
     "packages/*"
   ],
   "devDependencies": {
-    "@biomejs/biome": "^2.4.10",
+    "@biomejs/biome": "^2.4.12",
     "husky": "^9.1.7",
     "lerna": "^9.0.7",
     "lint-staged": "^16.4.0",
-    "npm-check-updates": "^20.0.0"
+    "npm-check-updates": "^20.0.2"
   }
 }
