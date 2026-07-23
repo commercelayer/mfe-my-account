@@ -1,0 +1,254 @@
+{
+  "general": {
+    "title": "{{companyName}} - Moj račun",
+    "retry_error_code": "Problemi s povezivanjem",
+    "retry_error_description": "Pokušajte ponovno učitati stranicu",
+    "invalid": "Ovaj URL nije dostupan.",
+    "privacy_link": "Privatnost",
+    "terms_link": "Uvjeti"
+  },
+  "input": {
+    "cantBlank": "Ne može biti prazno",
+    "mustBeValidFormat": "Mora biti ispravan format"
+  },
+  "menu": {
+    "orders": "Narudžbe",
+    "ordersDescription": "Pogledajte svoje narudžbe",
+    "addresses": "Adrese",
+    "addressesDescription": "Upravljajte svojim adresama",
+    "subscriptions": "Pretplate",
+    "subscriptionsDescription": "Upravljajte svojim pretplatama",
+    "wallet": "Novčanik",
+    "walletDescription": "Upravljajte svojim načinima plaćanja",
+    "returns": "Povrati",
+    "returnsDescription": "Vratite proizvod",
+    "backToShop": "Natrag u trgovinu",
+    "customerService": "Korisnička podrška",
+    "customerServiceDescription": "Zatražite pomoć od prodavatelja",
+    "logout": "Odjava",
+    "logoutDescription": "Odjavite se s ovog računa",
+    "loggedInAs": "Prijavljeni ste kao:"
+  },
+  "header": {
+    "title": "Moj račun"
+  },
+  "orders": {
+    "title": "Moje narudžbe",
+    "orderContains": "sadrži {{count}} artikl",
+    "orderContains_other": "sadrži {{count}} artikala",
+    "columns": {
+      "order": "Narudžba",
+      "status": "Status",
+      "date": "Datum",
+      "payment": "Plaćanje",
+      "amount": "Iznos"
+    }
+  },
+  "noOrders": {
+    "title": "Još nema narudžbi",
+    "description": "Izgleda da još niste napravili nijednu narudžbu",
+    "buttonLabel": "Idi u trgovinu"
+  },
+  "order": {
+    "title": "Narudžba #<0/>",
+    "placed_at": "Naručeno <0/>",
+    "summary": {
+      "title": "Sažetak",
+      "subtotal_amount": "Međuzbroj",
+      "discount_amount": "Popust",
+      "shipping_amount": "Dostava",
+      "payment_method_amount": "Način plaćanja",
+      "tax_amount": "Porez",
+      "giftcard_amount": "Poklon kartica",
+      "total_amount": "Ukupno",
+      "quantity": "Količina: {{count}}",
+      "quantity_plural": "Količina: {{count}}",
+      "frequency.hourly": "Svakog sata",
+      "frequency.daily": "Dnevno",
+      "frequency.weekly": "Tjedno",
+      "frequency.monthly": "Mjesečno",
+      "frequency.two-months": "Svakih dva mjeseca",
+      "frequency.two-month": "Svakih dva mjeseca",
+      "frequency.three-months": "Svakih tri mjeseca",
+      "frequency.three-month": "Svakih tri mjeseca",
+      "frequency.four-months": "Svakih četiri mjeseca",
+      "frequency.four-month": "Svakih četiri mjeseca",
+      "frequency.six-months": "Svakih šest mjeseci",
+      "frequency.six-month": "Svakih šest mjeseci",
+      "frequency.yearly": "Godišnje"
+    },
+    "addresses": {
+      "title": "Adrese",
+      "billedTo": "Naplaćeno na",
+      "shippedTo": "Dostavljeno na"
+    },
+    "shipments": {
+      "title": "Pošiljke",
+      "shipment": "Pošiljka #<0/>",
+      "shipmentStatus": "Status: <0/>",
+      "parcel": "Paket <0/>",
+      "trackingCode": "Kod za praćenje",
+      "trackParcel": "Prati paket",
+      "parcelLineItemQuantity": "Količina: <0/>",
+      "parcelDetail": {
+        "title": "Prati paket",
+        "trackingCode": "Kod za praćenje"
+      }
+    },
+    "payments": {
+      "title": "Plaćanja"
+    }
+  },
+  "subscriptions": {
+    "title": "Moje pretplate",
+    "subscriptionContains": "sadrži {{count}} artikl",
+    "subscriptionContains_other": "sadrži {{count}} artikala",
+    "columns": {
+      "subscription": "Pretplata",
+      "status": "Status",
+      "frequency": "Učestalost",
+      "next_run_at": "Sljedeće izvršenje"
+    }
+  },
+  "noSubscriptions": {
+    "title": "Još nema pretplata",
+    "description": "Izgleda da još niste napravili nijednu pretplatu",
+    "buttonLabel": "Idi u trgovinu"
+  },
+  "subscription": {
+    "title": "Pretplata #<0/>",
+    "starts_at": "Započeto <0/>",
+    "next_run": "Sljedeće izvršenje",
+    "expires_at": "istječe <0/>",
+    "summary": "Sažetak",
+    "payments": "Plaćanja",
+    "order_history": "Povijest narudžbi",
+    "pending_alert": "Molimo kontaktirajte nas kako biste ažurirali podatke o plaćanju i nastavili s pretplatom."
+  },
+  "noSubscriptionPayments": {
+    "title": "Nije pronađen valjan način plaćanja za pretplatu",
+    "description": "Izgleda da niste spremili valjan način plaćanja za ovu pretplatu"
+  },
+  "noSubscriptionOrders": {
+    "title": "Još nema narudžbi za ovu pretplatu",
+    "description": "Sljedeće izvršenje: "
+  },
+  "subscriptionFrequency": {
+    "hourly": "svakog sata",
+    "daily": "dnevno",
+    "weekly": "tjedno",
+    "monthly": "mjesečno",
+    "two-month": "svaka dva mjeseca",
+    "three-month": "svaka tri mjeseca",
+    "six-month": "svakih šest mjeseci",
+    "yearly": "godišnje"
+  },
+  "subscriptionProgress": {
+    "prefix": "Za",
+    "notRunning": "Nije aktivno"
+  },
+  "addresses": {
+    "title": "Moje adrese",
+    "edit": "Uredi",
+    "delete": "Izbriši",
+    "addNewAddress": "Dodaj novu adresu",
+    "deleteConfirmation": "Izbrisati vašu adresu?",
+    "yes": "Da",
+    "no": "Ne",
+    "addressForm": {
+      "new_address_title": "Dodaj novu adresu",
+      "edit_address_title": "Uredi moju adresu",
+      "billing_address_country_code_placeholder": "Odaberite državu",
+      "discard_changes": "Odbaci promjene",
+      "save": "Spremi",
+      "fields": {
+        "billing_address_first_name": "Ime",
+        "billing_address_last_name": "Prezime",
+        "billing_address_line_1": "Adresa - red 1",
+        "billing_address_line_2": "Adresa - red 2",
+        "billing_address_city": "Grad",
+        "billing_address_country_code_placeholder": "Odaberite državu/regiju",
+        "billing_address_country_code": "Država/Regija",
+        "billing_address_state_code": "Županija/Država",
+        "billing_address_state_code_placeholder": "Odaberite županiju/državu",
+        "billing_address_zip_code": "Poštanski broj",
+        "billing_address_phone": "Telefon",
+        "billing_address_billing_info": "Podaci za naplatu"
+      }
+    }
+  },
+  "noAddresses": {
+    "title": "Još nema adresa",
+    "description": "Izgleda da još niste spremili nijednu adresu",
+    "buttonLabel": "Dodaj adresu"
+  },
+  "wallet": {
+    "title": "Moj novčanik",
+    "deleteConfirmation": "Izbrisati vaš način plaćanja?"
+  },
+  "noPaymentMethods": {
+    "title": "Još nema načina plaćanja",
+    "description": "Izgleda da još niste spremili nijedan način plaćanja",
+    "buttonLabel": "Dodaj način plaćanja"
+  },
+  "paymentSource": {
+    "creditCard": "Kreditna kartica",
+    "endingIn": "završava s <0/>",
+    "expires": "istječe ",
+    "wireTransfer": "Bankovna doznaka",
+    "wireTransferDescription": "Nakon potvrde narudžbe primit ćete upute za doznaku kako biste dovršili plaćanje",
+    "paypalDescription": "Nakon što izvršite narudžbu, bit ćete preusmjereni na PayPal stranicu za prijavu i autorizaciju plaćanja",
+    "delete": "Izbriši"
+  },
+  "returns": {
+    "title": "Moji povrati"
+  },
+  "noReturns": {
+    "title": "Još nema povrata",
+    "description": "Izgleda da još niste napravili nijedan povrat",
+    "buttonLabel": "Stvori povrat"
+  },
+  "orderStatus": {
+    "draft": "skica",
+    "pending": "na čekanju",
+    "placed": "naručeno",
+    "approved": "odobreno",
+    "cancelled": "otkazano",
+    "editing": "uređivanje"
+  },
+  "subscriptionStatus": {
+    "draft": "skica",
+    "inactive": "neaktivno",
+    "active": "aktivno",
+    "pending": "na čekanju",
+    "cancelled": "otkazano"
+  },
+  "shipmentStatus": {
+    "upcoming": "nadolazeće",
+    "in_progress": "u tijeku",
+    "cancelled": "otkazano",
+    "shipped": "poslano"
+  },
+  "parcelStatus": {
+    "delivered": "Dostavljeno",
+    "out_for_delivery": "U dostavi",
+    "in_transit": "U prijevozu",
+    "pre_transit": "Prije prijevoza"
+  },
+  "returnStatus": {
+    "draft": "skica",
+    "requested": "zatraženo",
+    "approved": "odobreno",
+    "cancelled": "otkazano",
+    "shipped": "poslano",
+    "rejected": "odbijeno",
+    "received": "primljeno"
+  },
+  "actionsMenu": {
+    "mainLabel": "Otvori izbornik"
+  },
+  "showHideMenu": {
+    "mainLabel": "prikaži 1 artikl",
+    "mainLabel_plural": "prikaži <0/> artikala"
+  }
+}

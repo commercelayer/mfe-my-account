@@ -36,7 +36,7 @@
     "test": "pnpm --filter '*' test",
     "test:e2e": "pnpm --filter '*' test:e2e",
     "dep:major": "pnpm dlx npm-check-updates --packageFile '**/package.json' -u",
-    "dep:minor": "pnpm dlx npm-check-updates -t semver --packageFile '**/package.json' -u",
+    "dep:semver": "pnpm dlx npm-check-updates -t semver --packageFile '**/package.json' -u",
     "prepare": "husky",
     "clean": "pnpx rimraf --glob **/node_modules **/pnpm-lock.yaml"
   },
@@ -45,7 +45,7 @@
     "packages/*"
   ],
   "devDependencies": {
-    "@biomejs/biome": "^2.5.3",
+    "@biomejs/biome": "^2.5.5",
     "husky": "^9.1.7",
     "lerna": "^9.0.7",
     "lint-staged": "^16.4.0",

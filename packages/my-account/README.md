@@ -150,7 +150,7 @@ You could optionally provide a `returnURL` URL parameter to enable *Back to shop
 
 ## Localization
 
-The application is actually localized in `en`, `it` and `nl` locales.
+The application is actually localized in `en`, `de`, `es`, `fr`, `hr`, `hu`, `it`, `nl`, `pl`, `pt` and `sl` locales.
 You could optionally provide a `lang` URL parameter to define the locale used to localize the app: `https://<your-organization-subdomain>.commercelayer.app/my-account/?accessToken=<your-access-token>&lang=<short-lang-code>`
 
 ### Example

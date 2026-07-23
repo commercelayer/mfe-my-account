@@ -6,6 +6,7 @@ export type SubscriptionStatus =
   | "draft"
   | "inactive"
   | "active"
+  | "pending"
   | "cancelled"
   | "running"
 
