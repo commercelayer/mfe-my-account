@@ -1,0 +1,254 @@
+{
+  "general": {
+    "title": "{{companyName}} - Moje konto",
+    "retry_error_code": "Problemy z łącznością",
+    "retry_error_description": "Spróbuj załadować stronę ponownie",
+    "invalid": "Ten adres URL jest nieosiągalny.",
+    "privacy_link": "Prywatność",
+    "terms_link": "Regulamin"
+  },
+  "input": {
+    "cantBlank": "Pole jest obowiązkowe",
+    "mustBeValidFormat": "Błędny format wypełnienia"
+  },
+  "menu": {
+    "orders": "Zamówienia",
+    "ordersDescription": "Zobacz swoje złożone zamówienia",
+    "addresses": "Adresy",
+    "addressesDescription": "Zarządzaj swoimi adresami",
+    "subscriptions": "Subskrypcje",
+    "subscriptionsDescription": "Zarządzaj swoimi subskrypcjami",
+    "wallet": "Portfel",
+    "walletDescription": "Zarządzaj swoimi metodami płatności",
+    "returns": "Zwroty",
+    "returnsDescription": "Zwróć produkt",
+    "backToShop": "Powrót do sklepu",
+    "customerService": "Obsługa klienta",
+    "customerServiceDescription": "Uzyskaj pomoc od sprzedawcy",
+    "logout": "Wyloguj",
+    "logoutDescription": "Wyloguj się z tego konta",
+    "loggedInAs": "Zalogowano jako:"
+  },
+  "header": {
+    "title": "Moje konto"
+  },
+  "orders": {
+    "title": "Moje zamówienia",
+    "orderContains": "zawiera {{count}} produkt",
+    "orderContains_other": "zawiera {{count}} produkty",
+    "columns": {
+      "order": "Zamówienie",
+      "status": "Status",
+      "date": "Data",
+      "payment": "Płatność",
+      "amount": "Kwota"
+    }
+  },
+  "noOrders": {
+    "title": "Brak zamówień",
+    "description": "Wygląda na to, że nie złożyłeś jeszcze żadnego zamówienia",
+    "buttonLabel": "Przejdź do sklepu"
+  },
+  "order": {
+    "title": "Zamówienie #<0/>",
+    "placed_at": "Złożone <0/>",
+    "summary": {
+      "title": "Podsumowanie",
+      "subtotal_amount": "Zakupy",
+      "discount_amount": "Zniżka",
+      "shipping_amount": "Wysyłka",
+      "payment_method_amount": "Metoda płatności",
+      "tax_amount": "Podatek",
+      "giftcard_amount": "Karta podarunkowa",
+      "total_amount": "Suma",
+      "quantity": "Ilość: {{count}}",
+      "quantity_plural": "Ilość: {{count}}",
+      "frequency.hourly": "Co godzinę",
+      "frequency.daily": "Codziennie",
+      "frequency.weekly": "Co tydzień",
+      "frequency.monthly": "Co miesiąc",
+      "frequency.two-months": "Co dwa miesiące",
+      "frequency.two-month": "Co dwa miesiące",
+      "frequency.three-months": "Co trzy miesiące",
+      "frequency.three-month": "Co trzy miesiące",
+      "frequency.four-months": "Co cztery miesiące",
+      "frequency.four-month": "Co cztery miesiące",
+      "frequency.six-months": "Co sześć miesięcy",
+      "frequency.six-month": "Co sześć miesięcy",
+      "frequency.yearly": "Co roku"
+    },
+    "addresses": {
+      "title": "Adresy",
+      "billedTo": "Rachunek dla",
+      "shippedTo": "Wysyłka do"
+    },
+    "shipments": {
+      "title": "Wysyłki",
+      "shipment": "Wysyłka #<0/>",
+      "shipmentStatus": "Status: <0/>",
+      "parcel": "Paczka <0/>",
+      "trackingCode": "Kod śledzenia",
+      "trackParcel": "Śledź paczkę",
+      "parcelLineItemQuantity": "Ilość: <0/>",
+      "parcelDetail": {
+        "title": "Śledź paczkę",
+        "trackingCode": "Kod śledzenia"
+      }
+    },
+    "payments": {
+      "title": "Płatności"
+    }
+  },
+  "subscriptions": {
+    "title": "Moje subskrypcje",
+    "subscriptionContains": "zawiera {{count}} produkt",
+    "subscriptionContains_other": "zawiera {{count}} produkty",
+    "columns": {
+      "subscription": "Subskrypcja",
+      "status": "Status",
+      "frequency": "Częstotliwość",
+      "next_run_at": "Następne wykonanie"
+    }
+  },
+  "noSubscriptions": {
+    "title": "Brak subskrypcji",
+    "description": "Wygląda na to, że nie masz jeszcze żadnej subskrypcji",
+    "buttonLabel": "Przejdź do sklepu"
+  },
+  "subscription": {
+    "title": "Subskrypcja #<0/>",
+    "starts_at": "Rozpoczęta <0/>",
+    "next_run": "Następne wykonanie",
+    "expires_at": "wygasa <0/>",
+    "summary": "Podsumowanie",
+    "payments": "Płatności",
+    "order_history": "Historia zamówień",
+    "pending_alert": "Skontaktuj się z nami, aby zaktualizować dane płatności i wznowić ją."
+  },
+  "noSubscriptionPayments": {
+    "title": "Nie znaleziono prawidłowej metody płatności w subskrypcji",
+    "description": "Wygląda na to, że nie zapisałeś prawidłowej metody płatności dla tej subskrypcji"
+  },
+  "noSubscriptionOrders": {
+    "title": "Brak zamówień dla tej subskrypcji",
+    "description": "Następne wykonanie: "
+  },
+  "subscriptionFrequency": {
+    "hourly": "co godzinę",
+    "daily": "codziennie",
+    "weekly": "co tydzień",
+    "monthly": "co miesiąc",
+    "two-month": "co dwa miesiące",
+    "three-month": "co trzy miesiące",
+    "six-month": "co sześć miesięcy",
+    "yearly": "co roku"
+  },
+  "subscriptionProgress": {
+    "prefix": "Za",
+    "notRunning": "Nieaktywna"
+  },
+  "addresses": {
+    "title": "Moje adresy",
+    "edit": "Edytuj",
+    "delete": "Usuń",
+    "addNewAddress": "Dodaj nowy adres",
+    "deleteConfirmation": "Usunąć Twój adres?",
+    "yes": "Tak",
+    "no": "Nie",
+    "addressForm": {
+      "new_address_title": "Dodaj nowy adres",
+      "edit_address_title": "Edytuj mój adres",
+      "billing_address_country_code_placeholder": "Wybierz kraj",
+      "discard_changes": "Odrzuć zmiany",
+      "save": "Zapisz",
+      "fields": {
+        "billing_address_first_name": "Imię",
+        "billing_address_last_name": "Nazwisko",
+        "billing_address_line_1": "Adres linijka 1",
+        "billing_address_line_2": "Adres linijka 2",
+        "billing_address_city": "Miasto",
+        "billing_address_country_code_placeholder": "Wybierz kraj/region",
+        "billing_address_country_code": "Kraj/Region",
+        "billing_address_state_code": "Województwo/Stan",
+        "billing_address_state_code_placeholder": "Wybierz województwo/stan",
+        "billing_address_zip_code": "Kod pocztowy",
+        "billing_address_phone": "Telefon",
+        "billing_address_billing_info": "Dane do rozliczeń"
+      }
+    }
+  },
+  "noAddresses": {
+    "title": "Brak adresów",
+    "description": "Wygląda na to, że nie zapisałeś jeszcze żadnego adresu",
+    "buttonLabel": "Dodaj adres"
+  },
+  "wallet": {
+    "title": "Mój portfel",
+    "deleteConfirmation": "Usunąć Twoją metodę płatności?"
+  },
+  "noPaymentMethods": {
+    "title": "Brak metody płatności",
+    "description": "Wygląda na to, że nie zapisałeś jeszcze żadnej metody płatności",
+    "buttonLabel": "Dodaj metodę płatności"
+  },
+  "paymentSource": {
+    "creditCard": "Karta kredytowa",
+    "endingIn": "zakończona cyframi <0/>",
+    "expires": "wygasa ",
+    "wireTransfer": "Przelew bankowy",
+    "wireTransferDescription": "Przy potwierdzeniu zamówienia otrzymasz instrukcję przelewu, aby dokończyć płatność",
+    "paypalDescription": "Po złożeniu zamówienia zostaniesz przekierowany na stronę PayPal, gdzie trzeba się zalogować i zatwierdzić płatność",
+    "delete": "Usuń"
+  },
+  "returns": {
+    "title": "Moje zwroty"
+  },
+  "noReturns": {
+    "title": "Brak zwrotów",
+    "description": "Wygląda na to, że nie dokonałeś jeszcze żadnego zwrotu",
+    "buttonLabel": "Utwórz zwrot"
+  },
+  "orderStatus": {
+    "draft": "wersja robocza",
+    "pending": "oczekujące",
+    "placed": "złożone",
+    "approved": "zatwierdzone",
+    "cancelled": "anulowane",
+    "editing": "edytowane"
+  },
+  "subscriptionStatus": {
+    "draft": "wersja robocza",
+    "inactive": "nieaktywna",
+    "active": "aktywna",
+    "pending": "oczekująca",
+    "cancelled": "anulowana"
+  },
+  "shipmentStatus": {
+    "upcoming": "nadchodząca",
+    "in_progress": "w trakcie",
+    "cancelled": "anulowana",
+    "shipped": "wysłana"
+  },
+  "parcelStatus": {
+    "delivered": "Dostarczona",
+    "out_for_delivery": "W doręczeniu",
+    "in_transit": "W transporcie",
+    "pre_transit": "Przed transportem"
+  },
+  "returnStatus": {
+    "draft": "wersja robocza",
+    "requested": "zgłoszony",
+    "approved": "zatwierdzony",
+    "cancelled": "anulowany",
+    "shipped": "wysłany",
+    "rejected": "odrzucony",
+    "received": "odebrany"
+  },
+  "actionsMenu": {
+    "mainLabel": "Otwórz menu"
+  },
+  "showHideMenu": {
+    "mainLabel": "pokaż 1 element",
+    "mainLabel_plural": "pokaż <0/> elementów"
+  }
+}

@@ -122,7 +122,8 @@
     "expires_at": "expires on <0/>",
     "summary": "Summary",
     "payments": "Payments",
-    "order_history": "Order History"
+    "order_history": "Order History",
+    "pending_alert": "Please contact us to update your payment details and resume it."
   },
   "noSubscriptionPayments": {
     "title": "No valid payment method found in subscription",
@@ -219,6 +220,7 @@
     "draft": "draft",
     "inactive": "inactive",
     "active": "active",
+    "pending": "pending",
     "cancelled": "cancelled"
   },
   "shipmentStatus": {

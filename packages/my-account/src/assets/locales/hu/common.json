@@ -1,0 +1,254 @@
+{
+  "general": {
+    "title": "{{companyName}} - Fiókom",
+    "retry_error_code": "Kapcsolódási hibák",
+    "retry_error_description": "Próbálja meg újratölteni az oldalt",
+    "invalid": "Ez az URL nem elérhető.",
+    "privacy_link": "Adatvédelem",
+    "terms_link": "Feltételek"
+  },
+  "input": {
+    "cantBlank": "Nem lehet üres",
+    "mustBeValidFormat": "Érvényes formátum kell"
+  },
+  "menu": {
+    "orders": "Megrendelések",
+    "ordersDescription": "Tekintse meg a leadott megrendeléseit",
+    "addresses": "Címek",
+    "addressesDescription": "Kezelje a címeit",
+    "subscriptions": "Előfizetések",
+    "subscriptionsDescription": "Kezelje az előfizetéseit",
+    "wallet": "Pénztárca",
+    "walletDescription": "Kezelje a fizetési módjait",
+    "returns": "Visszaküldések",
+    "returnsDescription": "Termék visszaküldése",
+    "backToShop": "Vissza a boltba",
+    "customerService": "Ügyfélszolgálat",
+    "customerServiceDescription": "Kérjen segítséget az eladótól",
+    "logout": "Kijelentkezés",
+    "logoutDescription": "Kijelentkezés ebből a fiókból",
+    "loggedInAs": "Bejelentkezve mint:"
+  },
+  "header": {
+    "title": "Fiókom"
+  },
+  "orders": {
+    "title": "Megrendeléseim",
+    "orderContains": "{{count}} elemet tartalmaz",
+    "orderContains_other": "{{count}} elemet tartalmaz",
+    "columns": {
+      "order": "Megrendelés",
+      "status": "Állapot",
+      "date": "Dátum",
+      "payment": "Fizetés",
+      "amount": "Összeg"
+    }
+  },
+  "noOrders": {
+    "title": "Még nincsenek megrendelések",
+    "description": "Úgy tűnik, még nem adott le megrendelést",
+    "buttonLabel": "Ugrás a boltba"
+  },
+  "order": {
+    "title": "Megrendelés #<0/>",
+    "placed_at": "Leadva: <0/>",
+    "summary": {
+      "title": "Összesítés",
+      "subtotal_amount": "Részösszeg",
+      "discount_amount": "Kedvezmény",
+      "shipping_amount": "Szállítás",
+      "payment_method_amount": "Fizetési mód",
+      "tax_amount": "Adó",
+      "giftcard_amount": "Ajándékkártya",
+      "total_amount": "Összesen",
+      "quantity": "Mennyiség: {{count}}",
+      "quantity_plural": "Mennyiség: {{count}}",
+      "frequency.hourly": "Óránként",
+      "frequency.daily": "Naponta",
+      "frequency.weekly": "Hetente",
+      "frequency.monthly": "Havonta",
+      "frequency.two-months": "Kéthavonta",
+      "frequency.two-month": "Kéthavonta",
+      "frequency.three-months": "Három havonta",
+      "frequency.three-month": "Három havonta",
+      "frequency.four-months": "Négy havonta",
+      "frequency.four-month": "Négy havonta",
+      "frequency.six-months": "Hat havonta",
+      "frequency.six-month": "Hat havonta",
+      "frequency.yearly": "Évente"
+    },
+    "addresses": {
+      "title": "Címek",
+      "billedTo": "Számlázva",
+      "shippedTo": "Szállítva"
+    },
+    "shipments": {
+      "title": "Szállítmányok",
+      "shipment": "Szállítmány #<0/>",
+      "shipmentStatus": "Állapot: <0/>",
+      "parcel": "Csomag <0/>",
+      "trackingCode": "Nyomkövetési kód",
+      "trackParcel": "Csomag nyomon követése",
+      "parcelLineItemQuantity": "Mennyiség: <0/>",
+      "parcelDetail": {
+        "title": "Csomag nyomon követése",
+        "trackingCode": "Nyomkövetési kód"
+      }
+    },
+    "payments": {
+      "title": "Fizetések"
+    }
+  },
+  "subscriptions": {
+    "title": "Előfizetéseim",
+    "subscriptionContains": "{{count}} elemet tartalmaz",
+    "subscriptionContains_other": "{{count}} elemet tartalmaz",
+    "columns": {
+      "subscription": "Előfizetés",
+      "status": "Állapot",
+      "frequency": "Gyakoriság",
+      "next_run_at": "Következő futás"
+    }
+  },
+  "noSubscriptions": {
+    "title": "Még nincs előfizetés",
+    "description": "Úgy tűnik, még nem hozott létre előfizetést",
+    "buttonLabel": "Ugrás a boltba"
+  },
+  "subscription": {
+    "title": "Előfizetés #<0/>",
+    "starts_at": "Kezdés: <0/>",
+    "next_run": "Következő futás",
+    "expires_at": "lejár: <0/>",
+    "summary": "Összesítés",
+    "payments": "Fizetések",
+    "order_history": "Megrendelési előzmények",
+    "pending_alert": "Kérjük, vegye fel velünk a kapcsolatot a fizetési adatai frissítéséhez és az előfizetés folytatásához."
+  },
+  "noSubscriptionPayments": {
+    "title": "Nem található érvényes fizetési mód az előfizetésben",
+    "description": "Úgy tűnik, nem mentett érvényes fizetési módot ehhez az előfizetéshez"
+  },
+  "noSubscriptionOrders": {
+    "title": "Még nincsenek megrendelések ehhez az előfizetéshez",
+    "description": "Következő futás: "
+  },
+  "subscriptionFrequency": {
+    "hourly": "óránként",
+    "daily": "naponta",
+    "weekly": "hetente",
+    "monthly": "havonta",
+    "two-month": "kéthavonta",
+    "three-month": "három havonta",
+    "six-month": "hat havonta",
+    "yearly": "évente"
+  },
+  "subscriptionProgress": {
+    "prefix": "Ekkor:",
+    "notRunning": "Nem fut"
+  },
+  "addresses": {
+    "title": "Címeim",
+    "edit": "Módosítás",
+    "delete": "Törlés",
+    "addNewAddress": "Új cím hozzáadása",
+    "deleteConfirmation": "Törli a címét?",
+    "yes": "Igen",
+    "no": "Nem",
+    "addressForm": {
+      "new_address_title": "Új cím hozzáadása",
+      "edit_address_title": "Cím módosítása",
+      "billing_address_country_code_placeholder": "Válasszon országot",
+      "discard_changes": "Módosítások elvetése",
+      "save": "Mentés",
+      "fields": {
+        "billing_address_first_name": "Keresztnév",
+        "billing_address_last_name": "Vezetéknév",
+        "billing_address_line_1": "Cím első sora",
+        "billing_address_line_2": "Cím második sora",
+        "billing_address_city": "Város",
+        "billing_address_country_code_placeholder": "Válasszon országot/régiót",
+        "billing_address_country_code": "Ország/Régió",
+        "billing_address_state_code": "Megye/Állam",
+        "billing_address_state_code_placeholder": "Válasszon megyét/államot",
+        "billing_address_zip_code": "Irányítószám",
+        "billing_address_phone": "Telefonszám",
+        "billing_address_billing_info": "Számlázási adatok"
+      }
+    }
+  },
+  "noAddresses": {
+    "title": "Még nincsenek címek",
+    "description": "Úgy tűnik, még nem mentett el egyetlen címet sem",
+    "buttonLabel": "Cím hozzáadása"
+  },
+  "wallet": {
+    "title": "Pénztárcám",
+    "deleteConfirmation": "Törli a fizetési módját?"
+  },
+  "noPaymentMethods": {
+    "title": "Még nincs fizetési mód",
+    "description": "Úgy tűnik, még nem mentett el egyetlen fizetési módot sem",
+    "buttonLabel": "Fizetési mód hozzáadása"
+  },
+  "paymentSource": {
+    "creditCard": "Bankkártya",
+    "endingIn": "végződése: <0/>",
+    "expires": "lejár ",
+    "wireTransfer": "Banki átutalás",
+    "wireTransferDescription": "A rendelés megerősítése után utasításokat fog kapni az átutaláshoz a fizetés befejezéséhez",
+    "paypalDescription": "A rendelés leadása után átirányításra kerül a PayPal honlapjára, hogy bejelentkezzen és jóváhagyja a fizetést",
+    "delete": "Törlés"
+  },
+  "returns": {
+    "title": "Visszaküldéseim"
+  },
+  "noReturns": {
+    "title": "Még nincsenek visszaküldések",
+    "description": "Úgy tűnik, még nem küldött vissza semmit",
+    "buttonLabel": "Visszaküldés létrehozása"
+  },
+  "orderStatus": {
+    "draft": "piszkozat",
+    "pending": "függőben",
+    "placed": "leadva",
+    "approved": "jóváhagyva",
+    "cancelled": "törölve",
+    "editing": "szerkesztés alatt"
+  },
+  "subscriptionStatus": {
+    "draft": "piszkozat",
+    "inactive": "inaktív",
+    "active": "aktív",
+    "pending": "függőben",
+    "cancelled": "törölve"
+  },
+  "shipmentStatus": {
+    "upcoming": "közelgő",
+    "in_progress": "folyamatban",
+    "cancelled": "törölve",
+    "shipped": "kiszállítva"
+  },
+  "parcelStatus": {
+    "delivered": "Kézbesítve",
+    "out_for_delivery": "Kiszállítás alatt",
+    "in_transit": "Úton",
+    "pre_transit": "Feladás előtt"
+  },
+  "returnStatus": {
+    "draft": "piszkozat",
+    "requested": "igényelve",
+    "approved": "jóváhagyva",
+    "cancelled": "törölve",
+    "shipped": "kiszállítva",
+    "rejected": "elutasítva",
+    "received": "megérkezett"
+  },
+  "actionsMenu": {
+    "mainLabel": "Menü megnyitása"
+  },
+  "showHideMenu": {
+    "mainLabel": "1 elem megjelenítése",
+    "mainLabel_plural": "<0/> elem megjelenítése"
+  }
+}

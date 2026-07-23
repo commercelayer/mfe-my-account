@@ -1,6 +1,7 @@
 import type { Order, OrderSubscription } from "@commercelayer/sdk"
 import { Warning } from "phosphor-react"
 import { useContext } from "react"
+import { useTranslation } from "react-i18next"
 
 import { AppContext } from "#providers/AppProvider"
 
@@ -14,6 +15,21 @@ function SubscriptionPaymentAlert({
   orderSubscriptionLastOrder,
 }: Props): JSX.Element | null {
   const ctx = useContext(AppContext)
+  const { t } = useTranslation()
+
+  // A subscription becomes `pending` when it has no usable payment method for
+  // its renewals. Surface this clearly since the payment source is missing.
+  // @ts-expect-error `pending` is not yet in the SDK status union
+  const isPending = orderSubscription?.status === "pending"
+  if (isPending) {
+    return (
+      <div className="flex items-start p-6 mb-8 text-orange-700 bg-orange-400 border border-orange-400 rounded-lg bg-opacity-10 gap-3">
+        <Warning size={24} weight="regular" />
+        <span>{t("subscription.pending_alert")}</span>
+      </div>
+    )
+  }
+
   if (orderSubscription != null && orderSubscriptionLastOrder != null) {
     const isActive = orderSubscription.status === "active"
     if (
