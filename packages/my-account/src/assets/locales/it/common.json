@@ -122,7 +122,8 @@
     "expires_at": "scade il <0/>",
     "summary": "Riepilogo",
     "payments": "Pagamenti",
-    "order_history": "Storico Ordini"
+    "order_history": "Storico Ordini",
+    "pending_alert": "Contattaci per aggiornare i tuoi dati di pagamento e riattivarlo."
   },
   "noSubscriptionPayments": {
     "title": "Nell'abbonamento non è stato trovato nessun metodo di pagamento valido",
@@ -220,6 +221,7 @@
     "draft": "bozza",
     "inactive": "inattiva",
     "active": "attiva",
+    "pending": "in sospeso",
     "cancelled": "cancellata"
   },
   "shipmentStatus": {

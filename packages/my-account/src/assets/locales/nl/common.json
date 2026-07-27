@@ -122,7 +122,8 @@
     "expires_at": "verloopt op <0/>",
     "summary": "Samenvatting",
     "payments": "Betalingen",
-    "order_history": "Bestelgeschiedenis"
+    "order_history": "Bestelgeschiedenis",
+    "pending_alert": "Neem contact met ons op om je betaalgegevens bij te werken en het te hervatten."
   },
   "noSubscriptionPayments": {
     "title": "Geen geldige betaalmethode gevonden voor dit abonnement",
@@ -219,6 +220,7 @@
     "draft": "concept",
     "inactive": "inactief",
     "active": "actief",
+    "pending": "in behandeling",
     "cancelled": "geannuleerd"
   },
   "shipmentStatus": {

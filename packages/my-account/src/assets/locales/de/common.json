@@ -1,0 +1,254 @@
+{
+  "general": {
+    "title": "{{companyName}} - Mein Konto",
+    "retry_error_code": "Verbindungsprobleme",
+    "retry_error_description": "Versuche, die Seite zu aktualisieren",
+    "invalid": "Diese URL ist nicht erreichbar.",
+    "privacy_link": "Datenschutz",
+    "terms_link": "Geschäftsbedingungen"
+  },
+  "input": {
+    "cantBlank": "Darf nicht leer sein",
+    "mustBeValidFormat": "Muss ein gültiges Format sein"
+  },
+  "menu": {
+    "orders": "Bestellungen",
+    "ordersDescription": "Sieh dir deine aufgegebenen Bestellungen an",
+    "addresses": "Adressen",
+    "addressesDescription": "Verwalte deine Adressen",
+    "subscriptions": "Abonnements",
+    "subscriptionsDescription": "Verwalte deine Abonnements",
+    "wallet": "Wallet",
+    "walletDescription": "Verwalte deine Zahlungsmethoden",
+    "returns": "Rücksendungen",
+    "returnsDescription": "Ein Produkt zurücksenden",
+    "backToShop": "Zurück zum Shop",
+    "customerService": "Kundenservice",
+    "customerServiceDescription": "Hilfe vom Verkäufer erhalten",
+    "logout": "Abmelden",
+    "logoutDescription": "Von diesem Konto abmelden",
+    "loggedInAs": "Angemeldet als:"
+  },
+  "header": {
+    "title": "Mein Konto"
+  },
+  "orders": {
+    "title": "Meine Bestellungen",
+    "orderContains": "enthält {{count}} Artikel",
+    "orderContains_other": "enthält {{count}} Artikel",
+    "columns": {
+      "order": "Bestellung",
+      "status": "Status",
+      "date": "Datum",
+      "payment": "Zahlung",
+      "amount": "Betrag"
+    }
+  },
+  "noOrders": {
+    "title": "Noch keine Bestellungen",
+    "description": "Es sieht so aus, als hättest du noch keine Bestellungen aufgegeben",
+    "buttonLabel": "Zum Shop"
+  },
+  "order": {
+    "title": "Bestellung #<0/>",
+    "placed_at": "Aufgegeben am <0/>",
+    "summary": {
+      "title": "Zusammenfassung",
+      "subtotal_amount": "Zwischensumme",
+      "discount_amount": "Rabatt",
+      "shipping_amount": "Versandkosten",
+      "payment_method_amount": "Zahlungsmethode",
+      "tax_amount": "Mehrwertsteuer",
+      "giftcard_amount": "Geschenkkarte",
+      "total_amount": "Summe",
+      "quantity": "Anzahl: {{count}}",
+      "quantity_plural": "Anzahl: {{count}}",
+      "frequency.hourly": "Stündlich",
+      "frequency.daily": "Täglich",
+      "frequency.weekly": "Wöchentlich",
+      "frequency.monthly": "Monatlich",
+      "frequency.two-months": "Alle zwei Monate",
+      "frequency.two-month": "Alle zwei Monate",
+      "frequency.three-months": "Alle drei Monate",
+      "frequency.three-month": "Alle drei Monate",
+      "frequency.four-months": "Alle vier Monate",
+      "frequency.four-month": "Alle vier Monate",
+      "frequency.six-months": "Alle sechs Monate",
+      "frequency.six-month": "Alle sechs Monate",
+      "frequency.yearly": "Jährlich"
+    },
+    "addresses": {
+      "title": "Adressen",
+      "billedTo": "Rechnungsadresse",
+      "shippedTo": "Lieferadresse"
+    },
+    "shipments": {
+      "title": "Sendungen",
+      "shipment": "Sendung #<0/>",
+      "shipmentStatus": "Status: <0/>",
+      "parcel": "Paket <0/>",
+      "trackingCode": "Sendungsnummer",
+      "trackParcel": "Paket verfolgen",
+      "parcelLineItemQuantity": "Anzahl: <0/>",
+      "parcelDetail": {
+        "title": "Paket verfolgen",
+        "trackingCode": "Sendungsnummer"
+      }
+    },
+    "payments": {
+      "title": "Zahlungen"
+    }
+  },
+  "subscriptions": {
+    "title": "Meine Abonnements",
+    "subscriptionContains": "enthält {{count}} Artikel",
+    "subscriptionContains_other": "enthält {{count}} Artikel",
+    "columns": {
+      "subscription": "Abonnement",
+      "status": "Status",
+      "frequency": "Häufigkeit",
+      "next_run_at": "Nächste Ausführung"
+    }
+  },
+  "noSubscriptions": {
+    "title": "Noch kein Abonnement",
+    "description": "Es sieht so aus, als hättest du noch keine Abonnements abgeschlossen",
+    "buttonLabel": "Zum Shop"
+  },
+  "subscription": {
+    "title": "Abonnement #<0/>",
+    "starts_at": "Gestartet am <0/>",
+    "next_run": "Nächste Ausführung",
+    "expires_at": "läuft ab am <0/>",
+    "summary": "Zusammenfassung",
+    "payments": "Zahlungen",
+    "order_history": "Bestellverlauf",
+    "pending_alert": "Bitte kontaktiere uns, um deine Zahlungsdaten zu aktualisieren und das Abonnement fortzusetzen."
+  },
+  "noSubscriptionPayments": {
+    "title": "Keine gültige Zahlungsmethode im Abonnement gefunden",
+    "description": "Es sieht so aus, als hättest du keine gültige Zahlungsmethode für dieses Abonnement gespeichert"
+  },
+  "noSubscriptionOrders": {
+    "title": "Noch keine Bestellungen für dieses Abonnement",
+    "description": "Nächste Ausführung: "
+  },
+  "subscriptionFrequency": {
+    "hourly": "stündlich",
+    "daily": "täglich",
+    "weekly": "wöchentlich",
+    "monthly": "monatlich",
+    "two-month": "alle zwei Monate",
+    "three-month": "alle drei Monate",
+    "six-month": "alle sechs Monate",
+    "yearly": "jährlich"
+  },
+  "subscriptionProgress": {
+    "prefix": "In",
+    "notRunning": "Nicht aktiv"
+  },
+  "addresses": {
+    "title": "Meine Adressen",
+    "edit": "Bearbeiten",
+    "delete": "Löschen",
+    "addNewAddress": "Neue Adresse hinzufügen",
+    "deleteConfirmation": "Deine Adresse löschen?",
+    "yes": "Ja",
+    "no": "Nein",
+    "addressForm": {
+      "new_address_title": "Neue Adresse hinzufügen",
+      "edit_address_title": "Meine Adresse bearbeiten",
+      "billing_address_country_code_placeholder": "Wähle ein Land",
+      "discard_changes": "Änderungen verwerfen",
+      "save": "Speichern",
+      "fields": {
+        "billing_address_first_name": "Vorname",
+        "billing_address_last_name": "Nachname",
+        "billing_address_line_1": "Adresszeile 1",
+        "billing_address_line_2": "Adresszeile 2",
+        "billing_address_city": "Stadt",
+        "billing_address_country_code_placeholder": "Wähle ein Land / eine Region",
+        "billing_address_country_code": "Land/Region",
+        "billing_address_state_code": "Bundesland/Provinz",
+        "billing_address_state_code_placeholder": "Wähle ein Bundesland/eine Provinz",
+        "billing_address_zip_code": "Postleitzahl",
+        "billing_address_phone": "Telefon",
+        "billing_address_billing_info": "Rechnungsinfo"
+      }
+    }
+  },
+  "noAddresses": {
+    "title": "Noch keine Adressen",
+    "description": "Es sieht so aus, als hättest du noch keine Adresse gespeichert",
+    "buttonLabel": "Adresse hinzufügen"
+  },
+  "wallet": {
+    "title": "Mein Wallet",
+    "deleteConfirmation": "Deine Zahlungsmethode löschen?"
+  },
+  "noPaymentMethods": {
+    "title": "Noch keine Zahlungsmethode",
+    "description": "Es sieht so aus, als hättest du noch keine Zahlungsmethode gespeichert",
+    "buttonLabel": "Zahlungsmethode hinzufügen"
+  },
+  "paymentSource": {
+    "creditCard": "Kreditkarte",
+    "endingIn": "endet mit <0/>",
+    "expires": "läuft ab ",
+    "wireTransfer": "Banküberweisung",
+    "wireTransferDescription": "Nach Bestätigung der Bestellung erhältst du die Überweisungsdaten, um die Zahlung abzuschließen",
+    "paypalDescription": "Nach der Bestellung wirst du auf die PayPal-Website weitergeleitet, um dich anzumelden und die Zahlung zu autorisieren",
+    "delete": "Löschen"
+  },
+  "returns": {
+    "title": "Meine Rücksendungen"
+  },
+  "noReturns": {
+    "title": "Noch keine Rücksendungen",
+    "description": "Es sieht so aus, als hättest du noch keine Rücksendungen vorgenommen",
+    "buttonLabel": "Rücksendung erstellen"
+  },
+  "orderStatus": {
+    "draft": "Entwurf",
+    "pending": "ausstehend",
+    "placed": "aufgegeben",
+    "approved": "genehmigt",
+    "cancelled": "storniert",
+    "editing": "in Bearbeitung"
+  },
+  "subscriptionStatus": {
+    "draft": "Entwurf",
+    "inactive": "inaktiv",
+    "active": "aktiv",
+    "pending": "ausstehend",
+    "cancelled": "storniert"
+  },
+  "shipmentStatus": {
+    "upcoming": "anstehend",
+    "in_progress": "in Bearbeitung",
+    "cancelled": "storniert",
+    "shipped": "versendet"
+  },
+  "parcelStatus": {
+    "delivered": "Zugestellt",
+    "out_for_delivery": "In Zustellung",
+    "in_transit": "Unterwegs",
+    "pre_transit": "Versand vorbereitet"
+  },
+  "returnStatus": {
+    "draft": "Entwurf",
+    "requested": "angefragt",
+    "approved": "genehmigt",
+    "cancelled": "storniert",
+    "shipped": "versendet",
+    "rejected": "abgelehnt",
+    "received": "erhalten"
+  },
+  "actionsMenu": {
+    "mainLabel": "Menü öffnen"
+  },
+  "showHideMenu": {
+    "mainLabel": "1 Artikel anzeigen",
+    "mainLabel_plural": "<0/> Artikel anzeigen"
+  }
+}

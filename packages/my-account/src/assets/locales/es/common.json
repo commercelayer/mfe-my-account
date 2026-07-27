@@ -1,0 +1,254 @@
+{
+  "general": {
+    "title": "{{companyName}} - Mi cuenta",
+    "retry_error_code": "Problemas de conectividad",
+    "retry_error_description": "Intenta recargar la página",
+    "invalid": "Esta URL no es accesible.",
+    "privacy_link": "Privacidad",
+    "terms_link": "Términos"
+  },
+  "input": {
+    "cantBlank": "No puede estar en blanco",
+    "mustBeValidFormat": "Debe ser un formato válido"
+  },
+  "menu": {
+    "orders": "Pedidos",
+    "ordersDescription": "Consulta tus pedidos realizados",
+    "addresses": "Direcciones",
+    "addressesDescription": "Gestiona tus direcciones",
+    "subscriptions": "Suscripciones",
+    "subscriptionsDescription": "Gestiona tus suscripciones",
+    "wallet": "Billetera",
+    "walletDescription": "Gestiona tus métodos de pago",
+    "returns": "Devoluciones",
+    "returnsDescription": "Devuelve un producto",
+    "backToShop": "Volver a la tienda",
+    "customerService": "Atención al cliente",
+    "customerServiceDescription": "Obtén ayuda del vendedor",
+    "logout": "Cerrar sesión",
+    "logoutDescription": "Cierra la sesión de esta cuenta",
+    "loggedInAs": "Sesión iniciada como:"
+  },
+  "header": {
+    "title": "Mi cuenta"
+  },
+  "orders": {
+    "title": "Mis pedidos",
+    "orderContains": "contiene {{count}} artículo",
+    "orderContains_other": "contiene {{count}} artículos",
+    "columns": {
+      "order": "Pedido",
+      "status": "Estado",
+      "date": "Fecha",
+      "payment": "Pago",
+      "amount": "Importe"
+    }
+  },
+  "noOrders": {
+    "title": "Aún no hay pedidos",
+    "description": "Parece que aún no has realizado ningún pedido",
+    "buttonLabel": "Ir a la tienda"
+  },
+  "order": {
+    "title": "Pedido n.º <0/>",
+    "placed_at": "Realizado el <0/>",
+    "summary": {
+      "title": "Resumen",
+      "subtotal_amount": "Subtotal",
+      "discount_amount": "Descuento",
+      "shipping_amount": "Envío",
+      "payment_method_amount": "Método de pago",
+      "tax_amount": "Impuestos",
+      "giftcard_amount": "Tarjeta de regalo",
+      "total_amount": "Total",
+      "quantity": "Cantidad: {{count}}",
+      "quantity_plural": "Cantidad: {{count}}",
+      "frequency.hourly": "Cada hora",
+      "frequency.daily": "Diario",
+      "frequency.weekly": "Semanal",
+      "frequency.monthly": "Mensual",
+      "frequency.two-months": "Cada dos meses",
+      "frequency.two-month": "Cada dos meses",
+      "frequency.three-months": "Cada tres meses",
+      "frequency.three-month": "Cada tres meses",
+      "frequency.four-months": "Cada cuatro meses",
+      "frequency.four-month": "Cada cuatro meses",
+      "frequency.six-months": "Cada seis meses",
+      "frequency.six-month": "Cada seis meses",
+      "frequency.yearly": "Anual"
+    },
+    "addresses": {
+      "title": "Direcciones",
+      "billedTo": "Facturado a",
+      "shippedTo": "Enviado a"
+    },
+    "shipments": {
+      "title": "Envíos",
+      "shipment": "Envío n.º <0/>",
+      "shipmentStatus": "Estado: <0/>",
+      "parcel": "Paquete <0/>",
+      "trackingCode": "Código de seguimiento",
+      "trackParcel": "Seguir paquete",
+      "parcelLineItemQuantity": "Cantidad: <0/>",
+      "parcelDetail": {
+        "title": "Seguir paquete",
+        "trackingCode": "Código de seguimiento"
+      }
+    },
+    "payments": {
+      "title": "Pagos"
+    }
+  },
+  "subscriptions": {
+    "title": "Mis suscripciones",
+    "subscriptionContains": "contiene {{count}} artículo",
+    "subscriptionContains_other": "contiene {{count}} artículos",
+    "columns": {
+      "subscription": "Suscripción",
+      "status": "Estado",
+      "frequency": "Frecuencia",
+      "next_run_at": "Próxima ejecución"
+    }
+  },
+  "noSubscriptions": {
+    "title": "Aún no hay suscripciones",
+    "description": "Parece que aún no has creado ninguna suscripción",
+    "buttonLabel": "Ir a la tienda"
+  },
+  "subscription": {
+    "title": "Suscripción n.º <0/>",
+    "starts_at": "Iniciada el <0/>",
+    "next_run": "Próxima ejecución",
+    "expires_at": "expira el <0/>",
+    "summary": "Resumen",
+    "payments": "Pagos",
+    "order_history": "Historial de pedidos",
+    "pending_alert": "Ponte en contacto con nosotros para actualizar tus datos de pago y reanudarla."
+  },
+  "noSubscriptionPayments": {
+    "title": "No se encontró un método de pago válido en la suscripción",
+    "description": "Parece que no has guardado un método de pago válido para esta suscripción"
+  },
+  "noSubscriptionOrders": {
+    "title": "Aún no hay pedidos para esta suscripción",
+    "description": "Próxima ejecución: "
+  },
+  "subscriptionFrequency": {
+    "hourly": "cada hora",
+    "daily": "diario",
+    "weekly": "semanal",
+    "monthly": "mensual",
+    "two-month": "cada dos meses",
+    "three-month": "cada tres meses",
+    "six-month": "cada seis meses",
+    "yearly": "anual"
+  },
+  "subscriptionProgress": {
+    "prefix": "En",
+    "notRunning": "Sin ejecución"
+  },
+  "addresses": {
+    "title": "Mis direcciones",
+    "edit": "Editar",
+    "delete": "Eliminar",
+    "addNewAddress": "Agregar nueva dirección",
+    "deleteConfirmation": "¿Eliminar tu dirección?",
+    "yes": "Sí",
+    "no": "No",
+    "addressForm": {
+      "new_address_title": "Agregar una nueva dirección",
+      "edit_address_title": "Editar mi dirección",
+      "billing_address_country_code_placeholder": "Selecciona un país",
+      "discard_changes": "Descartar cambios",
+      "save": "Guardar",
+      "fields": {
+        "billing_address_first_name": "Nombre",
+        "billing_address_last_name": "Apellidos",
+        "billing_address_line_1": "Línea de dirección 1",
+        "billing_address_line_2": "Línea de dirección 2",
+        "billing_address_city": "Ciudad",
+        "billing_address_country_code_placeholder": "Selecciona un país/región",
+        "billing_address_country_code": "País/Región",
+        "billing_address_state_code": "Provincia/Estado",
+        "billing_address_state_code_placeholder": "Selecciona una provincia/estado",
+        "billing_address_zip_code": "Código Postal",
+        "billing_address_phone": "Teléfono",
+        "billing_address_billing_info": "Información de facturación"
+      }
+    }
+  },
+  "noAddresses": {
+    "title": "Aún no hay direcciones",
+    "description": "Parece que aún no has guardado ninguna dirección",
+    "buttonLabel": "Agregar una dirección"
+  },
+  "wallet": {
+    "title": "Mi billetera",
+    "deleteConfirmation": "¿Eliminar tu método de pago?"
+  },
+  "noPaymentMethods": {
+    "title": "Aún no hay métodos de pago",
+    "description": "Parece que aún no has guardado ningún método de pago",
+    "buttonLabel": "Agregar un método de pago"
+  },
+  "paymentSource": {
+    "creditCard": "Tarjeta de crédito",
+    "endingIn": "que termina en <0/>",
+    "expires": "expira ",
+    "wireTransfer": "Transferencia bancaria",
+    "wireTransferDescription": "Tras confirmar el pedido, recibirás las instrucciones de transferencia para completar el pago",
+    "paypalDescription": "Después de realizar el pedido, serás redirigido al sitio web de PayPal para iniciar sesión y autorizar el pago",
+    "delete": "Eliminar"
+  },
+  "returns": {
+    "title": "Mis devoluciones"
+  },
+  "noReturns": {
+    "title": "Aún no hay devoluciones",
+    "description": "Parece que aún no has realizado ninguna devolución",
+    "buttonLabel": "Crear una devolución"
+  },
+  "orderStatus": {
+    "draft": "borrador",
+    "pending": "pendiente",
+    "placed": "realizado",
+    "approved": "aprobado",
+    "cancelled": "cancelado",
+    "editing": "en edición"
+  },
+  "subscriptionStatus": {
+    "draft": "borrador",
+    "inactive": "inactiva",
+    "active": "activa",
+    "pending": "pendiente",
+    "cancelled": "cancelada"
+  },
+  "shipmentStatus": {
+    "upcoming": "próximo",
+    "in_progress": "en curso",
+    "cancelled": "cancelado",
+    "shipped": "enviado"
+  },
+  "parcelStatus": {
+    "delivered": "Entregado",
+    "out_for_delivery": "En reparto",
+    "in_transit": "En tránsito",
+    "pre_transit": "Pendiente de tránsito"
+  },
+  "returnStatus": {
+    "draft": "borrador",
+    "requested": "solicitada",
+    "approved": "aprobada",
+    "cancelled": "cancelada",
+    "shipped": "enviada",
+    "rejected": "rechazada",
+    "received": "recibida"
+  },
+  "actionsMenu": {
+    "mainLabel": "Abrir menú"
+  },
+  "showHideMenu": {
+    "mainLabel": "mostrar 1 artículo",
+    "mainLabel_plural": "mostrar <0/> artículos"
+  }
+}
