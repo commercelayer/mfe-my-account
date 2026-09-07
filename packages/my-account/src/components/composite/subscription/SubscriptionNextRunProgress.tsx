@@ -1,6 +1,6 @@
 import type { OrderSubscription } from "@commercelayer/sdk"
 import { formatDistanceStrict, formatDistanceToNowStrict } from "date-fns"
-import type { TFunction } from "i18next/typescript/t"
+import type { TFunction } from "i18next"
 import { useTranslation } from "react-i18next"
 
 interface Props {
