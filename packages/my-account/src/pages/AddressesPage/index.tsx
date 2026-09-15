@@ -1,5 +1,8 @@
-import { AddressesContainer } from "@commercelayer/react-components/addresses/AddressesContainer"
-import { AddressesEmpty } from "@commercelayer/react-components/addresses/AddressesEmpty"
+import {
+  AddressesContainer,
+  AddressesEmpty,
+} from "@commercelayer/react-components"
+import type { JSX } from "react"
 import { useContext } from "react"
 import { useTranslation } from "react-i18next"
 import { useLocation } from "wouter"

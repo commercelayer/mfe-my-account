@@ -1,5 +1,6 @@
 import type { OrderSubscription } from "@commercelayer/sdk"
 import capitalize from "lodash/capitalize"
+import type { JSX } from "react"
 import { Trans } from "react-i18next"
 
 import Empty from "#components/composite/Empty"

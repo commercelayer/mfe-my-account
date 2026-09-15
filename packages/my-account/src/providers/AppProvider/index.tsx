@@ -1,5 +1,6 @@
 import type { Settings } from "HostedApp"
 import CommerceLayer from "@commercelayer/sdk"
+import type { JSX } from "react"
 import { createContext, useEffect, useState } from "react"
 
 import { getCustomerDetails } from "#utils/getCustomerDetails"

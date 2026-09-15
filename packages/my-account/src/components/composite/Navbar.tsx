@@ -1,5 +1,5 @@
 import type { Settings } from "HostedApp"
-import { CustomerField } from "@commercelayer/react-components/customers/CustomerField"
+import { CustomerField } from "@commercelayer/react-components"
 import {
   ArrowUUpLeft,
   CalendarCheck,
@@ -10,6 +10,7 @@ import {
   ShoppingCart,
   SignOut,
 } from "phosphor-react"
+import type { JSX } from "react"
 import { useTranslation } from "react-i18next"
 
 import NavLink from "#components/composite/NavLink"

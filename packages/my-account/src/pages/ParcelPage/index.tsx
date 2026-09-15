@@ -1,9 +1,12 @@
-import { OrderContainer } from "@commercelayer/react-components/orders/OrderContainer"
-import { ParcelField } from "@commercelayer/react-components/parcels/ParcelField"
-import { Parcels } from "@commercelayer/react-components/parcels/Parcels"
-import { Shipment } from "@commercelayer/react-components/shipments/Shipment"
-import { ShipmentsContainer } from "@commercelayer/react-components/shipments/ShipmentsContainer"
+import {
+  OrderContainer,
+  ParcelField,
+  Parcels,
+  Shipment,
+  ShipmentsContainer,
+} from "@commercelayer/react-components"
 import { CaretLeft } from "phosphor-react"
+import type { JSX } from "react"
 import { useContext } from "react"
 import { useTranslation } from "react-i18next"
 import { Link, Redirect } from "wouter"

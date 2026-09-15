@@ -1,4 +1,5 @@
 import type { Settings } from "HostedApp"
+import type { JSX } from "react"
 
 import Logo from "#components/ui/Logo"
 import MenuButton from "#components/ui/MenuButton"

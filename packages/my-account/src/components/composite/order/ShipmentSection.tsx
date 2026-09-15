@@ -1,6 +1,9 @@
-import { Shipment } from "@commercelayer/react-components/shipments/Shipment"
-import { ShipmentField } from "@commercelayer/react-components/shipments/ShipmentField"
-import { ShipmentsContainer } from "@commercelayer/react-components/shipments/ShipmentsContainer"
+import {
+  Shipment,
+  ShipmentField,
+  ShipmentsContainer,
+} from "@commercelayer/react-components"
+import type { JSX } from "react"
 import { Trans, useTranslation } from "react-i18next"
 
 function ShipmentSection(): JSX.Element {

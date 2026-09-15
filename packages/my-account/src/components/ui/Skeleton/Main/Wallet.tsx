@@ -1,3 +1,4 @@
+import type { JSX } from "react"
 import { SkeletonWrapper } from "#components/ui/Skeleton"
 import {
   SkeletonMainPageTitle,

@@ -1,5 +1,8 @@
-import { PaymentMethodsContainer } from "@commercelayer/react-components/payment_methods/PaymentMethodsContainer"
-import { PaymentSource } from "@commercelayer/react-components/payment_source/PaymentSource"
+import {
+  PaymentMethodsContainer,
+  PaymentSource,
+} from "@commercelayer/react-components"
+import type { JSX } from "react"
 
 import { PaymentSourceRow } from "#components/composite/PaymentSourceRow"
 

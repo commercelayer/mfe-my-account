@@ -1,3 +1,4 @@
+import type { JSX } from "react"
 import { LayoutDefault } from "#components/layouts/LayoutDefault"
 import { SkeletonMainOrders } from "#components/ui/Skeleton/Main"
 

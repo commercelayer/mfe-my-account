@@ -1,5 +1,8 @@
-import { PaymentSourceBrandIcon } from "@commercelayer/react-components/payment_source/PaymentSourceBrandIcon"
-import { PaymentSourceDetail } from "@commercelayer/react-components/payment_source/PaymentSourceDetail"
+import {
+  PaymentSourceBrandIcon,
+  PaymentSourceDetail,
+} from "@commercelayer/react-components"
+import type { JSX } from "react"
 
 import {
   PaymentSourceCreditCardEndingIn,

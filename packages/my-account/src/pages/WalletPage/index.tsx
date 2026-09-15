@@ -1,4 +1,5 @@
-import CustomerPaymentSourceEmpty from "@commercelayer/react-components/customers/CustomerPaymentSourceEmpty"
+import { CustomerPaymentSourceEmpty } from "@commercelayer/react-components"
+import type { JSX } from "react"
 import { useTranslation } from "react-i18next"
 
 import CustomerPaymentCard from "#components/composite/CustomerPaymentCard"

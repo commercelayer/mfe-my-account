@@ -1,7 +1,10 @@
-import { PaymentSourceDeleteButton } from "@commercelayer/react-components"
-import { PaymentSourceBrandIcon } from "@commercelayer/react-components/payment_source/PaymentSourceBrandIcon"
-import { PaymentSourceDetail } from "@commercelayer/react-components/payment_source/PaymentSourceDetail"
+import {
+  PaymentSourceBrandIcon,
+  PaymentSourceDeleteButton,
+  PaymentSourceDetail,
+} from "@commercelayer/react-components"
 import { Trash, X } from "phosphor-react"
+import type { JSX } from "react"
 import { useState } from "react"
 import { useTranslation } from "react-i18next"
 import {

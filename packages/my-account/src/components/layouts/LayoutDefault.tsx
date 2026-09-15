@@ -1,4 +1,5 @@
 import type { Settings } from "HostedApp"
+import type { JSX } from "react"
 import { useContext, useEffect, useState } from "react"
 
 import { Base } from "#components/ui/Base"

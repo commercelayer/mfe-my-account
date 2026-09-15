@@ -1,3 +1,4 @@
+import type { JSX } from "react"
 import { Base } from "#components/ui/Base"
 import { Container } from "#components/ui/Container"
 import Footer from "#components/ui/Footer"

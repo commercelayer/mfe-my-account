@@ -1,4 +1,5 @@
 import cn from "classnames"
+import type { JSX } from "react"
 
 import { LayoutDefault } from "#components/layouts/LayoutDefault"
 import { SkeletonBox, SkeletonCircle } from "#components/ui/Skeleton"

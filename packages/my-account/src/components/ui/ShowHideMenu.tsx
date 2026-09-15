@@ -1,6 +1,7 @@
 import { Transition } from "@headlessui/react"
 import cn from "classnames"
 import { CaretDown } from "phosphor-react"
+import type { JSX } from "react"
 import { useState } from "react"
 import { Trans } from "react-i18next"
 import OutsideClickHandler from "react-outside-click-handler"

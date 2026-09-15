@@ -1,5 +1,6 @@
 import type { Settings } from "HostedApp"
 import cn from "classnames"
+import type { JSX } from "react"
 import { useContext } from "react"
 import { Link, useLocation, useRouter } from "wouter"
 

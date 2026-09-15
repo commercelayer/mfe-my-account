@@ -1,5 +1,6 @@
 import cn from "classnames"
 import { url } from "gravatar"
+import type { JSX } from "react"
 
 interface Props {
   email: string

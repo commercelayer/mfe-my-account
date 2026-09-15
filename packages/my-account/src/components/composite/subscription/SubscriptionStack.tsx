@@ -1,6 +1,6 @@
 import type { Order, OrderSubscription } from "@commercelayer/sdk"
-
 import cn from "classnames"
+import type { JSX } from "react"
 import FormattedDate from "#components/ui/FormattedDate"
 import { Stack } from "#components/ui/Stack"
 

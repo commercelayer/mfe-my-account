@@ -1,4 +1,5 @@
 import type { Settings } from "HostedApp"
+import type { JSX } from "react"
 import { Helmet, HelmetProvider } from "react-helmet-async"
 import { useTranslation } from "react-i18next"
 
