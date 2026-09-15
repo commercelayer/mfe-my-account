@@ -80,7 +80,7 @@ function OrdersPage(): JSX.Element {
             field="number"
             className="order-1 pt-6 pb-2.5 md:p-0  md:align-middle"
           >
-            {({ cell, row, ...p }) => {
+            {({ cell, row, field: _field, order: _order, ...p }) => {
               const order = row?.original
               // biome-ignore lint/complexity/noUselessFragments: in react-components
               if (!order) return <></>
@@ -119,7 +119,7 @@ function OrdersPage(): JSX.Element {
             field="placed_at"
             className="absolute order-2 text-right bottom-4 right-5 md:bottom-auto md:relative md:right-auto md:text-left"
           >
-            {({ cell, row, ...p }) => {
+            {({ cell, row, field: _field, order: _order, ...p }) => {
               const order = row?.original
               // biome-ignore lint/complexity/noUselessFragments: in react-components
               if (!order) return <></>
@@ -140,7 +140,7 @@ function OrdersPage(): JSX.Element {
             field="status"
             className="absolute order-3 left-5 bottom-4 md:left-auto md:bottom-auto md:relative"
           >
-            {({ cell, row, ...p }) => {
+            {({ cell, row, field: _field, order: _order, ...p }) => {
               const order = row?.original
               // biome-ignore lint/complexity/noUselessFragments: in react-components
               if (!order) return <></>

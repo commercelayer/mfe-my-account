@@ -82,7 +82,7 @@ function SubscriptionsPage(): JSX.Element {
             field="starts_at"
             className="order-1 pt-1 pb-2.5 md:p-0  md:align-middle"
           >
-            {({ cell, row, ...p }) => {
+            {({ cell, row, field: _field, order: _order, ...p }) => {
               const order = row?.original
               // biome-ignore lint/complexity/noUselessFragments: in react-components
               if (!order) return <></>
@@ -125,7 +125,7 @@ function SubscriptionsPage(): JSX.Element {
             field="status"
             className="absolute order-3 right-5 top-10 md:top-auto md:relative md:right-auto"
           >
-            {({ cell, row, ...p }) => {
+            {({ cell, row, field: _field, order: _order, ...p }) => {
               const order = row?.original
               // biome-ignore lint/complexity/noUselessFragments: in react-components
               if (!order || order.type !== "order_subscriptions") return <></>
@@ -143,7 +143,7 @@ function SubscriptionsPage(): JSX.Element {
             field="frequency"
             className="absolute order-2 text-right top-4 right-5 md:top-auto md:relative md:right-auto md:text-left"
           >
-            {({ cell, row, ...p }) => {
+            {({ cell, row, field: _field, order: _order, ...p }) => {
               const order = row?.original
               // biome-ignore lint/complexity/noUselessFragments: in react-components
               if (!order || order.type !== "order_subscriptions") return <></>
