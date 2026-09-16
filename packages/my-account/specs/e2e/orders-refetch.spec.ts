@@ -11,7 +11,15 @@ import { test } from "../fixtures/tokenizedPage"
  * timer — it is the API round-trip time, roughly one request per second.
  *
  * StrictMode double-invokes effects in dev, so a healthy page may issue the
- * initial fetch twice; anything beyond that is the loop.
+ * initial fetch twice; anything beyond that is the loop. Measured against
+ * published 5.0.3: 73 requests in 10s. Against a fixed build: 2.
+ *
+ * The endpoint is nested — /api/customers/<id>/orders, not /api/orders — and a
+ * filter that misses it makes this test pass by counting nothing.
+ *
+ * On a looping build this usually fails at navigation rather than on the
+ * assertion: the fixture waits for networkidle, and a page that refetches every
+ * round-trip never gets there. A 60s goto timeout here is the same diagnosis.
  */
 const SETTLE_MS = 8_000
 const MAX_EXPECTED = 3
@@ -26,7 +34,7 @@ test.describe("Orders page refetching", () => {
     const calls: string[] = []
     page.on("request", (request) => {
       const url = request.url()
-      if (/\/api\/(orders|order_subscriptions)\b/.test(url)) {
+      if (/\/api\/.*\/(orders|order_subscriptions)(?:\?|$)/.test(url)) {
         calls.push(url)
       }
     })
