@@ -1,4 +1,3 @@
-import { AddressesContainer } from "@commercelayer/react-components/addresses/AddressesContainer"
 import { useContext } from "react"
 import { useRoute } from "wouter"
 
@@ -18,9 +17,7 @@ function AddressFormPage(): JSX.Element {
       domain={ctx?.domain as string}
       addressId={addressId}
     >
-      <AddressesContainer>
-        <CustomerAddressForm />
-      </AddressesContainer>
+      <CustomerAddressForm />
     </CustomerAddressProvider>
   )
 }
