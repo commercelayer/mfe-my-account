@@ -1,4 +1,4 @@
-import { ParcelField } from "@commercelayer/react-components/parcels/ParcelField"
+import { ParcelField } from "@commercelayer/react-components"
 import cn from "classnames"
 import { Trans } from "react-i18next"
 

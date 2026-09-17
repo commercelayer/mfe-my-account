@@ -1,12 +1,14 @@
-import { ParcelField } from "@commercelayer/react-components/parcels/ParcelField"
-import { ParcelLineItem } from "@commercelayer/react-components/parcels/ParcelLineItem"
-import { ParcelLineItemField } from "@commercelayer/react-components/parcels/ParcelLineItemField"
-import { ParcelLineItemsCount } from "@commercelayer/react-components/parcels/ParcelLineItemsCount"
-import { Parcels } from "@commercelayer/react-components/parcels/Parcels"
-import { Shipment } from "@commercelayer/react-components/shipments/Shipment"
-import { ShipmentField } from "@commercelayer/react-components/shipments/ShipmentField"
-import { ShipmentsContainer } from "@commercelayer/react-components/shipments/ShipmentsContainer"
-import { ShipmentsCount } from "@commercelayer/react-components/shipments/ShipmentsCount"
+import {
+  ParcelField,
+  ParcelLineItem,
+  ParcelLineItemField,
+  ParcelLineItemsCount,
+  Parcels,
+  Shipment,
+  ShipmentField,
+  Shipments,
+  ShipmentsCount,
+} from "@commercelayer/react-components"
 import { useContext } from "react"
 import { Trans, useTranslation } from "react-i18next"
 import { useLocation } from "wouter"
@@ -171,7 +173,7 @@ function ShipmentTop(): JSX.Element {
 
 function OrderShipments(): JSX.Element {
   return (
-    <ShipmentsContainer>
+    <Shipments>
       <Shipment>
         <div className="border-b border-gray-300 last:border-b-0 pb-10 mb-10 last:pb-8 last:mb-0">
           <ShipmentTop />
@@ -182,7 +184,7 @@ function OrderShipments(): JSX.Element {
           </Parcels>
         </div>
       </Shipment>
-    </ShipmentsContainer>
+    </Shipments>
   )
 }
 

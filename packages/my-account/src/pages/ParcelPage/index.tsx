@@ -1,8 +1,10 @@
-import { OrderContainer } from "@commercelayer/react-components/orders/OrderContainer"
-import { ParcelField } from "@commercelayer/react-components/parcels/ParcelField"
-import { Parcels } from "@commercelayer/react-components/parcels/Parcels"
-import { Shipment } from "@commercelayer/react-components/shipments/Shipment"
-import { ShipmentsContainer } from "@commercelayer/react-components/shipments/ShipmentsContainer"
+import {
+  Order,
+  ParcelField,
+  Parcels,
+  Shipment,
+  Shipments,
+} from "@commercelayer/react-components"
 import { CaretLeft } from "phosphor-react"
 import { useContext } from "react"
 import { useTranslation } from "react-i18next"
@@ -45,16 +47,16 @@ function ParcelPage({ orderId, parcelId }: Props): JSX.Element {
               })}
             />
           ) : (
-            <OrderContainer orderId={orderId}>
-              <ShipmentsContainer>
+            <Order orderId={orderId}>
+              <Shipments>
                 <Shipment loader={<SkeletonMainParcel />}>
                   <Parcels filterBy={[parcelId]}>
                     <div>
                       <div className="mt-3">
                         <div className="flex items-start content-start">
                           <Link
-                            href={appRoutes.subscription.makePath({
-                              subscriptionId: orderId ?? "",
+                            href={appRoutes.order.makePath({
+                              orderId: orderId ?? "",
                               accessToken: accessToken ?? "",
                               lang: settings.language,
                               returnUrl: settings.returnUrl,
@@ -90,9 +92,9 @@ function ParcelPage({ orderId, parcelId }: Props): JSX.Element {
                     </div>
                   </Parcels>
                 </Shipment>
-              </ShipmentsContainer>
+              </Shipments>
               <ScrollToTop />
-            </OrderContainer>
+            </Order>
           )}
         </>
       )}
