@@ -33,8 +33,8 @@ importers:
         specifier: ^2.8.5
         version: 2.8.5
       '@commercelayer/react-components':
-        specifier: ^5.0.4
-        version: 5.0.4(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+        specifier: 5.0.6
+        version: 5.0.6(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       '@commercelayer/sdk':
         specifier: 8.0.0-beta.11
         version: 8.0.0-beta.11
@@ -358,8 +358,8 @@ packages:
   '@braintree/wrap-promise@2.1.0':
     resolution: {integrity: sha512-UIrJB+AfKU0CCfbMoWrsGpd2D/hBpY/SGgFI6WRHPOwhaZ3g9rz1weiJ6eb6L9KgVyunT7s2tckcPkbHw+NzeA==}
 
-  '@commercelayer/core-components@5.0.4':
-    resolution: {integrity: sha512-tnUcum/HbslgQnqsFZL9HSVgRypIHR7st0f3+JWWigwumubaVXjq2gFDR4b5C0gHCmz9W6eM0gzYNcXtTSm/Mw==}
+  '@commercelayer/core-components@5.0.6':
+    resolution: {integrity: sha512-GyEZAQWO9gxYEGY4QBQiBN0mr3gAXbuBVa5u1EFoli+VFrA6EwJDsXSulM9Oqhnj7oNoKjqOfNKkM1x9pHdJaQ==}
 
   '@commercelayer/js-auth@6.7.2':
     resolution: {integrity: sha512-kk4VqN2iEOreXFq76YqTP83KhBs09Z5Ez9nZNlikXWf5DXzkrOfShqqEwq8ezHjSOlqs4xVyxgQzsEdPP35CeQ==}
@@ -377,13 +377,13 @@ packages:
     resolution: {integrity: sha512-qGdC9JnxLdris2ux/HFRL+yl4uZlXGN0cdclZnU5OeLkCydqrZx/ld4zR4xqyhznq/QSfnXcTN6YOeXe7eIHFA==}
     engines: {node: '>=18', pnpm: '>=7'}
 
-  '@commercelayer/react-components@5.0.4':
-    resolution: {integrity: sha512-sX7eIuJVe61/BeGjUOsrBISGILdE8litSPta0WKLCuAIzzGIajo8+iai+c4a3viarBT1RHZoqC3UQ9RTa30YzA==}
+  '@commercelayer/react-components@5.0.6':
+    resolution: {integrity: sha512-+TY23Xn8lF6kfSPvO2N9hNiZzhE8sGUFFDauUfeBeqg9TbRNxrixxkcLHcazDxMqcrkjDMozaEkHEho+4i+oaQ==}
     peerDependencies:
       react: '>=19.0.0'
 
-  '@commercelayer/react-hooks-components@5.0.4':
-    resolution: {integrity: sha512-cu5lkuZa0EKOSsFaD3cxxZI3UBR46PNd8S3u9T7mxmA7ZDSuc/iWXRG0su79oo1Q4cCLZHMui8gegDNInxFGng==}
+  '@commercelayer/react-hooks-components@5.0.6':
+    resolution: {integrity: sha512-nE+z2yKdX6F/9OSP5yOCnzT6DWuJfGgtVvcnr1znTMsCPuwKIgEUnNr4oUqVmGaQHdY4dDsAf2Qh8mKZOi/vVw==}
     peerDependencies:
       react: '>=19.0.0'
 
@@ -2717,7 +2717,7 @@ snapshots:
 
   '@braintree/wrap-promise@2.1.0': {}
 
-  '@commercelayer/core-components@5.0.4':
+  '@commercelayer/core-components@5.0.6':
     dependencies:
       '@commercelayer/js-auth': 8.0.1
       '@commercelayer/sdk': 8.0.0-beta.11
@@ -2733,12 +2733,12 @@ snapshots:
       '@commercelayer/js-auth': 7.4.2
       merge-anything: 5.1.7
 
-  '@commercelayer/react-components@5.0.4(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+  '@commercelayer/react-components@5.0.6(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
       '@adyen/adyen-web': 6.45.0
-      '@commercelayer/core-components': 5.0.4
+      '@commercelayer/core-components': 5.0.6
       '@commercelayer/organization-config': 2.8.5
-      '@commercelayer/react-hooks-components': 5.0.4(react@19.2.8)
+      '@commercelayer/react-hooks-components': 5.0.6(react@19.2.8)
       '@commercelayer/sdk': 8.0.0-beta.11
       '@stripe/react-stripe-js': 6.10.0(@stripe/stripe-js@9.16.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       '@stripe/stripe-js': 9.16.0
@@ -2753,9 +2753,9 @@ snapshots:
       - preact-render-to-string
       - react-dom
 
-  '@commercelayer/react-hooks-components@5.0.4(react@19.2.8)':
+  '@commercelayer/react-hooks-components@5.0.6(react@19.2.8)':
     dependencies:
-      '@commercelayer/core-components': 5.0.4
+      '@commercelayer/core-components': 5.0.6
       react: 19.2.8
       swr: 2.5.1(react@19.2.8)
 

@@ -38,8 +38,8 @@
     "dep:major": "pnpm dlx npm-check-updates --packageFile '**/package.json' -u",
     "dep:semver": "pnpm dlx npm-check-updates -t semver --packageFile '**/package.json' -u",
     "prepare": "husky",
-    "clean": "pnpx rimraf --glob **/node_modules **/pnpm-lock.yaml",
-    "lerna": "pnpm dlx lerna@10.0.1"
+    "clean": "pnpx dlx rimraf --glob **/node_modules **/pnpm-lock.yaml",
+    "lerna": "pnpm dlx --allow-build=nx lerna@10.0.1"
   },
   "packageManager": "pnpm@11.9.0",
   "workspaces": [
