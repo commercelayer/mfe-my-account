@@ -1,10 +1,13 @@
-import { LineItemField, type TLineItem } from "@commercelayer/react-components"
-import { LineItem } from "@commercelayer/react-components/line_items/LineItem"
-import { LineItemAmount } from "@commercelayer/react-components/line_items/LineItemAmount"
-import { LineItemCode } from "@commercelayer/react-components/line_items/LineItemCode"
-import { LineItemImage } from "@commercelayer/react-components/line_items/LineItemImage"
-import { LineItemName } from "@commercelayer/react-components/line_items/LineItemName"
-import { LineItemQuantity } from "@commercelayer/react-components/line_items/LineItemQuantity"
+import {
+  LineItem,
+  LineItemAmount,
+  LineItemCode,
+  LineItemField,
+  LineItemImage,
+  LineItemName,
+  LineItemQuantity,
+  type TLineItem,
+} from "@commercelayer/react-components"
 import { parseExpression } from "cron-parser"
 import cronstrue from "cronstrue"
 import "cronstrue/locales/en"

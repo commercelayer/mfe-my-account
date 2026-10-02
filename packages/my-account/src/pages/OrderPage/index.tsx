@@ -1,5 +1,4 @@
-import { OrderContainer } from "@commercelayer/react-components/orders/OrderContainer"
-import { OrderNumber } from "@commercelayer/react-components/orders/OrderNumber"
+import { Order, OrderNumber } from "@commercelayer/react-components"
 import { useContext } from "react"
 import { Trans } from "react-i18next"
 import { Redirect } from "wouter"
@@ -41,7 +40,7 @@ function OrderPage({ orderId }: OrderPageProps): JSX.Element {
               })}
             />
           ) : (
-            <OrderContainer orderId={orderId}>
+            <Order orderId={orderId}>
               <SkeletonMainOrder visible={isLoading} />
               <div className={isLoading ? "hidden" : ""}>
                 <div className="">
@@ -60,7 +59,7 @@ function OrderPage({ orderId }: OrderPageProps): JSX.Element {
                 </div>
               </div>
               <ScrollToTop />
-            </OrderContainer>
+            </Order>
           )}
         </>
       )}

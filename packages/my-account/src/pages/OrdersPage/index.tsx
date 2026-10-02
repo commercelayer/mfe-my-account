@@ -1,8 +1,10 @@
-import { OrderList } from "@commercelayer/react-components/orders/OrderList"
-import { OrderListEmpty } from "@commercelayer/react-components/orders/OrderListEmpty"
-import { OrderListPaginationButtons } from "@commercelayer/react-components/orders/OrderListPaginationButtons"
-import { OrderListPaginationInfo } from "@commercelayer/react-components/orders/OrderListPaginationInfo"
-import { OrderListRow } from "@commercelayer/react-components/orders/OrderListRow"
+import {
+  OrderList,
+  OrderListEmpty,
+  OrderListPaginationButtons,
+  OrderListPaginationInfo,
+  OrderListRow,
+} from "@commercelayer/react-components"
 import { useContext } from "react"
 import { useTranslation } from "react-i18next"
 import { Link } from "wouter"

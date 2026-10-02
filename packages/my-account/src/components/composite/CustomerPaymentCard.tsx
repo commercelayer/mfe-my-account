@@ -1,5 +1,4 @@
-import { CustomerPaymentSource } from "@commercelayer/react-components/customers/CustomerPaymentSource"
-
+import { CustomerPaymentSource } from "@commercelayer/react-components"
 import { PaymentSourceCard } from "#components/composite/PaymentSourceCard"
 import { SkeletonMainWalletCard } from "#components/ui/Skeleton/Main/Common"
 

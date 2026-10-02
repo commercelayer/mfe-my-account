@@ -38,17 +38,17 @@
     "dep:major": "pnpm dlx npm-check-updates --packageFile '**/package.json' -u",
     "dep:semver": "pnpm dlx npm-check-updates -t semver --packageFile '**/package.json' -u",
     "prepare": "husky",
-    "clean": "pnpx rimraf --glob **/node_modules **/pnpm-lock.yaml"
+    "clean": "pnpx dlx rimraf --glob **/node_modules **/pnpm-lock.yaml",
+    "lerna": "pnpm dlx --allow-build=nx lerna@10.0.1"
   },
   "packageManager": "pnpm@11.9.0",
   "workspaces": [
     "packages/*"
   ],
   "devDependencies": {
-    "@biomejs/biome": "^2.5.5",
+    "@biomejs/biome": "^2.5.14",
     "@faker-js/faker": "^10.6.0",
     "husky": "^9.1.7",
-    "lerna": "^10.0.1",
     "lint-staged": "^16.4.0",
     "npm-check-updates": "^20.0.2"
   }
