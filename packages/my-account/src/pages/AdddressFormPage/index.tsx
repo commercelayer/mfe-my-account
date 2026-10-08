@@ -1,4 +1,5 @@
-import { AddressesContainer } from "@commercelayer/react-components/addresses/AddressesContainer"
+import { AddressesContainer } from "@commercelayer/react-components"
+import type { JSX } from "react"
 import { useContext } from "react"
 import { useRoute } from "wouter"
 

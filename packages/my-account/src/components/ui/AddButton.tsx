@@ -1,4 +1,5 @@
 import { PlusCircle } from "phosphor-react"
+import type { JSX } from "react"
 import { useTranslation } from "react-i18next"
 
 interface Props {

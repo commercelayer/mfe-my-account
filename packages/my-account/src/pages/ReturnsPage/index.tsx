@@ -1,4 +1,5 @@
 // import Returns from "#components/composite/Returns"
+import type { JSX } from "react"
 import Empty from "#components/composite/Empty"
 
 function ReturnsPage(): JSX.Element {

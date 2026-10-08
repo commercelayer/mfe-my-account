@@ -1,4 +1,5 @@
 import cn from "classnames"
+import type { JSX } from "react"
 
 interface Props {
   children: React.ReactNode

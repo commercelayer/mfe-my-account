@@ -1,3 +1,4 @@
+import type { JSX } from "react"
 import { lazy, Suspense } from "react"
 import { Redirect, Route, Router, Switch } from "wouter"
 

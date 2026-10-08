@@ -1,5 +1,6 @@
 import type { Order, OrderSubscription } from "@commercelayer/sdk"
 import { Warning } from "phosphor-react"
+import type { JSX } from "react"
 import { useContext } from "react"
 import { useTranslation } from "react-i18next"
 

@@ -1,5 +1,5 @@
-import { OrderContainer } from "@commercelayer/react-components/orders/OrderContainer"
-import { OrderNumber } from "@commercelayer/react-components/orders/OrderNumber"
+import { OrderContainer, OrderNumber } from "@commercelayer/react-components"
+import type { JSX } from "react"
 import { useContext } from "react"
 import { Trans } from "react-i18next"
 import { Redirect } from "wouter"

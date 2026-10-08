@@ -1,6 +1,7 @@
-import { AddressField } from "@commercelayer/react-components/addresses/AddressField"
+import { AddressField } from "@commercelayer/react-components"
 import type { Address as CLayerAddress } from "@commercelayer/sdk"
 import { Trash, X } from "phosphor-react"
+import type { JSX } from "react"
 import { useContext, useState } from "react"
 import { useTranslation } from "react-i18next"
 import { useLocation } from "wouter"

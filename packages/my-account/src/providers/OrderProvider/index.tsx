@@ -1,4 +1,5 @@
 import CommerceLayer, { type Order } from "@commercelayer/sdk"
+import type { JSX } from "react"
 import { createContext, useEffect, useState } from "react"
 
 import { getInfoFromJwt } from "#utils/getInfoFromJwt"

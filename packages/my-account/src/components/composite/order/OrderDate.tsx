@@ -1,3 +1,4 @@
+import type { JSX } from "react"
 import { Trans } from "react-i18next"
 
 import { formatDate, shortDate } from "#utils/dateTimeFormats"

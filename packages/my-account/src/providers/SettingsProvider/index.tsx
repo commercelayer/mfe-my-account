@@ -1,5 +1,6 @@
 import type { InvalidSettings, Settings } from "HostedApp"
 import { changeLanguage } from "i18next"
+import type { JSX } from "react"
 import { createContext, useContext, useEffect, useState } from "react"
 
 import { getAccessTokenFromUrl } from "#utils/getAccessTokenFromUrl"

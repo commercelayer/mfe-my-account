@@ -1,4 +1,5 @@
 import { List, X } from "phosphor-react"
+import type { JSX } from "react"
 import { useContext } from "react"
 
 import { AppContext } from "#providers/AppProvider"

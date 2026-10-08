@@ -1,3 +1,4 @@
+import type { JSX } from "react"
 import { lazy, Suspense, useEffect, useState } from "react"
 
 import { isGuest } from "#utils/isGuest"

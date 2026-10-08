@@ -1,3 +1,4 @@
+import type { JSX } from "react"
 import { SkeletonBox, SkeletonWrapper } from "#components/ui/Skeleton"
 import {
   SkeletonMainAddressCard,

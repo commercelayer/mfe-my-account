@@ -1,3 +1,4 @@
+import type { JSX } from "react"
 import { Children, type ReactNode } from "react"
 
 export interface StackProps {

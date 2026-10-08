@@ -1,6 +1,7 @@
 import { Transition } from "@headlessui/react"
 import cn from "classnames"
 import { DotsThreeVertical } from "phosphor-react"
+import type { JSX } from "react"
 import { useState } from "react"
 import { useTranslation } from "react-i18next"
 import OutsideClickHandler from "react-outside-click-handler"

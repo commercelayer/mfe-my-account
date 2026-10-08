@@ -1,5 +1,6 @@
 import type { Settings } from "HostedApp"
-import { CustomerContainer } from "@commercelayer/react-components/customers/CustomerContainer"
+import { CustomerContainer } from "@commercelayer/react-components"
+import type { JSX } from "react"
 
 type CustomerContainerProviderProps = Pick<Settings, "isGuest"> & {
   children: JSX.Element | JSX.Element[] | null
