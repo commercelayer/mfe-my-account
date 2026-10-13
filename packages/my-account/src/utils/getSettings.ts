@@ -2,6 +2,7 @@ import type { InvalidSettings, Settings } from "HostedApp"
 import { getMfeConfig } from "@commercelayer/organization-config"
 import CommerceLayer from "@commercelayer/sdk"
 
+import { apiVersion } from "#data/api"
 import { getInfoFromJwt } from "#utils/getInfoFromJwt"
 import { getOrganizations } from "#utils/getOrganizations"
 import { isValidHost } from "#utils/isValidHost"
@@ -71,6 +72,7 @@ export const getSettings = async ({
     organization: slug,
     accessToken,
     domain,
+    apiVersion,
   })
 
   const [organizationResponse] = await Promise.all([

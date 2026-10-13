@@ -1,6 +1,7 @@
 import CommerceLayer, { type Order } from "@commercelayer/sdk"
 import { createContext, useEffect, useState } from "react"
 
+import { apiVersion } from "#data/api"
 import { getInfoFromJwt } from "#utils/getInfoFromJwt"
 import { getOrder } from "#utils/getOrder"
 
@@ -53,6 +54,7 @@ export function OrderProvider({
       organization: slug,
       accessToken,
       domain,
+      apiVersion,
     })
 
     const orderResponse = await getOrder({ client: cl, orderId })
