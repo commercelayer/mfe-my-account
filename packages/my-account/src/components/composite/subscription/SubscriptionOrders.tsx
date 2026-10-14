@@ -1,10 +1,10 @@
 import {
   OrderList,
   OrderListEmpty,
+  OrderListPaginationButtons,
+  OrderListPaginationInfo,
   OrderListRow,
 } from "@commercelayer/react-components"
-import OrderListPaginationButtons from "@commercelayer/react-components/orders/OrderListPaginationButtons"
-import OrderListPaginationInfo from "@commercelayer/react-components/orders/OrderListPaginationInfo"
 import type { Order, OrderSubscription } from "@commercelayer/sdk"
 import capitalize from "lodash/capitalize"
 import { useContext } from "react"

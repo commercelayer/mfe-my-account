@@ -1,5 +1,7 @@
-import BillingAddressForm from "@commercelayer/react-components/addresses/BillingAddressForm"
-import { SaveAddressesButton } from "@commercelayer/react-components/addresses/SaveAddressesButton"
+import {
+  BillingAddressForm,
+  SaveAddressesButton,
+} from "@commercelayer/react-components"
 import { XCircle } from "phosphor-react"
 import { useContext } from "react"
 import { useTranslation } from "react-i18next"

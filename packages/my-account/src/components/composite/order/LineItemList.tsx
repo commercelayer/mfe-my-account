@@ -1,14 +1,13 @@
-import { LineItemsContainer } from "@commercelayer/react-components/line_items/LineItemsContainer"
-
+import { LineItems } from "@commercelayer/react-components"
 import { LineItemTypes } from "#components/composite/order/LineItemTypes"
 
 function LineItemList(): JSX.Element {
   return (
-    <LineItemsContainer>
+    <LineItems>
       <div className="flex flex-col gap-6">
         <LineItemTypes type="skus" />
       </div>
-    </LineItemsContainer>
+    </LineItems>
   )
 }
 

@@ -1,5 +1,4 @@
-import { Address } from "@commercelayer/react-components/addresses/Address"
-import { AddressField } from "@commercelayer/react-components/addresses/AddressField"
+import { Address, AddressField } from "@commercelayer/react-components"
 import cn from "classnames"
 
 import { AddressCard } from "#components/composite/AddressCard"

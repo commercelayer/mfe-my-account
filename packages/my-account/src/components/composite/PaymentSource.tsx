@@ -1,5 +1,7 @@
-import { PaymentSourceBrandName } from "@commercelayer/react-components/payment_source/PaymentSourceBrandName"
-import { PaymentSourceDetail } from "@commercelayer/react-components/payment_source/PaymentSourceDetail"
+import {
+  PaymentSourceBrandName,
+  PaymentSourceDetail,
+} from "@commercelayer/react-components"
 import { AsteriskSimple } from "phosphor-react"
 import { Trans, useTranslation } from "react-i18next"
 

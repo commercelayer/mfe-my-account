@@ -1,5 +1,5 @@
 import type { Settings } from "HostedApp"
-import { CommerceLayer } from "@commercelayer/react-components/auth/CommerceLayer"
+import { CommerceLayer } from "@commercelayer/react-components"
 import { IconContext } from "phosphor-react"
 
 import { InjectCssCustomProperties } from "#components/composite/InjectCssCustomProperties"
@@ -30,10 +30,7 @@ function MyAccountContainer({
         title={`${settings.companyName} - My Account`}
         faviconUrl={settings.faviconUrl}
       />
-      <CommerceLayer
-        accessToken={settings.accessToken}
-        endpoint={settings.endpoint}
-      >
+      <CommerceLayer accessToken={settings.accessToken}>
         <InjectCssCustomProperties primaryColor={settings.primaryColor} />
         <IconContext.Provider
           value={{

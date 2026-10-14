@@ -1,11 +1,11 @@
-import type {
-  TErrorComponent,
-  TResourceError,
+import {
+  AddressCountrySelector,
+  AddressInput,
+  AddressStateSelector,
+  Errors,
+  type TErrorComponent,
+  type TResourceError,
 } from "@commercelayer/react-components"
-import { AddressCountrySelector } from "@commercelayer/react-components/addresses/AddressCountrySelector"
-import { AddressInput } from "@commercelayer/react-components/addresses/AddressInput"
-import { AddressStateSelector } from "@commercelayer/react-components/addresses/AddressStateSelector"
-import { Errors } from "@commercelayer/react-components/errors/Errors"
 import type { Address } from "@commercelayer/sdk"
 import { useEffect, useState } from "react"
 import { useTranslation } from "react-i18next"

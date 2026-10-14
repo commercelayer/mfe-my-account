@@ -1,5 +1,4 @@
-import { AddressesContainer } from "@commercelayer/react-components/addresses/AddressesContainer"
-import { AddressesEmpty } from "@commercelayer/react-components/addresses/AddressesEmpty"
+import { AddressesEmpty } from "@commercelayer/react-components"
 import { useContext } from "react"
 import { useTranslation } from "react-i18next"
 import { useLocation } from "wouter"
@@ -20,7 +19,7 @@ function AddressesPage(): JSX.Element {
   const { settings } = useSettings()
 
   return (
-    <AddressesContainer>
+    <>
       <Title>{t("addresses.title")}</Title>
       <AddressesEmpty>{() => <Empty type="Addresses" />}</AddressesEmpty>
       <GridContainer data-test-id="addresses-wrapper">
@@ -38,7 +37,7 @@ function AddressesPage(): JSX.Element {
         }}
         testId="show-new-address"
       />
-    </AddressesContainer>
+    </>
   )
 }
 

@@ -1,6 +1,7 @@
 import CommerceLayer, { type Address } from "@commercelayer/sdk"
 import { createContext, useEffect, useState } from "react"
 
+import { apiVersion } from "#data/api"
 import type { AddressFormFields } from "#types/addresses"
 import { getInfoFromJwt } from "#utils/getInfoFromJwt"
 
@@ -53,6 +54,7 @@ export function CustomerAddressProvider({
       organization: slug,
       accessToken,
       domain,
+      apiVersion,
     })
 
     const address = await cl.addresses.retrieve(addressId)
