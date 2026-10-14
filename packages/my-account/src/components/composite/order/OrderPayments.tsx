@@ -1,13 +1,11 @@
-import { PaymentMethod, PaymentSource } from "@commercelayer/react-components"
+import { PaymentSource } from "@commercelayer/react-components"
 import { PaymentSourceRow } from "#components/composite/PaymentSourceRow"
 
 function OrderPayments(): JSX.Element {
   return (
-    <PaymentMethod>
-      <PaymentSource readonly>
-        <PaymentSourceRow />
-      </PaymentSource>
-    </PaymentMethod>
+    <PaymentSource readonly>
+      <PaymentSourceRow />
+    </PaymentSource>
   )
 }
 
