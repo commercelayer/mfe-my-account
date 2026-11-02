@@ -19,7 +19,6 @@ function SubscriptionPaymentAlert({
 
   // A subscription becomes `pending` when it has no usable payment method for
   // its renewals. Surface this clearly since the payment source is missing.
-  // @ts-expect-error `pending` is not yet in the SDK status union
   const isPending = orderSubscription?.status === "pending"
   if (isPending) {
     return (

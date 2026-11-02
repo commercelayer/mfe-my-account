@@ -1,10 +1,12 @@
-import { DiscountAmount } from "@commercelayer/react-components/orders/DiscountAmount"
-import { GiftCardAmount } from "@commercelayer/react-components/orders/GiftCardAmount"
-import { PaymentMethodAmount } from "@commercelayer/react-components/orders/PaymentMethodAmount"
-import { ShippingAmount } from "@commercelayer/react-components/orders/ShippingAmount"
-import { SubTotalAmount } from "@commercelayer/react-components/orders/SubTotalAmount"
-import { TaxesAmount } from "@commercelayer/react-components/orders/TaxesAmount"
-import { TotalAmount } from "@commercelayer/react-components/orders/TotalAmount"
+import {
+  DiscountAmount,
+  GiftCardAmount,
+  PaymentMethodAmount,
+  ShippingAmount,
+  SubTotalAmount,
+  TaxesAmount,
+  TotalAmount,
+} from "@commercelayer/react-components"
 import { useTranslation } from "react-i18next"
 
 function OrderSummary(): JSX.Element {

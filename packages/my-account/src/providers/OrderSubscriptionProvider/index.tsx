@@ -4,6 +4,7 @@ import CommerceLayer, {
 } from "@commercelayer/sdk"
 import { createContext, useEffect, useState } from "react"
 
+import { apiVersion } from "#data/api"
 import { getInfoFromJwt } from "#utils/getInfoFromJwt"
 import { getOrderSubscription } from "#utils/getOrderSubscription"
 import { getOrderSubscriptionLastOrder } from "#utils/getOrderSubscriptionLastOrder"
@@ -66,6 +67,7 @@ export function OrderSubscriptionProvider({
       organization: slug,
       accessToken,
       domain,
+      apiVersion,
     })
 
     const orderSubscriptionResponse = await getOrderSubscription({

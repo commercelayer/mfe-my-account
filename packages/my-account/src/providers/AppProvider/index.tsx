@@ -2,6 +2,7 @@ import type { Settings } from "HostedApp"
 import CommerceLayer from "@commercelayer/sdk"
 import { createContext, useEffect, useState } from "react"
 
+import { apiVersion } from "#data/api"
 import { getCustomerDetails } from "#utils/getCustomerDetails"
 import { getInfoFromJwt } from "#utils/getInfoFromJwt"
 
@@ -73,6 +74,7 @@ export function AppProvider({
       organization: slug,
       accessToken,
       domain,
+      apiVersion,
     })
 
     return await getCustomerDetails({

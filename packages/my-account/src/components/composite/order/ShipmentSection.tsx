@@ -1,13 +1,15 @@
-import { Shipment } from "@commercelayer/react-components/shipments/Shipment"
-import { ShipmentField } from "@commercelayer/react-components/shipments/ShipmentField"
-import { ShipmentsContainer } from "@commercelayer/react-components/shipments/ShipmentsContainer"
+import {
+  Shipment,
+  ShipmentField,
+  Shipments,
+} from "@commercelayer/react-components"
 import { Trans, useTranslation } from "react-i18next"
 
 function ShipmentSection(): JSX.Element {
   const { t } = useTranslation()
 
   return (
-    <ShipmentsContainer>
+    <Shipments>
       <Shipment>
         <p className="text-gray-600 ml-3 font-normal">
           <Trans t={t} i18nKey="order.shipments.shipment">
@@ -20,7 +22,7 @@ function ShipmentSection(): JSX.Element {
           </Trans>
         </p>
       </Shipment>
-    </ShipmentsContainer>
+    </Shipments>
   )
 }
 

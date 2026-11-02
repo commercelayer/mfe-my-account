@@ -8,6 +8,7 @@ import { test as base } from "@playwright/test"
 import { config } from "dotenv"
 import { jwtDecode } from "jwt-decode"
 
+import { apiVersion } from "#data/api"
 import { AddressesPage } from "#specs/fixtures/AddressesPage"
 import { OrdersPage } from "#specs/fixtures/OrdersPage"
 
@@ -53,6 +54,7 @@ const getClient = async (token: string) => {
     organization: process.env.E2E_SLUG as string,
     accessToken: token,
     domain: process.env.E2E_DOMAIN || "commercelayer.io",
+    apiVersion,
   })
 }
 
